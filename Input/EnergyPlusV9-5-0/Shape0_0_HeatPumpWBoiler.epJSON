@@ -1,0 +1,4568 @@
+{
+    "Boiler:HotWater": {
+        "Main Boiler": {
+            "boiler_flow_mode": "ConstantFlow",
+            "boiler_water_inlet_node_name": "Main Boiler HW Inlet",
+            "boiler_water_outlet_node_name": "Main Boiler HW Outlet",
+            "design_water_flow_rate": "Autosize",
+            "efficiency_curve_temperature_evaluation_variable": "LeavingBoiler",
+            "fuel_type": "Electricity",
+            "maximum_part_load_ratio": 1.1,
+            "minimum_part_load_ratio": 0.1,
+            "nominal_capacity": "Autosize",
+            "nominal_thermal_efficiency": 0.935603932,
+            "normalized_boiler_efficiency_curve_name": "Main Boiler Efficiency Curve",
+            "optimum_part_load_ratio": 0.9,
+            "parasitic_electric_load": 0,
+            "sizing_factor": 1.2,
+            "water_outlet_upper_temperature_limit": 99.9
+        }
+    },
+    "Branch": {
+        "Main Boiler Mixed Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Main Boiler HW Inlet",
+                    "component_name": "Main Boiler",
+                    "component_object_type": "Boiler:HotWater",
+                    "component_outlet_node_name": "Main Boiler HW Outlet"
+                }
+            ]
+        },
+        "Main Tower Mixed Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Main Tower CndW Inlet",
+                    "component_name": "Main Tower",
+                    "component_object_type": "CoolingTower:SingleSpeed",
+                    "component_outlet_node_name": "Main Tower CndW Outlet"
+                }
+            ]
+        },
+        "Office:0 Cooling Condenser Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Office:0 WAHP Cooling Water Inlet Node",
+                    "component_name": "Office:0 WAHP Cooling Coil",
+                    "component_object_type": "Coil:Cooling:WaterToAirHeatPump:EquationFit",
+                    "component_outlet_node_name": "Office:0 WAHP Cooling Water Outlet Node"
+                }
+            ]
+        },
+        "Office:0 Heating Condenser Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Office:0 WAHP Heating Water Inlet Node",
+                    "component_name": "Office:0 WAHP Heating Coil",
+                    "component_object_type": "Coil:Heating:WaterToAirHeatPump:EquationFit",
+                    "component_outlet_node_name": "Office:0 WAHP Heating Water Outlet Node"
+                }
+            ]
+        },
+        "Office:1 Cooling Condenser Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Office:1 WAHP Cooling Water Inlet Node",
+                    "component_name": "Office:1 WAHP Cooling Coil",
+                    "component_object_type": "Coil:Cooling:WaterToAirHeatPump:EquationFit",
+                    "component_outlet_node_name": "Office:1 WAHP Cooling Water Outlet Node"
+                }
+            ]
+        },
+        "Office:1 Heating Condenser Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Office:1 WAHP Heating Water Inlet Node",
+                    "component_name": "Office:1 WAHP Heating Coil",
+                    "component_object_type": "Coil:Heating:WaterToAirHeatPump:EquationFit",
+                    "component_outlet_node_name": "Office:1 WAHP Heating Water Outlet Node"
+                }
+            ]
+        },
+        "Office:2 Cooling Condenser Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Office:2 WAHP Cooling Water Inlet Node",
+                    "component_name": "Office:2 WAHP Cooling Coil",
+                    "component_object_type": "Coil:Cooling:WaterToAirHeatPump:EquationFit",
+                    "component_outlet_node_name": "Office:2 WAHP Cooling Water Outlet Node"
+                }
+            ]
+        },
+        "Office:2 Heating Condenser Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Office:2 WAHP Heating Water Inlet Node",
+                    "component_name": "Office:2 WAHP Heating Coil",
+                    "component_object_type": "Coil:Heating:WaterToAirHeatPump:EquationFit",
+                    "component_outlet_node_name": "Office:2 WAHP Heating Water Outlet Node"
+                }
+            ]
+        },
+        "Office:3 Cooling Condenser Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Office:3 WAHP Cooling Water Inlet Node",
+                    "component_name": "Office:3 WAHP Cooling Coil",
+                    "component_object_type": "Coil:Cooling:WaterToAirHeatPump:EquationFit",
+                    "component_outlet_node_name": "Office:3 WAHP Cooling Water Outlet Node"
+                }
+            ]
+        },
+        "Office:3 Heating Condenser Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Office:3 WAHP Heating Water Inlet Node",
+                    "component_name": "Office:3 WAHP Heating Coil",
+                    "component_object_type": "Coil:Heating:WaterToAirHeatPump:EquationFit",
+                    "component_outlet_node_name": "Office:3 WAHP Heating Water Outlet Node"
+                }
+            ]
+        },
+        "Office:4 Cooling Condenser Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Office:4 WAHP Cooling Water Inlet Node",
+                    "component_name": "Office:4 WAHP Cooling Coil",
+                    "component_object_type": "Coil:Cooling:WaterToAirHeatPump:EquationFit",
+                    "component_outlet_node_name": "Office:4 WAHP Cooling Water Outlet Node"
+                }
+            ]
+        },
+        "Office:4 Heating Condenser Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Office:4 WAHP Heating Water Inlet Node",
+                    "component_name": "Office:4 WAHP Heating Coil",
+                    "component_object_type": "Coil:Heating:WaterToAirHeatPump:EquationFit",
+                    "component_outlet_node_name": "Office:4 WAHP Heating Water Outlet Node"
+                }
+            ]
+        },
+        "Only Water Loop Mixed Demand Bypass Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Only Water Loop Mixed Demand Bypass Inlet",
+                    "component_name": "Only Water Loop Mixed Demand Side Bypass Pipe",
+                    "component_object_type": "Pipe:Adiabatic",
+                    "component_outlet_node_name": "Only Water Loop Mixed Demand Bypass Outlet"
+                }
+            ]
+        },
+        "Only Water Loop Mixed Demand Inlet Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Only Water Loop Mixed Demand Inlet",
+                    "component_name": "Only Water Loop Mixed Demand Inlet Pipe",
+                    "component_object_type": "Pipe:Adiabatic",
+                    "component_outlet_node_name": "Only Water Loop Mixed Demand Inlet Pipe Outlet"
+                }
+            ]
+        },
+        "Only Water Loop Mixed Demand Outlet Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Only Water Loop Mixed Demand Outlet Pipe Inlet",
+                    "component_name": "Only Water Loop Mixed Demand Outlet Pipe",
+                    "component_object_type": "Pipe:Adiabatic",
+                    "component_outlet_node_name": "Only Water Loop Mixed Demand Outlet"
+                }
+            ]
+        },
+        "Only Water Loop Mixed Supply Bypass Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Only Water Loop Mixed Supply Bypass Inlet",
+                    "component_name": "Only Water Loop Mixed Supply Side Bypass Pipe",
+                    "component_object_type": "Pipe:Adiabatic",
+                    "component_outlet_node_name": "Only Water Loop Mixed Supply Bypass Outlet"
+                }
+            ]
+        },
+        "Only Water Loop Mixed Supply Inlet Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Only Water Loop Mixed Supply Inlet",
+                    "component_name": "Only Water Loop Mixed Supply Pump",
+                    "component_object_type": "Pump:ConstantSpeed",
+                    "component_outlet_node_name": "Only Water Loop Mixed Pump Outlet"
+                }
+            ]
+        },
+        "Only Water Loop Mixed Supply Outlet Branch": {
+            "components": [
+                {
+                    "component_inlet_node_name": "Only Water Loop Mixed Supply Outlet Pipe Inlet",
+                    "component_name": "Only Water Loop Mixed Supply Outlet Pipe",
+                    "component_object_type": "Pipe:Adiabatic",
+                    "component_outlet_node_name": "Only Water Loop Mixed Supply Outlet"
+                }
+            ]
+        }
+    },
+    "BranchList": {
+        "Only Water Loop Mixed Demand Side Branches": {
+            "branches": [
+                {
+                    "branch_name": "Only Water Loop Mixed Demand Inlet Branch"
+                },
+                {
+                    "branch_name": "Office:0 Cooling Condenser Branch"
+                },
+                {
+                    "branch_name": "Office:0 Heating Condenser Branch"
+                },
+                {
+                    "branch_name": "Office:1 Cooling Condenser Branch"
+                },
+                {
+                    "branch_name": "Office:1 Heating Condenser Branch"
+                },
+                {
+                    "branch_name": "Office:2 Cooling Condenser Branch"
+                },
+                {
+                    "branch_name": "Office:2 Heating Condenser Branch"
+                },
+                {
+                    "branch_name": "Office:3 Cooling Condenser Branch"
+                },
+                {
+                    "branch_name": "Office:3 Heating Condenser Branch"
+                },
+                {
+                    "branch_name": "Office:4 Cooling Condenser Branch"
+                },
+                {
+                    "branch_name": "Office:4 Heating Condenser Branch"
+                },
+                {
+                    "branch_name": "Only Water Loop Mixed Demand Bypass Branch"
+                },
+                {
+                    "branch_name": "Only Water Loop Mixed Demand Outlet Branch"
+                }
+            ]
+        },
+        "Only Water Loop Mixed Supply Side Branches": {
+            "branches": [
+                {
+                    "branch_name": "Only Water Loop Mixed Supply Inlet Branch"
+                },
+                {
+                    "branch_name": "Main Boiler Mixed Branch"
+                },
+                {
+                    "branch_name": "Main Tower Mixed Branch"
+                },
+                {
+                    "branch_name": "Only Water Loop Mixed Supply Bypass Branch"
+                },
+                {
+                    "branch_name": "Only Water Loop Mixed Supply Outlet Branch"
+                }
+            ]
+        }
+    },
+    "Building": {
+        "Shape0_0_HeatPumpWBoiler": {
+            "loads_convergence_tolerance_value": 0.04,
+            "maximum_number_of_warmup_days": 25,
+            "minimum_number_of_warmup_days": 6,
+            "north_axis": 0,
+            "solar_distribution": "FullExterior",
+            "temperature_convergence_tolerance_value": 0.4
+        }
+    },
+    "BuildingSurface:Detailed": {
+        "Office:0:Ceiling:6": {
+            "construction_name": "Floor_Ceiling",
+            "outside_boundary_condition": "Adiabatic",
+            "sun_exposure": "NoSun",
+            "surface_type": "Ceiling",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 3.96925
+                }
+            ],
+            "wind_exposure": "NoWind",
+            "zone_name": "Office:0"
+        },
+        "Office:0:East:Wall:5": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 0
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 0
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 3.96925
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:0"
+        },
+        "Office:0:Floor:1": {
+            "construction_name": "GroundFloor",
+            "outside_boundary_condition": "Ground",
+            "sun_exposure": "NoSun",
+            "surface_type": "Floor",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 0
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 0
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 0
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 0
+                }
+            ],
+            "wind_exposure": "NoWind",
+            "zone_name": "Office:0"
+        },
+        "Office:0:North:Wall:2": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 0
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 0
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 3.96925
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:0"
+        },
+        "Office:0:South:Wall:4": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 0
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 0
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 3.96925
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:0"
+        },
+        "Office:0:West:Wall:3": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 0
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 0
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 3.96925
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:0"
+        },
+        "Office:1:Ceiling:6": {
+            "construction_name": "Floor_Ceiling",
+            "outside_boundary_condition": "Adiabatic",
+            "sun_exposure": "NoSun",
+            "surface_type": "Ceiling",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 7.93849
+                }
+            ],
+            "wind_exposure": "NoWind",
+            "zone_name": "Office:1"
+        },
+        "Office:1:East:Wall:5": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 7.93849
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:1"
+        },
+        "Office:1:Floor:1": {
+            "construction_name": "Floor_Ceiling",
+            "outside_boundary_condition": "Adiabatic",
+            "sun_exposure": "NoSun",
+            "surface_type": "Floor",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 3.96925
+                }
+            ],
+            "wind_exposure": "NoWind",
+            "zone_name": "Office:1"
+        },
+        "Office:1:North:Wall:2": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 7.93849
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:1"
+        },
+        "Office:1:South:Wall:4": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 7.93849
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:1"
+        },
+        "Office:1:West:Wall:3": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 3.96925
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 7.93849
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:1"
+        },
+        "Office:2:Ceiling:6": {
+            "construction_name": "Floor_Ceiling",
+            "outside_boundary_condition": "Adiabatic",
+            "sun_exposure": "NoSun",
+            "surface_type": "Ceiling",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 11.90774
+                }
+            ],
+            "wind_exposure": "NoWind",
+            "zone_name": "Office:2"
+        },
+        "Office:2:East:Wall:5": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 11.90774
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:2"
+        },
+        "Office:2:Floor:1": {
+            "construction_name": "Floor_Ceiling",
+            "outside_boundary_condition": "Adiabatic",
+            "sun_exposure": "NoSun",
+            "surface_type": "Floor",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 7.93849
+                }
+            ],
+            "wind_exposure": "NoWind",
+            "zone_name": "Office:2"
+        },
+        "Office:2:North:Wall:2": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 11.90774
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:2"
+        },
+        "Office:2:South:Wall:4": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 11.90774
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:2"
+        },
+        "Office:2:West:Wall:3": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 7.93849
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 11.90774
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:2"
+        },
+        "Office:3:Ceiling:6": {
+            "construction_name": "Floor_Ceiling",
+            "outside_boundary_condition": "Adiabatic",
+            "sun_exposure": "NoSun",
+            "surface_type": "Ceiling",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 15.87698
+                }
+            ],
+            "wind_exposure": "NoWind",
+            "zone_name": "Office:3"
+        },
+        "Office:3:East:Wall:5": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 15.87698
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:3"
+        },
+        "Office:3:Floor:1": {
+            "construction_name": "Floor_Ceiling",
+            "outside_boundary_condition": "Adiabatic",
+            "sun_exposure": "NoSun",
+            "surface_type": "Floor",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 11.90774
+                }
+            ],
+            "wind_exposure": "NoWind",
+            "zone_name": "Office:3"
+        },
+        "Office:3:North:Wall:2": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 15.87698
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:3"
+        },
+        "Office:3:South:Wall:4": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 15.87698
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:3"
+        },
+        "Office:3:West:Wall:3": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 11.90774
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 15.87698
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:3"
+        },
+        "Office:4:East:Wall:5": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 19.84623
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 19.84623
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:4"
+        },
+        "Office:4:Floor:1": {
+            "construction_name": "Floor_Ceiling",
+            "outside_boundary_condition": "Adiabatic",
+            "sun_exposure": "NoSun",
+            "surface_type": "Floor",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 15.87698
+                }
+            ],
+            "wind_exposure": "NoWind",
+            "zone_name": "Office:4"
+        },
+        "Office:4:North:Wall:2": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 19.84623
+                },
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 19.84623
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:4"
+        },
+        "Office:4:Roof:6": {
+            "construction_name": "Roof",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Roof",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 39.58979,
+                    "vertex_y_coordinate": 11.83789,
+                    "vertex_z_coordinate": 19.84623
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 19.84623
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 19.84623
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 19.84623
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:4"
+        },
+        "Office:4:South:Wall:4": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 35.51367,
+                    "vertex_y_coordinate": 0,
+                    "vertex_z_coordinate": 19.84623
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 19.84623
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:4"
+        },
+        "Office:4:West:Wall:3": {
+            "construction_name": "ExternalWall",
+            "outside_boundary_condition": "Outdoors",
+            "sun_exposure": "SunExposed",
+            "surface_type": "Wall",
+            "vertices": [
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 15.87698
+                },
+                {
+                    "vertex_x_coordinate": 0,
+                    "vertex_y_coordinate": 12.22834,
+                    "vertex_z_coordinate": 19.84623
+                },
+                {
+                    "vertex_x_coordinate": 4.07611,
+                    "vertex_y_coordinate": 24.06623,
+                    "vertex_z_coordinate": 19.84623
+                }
+            ],
+            "wind_exposure": "WindExposed",
+            "zone_name": "Office:4"
+        }
+    },
+    "Coil:Cooling:WaterToAirHeatPump:EquationFit": {
+        "Office:0 WAHP Cooling Coil": {
+            "air_inlet_node_name": "Office:0 WAHP Mixed Air Outlet",
+            "air_outlet_node_name": "Office:0 WAHP Cooling Coil Outlet",
+            "cooling_power_consumption_curve_name": "Office:0 WAHP ClgPowCurve",
+            "gross_rated_cooling_cop": 3.83679912,
+            "gross_rated_sensible_cooling_capacity": "Autosize",
+            "gross_rated_total_cooling_capacity": "Autosize",
+            "nominal_time_for_condensate_removal_to_begin": 0,
+            "rated_air_flow_rate": "Autosize",
+            "rated_water_flow_rate": "Autosize",
+            "ratio_of_initial_moisture_evaporation_rate_and_steady_state_latent_capacity": 0,
+            "sensible_cooling_capacity_curve_name": "Office:0 WAHP ClgSensCapCurve",
+            "total_cooling_capacity_curve_name": "Office:0 WAHP ClgTotCapCurve",
+            "water_inlet_node_name": "Office:0 WAHP Cooling Water Inlet Node",
+            "water_outlet_node_name": "Office:0 WAHP Cooling Water Outlet Node"
+        },
+        "Office:1 WAHP Cooling Coil": {
+            "air_inlet_node_name": "Office:1 WAHP Mixed Air Outlet",
+            "air_outlet_node_name": "Office:1 WAHP Cooling Coil Outlet",
+            "cooling_power_consumption_curve_name": "Office:1 WAHP ClgPowCurve",
+            "gross_rated_cooling_cop": 3.83679912,
+            "gross_rated_sensible_cooling_capacity": "Autosize",
+            "gross_rated_total_cooling_capacity": "Autosize",
+            "nominal_time_for_condensate_removal_to_begin": 0,
+            "rated_air_flow_rate": "Autosize",
+            "rated_water_flow_rate": "Autosize",
+            "ratio_of_initial_moisture_evaporation_rate_and_steady_state_latent_capacity": 0,
+            "sensible_cooling_capacity_curve_name": "Office:1 WAHP ClgSensCapCurve",
+            "total_cooling_capacity_curve_name": "Office:1 WAHP ClgTotCapCurve",
+            "water_inlet_node_name": "Office:1 WAHP Cooling Water Inlet Node",
+            "water_outlet_node_name": "Office:1 WAHP Cooling Water Outlet Node"
+        },
+        "Office:2 WAHP Cooling Coil": {
+            "air_inlet_node_name": "Office:2 WAHP Mixed Air Outlet",
+            "air_outlet_node_name": "Office:2 WAHP Cooling Coil Outlet",
+            "cooling_power_consumption_curve_name": "Office:2 WAHP ClgPowCurve",
+            "gross_rated_cooling_cop": 3.83679912,
+            "gross_rated_sensible_cooling_capacity": "Autosize",
+            "gross_rated_total_cooling_capacity": "Autosize",
+            "nominal_time_for_condensate_removal_to_begin": 0,
+            "rated_air_flow_rate": "Autosize",
+            "rated_water_flow_rate": "Autosize",
+            "ratio_of_initial_moisture_evaporation_rate_and_steady_state_latent_capacity": 0,
+            "sensible_cooling_capacity_curve_name": "Office:2 WAHP ClgSensCapCurve",
+            "total_cooling_capacity_curve_name": "Office:2 WAHP ClgTotCapCurve",
+            "water_inlet_node_name": "Office:2 WAHP Cooling Water Inlet Node",
+            "water_outlet_node_name": "Office:2 WAHP Cooling Water Outlet Node"
+        },
+        "Office:3 WAHP Cooling Coil": {
+            "air_inlet_node_name": "Office:3 WAHP Mixed Air Outlet",
+            "air_outlet_node_name": "Office:3 WAHP Cooling Coil Outlet",
+            "cooling_power_consumption_curve_name": "Office:3 WAHP ClgPowCurve",
+            "gross_rated_cooling_cop": 3.83679912,
+            "gross_rated_sensible_cooling_capacity": "Autosize",
+            "gross_rated_total_cooling_capacity": "Autosize",
+            "nominal_time_for_condensate_removal_to_begin": 0,
+            "rated_air_flow_rate": "Autosize",
+            "rated_water_flow_rate": "Autosize",
+            "ratio_of_initial_moisture_evaporation_rate_and_steady_state_latent_capacity": 0,
+            "sensible_cooling_capacity_curve_name": "Office:3 WAHP ClgSensCapCurve",
+            "total_cooling_capacity_curve_name": "Office:3 WAHP ClgTotCapCurve",
+            "water_inlet_node_name": "Office:3 WAHP Cooling Water Inlet Node",
+            "water_outlet_node_name": "Office:3 WAHP Cooling Water Outlet Node"
+        },
+        "Office:4 WAHP Cooling Coil": {
+            "air_inlet_node_name": "Office:4 WAHP Mixed Air Outlet",
+            "air_outlet_node_name": "Office:4 WAHP Cooling Coil Outlet",
+            "cooling_power_consumption_curve_name": "Office:4 WAHP ClgPowCurve",
+            "gross_rated_cooling_cop": 3.83679912,
+            "gross_rated_sensible_cooling_capacity": "Autosize",
+            "gross_rated_total_cooling_capacity": "Autosize",
+            "nominal_time_for_condensate_removal_to_begin": 0,
+            "rated_air_flow_rate": "Autosize",
+            "rated_water_flow_rate": "Autosize",
+            "ratio_of_initial_moisture_evaporation_rate_and_steady_state_latent_capacity": 0,
+            "sensible_cooling_capacity_curve_name": "Office:4 WAHP ClgSensCapCurve",
+            "total_cooling_capacity_curve_name": "Office:4 WAHP ClgTotCapCurve",
+            "water_inlet_node_name": "Office:4 WAHP Cooling Water Inlet Node",
+            "water_outlet_node_name": "Office:4 WAHP Cooling Water Outlet Node"
+        }
+    },
+    "Coil:Heating:Electric": {
+        "Office:0 WAHP Supp Heating Coil": {
+            "air_inlet_node_name": "Office:0 WAHP Supply Fan Outlet",
+            "air_outlet_node_name": "Office:0 WAHP Supply Inlet",
+            "efficiency": 1,
+            "nominal_capacity": "Autosize"
+        },
+        "Office:1 WAHP Supp Heating Coil": {
+            "air_inlet_node_name": "Office:1 WAHP Supply Fan Outlet",
+            "air_outlet_node_name": "Office:1 WAHP Supply Inlet",
+            "efficiency": 1,
+            "nominal_capacity": "Autosize"
+        },
+        "Office:2 WAHP Supp Heating Coil": {
+            "air_inlet_node_name": "Office:2 WAHP Supply Fan Outlet",
+            "air_outlet_node_name": "Office:2 WAHP Supply Inlet",
+            "efficiency": 1,
+            "nominal_capacity": "Autosize"
+        },
+        "Office:3 WAHP Supp Heating Coil": {
+            "air_inlet_node_name": "Office:3 WAHP Supply Fan Outlet",
+            "air_outlet_node_name": "Office:3 WAHP Supply Inlet",
+            "efficiency": 1,
+            "nominal_capacity": "Autosize"
+        },
+        "Office:4 WAHP Supp Heating Coil": {
+            "air_inlet_node_name": "Office:4 WAHP Supply Fan Outlet",
+            "air_outlet_node_name": "Office:4 WAHP Supply Inlet",
+            "efficiency": 1,
+            "nominal_capacity": "Autosize"
+        }
+    },
+    "Coil:Heating:WaterToAirHeatPump:EquationFit": {
+        "Office:0 WAHP Heating Coil": {
+            "air_inlet_node_name": "Office:0 WAHP Cooling Coil Outlet",
+            "air_outlet_node_name": "Office:0 WAHP Heating Coil Outlet",
+            "gross_rated_heating_capacity": "Autosize",
+            "gross_rated_heating_cop": 4.077504523,
+            "heating_capacity_curve_name": "Office:0 WAHP HtgCapCurve",
+            "heating_power_consumption_curve_name": "Office:0 WAHP HtgPowCurve",
+            "rated_air_flow_rate": "Autosize",
+            "rated_water_flow_rate": "Autosize",
+            "water_inlet_node_name": "Office:0 WAHP Heating Water Inlet Node",
+            "water_outlet_node_name": "Office:0 WAHP Heating Water Outlet Node"
+        },
+        "Office:1 WAHP Heating Coil": {
+            "air_inlet_node_name": "Office:1 WAHP Cooling Coil Outlet",
+            "air_outlet_node_name": "Office:1 WAHP Heating Coil Outlet",
+            "gross_rated_heating_capacity": "Autosize",
+            "gross_rated_heating_cop": 4.077504523,
+            "heating_capacity_curve_name": "Office:1 WAHP HtgCapCurve",
+            "heating_power_consumption_curve_name": "Office:1 WAHP HtgPowCurve",
+            "rated_air_flow_rate": "Autosize",
+            "rated_water_flow_rate": "Autosize",
+            "water_inlet_node_name": "Office:1 WAHP Heating Water Inlet Node",
+            "water_outlet_node_name": "Office:1 WAHP Heating Water Outlet Node"
+        },
+        "Office:2 WAHP Heating Coil": {
+            "air_inlet_node_name": "Office:2 WAHP Cooling Coil Outlet",
+            "air_outlet_node_name": "Office:2 WAHP Heating Coil Outlet",
+            "gross_rated_heating_capacity": "Autosize",
+            "gross_rated_heating_cop": 4.077504523,
+            "heating_capacity_curve_name": "Office:2 WAHP HtgCapCurve",
+            "heating_power_consumption_curve_name": "Office:2 WAHP HtgPowCurve",
+            "rated_air_flow_rate": "Autosize",
+            "rated_water_flow_rate": "Autosize",
+            "water_inlet_node_name": "Office:2 WAHP Heating Water Inlet Node",
+            "water_outlet_node_name": "Office:2 WAHP Heating Water Outlet Node"
+        },
+        "Office:3 WAHP Heating Coil": {
+            "air_inlet_node_name": "Office:3 WAHP Cooling Coil Outlet",
+            "air_outlet_node_name": "Office:3 WAHP Heating Coil Outlet",
+            "gross_rated_heating_capacity": "Autosize",
+            "gross_rated_heating_cop": 4.077504523,
+            "heating_capacity_curve_name": "Office:3 WAHP HtgCapCurve",
+            "heating_power_consumption_curve_name": "Office:3 WAHP HtgPowCurve",
+            "rated_air_flow_rate": "Autosize",
+            "rated_water_flow_rate": "Autosize",
+            "water_inlet_node_name": "Office:3 WAHP Heating Water Inlet Node",
+            "water_outlet_node_name": "Office:3 WAHP Heating Water Outlet Node"
+        },
+        "Office:4 WAHP Heating Coil": {
+            "air_inlet_node_name": "Office:4 WAHP Cooling Coil Outlet",
+            "air_outlet_node_name": "Office:4 WAHP Heating Coil Outlet",
+            "gross_rated_heating_capacity": "Autosize",
+            "gross_rated_heating_cop": 4.077504523,
+            "heating_capacity_curve_name": "Office:4 WAHP HtgCapCurve",
+            "heating_power_consumption_curve_name": "Office:4 WAHP HtgPowCurve",
+            "rated_air_flow_rate": "Autosize",
+            "rated_water_flow_rate": "Autosize",
+            "water_inlet_node_name": "Office:4 WAHP Heating Water Inlet Node",
+            "water_outlet_node_name": "Office:4 WAHP Heating Water Outlet Node"
+        }
+    },
+    "Connector:Mixer": {
+        "Only Water Loop Mixed Demand Mixer": {
+            "branches": [
+                {
+                    "inlet_branch_name": "Only Water Loop Mixed Demand Bypass Branch"
+                },
+                {
+                    "inlet_branch_name": "Office:0 Cooling Condenser Branch"
+                },
+                {
+                    "inlet_branch_name": "Office:0 Heating Condenser Branch"
+                },
+                {
+                    "inlet_branch_name": "Office:1 Cooling Condenser Branch"
+                },
+                {
+                    "inlet_branch_name": "Office:1 Heating Condenser Branch"
+                },
+                {
+                    "inlet_branch_name": "Office:2 Cooling Condenser Branch"
+                },
+                {
+                    "inlet_branch_name": "Office:2 Heating Condenser Branch"
+                },
+                {
+                    "inlet_branch_name": "Office:3 Cooling Condenser Branch"
+                },
+                {
+                    "inlet_branch_name": "Office:3 Heating Condenser Branch"
+                },
+                {
+                    "inlet_branch_name": "Office:4 Cooling Condenser Branch"
+                },
+                {
+                    "inlet_branch_name": "Office:4 Heating Condenser Branch"
+                }
+            ],
+            "outlet_branch_name": "Only Water Loop Mixed Demand Outlet Branch"
+        },
+        "Only Water Loop Mixed Supply Mixer": {
+            "branches": [
+                {
+                    "inlet_branch_name": "Main Boiler Mixed Branch"
+                },
+                {
+                    "inlet_branch_name": "Main Tower Mixed Branch"
+                },
+                {
+                    "inlet_branch_name": "Only Water Loop Mixed Supply Bypass Branch"
+                }
+            ],
+            "outlet_branch_name": "Only Water Loop Mixed Supply Outlet Branch"
+        }
+    },
+    "Connector:Splitter": {
+        "Only Water Loop Mixed Demand Splitter": {
+            "branches": [
+                {
+                    "outlet_branch_name": "Only Water Loop Mixed Demand Bypass Branch"
+                },
+                {
+                    "outlet_branch_name": "Office:0 Cooling Condenser Branch"
+                },
+                {
+                    "outlet_branch_name": "Office:0 Heating Condenser Branch"
+                },
+                {
+                    "outlet_branch_name": "Office:1 Cooling Condenser Branch"
+                },
+                {
+                    "outlet_branch_name": "Office:1 Heating Condenser Branch"
+                },
+                {
+                    "outlet_branch_name": "Office:2 Cooling Condenser Branch"
+                },
+                {
+                    "outlet_branch_name": "Office:2 Heating Condenser Branch"
+                },
+                {
+                    "outlet_branch_name": "Office:3 Cooling Condenser Branch"
+                },
+                {
+                    "outlet_branch_name": "Office:3 Heating Condenser Branch"
+                },
+                {
+                    "outlet_branch_name": "Office:4 Cooling Condenser Branch"
+                },
+                {
+                    "outlet_branch_name": "Office:4 Heating Condenser Branch"
+                }
+            ],
+            "inlet_branch_name": "Only Water Loop Mixed Demand Inlet Branch"
+        },
+        "Only Water Loop Mixed Supply Splitter": {
+            "branches": [
+                {
+                    "outlet_branch_name": "Main Boiler Mixed Branch"
+                },
+                {
+                    "outlet_branch_name": "Main Tower Mixed Branch"
+                },
+                {
+                    "outlet_branch_name": "Only Water Loop Mixed Supply Bypass Branch"
+                }
+            ],
+            "inlet_branch_name": "Only Water Loop Mixed Supply Inlet Branch"
+        }
+    },
+    "ConnectorList": {
+        "Only Water Loop Mixed Demand Side Connectors": {
+            "connector_1_name": "Only Water Loop Mixed Demand Splitter",
+            "connector_1_object_type": "Connector:Splitter",
+            "connector_2_name": "Only Water Loop Mixed Demand Mixer",
+            "connector_2_object_type": "Connector:Mixer"
+        },
+        "Only Water Loop Mixed Supply Side Connectors": {
+            "connector_1_name": "Only Water Loop Mixed Supply Splitter",
+            "connector_1_object_type": "Connector:Splitter",
+            "connector_2_name": "Only Water Loop Mixed Supply Mixer",
+            "connector_2_object_type": "Connector:Mixer"
+        }
+    },
+    "Construction": {
+        "ExternalWall": {
+            "layer_2": "wall_insulation",
+            "layer_3": "wall_structure",
+            "layer_4": "wall_plasterlayer",
+            "outside_layer": "wall_plasterlayer"
+        },
+        "Floor_Ceiling": {
+            "layer_2": "ifloor_insulation",
+            "layer_3": "floor_cementscreed",
+            "outside_layer": "floor_structure"
+        },
+        "Glazing": {
+            "outside_layer": "Glazing Material"
+        },
+        "GroundFloor": {
+            "layer_2": "floor_structure",
+            "layer_3": "gfloor_insulation",
+            "layer_4": "floor_cementscreed",
+            "outside_layer": "pInsulation"
+        },
+        "InternalMass": {
+            "outside_layer": "InternalMaterial"
+        },
+        "InternalWall": {
+            "layer_2": "iwall_insulation",
+            "layer_3": "plasterboard",
+            "outside_layer": "plasterboard"
+        },
+        "Roof": {
+            "layer_2": "roof_insulation",
+            "layer_3": "roof_structure",
+            "layer_4": "roof_plaster",
+            "outside_layer": "pInsulation"
+        }
+    },
+    "ConvergenceLimits": {
+        "ConvergenceLimits 1": {
+            "maximum_hvac_iterations": 20,
+            "maximum_plant_iterations": 8,
+            "minimum_plant_iterations": 2,
+            "minimum_system_timestep": 0
+        }
+    },
+    "CoolingTower:SingleSpeed": {
+        "Main Tower": {
+            "blowdown_calculation_mode": "ConcentrationRatio",
+            "blowdown_concentration_ratio": 3,
+            "capacity_control": "FanCycling",
+            "design_air_flow_rate": "Autosize",
+            "design_fan_power": "Autosize",
+            "design_u_factor_times_area_value": "Autosize",
+            "design_water_flow_rate": "Autosize",
+            "drift_loss_percent": 0.008,
+            "evaporation_loss_mode": "SaturatedExit",
+            "free_convection_capacity": "Autocalculate",
+            "free_convection_regime_air_flow_rate": "Autocalculate",
+            "free_convection_regime_u_factor_times_area_value": "Autocalculate",
+            "outdoor_air_inlet_node_name": "Main Tower Cooling Tower Outdoor Air Inlet Node",
+            "performance_input_method": "UFactorTimesAreaAndDesignWaterFlowRate",
+            "sizing_factor": 1.2,
+            "water_inlet_node_name": "Main Tower CndW Inlet",
+            "water_outlet_node_name": "Main Tower CndW Outlet"
+        }
+    },
+    "Curve:QuadLinear": {
+        "Office:0 WAHP ClgPowCurve": {
+            "coefficient1_constant": -3.205409884,
+            "coefficient2_w": -0.976409399,
+            "coefficient3_x": 3.97892546,
+            "coefficient4_y": 0.938181818,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:0 WAHP ClgTotCapCurve": {
+            "coefficient1_constant": -9.149069561,
+            "coefficient2_w": 10.87814026,
+            "coefficient3_x": -1.718780157,
+            "coefficient4_y": 0.746414818,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:0 WAHP HtgCapCurve": {
+            "coefficient1_constant": -1.361311959,
+            "coefficient2_w": -2.471798046,
+            "coefficient3_x": 4.173164514,
+            "coefficient4_y": 0.640757401,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:0 WAHP HtgPowCurve": {
+            "coefficient1_constant": -2.176941116,
+            "coefficient2_w": 0.832114286,
+            "coefficient3_x": 1.570743399,
+            "coefficient4_y": 0.690793651,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:1 WAHP ClgPowCurve": {
+            "coefficient1_constant": -3.205409884,
+            "coefficient2_w": -0.976409399,
+            "coefficient3_x": 3.97892546,
+            "coefficient4_y": 0.938181818,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:1 WAHP ClgTotCapCurve": {
+            "coefficient1_constant": -9.149069561,
+            "coefficient2_w": 10.87814026,
+            "coefficient3_x": -1.718780157,
+            "coefficient4_y": 0.746414818,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:1 WAHP HtgCapCurve": {
+            "coefficient1_constant": -1.361311959,
+            "coefficient2_w": -2.471798046,
+            "coefficient3_x": 4.173164514,
+            "coefficient4_y": 0.640757401,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:1 WAHP HtgPowCurve": {
+            "coefficient1_constant": -2.176941116,
+            "coefficient2_w": 0.832114286,
+            "coefficient3_x": 1.570743399,
+            "coefficient4_y": 0.690793651,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:2 WAHP ClgPowCurve": {
+            "coefficient1_constant": -3.205409884,
+            "coefficient2_w": -0.976409399,
+            "coefficient3_x": 3.97892546,
+            "coefficient4_y": 0.938181818,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:2 WAHP ClgTotCapCurve": {
+            "coefficient1_constant": -9.149069561,
+            "coefficient2_w": 10.87814026,
+            "coefficient3_x": -1.718780157,
+            "coefficient4_y": 0.746414818,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:2 WAHP HtgCapCurve": {
+            "coefficient1_constant": -1.361311959,
+            "coefficient2_w": -2.471798046,
+            "coefficient3_x": 4.173164514,
+            "coefficient4_y": 0.640757401,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:2 WAHP HtgPowCurve": {
+            "coefficient1_constant": -2.176941116,
+            "coefficient2_w": 0.832114286,
+            "coefficient3_x": 1.570743399,
+            "coefficient4_y": 0.690793651,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:3 WAHP ClgPowCurve": {
+            "coefficient1_constant": -3.205409884,
+            "coefficient2_w": -0.976409399,
+            "coefficient3_x": 3.97892546,
+            "coefficient4_y": 0.938181818,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:3 WAHP ClgTotCapCurve": {
+            "coefficient1_constant": -9.149069561,
+            "coefficient2_w": 10.87814026,
+            "coefficient3_x": -1.718780157,
+            "coefficient4_y": 0.746414818,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:3 WAHP HtgCapCurve": {
+            "coefficient1_constant": -1.361311959,
+            "coefficient2_w": -2.471798046,
+            "coefficient3_x": 4.173164514,
+            "coefficient4_y": 0.640757401,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:3 WAHP HtgPowCurve": {
+            "coefficient1_constant": -2.176941116,
+            "coefficient2_w": 0.832114286,
+            "coefficient3_x": 1.570743399,
+            "coefficient4_y": 0.690793651,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:4 WAHP ClgPowCurve": {
+            "coefficient1_constant": -3.205409884,
+            "coefficient2_w": -0.976409399,
+            "coefficient3_x": 3.97892546,
+            "coefficient4_y": 0.938181818,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:4 WAHP ClgTotCapCurve": {
+            "coefficient1_constant": -9.149069561,
+            "coefficient2_w": 10.87814026,
+            "coefficient3_x": -1.718780157,
+            "coefficient4_y": 0.746414818,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:4 WAHP HtgCapCurve": {
+            "coefficient1_constant": -1.361311959,
+            "coefficient2_w": -2.471798046,
+            "coefficient3_x": 4.173164514,
+            "coefficient4_y": 0.640757401,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:4 WAHP HtgPowCurve": {
+            "coefficient1_constant": -2.176941116,
+            "coefficient2_w": 0.832114286,
+            "coefficient3_x": 1.570743399,
+            "coefficient4_y": 0.690793651,
+            "coefficient5_z": 0.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        }
+    },
+    "Curve:Quadratic": {
+        "Main Boiler Efficiency Curve": {
+            "coefficient1_constant": 0.97,
+            "coefficient2_x": 0.0633,
+            "coefficient3_x_2": -0.0333,
+            "maximum_value_of_x": 1.0,
+            "minimum_value_of_x": 0.0
+        }
+    },
+    "Curve:QuintLinear": {
+        "Office:0 WAHP ClgSensCapCurve": {
+            "coefficient1_constant": -5.462690012,
+            "coefficient2_v": 17.95968138,
+            "coefficient3_w": -11.87818402,
+            "coefficient4_x": -0.980163419,
+            "coefficient5_y": 0.767285761,
+            "coefficient6_z": 0.0,
+            "maximum_value_of_v": 100.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_v": -100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:1 WAHP ClgSensCapCurve": {
+            "coefficient1_constant": -5.462690012,
+            "coefficient2_v": 17.95968138,
+            "coefficient3_w": -11.87818402,
+            "coefficient4_x": -0.980163419,
+            "coefficient5_y": 0.767285761,
+            "coefficient6_z": 0.0,
+            "maximum_value_of_v": 100.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_v": -100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:2 WAHP ClgSensCapCurve": {
+            "coefficient1_constant": -5.462690012,
+            "coefficient2_v": 17.95968138,
+            "coefficient3_w": -11.87818402,
+            "coefficient4_x": -0.980163419,
+            "coefficient5_y": 0.767285761,
+            "coefficient6_z": 0.0,
+            "maximum_value_of_v": 100.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_v": -100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:3 WAHP ClgSensCapCurve": {
+            "coefficient1_constant": -5.462690012,
+            "coefficient2_v": 17.95968138,
+            "coefficient3_w": -11.87818402,
+            "coefficient4_x": -0.980163419,
+            "coefficient5_y": 0.767285761,
+            "coefficient6_z": 0.0,
+            "maximum_value_of_v": 100.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_v": -100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        },
+        "Office:4 WAHP ClgSensCapCurve": {
+            "coefficient1_constant": -5.462690012,
+            "coefficient2_v": 17.95968138,
+            "coefficient3_w": -11.87818402,
+            "coefficient4_x": -0.980163419,
+            "coefficient5_y": 0.767285761,
+            "coefficient6_z": 0.0,
+            "maximum_value_of_v": 100.0,
+            "maximum_value_of_w": 100.0,
+            "maximum_value_of_x": 100.0,
+            "maximum_value_of_y": 100.0,
+            "maximum_value_of_z": 100.0,
+            "minimum_value_of_v": -100.0,
+            "minimum_value_of_w": -100.0,
+            "minimum_value_of_x": -100.0,
+            "minimum_value_of_y": -100.0,
+            "minimum_value_of_z": -100.0
+        }
+    },
+    "Daylighting:Controls": {
+        "DayLight Control For Office:0": {
+            "availability_schedule_name": "Office_OccupancySchedule",
+            "control_data": [
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 1 for Office:0",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 2 for Office:0",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 3 for Office:0",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 4 for Office:0",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 5 for Office:0",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                }
+            ],
+            "daylighting_method": "SplitFlux",
+            "delight_gridding_resolution": 2,
+            "glare_calculation_azimuth_angle_of_view_direction_clockwise_from_zone_y_axis": 180,
+            "glare_calculation_daylighting_reference_point_name": "Day Light Reference Point 5 for Office:0",
+            "lighting_control_type": "Continuous",
+            "maximum_allowable_discomfort_glare_index": 22,
+            "minimum_input_power_fraction_for_continuous_or_continuousoff_dimming_control": 0.3,
+            "minimum_light_output_fraction_for_continuous_or_continuousoff_dimming_control": 0.3,
+            "number_of_stepped_control_steps": 3,
+            "probability_lighting_will_be_reset_when_needed_in_manual_stepped_control": 1,
+            "zone_name": "Office:0"
+        },
+        "DayLight Control For Office:1": {
+            "availability_schedule_name": "Office_OccupancySchedule",
+            "control_data": [
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 1 for Office:1",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 2 for Office:1",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 3 for Office:1",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 4 for Office:1",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 5 for Office:1",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                }
+            ],
+            "daylighting_method": "SplitFlux",
+            "delight_gridding_resolution": 2,
+            "glare_calculation_azimuth_angle_of_view_direction_clockwise_from_zone_y_axis": 180,
+            "glare_calculation_daylighting_reference_point_name": "Day Light Reference Point 5 for Office:1",
+            "lighting_control_type": "Continuous",
+            "maximum_allowable_discomfort_glare_index": 22,
+            "minimum_input_power_fraction_for_continuous_or_continuousoff_dimming_control": 0.3,
+            "minimum_light_output_fraction_for_continuous_or_continuousoff_dimming_control": 0.3,
+            "number_of_stepped_control_steps": 3,
+            "probability_lighting_will_be_reset_when_needed_in_manual_stepped_control": 1,
+            "zone_name": "Office:1"
+        },
+        "DayLight Control For Office:2": {
+            "availability_schedule_name": "Office_OccupancySchedule",
+            "control_data": [
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 1 for Office:2",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 2 for Office:2",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 3 for Office:2",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 4 for Office:2",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 5 for Office:2",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                }
+            ],
+            "daylighting_method": "SplitFlux",
+            "delight_gridding_resolution": 2,
+            "glare_calculation_azimuth_angle_of_view_direction_clockwise_from_zone_y_axis": 180,
+            "glare_calculation_daylighting_reference_point_name": "Day Light Reference Point 5 for Office:2",
+            "lighting_control_type": "Continuous",
+            "maximum_allowable_discomfort_glare_index": 22,
+            "minimum_input_power_fraction_for_continuous_or_continuousoff_dimming_control": 0.3,
+            "minimum_light_output_fraction_for_continuous_or_continuousoff_dimming_control": 0.3,
+            "number_of_stepped_control_steps": 3,
+            "probability_lighting_will_be_reset_when_needed_in_manual_stepped_control": 1,
+            "zone_name": "Office:2"
+        },
+        "DayLight Control For Office:3": {
+            "availability_schedule_name": "Office_OccupancySchedule",
+            "control_data": [
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 1 for Office:3",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 2 for Office:3",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 3 for Office:3",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 4 for Office:3",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 5 for Office:3",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                }
+            ],
+            "daylighting_method": "SplitFlux",
+            "delight_gridding_resolution": 2,
+            "glare_calculation_azimuth_angle_of_view_direction_clockwise_from_zone_y_axis": 180,
+            "glare_calculation_daylighting_reference_point_name": "Day Light Reference Point 5 for Office:3",
+            "lighting_control_type": "Continuous",
+            "maximum_allowable_discomfort_glare_index": 22,
+            "minimum_input_power_fraction_for_continuous_or_continuousoff_dimming_control": 0.3,
+            "minimum_light_output_fraction_for_continuous_or_continuousoff_dimming_control": 0.3,
+            "number_of_stepped_control_steps": 3,
+            "probability_lighting_will_be_reset_when_needed_in_manual_stepped_control": 1,
+            "zone_name": "Office:3"
+        },
+        "DayLight Control For Office:4": {
+            "availability_schedule_name": "Office_OccupancySchedule",
+            "control_data": [
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 1 for Office:4",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 2 for Office:4",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 3 for Office:4",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 4 for Office:4",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                },
+                {
+                    "daylighting_reference_point_name": "Day Light Reference Point 5 for Office:4",
+                    "fraction_of_zone_controlled_by_reference_point": 0.2,
+                    "illuminance_setpoint_at_reference_point": 500
+                }
+            ],
+            "daylighting_method": "SplitFlux",
+            "delight_gridding_resolution": 2,
+            "glare_calculation_azimuth_angle_of_view_direction_clockwise_from_zone_y_axis": 180,
+            "glare_calculation_daylighting_reference_point_name": "Day Light Reference Point 5 for Office:4",
+            "lighting_control_type": "Continuous",
+            "maximum_allowable_discomfort_glare_index": 22,
+            "minimum_input_power_fraction_for_continuous_or_continuousoff_dimming_control": 0.3,
+            "minimum_light_output_fraction_for_continuous_or_continuousoff_dimming_control": 0.3,
+            "number_of_stepped_control_steps": 3,
+            "probability_lighting_will_be_reset_when_needed_in_manual_stepped_control": 1,
+            "zone_name": "Office:4"
+        }
+    },
+    "Daylighting:ReferencePoint": {
+        "Day Light Reference Point 1 for Office:0": {
+            "x_coordinate_of_reference_point": 25.03449,
+            "y_coordinate_of_reference_point": 8.02208,
+            "z_coordinate_of_reference_point": 0.9,
+            "zone_name": "Office:0"
+        },
+        "Day Light Reference Point 1 for Office:1": {
+            "x_coordinate_of_reference_point": 25.03449,
+            "y_coordinate_of_reference_point": 8.02208,
+            "z_coordinate_of_reference_point": 4.86925,
+            "zone_name": "Office:1"
+        },
+        "Day Light Reference Point 1 for Office:2": {
+            "x_coordinate_of_reference_point": 25.03449,
+            "y_coordinate_of_reference_point": 8.02208,
+            "z_coordinate_of_reference_point": 8.83849,
+            "zone_name": "Office:2"
+        },
+        "Day Light Reference Point 1 for Office:3": {
+            "x_coordinate_of_reference_point": 25.03449,
+            "y_coordinate_of_reference_point": 8.02208,
+            "z_coordinate_of_reference_point": 12.80774,
+            "zone_name": "Office:3"
+        },
+        "Day Light Reference Point 1 for Office:4": {
+            "x_coordinate_of_reference_point": 25.03449,
+            "y_coordinate_of_reference_point": 8.02208,
+            "z_coordinate_of_reference_point": 16.77698,
+            "zone_name": "Office:4"
+        },
+        "Day Light Reference Point 2 for Office:0": {
+            "x_coordinate_of_reference_point": 13.19659,
+            "y_coordinate_of_reference_point": 12.09819,
+            "z_coordinate_of_reference_point": 0.9,
+            "zone_name": "Office:0"
+        },
+        "Day Light Reference Point 2 for Office:1": {
+            "x_coordinate_of_reference_point": 13.19659,
+            "y_coordinate_of_reference_point": 12.09819,
+            "z_coordinate_of_reference_point": 4.86925,
+            "zone_name": "Office:1"
+        },
+        "Day Light Reference Point 2 for Office:2": {
+            "x_coordinate_of_reference_point": 13.19659,
+            "y_coordinate_of_reference_point": 12.09819,
+            "z_coordinate_of_reference_point": 8.83849,
+            "zone_name": "Office:2"
+        },
+        "Day Light Reference Point 2 for Office:3": {
+            "x_coordinate_of_reference_point": 13.19659,
+            "y_coordinate_of_reference_point": 12.09819,
+            "z_coordinate_of_reference_point": 12.80774,
+            "zone_name": "Office:3"
+        },
+        "Day Light Reference Point 2 for Office:4": {
+            "x_coordinate_of_reference_point": 13.19659,
+            "y_coordinate_of_reference_point": 12.09819,
+            "z_coordinate_of_reference_point": 16.77698,
+            "zone_name": "Office:4"
+        },
+        "Day Light Reference Point 3 for Office:0": {
+            "x_coordinate_of_reference_point": 14.5553,
+            "y_coordinate_of_reference_point": 16.04415,
+            "z_coordinate_of_reference_point": 0.9,
+            "zone_name": "Office:0"
+        },
+        "Day Light Reference Point 3 for Office:1": {
+            "x_coordinate_of_reference_point": 14.5553,
+            "y_coordinate_of_reference_point": 16.04415,
+            "z_coordinate_of_reference_point": 4.86925,
+            "zone_name": "Office:1"
+        },
+        "Day Light Reference Point 3 for Office:2": {
+            "x_coordinate_of_reference_point": 14.5553,
+            "y_coordinate_of_reference_point": 16.04415,
+            "z_coordinate_of_reference_point": 8.83849,
+            "zone_name": "Office:2"
+        },
+        "Day Light Reference Point 3 for Office:3": {
+            "x_coordinate_of_reference_point": 14.5553,
+            "y_coordinate_of_reference_point": 16.04415,
+            "z_coordinate_of_reference_point": 12.80774,
+            "zone_name": "Office:3"
+        },
+        "Day Light Reference Point 3 for Office:4": {
+            "x_coordinate_of_reference_point": 14.5553,
+            "y_coordinate_of_reference_point": 16.04415,
+            "z_coordinate_of_reference_point": 16.77698,
+            "zone_name": "Office:4"
+        },
+        "Day Light Reference Point 4 for Office:0": {
+            "x_coordinate_of_reference_point": 26.39319,
+            "y_coordinate_of_reference_point": 11.96804,
+            "z_coordinate_of_reference_point": 0.9,
+            "zone_name": "Office:0"
+        },
+        "Day Light Reference Point 4 for Office:1": {
+            "x_coordinate_of_reference_point": 26.39319,
+            "y_coordinate_of_reference_point": 11.96804,
+            "z_coordinate_of_reference_point": 4.86925,
+            "zone_name": "Office:1"
+        },
+        "Day Light Reference Point 4 for Office:2": {
+            "x_coordinate_of_reference_point": 26.39319,
+            "y_coordinate_of_reference_point": 11.96804,
+            "z_coordinate_of_reference_point": 8.83849,
+            "zone_name": "Office:2"
+        },
+        "Day Light Reference Point 4 for Office:3": {
+            "x_coordinate_of_reference_point": 26.39319,
+            "y_coordinate_of_reference_point": 11.96804,
+            "z_coordinate_of_reference_point": 12.80774,
+            "zone_name": "Office:3"
+        },
+        "Day Light Reference Point 4 for Office:4": {
+            "x_coordinate_of_reference_point": 26.39319,
+            "y_coordinate_of_reference_point": 11.96804,
+            "z_coordinate_of_reference_point": 16.77698,
+            "zone_name": "Office:4"
+        },
+        "Day Light Reference Point 5 for Office:0": {
+            "x_coordinate_of_reference_point": 19.79489,
+            "y_coordinate_of_reference_point": 12.03312,
+            "z_coordinate_of_reference_point": 0.9,
+            "zone_name": "Office:0"
+        },
+        "Day Light Reference Point 5 for Office:1": {
+            "x_coordinate_of_reference_point": 19.79489,
+            "y_coordinate_of_reference_point": 12.03312,
+            "z_coordinate_of_reference_point": 4.86925,
+            "zone_name": "Office:1"
+        },
+        "Day Light Reference Point 5 for Office:2": {
+            "x_coordinate_of_reference_point": 19.79489,
+            "y_coordinate_of_reference_point": 12.03312,
+            "z_coordinate_of_reference_point": 8.83849,
+            "zone_name": "Office:2"
+        },
+        "Day Light Reference Point 5 for Office:3": {
+            "x_coordinate_of_reference_point": 19.79489,
+            "y_coordinate_of_reference_point": 12.03312,
+            "z_coordinate_of_reference_point": 12.80774,
+            "zone_name": "Office:3"
+        },
+        "Day Light Reference Point 5 for Office:4": {
+            "x_coordinate_of_reference_point": 19.79489,
+            "y_coordinate_of_reference_point": 12.03312,
+            "z_coordinate_of_reference_point": 16.77698,
+            "zone_name": "Office:4"
+        }
+    },
+    "DesignSpecification:OutdoorAir": {
+        "SZ DSOA Office:0": {
+            "outdoor_air_flow_per_person": 0.00944,
+            "outdoor_air_flow_per_zone": 0.0,
+            "outdoor_air_flow_per_zone_floor_area": 0.0,
+            "outdoor_air_method": "Flow/Person"
+        },
+        "SZ DSOA Office:1": {
+            "outdoor_air_flow_per_person": 0.00944,
+            "outdoor_air_flow_per_zone": 0.0,
+            "outdoor_air_flow_per_zone_floor_area": 0.0,
+            "outdoor_air_method": "Flow/Person"
+        },
+        "SZ DSOA Office:2": {
+            "outdoor_air_flow_per_person": 0.00944,
+            "outdoor_air_flow_per_zone": 0.0,
+            "outdoor_air_flow_per_zone_floor_area": 0.0,
+            "outdoor_air_method": "Flow/Person"
+        },
+        "SZ DSOA Office:3": {
+            "outdoor_air_flow_per_person": 0.00944,
+            "outdoor_air_flow_per_zone": 0.0,
+            "outdoor_air_flow_per_zone_floor_area": 0.0,
+            "outdoor_air_method": "Flow/Person"
+        },
+        "SZ DSOA Office:4": {
+            "outdoor_air_flow_per_person": 0.00944,
+            "outdoor_air_flow_per_zone": 0.0,
+            "outdoor_air_flow_per_zone_floor_area": 0.0,
+            "outdoor_air_method": "Flow/Person"
+        }
+    },
+    "DesignSpecification:ZoneAirDistribution": {
+        "SZ DSZAD Office:0": {
+            "zone_air_distribution_effectiveness_in_cooling_mode": 1,
+            "zone_air_distribution_effectiveness_in_heating_mode": 1
+        },
+        "SZ DSZAD Office:1": {
+            "zone_air_distribution_effectiveness_in_cooling_mode": 1,
+            "zone_air_distribution_effectiveness_in_heating_mode": 1
+        },
+        "SZ DSZAD Office:2": {
+            "zone_air_distribution_effectiveness_in_cooling_mode": 1,
+            "zone_air_distribution_effectiveness_in_heating_mode": 1
+        },
+        "SZ DSZAD Office:3": {
+            "zone_air_distribution_effectiveness_in_cooling_mode": 1,
+            "zone_air_distribution_effectiveness_in_heating_mode": 1
+        },
+        "SZ DSZAD Office:4": {
+            "zone_air_distribution_effectiveness_in_cooling_mode": 1,
+            "zone_air_distribution_effectiveness_in_heating_mode": 1
+        }
+    },
+    "ElectricEquipment": {
+        "Equipment_Office": {
+            "design_level_calculation_method": "Watts/Area",
+            "fraction_radiant": 0.1,
+            "schedule_name": "Office_EquipmentSchedule",
+            "watts_per_zone_floor_area": 11.97546483,
+            "zone_or_zonelist_name": "Office"
+        }
+    },
+    "Fan:OnOff": {
+        "Office:0 WAHP Supply Fan": {
+            "air_inlet_node_name": "Office:0 WAHP Heating Coil Outlet",
+            "air_outlet_node_name": "Office:0 WAHP Supply Fan Outlet",
+            "availability_schedule_name": "HVACTemplate-Always 1",
+            "fan_total_efficiency": 0.7,
+            "maximum_flow_rate": "Autosize",
+            "motor_efficiency": 0.9,
+            "motor_in_airstream_fraction": 1,
+            "pressure_rise": 75
+        },
+        "Office:1 WAHP Supply Fan": {
+            "air_inlet_node_name": "Office:1 WAHP Heating Coil Outlet",
+            "air_outlet_node_name": "Office:1 WAHP Supply Fan Outlet",
+            "availability_schedule_name": "HVACTemplate-Always 1",
+            "fan_total_efficiency": 0.7,
+            "maximum_flow_rate": "Autosize",
+            "motor_efficiency": 0.9,
+            "motor_in_airstream_fraction": 1,
+            "pressure_rise": 75
+        },
+        "Office:2 WAHP Supply Fan": {
+            "air_inlet_node_name": "Office:2 WAHP Heating Coil Outlet",
+            "air_outlet_node_name": "Office:2 WAHP Supply Fan Outlet",
+            "availability_schedule_name": "HVACTemplate-Always 1",
+            "fan_total_efficiency": 0.7,
+            "maximum_flow_rate": "Autosize",
+            "motor_efficiency": 0.9,
+            "motor_in_airstream_fraction": 1,
+            "pressure_rise": 75
+        },
+        "Office:3 WAHP Supply Fan": {
+            "air_inlet_node_name": "Office:3 WAHP Heating Coil Outlet",
+            "air_outlet_node_name": "Office:3 WAHP Supply Fan Outlet",
+            "availability_schedule_name": "HVACTemplate-Always 1",
+            "fan_total_efficiency": 0.7,
+            "maximum_flow_rate": "Autosize",
+            "motor_efficiency": 0.9,
+            "motor_in_airstream_fraction": 1,
+            "pressure_rise": 75
+        },
+        "Office:4 WAHP Supply Fan": {
+            "air_inlet_node_name": "Office:4 WAHP Heating Coil Outlet",
+            "air_outlet_node_name": "Office:4 WAHP Supply Fan Outlet",
+            "availability_schedule_name": "HVACTemplate-Always 1",
+            "fan_total_efficiency": 0.7,
+            "maximum_flow_rate": "Autosize",
+            "motor_efficiency": 0.9,
+            "motor_in_airstream_fraction": 1,
+            "pressure_rise": 75
+        }
+    },
+    "FenestrationSurface:Detailed": {
+        "Window_On_Office:0:East:Wall:5": {
+            "building_surface_name": "Office:0:East:Wall:5",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 36.73919,
+            "vertex_1_y_coordinate": 3.55917,
+            "vertex_1_z_coordinate": 1.19339,
+            "vertex_2_x_coordinate": 38.36427,
+            "vertex_2_y_coordinate": 8.27871,
+            "vertex_2_z_coordinate": 1.19339,
+            "vertex_3_x_coordinate": 38.36427,
+            "vertex_3_y_coordinate": 8.27871,
+            "vertex_3_z_coordinate": 2.77585,
+            "vertex_4_x_coordinate": 36.73919,
+            "vertex_4_y_coordinate": 3.55917,
+            "vertex_4_z_coordinate": 2.77585
+        },
+        "Window_On_Office:0:North:Wall:2": {
+            "building_surface_name": "Office:0:North:Wall:2",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 31.2041,
+            "vertex_1_y_coordinate": 14.72532,
+            "vertex_1_z_coordinate": 0.93724,
+            "vertex_2_x_coordinate": 12.4618,
+            "vertex_2_y_coordinate": 21.1788,
+            "vertex_2_z_coordinate": 0.93724,
+            "vertex_3_x_coordinate": 12.4618,
+            "vertex_3_y_coordinate": 21.1788,
+            "vertex_3_z_coordinate": 3.03201,
+            "vertex_4_x_coordinate": 31.2041,
+            "vertex_4_y_coordinate": 14.72532,
+            "vertex_4_z_coordinate": 3.03201
+        },
+        "Window_On_Office:0:South:Wall:4": {
+            "building_surface_name": "Office:0:South:Wall:4",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 12.14136,
+            "vertex_1_y_coordinate": 8.04773,
+            "vertex_1_z_coordinate": 1.357,
+            "vertex_2_x_coordinate": 23.37231,
+            "vertex_2_y_coordinate": 4.18061,
+            "vertex_2_z_coordinate": 1.357,
+            "vertex_3_x_coordinate": 23.37231,
+            "vertex_3_y_coordinate": 4.18061,
+            "vertex_3_z_coordinate": 2.61225,
+            "vertex_4_x_coordinate": 12.14136,
+            "vertex_4_y_coordinate": 8.04773,
+            "vertex_4_z_coordinate": 2.61225
+        },
+        "Window_On_Office:0:West:Wall:3": {
+            "building_surface_name": "Office:0:West:Wall:3",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 2.97638,
+            "vertex_1_y_coordinate": 20.87237,
+            "vertex_1_z_coordinate": 1.0709,
+            "vertex_2_x_coordinate": 1.09973,
+            "vertex_2_y_coordinate": 15.42219,
+            "vertex_2_z_coordinate": 1.0709,
+            "vertex_3_x_coordinate": 1.09973,
+            "vertex_3_y_coordinate": 15.42219,
+            "vertex_3_z_coordinate": 2.89835,
+            "vertex_4_x_coordinate": 2.97638,
+            "vertex_4_y_coordinate": 20.87237,
+            "vertex_4_z_coordinate": 2.89835
+        },
+        "Window_On_Office:1:East:Wall:5": {
+            "building_surface_name": "Office:1:East:Wall:5",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 36.73919,
+            "vertex_1_y_coordinate": 3.55917,
+            "vertex_1_z_coordinate": 5.16264,
+            "vertex_2_x_coordinate": 38.36427,
+            "vertex_2_y_coordinate": 8.27871,
+            "vertex_2_z_coordinate": 5.16264,
+            "vertex_3_x_coordinate": 38.36427,
+            "vertex_3_y_coordinate": 8.27871,
+            "vertex_3_z_coordinate": 6.7451,
+            "vertex_4_x_coordinate": 36.73919,
+            "vertex_4_y_coordinate": 3.55917,
+            "vertex_4_z_coordinate": 6.7451
+        },
+        "Window_On_Office:1:North:Wall:2": {
+            "building_surface_name": "Office:1:North:Wall:2",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 31.2041,
+            "vertex_1_y_coordinate": 14.72532,
+            "vertex_1_z_coordinate": 4.90649,
+            "vertex_2_x_coordinate": 12.4618,
+            "vertex_2_y_coordinate": 21.1788,
+            "vertex_2_z_coordinate": 4.90649,
+            "vertex_3_x_coordinate": 12.4618,
+            "vertex_3_y_coordinate": 21.1788,
+            "vertex_3_z_coordinate": 7.00125,
+            "vertex_4_x_coordinate": 31.2041,
+            "vertex_4_y_coordinate": 14.72532,
+            "vertex_4_z_coordinate": 7.00125
+        },
+        "Window_On_Office:1:South:Wall:4": {
+            "building_surface_name": "Office:1:South:Wall:4",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 12.14136,
+            "vertex_1_y_coordinate": 8.04773,
+            "vertex_1_z_coordinate": 5.32625,
+            "vertex_2_x_coordinate": 23.37231,
+            "vertex_2_y_coordinate": 4.18061,
+            "vertex_2_z_coordinate": 5.32625,
+            "vertex_3_x_coordinate": 23.37231,
+            "vertex_3_y_coordinate": 4.18061,
+            "vertex_3_z_coordinate": 6.58149,
+            "vertex_4_x_coordinate": 12.14136,
+            "vertex_4_y_coordinate": 8.04773,
+            "vertex_4_z_coordinate": 6.58149
+        },
+        "Window_On_Office:1:West:Wall:3": {
+            "building_surface_name": "Office:1:West:Wall:3",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 2.97638,
+            "vertex_1_y_coordinate": 20.87237,
+            "vertex_1_z_coordinate": 5.04015,
+            "vertex_2_x_coordinate": 1.09973,
+            "vertex_2_y_coordinate": 15.42219,
+            "vertex_2_z_coordinate": 5.04015,
+            "vertex_3_x_coordinate": 1.09973,
+            "vertex_3_y_coordinate": 15.42219,
+            "vertex_3_z_coordinate": 6.86759,
+            "vertex_4_x_coordinate": 2.97638,
+            "vertex_4_y_coordinate": 20.87237,
+            "vertex_4_z_coordinate": 6.86759
+        },
+        "Window_On_Office:2:East:Wall:5": {
+            "building_surface_name": "Office:2:East:Wall:5",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 36.73919,
+            "vertex_1_y_coordinate": 3.55917,
+            "vertex_1_z_coordinate": 9.13188,
+            "vertex_2_x_coordinate": 38.36427,
+            "vertex_2_y_coordinate": 8.27871,
+            "vertex_2_z_coordinate": 9.13188,
+            "vertex_3_x_coordinate": 38.36427,
+            "vertex_3_y_coordinate": 8.27871,
+            "vertex_3_z_coordinate": 10.71434,
+            "vertex_4_x_coordinate": 36.73919,
+            "vertex_4_y_coordinate": 3.55917,
+            "vertex_4_z_coordinate": 10.71434
+        },
+        "Window_On_Office:2:North:Wall:2": {
+            "building_surface_name": "Office:2:North:Wall:2",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 31.2041,
+            "vertex_1_y_coordinate": 14.72532,
+            "vertex_1_z_coordinate": 8.87573,
+            "vertex_2_x_coordinate": 12.4618,
+            "vertex_2_y_coordinate": 21.1788,
+            "vertex_2_z_coordinate": 8.87573,
+            "vertex_3_x_coordinate": 12.4618,
+            "vertex_3_y_coordinate": 21.1788,
+            "vertex_3_z_coordinate": 10.9705,
+            "vertex_4_x_coordinate": 31.2041,
+            "vertex_4_y_coordinate": 14.72532,
+            "vertex_4_z_coordinate": 10.9705
+        },
+        "Window_On_Office:2:South:Wall:4": {
+            "building_surface_name": "Office:2:South:Wall:4",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 12.14136,
+            "vertex_1_y_coordinate": 8.04773,
+            "vertex_1_z_coordinate": 9.29549,
+            "vertex_2_x_coordinate": 23.37231,
+            "vertex_2_y_coordinate": 4.18061,
+            "vertex_2_z_coordinate": 9.29549,
+            "vertex_3_x_coordinate": 23.37231,
+            "vertex_3_y_coordinate": 4.18061,
+            "vertex_3_z_coordinate": 10.55074,
+            "vertex_4_x_coordinate": 12.14136,
+            "vertex_4_y_coordinate": 8.04773,
+            "vertex_4_z_coordinate": 10.55074
+        },
+        "Window_On_Office:2:West:Wall:3": {
+            "building_surface_name": "Office:2:West:Wall:3",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 2.97638,
+            "vertex_1_y_coordinate": 20.87237,
+            "vertex_1_z_coordinate": 9.00939,
+            "vertex_2_x_coordinate": 1.09973,
+            "vertex_2_y_coordinate": 15.42219,
+            "vertex_2_z_coordinate": 9.00939,
+            "vertex_3_x_coordinate": 1.09973,
+            "vertex_3_y_coordinate": 15.42219,
+            "vertex_3_z_coordinate": 10.83684,
+            "vertex_4_x_coordinate": 2.97638,
+            "vertex_4_y_coordinate": 20.87237,
+            "vertex_4_z_coordinate": 10.83684
+        },
+        "Window_On_Office:3:East:Wall:5": {
+            "building_surface_name": "Office:3:East:Wall:5",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 36.73919,
+            "vertex_1_y_coordinate": 3.55917,
+            "vertex_1_z_coordinate": 13.10113,
+            "vertex_2_x_coordinate": 38.36427,
+            "vertex_2_y_coordinate": 8.27871,
+            "vertex_2_z_coordinate": 13.10113,
+            "vertex_3_x_coordinate": 38.36427,
+            "vertex_3_y_coordinate": 8.27871,
+            "vertex_3_z_coordinate": 14.68359,
+            "vertex_4_x_coordinate": 36.73919,
+            "vertex_4_y_coordinate": 3.55917,
+            "vertex_4_z_coordinate": 14.68359
+        },
+        "Window_On_Office:3:North:Wall:2": {
+            "building_surface_name": "Office:3:North:Wall:2",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 31.2041,
+            "vertex_1_y_coordinate": 14.72532,
+            "vertex_1_z_coordinate": 12.84498,
+            "vertex_2_x_coordinate": 12.4618,
+            "vertex_2_y_coordinate": 21.1788,
+            "vertex_2_z_coordinate": 12.84498,
+            "vertex_3_x_coordinate": 12.4618,
+            "vertex_3_y_coordinate": 21.1788,
+            "vertex_3_z_coordinate": 14.93974,
+            "vertex_4_x_coordinate": 31.2041,
+            "vertex_4_y_coordinate": 14.72532,
+            "vertex_4_z_coordinate": 14.93974
+        },
+        "Window_On_Office:3:South:Wall:4": {
+            "building_surface_name": "Office:3:South:Wall:4",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 12.14136,
+            "vertex_1_y_coordinate": 8.04773,
+            "vertex_1_z_coordinate": 13.26474,
+            "vertex_2_x_coordinate": 23.37231,
+            "vertex_2_y_coordinate": 4.18061,
+            "vertex_2_z_coordinate": 13.26474,
+            "vertex_3_x_coordinate": 23.37231,
+            "vertex_3_y_coordinate": 4.18061,
+            "vertex_3_z_coordinate": 14.51998,
+            "vertex_4_x_coordinate": 12.14136,
+            "vertex_4_y_coordinate": 8.04773,
+            "vertex_4_z_coordinate": 14.51998
+        },
+        "Window_On_Office:3:West:Wall:3": {
+            "building_surface_name": "Office:3:West:Wall:3",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 2.97638,
+            "vertex_1_y_coordinate": 20.87237,
+            "vertex_1_z_coordinate": 12.97864,
+            "vertex_2_x_coordinate": 1.09973,
+            "vertex_2_y_coordinate": 15.42219,
+            "vertex_2_z_coordinate": 12.97864,
+            "vertex_3_x_coordinate": 1.09973,
+            "vertex_3_y_coordinate": 15.42219,
+            "vertex_3_z_coordinate": 14.80608,
+            "vertex_4_x_coordinate": 2.97638,
+            "vertex_4_y_coordinate": 20.87237,
+            "vertex_4_z_coordinate": 14.80608
+        },
+        "Window_On_Office:4:East:Wall:5": {
+            "building_surface_name": "Office:4:East:Wall:5",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 36.73919,
+            "vertex_1_y_coordinate": 3.55917,
+            "vertex_1_z_coordinate": 17.07037,
+            "vertex_2_x_coordinate": 38.36427,
+            "vertex_2_y_coordinate": 8.27871,
+            "vertex_2_z_coordinate": 17.07037,
+            "vertex_3_x_coordinate": 38.36427,
+            "vertex_3_y_coordinate": 8.27871,
+            "vertex_3_z_coordinate": 18.65283,
+            "vertex_4_x_coordinate": 36.73919,
+            "vertex_4_y_coordinate": 3.55917,
+            "vertex_4_z_coordinate": 18.65283
+        },
+        "Window_On_Office:4:North:Wall:2": {
+            "building_surface_name": "Office:4:North:Wall:2",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 31.2041,
+            "vertex_1_y_coordinate": 14.72532,
+            "vertex_1_z_coordinate": 16.81422,
+            "vertex_2_x_coordinate": 12.4618,
+            "vertex_2_y_coordinate": 21.1788,
+            "vertex_2_z_coordinate": 16.81422,
+            "vertex_3_x_coordinate": 12.4618,
+            "vertex_3_y_coordinate": 21.1788,
+            "vertex_3_z_coordinate": 18.90899,
+            "vertex_4_x_coordinate": 31.2041,
+            "vertex_4_y_coordinate": 14.72532,
+            "vertex_4_z_coordinate": 18.90899
+        },
+        "Window_On_Office:4:South:Wall:4": {
+            "building_surface_name": "Office:4:South:Wall:4",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 12.14136,
+            "vertex_1_y_coordinate": 8.04773,
+            "vertex_1_z_coordinate": 17.23398,
+            "vertex_2_x_coordinate": 23.37231,
+            "vertex_2_y_coordinate": 4.18061,
+            "vertex_2_z_coordinate": 17.23398,
+            "vertex_3_x_coordinate": 23.37231,
+            "vertex_3_y_coordinate": 4.18061,
+            "vertex_3_z_coordinate": 18.48923,
+            "vertex_4_x_coordinate": 12.14136,
+            "vertex_4_y_coordinate": 8.04773,
+            "vertex_4_z_coordinate": 18.48923
+        },
+        "Window_On_Office:4:West:Wall:3": {
+            "building_surface_name": "Office:4:West:Wall:3",
+            "construction_name": "Glazing",
+            "surface_type": "Window",
+            "vertex_1_x_coordinate": 2.97638,
+            "vertex_1_y_coordinate": 20.87237,
+            "vertex_1_z_coordinate": 16.94788,
+            "vertex_2_x_coordinate": 1.09973,
+            "vertex_2_y_coordinate": 15.42219,
+            "vertex_2_z_coordinate": 16.94788,
+            "vertex_3_x_coordinate": 1.09973,
+            "vertex_3_y_coordinate": 15.42219,
+            "vertex_3_z_coordinate": 18.77533,
+            "vertex_4_x_coordinate": 2.97638,
+            "vertex_4_y_coordinate": 20.87237,
+            "vertex_4_z_coordinate": 18.77533
+        }
+    },
+    "GlobalGeometryRules": {
+        "GlobalGeometryRules 1": {
+            "coordinate_system": "Relative",
+            "daylighting_reference_point_coordinate_system": "Relative",
+            "rectangular_surface_coordinate_system": "Relative",
+            "starting_vertex_position": "UpperLeftCorner",
+            "vertex_entry_direction": "Counterclockwise"
+        }
+    },
+    "InternalMass": {
+        "Office:0:InternalMass:01": {
+            "construction_name": "InternalMass",
+            "surface_area": 498.51575580675,
+            "zone_or_zonelist_name": "Office:0"
+        },
+        "Office:1:InternalMass:01": {
+            "construction_name": "InternalMass",
+            "surface_area": 498.51575580675,
+            "zone_or_zonelist_name": "Office:1"
+        },
+        "Office:2:InternalMass:01": {
+            "construction_name": "InternalMass",
+            "surface_area": 498.51575580675,
+            "zone_or_zonelist_name": "Office:2"
+        },
+        "Office:3:InternalMass:01": {
+            "construction_name": "InternalMass",
+            "surface_area": 498.51575580675,
+            "zone_or_zonelist_name": "Office:3"
+        },
+        "Office:4:InternalMass:01": {
+            "construction_name": "InternalMass",
+            "surface_area": 498.51575580675,
+            "zone_or_zonelist_name": "Office:4"
+        }
+    },
+    "Lights": {
+        "Light_Office": {
+            "design_level_calculation_method": "Watts/Area",
+            "fraction_radiant": 0.1,
+            "fraction_visible": 0.18,
+            "return_air_fraction": 0,
+            "schedule_name": "Office_LightSchedule",
+            "watts_per_zone_floor_area": 8.164880663,
+            "zone_or_zonelist_name": "Office"
+        }
+    },
+    "Material": {
+        "InternalMaterial": {
+            "conductivity": 2.3,
+            "density": 500,
+            "roughness": "Smooth",
+            "solar_absorptance": 0.85,
+            "specific_heat": 1000,
+            "thermal_absorptance": 0.85,
+            "thickness": 0.12,
+            "visible_absorptance": 0.7
+        },
+        "floor_cementscreed": {
+            "conductivity": 1.4,
+            "density": 2000,
+            "roughness": "Smooth",
+            "solar_absorptance": 0.7,
+            "specific_heat": 1000,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.08,
+            "visible_absorptance": 0.7
+        },
+        "floor_structure": {
+            "conductivity": 2.3,
+            "density": 2300,
+            "roughness": "Smooth",
+            "solar_absorptance": 0.7,
+            "specific_heat": 918.7756715,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.2,
+            "visible_absorptance": 0.7
+        },
+        "gfloor_insulation": {
+            "conductivity": 0.035,
+            "density": 20,
+            "roughness": "Smooth",
+            "solar_absorptance": 0.7,
+            "specific_heat": 1000,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.053,
+            "visible_absorptance": 0.7
+        },
+        "ifloor_insulation": {
+            "conductivity": 0.035,
+            "density": 20,
+            "roughness": "Smooth",
+            "solar_absorptance": 0.7,
+            "specific_heat": 1000,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.07152,
+            "visible_absorptance": 0.7
+        },
+        "iwall_insulation": {
+            "conductivity": 0.035,
+            "density": 20,
+            "roughness": "Rough",
+            "solar_absorptance": 0.7,
+            "specific_heat": 1000,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.05,
+            "visible_absorptance": 0.7
+        },
+        "pInsulation": {
+            "conductivity": 0.035,
+            "density": 20,
+            "roughness": "Smooth",
+            "solar_absorptance": 0.7,
+            "specific_heat": 1000,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.05,
+            "visible_absorptance": 0.7
+        },
+        "plasterboard": {
+            "conductivity": 0.16,
+            "density": 800,
+            "roughness": "Rough",
+            "solar_absorptance": 0.6,
+            "specific_heat": 800,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.05,
+            "visible_absorptance": 0.6
+        },
+        "roof_insulation": {
+            "conductivity": 0.035,
+            "density": 20,
+            "roughness": "Smooth",
+            "solar_absorptance": 0.7,
+            "specific_heat": 1000,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.13927,
+            "visible_absorptance": 0.7
+        },
+        "roof_plaster": {
+            "conductivity": 0.7,
+            "density": 1400,
+            "roughness": "Smooth",
+            "solar_absorptance": 0.7,
+            "specific_heat": 1000,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.02,
+            "visible_absorptance": 0.7
+        },
+        "roof_structure": {
+            "conductivity": 2.3,
+            "density": 2300,
+            "roughness": "Smooth",
+            "solar_absorptance": 0.7,
+            "specific_heat": 918.7756715,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.25,
+            "visible_absorptance": 0.7
+        },
+        "wall_insulation": {
+            "conductivity": 0.035,
+            "density": 25,
+            "roughness": "Smooth",
+            "solar_absorptance": 0.7,
+            "specific_heat": 1000,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.16037,
+            "visible_absorptance": 0.7
+        },
+        "wall_plasterlayer": {
+            "conductivity": 0.7,
+            "density": 1400,
+            "roughness": "Smooth",
+            "solar_absorptance": 0.4,
+            "specific_heat": 1000,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.02,
+            "visible_absorptance": 0.7
+        },
+        "wall_structure": {
+            "conductivity": 2.3,
+            "density": 2300,
+            "roughness": "Smooth",
+            "solar_absorptance": 0.7,
+            "specific_heat": 1100,
+            "thermal_absorptance": 0.9,
+            "thickness": 0.18,
+            "visible_absorptance": 0.7
+        }
+    },
+    "NodeList": {
+        "Only Water Loop Mixed Supply Setpoint Nodes": {
+            "nodes": [
+                {
+                    "node_name": "Main Boiler HW Outlet"
+                },
+                {
+                    "node_name": "Main Tower CndW Outlet"
+                },
+                {
+                    "node_name": "Only Water Loop Mixed Supply Outlet"
+                }
+            ]
+        }
+    },
+    "OutdoorAir:Mixer": {
+        "Office:0 WAHP OA Mixing Box": {
+            "mixed_air_node_name": "Office:0 WAHP Mixed Air Outlet",
+            "outdoor_air_stream_node_name": "Office:0 WAHP Outside Air Inlet",
+            "relief_air_stream_node_name": "Office:0 WAHP Relief Air Outlet",
+            "return_air_stream_node_name": "Office:0 WAHP Return"
+        },
+        "Office:1 WAHP OA Mixing Box": {
+            "mixed_air_node_name": "Office:1 WAHP Mixed Air Outlet",
+            "outdoor_air_stream_node_name": "Office:1 WAHP Outside Air Inlet",
+            "relief_air_stream_node_name": "Office:1 WAHP Relief Air Outlet",
+            "return_air_stream_node_name": "Office:1 WAHP Return"
+        },
+        "Office:2 WAHP OA Mixing Box": {
+            "mixed_air_node_name": "Office:2 WAHP Mixed Air Outlet",
+            "outdoor_air_stream_node_name": "Office:2 WAHP Outside Air Inlet",
+            "relief_air_stream_node_name": "Office:2 WAHP Relief Air Outlet",
+            "return_air_stream_node_name": "Office:2 WAHP Return"
+        },
+        "Office:3 WAHP OA Mixing Box": {
+            "mixed_air_node_name": "Office:3 WAHP Mixed Air Outlet",
+            "outdoor_air_stream_node_name": "Office:3 WAHP Outside Air Inlet",
+            "relief_air_stream_node_name": "Office:3 WAHP Relief Air Outlet",
+            "return_air_stream_node_name": "Office:3 WAHP Return"
+        },
+        "Office:4 WAHP OA Mixing Box": {
+            "mixed_air_node_name": "Office:4 WAHP Mixed Air Outlet",
+            "outdoor_air_stream_node_name": "Office:4 WAHP Outside Air Inlet",
+            "relief_air_stream_node_name": "Office:4 WAHP Relief Air Outlet",
+            "return_air_stream_node_name": "Office:4 WAHP Return"
+        }
+    },
+    "OutdoorAir:Node": {
+        "Main Tower Cooling Tower Outdoor Air Inlet Node": {
+            "height_above_ground": -1
+        },
+        "Office:0 WAHP Outside Air Inlet": {
+            "height_above_ground": -1
+        },
+        "Office:1 WAHP Outside Air Inlet": {
+            "height_above_ground": -1
+        },
+        "Office:2 WAHP Outside Air Inlet": {
+            "height_above_ground": -1
+        },
+        "Office:3 WAHP Outside Air Inlet": {
+            "height_above_ground": -1
+        },
+        "Office:4 WAHP Outside Air Inlet": {
+            "height_above_ground": -1
+        }
+    },
+    "Output:Diagnostics": {
+        "Output:Diagnostics 1": {
+            "diagnostics": [
+                {
+                    "key": "DisplayAdvancedReportVariables"
+                },
+                {
+                    "key": "DisplayExtraWarnings"
+                }
+            ]
+        }
+    },
+    "Output:PreprocessorMessage": {
+        "Output:PreprocessorMessage 1": {
+            "error_severity": "Warning",
+            "message_line_1": "Cannot find Energy +.idd as specified in Energy +.ini.",
+            "preprocessor_name": "ExpandObjects"
+        },
+        "Output:PreprocessorMessage 2": {
+            "error_severity": "Warning",
+            "message_line_1": "Since the Energy+.IDD file cannot be read no range or choice checking was",
+            "message_line_2": "performed.",
+            "preprocessor_name": "ExpandObjects"
+        }
+    },
+    "Output:Surfaces:Drawing": {
+        "Output:Surfaces:Drawing 1": {
+            "report_type": "DXF"
+        }
+    },
+    "Output:Table:SummaryReports": {
+        "Output:Table:SummaryReports 1": {
+            "reports": [
+                {
+                    "report_name": "AllSummary"
+                },
+                {
+                    "report_name": "AllMonthly"
+                }
+            ]
+        }
+    },
+    "Output:Variable": {
+        "Output:Variable 1": {
+            "key_value": "*",
+            "reporting_frequency": "Hourly",
+            "variable_name": "Boiler Gas Energy"
+        },
+        "Output:Variable 2": {
+            "key_value": "*",
+            "reporting_frequency": "Hourly",
+            "variable_name": "Boiler Heating Rate"
+        },
+        "Output:Variable 3": {
+            "key_value": "*",
+            "reporting_frequency": "Hourly",
+            "variable_name": "Boiler Efficiency"
+        },
+        "Output:Variable 4": {
+            "key_value": "*",
+            "reporting_frequency": "Hourly",
+            "variable_name": "Boiler Inlet Temperature"
+        },
+        "Output:Variable 5": {
+            "key_value": "*",
+            "reporting_frequency": "Hourly",
+            "variable_name": "System Node Mass Flow Rate"
+        },
+        "Output:Variable 6": {
+            "key_value": "*",
+            "reporting_frequency": "Hourly",
+            "variable_name": "System Node Temperature"
+        }
+    },
+    "Output:VariableDictionary": {
+        "Output:VariableDictionary 1": {
+            "key_field": "IDF"
+        }
+    },
+    "OutputControl:Files": {
+        "OutputControl:Files 1": {
+            "output_audit": "Yes",
+            "output_bnd": "Yes",
+            "output_csv": "Yes",
+            "output_dbg": "No",
+            "output_delightdfdmp": "No",
+            "output_delighteldmp": "No",
+            "output_delightin": "No",
+            "output_dfs": "No",
+            "output_dxf": "Yes",
+            "output_edd": "No",
+            "output_eio": "Yes",
+            "output_end": "No",
+            "output_eso": "No",
+            "output_extshd": "No",
+            "output_glhe": "No",
+            "output_json": "No",
+            "output_mdd": "Yes",
+            "output_mtd": "Yes",
+            "output_mtr": "Yes",
+            "output_perflog": "No",
+            "output_rdd": "Yes",
+            "output_sci": "No",
+            "output_screen": "No",
+            "output_shd": "No",
+            "output_sln": "No",
+            "output_sqlite": "No",
+            "output_system_sizing": "Yes",
+            "output_tabular": "Yes",
+            "output_tarcog": "No",
+            "output_wrl": "No",
+            "output_zone_sizing": "Yes"
+        }
+    },
+    "OutputControl:Table:Style": {
+        "OutputControl:Table:Style 1": {
+            "column_separator": "HTML",
+            "unit_conversion": "JtoKWH"
+        }
+    },
+    "People": {
+        "People_Office": {
+            "activity_level_schedule_name": "Office_ActivitySchedule",
+            "air_velocity_schedule_name": "Air Velo Sch",
+            "carbon_dioxide_generation_rate": 3.82e-08,
+            "clothing_insulation_calculation_method": "DynamicClothingModelASHRAE55",
+            "fraction_radiant": 0.1,
+            "mean_radiant_temperature_calculation_type": "ZoneAveraged",
+            "number_of_people_calculation_method": "Area/Person",
+            "number_of_people_schedule_name": "Office_OccupancySchedule",
+            "thermal_comfort_model_1_type": "Fanger",
+            "work_efficiency_schedule_name": "Work Eff Sch",
+            "zone_floor_area_per_person": 21.83013621,
+            "zone_or_zonelist_name": "Office"
+        }
+    },
+    "Pipe:Adiabatic": {
+        "Only Water Loop Mixed Demand Inlet Pipe": {
+            "inlet_node_name": "Only Water Loop Mixed Demand Inlet",
+            "outlet_node_name": "Only Water Loop Mixed Demand Inlet Pipe Outlet"
+        },
+        "Only Water Loop Mixed Demand Outlet Pipe": {
+            "inlet_node_name": "Only Water Loop Mixed Demand Outlet Pipe Inlet",
+            "outlet_node_name": "Only Water Loop Mixed Demand Outlet"
+        },
+        "Only Water Loop Mixed Demand Side Bypass Pipe": {
+            "inlet_node_name": "Only Water Loop Mixed Demand Bypass Inlet",
+            "outlet_node_name": "Only Water Loop Mixed Demand Bypass Outlet"
+        },
+        "Only Water Loop Mixed Supply Outlet Pipe": {
+            "inlet_node_name": "Only Water Loop Mixed Supply Outlet Pipe Inlet",
+            "outlet_node_name": "Only Water Loop Mixed Supply Outlet"
+        },
+        "Only Water Loop Mixed Supply Side Bypass Pipe": {
+            "inlet_node_name": "Only Water Loop Mixed Supply Bypass Inlet",
+            "outlet_node_name": "Only Water Loop Mixed Supply Bypass Outlet"
+        }
+    },
+    "PlantEquipmentList": {
+        "Only Water Loop All Cooling Equipment": {
+            "equipment": [
+                {
+                    "equipment_name": "Main Tower",
+                    "equipment_object_type": "CoolingTower:SingleSpeed"
+                }
+            ]
+        },
+        "Only Water Loop All Heating Equipment": {
+            "equipment": [
+                {
+                    "equipment_name": "Main Boiler",
+                    "equipment_object_type": "Boiler:HotWater"
+                }
+            ]
+        }
+    },
+    "PlantEquipmentOperation:CoolingLoad": {
+        "Only Water Loop Cool Operation All Hours": {
+            "load_range_1_lower_limit": 0,
+            "load_range_1_upper_limit": 1000000000000000,
+            "range_1_equipment_list_name": "Only Water Loop All Cooling Equipment"
+        }
+    },
+    "PlantEquipmentOperation:HeatingLoad": {
+        "Only Water Loop Heat Operation All Hours": {
+            "load_range_1_lower_limit": 0,
+            "load_range_1_upper_limit": 1000000000000000,
+            "range_1_equipment_list_name": "Only Water Loop All Heating Equipment"
+        }
+    },
+    "PlantEquipmentOperationSchemes": {
+        "Only Water Loop Operation": {
+            "control_scheme_1_name": "Only Water Loop Heat Operation All Hours",
+            "control_scheme_1_object_type": "PlantEquipmentOperation:HeatingLoad",
+            "control_scheme_1_schedule_name": "HVACTemplate-Always 1",
+            "control_scheme_2_name": "Only Water Loop Cool Operation All Hours",
+            "control_scheme_2_object_type": "PlantEquipmentOperation:CoolingLoad",
+            "control_scheme_2_schedule_name": "HVACTemplate-Always 1"
+        }
+    },
+    "PlantLoop": {
+        "Only Water Loop Mixed Water Loop": {
+            "demand_side_branch_list_name": "Only Water Loop Mixed Demand Side Branches",
+            "demand_side_connector_list_name": "Only Water Loop Mixed Demand Side Connectors",
+            "demand_side_inlet_node_name": "Only Water Loop Mixed Demand Inlet",
+            "demand_side_outlet_node_name": "Only Water Loop Mixed Demand Outlet",
+            "fluid_type": "Water",
+            "load_distribution_scheme": "SequentialLoad",
+            "loop_temperature_setpoint_node_name": "Only Water Loop Mixed Supply Outlet",
+            "maximum_loop_flow_rate": "Autosize",
+            "maximum_loop_temperature": 100,
+            "minimum_loop_flow_rate": 0,
+            "minimum_loop_temperature": 10,
+            "plant_equipment_operation_scheme_name": "Only Water Loop Operation",
+            "plant_loop_demand_calculation_scheme": "DualSetpointDeadband",
+            "plant_loop_volume": "Autocalculate",
+            "plant_side_branch_list_name": "Only Water Loop Mixed Supply Side Branches",
+            "plant_side_connector_list_name": "Only Water Loop Mixed Supply Side Connectors",
+            "plant_side_inlet_node_name": "Only Water Loop Mixed Supply Inlet",
+            "plant_side_outlet_node_name": "Only Water Loop Mixed Supply Outlet"
+        }
+    },
+    "Pump:ConstantSpeed": {
+        "Only Water Loop Mixed Supply Pump": {
+            "design_flow_rate": "Autosize",
+            "design_power_consumption": "Autosize",
+            "design_pump_head": 179352,
+            "fraction_of_motor_inefficiencies_to_fluid_stream": 0,
+            "inlet_node_name": "Only Water Loop Mixed Supply Inlet",
+            "motor_efficiency": 0.9,
+            "outlet_node_name": "Only Water Loop Mixed Pump Outlet",
+            "pump_control_type": "Intermittent"
+        }
+    },
+    "RunPeriod": {
+        "Run Period 1": {
+            "apply_weekend_holiday_rule": "No",
+            "begin_day_of_month": 1,
+            "begin_month": 1,
+            "end_day_of_month": 31,
+            "end_month": 12,
+            "treat_weather_as_actual": "No",
+            "use_weather_file_daylight_saving_period": "No",
+            "use_weather_file_holidays_and_special_days": "No",
+            "use_weather_file_rain_indicators": "Yes",
+            "use_weather_file_snow_indicators": "Yes"
+        }
+    },
+    "Schedule:Compact": {
+        "Air Velo Sch": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 0.1
+                }
+            ],
+            "schedule_type_limits_name": "Fractional Sch Limits"
+        },
+        "AlwaysOn": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 1
+                }
+            ],
+            "schedule_type_limits_name": "Fractional Sch Limits"
+        },
+        "HVACTemplate-Always 0": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 0
+                }
+            ],
+            "schedule_type_limits_name": "HVACTemplate Any Number"
+        },
+        "HVACTemplate-Always 1": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 1
+                }
+            ],
+            "schedule_type_limits_name": "HVACTemplate Any Number"
+        },
+        "HVACTemplate-Always 4": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 4
+                }
+            ],
+            "schedule_type_limits_name": "HVACTemplate Any Number"
+        },
+        "HVACTemplate-Always 20": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 20
+                }
+            ],
+            "schedule_type_limits_name": "HVACTemplate Any Number"
+        },
+        "HVACTemplate-Always 34": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 34
+                }
+            ],
+            "schedule_type_limits_name": "HVACTemplate Any Number"
+        },
+        "Office_ActivitySchedule": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 125
+                }
+            ]
+        },
+        "Office_CoolingSetPointSchedule": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: WeekDays SummerDesignDay WinterDesignDay CustomDay1 CustomDay2"
+                },
+                {
+                    "field": "Until: 6:0"
+                },
+                {
+                    "field": 30
+                },
+                {
+                    "field": "Until: 19:0"
+                },
+                {
+                    "field": 25
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 30
+                },
+                {
+                    "field": "For: Weekends Holiday"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 30
+                }
+            ]
+        },
+        "Office_EquipmentSchedule": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: WeekDays SummerDesignDay WinterDesignDay CustomDay1 CustomDay2"
+                },
+                {
+                    "field": "Until: 7:0"
+                },
+                {
+                    "field": 0.1
+                },
+                {
+                    "field": "Until: 19:0"
+                },
+                {
+                    "field": 1
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 0.1
+                },
+                {
+                    "field": "For: Weekends Holiday"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 0.1
+                }
+            ]
+        },
+        "Office_HeatingSetPointSchedule": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: WeekDays SummerDesignDay WinterDesignDay CustomDay1 CustomDay2"
+                },
+                {
+                    "field": "Until: 6:0"
+                },
+                {
+                    "field": 15
+                },
+                {
+                    "field": "Until: 19:0"
+                },
+                {
+                    "field": 20
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 15
+                },
+                {
+                    "field": "For: Weekends Holiday"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 15
+                }
+            ]
+        },
+        "Office_LightSchedule": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: WeekDays SummerDesignDay WinterDesignDay CustomDay1 CustomDay2"
+                },
+                {
+                    "field": "Until: 7:0"
+                },
+                {
+                    "field": 0.1
+                },
+                {
+                    "field": "Until: 19:0"
+                },
+                {
+                    "field": 1
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 0.1
+                },
+                {
+                    "field": "For: Weekends Holiday"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 0.1
+                }
+            ]
+        },
+        "Office_OccupancySchedule": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: WeekDays SummerDesignDay WinterDesignDay CustomDay1 CustomDay2"
+                },
+                {
+                    "field": "Until: 7:0"
+                },
+                {
+                    "field": 0
+                },
+                {
+                    "field": "Until: 19:0"
+                },
+                {
+                    "field": 1
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 0
+                },
+                {
+                    "field": "For: Weekends Holiday"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 0
+                }
+            ]
+        },
+        "Office_VentilationSchedule": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: WeekDays SummerDesignDay WinterDesignDay CustomDay1 CustomDay2"
+                },
+                {
+                    "field": "Until: 7:0"
+                },
+                {
+                    "field": 0
+                },
+                {
+                    "field": "Until: 19:0"
+                },
+                {
+                    "field": 1
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 0
+                },
+                {
+                    "field": "For: Weekends Holiday"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 0
+                }
+            ]
+        },
+        "Space Infiltration Schedule": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 1
+                }
+            ],
+            "schedule_type_limits_name": "Fractional Sch Limits"
+        },
+        "Work Eff Sch": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 1
+                }
+            ],
+            "schedule_type_limits_name": "Fractional Sch Limits"
+        }
+    },
+    "ScheduleTypeLimits": {
+        "Fractional Sch Limits": {
+            "lower_limit_value": 0,
+            "numeric_type": "Continuous",
+            "upper_limit_value": 1
+        },
+        "HVACTemplate Any Number": {},
+        "Temp": {
+            "lower_limit_value": 10,
+            "numeric_type": "Continuous",
+            "upper_limit_value": 35
+        },
+        "activityLevel": {
+            "lower_limit_value": 0,
+            "numeric_type": "Continuous",
+            "unit_type": "ActivityLevel"
+        }
+    },
+    "SetpointManager:Scheduled:DualSetpoint": {
+        "Only Water Loop Mixed Temp Manager": {
+            "control_variable": "Temperature",
+            "high_setpoint_schedule_name": "HVACTemplate-Always 34",
+            "low_setpoint_schedule_name": "HVACTemplate-Always 20",
+            "setpoint_node_or_nodelist_name": "Only Water Loop Mixed Supply Setpoint Nodes"
+        }
+    },
+    "SimulationControl": {
+        "SimulationControl 1": {
+            "do_plant_sizing_calculation": "Yes",
+            "do_system_sizing_calculation": "Yes",
+            "do_zone_sizing_calculation": "Yes",
+            "run_simulation_for_sizing_periods": "No",
+            "run_simulation_for_weather_file_run_periods": "Yes"
+        }
+    },
+    "Site:GroundTemperature:BuildingSurface": {
+        "Site:GroundTemperature:BuildingSurface 1": {
+            "april_ground_temperature": 6.27,
+            "august_ground_temperature": 15.48,
+            "december_ground_temperature": 8.41,
+            "february_ground_temperature": 5.07,
+            "january_ground_temperature": 6.17,
+            "july_ground_temperature": 14.32,
+            "june_ground_temperature": 12.12,
+            "march_ground_temperature": 5.33,
+            "may_ground_temperature": 9.35,
+            "november_ground_temperature": 11.08,
+            "october_ground_temperature": 13.62,
+            "september_ground_temperature": 15.2
+        }
+    },
+    "Site:Location": {
+        "MUNICH_DEU": {
+            "elevation": 529,
+            "latitude": 48.13,
+            "longitude": 11.7,
+            "time_zone": 1
+        }
+    },
+    "Sizing:Plant": {
+        "Sizing:Plant 1": {
+            "design_loop_exit_temperature": 34,
+            "loop_design_temperature_difference": 6,
+            "loop_type": "Condenser",
+            "plant_or_condenser_loop_name": "Only Water Loop Mixed Water Loop"
+        }
+    },
+    "Sizing:Zone": {
+        "Sizing:Zone 1": {
+            "cooling_design_air_flow_method": "DesignDay",
+            "cooling_design_air_flow_rate": 0,
+            "cooling_minimum_air_flow_fraction": 0,
+            "design_specification_outdoor_air_object_name": "SZ DSOA Office:0",
+            "design_specification_zone_air_distribution_object_name": "SZ DSZAD Office:0",
+            "heating_design_air_flow_method": "DesignDay",
+            "heating_design_air_flow_rate": 0,
+            "heating_maximum_air_flow_fraction": 0,
+            "zone_cooling_design_supply_air_humidity_ratio": 0.008,
+            "zone_cooling_design_supply_air_temperature": 12.5,
+            "zone_cooling_design_supply_air_temperature_difference": 11.11,
+            "zone_cooling_design_supply_air_temperature_input_method": "SupplyAirTemperature",
+            "zone_cooling_sizing_factor": 1.2,
+            "zone_heating_design_supply_air_humidity_ratio": 0.008,
+            "zone_heating_design_supply_air_temperature": 50.0,
+            "zone_heating_design_supply_air_temperature_input_method": "SupplyAirTemperature",
+            "zone_heating_sizing_factor": 1.2,
+            "zone_or_zonelist_name": "Office:0"
+        },
+        "Sizing:Zone 2": {
+            "cooling_design_air_flow_method": "DesignDay",
+            "cooling_design_air_flow_rate": 0,
+            "cooling_minimum_air_flow_fraction": 0,
+            "design_specification_outdoor_air_object_name": "SZ DSOA Office:1",
+            "design_specification_zone_air_distribution_object_name": "SZ DSZAD Office:1",
+            "heating_design_air_flow_method": "DesignDay",
+            "heating_design_air_flow_rate": 0,
+            "heating_maximum_air_flow_fraction": 0,
+            "zone_cooling_design_supply_air_humidity_ratio": 0.008,
+            "zone_cooling_design_supply_air_temperature": 12.5,
+            "zone_cooling_design_supply_air_temperature_difference": 11.11,
+            "zone_cooling_design_supply_air_temperature_input_method": "SupplyAirTemperature",
+            "zone_cooling_sizing_factor": 1.2,
+            "zone_heating_design_supply_air_humidity_ratio": 0.008,
+            "zone_heating_design_supply_air_temperature": 50.0,
+            "zone_heating_design_supply_air_temperature_input_method": "SupplyAirTemperature",
+            "zone_heating_sizing_factor": 1.2,
+            "zone_or_zonelist_name": "Office:1"
+        },
+        "Sizing:Zone 3": {
+            "cooling_design_air_flow_method": "DesignDay",
+            "cooling_design_air_flow_rate": 0,
+            "cooling_minimum_air_flow_fraction": 0,
+            "design_specification_outdoor_air_object_name": "SZ DSOA Office:2",
+            "design_specification_zone_air_distribution_object_name": "SZ DSZAD Office:2",
+            "heating_design_air_flow_method": "DesignDay",
+            "heating_design_air_flow_rate": 0,
+            "heating_maximum_air_flow_fraction": 0,
+            "zone_cooling_design_supply_air_humidity_ratio": 0.008,
+            "zone_cooling_design_supply_air_temperature": 12.5,
+            "zone_cooling_design_supply_air_temperature_difference": 11.11,
+            "zone_cooling_design_supply_air_temperature_input_method": "SupplyAirTemperature",
+            "zone_cooling_sizing_factor": 1.2,
+            "zone_heating_design_supply_air_humidity_ratio": 0.008,
+            "zone_heating_design_supply_air_temperature": 50.0,
+            "zone_heating_design_supply_air_temperature_input_method": "SupplyAirTemperature",
+            "zone_heating_sizing_factor": 1.2,
+            "zone_or_zonelist_name": "Office:2"
+        },
+        "Sizing:Zone 4": {
+            "cooling_design_air_flow_method": "DesignDay",
+            "cooling_design_air_flow_rate": 0,
+            "cooling_minimum_air_flow_fraction": 0,
+            "design_specification_outdoor_air_object_name": "SZ DSOA Office:3",
+            "design_specification_zone_air_distribution_object_name": "SZ DSZAD Office:3",
+            "heating_design_air_flow_method": "DesignDay",
+            "heating_design_air_flow_rate": 0,
+            "heating_maximum_air_flow_fraction": 0,
+            "zone_cooling_design_supply_air_humidity_ratio": 0.008,
+            "zone_cooling_design_supply_air_temperature": 12.5,
+            "zone_cooling_design_supply_air_temperature_difference": 11.11,
+            "zone_cooling_design_supply_air_temperature_input_method": "SupplyAirTemperature",
+            "zone_cooling_sizing_factor": 1.2,
+            "zone_heating_design_supply_air_humidity_ratio": 0.008,
+            "zone_heating_design_supply_air_temperature": 50.0,
+            "zone_heating_design_supply_air_temperature_input_method": "SupplyAirTemperature",
+            "zone_heating_sizing_factor": 1.2,
+            "zone_or_zonelist_name": "Office:3"
+        },
+        "Sizing:Zone 5": {
+            "cooling_design_air_flow_method": "DesignDay",
+            "cooling_design_air_flow_rate": 0,
+            "cooling_minimum_air_flow_fraction": 0,
+            "design_specification_outdoor_air_object_name": "SZ DSOA Office:4",
+            "design_specification_zone_air_distribution_object_name": "SZ DSZAD Office:4",
+            "heating_design_air_flow_method": "DesignDay",
+            "heating_design_air_flow_rate": 0,
+            "heating_maximum_air_flow_fraction": 0,
+            "zone_cooling_design_supply_air_humidity_ratio": 0.008,
+            "zone_cooling_design_supply_air_temperature": 12.5,
+            "zone_cooling_design_supply_air_temperature_difference": 11.11,
+            "zone_cooling_design_supply_air_temperature_input_method": "SupplyAirTemperature",
+            "zone_cooling_sizing_factor": 1.2,
+            "zone_heating_design_supply_air_humidity_ratio": 0.008,
+            "zone_heating_design_supply_air_temperature": 50.0,
+            "zone_heating_design_supply_air_temperature_input_method": "SupplyAirTemperature",
+            "zone_heating_sizing_factor": 1.2,
+            "zone_or_zonelist_name": "Office:4"
+        }
+    },
+    "SizingPeriod:DesignDay": {
+        "MUNICH Ann Clg .4% Condns DB=>MWB (month 6)": {
+            "barometric_pressure": 95200,
+            "daily_dry_bulb_temperature_range": 10.9,
+            "day_of_month": 21,
+            "day_type": "SummerDesignDay",
+            "daylight_saving_time_indicator": "No",
+            "dry_bulb_temperature_range_modifier_type": "DefaultMultipliers",
+            "enthalpy_at_maximum_dry_bulb": 0,
+            "humidity_condition_type": "DewPoint",
+            "maximum_dry_bulb_temperature": 29,
+            "month": 6,
+            "rain_indicator": "No",
+            "sky_clearness": 1,
+            "snow_indicator": "No",
+            "solar_model_indicator": "ASHRAEClearSky",
+            "wetbulb_or_dewpoint_at_maximum_dry_bulb": 13.9,
+            "wind_direction": 240,
+            "wind_speed": 1
+        },
+        "MUNICH Ann Clg .4% Condns DB=>MWB (month 7)": {
+            "barometric_pressure": 95200,
+            "daily_dry_bulb_temperature_range": 10.9,
+            "day_of_month": 21,
+            "day_type": "SummerDesignDay",
+            "daylight_saving_time_indicator": "No",
+            "dry_bulb_temperature_range_modifier_type": "DefaultMultipliers",
+            "enthalpy_at_maximum_dry_bulb": 0,
+            "humidity_condition_type": "DewPoint",
+            "maximum_dry_bulb_temperature": 29,
+            "month": 7,
+            "rain_indicator": "No",
+            "sky_clearness": 1,
+            "snow_indicator": "No",
+            "solar_model_indicator": "ASHRAEClearSky",
+            "wetbulb_or_dewpoint_at_maximum_dry_bulb": 13.9,
+            "wind_direction": 240,
+            "wind_speed": 1
+        },
+        "MUNICH Ann Clg .4% Condns DB=>MWB (month 8)": {
+            "barometric_pressure": 95200,
+            "daily_dry_bulb_temperature_range": 10.9,
+            "day_of_month": 21,
+            "day_type": "SummerDesignDay",
+            "daylight_saving_time_indicator": "No",
+            "dry_bulb_temperature_range_modifier_type": "DefaultMultipliers",
+            "enthalpy_at_maximum_dry_bulb": 0,
+            "humidity_condition_type": "DewPoint",
+            "maximum_dry_bulb_temperature": 29,
+            "month": 8,
+            "rain_indicator": "No",
+            "sky_clearness": 1,
+            "snow_indicator": "No",
+            "solar_model_indicator": "ASHRAEClearSky",
+            "wetbulb_or_dewpoint_at_maximum_dry_bulb": 13.9,
+            "wind_direction": 240,
+            "wind_speed": 1
+        },
+        "MUNICH Ann Clg .4% Condns DB=>MWB (month 9)": {
+            "barometric_pressure": 95200,
+            "daily_dry_bulb_temperature_range": 10.9,
+            "day_of_month": 21,
+            "day_type": "SummerDesignDay",
+            "daylight_saving_time_indicator": "No",
+            "dry_bulb_temperature_range_modifier_type": "DefaultMultipliers",
+            "enthalpy_at_maximum_dry_bulb": 0,
+            "humidity_condition_type": "DewPoint",
+            "maximum_dry_bulb_temperature": 29,
+            "month": 9,
+            "rain_indicator": "No",
+            "sky_clearness": 1,
+            "snow_indicator": "No",
+            "solar_model_indicator": "ASHRAEClearSky",
+            "wetbulb_or_dewpoint_at_maximum_dry_bulb": 13.9,
+            "wind_direction": 240,
+            "wind_speed": 1
+        },
+        "MUNICH Ann Clg .4% Condns Enth=>MDB": {
+            "barometric_pressure": 95300,
+            "daily_dry_bulb_temperature_range": 10.9,
+            "day_of_month": 21,
+            "day_type": "SummerDesignDay",
+            "daylight_saving_time_indicator": "No",
+            "dry_bulb_temperature_range_modifier_type": "DefaultMultipliers",
+            "enthalpy_at_maximum_dry_bulb": 0,
+            "humidity_condition_type": "DewPoint",
+            "maximum_dry_bulb_temperature": 31.5,
+            "month": 7,
+            "rain_indicator": "No",
+            "sky_clearness": 1,
+            "snow_indicator": "No",
+            "solar_model_indicator": "ASHRAEClearSky",
+            "wetbulb_or_dewpoint_at_maximum_dry_bulb": 17.8,
+            "wind_direction": 240,
+            "wind_speed": 1.5
+        },
+        "MUNICH Ann Htg 99.6% Condns DB": {
+            "barometric_pressure": 95900,
+            "daily_dry_bulb_temperature_range": 0,
+            "day_of_month": 21,
+            "day_type": "WinterDesignDay",
+            "daylight_saving_time_indicator": "No",
+            "dry_bulb_temperature_range_modifier_type": "DefaultMultipliers",
+            "enthalpy_at_maximum_dry_bulb": 0,
+            "humidity_condition_type": "DewPoint",
+            "maximum_dry_bulb_temperature": -12.8,
+            "month": 2,
+            "rain_indicator": "No",
+            "sky_clearness": 0,
+            "snow_indicator": "No",
+            "solar_model_indicator": "ASHRAEClearSky",
+            "wetbulb_or_dewpoint_at_maximum_dry_bulb": -13.9,
+            "wind_direction": 130,
+            "wind_speed": 1
+        }
+    },
+    "ThermostatSetpoint:DualSetpoint": {
+        "Office_Thermostat Dual SP Control": {
+            "cooling_setpoint_temperature_schedule_name": "Office_CoolingSetPointSchedule",
+            "heating_setpoint_temperature_schedule_name": "Office_HeatingSetPointSchedule"
+        }
+    },
+    "Timestep": {
+        "Timestep 1": {
+            "number_of_timesteps_per_hour": 6
+        }
+    },
+    "Version": {
+        "Version 1": {
+            "version_identifier": "9.3"
+        }
+    },
+    "WindowMaterial:Shade": {
+        "ROLL SHADE": {
+            "bottom_opening_multiplier": 0.5,
+            "conductivity": 0.1,
+            "infrared_hemispherical_emissivity": 0.9,
+            "infrared_transmittance": 0.05,
+            "left_side_opening_multiplier": 0.5,
+            "right_side_opening_multiplier": 0,
+            "shade_to_glass_distance": 0.05,
+            "solar_reflectance": 0.5,
+            "solar_transmittance": 0.3,
+            "thickness": 0.003,
+            "top_opening_multiplier": 0,
+            "visible_reflectance": 0.5,
+            "visible_transmittance": 0.3
+        }
+    },
+    "WindowMaterial:SimpleGlazingSystem": {
+        "Glazing Material": {
+            "solar_heat_gain_coefficient": 0.446626242,
+            "u_factor": 0.712936399,
+            "visible_transmittance": 0.1
+        }
+    },
+    "WindowShadingControl": {
+        "CONTROL ON ZONE TEMP Window_On_Office:0:East:Wall:5": {
+            "daylighting_control_object_name": "DayLight Control For Office:0",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:0:East:Wall:5"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:0"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:0:South:Wall:4": {
+            "daylighting_control_object_name": "DayLight Control For Office:0",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:0:South:Wall:4"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:0"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:0:West:Wall:3": {
+            "daylighting_control_object_name": "DayLight Control For Office:0",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:0:West:Wall:3"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:0"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:1:East:Wall:5": {
+            "daylighting_control_object_name": "DayLight Control For Office:1",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:1:East:Wall:5"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:1"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:1:South:Wall:4": {
+            "daylighting_control_object_name": "DayLight Control For Office:1",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:1:South:Wall:4"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:1"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:1:West:Wall:3": {
+            "daylighting_control_object_name": "DayLight Control For Office:1",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:1:West:Wall:3"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:1"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:2:East:Wall:5": {
+            "daylighting_control_object_name": "DayLight Control For Office:2",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:2:East:Wall:5"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:2"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:2:South:Wall:4": {
+            "daylighting_control_object_name": "DayLight Control For Office:2",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:2:South:Wall:4"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:2"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:2:West:Wall:3": {
+            "daylighting_control_object_name": "DayLight Control For Office:2",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:2:West:Wall:3"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:2"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:3:East:Wall:5": {
+            "daylighting_control_object_name": "DayLight Control For Office:3",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:3:East:Wall:5"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:3"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:3:South:Wall:4": {
+            "daylighting_control_object_name": "DayLight Control For Office:3",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:3:South:Wall:4"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:3"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:3:West:Wall:3": {
+            "daylighting_control_object_name": "DayLight Control For Office:3",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:3:West:Wall:3"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:3"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:4:East:Wall:5": {
+            "daylighting_control_object_name": "DayLight Control For Office:4",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:4:East:Wall:5"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:4"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:4:South:Wall:4": {
+            "daylighting_control_object_name": "DayLight Control For Office:4",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:4:South:Wall:4"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:4"
+        },
+        "CONTROL ON ZONE TEMP Window_On_Office:4:West:Wall:3": {
+            "daylighting_control_object_name": "DayLight Control For Office:4",
+            "fenestration_surfaces": [
+                {
+                    "fenestration_surface_name": "Window_On_Office:4:West:Wall:3"
+                }
+            ],
+            "glare_control_is_active": "No",
+            "setpoint": 23,
+            "shading_control_is_scheduled": "No",
+            "shading_control_type": "OnIfHighZoneAirTemperature",
+            "shading_device_material_name": "ROLL SHADE",
+            "shading_type": "InteriorShade",
+            "zone_name": "Office:4"
+        }
+    },
+    "Zone": {
+        "Office:0": {},
+        "Office:1": {},
+        "Office:2": {},
+        "Office:3": {},
+        "Office:4": {}
+    },
+    "ZoneControl:Thermostat": {
+        "Office:0 Thermostat": {
+            "control_1_name": "Office_Thermostat Dual SP Control",
+            "control_1_object_type": "ThermostatSetpoint:DualSetpoint",
+            "control_type_schedule_name": "HVACTemplate-Always 4",
+            "zone_or_zonelist_name": "Office:0"
+        },
+        "Office:1 Thermostat": {
+            "control_1_name": "Office_Thermostat Dual SP Control",
+            "control_1_object_type": "ThermostatSetpoint:DualSetpoint",
+            "control_type_schedule_name": "HVACTemplate-Always 4",
+            "zone_or_zonelist_name": "Office:1"
+        },
+        "Office:2 Thermostat": {
+            "control_1_name": "Office_Thermostat Dual SP Control",
+            "control_1_object_type": "ThermostatSetpoint:DualSetpoint",
+            "control_type_schedule_name": "HVACTemplate-Always 4",
+            "zone_or_zonelist_name": "Office:2"
+        },
+        "Office:3 Thermostat": {
+            "control_1_name": "Office_Thermostat Dual SP Control",
+            "control_1_object_type": "ThermostatSetpoint:DualSetpoint",
+            "control_type_schedule_name": "HVACTemplate-Always 4",
+            "zone_or_zonelist_name": "Office:3"
+        },
+        "Office:4 Thermostat": {
+            "control_1_name": "Office_Thermostat Dual SP Control",
+            "control_1_object_type": "ThermostatSetpoint:DualSetpoint",
+            "control_type_schedule_name": "HVACTemplate-Always 4",
+            "zone_or_zonelist_name": "Office:4"
+        }
+    },
+    "ZoneHVAC:EquipmentConnections": {
+        "ZoneHVAC:EquipmentConnections 1": {
+            "zone_air_exhaust_node_or_nodelist_name": "Office:0 WAHP Return",
+            "zone_air_inlet_node_or_nodelist_name": "Office:0 WAHP Supply Inlet",
+            "zone_air_node_name": "Office:0 Zone Air Node",
+            "zone_conditioning_equipment_list_name": "Office:0 Equipment",
+            "zone_name": "Office:0",
+            "zone_return_air_node_or_nodelist_name": "Office:0 Return Outlet"
+        },
+        "ZoneHVAC:EquipmentConnections 2": {
+            "zone_air_exhaust_node_or_nodelist_name": "Office:1 WAHP Return",
+            "zone_air_inlet_node_or_nodelist_name": "Office:1 WAHP Supply Inlet",
+            "zone_air_node_name": "Office:1 Zone Air Node",
+            "zone_conditioning_equipment_list_name": "Office:1 Equipment",
+            "zone_name": "Office:1",
+            "zone_return_air_node_or_nodelist_name": "Office:1 Return Outlet"
+        },
+        "ZoneHVAC:EquipmentConnections 3": {
+            "zone_air_exhaust_node_or_nodelist_name": "Office:2 WAHP Return",
+            "zone_air_inlet_node_or_nodelist_name": "Office:2 WAHP Supply Inlet",
+            "zone_air_node_name": "Office:2 Zone Air Node",
+            "zone_conditioning_equipment_list_name": "Office:2 Equipment",
+            "zone_name": "Office:2",
+            "zone_return_air_node_or_nodelist_name": "Office:2 Return Outlet"
+        },
+        "ZoneHVAC:EquipmentConnections 4": {
+            "zone_air_exhaust_node_or_nodelist_name": "Office:3 WAHP Return",
+            "zone_air_inlet_node_or_nodelist_name": "Office:3 WAHP Supply Inlet",
+            "zone_air_node_name": "Office:3 Zone Air Node",
+            "zone_conditioning_equipment_list_name": "Office:3 Equipment",
+            "zone_name": "Office:3",
+            "zone_return_air_node_or_nodelist_name": "Office:3 Return Outlet"
+        },
+        "ZoneHVAC:EquipmentConnections 5": {
+            "zone_air_exhaust_node_or_nodelist_name": "Office:4 WAHP Return",
+            "zone_air_inlet_node_or_nodelist_name": "Office:4 WAHP Supply Inlet",
+            "zone_air_node_name": "Office:4 Zone Air Node",
+            "zone_conditioning_equipment_list_name": "Office:4 Equipment",
+            "zone_name": "Office:4",
+            "zone_return_air_node_or_nodelist_name": "Office:4 Return Outlet"
+        }
+    },
+    "ZoneHVAC:EquipmentList": {
+        "Office:0 Equipment": {
+            "equipment": [
+                {
+                    "zone_equipment_cooling_sequence": 1,
+                    "zone_equipment_heating_or_no_load_sequence": 1,
+                    "zone_equipment_name": "Office:0 WAHP",
+                    "zone_equipment_object_type": "ZoneHVAC:WaterToAirHeatPump"
+                }
+            ],
+            "load_distribution_scheme": "SequentialLoad"
+        },
+        "Office:1 Equipment": {
+            "equipment": [
+                {
+                    "zone_equipment_cooling_sequence": 1,
+                    "zone_equipment_heating_or_no_load_sequence": 1,
+                    "zone_equipment_name": "Office:1 WAHP",
+                    "zone_equipment_object_type": "ZoneHVAC:WaterToAirHeatPump"
+                }
+            ],
+            "load_distribution_scheme": "SequentialLoad"
+        },
+        "Office:2 Equipment": {
+            "equipment": [
+                {
+                    "zone_equipment_cooling_sequence": 1,
+                    "zone_equipment_heating_or_no_load_sequence": 1,
+                    "zone_equipment_name": "Office:2 WAHP",
+                    "zone_equipment_object_type": "ZoneHVAC:WaterToAirHeatPump"
+                }
+            ],
+            "load_distribution_scheme": "SequentialLoad"
+        },
+        "Office:3 Equipment": {
+            "equipment": [
+                {
+                    "zone_equipment_cooling_sequence": 1,
+                    "zone_equipment_heating_or_no_load_sequence": 1,
+                    "zone_equipment_name": "Office:3 WAHP",
+                    "zone_equipment_object_type": "ZoneHVAC:WaterToAirHeatPump"
+                }
+            ],
+            "load_distribution_scheme": "SequentialLoad"
+        },
+        "Office:4 Equipment": {
+            "equipment": [
+                {
+                    "zone_equipment_cooling_sequence": 1,
+                    "zone_equipment_heating_or_no_load_sequence": 1,
+                    "zone_equipment_name": "Office:4 WAHP",
+                    "zone_equipment_object_type": "ZoneHVAC:WaterToAirHeatPump"
+                }
+            ],
+            "load_distribution_scheme": "SequentialLoad"
+        }
+    },
+    "ZoneHVAC:WaterToAirHeatPump": {
+        "Office:0 WAHP": {
+            "air_inlet_node_name": "Office:0 WAHP Return",
+            "air_outlet_node_name": "Office:0 WAHP Supply Inlet",
+            "cooling_coil_name": "Office:0 WAHP Cooling Coil",
+            "cooling_coil_object_type": "Coil:Cooling:WaterToAirHeatPump:EquationFit",
+            "cooling_outdoor_air_flow_rate": "Autosize",
+            "cooling_supply_air_flow_rate": "Autosize",
+            "fan_placement": "DrawThrough",
+            "fraction_of_on_cycle_power_use": 0.01,
+            "heat_pump_coil_water_flow_mode": "Cycling",
+            "heat_pump_fan_delay_time": 60,
+            "heat_pump_time_constant": 60,
+            "heating_coil_name": "Office:0 WAHP Heating Coil",
+            "heating_coil_object_type": "Coil:Heating:WaterToAirHeatPump:EquationFit",
+            "heating_outdoor_air_flow_rate": "Autosize",
+            "heating_supply_air_flow_rate": "Autosize",
+            "maximum_cycling_rate": 2.5,
+            "maximum_outdoor_dry_bulb_temperature_for_supplemental_heater_operation": 20.0,
+            "maximum_supply_air_temperature_from_supplemental_heater": "Autosize",
+            "no_load_outdoor_air_flow_rate": "Autosize",
+            "outdoor_air_mixer_name": "Office:0 WAHP OA Mixing Box",
+            "outdoor_air_mixer_object_type": "OutdoorAir:Mixer",
+            "outdoor_dry_bulb_temperature_sensor_node_name": "Office:0 WAHP Outside Air Inlet",
+            "supplemental_heating_coil_name": "Office:0 WAHP Supp Heating Coil",
+            "supplemental_heating_coil_object_type": "Coil:Heating:Electric",
+            "supply_air_fan_name": "Office:0 WAHP Supply Fan",
+            "supply_air_fan_object_type": "Fan:OnOff",
+            "supply_air_fan_operating_mode_schedule_name": "HVACTemplate-Always 0"
+        },
+        "Office:1 WAHP": {
+            "air_inlet_node_name": "Office:1 WAHP Return",
+            "air_outlet_node_name": "Office:1 WAHP Supply Inlet",
+            "cooling_coil_name": "Office:1 WAHP Cooling Coil",
+            "cooling_coil_object_type": "Coil:Cooling:WaterToAirHeatPump:EquationFit",
+            "cooling_outdoor_air_flow_rate": "Autosize",
+            "cooling_supply_air_flow_rate": "Autosize",
+            "fan_placement": "DrawThrough",
+            "fraction_of_on_cycle_power_use": 0.01,
+            "heat_pump_coil_water_flow_mode": "Cycling",
+            "heat_pump_fan_delay_time": 60,
+            "heat_pump_time_constant": 60,
+            "heating_coil_name": "Office:1 WAHP Heating Coil",
+            "heating_coil_object_type": "Coil:Heating:WaterToAirHeatPump:EquationFit",
+            "heating_outdoor_air_flow_rate": "Autosize",
+            "heating_supply_air_flow_rate": "Autosize",
+            "maximum_cycling_rate": 2.5,
+            "maximum_outdoor_dry_bulb_temperature_for_supplemental_heater_operation": 20.0,
+            "maximum_supply_air_temperature_from_supplemental_heater": "Autosize",
+            "no_load_outdoor_air_flow_rate": "Autosize",
+            "outdoor_air_mixer_name": "Office:1 WAHP OA Mixing Box",
+            "outdoor_air_mixer_object_type": "OutdoorAir:Mixer",
+            "outdoor_dry_bulb_temperature_sensor_node_name": "Office:1 WAHP Outside Air Inlet",
+            "supplemental_heating_coil_name": "Office:1 WAHP Supp Heating Coil",
+            "supplemental_heating_coil_object_type": "Coil:Heating:Electric",
+            "supply_air_fan_name": "Office:1 WAHP Supply Fan",
+            "supply_air_fan_object_type": "Fan:OnOff",
+            "supply_air_fan_operating_mode_schedule_name": "HVACTemplate-Always 0"
+        },
+        "Office:2 WAHP": {
+            "air_inlet_node_name": "Office:2 WAHP Return",
+            "air_outlet_node_name": "Office:2 WAHP Supply Inlet",
+            "cooling_coil_name": "Office:2 WAHP Cooling Coil",
+            "cooling_coil_object_type": "Coil:Cooling:WaterToAirHeatPump:EquationFit",
+            "cooling_outdoor_air_flow_rate": "Autosize",
+            "cooling_supply_air_flow_rate": "Autosize",
+            "fan_placement": "DrawThrough",
+            "fraction_of_on_cycle_power_use": 0.01,
+            "heat_pump_coil_water_flow_mode": "Cycling",
+            "heat_pump_fan_delay_time": 60,
+            "heat_pump_time_constant": 60,
+            "heating_coil_name": "Office:2 WAHP Heating Coil",
+            "heating_coil_object_type": "Coil:Heating:WaterToAirHeatPump:EquationFit",
+            "heating_outdoor_air_flow_rate": "Autosize",
+            "heating_supply_air_flow_rate": "Autosize",
+            "maximum_cycling_rate": 2.5,
+            "maximum_outdoor_dry_bulb_temperature_for_supplemental_heater_operation": 20.0,
+            "maximum_supply_air_temperature_from_supplemental_heater": "Autosize",
+            "no_load_outdoor_air_flow_rate": "Autosize",
+            "outdoor_air_mixer_name": "Office:2 WAHP OA Mixing Box",
+            "outdoor_air_mixer_object_type": "OutdoorAir:Mixer",
+            "outdoor_dry_bulb_temperature_sensor_node_name": "Office:2 WAHP Outside Air Inlet",
+            "supplemental_heating_coil_name": "Office:2 WAHP Supp Heating Coil",
+            "supplemental_heating_coil_object_type": "Coil:Heating:Electric",
+            "supply_air_fan_name": "Office:2 WAHP Supply Fan",
+            "supply_air_fan_object_type": "Fan:OnOff",
+            "supply_air_fan_operating_mode_schedule_name": "HVACTemplate-Always 0"
+        },
+        "Office:3 WAHP": {
+            "air_inlet_node_name": "Office:3 WAHP Return",
+            "air_outlet_node_name": "Office:3 WAHP Supply Inlet",
+            "cooling_coil_name": "Office:3 WAHP Cooling Coil",
+            "cooling_coil_object_type": "Coil:Cooling:WaterToAirHeatPump:EquationFit",
+            "cooling_outdoor_air_flow_rate": "Autosize",
+            "cooling_supply_air_flow_rate": "Autosize",
+            "fan_placement": "DrawThrough",
+            "fraction_of_on_cycle_power_use": 0.01,
+            "heat_pump_coil_water_flow_mode": "Cycling",
+            "heat_pump_fan_delay_time": 60,
+            "heat_pump_time_constant": 60,
+            "heating_coil_name": "Office:3 WAHP Heating Coil",
+            "heating_coil_object_type": "Coil:Heating:WaterToAirHeatPump:EquationFit",
+            "heating_outdoor_air_flow_rate": "Autosize",
+            "heating_supply_air_flow_rate": "Autosize",
+            "maximum_cycling_rate": 2.5,
+            "maximum_outdoor_dry_bulb_temperature_for_supplemental_heater_operation": 20.0,
+            "maximum_supply_air_temperature_from_supplemental_heater": "Autosize",
+            "no_load_outdoor_air_flow_rate": "Autosize",
+            "outdoor_air_mixer_name": "Office:3 WAHP OA Mixing Box",
+            "outdoor_air_mixer_object_type": "OutdoorAir:Mixer",
+            "outdoor_dry_bulb_temperature_sensor_node_name": "Office:3 WAHP Outside Air Inlet",
+            "supplemental_heating_coil_name": "Office:3 WAHP Supp Heating Coil",
+            "supplemental_heating_coil_object_type": "Coil:Heating:Electric",
+            "supply_air_fan_name": "Office:3 WAHP Supply Fan",
+            "supply_air_fan_object_type": "Fan:OnOff",
+            "supply_air_fan_operating_mode_schedule_name": "HVACTemplate-Always 0"
+        },
+        "Office:4 WAHP": {
+            "air_inlet_node_name": "Office:4 WAHP Return",
+            "air_outlet_node_name": "Office:4 WAHP Supply Inlet",
+            "cooling_coil_name": "Office:4 WAHP Cooling Coil",
+            "cooling_coil_object_type": "Coil:Cooling:WaterToAirHeatPump:EquationFit",
+            "cooling_outdoor_air_flow_rate": "Autosize",
+            "cooling_supply_air_flow_rate": "Autosize",
+            "fan_placement": "DrawThrough",
+            "fraction_of_on_cycle_power_use": 0.01,
+            "heat_pump_coil_water_flow_mode": "Cycling",
+            "heat_pump_fan_delay_time": 60,
+            "heat_pump_time_constant": 60,
+            "heating_coil_name": "Office:4 WAHP Heating Coil",
+            "heating_coil_object_type": "Coil:Heating:WaterToAirHeatPump:EquationFit",
+            "heating_outdoor_air_flow_rate": "Autosize",
+            "heating_supply_air_flow_rate": "Autosize",
+            "maximum_cycling_rate": 2.5,
+            "maximum_outdoor_dry_bulb_temperature_for_supplemental_heater_operation": 20.0,
+            "maximum_supply_air_temperature_from_supplemental_heater": "Autosize",
+            "no_load_outdoor_air_flow_rate": "Autosize",
+            "outdoor_air_mixer_name": "Office:4 WAHP OA Mixing Box",
+            "outdoor_air_mixer_object_type": "OutdoorAir:Mixer",
+            "outdoor_dry_bulb_temperature_sensor_node_name": "Office:4 WAHP Outside Air Inlet",
+            "supplemental_heating_coil_name": "Office:4 WAHP Supp Heating Coil",
+            "supplemental_heating_coil_object_type": "Coil:Heating:Electric",
+            "supply_air_fan_name": "Office:4 WAHP Supply Fan",
+            "supply_air_fan_object_type": "Fan:OnOff",
+            "supply_air_fan_operating_mode_schedule_name": "HVACTemplate-Always 0"
+        }
+    },
+    "ZoneInfiltration:DesignFlowRate": {
+        "Infiltration_Office": {
+            "air_changes_per_hour": 0.34,
+            "constant_term_coefficient": 0.606,
+            "design_flow_rate_calculation_method": "AirChanges/Hour",
+            "schedule_name": "Space Infiltration Schedule",
+            "temperature_term_coefficient": 0.036359996,
+            "velocity_squared_term_coefficient": 0,
+            "velocity_term_coefficient": 0.1177165,
+            "zone_or_zonelist_name": "Office"
+        }
+    },
+    "ZoneList": {
+        "Office": {
+            "zones": [
+                {
+                    "zone_name": "Office:0"
+                },
+                {
+                    "zone_name": "Office:1"
+                },
+                {
+                    "zone_name": "Office:2"
+                },
+                {
+                    "zone_name": "Office:3"
+                },
+                {
+                    "zone_name": "Office:4"
+                }
+            ]
+        }
+    },
+    "ZoneVentilation:DesignFlowRate": {
+        "NaturalVentilation_Office": {
+            "air_changes_per_hour": 2,
+            "constant_term_coefficient": 1,
+            "delta_temperature": 1,
+            "design_flow_rate": 0,
+            "design_flow_rate_calculation_method": "AirChanges/Hour",
+            "fan_pressure_rise": 1,
+            "fan_total_efficiency": 1,
+            "flow_rate_per_person": 0.00944,
+            "flow_rate_per_zone_floor_area": 0.001,
+            "maximum_indoor_temperature": 24.9,
+            "minimum_indoor_temperature": 23,
+            "schedule_name": "Office_VentilationSchedule",
+            "temperature_term_coefficient": 0,
+            "velocity_squared_term_coefficient": 0,
+            "velocity_term_coefficient": 0,
+            "ventilation_type": "Natural",
+            "zone_or_zonelist_name": "Office"
+        },
+        "Ventilation_Office": {
+            "air_changes_per_hour": 0,
+            "constant_term_coefficient": 1,
+            "delta_temperature": 1,
+            "design_flow_rate": 0,
+            "design_flow_rate_calculation_method": "Flow/Person",
+            "fan_pressure_rise": 1,
+            "fan_total_efficiency": 1,
+            "flow_rate_per_person": 0.00944,
+            "flow_rate_per_zone_floor_area": 0.001,
+            "maximum_indoor_temperature": 100,
+            "minimum_indoor_temperature": -100,
+            "schedule_name": "Office_VentilationSchedule",
+            "temperature_term_coefficient": 0,
+            "velocity_squared_term_coefficient": 0,
+            "velocity_term_coefficient": 0,
+            "ventilation_type": "Balanced",
+            "zone_or_zonelist_name": "Office"
+        }
+    }
+}
