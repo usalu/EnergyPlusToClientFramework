@@ -59,17 +59,22 @@ namespace EPJsonClientCodeGenerator
             var cSharpCodeProvider = new CSharpCodeProvider();
             CodeCompileUnit ePCompileUnit = new CodeCompileUnit();
 
-            //create groupings of all EPObjects according group tag
+            //Create groupings of all EPObjects according group tag
             var ePGroups =
                 from energySchemaProperty in epJsonSchema.Properties
-                group energySchemaProperty by energySchemaProperty.Value.Group into newGroup
+                group energySchemaProperty by energySchemaProperty.Value.EPGroup into newGroup
                 orderby newGroup.Key
                 select newGroup;
 
-            CodeNamespaceImport[] groupsNamespaceImports = ePGroups.Select(x=>new CodeNamespaceImport(x.Key)).ToArray();
-
+            
+            //Create a namespace for each group
             foreach (var ePGroup in ePGroups)
             {
+                //Import all other groups
+                //NOTE: Not all other namespaces are needed but in order to decide that before hand seems unnecessarily complicated 
+                CodeNamespaceImport[] groupsNamespaceImports = ePGroups
+                    .Where(x=>x.Key!=ePGroup.Key)
+                    .Select(x => new CodeNamespaceImport(baseName + "." + x.Key)).ToArray();
                 CodeNamespace ePGroupCodeNamespace = new CodeNamespace(baseName + "." + ePGroup.Key);
                 ePGroupCodeNamespace.Imports.AddRange(groupsNamespaceImports);
 
@@ -78,11 +83,11 @@ namespace EPJsonClientCodeGenerator
 
         }
 
-        public static CodeNamespaceCollection GenerateCodeNamespacesFromEPGroup(IGrouping<string,KeyValuePair<string,EPJsonSchemaProperty>> ePGroup)
-        {
+        //public static CodeNamespaceCollection GenerateCodeNamespacesFromEPGroup(IGrouping<string,KeyValuePair<string,EPJsonSchemaProperty>> ePGroup)
+        //{
            
 
-        }
+        //}
 
     }
 
