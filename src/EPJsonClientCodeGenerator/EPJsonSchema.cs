@@ -169,16 +169,16 @@ namespace EPJsonClientCodeGenerator
     public partial class EPFieldProperty : JsonSchemaProperty
     {
         [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-        public EPFieldType? Type { get; set; }
+        public EPFieldType? EPType { get; set; }
 
         [JsonProperty("default", NullValueHandling = NullValueHandling.Ignore)]
         public Default? Default { get; set; }
 
         [JsonProperty("note", NullValueHandling = NullValueHandling.Ignore)]
-        public string Note { get; set; }
+        public string EPNote { get; set; }
 
         [JsonProperty("enum", NullValueHandling = NullValueHandling.Ignore)]
-        public string[] Enum { get; set; }
+        public string[] EPEnum { get; set; }
 
         [JsonProperty("minimum", NullValueHandling = NullValueHandling.Ignore)]
         public double? Minimum { get; set; }

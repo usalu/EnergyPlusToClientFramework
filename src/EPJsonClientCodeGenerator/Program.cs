@@ -59,6 +59,18 @@ namespace EPJsonClientCodeGenerator
             string baseName = "EnergyPlus";
 
             var cSharpCodeProvider = new CSharpCodeProvider();
+            //options for the layout of the generated C# and VB code
+            var codeGeneratorOptions = new CodeGeneratorOptions()
+            {
+                //BracingStyles: "Block", "C"
+                BracingStyle = "C",
+                BlankLinesBetweenMembers = true,
+                IndentString = "    ",
+                ElseOnClosing = false,
+                VerbatimOrder = true
+            };
+
+
             CodeCompileUnit ePCompileUnit = new CodeCompileUnit();
 
             //Create groupings of all EPObjects according group tag
@@ -97,60 +109,106 @@ namespace EPJsonClientCodeGenerator
                 //Filling namespaces with ePObjects -> classes and the ePFields -> fields and enumerable type of fields -> enums
                 foreach (KeyValuePair<string,EPObjectJsonSchemeProperty> ePObject in ePGroup)
                 {
-                    CodeTypeDeclaration abstractionLevelTypeDeclaration = new CodeTypeDeclaration(StripEPObjectNameToCamelCase(ePObject.Key))
+                    EPObjectJsonSchemeProperty ePObjectJsonSchemeProperty = ePObject.Value;
+                    CodeTypeDeclaration ePObjectTypeDeclaration = new CodeTypeDeclaration(StripEPObjectNameToCamelCase(ePObject.Key))
                     {
                         IsClass = true,
                         CustomAttributes = GetEPObjectJsonSchemePropertyAttributeDeclarations(ePObject)
                     };
 
                     //In the current tested schemas only these two pattern properties appear
-                    var ePGroupProperties = (ePObject.Value.EPPatternProperties.NecessaryField!=null) ? ePObject.Value.EPPatternProperties.NecessaryField.Properties : ePObject
-                        .Value.EPPatternProperties.OptionalField.Properties;
-                  
+                    var ePGroupProperties = (ePObjectJsonSchemeProperty.EPPatternProperties.NecessaryField!=null) ? 
+                        ePObjectJsonSchemeProperty.EPPatternProperties.NecessaryField.Properties : ePObjectJsonSchemeProperty.EPPatternProperties.OptionalField.Properties;
+
+                    //Turns into bool. The empty string will be translated into the default value.
+                    var YesNoDefaultEnum = new String[] {"", "No", "Yes"};
+
+                    List<string[]> generalEnums = new List<string[]>(){ YesNoDefaultEnum };
+
+                   
+
                     foreach (KeyValuePair<string, EPFieldProperty> epPatternProperty in ePGroupProperties)
                     {
-                       
-                        CodeTypeMember ePPatternProperTypeMember = new CodeMemberProperty()
+                        EPFieldProperty epFieldProperty = epPatternProperty.Value;
+
+                        //Type of object. Default: string
+                        CodeTypeReference ePPatternPropertyTypeReference = new CodeTypeReference(typeof(string));
+
+                        switch (epFieldProperty.EPType)
+                        {
+                            case EPFieldType.Number:
+                                ePPatternPropertyTypeReference = new CodeTypeReference(typeof(float));
+                                break;
+                            case EPFieldType.String:
+                                break;
+                            case EPFieldType.Array:
+                                if (epFieldProperty.EPEnum!=null)
+                                {
+                                    if (epFieldProperty.EPEnum == YesNoDefaultEnum)
+                                    {
+                                        ePPatternPropertyTypeReference = new CodeTypeReference(typeof(bool));
+                                    }
+                                    else
+                                    {
+                                        CodeTypeDeclaration ePPatternProperEnumTypeDeclaration = new CodeTypeDeclaration(StripEPFieldNameToCamelCase(epPatternProperty.Key) + "Type")
+                                        {
+                                            IsEnum = true
+                                        };
+                                        if (epFieldProperty.EPNote != null)
+                                            ePPatternProperEnumTypeDeclaration.CustomAttributes.Add(new CodeAttributeDeclaration("Description",
+                                                new CodeAttributeArgument(new CodePrimitiveExpression(epFieldProperty.EPNote))));
+
+
+                                        foreach (var epField in epFieldProperty.EPEnum)
+                                        {
+                                            var enumMember = new CodeMemberField();
+                                            string enumFieldName = epField;
+                                            if (enumFieldName == "")
+                                                continue;
+                                            enumMember.Name = enumFieldName;
+
+                                            ePObjectTypeDeclaration.Members.Add(enumMember);
+                                        }
+
+                                        ePObjectTypeDeclaration.Members.Add(ePPatternProperEnumTypeDeclaration);
+                                    }
+                                }
+                                break;
+                        }
+                        CodeMemberProperty ePPatternProperTypeMember = new CodeMemberProperty()
                         {
                             Attributes = MemberAttributes.Public | MemberAttributes.Final,
                             Name = epPatternProperty.Key,
                             HasGet = true,
-                            HasSet = true
+                            HasSet = true,
+                            Type = ePPatternPropertyTypeReference
                         };
-                        //switch (epPatternProperty.Value.Type)
-                        //{
-                        //    case EPFieldType.Array:
-                        //        var listType = new CodeTypeReference(typeof(List<>));
-                        //        listType.TypeArguments.Add(epPatternProperty.Value.Items.);
-                        //}
-
                         //Name for serialization
                         ePPatternProperTypeMember.CustomAttributes.Add(new CodeAttributeDeclaration("JsonProperty", new CodeAttributeArgument(new CodePrimitiveExpression(epPatternProperty.Key))));
 
-                        abstractionLevelTypeDeclaration.Members.Add(ePPatternProperTypeMember);
+
+
+                        //Add the default value with type cast to the property. There is currently no semantical way of doing this.
+                        StringWriter sw = new StringWriter();
+                        cSharpCodeProvider.GenerateCodeFromMember(ePPatternProperTypeMember, sw, codeGeneratorOptions);
+                        CodeSnippetTypeMember epPatternPropertySnippetTypeMemberWithDefaultValue = (epFieldProperty.Default == null) ?
+                                new CodeSnippetTypeMember(sw.ToString() + " = " + "null"):
+                                new CodeSnippetTypeMember(sw.ToString() + " = " + "(" + ePPatternPropertyTypeReference.BaseType + ")" + 
+                                                          ((epFieldProperty.Default.Value.Double== null)? epFieldProperty.Default.Value.String: epFieldProperty.Default.Value.Double.ToString()));
+
+                        ePObjectTypeDeclaration.Members.Add(epPatternPropertySnippetTypeMemberWithDefaultValue);
                     }
 
 
 
 
-                    ePGroupNamespace.Types.Add(abstractionLevelTypeDeclaration);
+                    ePGroupNamespace.Types.Add(ePObjectTypeDeclaration);
                 }
 
                 //All classes with attributes
 
                 ePCompileUnit.Namespaces.Add(ePGroupNamespace);
             }
-
-
-            //options for the layout of the generated C# and VB code
-            var codeGeneratorOptions = new CodeGeneratorOptions()
-            {
-                BracingStyle = "C",
-                BlankLinesBetweenMembers = true,
-                IndentString = "    ",
-                ElseOnClosing = false,
-                VerbatimOrder = true
-            };
 
             StringWriter stringWriterCSharp = new StringWriter();
             cSharpCodeProvider.GenerateCodeFromCompileUnit(ePCompileUnit, stringWriterCSharp, codeGeneratorOptions);
@@ -175,6 +233,16 @@ namespace EPJsonClientCodeGenerator
             return codeAttributeDeclarations;
         }
 
+        public static string StripEPFieldNameToCamelCase(string str)
+        {
+            return String.Concat(
+                String.Join("",
+                        new Regex("[^a-zA-Z]")
+                            .Replace(str, "")
+                            .Split(new[] { "_", " " }, StringSplitOptions.RemoveEmptyEntries)
+                            .Select(word => char.ToUpper(word[0]) + word.Substring(1)))
+                    .Where(c => !Char.IsWhiteSpace(c)));
+        }
 
 
         public static string StripEPGroupNameToCamelCase( string str)
