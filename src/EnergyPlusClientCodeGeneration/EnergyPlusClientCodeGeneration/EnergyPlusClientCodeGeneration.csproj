@@ -55,11 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BHoM\BHoMAssemblyBuilder.cs" />
-    <Compile Include="BHoM\BHoMEPClientCodeGenerator.cs" />
-    <Compile Include="EPClientAssembly.cs" />
-    <Compile Include="EPClientAssemblyBuilder.cs" />
-    <Compile Include="EPClientAssemblyDirector.cs" />
-    <Compile Include="EPClientCodeGenerator.cs" />
+    <Compile Include="BHoM\BHoMClientCodeGenerator.cs" />
+    <Compile Include="ClientAssembly.cs" />
+    <Compile Include="ClientAssemblyBuilder.cs" />
+    <Compile Include="ClientAssemblyDirector.cs" />
+    <Compile Include="ClientCodeGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 using EnergyPlusJsonSchemas._9_5_0;
 using Microsoft.CSharp;
 
-namespace EPJsonClientCodeGenerator
+namespace JsonClientCodeGenerator
 {
-    public class EPClientCodeGenerator
+    public class ClientCodeGenerator
     {
-        public EPJsonSchema EPJsonSchema { get; }
+        public JsonSchema JsonSchema { get; }
 
         
 
-        public EPClientCodeGenerator()
+        public ClientCodeGenerator()
         {
-            //string json = File.ReadAllText(@"C:\Git\EPJsonClientCodeGenerator\Input\EnergyPlusV9-5-0\Energy+.schema.epJSON");
-            string json = EPJsonSchema.GetOfficalEPJsonSchema;
+            //string json = File.ReadAllText(@"C:\Git\JsonClientCodeGenerator\Input\EnergyPlusV9-5-0\Energy+.schema.JSON");
+            string json = JsonSchema.GetOfficalJsonSchema;
 
             //remove unwanted attributes
             //var temp = JObject.Parse(json);
@@ -32,14 +32,14 @@ namespace EPJsonClientCodeGenerator
             //    .ForEach(attr => attr.Remove()); // removing unwanted attributes
             //json = temp.ToString(); // backing result to json
 
-            EPJsonSchema = EPJsonSchema.FromJson(json);
+            JsonSchema = JsonSchema.FromJson(json);
         }
 
         public static void GenerateCSharp( string folder)
         {
             string baseName = "EnergyPlus";
 
-            var cSharpCodeProvider = new CSharpCodeProvider();
+            var cSharpCodrovider = new CSharpCodrovider();
             //options for the layout of the generated C# and VB code
             var codeGeneratorOptions = new CodeGeneratorOptions()
             {
@@ -52,7 +52,7 @@ namespace EPJsonClientCodeGenerator
             };
 
             StringWriter stringWriterCSharp = new StringWriter();
-            cSharpCodeProvider.GenerateCodeFromCompileUnit(GetEPCodeCompileUnit(), stringWriterCSharp, codeGeneratorOptions);
+            cSharpCodrovider.GenerateCodeFromCompileUnit(GetCodeCompileUnit(), stringWriterCSharp, codeGeneratorOptions);
             File.WriteAllText($@"{folder}\{baseName}.cs", stringWriterCSharp.ToString());
 
         }

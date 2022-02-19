@@ -41,7 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BHoM\BHoMAssemblyBuilder.cs" />
+    <Compile Include="ClientCodeCompileUnit.cs" />
+    <Compile Include="ClientAssemblyBuilder.cs" />
+    <Compile Include="ClientAssemblyDirector.cs" />
+    <Compile Include="ClientCodeGenerator.cs" />
+    <Compile Include="IClientCodeCompileUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ClientNamespace\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
