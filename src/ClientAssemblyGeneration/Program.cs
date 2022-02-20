@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ClientAssemblyGeneration.Builders;
 using ClientAssemblyGeneration.Directors;
@@ -35,7 +36,8 @@ namespace ClientAssemblyGeneration
 
             StringWriter stringWriterCSharp = new StringWriter();
             cSharpCodeProvider.GenerateCodeFromCompileUnit(ePbHoMCodeCompileUnit, stringWriterCSharp, codeGeneratorOptions);
-            File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\EnergyPlus.cs", stringWriterCSharp.ToString());
+            string allCode = stringWriterCSharp.ToString();
+            File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\EnergyPlus.cs", allCode);
 
             var results = cSharpCodeProvider.CompileAssemblyFromDom(new CompilerParameters
             {
@@ -43,8 +45,20 @@ namespace ClientAssemblyGeneration
                 OutputAssembly = $@"C:\Git\EPJsonClientCodeGeneration\Output\EnergyPlus.dll",
                 GenerateInMemory = false,
                 TreatWarningsAsErrors = false,
-                ReferencedAssemblies = { "Newtonsoft.Json"}
+                ReferencedAssemblies = { "BHoM.dll", "Newtonsoft.Json.dll"}
             }, ePbHoMCodeCompileUnit);
+
+            string folder = @"C:\Git\EPJsonClientCodeGeneration\Output\Code";
+
+            var ePNamespaces = allCode.Split(new []{ "//------------------------------------------------------------------------------" }, StringSplitOptions.None)[2]
+                .Split(new []{"namespace"}, StringSplitOptions.None).Skip(1);
+            foreach (var ePNamespace in ePNamespaces)
+            {
+                var ePNamespaceName = new Regex("^.*\n").Match(ePNamespace).Value.Split(new []{"\r\n"}, StringSplitOptions.None)[0].Split('.').Last();
+                string ePNamespaceFolder = folder + "\\" + ePNamespaceName;
+                Directory.CreateDirectory(ePNamespaceFolder);
+                File.WriteAllText(ePNamespaceFolder + "\\" + ePNamespaceName + ".cs", "namespace" + ePNamespace);
+            }
 
         }
     }

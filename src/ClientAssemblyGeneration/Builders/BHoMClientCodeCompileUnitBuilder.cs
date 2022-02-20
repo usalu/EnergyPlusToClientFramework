@@ -1,5 +1,11 @@
-﻿using System.CodeDom;
+﻿using System;
+using System.CodeDom;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Text.RegularExpressions;
+using Microsoft.CSharp;
 
 namespace ClientAssemblyGeneration.Builders
 {
@@ -10,35 +16,47 @@ namespace ClientAssemblyGeneration.Builders
         {
             //base.BuildProperty(clientNamespaceName, clientClassName, name, propertyType, defaultValue, description, attributes);
 
-            string descriptionAttribute = description != "" ? "[Description(@\"" + description + "\")]\n" : "";
+            CodeMemberProperty property = new CodeMemberProperty()
+            {
+                Attributes = MemberAttributes.Public | MemberAttributes.Final,
+                Name = name,
+                Type = propertyType
+            };
+            if (description != "")
+                property.CustomAttributes.Add(new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(description))));
 
-            string customAttributesCode = "";
-            if(attributes.Count!=0)
-                foreach (CodeAttributeDeclaration attribute in attributes)
-                {
-                    customAttributesCode += "[" + attribute.Name + "(@\"" + description + "\")]\n";
-                }
+            if (attributes != null)
+                property.CustomAttributes.AddRange(attributes);
+
+            CSharpCodeProvider provider = new CSharpCodeProvider();
+            StringWriter stringWriterCSharp = new StringWriter();
+            provider.GenerateCodeFromMember(property, stringWriterCSharp,new CodeGeneratorOptions()
+            {
+                BracingStyle = "C"
+            });
+
+            string cleanedCode = stringWriterCSharp.ToString();
+            cleanedCode = cleanedCode.Substring(0, new Regex(@"\n\s*{").Match(cleanedCode).Index-1);
 
             string defaultValueCode;
             switch (propertyType.BaseType)
             {
                 case "System.String":
-                    defaultValueCode = defaultValue != "" ? "(" + propertyType.BaseType + ")" + defaultValue : "\"\"";
+                    defaultValueCode = defaultValue != "" ? "(" + propertyType.BaseType + ")" + "\"" + defaultValue + "\"" : "\"\"";
                     break;
-                case "System.Single":
-                    //defaultValueCode = defaultValue != "" ? "(" + propertyType.BaseType + ")" + defaultValue : "null"; ;
-                    defaultValueCode = defaultValue;
+                case "System.Nullable`1":
+                    defaultValueCode =
+                        defaultValue != "" ? "(" + "System.Nullable<float>" + ")" + "Single.Parse("+ "\"" + defaultValue +  "\"" + ", CultureInfo.InvariantCulture)" : "null";
+                    //defaultValueCode = defaultValue;
                     break;
                 default:
-                    defaultValueCode = "(" + propertyType.BaseType + ")Enum.Parse(typeof(" + propertyType.BaseType + "), \"" + ((defaultValue=="")? "Default": defaultValue) + "\")";
+                    defaultValueCode = "(" + propertyType.BaseType + ")Enum.Parse(typeof(" + propertyType.BaseType + "), \"" + ((defaultValue=="")? "Empty": defaultValue) + "\")";
                     break;
 
             }
 
-             
-
             FindClass(clientNamespaceName, clientClassName).Members
-                .Add(new CodeSnippetTypeMember(descriptionAttribute + customAttributesCode + "public " + propertyType.BaseType + " " + name +" " + "{ get; set; }" + " = " + defaultValueCode + ";"));
+                .Add(new CodeSnippetTypeMember(cleanedCode  + " " + "{ get; set; }" + " = " + defaultValueCode + ";"));
         }
     }
 }

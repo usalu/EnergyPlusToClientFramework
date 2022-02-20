@@ -27,22 +27,22 @@ namespace ClientAssemblyGeneration.Directors
 
         public override CodeCompileUnit GetCodeCompileUnit()
         {
-            string baseName = "EnergyPlus";
-            var systemImports = new CodeNamespaceImport[] { new CodeNamespaceImport("System"), new CodeNamespaceImport("Newtonsoft.Json") };
+            string baseName = "BH.oM.Adapters.EnergyPlus";
+            var systemImports = new CodeNamespaceImport[] { new CodeNamespaceImport("System"),new CodeNamespaceImport("System.Globalization"), new CodeNamespaceImport("Newtonsoft.Json"), new CodeNamespaceImport("BH.oM.Base") };
             _clientCodeCompileUnitBuilder.BuildNamespace(baseName, "", systemImports);
             List<string[]> generalEnums = new List<string[]>();
 
-            string[] YesNoDefaultEnum = new String[] { "", "No", "Yes" };
-            string YesNoDefaultEnumName = "YesNoDefault";
-            _clientCodeCompileUnitBuilder.BuildEnum(baseName, YesNoDefaultEnumName, YesNoDefaultEnum
+            string[] EmptyNoYesEnum = new String[] { "", "No", "Yes" };
+            string EmptyNoYesEnumName = "EmptyNoYes";
+            _clientCodeCompileUnitBuilder.BuildEnum(baseName, EmptyNoYesEnumName, EmptyNoYesEnum
                 .Select(x => (StripEPFieldNameToCamelCase(x),"", GetJsonPropertyAttributeDeclarations(x))).ToArray());
-            generalEnums.Add(YesNoDefaultEnum);
+            generalEnums.Add(EmptyNoYesEnum);
 
-            string[] HeatTransferAlgorithmEnum = new String[] { "", "CombinedHeatAndMoistureFiniteElement", "ConductionFiniteDifference", "ConductionTransferFunction", "MoisturePenetrationDepthConductionTransferFunction"};
-            string HeatTransferAlgorithmEnumName = "HeatTransferAlgorithm";
-            _clientCodeCompileUnitBuilder.BuildEnum(baseName, HeatTransferAlgorithmEnumName, HeatTransferAlgorithmEnum
-                .Select(x => (StripEPFieldNameToCamelCase(x), "", GetJsonPropertyAttributeDeclarations(x))).ToArray());
-            generalEnums.Add(HeatTransferAlgorithmEnum);
+            //string[] HeatTransferAlgorithmEnum = new String[] { "", "CombinedHeatAndMoistureFiniteElement", "ConductionFiniteDifference", "ConductionTransferFunction", "MoisturePenetrationDepthConductionTransferFunction"};
+            //string HeatTransferAlgorithmEnumName = "HeatTransferAlgorithm";
+            //_clientCodeCompileUnitBuilder.BuildEnum(baseName, HeatTransferAlgorithmEnumName, HeatTransferAlgorithmEnum
+            //    .Select(x => (StripEPFieldNameToCamelCase(x), "", GetJsonPropertyAttributeDeclarations(x))).ToArray());
+            //generalEnums.Add(HeatTransferAlgorithmEnum);
 
 
             //Create groupings of all EPObjects according group tag
@@ -76,7 +76,7 @@ namespace ClientAssemblyGeneration.Directors
 
                     string className = StripEPObjectNameToCamelCase(ePObject.Key);
 
-                    _clientCodeCompileUnitBuilder.BuildClass(fullNamespaceName, className, ePObjectJsonSchemeProperty.EPMemo, GetJsonObjectAttributeDeclarations(ePObject.Key));;
+                    _clientCodeCompileUnitBuilder.BuildClass(fullNamespaceName, className, ePObjectJsonSchemeProperty.EPMemo, new CodeTypeReferenceCollection(){ "BHoMObject" } ,GetJsonObjectAttributeDeclarations(ePObject.Key));;
 
                     //In the current tested schemas only these two pattern properties appear
                     var ePGroupProperties = (ePObjectJsonSchemeProperty.EPPatternProperties.NecessaryField != null) ? 
@@ -94,25 +94,25 @@ namespace ClientAssemblyGeneration.Directors
                         switch (epFieldProperty.EPType)
                         {
                             case EPFieldType.Number:
-                                ePPatternPropertyTypeReference = new CodeTypeReference(typeof(float));
+                                ePPatternPropertyTypeReference = new CodeTypeReference(typeof(float?));
                                 break;
                             case EPFieldType.String:
                                 if (epFieldProperty.EPEnum != null)
                                 {
-                                    if (epFieldProperty.EPEnum.SequenceEqual(YesNoDefaultEnum))
+                                    if (epFieldProperty.EPEnum.SequenceEqual(EmptyNoYesEnum))
                                     {
-                                        ePPatternPropertyTypeReference = new CodeTypeReference(YesNoDefaultEnumName);
+                                        ePPatternPropertyTypeReference = new CodeTypeReference(EmptyNoYesEnumName);
                                     }
-                                    else if (epFieldProperty.EPEnum.SequenceEqual(HeatTransferAlgorithmEnum))
-                                    {
-                                        ePPatternPropertyTypeReference = new CodeTypeReference(HeatTransferAlgorithmEnumName);
-                                    }
+                                    //else if (epFieldProperty.EPEnum.SequenceEqual(HeatTransferAlgorithmEnum))
+                                    //{
+                                    //    ePPatternPropertyTypeReference = new CodeTypeReference(HeatTransferAlgorithmEnumName);
+                                    //}
                                     else
                                     {
-                                        string propertyTypeName = StripEPFieldNameToCamelCase(epPatternProperty.Key) + "Type";
+                                        string propertyTypeName = className + "_" + StripEPFieldNameToCamelCase(epPatternProperty.Key);
                                         _clientCodeCompileUnitBuilder.BuildEnum(fullNamespaceName, propertyTypeName, 
                                             epFieldProperty.EPEnum.Select(x => (StripEPFieldNameToCamelCase(x), "",GetJsonPropertyAttributeDeclarations(x))).ToArray(), "");
-                                        ePPatternPropertyTypeReference = new CodeTypeReference(YesNoDefaultEnumName);
+                                        ePPatternPropertyTypeReference = new CodeTypeReference(EmptyNoYesEnumName);
                                     }
                                 }
 
@@ -156,7 +156,10 @@ namespace ClientAssemblyGeneration.Directors
             string upperCase = String.Join("", str
                 .Split(new[] { "_", " " }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(word => char.ToUpper(word[0]) + word.Substring(1)));
-            return String.Concat(new Regex("[^a-zA-Z]").Replace(upperCase, "").Where(c => !Char.IsWhiteSpace(c)));
+            string fieldName =
+                String.Concat(new Regex("[^a-zA-Z0-9]").Replace(upperCase, "").Where(c => !Char.IsWhiteSpace(c)));
+            
+            return Regex.IsMatch(fieldName, @"^\d")? "_"+fieldName: fieldName;
         }
 
 
@@ -164,7 +167,7 @@ namespace ClientAssemblyGeneration.Directors
         {
             return String.Concat(
                 String.Join("",
-                new Regex("[^a-zA-Z]")
+                new Regex("[^a-zA-Z0-9]")
                     .Replace(str, "")
                     .Split(new[] { "_", " " }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(word => char.ToUpper(word[0]) + word.Substring(1)))
@@ -173,14 +176,15 @@ namespace ClientAssemblyGeneration.Directors
 
         public static string StripEPObjectNameToCamelCase(string str)
         {
-            return String.Concat(
-                String.Join("",
-                        new Regex("[^a-zA-Z:]")
-                            .Replace(str, "")
-                            .Split(new[] { "_", " " }, StringSplitOptions.RemoveEmptyEntries)
-                            .Select(word => char.ToUpper(word[0]) + word.Substring(1)))
-                    .Where(c => !Char.IsWhiteSpace(c)))
+            string objectName = String.Concat(
+                    String.Join("",
+                            new Regex("[^a-zA-Z:0-9]")
+                                .Replace(str, "")
+                                .Split(new[] { "_", " " }, StringSplitOptions.RemoveEmptyEntries)
+                                .Select(word => char.ToUpper(word[0]) + word.Substring(1)))
+                        .Where(c => !Char.IsWhiteSpace(c)))
                 .Replace(':', '_');
+            return Regex.IsMatch(objectName, @"^\d") ? "_" + objectName : objectName;
         }
 
 

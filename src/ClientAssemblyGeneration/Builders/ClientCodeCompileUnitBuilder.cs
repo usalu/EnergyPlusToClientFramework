@@ -1,7 +1,9 @@
 ﻿using System;
 using System.CodeDom;
 using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Microsoft.CSharp;
 
 namespace ClientAssemblyGeneration.Builders
@@ -66,7 +68,7 @@ namespace ClientAssemblyGeneration.Builders
                 var enumItem = enumItems[i];
                 string itemName = enumItem.Value;
                 if (enumItem.Value == "")
-                    itemName = "Default";
+                    itemName = "Empty";
                 if (enumItem.Description != "")
                     enumMember.CustomAttributes.Add(new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(enumItem.Description))));
                 if (enumItem.attributes.Count!=0)
@@ -75,11 +77,32 @@ namespace ClientAssemblyGeneration.Builders
                 enumMember.InitExpression = new CodePrimitiveExpression(isFlagged ? (int)Math.Pow(2, i) : i);
                 clientEnum.Members.Add(enumMember);
             }
+            CodeNamespace clientNamespace = FindNamespace(clientNamespaceName);
+            foreach (CodeTypeDeclaration type in clientNamespace.Types)
+            {
+                if (type.Name == name)
+                {
+                    if (!type.IsEnum)
+                        throw new Exception("A type with that name that is not an Enum already exists. Please check your naming.");
 
-            FindNamespace(clientNamespaceName).Types.Add(clientEnum);
+                    var names = new List<string>();
+                    foreach ( CodeTypeMember member in type.Members)
+                    {
+                        names.Add(member.Name);
+                    }
+
+                    for (int i = 0; i < type.Members.Count; i++)
+                    {
+                        if(type.Members[i].Name!=enumItems[i].Value)
+                            throw new Exception("The members of the enum do not match with the enum that has the identical name. Consider renaming one of them.");
+                    }
+                    return;
+                }
+            }
+            clientNamespace.Types.Add(clientEnum);
         }
 
-        public virtual void BuildClass(string clientNamespaceName, string name, string description = "", CodeAttributeDeclarationCollection attributes = null)
+        public virtual void BuildClass(string clientNamespaceName, string name, string description = "", CodeTypeReferenceCollection superClassesAndInterfaces = null , CodeAttributeDeclarationCollection attributes = null)
         {
             var clientClass = new CodeTypeDeclaration(name)
             {
@@ -89,6 +112,8 @@ namespace ClientAssemblyGeneration.Builders
                 clientClass.CustomAttributes.Add(new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(description))));
             if (attributes != null)
                 clientClass.CustomAttributes.AddRange(attributes);
+            if(superClassesAndInterfaces!=null)
+                clientClass.BaseTypes.AddRange(superClassesAndInterfaces);
             FindNamespace(clientNamespaceName).Types.Add(clientClass);
         }
 

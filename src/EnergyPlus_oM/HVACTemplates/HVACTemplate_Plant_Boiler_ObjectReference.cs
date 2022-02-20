@@ -1,0 +1,37 @@
+using System;
+using System.ComponentModel;
+using BH.oM.Base;
+using Newtonsoft.Json;
+
+namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
+{
+    [Description("This object references a detailed boiler object and adds it to an HVACTemplate:Pl" +
+                 "ant:HotWaterLoop or MixedWaterLoop. The user must create a complete detailed boi" +
+                 "ler object with all required curve or performance objects.")]
+    [JsonObject("HVACTemplate:Plant:Boiler:ObjectReference")]
+    public class HVACTemplate_Plant_Boiler_ObjectReference : BHoMObject
+    {
+        
+
+        [JsonProperty("boiler_object_type")]
+        public EmptyNoYes BoilerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Boiler:HotWater");
+        
+
+        [Description("The name of the detailed boiler object.")]
+        [JsonProperty("boiler_name")]
+        public string BoilerName { get; set; } = "";
+        
+
+        [Description("If Hot Water Plant Operation Scheme Type=Default in HVACTemplate:Plant:HotWaterLo" +
+                     "op or MixedWaterLoop, then equipment operates in Priority order, 1, 2, 3, etc.")]
+        [JsonProperty("priority")]
+        public System.Nullable<float> Priority { get; set; } = null;
+        
+
+        [Description("Specifies if this boiler serves a template hot water loop or mixed water loop If " +
+                     "left blank, will serve a hot water loop if present, or a mixed water loop (if no" +
+                     " hot water loop is present).")]
+        [JsonProperty("template_plant_loop_type")]
+        public EmptyNoYes TemplatePlantLoopType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+    }
+}

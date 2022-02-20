@@ -1,0 +1,20 @@
+using Newtonsoft.Json;
+
+namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
+{
+    public enum HVACTemplate_System_DualDuct_CoolingCoilType
+    {
+        
+        [JsonProperty("")]
+        Empty = 0,
+        
+        [JsonProperty("ChilledWater")]
+        ChilledWater = 1,
+        
+        [JsonProperty("ChilledWaterDetailedFlatModel")]
+        ChilledWaterDetailedFlatModel = 2,
+        
+        [JsonProperty("None")]
+        None = 3,
+    }
+}

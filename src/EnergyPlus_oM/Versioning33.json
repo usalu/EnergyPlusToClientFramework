@@ -1,0 +1,22 @@
+{
+    "Namespace": {
+        "ToNew": {
+            "BH.oM.EnergyPlus": "BH.oM.Adapters.EnergyPlus"
+        },
+        "ToOld": {
+            "BH.oM.Adapters.EnergyPlus": "BH.oM.EnergyPlus"
+        }
+    },
+    "Type": {
+        "ToNew": {
+        },
+        "ToOld": {
+        }
+    },
+    "Property": {
+        "ToNew": {
+        },
+        "ToOld": {
+        }
+    }
+}

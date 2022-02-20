@@ -1,0 +1,11 @@
+using Newtonsoft.Json;
+
+namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
+{
+    public enum CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType1
+    {
+        
+        [JsonProperty("ChillerHeaterPerformance:Electric:EIR")]
+        ChillerHeaterPerformanceElectricEIR = 0,
+    }
+}

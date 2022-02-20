@@ -1,0 +1,17 @@
+using System.ComponentModel;
+using BH.oM.Base;
+using Newtonsoft.Json;
+
+namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
+{
+    [Description("This input defines an Erl program subroutine Each field after the name is a line " +
+                 "of EMS Runtime Language")]
+    [JsonObject("EnergyManagementSystem:Subroutine")]
+    public class EnergyManagementSystem_Subroutine : BHoMObject
+    {
+        
+
+        [JsonProperty("lines")]
+        public string Lines { get; set; } = "";
+    }
+}

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientAssemblyGeneration", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnergyPlus_9_5_0_JsonSchema", "EnergyPlus_9-5-0_JsonSchema\EnergyPlus_9_5_0_JsonSchema.csproj", "{359F13C1-0743-48A5-A3C0-5F9532651779}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnergyPlus_oM", "EnergyPlus_oM\EnergyPlus_oM.csproj", "{9278BBF2-A2FE-411F-AD68-8672F1D03280}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{359F13C1-0743-48A5-A3C0-5F9532651779}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{359F13C1-0743-48A5-A3C0-5F9532651779}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{359F13C1-0743-48A5-A3C0-5F9532651779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9278BBF2-A2FE-411F-AD68-8672F1D03280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9278BBF2-A2FE-411F-AD68-8672F1D03280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9278BBF2-A2FE-411F-AD68-8672F1D03280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9278BBF2-A2FE-411F-AD68-8672F1D03280}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

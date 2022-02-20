@@ -1,0 +1,39 @@
+using System;
+using System.ComponentModel;
+using BH.oM.Base;
+using Newtonsoft.Json;
+
+namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
+{
+    [Description("Spectrum Data Type is followed by up to 107 sets of normal-incidence measured val" +
+                 "ues of [wavelength, spectrum] for wavelengths covering the solar (0.25 to 2.5 mi" +
+                 "crons) or visible spectrum (0.38 to 0.78 microns)")]
+    [JsonObject("Site:SpectrumData")]
+    public class Site_SpectrumData : BHoMObject
+    {
+        
+
+        [JsonProperty("spectrum_data_type")]
+        public EmptyNoYes SpectrumDataType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        
+
+        [JsonProperty("wavelength")]
+        public System.Nullable<float> Wavelength { get; set; } = null;
+        
+
+        [JsonProperty("spectrum")]
+        public System.Nullable<float> Spectrum { get; set; } = null;
+        
+
+        [JsonProperty("wavelength_1")]
+        public System.Nullable<float> Wavelength1 { get; set; } = null;
+        
+
+        [JsonProperty("spectrum_2")]
+        public System.Nullable<float> Spectrum2 { get; set; } = null;
+        
+
+        [JsonProperty("extensions")]
+        public string Extensions { get; set; } = "";
+    }
+}
