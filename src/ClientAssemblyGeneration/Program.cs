@@ -6,10 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClientAssemblyGeneration.Builders;
 using ClientAssemblyGeneration.Directors;
-using EnergyPlusClientCodeGeneration;
-using EnergyPlusJsonSchemas._9_5_0;
-using JsonClientCodeGenerator.BHoM;
+using EnergyPlus_9_5_0_JsonSchema;
 using Microsoft.CSharp;
 
 namespace ClientAssemblyGeneration
@@ -37,6 +36,15 @@ namespace ClientAssemblyGeneration
             StringWriter stringWriterCSharp = new StringWriter();
             cSharpCodeProvider.GenerateCodeFromCompileUnit(ePbHoMCodeCompileUnit, stringWriterCSharp, codeGeneratorOptions);
             File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\EnergyPlus.cs", stringWriterCSharp.ToString());
+
+            var results = cSharpCodeProvider.CompileAssemblyFromDom(new CompilerParameters
+            {
+                GenerateExecutable = false,
+                OutputAssembly = $@"C:\Git\EPJsonClientCodeGeneration\Output\EnergyPlus.dll",
+                GenerateInMemory = false,
+                TreatWarningsAsErrors = false,
+                ReferencedAssemblies = { "Newtonsoft.Json"}
+            }, ePbHoMCodeCompileUnit);
 
         }
     }

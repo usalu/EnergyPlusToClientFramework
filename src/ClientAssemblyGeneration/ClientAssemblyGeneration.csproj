@@ -34,6 +34,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NJsonSchema, Version=10.6.9.0, Culture=neutral, PublicKeyToken=c2f9c3bdfae56102, processorArchitecture=MSIL">
       <HintPath>..\packages\NJsonSchema.10.6.9\lib\net45\NJsonSchema.dll</HintPath>
     </Reference>
@@ -53,6 +56,7 @@
     <Compile Include="Builders\ClientCodeCompileUnitBuilder.cs" />
     <Compile Include="Directors\ClientCodeCompileUnitDirector.cs" />
     <Compile Include="Directors\EPClientCodeCompileUnitDirector.cs" />
+    <Compile Include="Output.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,9 +65,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EnergyPlusJsonSchemas\EnergyPlus_9-5-0_JsonSchema.csproj">
-      <Project>{723E2463-57B1-4B73-A6E8-A38321D698BD}</Project>
-      <Name>EnergyPlus_9-5-0_JsonSchema</Name>
+    <ProjectReference Include="..\EnergyPlus_9-5-0_JsonSchema\EnergyPlus_9_5_0_JsonSchema.csproj">
+      <Project>{359F13C1-0743-48A5-A3C0-5F9532651779}</Project>
+      <Name>EnergyPlus_9_5_0_JsonSchema</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,66 +1,44 @@
-﻿using System;
-using System.CodeDom;
+﻿using System.CodeDom;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using EnergyPlusClientCodeGeneration;
 
-namespace JsonClientCodeGenerator.BHoM
+namespace ClientAssemblyGeneration.Builders
 {
     class BHoMClientCodeCompileUnitBuilder : ClientCodeCompileUnitBuilder
     {
-
-        public override void BuildAttribute()
+        public override void BuildProperty(string clientNamespaceName, string clientClassName, string name, CodeTypeReference propertyType,
+            string defaultValue = "", string description = "", CodeAttributeDeclarationCollection attributes = null)
         {
-            throw new NotImplementedException();
-        }
+            //base.BuildProperty(clientNamespaceName, clientClassName, name, propertyType, defaultValue, description, attributes);
 
-        public override void BuildEnum(string clientNamespaceName, string name, (string Value, string Description)[] enumItems, string description = "", CodeAttributeDeclarationCollection attributes = null, bool isFlagged = false)
-        {
-            CodeTypeDeclaration clientEnum = new CodeTypeDeclaration(name)
+            string descriptionAttribute = description != "" ? "[Description(@\"" + description + "\")]\n" : "";
+
+            string customAttributesCode = "";
+            if(attributes.Count!=0)
+                foreach (CodeAttributeDeclaration attribute in attributes)
+                {
+                    customAttributesCode += "[" + attribute.Name + "(@\"" + description + "\")]\n";
+                }
+
+            string defaultValueCode;
+            switch (propertyType.BaseType)
             {
-                IsEnum = true,
-                CustomAttributes = { new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(description))) }
-            };
+                case "System.String":
+                    defaultValueCode = defaultValue != "" ? "(" + propertyType.BaseType + ")" + defaultValue : "\"\"";
+                    break;
+                case "System.Single":
+                    //defaultValueCode = defaultValue != "" ? "(" + propertyType.BaseType + ")" + defaultValue : "null"; ;
+                    defaultValueCode = defaultValue;
+                    break;
+                default:
+                    defaultValueCode = "(" + propertyType.BaseType + ")Enum.Parse(typeof(" + propertyType.BaseType + "), \"" + ((defaultValue=="")? "Default": defaultValue) + "\")";
+                    break;
 
-            if (attributes != null)
-                clientEnum.CustomAttributes.AddRange(attributes);
-
-            for (int i = 0; i < enumItems.Length; i++)
-            {
-                var enumMember = new CodeMemberField();
-                var enumItem = enumItems[i];
-                string itemName = enumItem.Value;
-                if (enumItem.Value == "")
-                    itemName = "Default";
-                enumMember.Name = itemName;
-                enumMember.InitExpression = new CodePrimitiveExpression(i);
-                clientEnum.Members.Add(enumMember);
             }
-            FindNamespace(clientNamespaceName).Types.Add(clientEnum);
-        }
 
-        public override void BuildClass()
-        {
-            throw new NotImplementedException();
-        }
+             
 
-        public override void BuildProperty()
-        {
-            throw new NotImplementedException();
+            FindClass(clientNamespaceName, clientClassName).Members
+                .Add(new CodeSnippetTypeMember(descriptionAttribute + customAttributesCode + "public " + propertyType.BaseType + " " + name +" " + "{ get; set; }" + " = " + defaultValueCode + ";"));
         }
-
-        public override void BuildMethod()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void BuildEvent()
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

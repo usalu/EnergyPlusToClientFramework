@@ -1,12 +1,10 @@
 ﻿using System;
 using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System.CodeDom.Compiler;
+using System.IO;
+using Microsoft.CSharp;
 
-namespace EnergyPlusClientCodeGeneration
+namespace ClientAssemblyGeneration.Builders
 {
     public abstract class ClientCodeCompileUnitBuilder
     {
@@ -34,7 +32,7 @@ namespace EnergyPlusClientCodeGeneration
                     return clientNamespace;
             throw new Exception("The namespace doesn't exist (yet). Make sure to build it first.");
         }
-        internal CodeTypeDeclaration FindClass(string name, string namespaceName)
+        internal CodeTypeDeclaration FindClass(string namespaceName, string name)
         {
             foreach (CodeTypeDeclaration clientClass in FindNamespace(namespaceName).Types)
                 if (clientClass.Name == name && clientClass.IsClass==true)
@@ -44,13 +42,15 @@ namespace EnergyPlusClientCodeGeneration
 
         public virtual void BuildAttribute() { }
 
-        public virtual void BuildEnum(string clientNamespaceName, string name , (string Value, string Description)[] enumItems, string description = "" , CodeAttributeDeclarationCollection attributes = null, bool isFlagged = false)
+        public virtual void BuildEnum(string clientNamespaceName, string name , (string Value, string Description, CodeAttributeDeclarationCollection attributes)[] enumItems, string description = "" , CodeAttributeDeclarationCollection attributes = null, bool isFlagged = false)
         {
             CodeTypeDeclaration clientEnum = new CodeTypeDeclaration(name)
             {
                 IsEnum = true,
-                CustomAttributes = { new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(description))) }
             };
+
+            if (description != "")
+                clientEnum.CustomAttributes.Add(new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(description))));
 
             if (attributes!=null)
                 clientEnum.CustomAttributes.AddRange(attributes);
@@ -64,9 +64,14 @@ namespace EnergyPlusClientCodeGeneration
             {
                 var enumMember = new CodeMemberField();
                 var enumItem = enumItems[i];
+                string itemName = enumItem.Value;
+                if (enumItem.Value == "")
+                    itemName = "Default";
                 if (enumItem.Description != "")
                     enumMember.CustomAttributes.Add(new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(enumItem.Description))));
-                enumMember.Name = enumItem.Value;
+                if (enumItem.attributes.Count!=0)
+                    enumMember.CustomAttributes.AddRange(enumItem.attributes);
+                enumMember.Name = itemName;
                 enumMember.InitExpression = new CodePrimitiveExpression(isFlagged ? (int)Math.Pow(2, i) : i);
                 clientEnum.Members.Add(enumMember);
             }
@@ -78,16 +83,25 @@ namespace EnergyPlusClientCodeGeneration
         {
             var clientClass = new CodeTypeDeclaration(name)
             {
-                IsEnum = true,
-                CustomAttributes = { new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(description))) }
+                IsClass = true,
             };
+            if (description != "")
+                clientClass.CustomAttributes.Add(new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(description))));
             if (attributes != null)
                 clientClass.CustomAttributes.AddRange(attributes);
             FindNamespace(clientNamespaceName).Types.Add(clientClass);
         }
 
-        public virtual void BuildProperty(string clientNamespaceName, string clientClassName, string name, CodeTypeReference propertyType, string description = "", ,  CodeAttributeDeclarationCollection attributes = null)
+        public virtual void BuildProperty(string clientNamespaceName, string clientClassName, string name, CodeTypeReference propertyType, string defaultValue = "", string description = "",  CodeAttributeDeclarationCollection attributes = null)
         {
+            //CodeMemberProperty property = new CodeMemberProperty()
+            //{
+            //    Attributes = MemberAttributes.Public | MemberAttributes.Final,
+            //    Name = name,
+            //    Type = propertyType
+            //};
+            //if (description != "")
+            //    property.CustomAttributes.Add(new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(description))));
 
         }
         public virtual void BuildMethod() { }
