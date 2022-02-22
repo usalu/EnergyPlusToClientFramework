@@ -67,13 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
     
     [Description(@"This object activates the external interface of EnergyPlus. If the object ExternalInterface is present, then all ExtnernalInterface:* objects will receive their values from the BCVTB interface or from FMUs at each zone time step. If this object is not present, then the values of these objects will be fixed at the value declared in the ""initial value"" field of the corresponding object, and a warning will be written to the EnergyPlus error file.")]
     [JsonObject("ExternalInterface")]
-    public class ExternalInterface : BHoMObject
+    public class ExternalInterface : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description("Name of External Interface Currently, the only valid entries are PtolemyServer, F" +
     "unctionalMockupUnitImport, and FunctionalMockupUnitExport.")]
 [JsonProperty("name_of_external_interface")]
-public EmptyNoYes NameOfExternalInterface { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public ExternalInterface_NameOfExternalInterface NameOfExternalInterface { get; set; } = (ExternalInterface_NameOfExternalInterface)Enum.Parse(typeof(ExternalInterface_NameOfExternalInterface), "FunctionalMockupUnitExport");
     }
 }

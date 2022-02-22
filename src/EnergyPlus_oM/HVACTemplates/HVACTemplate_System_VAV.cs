@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("Variable Air Volume (VAV) air loop with optional heating coil and optional prehea" +
                  "t.")]
     [JsonObject("HVACTemplate:System:VAV")]
-    public class HVACTemplate_System_VAV : BHoMObject
+    public class HVACTemplate_System_VAV : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -49,7 +49,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("cooling_coil_type")]
-        public EmptyNoYes CoolingCoilType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ChilledWater");
+        public HVACTemplate_System_VAV_CoolingCoilType CoolingCoilType { get; set; } = (HVACTemplate_System_VAV_CoolingCoilType)Enum.Parse(typeof(HVACTemplate_System_VAV_CoolingCoilType), "ChilledWater");
         
 
         [Description("If blank, always on")]
@@ -69,7 +69,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heating_coil_type")]
-        public EmptyNoYes HeatingCoilType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_VAV_HeatingCoilType HeatingCoilType { get; set; } = (HVACTemplate_System_VAV_HeatingCoilType)Enum.Parse(typeof(HVACTemplate_System_VAV_HeatingCoilType), "None");
         
 
         [Description("If blank, always on")]
@@ -97,7 +97,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("preheat_coil_type")]
-        public EmptyNoYes PreheatCoilType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_VAV_PreheatCoilType PreheatCoilType { get; set; } = (HVACTemplate_System_VAV_PreheatCoilType)Enum.Parse(typeof(HVACTemplate_System_VAV_PreheatCoilType), "None");
         
 
         [Description("If blank, always on")]
@@ -133,7 +133,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("minimum_outdoor_air_control_type")]
-        public EmptyNoYes MinimumOutdoorAirControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ProportionalMinimum");
+        public HVACTemplate_System_VAV_MinimumOutdoorAirControlType MinimumOutdoorAirControlType { get; set; } = (HVACTemplate_System_VAV_MinimumOutdoorAirControlType)Enum.Parse(typeof(HVACTemplate_System_VAV_MinimumOutdoorAirControlType), "ProportionalMinimum");
         
 
         [Description("Schedule values multiply the Minimum Outdoor Air Flow Rate If blank, multiplier i" +
@@ -143,11 +143,11 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("economizer_type")]
-        public EmptyNoYes EconomizerType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoEconomizer");
+        public HVACTemplate_System_VAV_EconomizerType EconomizerType { get; set; } = (HVACTemplate_System_VAV_EconomizerType)Enum.Parse(typeof(HVACTemplate_System_VAV_EconomizerType), "NoEconomizer");
         
 
         [JsonProperty("economizer_lockout")]
-        public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoLockout");
+        public HVACTemplate_System_VAV_EconomizerLockout EconomizerLockout { get; set; } = (HVACTemplate_System_VAV_EconomizerLockout)Enum.Parse(typeof(HVACTemplate_System_VAV_EconomizerLockout), "NoLockout");
         
 
         [Description("Outdoor temperature above which economizer is disabled and heat recovery is enabl" +
@@ -186,7 +186,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("supply_fan_placement")]
-        public EmptyNoYes SupplyFanPlacement { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "DrawThrough");
+        public HVACTemplate_System_VAV_SupplyFanPlacement SupplyFanPlacement { get; set; } = (HVACTemplate_System_VAV_SupplyFanPlacement)Enum.Parse(typeof(HVACTemplate_System_VAV_SupplyFanPlacement), "DrawThrough");
         
 
         [Description("This field selects a predefined set of fan power coefficients. The ASHRAE 90.1-20" +
@@ -194,11 +194,11 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      " coefficients are from the EnergyPlus Input Output Reference, Fan Coefficient Va" +
                      "lues table.")]
         [JsonProperty("supply_fan_part_load_power_coefficients")]
-        public EmptyNoYes SupplyFanPartLoadPowerCoefficients { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "InletVaneDampers");
+        public HVACTemplate_System_VAV_SupplyFanPartLoadPowerCoefficients SupplyFanPartLoadPowerCoefficients { get; set; } = (HVACTemplate_System_VAV_SupplyFanPartLoadPowerCoefficients)Enum.Parse(typeof(HVACTemplate_System_VAV_SupplyFanPartLoadPowerCoefficients), "InletVaneDampers");
         
 
         [JsonProperty("night_cycle_control")]
-        public EmptyNoYes NightCycleControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "StayOff");
+        public HVACTemplate_System_VAV_NightCycleControl NightCycleControl { get; set; } = (HVACTemplate_System_VAV_NightCycleControl)Enum.Parse(typeof(HVACTemplate_System_VAV_NightCycleControl), "StayOff");
         
 
         [Description("Applicable only if Night Cycle Control is Cycle On Control Zone.")]
@@ -207,7 +207,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_recovery_type")]
-        public EmptyNoYes HeatRecoveryType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_VAV_HeatRecoveryType HeatRecoveryType { get; set; } = (HVACTemplate_System_VAV_HeatRecoveryType)Enum.Parse(typeof(HVACTemplate_System_VAV_HeatRecoveryType), "None");
         
 
         [JsonProperty("sensible_heat_recovery_effectiveness")]
@@ -220,18 +220,18 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"Overrides Cooling Coil Setpoint Schedule Name None = no reset, control to Cooling Coil Design Setpoint Temperature or Schedule Warmest = reset as warm as possible yet meet all zone cooling loads at max supply air flow rate OutdoorAirTemperatureReset = reset based on outdoor air temperature (18.0C at 15.6C ODB, to the Cooling Design Setpoint at 26.7C) WarmestTemperatureFirst = reset as warm as possible yet meet all zone cooling loads at min supply air flow rate")]
         [JsonProperty("cooling_coil_setpoint_reset_type")]
-        public EmptyNoYes CoolingCoilSetpointResetType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_VAV_CoolingCoilSetpointResetType CoolingCoilSetpointResetType { get; set; } = (HVACTemplate_System_VAV_CoolingCoilSetpointResetType)Enum.Parse(typeof(HVACTemplate_System_VAV_CoolingCoilSetpointResetType), "None");
         
 
         [Description(@"Overrides Heating Coil Setpoint Schedule Name None = no reset, control to Heating Coil Design Setpoint Temperature or Schedule OutdoorAirTemperatureReset = reset based on outdoor air temperature (Heating Design Setpoint at -6.7C ODB to Heating Design Setpoint minus 5.2C at 10C ODB) min supply air flow rate")]
         [JsonProperty("heating_coil_setpoint_reset_type")]
-        public EmptyNoYes HeatingCoilSetpointResetType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_VAV_HeatingCoilSetpointResetType HeatingCoilSetpointResetType { get; set; } = (HVACTemplate_System_VAV_HeatingCoilSetpointResetType)Enum.Parse(typeof(HVACTemplate_System_VAV_HeatingCoilSetpointResetType), "None");
         
 
         [Description("None = meet sensible load only CoolReheat = cool beyond the dry-bulb setpoint as " +
                      "required to meet the humidity setpoint.")]
         [JsonProperty("dehumidification_control_type")]
-        public EmptyNoYes DehumidificationControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_VAV_DehumidificationControlType DehumidificationControlType { get; set; } = (HVACTemplate_System_VAV_DehumidificationControlType)Enum.Parse(typeof(HVACTemplate_System_VAV_DehumidificationControlType), "None");
         
 
         [Description("Zone name where humidistat is located")]
@@ -245,7 +245,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("humidifier_type")]
-        public EmptyNoYes HumidifierType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_VAV_HumidifierType HumidifierType { get; set; } = (HVACTemplate_System_VAV_HumidifierType)Enum.Parse(typeof(HVACTemplate_System_VAV_HumidifierType), "None");
         
 
         [Description("If blank, always available")]
@@ -278,7 +278,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         [Description("Select whether autosized system supply flow rate is the sum of Coincident or NonC" +
                      "oincident zone air flow rates.")]
         [JsonProperty("sizing_option")]
-        public EmptyNoYes SizingOption { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NonCoincident");
+        public HVACTemplate_System_VAV_SizingOption SizingOption { get; set; } = (HVACTemplate_System_VAV_SizingOption)Enum.Parse(typeof(HVACTemplate_System_VAV_SizingOption), "NonCoincident");
         
 
         [Description("Specifies if the system has a return fan.")]
@@ -307,6 +307,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      " coefficients are from the EnergyPlus Input Output Reference, Fan Coefficient Va" +
                      "lues table.")]
         [JsonProperty("return_fan_part_load_power_coefficients")]
-        public EmptyNoYes ReturnFanPartLoadPowerCoefficients { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "InletVaneDampers");
+        public HVACTemplate_System_VAV_ReturnFanPartLoadPowerCoefficients ReturnFanPartLoadPowerCoefficients { get; set; } = (HVACTemplate_System_VAV_ReturnFanPartLoadPowerCoefficients)Enum.Parse(typeof(HVACTemplate_System_VAV_ReturnFanPartLoadPowerCoefficients), "InletVaneDampers");
     }
 }

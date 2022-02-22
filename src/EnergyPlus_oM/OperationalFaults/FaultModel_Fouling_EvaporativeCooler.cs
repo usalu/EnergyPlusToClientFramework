@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes the fouling fault of the wetted coil evaporative cooler")]
     [JsonObject("FaultModel:Fouling:EvaporativeCooler")]
-    public class FaultModel_Fouling_EvaporativeCooler : BHoMObject
+    public class FaultModel_Fouling_EvaporativeCooler : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -24,7 +24,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
                      "l evaporative cooler The fault does not apply to direct evaporative coolers or t" +
                      "he dry coil indirect evaporative coolers")]
         [JsonProperty("evaporative_cooler_object_type")]
-        public EmptyNoYes EvaporativeCoolerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType EvaporativeCoolerObjectType { get; set; } = (FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType)Enum.Parse(typeof(FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType), "EvaporativeCoolerIndirectWetCoil");
         
 
         [Description("Enter the name of aN Evaporative Cooler object")]

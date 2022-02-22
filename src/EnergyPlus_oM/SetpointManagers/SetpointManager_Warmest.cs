@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
     [Description("This SetpointManager resets the cooling supply air temperature of a central force" +
                  "d air HVAC system according to the cooling demand of the warmest zone.")]
     [JsonObject("SetpointManager:Warmest")]
-    public class SetpointManager_Warmest : BHoMObject
+    public class SetpointManager_Warmest : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
-        public EmptyNoYes ControlVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Temperature");
+        public SetpointManager_Warmest_ControlVariable ControlVariable { get; set; } = (SetpointManager_Warmest_ControlVariable)Enum.Parse(typeof(SetpointManager_Warmest_ControlVariable), "Temperature");
         
 
         [Description("Enter the name of an AirLoopHVAC object")]
@@ -31,7 +31,7 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
         
 
         [JsonProperty("strategy")]
-        public EmptyNoYes Strategy { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "MaximumTemperature");
+        public SetpointManager_Warmest_Strategy Strategy { get; set; } = (SetpointManager_Warmest_Strategy)Enum.Parse(typeof(SetpointManager_Warmest_Strategy), "MaximumTemperature");
         
 
         [Description("Node(s) at which the temperature will be set")]

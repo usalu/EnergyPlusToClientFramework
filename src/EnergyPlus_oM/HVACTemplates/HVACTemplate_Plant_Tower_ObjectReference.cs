@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                  "late:Plant:ChilledWaterLoop or MixedWaterLoop. The user must create a complete d" +
                  "etailed cooling tower object with all required curve or performance objects.")]
     [JsonObject("HVACTemplate:Plant:Tower:ObjectReference")]
-    public class HVACTemplate_Plant_Tower_ObjectReference : BHoMObject
+    public class HVACTemplate_Plant_Tower_ObjectReference : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("cooling_tower_object_type")]
-        public EmptyNoYes CoolingTowerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "CoolingTower:SingleSpeed");
+        public HVACTemplate_Plant_Tower_ObjectReference_CoolingTowerObjectType CoolingTowerObjectType { get; set; } = (HVACTemplate_Plant_Tower_ObjectReference_CoolingTowerObjectType)Enum.Parse(typeof(HVACTemplate_Plant_Tower_ObjectReference_CoolingTowerObjectType), "Empty");
         
 
         [Description("The name of the detailed cooling tower object.")]
@@ -33,6 +33,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "If left blank, will serve a chilled water loop if present, or a mixed water loop" +
                      " (if no chilled water loop is present).")]
         [JsonProperty("template_plant_loop_type")]
-        public EmptyNoYes TemplatePlantLoopType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public HVACTemplate_Plant_Tower_ObjectReference_TemplatePlantLoopType TemplatePlantLoopType { get; set; } = (HVACTemplate_Plant_Tower_ObjectReference_TemplatePlantLoopType)Enum.Parse(typeof(HVACTemplate_Plant_Tower_ObjectReference_TemplatePlantLoopType), "ChilledWater");
     }
 }

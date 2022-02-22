@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes return air temperature sensor offset")]
     [JsonObject("FaultModel:TemperatureSensorOffset:ReturnAir")]
-    public class FaultModel_TemperatureSensorOffset_ReturnAir : BHoMObject
+    public class FaultModel_TemperatureSensorOffset_ReturnAir : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -21,7 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
         
 
         [JsonProperty("controller_object_type")]
-        public EmptyNoYes ControllerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType), "ControllerOutdoorAir");
         
 
         [JsonProperty("controller_object_name")]

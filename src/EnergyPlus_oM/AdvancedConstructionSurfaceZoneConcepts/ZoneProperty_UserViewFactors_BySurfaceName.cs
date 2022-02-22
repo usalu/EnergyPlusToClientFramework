@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("View factors for Surface to Surface in a zone. (Number of Surfaces)**2 are expect" +
                  "ed. Any omitted surface pairs will be assumed to have a view factor of zero.")]
     [JsonObject("ZoneProperty:UserViewFactors:BySurfaceName")]
-    public class ZoneProperty_UserViewFactors_BySurfaceName : BHoMObject
+    public class ZoneProperty_UserViewFactors_BySurfaceName : BHoMObject, IEnergyPlusClass
     {
         
 

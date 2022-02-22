@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"Rectangular hyperbola type 1 curve with one independent variable. Input consists of the curve name, the three coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = ((C1*x)/(C2+x))+C3")]
     [JsonObject("Curve:RectangularHyperbola1")]
-    public class Curve_RectangularHyperbola1 : BHoMObject
+    public class Curve_RectangularHyperbola1 : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -42,10 +42,10 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
         
 
         [JsonProperty("input_unit_type_for_x")]
-        public EmptyNoYes InputUnitTypeForX { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_RectangularHyperbola1_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_RectangularHyperbola1_InputUnitTypeForX)Enum.Parse(typeof(Curve_RectangularHyperbola1_InputUnitTypeForX), "Dimensionless");
         
 
         [JsonProperty("output_unit_type")]
-        public EmptyNoYes OutputUnitType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_RectangularHyperbola1_OutputUnitType OutputUnitType { get; set; } = (Curve_RectangularHyperbola1_OutputUnitType)Enum.Parse(typeof(Curve_RectangularHyperbola1_OutputUnitType), "Dimensionless");
     }
 }

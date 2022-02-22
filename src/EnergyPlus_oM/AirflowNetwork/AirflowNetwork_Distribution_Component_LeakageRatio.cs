@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     [Description("This object is used to define supply and return air leaks with respect to the fan" +
                  "\'s maximum air flow rate.")]
     [JsonObject("AirflowNetwork:Distribution:Component:LeakageRatio")]
-    public class AirflowNetwork_Distribution_Component_LeakageRatio : BHoMObject
+    public class AirflowNetwork_Distribution_Component_LeakageRatio : BHoMObject, IEnergyPlusClass
     {
         
 

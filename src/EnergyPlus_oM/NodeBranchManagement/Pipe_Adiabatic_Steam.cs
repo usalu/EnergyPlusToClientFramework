@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description("Passes Inlet Node state variables to Outlet Node state variables")]
     [JsonObject("Pipe:Adiabatic:Steam")]
-    public class Pipe_Adiabatic_Steam : BHoMObject
+    public class Pipe_Adiabatic_Steam : BHoMObject, IEnergyPlusClass
     {
         
 

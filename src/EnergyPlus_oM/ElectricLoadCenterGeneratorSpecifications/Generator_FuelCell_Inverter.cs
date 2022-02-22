@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                  "r. This object models an inverter system contained within a fuel cell system tha" +
                  "t converts from direct current (DC) to alternating current (AC).")]
     [JsonObject("Generator:FuelCell:Inverter")]
-    public class Generator_FuelCell_Inverter : BHoMObject
+    public class Generator_FuelCell_Inverter : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("inverter_efficiency_calculation_mode")]
-        public EmptyNoYes InverterEfficiencyCalculationMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelCell_Inverter_InverterEfficiencyCalculationMode InverterEfficiencyCalculationMode { get; set; } = (Generator_FuelCell_Inverter_InverterEfficiencyCalculationMode)Enum.Parse(typeof(Generator_FuelCell_Inverter_InverterEfficiencyCalculationMode), "Constant");
         
 
         [JsonProperty("inverter_efficiency")]

@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                  "model calculates electrical power output, fuel use, standby and ancillary power." +
                  " Energy recovery from exhaust air can be used to heat water.")]
     [JsonObject("Generator:MicroTurbine")]
-    public class Generator_MicroTurbine : BHoMObject
+    public class Generator_MicroTurbine : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -66,7 +66,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("fuel_type")]
-        public EmptyNoYes FuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NaturalGas");
+        public Generator_MicroTurbine_FuelType FuelType { get; set; } = (Generator_MicroTurbine_FuelType)Enum.Parse(typeof(Generator_MicroTurbine_FuelType), "NaturalGas");
         
 
         [JsonProperty("fuel_higher_heating_value")]
@@ -115,7 +115,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 
         [Description(@"PlantControl means the heat recovery water flow rate is determined by the plant, but the user needs to supply a heat recovery water flow rate. InternalControl means the heat recovery water flow rate is controlled by this generator. If 'InternalControl' is selected, then the user needs to supply a reference heat recovery water flow rate and optionally the name of a heat recovery flow rate modifier curve.")]
         [JsonProperty("heat_recovery_water_flow_operating_mode")]
-        public EmptyNoYes HeatRecoveryWaterFlowOperatingMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "PlantControl");
+        public Generator_MicroTurbine_HeatRecoveryWaterFlowOperatingMode HeatRecoveryWaterFlowOperatingMode { get; set; } = (Generator_MicroTurbine_HeatRecoveryWaterFlowOperatingMode)Enum.Parse(typeof(Generator_MicroTurbine_HeatRecoveryWaterFlowOperatingMode), "PlantControl");
         
 
         [JsonProperty("reference_heat_recovery_water_flow_rate")]

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
     [Description("Central air system terminal unit, single duct, constant volume, without reheat co" +
                  "il")]
     [JsonObject("AirTerminal:SingleDuct:ConstantVolume:NoReheat")]
-    public class AirTerminal_SingleDuct_ConstantVolume_NoReheat : BHoMObject
+    public class AirTerminal_SingleDuct_ConstantVolume_NoReheat : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -43,6 +43,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
         [Description("CurrentOccupancy uses current number of people in the zone which may vary DesignO" +
                      "ccupancy uses the total number of people in the zone and is constant")]
         [JsonProperty("per_person_ventilation_rate_mode")]
-        public EmptyNoYes PerPersonVentilationRateMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "CurrentOccupancy");
+        public AirTerminal_SingleDuct_ConstantVolume_NoReheat_PerPersonVentilationRateMode PerPersonVentilationRateMode { get; set; } = (AirTerminal_SingleDuct_ConstantVolume_NoReheat_PerPersonVentilationRateMode)Enum.Parse(typeof(AirTerminal_SingleDuct_ConstantVolume_NoReheat_PerPersonVentilationRateMode), "CurrentOccupancy");
     }
 }

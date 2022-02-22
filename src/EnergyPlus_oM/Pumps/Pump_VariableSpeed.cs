@@ -68,7 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.Pumps
     
     [Description("This pump model is described in the ASHRAE secondary HVAC toolkit.")]
     [JsonObject("Pump:VariableSpeed")]
-    public class Pump_VariableSpeed : BHoMObject
+    public class Pump_VariableSpeed : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -129,7 +129,7 @@ public string DesignMinimumFlowRate { get; set; } = (System.String)"Autosize";
         
 
 [JsonProperty("pump_control_type")]
-public EmptyNoYes PumpControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Continuous");
+public Pump_VariableSpeed_PumpControlType PumpControlType { get; set; } = (Pump_VariableSpeed_PumpControlType)Enum.Parse(typeof(Pump_VariableSpeed_PumpControlType), "Continuous");
         
 
 [Description("Modifies the rated flow rate of the pump on a time basis. Default is that the pum" +
@@ -150,7 +150,7 @@ public System.Nullable<float> ImpellerDiameter { get; set; } = null;
         
 
 [JsonProperty("vfd_control_type")]
-public EmptyNoYes VfdControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public Pump_VariableSpeed_VfdControlType VfdControlType { get; set; } = (Pump_VariableSpeed_VfdControlType)Enum.Parse(typeof(Pump_VariableSpeed_VfdControlType), "ManualControl");
         
 
 [Description("Modifies the rpm of the pump on a time basis. Default is that the pump is on and " +
@@ -189,7 +189,7 @@ public System.Nullable<float> SkinLossRadiativeFraction { get; set; } = null;
 
 [Description(@"Used to indicate which sizing factor is used to calculate Design Power Consumption. PowerPerFlow indicates that Design Electric Power per Unit Flow Rate is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * scaling factor PowerPerFlowPerPressure indicates that Design Shaft Power per Unit Flow Rate per Unit Head is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * Design Pump Head * scaling factor / Motor Efficiency")]
 [JsonProperty("design_power_sizing_method")]
-public EmptyNoYes DesignPowerSizingMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "PowerPerFlowPerPressure");
+public Pump_VariableSpeed_DesignPowerSizingMethod DesignPowerSizingMethod { get; set; } = (Pump_VariableSpeed_DesignPowerSizingMethod)Enum.Parse(typeof(Pump_VariableSpeed_DesignPowerSizingMethod), "PowerPerFlowPerPressure");
         
 
 [Description("Used to size Design Power Consumption from design flow rate")]

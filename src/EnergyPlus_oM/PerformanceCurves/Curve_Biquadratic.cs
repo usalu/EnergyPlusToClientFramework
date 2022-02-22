@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"Quadratic curve with two independent variables. Input consists of the curve name, the six coefficients, and min and max values for each of the independent variables. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x + C3*x**2 + C4*y + C5*y**2 + C6*x*y")]
     [JsonObject("Curve:Biquadratic")]
-    public class Curve_Biquadratic : BHoMObject
+    public class Curve_Biquadratic : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -62,14 +62,14 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
         
 
         [JsonProperty("input_unit_type_for_x")]
-        public EmptyNoYes InputUnitTypeForX { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_Biquadratic_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Biquadratic_InputUnitTypeForX)Enum.Parse(typeof(Curve_Biquadratic_InputUnitTypeForX), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_y")]
-        public EmptyNoYes InputUnitTypeForY { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_Biquadratic_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_Biquadratic_InputUnitTypeForY)Enum.Parse(typeof(Curve_Biquadratic_InputUnitTypeForY), "Dimensionless");
         
 
         [JsonProperty("output_unit_type")]
-        public EmptyNoYes OutputUnitType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_Biquadratic_OutputUnitType OutputUnitType { get; set; } = (Curve_Biquadratic_OutputUnitType)Enum.Parse(typeof(Curve_Biquadratic_OutputUnitType), "Dimensionless");
     }
 }

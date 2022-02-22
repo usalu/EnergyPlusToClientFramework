@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
                  "l1, OtherFuel2 provide options for users who want to create and use fuels that m" +
                  "ay not be mainstream (biomass, wood, pellets).")]
     [JsonObject("FuelFactors")]
-    public class FuelFactors : BHoMObject
+    public class FuelFactors : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("existing_fuel_resource_name")]
-        public EmptyNoYes ExistingFuelResourceName { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public FuelFactors_ExistingFuelResourceName ExistingFuelResourceName { get; set; } = (FuelFactors_ExistingFuelResourceName)Enum.Parse(typeof(FuelFactors_ExistingFuelResourceName), "Coal");
         
 
         [JsonProperty("units_of_measure")]

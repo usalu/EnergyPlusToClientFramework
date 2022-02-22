@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
                  "fficient If more than one curve is referenced they are all used and added togeth" +
                  "er.")]
     [JsonObject("SurfaceConvectionAlgorithm:Outside:UserCurve")]
-    public class SurfaceConvectionAlgorithm_Outside_UserCurve : BHoMObject
+    public class SurfaceConvectionAlgorithm_Outside_UserCurve : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("wind_speed_type_for_curve")]
-        public EmptyNoYes WindSpeedTypeForCurve { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "HeightAdjust");
+        public SurfaceConvectionAlgorithm_Outside_UserCurve_WindSpeedTypeForCurve WindSpeedTypeForCurve { get; set; } = (SurfaceConvectionAlgorithm_Outside_UserCurve_WindSpeedTypeForCurve)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Outside_UserCurve_WindSpeedTypeForCurve), "HeightAdjust");
         
 
         [Description("Curve\'s \"x\" is wind speed of the type determined in the previous field (m/s)")]

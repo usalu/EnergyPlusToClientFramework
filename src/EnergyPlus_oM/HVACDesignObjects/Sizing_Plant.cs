@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     [Description(@"Specifies the input needed to autosize plant loop flow rates and equipment capacities. This information is initially used by components that use water for heating or cooling such as hot or chilled water coils to calculate their maximum water flow rates. These flow rates are then summed for use in calculating the Plant Loop flow rates.")]
     [JsonObject("Sizing:Plant")]
-    public class Sizing_Plant : BHoMObject
+    public class Sizing_Plant : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -18,7 +18,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("loop_type")]
-        public EmptyNoYes LoopType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Sizing_Plant_LoopType LoopType { get; set; } = (Sizing_Plant_LoopType)Enum.Parse(typeof(Sizing_Plant_LoopType), "Condenser");
         
 
         [JsonProperty("design_loop_exit_temperature")]
@@ -33,7 +33,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
                      "input field called Do HVAC Sizing Simulation for Sizing Periods in SimulationCon" +
                      "trol must be set to Yes")]
         [JsonProperty("sizing_option")]
-        public EmptyNoYes SizingOption { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NonCoincident");
+        public Sizing_Plant_SizingOption SizingOption { get; set; } = (Sizing_Plant_SizingOption)Enum.Parse(typeof(Sizing_Plant_SizingOption), "NonCoincident");
         
 
         [Description("this is used in the coincident sizing algorithm to apply a running average to pea" +
@@ -45,6 +45,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         [Description("this is used to adjust the result for coincident sizing by applying a sizing fact" +
                      "or")]
         [JsonProperty("coincident_sizing_factor_mode")]
-        public EmptyNoYes CoincidentSizingFactorMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Sizing_Plant_CoincidentSizingFactorMode CoincidentSizingFactorMode { get; set; } = (Sizing_Plant_CoincidentSizingFactorMode)Enum.Parse(typeof(Sizing_Plant_CoincidentSizingFactorMode), "GlobalCoolingSizingFactor");
     }
 }

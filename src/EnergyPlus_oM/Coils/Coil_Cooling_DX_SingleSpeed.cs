@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "sor and condenser fan), single-speed. Optional inputs for moisture evaporation f" +
                  "rom wet coil when compressor cycles off with continuous fan operation.")]
     [JsonObject("Coil:Cooling:DX:SingleSpeed")]
-    public class Coil_Cooling_DX_SingleSpeed : BHoMObject
+    public class Coil_Cooling_DX_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -122,7 +122,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("condenser_type")]
-        public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AirCooled");
+        public Coil_Cooling_DX_SingleSpeed_CondenserType CondenserType { get; set; } = (Coil_Cooling_DX_SingleSpeed_CondenserType)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_CondenserType), "AirCooled");
         
 
         [JsonProperty("evaporative_condenser_effectiveness")]

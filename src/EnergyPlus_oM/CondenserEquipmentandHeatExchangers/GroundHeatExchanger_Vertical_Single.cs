@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     [Description(null)]
     [JsonObject("GroundHeatExchanger:Vertical:Single")]
-    public class GroundHeatExchanger_Vertical_Single : BHoMObject
+    public class GroundHeatExchanger_Vertical_Single : BHoMObject, IEnergyPlusClass
     {
         
 

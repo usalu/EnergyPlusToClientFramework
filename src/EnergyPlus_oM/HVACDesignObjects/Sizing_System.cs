@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
                  "r system. System design air flow, heating capacity, and cooling capacity will be" +
                  " calculated using this input data.")]
     [JsonObject("Sizing:System")]
-    public class Sizing_System : BHoMObject
+    public class Sizing_System : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -20,7 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 
         [Description(@"Specifies the basis for sizing the system supply air flow rate Sensible and Total use the zone design air flow rates to size the system supply air flow rate The cooling coil will then be sized at either the peak Sensible or Total flow rate and conditions The heating coil is always sized at the peak sensible heating load. VentilationRequirement uses the system ventilation requirement")]
         [JsonProperty("type_of_load_to_size_on")]
-        public EmptyNoYes TypeOfLoadToSizeOn { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Sensible");
+        public Sizing_System_TypeOfLoadToSizeOn TypeOfLoadToSizeOn { get; set; } = (Sizing_System_TypeOfLoadToSizeOn)Enum.Parse(typeof(Sizing_System_TypeOfLoadToSizeOn), "Sensible");
         
 
         [JsonProperty("design_outdoor_air_flow_rate")]
@@ -56,7 +56,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("type_of_zone_sum_to_use")]
-        public EmptyNoYes TypeOfZoneSumToUse { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NonCoincident");
+        public Sizing_System_TypeOfZoneSumToUse TypeOfZoneSumToUse { get; set; } = (Sizing_System_TypeOfZoneSumToUse)Enum.Parse(typeof(Sizing_System_TypeOfZoneSumToUse), "NonCoincident");
         
 
         [JsonProperty("100_outdoor_air_in_cooling")]
@@ -76,7 +76,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("cooling_supply_air_flow_rate_method")]
-        public EmptyNoYes CoolingSupplyAirFlowRateMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "DesignDay");
+        public Sizing_System_CoolingSupplyAirFlowRateMethod CoolingSupplyAirFlowRateMethod { get; set; } = (Sizing_System_CoolingSupplyAirFlowRateMethod)Enum.Parse(typeof(Sizing_System_CoolingSupplyAirFlowRateMethod), "DesignDay");
         
 
         [Description("This input is used if Cooling Supply Air Flow Rate Method is Flow/System This val" +
@@ -107,7 +107,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("heating_supply_air_flow_rate_method")]
-        public EmptyNoYes HeatingSupplyAirFlowRateMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "DesignDay");
+        public Sizing_System_HeatingSupplyAirFlowRateMethod HeatingSupplyAirFlowRateMethod { get; set; } = (Sizing_System_HeatingSupplyAirFlowRateMethod)Enum.Parse(typeof(Sizing_System_HeatingSupplyAirFlowRateMethod), "DesignDay");
         
 
         [Description("Required field when Heating Supply Air Flow Rate Method is Flow/System This value" +
@@ -145,7 +145,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("system_outdoor_air_method")]
-        public EmptyNoYes SystemOutdoorAirMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ZoneSum");
+        public Sizing_System_SystemOutdoorAirMethod SystemOutdoorAirMethod { get; set; } = (Sizing_System_SystemOutdoorAirMethod)Enum.Parse(typeof(Sizing_System_SystemOutdoorAirMethod), "ZoneSum");
         
 
         [JsonProperty("zone_maximum_outdoor_air_fraction")]
@@ -154,7 +154,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 
         [Description(@"Enter the method used to determine the system cooling design capacity for scalable sizing. None is used when a cooling coils is not included in an airloop or this field may be blank. If this input field is left blank, then the design cooling capacity is set to zero. CoolingDesignCapacity => selected when the design cooling capacity value is specified or auto-sized. CapacityPerFloorArea => selected when the design cooling capacity is determined from user specified cooling capacity per floor area and total floor area of cooled zones served by an airloop. FractionOfAutosizedCoolingCapacity => is selected when the design cooling capacity is determined from a user specified fraction and the auto-sized design cooling capacity of the system.")]
         [JsonProperty("cooling_design_capacity_method")]
-        public EmptyNoYes CoolingDesignCapacityMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "CoolingDesignCapacity");
+        public Sizing_System_CoolingDesignCapacityMethod CoolingDesignCapacityMethod { get; set; } = (Sizing_System_CoolingDesignCapacityMethod)Enum.Parse(typeof(Sizing_System_CoolingDesignCapacityMethod), "CoolingDesignCapacity");
         
 
         [Description("Enter the design cooling capacity.")]
@@ -177,7 +177,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 
         [Description(@"Enter the method used to determine the heating design capacity for scalable sizing. None is used when a heating coil not included in an airloop or this field may be blank. If this input field is left blank, then the design heating capacity is set to zero. HeatingDesignCapacity => selected when the design heating capacity value is specified or auto-sized. CapacityPerFloorArea => selected when the design heating capacity is determined from user specified heating capacity per flow area and total floor area of heated zones served by an airloop. FractionOfAutosizedHeatingCapacity => is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity of the system.")]
         [JsonProperty("heating_design_capacity_method")]
-        public EmptyNoYes HeatingDesignCapacityMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "HeatingDesignCapacity");
+        public Sizing_System_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (Sizing_System_HeatingDesignCapacityMethod)Enum.Parse(typeof(Sizing_System_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
         [Description("Enter the design heating capacity.")]
@@ -200,6 +200,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 
         [Description("Method used to control the coil\'s output")]
         [JsonProperty("central_cooling_capacity_control_method")]
-        public EmptyNoYes CentralCoolingCapacityControlMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "OnOff");
+        public Sizing_System_CentralCoolingCapacityControlMethod CentralCoolingCapacityControlMethod { get; set; } = (Sizing_System_CentralCoolingCapacityControlMethod)Enum.Parse(typeof(Sizing_System_CentralCoolingCapacityControlMethod), "OnOff");
     }
 }

@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     [Description("If this object is not defined for a shading surface the default values listed in " +
                  "following fields will be used in the solar reflection calculation.")]
     [JsonObject("ShadingProperty:Reflectance")]
-    public class ShadingProperty_Reflectance : BHoMObject
+    public class ShadingProperty_Reflectance : BHoMObject, IEnergyPlusClass
     {
         
 

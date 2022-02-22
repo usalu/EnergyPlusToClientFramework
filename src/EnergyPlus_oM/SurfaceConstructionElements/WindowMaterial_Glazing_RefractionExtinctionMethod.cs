@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("Glass material properties for Windows or Glass Doors Index of Refraction/Extincti" +
                  "on Coefficient input method Not to be used for coated glass")]
     [JsonObject("WindowMaterial:Glazing:RefractionExtinctionMethod")]
-    public class WindowMaterial_Glazing_RefractionExtinctionMethod : BHoMObject
+    public class WindowMaterial_Glazing_RefractionExtinctionMethod : BHoMObject, IEnergyPlusClass
     {
         
 

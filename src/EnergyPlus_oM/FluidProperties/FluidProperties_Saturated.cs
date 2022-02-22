@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     [Description("fluid properties for the saturated region")]
     [JsonObject("FluidProperties:Saturated")]
-    public class FluidProperties_Saturated : BHoMObject
+    public class FluidProperties_Saturated : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -18,12 +18,12 @@ namespace BH.oM.Adapters.EnergyPlus.FluidProperties
         [Description("Enthalpy Units are J/kg Density Units are kg/m3 SpecificHeat Units are J/kg-K Pre" +
                      "ssure Units are Pa")]
         [JsonProperty("fluid_property_type")]
-        public EmptyNoYes FluidPropertyType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public FluidProperties_Saturated_FluidPropertyType FluidPropertyType { get; set; } = (FluidProperties_Saturated_FluidPropertyType)Enum.Parse(typeof(FluidProperties_Saturated_FluidPropertyType), "Density");
         
 
         [Description("Fluid=saturated fluid FluidGas=saturated vapor")]
         [JsonProperty("fluid_phase")]
-        public EmptyNoYes FluidPhase { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public FluidProperties_Saturated_FluidPhase FluidPhase { get; set; } = (FluidProperties_Saturated_FluidPhase)Enum.Parse(typeof(FluidProperties_Saturated_FluidPhase), "Fluid");
         
 
         [Description("Enter the name of a FluidProperties:Temperatures object.")]

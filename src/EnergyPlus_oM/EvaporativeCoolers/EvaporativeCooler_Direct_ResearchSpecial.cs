@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.EvaporativeCoolers
                  "pad or similar media), and recirculating water pump, and secondary air fan. This" +
                  " model is controlled to meet the primary air outlet temperature setpoint.")]
     [JsonObject("EvaporativeCooler:Direct:ResearchSpecial")]
-    public class EvaporativeCooler_Direct_ResearchSpecial : BHoMObject
+    public class EvaporativeCooler_Direct_ResearchSpecial : BHoMObject, IEnergyPlusClass
     {
         
 

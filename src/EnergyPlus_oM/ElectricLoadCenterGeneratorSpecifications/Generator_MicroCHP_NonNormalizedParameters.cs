@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("This object is referenced by a Generator:MicroCHP object and provides the non-nor" +
                  "malized parameters for the MicroCHP generator model.")]
     [JsonObject("Generator:MicroCHP:NonNormalizedParameters")]
-    public class Generator_MicroCHP_NonNormalizedParameters : BHoMObject
+    public class Generator_MicroCHP_NonNormalizedParameters : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -39,7 +39,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("cooling_water_flow_rate_mode")]
-        public EmptyNoYes CoolingWaterFlowRateMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_MicroCHP_NonNormalizedParameters_CoolingWaterFlowRateMode CoolingWaterFlowRateMode { get; set; } = (Generator_MicroCHP_NonNormalizedParameters_CoolingWaterFlowRateMode)Enum.Parse(typeof(Generator_MicroCHP_NonNormalizedParameters_CoolingWaterFlowRateMode), "InternalControl");
         
 
         [JsonProperty("cooling_water_flow_rate_curve_name")]
@@ -85,7 +85,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         [Description("Stirling engines use Nominal Engine Temperature Internal combustion engines use T" +
                      "ime Delay")]
         [JsonProperty("warm_up_mode")]
-        public EmptyNoYes WarmUpMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_MicroCHP_NonNormalizedParameters_WarmUpMode WarmUpMode { get; set; } = (Generator_MicroCHP_NonNormalizedParameters_WarmUpMode)Enum.Parse(typeof(Generator_MicroCHP_NonNormalizedParameters_WarmUpMode), "NominalEngineTemperature");
         
 
         [JsonProperty("warm_up_fuel_flow_rate_coefficient")]
@@ -117,6 +117,6 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("restart_mode")]
-        public EmptyNoYes RestartMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_MicroCHP_NonNormalizedParameters_RestartMode RestartMode { get; set; } = (Generator_MicroCHP_NonNormalizedParameters_RestartMode)Enum.Parse(typeof(Generator_MicroCHP_NonNormalizedParameters_RestartMode), "MandatoryCoolDown");
     }
 }

@@ -70,7 +70,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         "less water heater (small tank volume), a hot water storage tank (zero heater cap" +
         "acity), or a heat pump water heater (see WaterHeater:HeatPump:PumpedCondenser.)")]
     [JsonObject("WaterHeater:Mixed")]
-    public class WaterHeater_Mixed : BHoMObject
+    public class WaterHeater_Mixed : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -91,7 +91,7 @@ public System.Nullable<float> MaximumTemperatureLimit { get; set; } = null;
         
 
 [JsonProperty("heater_control_type")]
-public EmptyNoYes HeaterControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Cycle");
+public WaterHeater_Mixed_HeaterControlType HeaterControlType { get; set; } = (WaterHeater_Mixed_HeaterControlType)Enum.Parse(typeof(WaterHeater_Mixed_HeaterControlType), "Cycle");
         
 
 [JsonProperty("heater_maximum_capacity")]
@@ -114,7 +114,7 @@ public System.Nullable<float> HeaterIgnitionDelay { get; set; } = (System.Nullab
         
 
 [JsonProperty("heater_fuel_type")]
-public EmptyNoYes HeaterFuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public WaterHeater_Mixed_HeaterFuelType HeaterFuelType { get; set; } = (WaterHeater_Mixed_HeaterFuelType)Enum.Parse(typeof(WaterHeater_Mixed_HeaterFuelType), "Coal");
         
 
 [JsonProperty("heater_thermal_efficiency")]
@@ -130,7 +130,7 @@ public System.Nullable<float> OffCycleParasiticFuelConsumptionRate { get; set; }
         
 
 [JsonProperty("off_cycle_parasitic_fuel_type")]
-public EmptyNoYes OffCycleParasiticFuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public WaterHeater_Mixed_OffCycleParasiticFuelType OffCycleParasiticFuelType { get; set; } = (WaterHeater_Mixed_OffCycleParasiticFuelType)Enum.Parse(typeof(WaterHeater_Mixed_OffCycleParasiticFuelType), "Coal");
         
 
 [JsonProperty("off_cycle_parasitic_heat_fraction_to_tank")]
@@ -142,7 +142,7 @@ public System.Nullable<float> OnCycleParasiticFuelConsumptionRate { get; set; } 
         
 
 [JsonProperty("on_cycle_parasitic_fuel_type")]
-public EmptyNoYes OnCycleParasiticFuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public WaterHeater_Mixed_OnCycleParasiticFuelType OnCycleParasiticFuelType { get; set; } = (WaterHeater_Mixed_OnCycleParasiticFuelType)Enum.Parse(typeof(WaterHeater_Mixed_OnCycleParasiticFuelType), "Coal");
         
 
 [JsonProperty("on_cycle_parasitic_heat_fraction_to_tank")]
@@ -150,7 +150,7 @@ public System.Nullable<float> OnCycleParasiticHeatFractionToTank { get; set; } =
         
 
 [JsonProperty("ambient_temperature_indicator")]
-public EmptyNoYes AmbientTemperatureIndicator { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public WaterHeater_Mixed_AmbientTemperatureIndicator AmbientTemperatureIndicator { get; set; } = (WaterHeater_Mixed_AmbientTemperatureIndicator)Enum.Parse(typeof(WaterHeater_Mixed_AmbientTemperatureIndicator), "Outdoors");
         
 
 [JsonProperty("ambient_temperature_schedule_name")]
@@ -238,7 +238,7 @@ public System.Nullable<float> IndirectWaterHeatingRecoveryTime { get; set; } = (
 
 [Description(@"StorageTank mode always requests flow unless tank is at its Maximum Temperature Limit IndirectHeatPrimarySetpoint mode requests flow whenever primary setpoint calls for heat IndirectHeatAlternateSetpoint mode requests flow whenever alternate indirect setpoint calls for heat")]
 [JsonProperty("source_side_flow_control_mode")]
-public EmptyNoYes SourceSideFlowControlMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "IndirectHeatPrimarySetpoint");
+public WaterHeater_Mixed_SourceSideFlowControlMode SourceSideFlowControlMode { get; set; } = (WaterHeater_Mixed_SourceSideFlowControlMode)Enum.Parse(typeof(WaterHeater_Mixed_SourceSideFlowControlMode), "IndirectHeatPrimarySetpoint");
         
 
 [Description("This field is only used if the previous is set to IndirectHeatAlternateSetpoint")]

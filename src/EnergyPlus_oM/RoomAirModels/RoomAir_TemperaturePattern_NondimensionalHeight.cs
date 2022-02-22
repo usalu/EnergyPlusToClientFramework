@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     [Description(@"Defines a distribution pattern for air temperatures relative to the current mean air temperature as a function of height. The height, referred to as Zeta, is nondimensional by normalizing with the zone ceiling height. Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
     [JsonObject("RoomAir:TemperaturePattern:NondimensionalHeight")]
-    public class RoomAir_TemperaturePattern_NondimensionalHeight : BHoMObject
+    public class RoomAir_TemperaturePattern_NondimensionalHeight : BHoMObject, IEnergyPlusClass
     {
         
 

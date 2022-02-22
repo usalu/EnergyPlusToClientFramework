@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
     [Description("ComBldg contains the monthly average temperatures (C) and possibility of daily va" +
                  "riation amplitude")]
     [JsonObject("GroundHeatTransfer:Basement:ComBldg")]
-    public class GroundHeatTransfer_Basement_ComBldg : BHoMObject
+    public class GroundHeatTransfer_Basement_ComBldg : BHoMObject, IEnergyPlusClass
     {
         
 

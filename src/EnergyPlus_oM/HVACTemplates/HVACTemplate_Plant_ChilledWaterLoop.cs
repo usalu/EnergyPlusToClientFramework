@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("Plant and condenser loops to serve all HVACTemplate chilled water coils, chillers" +
                  ", and towers.")]
     [JsonObject("HVACTemplate:Plant:ChilledWaterLoop")]
-    public class HVACTemplate_Plant_ChilledWaterLoop : BHoMObject
+    public class HVACTemplate_Plant_ChilledWaterLoop : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -21,13 +21,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description("Applies to both chilled water and condenser loop pumps")]
         [JsonProperty("pump_control_type")]
-        public EmptyNoYes PumpControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Intermittent");
+        public HVACTemplate_Plant_ChilledWaterLoop_PumpControlType PumpControlType { get; set; } = (HVACTemplate_Plant_ChilledWaterLoop_PumpControlType)Enum.Parse(typeof(HVACTemplate_Plant_ChilledWaterLoop_PumpControlType), "Intermittent");
         
 
         [Description("Default operation type makes all equipment available at all times operating in or" +
                      "der of Priority specified in HVACTemplate:Plant:Chiller objects.")]
         [JsonProperty("chiller_plant_operation_scheme_type")]
-        public EmptyNoYes ChillerPlantOperationSchemeType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Default");
+        public HVACTemplate_Plant_ChilledWaterLoop_ChillerPlantOperationSchemeType ChillerPlantOperationSchemeType { get; set; } = (HVACTemplate_Plant_ChilledWaterLoop_ChillerPlantOperationSchemeType)Enum.Parse(typeof(HVACTemplate_Plant_ChilledWaterLoop_ChillerPlantOperationSchemeType), "Default");
         
 
         [Description("Name of a PlantEquipmentOperationSchemes object Ignored if Chiller Plant Operatio" +
@@ -49,7 +49,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"VariablePrimaryNoSecondary - variable flow to chillers and coils ConstantPrimaryNoSecondary - constant flow to chillers and coils, excess bypassed ConstantPrimaryVariableSecondary - constant flow to chillers, variable flow to coils VariablePrimaryConstantSecondary - currently unsupported - variable flow to chillers, constant flow to coils")]
         [JsonProperty("chilled_water_pump_configuration")]
-        public EmptyNoYes ChilledWaterPumpConfiguration { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ConstantPrimaryNoSecondary");
+        public HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterPumpConfiguration ChilledWaterPumpConfiguration { get; set; } = (HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterPumpConfiguration)Enum.Parse(typeof(HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterPumpConfiguration), "ConstantPrimaryNoSecondary");
         
 
         [Description("default head is 60 feet H2O")]
@@ -66,7 +66,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "der of Priority specified in HVACTemplate:Plant:Tower objects. May be left blank" +
                      " if not serving any water cooled chillers")]
         [JsonProperty("condenser_plant_operation_scheme_type")]
-        public EmptyNoYes CondenserPlantOperationSchemeType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Default");
+        public HVACTemplate_Plant_ChilledWaterLoop_CondenserPlantOperationSchemeType CondenserPlantOperationSchemeType { get; set; } = (HVACTemplate_Plant_ChilledWaterLoop_CondenserPlantOperationSchemeType)Enum.Parse(typeof(HVACTemplate_Plant_ChilledWaterLoop_CondenserPlantOperationSchemeType), "Default");
         
 
         [Description("Name of a CondenserEquipmentOperationSchemes object Ignored if Condenser Plant Op" +
@@ -78,7 +78,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description("May be left blank if not serving any water cooled chillers")]
         [JsonProperty("condenser_water_temperature_control_type")]
-        public EmptyNoYes CondenserWaterTemperatureControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public HVACTemplate_Plant_ChilledWaterLoop_CondenserWaterTemperatureControlType CondenserWaterTemperatureControlType { get; set; } = (HVACTemplate_Plant_ChilledWaterLoop_CondenserWaterTemperatureControlType)Enum.Parse(typeof(HVACTemplate_Plant_ChilledWaterLoop_CondenserWaterTemperatureControlType), "OutdoorWetBulbTemperature");
         
 
         [Description("Leave blank if constant setpoint May be left blank if not serving any water coole" +
@@ -101,7 +101,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description("Overrides Chilled Water Setpoint Schedule Name")]
         [JsonProperty("chilled_water_setpoint_reset_type")]
-        public EmptyNoYes ChilledWaterSetpointResetType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterSetpointResetType ChilledWaterSetpointResetType { get; set; } = (HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterSetpointResetType)Enum.Parse(typeof(HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterSetpointResetType), "None");
         
 
         [Description("Applicable only for OutdoorAirTemperatureReset control.")]
@@ -127,18 +127,18 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         [Description("Describes the type of pump configuration used for the primary portion of the chil" +
                      "led water loop.")]
         [JsonProperty("chilled_water_primary_pump_type")]
-        public EmptyNoYes ChilledWaterPrimaryPumpType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SinglePump");
+        public HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterPrimaryPumpType ChilledWaterPrimaryPumpType { get; set; } = (HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterPrimaryPumpType)Enum.Parse(typeof(HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterPrimaryPumpType), "SinglePump");
         
 
         [Description("Describes the type of pump configuration used for the secondary portion of the ch" +
                      "illed water loop.")]
         [JsonProperty("chilled_water_secondary_pump_type")]
-        public EmptyNoYes ChilledWaterSecondaryPumpType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SinglePump");
+        public HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterSecondaryPumpType ChilledWaterSecondaryPumpType { get; set; } = (HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterSecondaryPumpType)Enum.Parse(typeof(HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterSecondaryPumpType), "SinglePump");
         
 
         [Description("Describes the type of pump configuration used for the condenser water loop.")]
         [JsonProperty("condenser_water_pump_type")]
-        public EmptyNoYes CondenserWaterPumpType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SinglePump");
+        public HVACTemplate_Plant_ChilledWaterLoop_CondenserWaterPumpType CondenserWaterPumpType { get; set; } = (HVACTemplate_Plant_ChilledWaterLoop_CondenserWaterPumpType)Enum.Parse(typeof(HVACTemplate_Plant_ChilledWaterLoop_CondenserWaterPumpType), "SinglePump");
         
 
         [Description("Determines if a supply side bypass pipe is present in the chilled water loop.")]
@@ -162,7 +162,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("fluid_type")]
-        public EmptyNoYes FluidType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Water");
+        public HVACTemplate_Plant_ChilledWaterLoop_FluidType FluidType { get; set; } = (HVACTemplate_Plant_ChilledWaterLoop_FluidType)Enum.Parse(typeof(HVACTemplate_Plant_ChilledWaterLoop_FluidType), "Water");
         
 
         [Description("The temperature difference used in sizing the loop flow rate.")]
@@ -177,10 +177,10 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("chilled_water_load_distribution_scheme")]
-        public EmptyNoYes ChilledWaterLoadDistributionScheme { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SequentialLoad");
+        public HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterLoadDistributionScheme ChilledWaterLoadDistributionScheme { get; set; } = (HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterLoadDistributionScheme)Enum.Parse(typeof(HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterLoadDistributionScheme), "SequentialLoad");
         
 
         [JsonProperty("condenser_water_load_distribution_scheme")]
-        public EmptyNoYes CondenserWaterLoadDistributionScheme { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SequentialLoad");
+        public HVACTemplate_Plant_ChilledWaterLoop_CondenserWaterLoadDistributionScheme CondenserWaterLoadDistributionScheme { get; set; } = (HVACTemplate_Plant_ChilledWaterLoop_CondenserWaterLoadDistributionScheme)Enum.Parse(typeof(HVACTemplate_Plant_ChilledWaterLoop_CondenserWaterLoadDistributionScheme), "SequentialLoad");
     }
 }

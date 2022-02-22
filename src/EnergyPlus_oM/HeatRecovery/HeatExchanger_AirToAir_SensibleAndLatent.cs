@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
                  ". The heat exchanger can transfer sensible energy, latent energy, or both betwee" +
                  "n the supply (primary) and exhaust (secondary) air streams.")]
     [JsonObject("HeatExchanger:AirToAir:SensibleAndLatent")]
-    public class HeatExchanger_AirToAir_SensibleAndLatent : BHoMObject
+    public class HeatExchanger_AirToAir_SensibleAndLatent : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -81,11 +81,11 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
         
 
         [JsonProperty("heat_exchanger_type")]
-        public EmptyNoYes HeatExchangerType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Plate");
+        public HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType HeatExchangerType { get; set; } = (HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType)Enum.Parse(typeof(HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType), "Plate");
         
 
         [JsonProperty("frost_control_type")]
-        public EmptyNoYes FrostControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType FrostControlType { get; set; } = (HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType)Enum.Parse(typeof(HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType), "None");
         
 
         [Description("Supply (outdoor) air inlet temp threshold for exhaust air recirculation and exhau" +

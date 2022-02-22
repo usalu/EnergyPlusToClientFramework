@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
                  " equipment that runs if the loop is active, unless turned off by the loop flow r" +
                  "esolver to maintain continuity in the fluid loop.")]
     [JsonObject("PlantEquipmentOperation:Uncontrolled")]
-    public class PlantEquipmentOperation_Uncontrolled : BHoMObject
+    public class PlantEquipmentOperation_Uncontrolled : BHoMObject, IEnergyPlusClass
     {
         
 

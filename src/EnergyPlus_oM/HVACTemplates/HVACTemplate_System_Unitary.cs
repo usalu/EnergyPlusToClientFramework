@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Unitary furnace with air conditioner")]
     [JsonObject("HVACTemplate:System:Unitary")]
-    public class HVACTemplate_System_Unitary : BHoMObject
+    public class HVACTemplate_System_Unitary : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -54,7 +54,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("cooling_coil_type")]
-        public EmptyNoYes CoolingCoilType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SingleSpeedDX");
+        public HVACTemplate_System_Unitary_CoolingCoilType CoolingCoilType { get; set; } = (HVACTemplate_System_Unitary_CoolingCoilType)Enum.Parse(typeof(HVACTemplate_System_Unitary_CoolingCoilType), "SingleSpeedDX");
         
 
         [Description("If blank, always on")]
@@ -84,7 +84,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heating_coil_type")]
-        public EmptyNoYes HeatingCoilType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public HVACTemplate_System_Unitary_HeatingCoilType HeatingCoilType { get; set; } = (HVACTemplate_System_Unitary_HeatingCoilType)Enum.Parse(typeof(HVACTemplate_System_Unitary_HeatingCoilType), "Electric");
         
 
         [Description("If blank, always on")]
@@ -123,11 +123,11 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("economizer_type")]
-        public EmptyNoYes EconomizerType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoEconomizer");
+        public HVACTemplate_System_Unitary_EconomizerType EconomizerType { get; set; } = (HVACTemplate_System_Unitary_EconomizerType)Enum.Parse(typeof(HVACTemplate_System_Unitary_EconomizerType), "NoEconomizer");
         
 
         [JsonProperty("economizer_lockout")]
-        public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoLockout");
+        public HVACTemplate_System_Unitary_EconomizerLockout EconomizerLockout { get; set; } = (HVACTemplate_System_Unitary_EconomizerLockout)Enum.Parse(typeof(HVACTemplate_System_Unitary_EconomizerLockout), "NoLockout");
         
 
         [Description("Outdoor temperature above which economizer is disabled and heat recovery is enabl" +
@@ -166,11 +166,11 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("supply_fan_placement")]
-        public EmptyNoYes SupplyFanPlacement { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "BlowThrough");
+        public HVACTemplate_System_Unitary_SupplyFanPlacement SupplyFanPlacement { get; set; } = (HVACTemplate_System_Unitary_SupplyFanPlacement)Enum.Parse(typeof(HVACTemplate_System_Unitary_SupplyFanPlacement), "BlowThrough");
         
 
         [JsonProperty("night_cycle_control")]
-        public EmptyNoYes NightCycleControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "StayOff");
+        public HVACTemplate_System_Unitary_NightCycleControl NightCycleControl { get; set; } = (HVACTemplate_System_Unitary_NightCycleControl)Enum.Parse(typeof(HVACTemplate_System_Unitary_NightCycleControl), "StayOff");
         
 
         [Description("Applicable only if Night Cycle Control is Cycle On Control Zone.")]
@@ -179,7 +179,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_recovery_type")]
-        public EmptyNoYes HeatRecoveryType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_Unitary_HeatRecoveryType HeatRecoveryType { get; set; } = (HVACTemplate_System_Unitary_HeatRecoveryType)Enum.Parse(typeof(HVACTemplate_System_Unitary_HeatRecoveryType), "None");
         
 
         [JsonProperty("sensible_heat_recovery_effectiveness")]
@@ -193,7 +193,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"None = meet sensible cooling load only CoolReheatHeatingCoil = cool beyond the dry-bulb setpoint as required to meet the humidity setpoint, reheat with main heating coil. CoolReheatDesuperheater = cool beyond the dry-bulb setpoint as required to meet the humidity setpoint, reheat with desuperheater coil.")]
         [JsonProperty("dehumidification_control_type")]
-        public EmptyNoYes DehumidificationControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_Unitary_DehumidificationControlType DehumidificationControlType { get; set; } = (HVACTemplate_System_Unitary_DehumidificationControlType)Enum.Parse(typeof(HVACTemplate_System_Unitary_DehumidificationControlType), "None");
         
 
         [Description("Zone relative humidity setpoint in percent (0 to 100)")]
@@ -202,7 +202,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("humidifier_type")]
-        public EmptyNoYes HumidifierType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_Unitary_HumidifierType HumidifierType { get; set; } = (HVACTemplate_System_Unitary_HumidifierType)Enum.Parse(typeof(HVACTemplate_System_Unitary_HumidifierType), "None");
         
 
         [Description("If blank, always available")]

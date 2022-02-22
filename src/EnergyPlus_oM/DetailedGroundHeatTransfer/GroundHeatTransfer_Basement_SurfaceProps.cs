@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
     [Description("Specifies the soil surface properties for the Basement preprocessor ground heat t" +
                  "ransfer simulation.")]
     [JsonObject("GroundHeatTransfer:Basement:SurfaceProps")]
-    public class GroundHeatTransfer_Basement_SurfaceProps : BHoMObject
+    public class GroundHeatTransfer_Basement_SurfaceProps : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -39,6 +39,6 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 
         [Description("Typically, PET is False")]
         [JsonProperty("pet_flag_potential_evapotranspiration_on_")]
-        public EmptyNoYes PetFlagPotentialEvapotranspirationOn { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "FALSE");
+        public GroundHeatTransfer_Basement_SurfaceProps_PetFlagPotentialEvapotranspirationOn PetFlagPotentialEvapotranspirationOn { get; set; } = (GroundHeatTransfer_Basement_SurfaceProps_PetFlagPotentialEvapotranspirationOn)Enum.Parse(typeof(GroundHeatTransfer_Basement_SurfaceProps_PetFlagPotentialEvapotranspirationOn), "FALSE");
     }
 }

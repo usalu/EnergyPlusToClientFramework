@@ -7,12 +7,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     [Description("This setpoint manager places a high and low schedule value on one or more nodes.")]
     [JsonObject("SetpointManager:Scheduled:DualSetpoint")]
-    public class SetpointManager_Scheduled_DualSetpoint : BHoMObject
+    public class SetpointManager_Scheduled_DualSetpoint : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
-        public EmptyNoYes ControlVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Temperature");
+        public SetpointManager_Scheduled_DualSetpoint_ControlVariable ControlVariable { get; set; } = (SetpointManager_Scheduled_DualSetpoint_ControlVariable)Enum.Parse(typeof(SetpointManager_Scheduled_DualSetpoint_ControlVariable), "Temperature");
         
 
         [JsonProperty("high_setpoint_schedule_name")]

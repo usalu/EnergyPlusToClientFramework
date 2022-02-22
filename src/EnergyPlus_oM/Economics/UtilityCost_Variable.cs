@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     [Description("Allows for the direct entry of monthly values into a utility tariff variable.")]
     [JsonObject("UtilityCost:Variable")]
-    public class UtilityCost_Variable : BHoMObject
+    public class UtilityCost_Variable : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -18,7 +18,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
         
 
         [JsonProperty("variable_type")]
-        public EmptyNoYes VariableType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public UtilityCost_Variable_VariableType VariableType { get; set; } = (UtilityCost_Variable_VariableType)Enum.Parse(typeof(UtilityCost_Variable_VariableType), "Dimensionless");
         
 
         [JsonProperty("january_value")]

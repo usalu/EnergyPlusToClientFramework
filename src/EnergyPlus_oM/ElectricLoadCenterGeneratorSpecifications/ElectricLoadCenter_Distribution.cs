@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                  "run on the meter dictionary file (.mdd) if the Output:VariableDictionary has bee" +
                  "n requested.")]
     [JsonObject("ElectricLoadCenter:Distribution")]
-    public class ElectricLoadCenter_Distribution : BHoMObject
+    public class ElectricLoadCenter_Distribution : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -22,7 +22,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         [Description("Determines how generators are to be controlled Required if Generator List is ente" +
                      "red.")]
         [JsonProperty("generator_operation_scheme_type")]
-        public EmptyNoYes GeneratorOperationSchemeType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ElectricLoadCenter_Distribution_GeneratorOperationSchemeType GeneratorOperationSchemeType { get; set; } = (ElectricLoadCenter_Distribution_GeneratorOperationSchemeType)Enum.Parse(typeof(ElectricLoadCenter_Distribution_GeneratorOperationSchemeType), "Baseload");
         
 
         [JsonProperty("generator_demand_limit_scheme_purchased_electric_demand_limit")]
@@ -41,7 +41,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("electrical_buss_type")]
-        public EmptyNoYes ElectricalBussType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AlternatingCurrent");
+        public ElectricLoadCenter_Distribution_ElectricalBussType ElectricalBussType { get; set; } = (ElectricLoadCenter_Distribution_ElectricalBussType)Enum.Parse(typeof(ElectricLoadCenter_Distribution_ElectricalBussType), "AlternatingCurrent");
         
 
         [Description("required when Electrical Buss Type=DirectCurrentWithInverter, DirectCurrentWithIn" +
@@ -83,7 +83,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                      "meet the target level and during times of low use will charge storage from the g" +
                      "rid to increase facility grid demand to meet the target level.")]
         [JsonProperty("storage_operation_scheme")]
-        public EmptyNoYes StorageOperationScheme { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "TrackFacilityElectricDemandStoreExcessOnSite");
+        public ElectricLoadCenter_Distribution_StorageOperationScheme StorageOperationScheme { get; set; } = (ElectricLoadCenter_Distribution_StorageOperationScheme)Enum.Parse(typeof(ElectricLoadCenter_Distribution_StorageOperationScheme), "TrackFacilityElectricDemandStoreExcessOnSite");
         
 
         [Description("required when Storage Operation Scheme is set to TrackMeterDemandStoreExcessOnSit" +

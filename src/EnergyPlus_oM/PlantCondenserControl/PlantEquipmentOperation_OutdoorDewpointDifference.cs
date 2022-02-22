@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
 {
     [Description(@"Plant equipment operation scheme for outdoor dewpoint temperature difference operation. Specifies one or more groups of equipment which are available to operate for successive ranges based the difference between a reference node temperature and the outdoor dewpoint temperature.")]
     [JsonObject("PlantEquipmentOperation:OutdoorDewpointDifference")]
-    public class PlantEquipmentOperation_OutdoorDewpointDifference : BHoMObject
+    public class PlantEquipmentOperation_OutdoorDewpointDifference : BHoMObject, IEnergyPlusClass
     {
         
 

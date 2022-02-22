@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     [Description("fluid properties for water/other fluid mixtures")]
     [JsonObject("FluidProperties:Concentration")]
-    public class FluidProperties_Concentration : BHoMObject
+    public class FluidProperties_Concentration : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -19,7 +19,7 @@ namespace BH.oM.Adapters.EnergyPlus.FluidProperties
         [Description("Density Units are kg/m3 SpecificHeat Units are J/kg-K Conductivity Units are W/m-" +
                      "K Viscosity Units are N-s/m2")]
         [JsonProperty("fluid_property_type")]
-        public EmptyNoYes FluidPropertyType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public FluidProperties_Concentration_FluidPropertyType FluidPropertyType { get; set; } = (FluidProperties_Concentration_FluidPropertyType)Enum.Parse(typeof(FluidProperties_Concentration_FluidPropertyType), "Conductivity");
         
 
         [Description("Enter the name of a FluidProperties:Temperatures object.")]

@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "ating coils and may be placed directly in an air loop branch or outdoor air equi" +
                  "pment list.")]
     [JsonObject("CoilSystem:Heating:DX")]
-    public class CoilSystem_Heating_DX : BHoMObject
+    public class CoilSystem_Heating_DX : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -21,7 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("heating_coil_object_type")]
-        public EmptyNoYes HeatingCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public CoilSystem_Heating_DX_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (CoilSystem_Heating_DX_HeatingCoilObjectType)Enum.Parse(typeof(CoilSystem_Heating_DX_HeatingCoilObjectType), "CoilHeatingDXSingleSpeed");
         
 
         [JsonProperty("heating_coil_name")]

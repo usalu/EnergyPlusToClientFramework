@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
                  " setpoints can be scheduled and varied throughout the simulation for both heatin" +
                  "g and cooling.")]
     [JsonObject("ThermostatSetpoint:ThermalComfort:Fanger:DualSetpoint")]
-    public class ThermostatSetpoint_ThermalComfort_Fanger_DualSetpoint : BHoMObject
+    public class ThermostatSetpoint_ThermalComfort_Fanger_DualSetpoint : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -11,7 +11,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "ils and may be placed directly in an air loop branch or outdoor air equipment li" +
                  "st.")]
     [JsonObject("CoilSystem:Cooling:DX")]
-    public class CoilSystem_Cooling_DX : BHoMObject
+    public class CoilSystem_Cooling_DX : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -34,7 +34,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("cooling_coil_object_type")]
-        public EmptyNoYes CoolingCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public CoilSystem_Cooling_DX_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (CoilSystem_Cooling_DX_CoolingCoilObjectType)Enum.Parse(typeof(CoilSystem_Cooling_DX_CoolingCoilObjectType), "CoilCoolingDXSingleSpeed");
         
 
         [JsonProperty("cooling_coil_name")]
@@ -43,7 +43,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 
         [Description(@"None = meet sensible load only Multimode = activate enhanced dehumidification mode as needed and meet sensible load. If no sensible load exists, and Run on Latent Load = Yes, and a latent load exists, the unit will operate to meet the latent load. Valid only with Coil:Cooling:DX:TwoStageWithHumidityControlMode or CoilSystem:Cooling:DX:HeatExchangerAssisted. CoolReheat = cool beyond the dry-bulb setpoint. as required to meet the humidity setpoint. Valid for all coil types. For all dehumidification controls, the max humidity setpoint on the Sensor Node is used. SetpointManager:SingleZone:Humidity:Maximum, SetpointManager:MultiZone:Humidity:Maximum, or SetpointManager:MultiZone:MaximumHumidity:Average, and SetpointManager:OutdoorAirPretreat (optional) objects.")]
         [JsonProperty("dehumidification_control_type")]
-        public EmptyNoYes DehumidificationControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public CoilSystem_Cooling_DX_DehumidificationControlType DehumidificationControlType { get; set; } = (CoilSystem_Cooling_DX_DehumidificationControlType)Enum.Parse(typeof(CoilSystem_Cooling_DX_DehumidificationControlType), "None");
         
 
         [Description("If Yes, unit will run if there is a sensible load. If No, unit will not run if th" +

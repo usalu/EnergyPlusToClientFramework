@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
                  "and varied throughout the simulation but only heating is allowed with this contr" +
                  "ol type.")]
     [JsonObject("ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating")]
-    public class ThermostatSetpoint_ThermalComfort_Fanger_SingleHeating : BHoMObject
+    public class ThermostatSetpoint_ThermalComfort_Fanger_SingleHeating : BHoMObject, IEnergyPlusClass
     {
         
 

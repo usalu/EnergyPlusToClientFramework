@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
                  "on for a variable speed cooling tower when tower Model Type is specified as Cool" +
                  "ToolsUserDefined in the object CoolingTower:VariableSpeed.")]
     [JsonObject("CoolingTowerPerformance:CoolTools")]
-    public class CoolingTowerPerformance_CoolTools : BHoMObject
+    public class CoolingTowerPerformance_CoolTools : BHoMObject, IEnergyPlusClass
     {
         
 

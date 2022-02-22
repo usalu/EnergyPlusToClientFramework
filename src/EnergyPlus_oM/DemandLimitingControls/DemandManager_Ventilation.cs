@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
 {
     [Description("used for demand limiting Controller:OutdoorAir objects.")]
     [JsonObject("DemandManager:Ventilation")]
-    public class DemandManager_Ventilation : BHoMObject
+    public class DemandManager_Ventilation : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -19,7 +19,7 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
         
 
         [JsonProperty("limit_control")]
-        public EmptyNoYes LimitControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public DemandManager_Ventilation_LimitControl LimitControl { get; set; } = (DemandManager_Ventilation_LimitControl)Enum.Parse(typeof(DemandManager_Ventilation_LimitControl), "FixedRate");
         
 
         [Description("If blank, duration defaults to the timestep")]
@@ -43,7 +43,7 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
         
 
         [JsonProperty("selection_control")]
-        public EmptyNoYes SelectionControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "All");
+        public DemandManager_Ventilation_SelectionControl SelectionControl { get; set; } = (DemandManager_Ventilation_SelectionControl)Enum.Parse(typeof(DemandManager_Ventilation_SelectionControl), "All");
         
 
         [Description("If blank, duration defaults to the timestep")]

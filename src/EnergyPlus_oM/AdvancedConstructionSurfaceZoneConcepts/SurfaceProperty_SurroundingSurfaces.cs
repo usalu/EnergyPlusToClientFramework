@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     [Description("This object defines a list of surrounding surfaces for an exterior surface.")]
     [JsonObject("SurfaceProperty:SurroundingSurfaces")]
-    public class SurfaceProperty_SurroundingSurfaces : BHoMObject
+    public class SurfaceProperty_SurroundingSurfaces : BHoMObject, IEnergyPlusClass
     {
         
 

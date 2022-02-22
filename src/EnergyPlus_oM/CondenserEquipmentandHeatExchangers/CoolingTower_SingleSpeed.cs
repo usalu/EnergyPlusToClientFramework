@@ -68,7 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     
     [Description(@"This tower model is based on Merkel's theory, which is also the basis for the tower model in ASHRAE's HVAC1 Toolkit. The open wet cooling tower is modeled as a counter flow heat exchanger with a single-speed fan drawing air through the tower (induced-draft configuration). Added fluid bypass as an additional capacity control. 8/2008. For a multi-cell tower, the capacity and air/water flow rate inputs are for the entire tower.")]
     [JsonObject("CoolingTower:SingleSpeed")]
-    public class CoolingTower_SingleSpeed : BHoMObject
+    public class CoolingTower_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -124,7 +124,7 @@ public System.Nullable<float> FreeConvectionUFactorTimesAreaValueSizingFactor { 
     "Air Flow Rate and the Design Water Flow Rate, or by specifying the tower nominal" +
     " capacity")]
 [JsonProperty("performance_input_method")]
-public EmptyNoYes PerformanceInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "UFactorTimesAreaAndDesignWaterFlowRate");
+public CoolingTower_SingleSpeed_PerformanceInputMethod PerformanceInputMethod { get; set; } = (CoolingTower_SingleSpeed_PerformanceInputMethod)Enum.Parse(typeof(CoolingTower_SingleSpeed_PerformanceInputMethod), "UFactorTimesAreaAndDesignWaterFlowRate");
         
 
 [JsonProperty("heat_rejection_capacity_and_nominal_capacity_sizing_ratio")]
@@ -189,7 +189,7 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [JsonProperty("evaporation_loss_mode")]
-public EmptyNoYes EvaporationLossMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public CoolingTower_SingleSpeed_EvaporationLossMode EvaporationLossMode { get; set; } = (CoolingTower_SingleSpeed_EvaporationLossMode)Enum.Parse(typeof(CoolingTower_SingleSpeed_EvaporationLossMode), "LossFactor");
         
 
 [Description(@"Rate of water evaporation from the cooling tower and lost to the outdoor air [%/K] Evaporation loss is calculated as percentage of the circulating condenser water rate Value entered here is percent-per-degree K of temperature drop in the condenser water Typical values are from 0.15 to 0.27 [%/K].")]
@@ -204,7 +204,7 @@ public System.Nullable<float> DriftLossPercent { get; set; } = (System.Nullable<
         
 
 [JsonProperty("blowdown_calculation_mode")]
-public EmptyNoYes BlowdownCalculationMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public CoolingTower_SingleSpeed_BlowdownCalculationMode BlowdownCalculationMode { get; set; } = (CoolingTower_SingleSpeed_BlowdownCalculationMode)Enum.Parse(typeof(CoolingTower_SingleSpeed_BlowdownCalculationMode), "ConcentrationRatio");
         
 
 [Description(@"Characterizes the rate of blowdown in the cooling tower. Blowdown is water intentionally drained from the tower in order to offset the build up of solids in the water that would otherwise occur because of evaporation. Ratio of solids in the blowdown water to solids in the make up water. Typical values for tower operation are 3 to 5. The default value is 3.")]
@@ -227,7 +227,7 @@ public string OutdoorAirInletNodeName { get; set; } = "";
         
 
 [JsonProperty("capacity_control")]
-public EmptyNoYes CapacityControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "FanCycling");
+public CoolingTower_SingleSpeed_CapacityControl CapacityControl { get; set; } = (CoolingTower_SingleSpeed_CapacityControl)Enum.Parse(typeof(CoolingTower_SingleSpeed_CapacityControl), "FanCycling");
         
 
 [JsonProperty("number_of_cells")]
@@ -235,7 +235,7 @@ public System.Nullable<float> NumberOfCells { get; set; } = (System.Nullable<flo
         
 
 [JsonProperty("cell_control")]
-public EmptyNoYes CellControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "MinimalCell");
+public CoolingTower_SingleSpeed_CellControl CellControl { get; set; } = (CoolingTower_SingleSpeed_CellControl)Enum.Parse(typeof(CoolingTower_SingleSpeed_CellControl), "MinimalCell");
         
 
 [Description("The allowable minimal fraction of the nominal flow rate per cell")]

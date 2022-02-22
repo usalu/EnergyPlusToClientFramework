@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Plant loop to serve all HVACTemplate hot water coils and boilers.")]
     [JsonObject("HVACTemplate:Plant:HotWaterLoop")]
-    public class HVACTemplate_Plant_HotWaterLoop : BHoMObject
+    public class HVACTemplate_Plant_HotWaterLoop : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -18,13 +18,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("pump_control_type")]
-        public EmptyNoYes PumpControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Intermittent");
+        public HVACTemplate_Plant_HotWaterLoop_PumpControlType PumpControlType { get; set; } = (HVACTemplate_Plant_HotWaterLoop_PumpControlType)Enum.Parse(typeof(HVACTemplate_Plant_HotWaterLoop_PumpControlType), "Intermittent");
         
 
         [Description("Default operation type makes all equipment available at all times operating in or" +
                      "der of Priority specified in HVACTemplate:Plant:Boiler objects.")]
         [JsonProperty("hot_water_plant_operation_scheme_type")]
-        public EmptyNoYes HotWaterPlantOperationSchemeType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Default");
+        public HVACTemplate_Plant_HotWaterLoop_HotWaterPlantOperationSchemeType HotWaterPlantOperationSchemeType { get; set; } = (HVACTemplate_Plant_HotWaterLoop_HotWaterPlantOperationSchemeType)Enum.Parse(typeof(HVACTemplate_Plant_HotWaterLoop_HotWaterPlantOperationSchemeType), "Default");
         
 
         [Description("Name of a PlantEquipmentOperationSchemes object Ignored if Plant Operation Scheme" +
@@ -47,7 +47,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         [Description("VariableFlow - variable flow to boilers and coils, excess bypassed ConstantFlow -" +
                      " constant flow to boilers and coils, excess bypassed")]
         [JsonProperty("hot_water_pump_configuration")]
-        public EmptyNoYes HotWaterPumpConfiguration { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ConstantFlow");
+        public HVACTemplate_Plant_HotWaterLoop_HotWaterPumpConfiguration HotWaterPumpConfiguration { get; set; } = (HVACTemplate_Plant_HotWaterLoop_HotWaterPumpConfiguration)Enum.Parse(typeof(HVACTemplate_Plant_HotWaterLoop_HotWaterPumpConfiguration), "ConstantFlow");
         
 
         [Description("Default head is 60 feet H2O")]
@@ -57,7 +57,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description("Overrides Hot Water Setpoint Schedule Name")]
         [JsonProperty("hot_water_setpoint_reset_type")]
-        public EmptyNoYes HotWaterSetpointResetType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_Plant_HotWaterLoop_HotWaterSetpointResetType HotWaterSetpointResetType { get; set; } = (HVACTemplate_Plant_HotWaterLoop_HotWaterSetpointResetType)Enum.Parse(typeof(HVACTemplate_Plant_HotWaterLoop_HotWaterSetpointResetType), "None");
         
 
         [Description("Applicable only for OutdoorAirTemperatureReset control.")]
@@ -82,7 +82,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description("Describes the type of pump configuration used for the hot water loop.")]
         [JsonProperty("hot_water_pump_type")]
-        public EmptyNoYes HotWaterPumpType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SinglePump");
+        public HVACTemplate_Plant_HotWaterLoop_HotWaterPumpType HotWaterPumpType { get; set; } = (HVACTemplate_Plant_HotWaterLoop_HotWaterPumpType)Enum.Parse(typeof(HVACTemplate_Plant_HotWaterLoop_HotWaterPumpType), "SinglePump");
         
 
         [Description("Determines if a supply side bypass pipe is present in the hot water loop.")]
@@ -96,7 +96,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("fluid_type")]
-        public EmptyNoYes FluidType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Water");
+        public HVACTemplate_Plant_HotWaterLoop_FluidType FluidType { get; set; } = (HVACTemplate_Plant_HotWaterLoop_FluidType)Enum.Parse(typeof(HVACTemplate_Plant_HotWaterLoop_FluidType), "Water");
         
 
         [Description("The temperature difference used in sizing the loop flow rate.")]
@@ -111,6 +111,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("load_distribution_scheme")]
-        public EmptyNoYes LoadDistributionScheme { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SequentialLoad");
+        public HVACTemplate_Plant_HotWaterLoop_LoadDistributionScheme LoadDistributionScheme { get; set; } = (HVACTemplate_Plant_HotWaterLoop_LoadDistributionScheme)Enum.Parse(typeof(HVACTemplate_Plant_HotWaterLoop_LoadDistributionScheme), "SequentialLoad");
     }
 }

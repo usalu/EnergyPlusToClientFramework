@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes outdoor air humidity sensor offset")]
     [JsonObject("FaultModel:HumiditySensorOffset:OutdoorAir")]
-    public class FaultModel_HumiditySensorOffset_OutdoorAir : BHoMObject
+    public class FaultModel_HumiditySensorOffset_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -21,7 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
         
 
         [JsonProperty("controller_object_type")]
-        public EmptyNoYes ControllerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public FaultModel_HumiditySensorOffset_OutdoorAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_HumiditySensorOffset_OutdoorAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_HumiditySensorOffset_OutdoorAir_ControllerObjectType), "ControllerOutdoorAir");
         
 
         [JsonProperty("controller_object_name")]

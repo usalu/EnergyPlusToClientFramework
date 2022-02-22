@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                  "lant:ChilledWaterLoop. The user must create a complete detailed chiller object w" +
                  "ith all required curve or performance objects.")]
     [JsonObject("HVACTemplate:Plant:Chiller:ObjectReference")]
-    public class HVACTemplate_Plant_Chiller_ObjectReference : BHoMObject
+    public class HVACTemplate_Plant_Chiller_ObjectReference : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("chiller_object_type")]
-        public EmptyNoYes ChillerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Chiller:Electric:EIR");
+        public HVACTemplate_Plant_Chiller_ObjectReference_ChillerObjectType ChillerObjectType { get; set; } = (HVACTemplate_Plant_Chiller_ObjectReference_ChillerObjectType)Enum.Parse(typeof(HVACTemplate_Plant_Chiller_ObjectReference_ChillerObjectType), "Empty");
         
 
         [Description("The name of the detailed chiller object.")]

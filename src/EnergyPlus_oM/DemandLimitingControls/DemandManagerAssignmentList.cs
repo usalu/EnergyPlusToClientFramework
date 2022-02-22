@@ -69,7 +69,7 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
     [Description("a list of meters that can be reported are available after a run on the meter dict" +
         "ionary file (.mdd) if the Output:VariableDictionary has been requested.")]
     [JsonObject("DemandManagerAssignmentList")]
-    public class DemandManagerAssignmentList : BHoMObject
+    public class DemandManagerAssignmentList : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -103,7 +103,7 @@ public System.Nullable<float> DemandWindowLength { get; set; } = null;
         
 
 [JsonProperty("demand_manager_priority")]
-public EmptyNoYes DemandManagerPriority { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public DemandManagerAssignmentList_DemandManagerPriority DemandManagerPriority { get; set; } = (DemandManagerAssignmentList_DemandManagerPriority)Enum.Parse(typeof(DemandManagerAssignmentList_DemandManagerPriority), "All");
         
 
 [JsonProperty("manager_data")]

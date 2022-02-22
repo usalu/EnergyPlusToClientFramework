@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 {
     [Description("Electric resistance low temperature radiant system")]
     [JsonObject("ZoneHVAC:LowTemperatureRadiant:Electric")]
-    public class ZoneHVAC_LowTemperatureRadiant_Electric : BHoMObject
+    public class ZoneHVAC_LowTemperatureRadiant_Electric : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -32,7 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 
         [Description(@"Enter the method used to determine the maximum electrical heating design capacity. HeatingDesignCapacity = > selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea = > selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity = > is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
         [JsonProperty("heating_design_capacity_method")]
-        public EmptyNoYes HeatingDesignCapacityMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "HeatingDesignCapacity");
+        public ZoneHVAC_LowTemperatureRadiant_Electric_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (ZoneHVAC_LowTemperatureRadiant_Electric_HeatingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_Electric_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
         [Description("Enter the design heating capacity. Required field when the heating design capacit" +
@@ -56,12 +56,12 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 
         [Description("Temperature used to control unit")]
         [JsonProperty("temperature_control_type")]
-        public EmptyNoYes TemperatureControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "MeanAirTemperature");
+        public ZoneHVAC_LowTemperatureRadiant_Electric_TemperatureControlType TemperatureControlType { get; set; } = (ZoneHVAC_LowTemperatureRadiant_Electric_TemperatureControlType)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_Electric_TemperatureControlType), "MeanAirTemperature");
         
 
         [Description("How setpoint temperature is defined")]
         [JsonProperty("setpoint_control_type")]
-        public EmptyNoYes SetpointControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "HalfFlowPower");
+        public ZoneHVAC_LowTemperatureRadiant_Electric_SetpointControlType SetpointControlType { get; set; } = (ZoneHVAC_LowTemperatureRadiant_Electric_SetpointControlType)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_Electric_SetpointControlType), "HalfFlowPower");
         
 
         [JsonProperty("heating_throttling_range")]

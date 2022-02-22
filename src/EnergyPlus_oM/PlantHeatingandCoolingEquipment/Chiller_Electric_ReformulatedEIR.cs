@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description(@"This chiller model is an empirical model, a reformulated version of Chiller:Electric:EIR where the performance is a function of condenser leaving fluid Temperature instead of condenser entering fluid Temperature. Chiller performance at off-reference conditions is modeled using three polynomial equations. Three curve objects are required.")]
     [JsonObject("Chiller:Electric:ReformulatedEIR")]
-    public class Chiller_Electric_ReformulatedEIR : BHoMObject
+    public class Chiller_Electric_ReformulatedEIR : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -50,7 +50,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 
         [Description(@"Two curve types are available: Type LeavingCondenserWaterTemperature: based on the leaving condenser water temperature. Type Lift: based on the normalized lift, which is the temperature difference between the leaving condenser water temperature and the leaving evaporator water temperature.")]
         [JsonProperty("electric_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_type")]
-        public EmptyNoYes ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "LeavingCondenserWaterTemperature");
+        public Chiller_Electric_ReformulatedEIR_ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveType ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveType { get; set; } = (Chiller_Electric_ReformulatedEIR_ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveType)Enum.Parse(typeof(Chiller_Electric_ReformulatedEIR_ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveType), "LeavingCondenserWaterTemperature");
         
 
         [Description(@"Electric Input Ratio (EIR) as a function of Part Load Ratio (PLR) EIR = 1/COP The form of this curve is based on the input for Electric Input to Cooling Output RatioFunction of Part Load Ratio Curve Type Type=LeavingCondenserWaterTemperature: Calculated based on LCT and PLR Curve object type should be Curve:Bicubic or Table:Lookup Bicubic curve = a + b*LCT + c*LCT**2 + d*PLR + e*PLR**2 + f*LCT*PLR + g*0 + h*PLR**3 + i*0 + j*0 PLR = part load ratio (cooling load/steady state capacity) LCT = leaving condenser fluid temperature(C) Type=Lift: Calculated based on dT*, Tdev* and PLR Curve object type should be Curve:ChillerPartLoadWithLiftCurves or Table:Lookup ChillerPartLoadWithLiftCurves curve = a + b*(dT*) + c*(dT*)**2 + d*PLR + e*PLR**2 + f*(dT*)*PLR + g*(dT*)**3 + h*PLR**3 + i*(dT*)**2*PLR + j*(dT*)*PLR**2 + k*(dT*)**2*PLR**2 + l*(Tdev*)*PLR**3 x = dT* = normalized fractional Lift = dT / dTref y = PLR = part load ratio (cooling load/steady state capacity) z = Tdev* = normalized Tdev = Tdev / dTref Where: dT = Lift = Leaving Condenser Water Temperature - Leaving Chilled Water Temperature dTref = dT at the reference condition Tdev = Leaving Chilled Water Temperature - Reference Chilled Water Temperature")]
@@ -111,7 +111,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 
         [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
         [JsonProperty("chiller_flow_mode_type")]
-        public EmptyNoYes ChillerFlowModeType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NotModulated");
+        public Chiller_Electric_ReformulatedEIR_ChillerFlowModeType ChillerFlowModeType { get; set; } = (Chiller_Electric_ReformulatedEIR_ChillerFlowModeType)Enum.Parse(typeof(Chiller_Electric_ReformulatedEIR_ChillerFlowModeType), "NotModulated");
         
 
         [Description("If non-zero, then the heat recovery inlet and outlet node names must be entered.")]

@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description("switch eplusout.dbg file on or off")]
     [JsonObject("Output:DebuggingData")]
-    public class Output_DebuggingData : BHoMObject
+    public class Output_DebuggingData : BHoMObject, IEnergyPlusClass
     {
         
 

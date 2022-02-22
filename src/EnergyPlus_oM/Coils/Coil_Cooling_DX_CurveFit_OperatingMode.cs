@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     [Description("DX cooling coil performance for a single operating mode which may have one or mor" +
                  "e speeds.")]
     [JsonObject("Coil:Cooling:DX:CurveFit:OperatingMode")]
-    public class Coil_Cooling_DX_CurveFit_OperatingMode : BHoMObject
+    public class Coil_Cooling_DX_CurveFit_OperatingMode : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -59,7 +59,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("condenser_type")]
-        public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AirCooled");
+        public Coil_Cooling_DX_CurveFit_OperatingMode_CondenserType CondenserType { get; set; } = (Coil_Cooling_DX_CurveFit_OperatingMode_CondenserType)Enum.Parse(typeof(Coil_Cooling_DX_CurveFit_OperatingMode_CondenserType), "AirCooled");
         
 
         [Description("Rated power consumed by the evaporative condenser\'s water pump")]

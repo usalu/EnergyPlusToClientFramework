@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
     [Description("Buried Pipe model: For pipes buried at a depth less than one meter, this is an al" +
                  "ternative object to: HeatExchanger:Surface")]
     [JsonObject("Pipe:Underground")]
-    public class Pipe_Underground : BHoMObject
+    public class Pipe_Underground : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -25,7 +25,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
         [JsonProperty("sun_exposure")]
-        public EmptyNoYes SunExposure { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Pipe_Underground_SunExposure SunExposure { get; set; } = (Pipe_Underground_SunExposure)Enum.Parse(typeof(Pipe_Underground_SunExposure), "NoSun");
         
 
         [Description("pipe thickness is defined in the Construction object")]
@@ -42,7 +42,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
         [JsonProperty("undisturbed_ground_temperature_model_type")]
-        public EmptyNoYes UndisturbedGroundTemperatureModelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Pipe_Underground_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (Pipe_Underground_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(Pipe_Underground_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
         [JsonProperty("undisturbed_ground_temperature_model_name")]

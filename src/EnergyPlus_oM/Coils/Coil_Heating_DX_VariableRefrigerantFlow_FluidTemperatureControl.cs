@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description(@"This is a key object in the new physics based VRF model applicable for Fluid Temperature Control. It describes the the indoor unit coil of the system at heating mode. Used with ZoneHVAC:TerminalUnit:VariableRefrigerantFlow. Outdoor unit is modeled separately, see AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl or AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR")]
     [JsonObject("Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl")]
-    public class Coil_Heating_DX_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject
+    public class Coil_Heating_DX_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject, IEnergyPlusClass
     {
         
 

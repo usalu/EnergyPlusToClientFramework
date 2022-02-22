@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Zone baseboard heating system.")]
     [JsonObject("HVACTemplate:Zone:BaseboardHeat")]
-    public class HVACTemplate_Zone_BaseboardHeat : BHoMObject
+    public class HVACTemplate_Zone_BaseboardHeat : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -29,7 +29,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("baseboard_heating_type")]
-        public EmptyNoYes BaseboardHeatingType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "HotWater");
+        public HVACTemplate_Zone_BaseboardHeat_BaseboardHeatingType BaseboardHeatingType { get; set; } = (HVACTemplate_Zone_BaseboardHeat_BaseboardHeatingType)Enum.Parse(typeof(HVACTemplate_Zone_BaseboardHeat_BaseboardHeatingType), "HotWater");
         
 
         [Description("If blank, always on")]
@@ -50,7 +50,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"Flow/Person, Flow/Zone, Flow/Area, Sum, and Maximum use the values in the next three fields: Outdoor Air Flow Rate per Person, Outdoor Air Flow Rate per Zone Floor Area, and Outdoor Air Flow Rate per Zone. DetailedSpecification ignores these three Outdoor Air Flow Rate fields and instead references design specification objects named in the fields Design Specification Outdoor Air Object Name and Design Specification Zone Air Distribution Object Name.")]
         [JsonProperty("outdoor_air_method")]
-        public EmptyNoYes OutdoorAirMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Flow/Person");
+        public HVACTemplate_Zone_BaseboardHeat_OutdoorAirMethod OutdoorAirMethod { get; set; } = (HVACTemplate_Zone_BaseboardHeat_OutdoorAirMethod)Enum.Parse(typeof(HVACTemplate_Zone_BaseboardHeat_OutdoorAirMethod), "Empty");
         
 
         [Description("Default 0.00944 is 20 cfm per person This input is used if the field Outdoor Air " +

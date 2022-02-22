@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for simplified entry of opaque Doors.")]
     [JsonObject("Door")]
-    public class Door : BHoMObject
+    public class Door : BHoMObject, IEnergyPlusClass
     {
         
 

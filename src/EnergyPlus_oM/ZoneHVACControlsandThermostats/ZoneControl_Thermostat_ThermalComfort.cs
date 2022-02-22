@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     [Description("If you use a ZoneList in the Zone or ZoneList name field then this definition app" +
                  "lies to all the zones in the ZoneList.")]
     [JsonObject("ZoneControl:Thermostat:ThermalComfort")]
-    public class ZoneControl_Thermostat_ThermalComfort : BHoMObject
+    public class ZoneControl_Thermostat_ThermalComfort : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -20,7 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         [Description("The method used to calculate thermal comfort dry-bulb temperature setpoint for mu" +
                      "ltiple people objects in a zone")]
         [JsonProperty("averaging_method")]
-        public EmptyNoYes AveragingMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "PeopleAverage");
+        public ZoneControl_Thermostat_ThermalComfort_AveragingMethod AveragingMethod { get; set; } = (ZoneControl_Thermostat_ThermalComfort_AveragingMethod)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_AveragingMethod), "PeopleAverage");
         
 
         [Description("Used only when Averaging Method = SpecificObject in the previous field.")]
@@ -42,7 +42,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("thermal_comfort_control_1_object_type")]
-        public EmptyNoYes ThermalComfortControl1ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType ThermalComfortControl1ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
         [Description("Control type names are names for individual control type objects. Schedule values" +
@@ -52,7 +52,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("thermal_comfort_control_2_object_type")]
-        public EmptyNoYes ThermalComfortControl2ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType ThermalComfortControl2ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
         [Description("Control Type names are names for individual control type objects. Schedule values" +
@@ -62,7 +62,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("thermal_comfort_control_3_object_type")]
-        public EmptyNoYes ThermalComfortControl3ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType ThermalComfortControl3ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
         [Description("Control type names are names for individual control type objects. Schedule values" +
@@ -72,7 +72,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("thermal_comfort_control_4_object_type")]
-        public EmptyNoYes ThermalComfortControl4ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType ThermalComfortControl4ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
         [Description("Control type names are names for individual control type objects. Schedule values" +

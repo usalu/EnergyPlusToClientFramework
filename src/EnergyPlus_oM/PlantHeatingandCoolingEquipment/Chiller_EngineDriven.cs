@@ -11,12 +11,12 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
                  "catalog data to third order polynomial equations. Three sets of coefficients are" +
                  " required.")]
     [JsonObject("Chiller:EngineDriven")]
-    public class Chiller_EngineDriven : BHoMObject
+    public class Chiller_EngineDriven : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("condenser_type")]
-        public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AirCooled");
+        public Chiller_EngineDriven_CondenserType CondenserType { get; set; } = (Chiller_EngineDriven_CondenserType)Enum.Parse(typeof(Chiller_EngineDriven_CondenserType), "AirCooled");
         
 
         [JsonProperty("nominal_capacity")]
@@ -169,7 +169,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("fuel_type")]
-        public EmptyNoYes FuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Chiller_EngineDriven_FuelType FuelType { get; set; } = (Chiller_EngineDriven_FuelType)Enum.Parse(typeof(Chiller_EngineDriven_FuelType), "Diesel");
         
 
         [JsonProperty("fuel_higher_heating_value")]
@@ -191,7 +191,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 
         [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
         [JsonProperty("chiller_flow_mode")]
-        public EmptyNoYes ChillerFlowMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NotModulated");
+        public Chiller_EngineDriven_ChillerFlowMode ChillerFlowMode { get; set; } = (Chiller_EngineDriven_ChillerFlowMode)Enum.Parse(typeof(Chiller_EngineDriven_ChillerFlowMode), "NotModulated");
         
 
         [JsonProperty("maximum_temperature_for_heat_recovery_at_heat_recovery_outlet_node")]

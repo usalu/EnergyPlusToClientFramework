@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
     [Description("Defines a generic plant component for custom modeling using Energy Management Sys" +
                  "tem or External Interface")]
     [JsonObject("PlantComponent:UserDefined")]
-    public class PlantComponent_UserDefined : BHoMObject
+    public class PlantComponent_UserDefined : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -29,11 +29,11 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
         
 
         [JsonProperty("plant_connection_1_loading_mode")]
-        public EmptyNoYes PlantConnection1LoadingMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantComponent_UserDefined_PlantConnection1LoadingMode PlantConnection1LoadingMode { get; set; } = (PlantComponent_UserDefined_PlantConnection1LoadingMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection1LoadingMode), "DemandsLoad");
         
 
         [JsonProperty("plant_connection_1_loop_flow_request_mode")]
-        public EmptyNoYes PlantConnection1LoopFlowRequestMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantComponent_UserDefined_PlantConnection1LoopFlowRequestMode PlantConnection1LoopFlowRequestMode { get; set; } = (PlantComponent_UserDefined_PlantConnection1LoopFlowRequestMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection1LoopFlowRequestMode), "NeedsFlowAndTurnsLoopOn");
         
 
         [JsonProperty("plant_connection_1_initialization_program_calling_manager_name")]
@@ -53,11 +53,11 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
         
 
         [JsonProperty("plant_connection_2_loading_mode")]
-        public EmptyNoYes PlantConnection2LoadingMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantComponent_UserDefined_PlantConnection2LoadingMode PlantConnection2LoadingMode { get; set; } = (PlantComponent_UserDefined_PlantConnection2LoadingMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection2LoadingMode), "DemandsLoad");
         
 
         [JsonProperty("plant_connection_2_loop_flow_request_mode")]
-        public EmptyNoYes PlantConnection2LoopFlowRequestMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantComponent_UserDefined_PlantConnection2LoopFlowRequestMode PlantConnection2LoopFlowRequestMode { get; set; } = (PlantComponent_UserDefined_PlantConnection2LoopFlowRequestMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection2LoopFlowRequestMode), "NeedsFlowAndTurnsLoopOn");
         
 
         [JsonProperty("plant_connection_2_initialization_program_calling_manager_name")]
@@ -77,11 +77,11 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
         
 
         [JsonProperty("plant_connection_3_loading_mode")]
-        public EmptyNoYes PlantConnection3LoadingMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantComponent_UserDefined_PlantConnection3LoadingMode PlantConnection3LoadingMode { get; set; } = (PlantComponent_UserDefined_PlantConnection3LoadingMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection3LoadingMode), "DemandsLoad");
         
 
         [JsonProperty("plant_connection_3_loop_flow_request_mode")]
-        public EmptyNoYes PlantConnection3LoopFlowRequestMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantComponent_UserDefined_PlantConnection3LoopFlowRequestMode PlantConnection3LoopFlowRequestMode { get; set; } = (PlantComponent_UserDefined_PlantConnection3LoopFlowRequestMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection3LoopFlowRequestMode), "NeedsFlowAndTurnsLoopOn");
         
 
         [JsonProperty("plant_connection_3_initialization_program_calling_manager_name")]
@@ -101,11 +101,11 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
         
 
         [JsonProperty("plant_connection_4_loading_mode")]
-        public EmptyNoYes PlantConnection4LoadingMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantComponent_UserDefined_PlantConnection4LoadingMode PlantConnection4LoadingMode { get; set; } = (PlantComponent_UserDefined_PlantConnection4LoadingMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection4LoadingMode), "DemandsLoad");
         
 
         [JsonProperty("plant_connection_4_loop_flow_request_mode")]
-        public EmptyNoYes PlantConnection4LoopFlowRequestMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantComponent_UserDefined_PlantConnection4LoopFlowRequestMode PlantConnection4LoopFlowRequestMode { get; set; } = (PlantComponent_UserDefined_PlantConnection4LoopFlowRequestMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection4LoopFlowRequestMode), "NeedsFlowAndTurnsLoopOn");
         
 
         [JsonProperty("plant_connection_4_initialization_program_calling_manager_name")]

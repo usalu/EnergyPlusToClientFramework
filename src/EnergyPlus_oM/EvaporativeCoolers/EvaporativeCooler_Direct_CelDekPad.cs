@@ -67,7 +67,7 @@ namespace BH.oM.Adapters.EnergyPlus.EvaporativeCoolers
     [Description("Direct evaporative cooler with rigid media evaporative pad and recirculating wate" +
         "r pump. This model has no controls other than its availability schedule.")]
     [JsonObject("EvaporativeCooler:Direct:CelDekPad")]
-    public class EvaporativeCooler_Direct_CelDekPad : BHoMObject
+    public class EvaporativeCooler_Direct_CelDekPad : BHoMObject, IEnergyPlusClass
     {
         
 

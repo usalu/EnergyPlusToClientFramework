@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
     [Description("Variable air volume fan where the electric power input varies according to a perf" +
                  "ormance curve as a function of flow fraction.")]
     [JsonObject("Fan:VariableVolume")]
-    public class Fan_VariableVolume : BHoMObject
+    public class Fan_VariableVolume : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -32,7 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
         
 
         [JsonProperty("fan_power_minimum_flow_rate_input_method")]
-        public EmptyNoYes FanPowerMinimumFlowRateInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Fraction");
+        public Fan_VariableVolume_FanPowerMinimumFlowRateInputMethod FanPowerMinimumFlowRateInputMethod { get; set; } = (Fan_VariableVolume_FanPowerMinimumFlowRateInputMethod)Enum.Parse(typeof(Fan_VariableVolume_FanPowerMinimumFlowRateInputMethod), "Fraction");
         
 
         [JsonProperty("fan_power_minimum_flow_fraction")]

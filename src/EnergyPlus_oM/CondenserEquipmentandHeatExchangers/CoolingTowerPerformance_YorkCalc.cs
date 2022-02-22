@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
                  "on for a variable speed cooling tower when tower Model Type is specified as York" +
                  "CalcUserDefined in the object CoolingTower:VariableSpeed.")]
     [JsonObject("CoolingTowerPerformance:YorkCalc")]
-    public class CoolingTowerPerformance_YorkCalc : BHoMObject
+    public class CoolingTowerPerformance_YorkCalc : BHoMObject, IEnergyPlusClass
     {
         
 

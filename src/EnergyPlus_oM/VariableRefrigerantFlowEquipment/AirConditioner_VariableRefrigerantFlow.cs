@@ -71,7 +71,7 @@ namespace BH.oM.Adapters.EnergyPlus.VariableRefrigerantFlowEquipment
         "minal units. See ZoneHVAC:TerminalUnit:VariableRefrigerantFlow and ZoneTerminalU" +
         "nitList.")]
     [JsonObject("AirConditioner:VariableRefrigerantFlow")]
-    public class AirConditioner_VariableRefrigerantFlow : BHoMObject
+    public class AirConditioner_VariableRefrigerantFlow : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -224,7 +224,7 @@ public string HeatingEnergyInputRatioModifierFunctionOfHighTemperatureCurveName 
     ". This input determines whether the outdoor air dry-bulb or wet-bulb temperature" +
     " is used to evaluate these curves.")]
 [JsonProperty("heating_performance_curve_outdoor_temperature_type")]
-public EmptyNoYes HeatingPerformanceCurveOutdoorTemperatureType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "WetBulbTemperature");
+public AirConditioner_VariableRefrigerantFlow_HeatingPerformanceCurveOutdoorTemperatureType HeatingPerformanceCurveOutdoorTemperatureType { get; set; } = (AirConditioner_VariableRefrigerantFlow_HeatingPerformanceCurveOutdoorTemperatureType)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_HeatingPerformanceCurveOutdoorTemperatureType), "WetBulbTemperature");
         
 
 [Description("This curve represents the heating energy input ratio for part-load ratios less th" +
@@ -267,7 +267,7 @@ public string ZoneNameForMasterThermostatLocation { get; set; } = "";
     "zone temperature within a reasonable limit, consider using multiple VRF systems." +
     " This field is not used when all terminal units are set point controlled.")]
 [JsonProperty("master_thermostat_priority_control_type")]
-public EmptyNoYes MasterThermostatPriorityControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "MasterThermostatPriority");
+public AirConditioner_VariableRefrigerantFlow_MasterThermostatPriorityControlType MasterThermostatPriorityControlType { get; set; } = (AirConditioner_VariableRefrigerantFlow_MasterThermostatPriorityControlType)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_MasterThermostatPriorityControlType), "MasterThermostatPriority");
         
 
 [Description("this field is required if Master Thermostat Priority Control Type is Scheduled. S" +
@@ -360,13 +360,13 @@ public System.Nullable<float> MaximumOutdoorDryBulbTemperatureForCrankcaseHeater
     " to cooling to melt frost formation on the condenser coil. The resistive strateg" +
     "y uses a resistive heater to melt the frost.")]
 [JsonProperty("defrost_strategy")]
-public EmptyNoYes DefrostStrategy { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Resistive");
+public AirConditioner_VariableRefrigerantFlow_DefrostStrategy DefrostStrategy { get; set; } = (AirConditioner_VariableRefrigerantFlow_DefrostStrategy)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_DefrostStrategy), "Resistive");
         
 
 [Description("Choose a defrost control type. Either use a fixed Timed defrost period or select " +
     "OnDemand to defrost only when necessary.")]
 [JsonProperty("defrost_control")]
-public EmptyNoYes DefrostControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Timed");
+public AirConditioner_VariableRefrigerantFlow_DefrostControl DefrostControl { get; set; } = (AirConditioner_VariableRefrigerantFlow_DefrostControl)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_DefrostControl), "Timed");
         
 
 [Description("A valid performance curve must be used if reversecycle defrost strategy is select" +
@@ -394,7 +394,7 @@ public System.Nullable<float> MaximumOutdoorDryBulbTemperatureForDefrostOperatio
 
 [Description("Select either an air-cooled, evaporatively-cooled or water-cooled condenser.")]
 [JsonProperty("condenser_type")]
-public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AirCooled");
+public AirConditioner_VariableRefrigerantFlow_CondenserType CondenserType { get; set; } = (AirConditioner_VariableRefrigerantFlow_CondenserType)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_CondenserType), "AirCooled");
         
 
 [Description("Choose an outside air node name or leave this field blank to use weather data. If" +
@@ -455,7 +455,7 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [JsonProperty("fuel_type")]
-public EmptyNoYes FuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Electricity");
+public AirConditioner_VariableRefrigerantFlow_FuelType FuelType { get; set; } = (AirConditioner_VariableRefrigerantFlow_FuelType)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_FuelType), "Electricity");
         
 
 [Description("The minimum outdoor temperature below which heat recovery mode will not operate.")]

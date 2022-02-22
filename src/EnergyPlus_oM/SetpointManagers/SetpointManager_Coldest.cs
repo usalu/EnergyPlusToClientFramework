@@ -11,12 +11,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
                  " a SetpointManager:Warmest resetting the temperature of the air in the cooling s" +
                  "upply duct.")]
     [JsonObject("SetpointManager:Coldest")]
-    public class SetpointManager_Coldest : BHoMObject
+    public class SetpointManager_Coldest : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
-        public EmptyNoYes ControlVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Temperature");
+        public SetpointManager_Coldest_ControlVariable ControlVariable { get; set; } = (SetpointManager_Coldest_ControlVariable)Enum.Parse(typeof(SetpointManager_Coldest_ControlVariable), "Temperature");
         
 
         [Description("Enter the name of an AirLoopHVAC object.")]
@@ -33,7 +33,7 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
         
 
         [JsonProperty("strategy")]
-        public EmptyNoYes Strategy { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "MinimumTemperature");
+        public SetpointManager_Coldest_Strategy Strategy { get; set; } = (SetpointManager_Coldest_Strategy)Enum.Parse(typeof(SetpointManager_Coldest_Strategy), "MinimumTemperature");
         
 
         [Description("Node(s) at which the temperature will be set")]

@@ -7,12 +7,12 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     [Description("Define an air node for some types of nodal room air models")]
     [JsonObject("RoomAir:Node")]
-    public class RoomAir_Node : BHoMObject
+    public class RoomAir_Node : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("node_type")]
-        public EmptyNoYes NodeType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public RoomAir_Node_NodeType NodeType { get; set; } = (RoomAir_Node_NodeType)Enum.Parse(typeof(RoomAir_Node_NodeType), "Ceiling");
         
 
         [JsonProperty("zone_name")]

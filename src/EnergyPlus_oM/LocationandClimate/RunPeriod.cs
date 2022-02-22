@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("Specify a range of dates and other parameters for a simulation. Multiple run peri" +
                  "ods may be input, but they may not overlap.")]
     [JsonObject("RunPeriod")]
-    public class RunPeriod : BHoMObject
+    public class RunPeriod : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -44,7 +44,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
                      " this field will default to Sunday If a year is input and this field is blank, t" +
                      "he correct weekday is determined")]
         [JsonProperty("day_of_week_for_start_day")]
-        public EmptyNoYes DayOfWeekForStartDay { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public RunPeriod_DayOfWeekForStartDay DayOfWeekForStartDay { get; set; } = (RunPeriod_DayOfWeekForStartDay)Enum.Parse(typeof(RunPeriod_DayOfWeekForStartDay), "Friday");
         
 
         [Description("If yes or blank, use holidays as specified on Weatherfile. If no, do not use the " +

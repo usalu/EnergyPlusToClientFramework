@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     [Description("A Schedule:File points to a text computer file that has 8760-8784 hours of data.")]
     [JsonObject("Schedule:File")]
-    public class Schedule_File : BHoMObject
+    public class Schedule_File : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -35,7 +35,7 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
         
 
         [JsonProperty("column_separator")]
-        public EmptyNoYes ColumnSeparator { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Comma");
+        public Schedule_File_ColumnSeparator ColumnSeparator { get; set; } = (Schedule_File_ColumnSeparator)Enum.Parse(typeof(Schedule_File_ColumnSeparator), "Comma");
         
 
         [Description(@"when the interval does not match the user specified timestep a ""Yes"" choice will average between the intervals request (to timestep resolution. a ""No"" choice will use the interval value at the simulation timestep without regard to if it matches the boundary or not.")]

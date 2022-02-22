@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     [Description("This object includes the outdoor air flow rate set by the Controller:OutdoorAir o" +
                  "bject in the airflow network.")]
     [JsonObject("AirflowNetwork:Distribution:Component:OutdoorAirFlow")]
-    public class AirflowNetwork_Distribution_Component_OutdoorAirFlow : BHoMObject
+    public class AirflowNetwork_Distribution_Component_OutdoorAirFlow : BHoMObject, IEnergyPlusClass
     {
         
 

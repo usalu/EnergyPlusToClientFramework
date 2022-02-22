@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("Start with outside layer and work your way to the inside layer Up to 10 layers to" +
                  "tal, 8 for windows Enter the material name for each layer")]
     [JsonObject("Construction")]
-    public class Construction : BHoMObject
+    public class Construction : BHoMObject, IEnergyPlusClass
     {
         
 

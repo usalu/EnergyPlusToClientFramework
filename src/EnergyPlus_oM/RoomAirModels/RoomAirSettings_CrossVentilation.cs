@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     [Description(@"This UCSD Cross Ventilation Room Air Model provides a simple model for heat transfer and vertical temperature profile prediction in cross ventilated rooms. The model distinguishes two regions in the room, the main jet region and the recirculations, and predicts characteristic airflow velocities and average air temperatures. Used with RoomAirModelType = CrossVentilation.")]
     [JsonObject("RoomAirSettings:CrossVentilation")]
-    public class RoomAirSettings_CrossVentilation : BHoMObject
+    public class RoomAirSettings_CrossVentilation : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -27,6 +27,6 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
                      "Airflow velocity that will be used in the Fanger model conditions must refer to " +
                      "one of the two regions: jet or recirculation")]
         [JsonProperty("airflow_region_used_for_thermal_comfort_evaluation")]
-        public EmptyNoYes AirflowRegionUsedForThermalComfortEvaluation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public RoomAirSettings_CrossVentilation_AirflowRegionUsedForThermalComfortEvaluation AirflowRegionUsedForThermalComfortEvaluation { get; set; } = (RoomAirSettings_CrossVentilation_AirflowRegionUsedForThermalComfortEvaluation)Enum.Parse(typeof(RoomAirSettings_CrossVentilation_AirflowRegionUsedForThermalComfortEvaluation), "Jet");
     }
 }

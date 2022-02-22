@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     [Description("This object specifies the properties of airflow through windows and doors (window" +
                  ", door and glass door heat transfer subsurfaces) when they are closed or open.")]
     [JsonObject("AirflowNetwork:MultiZone:Component:DetailedOpening")]
-    public class AirflowNetwork_MultiZone_Component_DetailedOpening : BHoMObject
+    public class AirflowNetwork_MultiZone_Component_DetailedOpening : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -30,7 +30,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
         [Description("Select the type of vertical opening: Non-pivoted opening or Horizontally pivoted " +
                      "opening.")]
         [JsonProperty("type_of_rectangular_large_vertical_opening_lvo_")]
-        public EmptyNoYes TypeOfRectangularLargeVerticalOpeningLvo { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NonPivoted");
+        public AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLargeVerticalOpeningLvo TypeOfRectangularLargeVerticalOpeningLvo { get; set; } = (AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLargeVerticalOpeningLvo)Enum.Parse(typeof(AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLargeVerticalOpeningLvo), "NonPivoted");
         
 
         [Description(@"Extra crack length is used for LVO Non-pivoted type with multiple openable parts. Height of pivoting axis is used for LVO Horizontally pivoted type. Specifies window or door characteristics that depend on the LVO type. For Non-pivoted Type (rectangular windows and doors), this field is the extra crack length in meters due to multiple openable parts, if present. Extra here means in addition to the length of the cracks on the top, bottom and sides of the window/door. For Horizontally pivoted Type, this field gives the height of the pivoting axis measured from the bottom of the glazed part of the window (m).")]

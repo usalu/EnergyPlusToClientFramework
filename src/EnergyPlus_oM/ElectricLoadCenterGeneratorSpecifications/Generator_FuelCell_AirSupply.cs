@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("Used to define details of the air supply subsystem for a fuel cell power generato" +
                  "r.")]
     [JsonObject("Generator:FuelCell:AirSupply")]
-    public class Generator_FuelCell_AirSupply : BHoMObject
+    public class Generator_FuelCell_AirSupply : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -25,7 +25,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("air_supply_rate_calculation_mode")]
-        public EmptyNoYes AirSupplyRateCalculationMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelCell_AirSupply_AirSupplyRateCalculationMode AirSupplyRateCalculationMode { get; set; } = (Generator_FuelCell_AirSupply_AirSupplyRateCalculationMode)Enum.Parse(typeof(Generator_FuelCell_AirSupply_AirSupplyRateCalculationMode), "AirRatiobyStoics");
         
 
         [Description("This is the excess air \"stoics\" the value entered is incremented by 1 in the mode" +
@@ -47,11 +47,11 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("air_intake_heat_recovery_mode")]
-        public EmptyNoYes AirIntakeHeatRecoveryMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelCell_AirSupply_AirIntakeHeatRecoveryMode AirIntakeHeatRecoveryMode { get; set; } = (Generator_FuelCell_AirSupply_AirIntakeHeatRecoveryMode)Enum.Parse(typeof(Generator_FuelCell_AirSupply_AirIntakeHeatRecoveryMode), "NoRecovery");
         
 
         [JsonProperty("air_supply_constituent_mode")]
-        public EmptyNoYes AirSupplyConstituentMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelCell_AirSupply_AirSupplyConstituentMode AirSupplyConstituentMode { get; set; } = (Generator_FuelCell_AirSupply_AirSupplyConstituentMode)Enum.Parse(typeof(Generator_FuelCell_AirSupply_AirSupplyConstituentMode), "AmbientAir");
         
 
         [JsonProperty("number_of_userdefined_constituents")]

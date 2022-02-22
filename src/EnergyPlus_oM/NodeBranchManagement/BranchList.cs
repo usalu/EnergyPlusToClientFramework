@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
                  " Outlet branch. Branches are simulated in the order listed. Branch names cannot " +
                  "be duplicated within a single branch list.")]
     [JsonObject("BranchList")]
-    public class BranchList : BHoMObject
+    public class BranchList : BHoMObject, IEnergyPlusClass
     {
         
 

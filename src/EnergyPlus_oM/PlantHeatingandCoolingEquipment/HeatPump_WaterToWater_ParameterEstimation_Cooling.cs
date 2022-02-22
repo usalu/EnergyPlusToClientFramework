@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description("OSU parameter estimation model")]
     [JsonObject("HeatPump:WaterToWater:ParameterEstimation:Cooling")]
-    public class HeatPump_WaterToWater_ParameterEstimation_Cooling : BHoMObject
+    public class HeatPump_WaterToWater_ParameterEstimation_Cooling : BHoMObject, IEnergyPlusClass
     {
         
 

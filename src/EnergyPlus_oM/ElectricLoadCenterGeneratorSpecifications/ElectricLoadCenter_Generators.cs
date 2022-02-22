@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                  " and type of each generators along with availability schedule, rated power outpu" +
                  "t, and thermal-to-electrical power ratio.")]
     [JsonObject("ElectricLoadCenter:Generators")]
-    public class ElectricLoadCenter_Generators : BHoMObject
+    public class ElectricLoadCenter_Generators : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
 {
     [Description(@"Unglazed transpired solar collector (UTSC) used to condition outdoor air. This type of collector is generally used to heat air drawn through perforated absorbers and also recover heat conducted out through the underlying surface. This object represents a single collector attached to one or more building or shading surfaces and to one or more outdoor air systems.")]
     [JsonObject("SolarCollector:UnglazedTranspired")]
-    public class SolarCollector_UnglazedTranspired : BHoMObject
+    public class SolarCollector_UnglazedTranspired : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -80,11 +80,11 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
         
 
         [JsonProperty("hole_layout_pattern_for_pitch")]
-        public EmptyNoYes HoleLayoutPatternForPitch { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Square");
+        public SolarCollector_UnglazedTranspired_HoleLayoutPatternForPitch HoleLayoutPatternForPitch { get; set; } = (SolarCollector_UnglazedTranspired_HoleLayoutPatternForPitch)Enum.Parse(typeof(SolarCollector_UnglazedTranspired_HoleLayoutPatternForPitch), "Square");
         
 
         [JsonProperty("heat_exchange_effectiveness_correlation")]
-        public EmptyNoYes HeatExchangeEffectivenessCorrelation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Kutscher1994");
+        public SolarCollector_UnglazedTranspired_HeatExchangeEffectivenessCorrelation HeatExchangeEffectivenessCorrelation { get; set; } = (SolarCollector_UnglazedTranspired_HeatExchangeEffectivenessCorrelation)Enum.Parse(typeof(SolarCollector_UnglazedTranspired_HeatExchangeEffectivenessCorrelation), "Kutscher1994");
         
 
         [Description("This parameter is used to help account for corrugations in the collector")]
@@ -93,7 +93,7 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
         
 
         [JsonProperty("roughness_of_collector")]
-        public EmptyNoYes RoughnessOfCollector { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public SolarCollector_UnglazedTranspired_RoughnessOfCollector RoughnessOfCollector { get; set; } = (SolarCollector_UnglazedTranspired_RoughnessOfCollector)Enum.Parse(typeof(SolarCollector_UnglazedTranspired_RoughnessOfCollector), "MediumRough");
         
 
         [Description("Collector thickness is not required for Kutscher correlation Collector thickness " +

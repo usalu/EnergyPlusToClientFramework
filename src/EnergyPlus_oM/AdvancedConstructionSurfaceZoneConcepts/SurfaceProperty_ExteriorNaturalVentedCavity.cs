@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
                  "avity and openings for naturally ventilated exterior surfaces. This object is al" +
                  "so used in conjunction with the OtherSideConditionsModel.")]
     [JsonObject("SurfaceProperty:ExteriorNaturalVentedCavity")]
-    public class SurfaceProperty_ExteriorNaturalVentedCavity : BHoMObject
+    public class SurfaceProperty_ExteriorNaturalVentedCavity : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -46,7 +46,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
         
 
         [JsonProperty("roughness_of_exterior_surface")]
-        public EmptyNoYes RoughnessOfExteriorSurface { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface RoughnessOfExteriorSurface { get; set; } = (SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface)Enum.Parse(typeof(SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface), "MediumRough");
         
 
         [JsonProperty("effectiveness_for_perforations_with_respect_to_wind")]

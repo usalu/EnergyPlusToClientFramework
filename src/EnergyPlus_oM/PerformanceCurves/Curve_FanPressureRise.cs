@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"Special curve type with two independent variables. Input for the fan total pressure rise curve consists of the curve name, the four coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = C1*Qfan**2+C2*Qfan+C3*Qfan*(Psm-Po)**0.5+C4*(Psm-Po) Po assumed to be zero See InputOut Reference for curve details")]
     [JsonObject("Curve:FanPressureRise")]
-    public class Curve_FanPressureRise : BHoMObject
+    public class Curve_FanPressureRise : BHoMObject, IEnergyPlusClass
     {
         
 

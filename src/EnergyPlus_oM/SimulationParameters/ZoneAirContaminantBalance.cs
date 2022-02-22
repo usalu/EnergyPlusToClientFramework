@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Determines which contaminant concentration will be simulates.")]
     [JsonObject("ZoneAirContaminantBalance")]
-    public class ZoneAirContaminantBalance : BHoMObject
+    public class ZoneAirContaminantBalance : BHoMObject, IEnergyPlusClass
     {
         
 

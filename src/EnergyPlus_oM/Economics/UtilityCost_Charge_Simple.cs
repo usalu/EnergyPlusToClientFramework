@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     [Description(@"UtilityCost:Charge:Simple is one of the most often used objects for tariff calculation. It is used to compute energy and demand charges that are very simple. It may also be used for taxes, surcharges and any other charges that occur on a utility bill. Multiple UtilityCost:Charge:Simple objects may be defined for a single tariff and they will be added together.")]
     [JsonObject("UtilityCost:Charge:Simple")]
-    public class UtilityCost_Charge_Simple : BHoMObject
+    public class UtilityCost_Charge_Simple : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -31,14 +31,14 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                      "e:Simple for the entire year (all months) otherwise it is calculated only for th" +
                      "ose months in the season defined.")]
         [JsonProperty("season")]
-        public EmptyNoYes Season { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public UtilityCost_Charge_Simple_Season Season { get; set; } = (UtilityCost_Charge_Simple_Season)Enum.Parse(typeof(UtilityCost_Charge_Simple_Season), "Annual");
         
 
         [Description("This field shows where the charge should be added. The reason to enter this field" +
                      " appropriately is so that the charge gets reported in a reasonable category. The" +
                      " charge automatically gets added to the variable that is the category.")]
         [JsonProperty("category_variable_name")]
-        public EmptyNoYes CategoryVariableName { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public UtilityCost_Charge_Simple_CategoryVariableName CategoryVariableName { get; set; } = (UtilityCost_Charge_Simple_CategoryVariableName)Enum.Parse(typeof(UtilityCost_Charge_Simple_CategoryVariableName), "Adjustment");
         
 
         [Description(@"This field contains either a single number or the name of a variable. The number is multiplied with all of the energy or demand or other source that is specified in the source field. If a variable is used then the monthly values of the variable are multiplied against the variable specified in the source field. This field makes it easy to include a simple charge without specifying block sizes. This is a good way to include a tax or cost adjustment.")]

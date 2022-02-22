@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
                  "or more environment properties have to be defined and linked to the exterior sur" +
                  "face.")]
     [JsonObject("SurfaceProperty:LocalEnvironment")]
-    public class SurfaceProperty_LocalEnvironment : BHoMObject
+    public class SurfaceProperty_LocalEnvironment : BHoMObject, IEnergyPlusClass
     {
         
 

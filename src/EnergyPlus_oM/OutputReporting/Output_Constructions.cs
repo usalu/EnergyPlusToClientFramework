@@ -9,15 +9,15 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
                  "ncluding overall properties, a list of material layers, and calculated results r" +
                  "elated to conduction transfer functions.")]
     [JsonObject("Output:Constructions")]
-    public class Output_Constructions : BHoMObject
+    public class Output_Constructions : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("details_type_1")]
-        public EmptyNoYes DetailsType1 { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Output_Constructions_DetailsType1 DetailsType1 { get; set; } = (Output_Constructions_DetailsType1)Enum.Parse(typeof(Output_Constructions_DetailsType1), "Constructions");
         
 
         [JsonProperty("details_type_2")]
-        public EmptyNoYes DetailsType2 { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Output_Constructions_DetailsType2 DetailsType2 { get; set; } = (Output_Constructions_DetailsType2)Enum.Parse(typeof(Output_Constructions_DetailsType2), "Constructions");
     }
 }

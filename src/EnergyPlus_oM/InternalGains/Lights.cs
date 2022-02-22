@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
                  "ZoneList name field then this definition applies to all the zones in the ZoneLis" +
                  "t.")]
     [JsonObject("Lights")]
-    public class Lights : BHoMObject
+    public class Lights : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -26,7 +26,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 
         [Description(@"The entered calculation method is used to create the maximum amount of lights for this set of attributes Choices: LightingLevel => Lighting Level -- simply enter watts of lights Watts/Area => Watts per Zone Floor Area -- enter the number to apply. Value * Floor Area = Lights Watts/Person => Watts per Person -- enter the number to apply. Value * Occupants = Lights")]
         [JsonProperty("design_level_calculation_method")]
-        public EmptyNoYes DesignLevelCalculationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "LightingLevel");
+        public Lights_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (Lights_DesignLevelCalculationMethod)Enum.Parse(typeof(Lights_DesignLevelCalculationMethod), "LightingLevel");
         
 
         [JsonProperty("lighting_level")]

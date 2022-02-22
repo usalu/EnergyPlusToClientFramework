@@ -68,12 +68,12 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     
     [Description("Regular materials described with full set of thermal properties")]
     [JsonObject("Material")]
-    public class Material : BHoMObject
+    public class Material : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("roughness")]
-public EmptyNoYes Roughness { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public Material_Roughness Roughness { get; set; } = (Material_Roughness)Enum.Parse(typeof(Material_Roughness), "MediumRough");
         
 
 [JsonProperty("thickness")]

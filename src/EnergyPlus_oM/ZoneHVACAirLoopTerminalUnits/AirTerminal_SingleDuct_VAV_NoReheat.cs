@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
     [Description("Central air system terminal unit, single duct, variable volume, with no reheat co" +
                  "il.")]
     [JsonObject("AirTerminal:SingleDuct:VAV:NoReheat")]
-    public class AirTerminal_SingleDuct_VAV_NoReheat : BHoMObject
+    public class AirTerminal_SingleDuct_VAV_NoReheat : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -35,7 +35,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
                      "rate) Scheduled = Scheduled Minimum Air Flow Fraction (a fraction of Maximum Air" +
                      " Flow")]
         [JsonProperty("zone_minimum_air_flow_input_method")]
-        public EmptyNoYes ZoneMinimumAirFlowInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Constant");
+        public AirTerminal_SingleDuct_VAV_NoReheat_ZoneMinimumAirFlowInputMethod ZoneMinimumAirFlowInputMethod { get; set; } = (AirTerminal_SingleDuct_VAV_NoReheat_ZoneMinimumAirFlowInputMethod)Enum.Parse(typeof(AirTerminal_SingleDuct_VAV_NoReheat_ZoneMinimumAirFlowInputMethod), "Constant");
         
 
         [Description(@"This field is used if the field Zone Minimum Air Flow Input Method is Constant If the field Zone Minimum Air Flow Input Method is Scheduled, then this field is optional; if a value is entered, then it is used for sizing normal-action reheat coils. If both this field and the following field are entered, the larger result is used. The values for autosizing are picked up from the Sizing:Zone input fields ""Cooling Minimum Air Flow per Zone Floor Area"", ""Cooling Minimum Air Flow"", and ""Cooling Minimum Air Flow Fraction"". If there is no sizing calculation a default of 0.000762 m3/s-m2 (0.15 cfm/ft2) is used.")]

@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"Exponential decay curve with one independent variable. Input consists of the curve name, the three coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = C1+C2*exp(C3*x)")]
     [JsonObject("Curve:ExponentialDecay")]
-    public class Curve_ExponentialDecay : BHoMObject
+    public class Curve_ExponentialDecay : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -42,10 +42,10 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
         
 
         [JsonProperty("input_unit_type_for_x")]
-        public EmptyNoYes InputUnitTypeForX { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_ExponentialDecay_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_ExponentialDecay_InputUnitTypeForX)Enum.Parse(typeof(Curve_ExponentialDecay_InputUnitTypeForX), "Dimensionless");
         
 
         [JsonProperty("output_unit_type")]
-        public EmptyNoYes OutputUnitType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_ExponentialDecay_OutputUnitType OutputUnitType { get; set; } = (Curve_ExponentialDecay_OutputUnitType)Enum.Parse(typeof(Curve_ExponentialDecay_OutputUnitType), "Dimensionless");
     }
 }

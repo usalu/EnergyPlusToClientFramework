@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description(@"EcoRoof model, plant layer plus soil layer Implemented by Portland State University (Sailor et al., January, 2007) only one material must be referenced per simulation though the same EcoRoof material could be used in multiple constructions. New moisture redistribution scheme (2010) requires higher number of timesteps per hour (minimum 12 recommended).")]
     [JsonObject("Material:RoofVegetation")]
-    public class Material_RoofVegetation : BHoMObject
+    public class Material_RoofVegetation : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -41,7 +41,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
         
 
         [JsonProperty("roughness")]
-        public EmptyNoYes Roughness { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "MediumRough");
+        public Material_RoofVegetation_Roughness Roughness { get; set; } = (Material_RoofVegetation_Roughness)Enum.Parse(typeof(Material_RoofVegetation_Roughness), "MediumRough");
         
 
         [Description("thickness of the soil layer of the EcoRoof Soil depths of 0.15m (6in) and 0.30m (" +
@@ -96,6 +96,6 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 
         [Description("Advanced calculation requires increased number of timesteps (recommended >20).")]
         [JsonProperty("moisture_diffusion_calculation_method")]
-        public EmptyNoYes MoistureDiffusionCalculationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Advanced");
+        public Material_RoofVegetation_MoistureDiffusionCalculationMethod MoistureDiffusionCalculationMethod { get; set; } = (Material_RoofVegetation_MoistureDiffusionCalculationMethod)Enum.Parse(typeof(Material_RoofVegetation_MoistureDiffusionCalculationMethod), "Advanced");
     }
 }

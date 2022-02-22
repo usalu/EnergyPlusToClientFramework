@@ -68,7 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.ExteriorEquipment
     
     [Description("only used for Meter type reporting, does not affect building loads")]
     [JsonObject("Exterior:Lights")]
-    public class Exterior_Lights : BHoMObject
+    public class Exterior_Lights : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -84,7 +84,7 @@ public System.Nullable<float> DesignLevel { get; set; } = null;
 
 [Description("Astronomical Clock option overrides schedule to turn lights off when sun is up")]
 [JsonProperty("control_option")]
-public EmptyNoYes ControlOption { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public Exterior_Lights_ControlOption ControlOption { get; set; } = (Exterior_Lights_ControlOption)Enum.Parse(typeof(Exterior_Lights_ControlOption), "AstronomicalClock");
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +

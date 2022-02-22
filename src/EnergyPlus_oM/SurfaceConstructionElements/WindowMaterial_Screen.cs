@@ -9,14 +9,14 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("Window screen physical properties. Can only be located on the exterior side of a " +
                  "window construction.")]
     [JsonObject("WindowMaterial:Screen")]
-    public class WindowMaterial_Screen : BHoMObject
+    public class WindowMaterial_Screen : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("Select the method used to account for the beam solar reflected off the material s" +
                      "urface.")]
         [JsonProperty("reflected_beam_transmittance_accounting_method")]
-        public EmptyNoYes ReflectedBeamTransmittanceAccountingMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ModelAsDiffuse");
+        public WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod ReflectedBeamTransmittanceAccountingMethod { get; set; } = (WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod)Enum.Parse(typeof(WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod), "ModelAsDiffuse");
         
 
         [Description("Diffuse reflectance of the screen material over the entire solar radiation spectr" +

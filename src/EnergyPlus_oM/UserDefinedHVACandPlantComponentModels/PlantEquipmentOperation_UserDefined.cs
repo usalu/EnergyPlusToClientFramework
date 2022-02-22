@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
     [Description("Defines a generic plant operation scheme for custom supervisory control using Ene" +
                  "rgy Management System or External Interface to dispatch loads")]
     [JsonObject("PlantEquipmentOperation:UserDefined")]
-    public class PlantEquipmentOperation_UserDefined : BHoMObject
+    public class PlantEquipmentOperation_UserDefined : BHoMObject, IEnergyPlusClass
     {
         
 

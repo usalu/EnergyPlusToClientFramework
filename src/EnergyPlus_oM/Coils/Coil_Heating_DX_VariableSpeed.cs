@@ -11,7 +11,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "ls. Requires two to ten sets of performance data and will interpolate between sp" +
                  "eeds.")]
     [JsonObject("Coil:Heating:DX:VariableSpeed")]
-    public class Coil_Heating_DX_VariableSpeed : BHoMObject
+    public class Coil_Heating_DX_VariableSpeed : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -75,11 +75,11 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("defrost_strategy")]
-        public EmptyNoYes DefrostStrategy { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ReverseCycle");
+        public Coil_Heating_DX_VariableSpeed_DefrostStrategy DefrostStrategy { get; set; } = (Coil_Heating_DX_VariableSpeed_DefrostStrategy)Enum.Parse(typeof(Coil_Heating_DX_VariableSpeed_DefrostStrategy), "ReverseCycle");
         
 
         [JsonProperty("defrost_control")]
-        public EmptyNoYes DefrostControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Timed");
+        public Coil_Heating_DX_VariableSpeed_DefrostControl DefrostControl { get; set; } = (Coil_Heating_DX_VariableSpeed_DefrostControl)Enum.Parse(typeof(Coil_Heating_DX_VariableSpeed_DefrostControl), "Timed");
         
 
         [Description("Fraction of time in defrost mode only applicable if timed defrost control is spec" +

@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("Simulate generic contaminant source driven by the cutoff concentration model.")]
     [JsonObject("ZoneContaminantSourceAndSink:Generic:DecaySource")]
-    public class ZoneContaminantSourceAndSink_Generic_DecaySource : BHoMObject
+    public class ZoneContaminantSourceAndSink_Generic_DecaySource : BHoMObject, IEnergyPlusClass
     {
         
 

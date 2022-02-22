@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines the characteristics of a supply or return air leak.")]
     [JsonObject("AirflowNetwork:Distribution:Component:Leak")]
-    public class AirflowNetwork_Distribution_Component_Leak : BHoMObject
+    public class AirflowNetwork_Distribution_Component_Leak : BHoMObject, IEnergyPlusClass
     {
         
 

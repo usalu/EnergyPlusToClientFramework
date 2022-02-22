@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
     [Description("This object enables users to choose certain options that speed up EnergyPlus simu" +
                  "lation, but may lead to small decreases in accuracy of results.")]
     [JsonObject("PerformancePrecisionTradeoffs")]
-    public class PerformancePrecisionTradeoffs : BHoMObject
+    public class PerformancePrecisionTradeoffs : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -22,14 +22,14 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
         [Description("Determines which algorithm will be used to solve long wave radiant exchange among" +
                      " surfaces within a zone.")]
         [JsonProperty("zone_radiant_exchange_algorithm")]
-        public EmptyNoYes ZoneRadiantExchangeAlgorithm { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ScriptF");
+        public PerformancePrecisionTradeoffs_ZoneRadiantExchangeAlgorithm ZoneRadiantExchangeAlgorithm { get; set; } = (PerformancePrecisionTradeoffs_ZoneRadiantExchangeAlgorithm)Enum.Parse(typeof(PerformancePrecisionTradeoffs_ZoneRadiantExchangeAlgorithm), "ScriptF");
         
 
         [Description("The increasing mode number roughly correspond with increased speed. A description" +
                      " of each mode are shown in the documentation. When Advanced is selected the N1 f" +
                      "ield value is used.")]
         [JsonProperty("override_mode")]
-        public EmptyNoYes OverrideMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Normal");
+        public PerformancePrecisionTradeoffs_OverrideMode OverrideMode { get; set; } = (PerformancePrecisionTradeoffs_OverrideMode)Enum.Parse(typeof(PerformancePrecisionTradeoffs_OverrideMode), "Normal");
         
 
         [Description("Maximum zone temperature change before HVAC timestep is shortened. Only used when" +

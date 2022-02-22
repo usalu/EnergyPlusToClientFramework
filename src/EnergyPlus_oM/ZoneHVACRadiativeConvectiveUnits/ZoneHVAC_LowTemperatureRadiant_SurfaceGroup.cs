@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
                  " can be expanded beyond 100, if necessary, by adding more groups to the end of t" +
                  "he list")]
     [JsonObject("ZoneHVAC:LowTemperatureRadiant:SurfaceGroup")]
-    public class ZoneHVAC_LowTemperatureRadiant_SurfaceGroup : BHoMObject
+    public class ZoneHVAC_LowTemperatureRadiant_SurfaceGroup : BHoMObject, IEnergyPlusClass
     {
         
 

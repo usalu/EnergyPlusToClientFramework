@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description(@"New general DX cooling coil supporting on or more speeds and one or or operating  modes. Includes DX evaporator coil, compressor, and condenser. Object is currently only supported by the AIRLOOPHVAC:UNITARYSYSTEM object. Remaining Coil:Cooling:DX* objects will be deprecated at a future date, after which, this object will replace all other Coil:Cooling:DX* objects.")]
     [JsonObject("Coil:Cooling:DX")]
-    public class Coil_Cooling_DX : BHoMObject
+    public class Coil_Cooling_DX : BHoMObject, IEnergyPlusClass
     {
         
 

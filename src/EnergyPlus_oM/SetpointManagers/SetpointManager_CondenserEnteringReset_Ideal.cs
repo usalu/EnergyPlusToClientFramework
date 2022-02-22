@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
     [Description("This setpoint manager determine the ideal optimum condenser entering water temper" +
                  "ature setpoint for a given timestep.")]
     [JsonObject("SetpointManager:CondenserEnteringReset:Ideal")]
-    public class SetpointManager_CondenserEnteringReset_Ideal : BHoMObject
+    public class SetpointManager_CondenserEnteringReset_Ideal : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
-        public EmptyNoYes ControlVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Temperature");
+        public SetpointManager_CondenserEnteringReset_Ideal_ControlVariable ControlVariable { get; set; } = (SetpointManager_CondenserEnteringReset_Ideal_ControlVariable)Enum.Parse(typeof(SetpointManager_CondenserEnteringReset_Ideal_ControlVariable), "Temperature");
         
 
         [JsonProperty("minimum_lift")]

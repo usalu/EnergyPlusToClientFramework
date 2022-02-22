@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                  "plate:Zone:* objects for BaseboardHeat FanCoil PTAC PTHP WaterToAirHeatPump and " +
                  "VRF. Does not support HVACTemplate:Zone:VAV or other central multizone systems")]
     [JsonObject("HVACTemplate:System:DedicatedOutdoorAir")]
-    public class HVACTemplate_System_DedicatedOutdoorAir : BHoMObject
+    public class HVACTemplate_System_DedicatedOutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -21,7 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("air_outlet_type")]
-        public EmptyNoYes AirOutletType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "DirectIntoZone");
+        public HVACTemplate_System_DedicatedOutdoorAir_AirOutletType AirOutletType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_AirOutletType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_AirOutletType), "DirectIntoZone");
         
 
         [JsonProperty("supply_fan_flow_rate")]
@@ -45,11 +45,11 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("supply_fan_placement")]
-        public EmptyNoYes SupplyFanPlacement { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "DrawThrough");
+        public HVACTemplate_System_DedicatedOutdoorAir_SupplyFanPlacement SupplyFanPlacement { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_SupplyFanPlacement)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_SupplyFanPlacement), "DrawThrough");
         
 
         [JsonProperty("cooling_coil_type")]
-        public EmptyNoYes CoolingCoilType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ChilledWater");
+        public HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilType CoolingCoilType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilType), "ChilledWater");
         
 
         [Description("If blank, always on")]
@@ -58,7 +58,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("cooling_coil_setpoint_control_type")]
-        public EmptyNoYes CoolingCoilSetpointControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "FixedSetpoint");
+        public HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilSetpointControlType CoolingCoilSetpointControlType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilSetpointControlType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilSetpointControlType), "FixedSetpoint");
         
 
         [Description("Used for sizing and as constant setpoint if no Cooling Coil Setpoint Schedule Nam" +
@@ -110,7 +110,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heating_coil_type")]
-        public EmptyNoYes HeatingCoilType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "HotWater");
+        public HVACTemplate_System_DedicatedOutdoorAir_HeatingCoilType HeatingCoilType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_HeatingCoilType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_HeatingCoilType), "HotWater");
         
 
         [Description("If blank, always on")]
@@ -121,7 +121,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         [Description("When selecting OutdoorAirTemperatureReset, the Heating Coil Design Setpoint may n" +
                      "eed to be changed")]
         [JsonProperty("heating_coil_setpoint_control_type")]
-        public EmptyNoYes HeatingCoilSetpointControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "FixedSetpoint");
+        public HVACTemplate_System_DedicatedOutdoorAir_HeatingCoilSetpointControlType HeatingCoilSetpointControlType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_HeatingCoilSetpointControlType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_HeatingCoilSetpointControlType), "FixedSetpoint");
         
 
         [Description("Used for sizing and as constant setpoint if no Heating Coil Setpoint Schedule Nam" +
@@ -165,7 +165,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_recovery_type")]
-        public EmptyNoYes HeatRecoveryType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryType HeatRecoveryType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryType), "None");
         
 
         [JsonProperty("heat_recovery_sensible_effectiveness")]
@@ -177,16 +177,16 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_recovery_heat_exchanger_type")]
-        public EmptyNoYes HeatRecoveryHeatExchangerType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Plate");
+        public HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryHeatExchangerType HeatRecoveryHeatExchangerType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryHeatExchangerType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryHeatExchangerType), "Plate");
         
 
         [JsonProperty("heat_recovery_frost_control_type")]
-        public EmptyNoYes HeatRecoveryFrostControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryFrostControlType HeatRecoveryFrostControlType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryFrostControlType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryFrostControlType), "None");
         
 
         [Description(@"None = meet sensible load only CoolReheatHeatingCoil = cool beyond the dry-bulb setpoint, reheat with heating coil Valid for all cooling coil types. If no heating coil specified, cold supply temps may occur. CoolReheatDesuperheater = cool beyond the dry-bulb setpoint as required to meet the humidity setpoint, reheat with desuperheater coil. Valid only for Cooling Coil Type = TwoSpeedDX, TwoStageDX, TwoStageHumidityControlDX, or HeatExchangerAssistedDX. Multimode = activate enhanced dehumidification mode as needed and meet sensible load. Valid only for Cooling Coil Type = TwoStageHumidityControlDX or HeatExchangerAssistedDX")]
         [JsonProperty("dehumidification_control_type")]
-        public EmptyNoYes DehumidificationControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_DedicatedOutdoorAir_DehumidificationControlType DehumidificationControlType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_DehumidificationControlType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_DehumidificationControlType), "None");
         
 
         [Description("The supply air humidity ratio for dehumidification control. Default of 0.00924 kg" +
@@ -197,7 +197,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("humidifier_type")]
-        public EmptyNoYes HumidifierType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_System_DedicatedOutdoorAir_HumidifierType HumidifierType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_HumidifierType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_HumidifierType), "None");
         
 
         [Description("If blank, always available")]

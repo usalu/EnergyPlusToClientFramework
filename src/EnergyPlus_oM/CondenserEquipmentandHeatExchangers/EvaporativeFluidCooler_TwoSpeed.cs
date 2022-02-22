@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
                  "ower model in EnergyPlus. The Evaporative fluid cooler is modeled as a counter f" +
                  "low heat exchanger.")]
     [JsonObject("EvaporativeFluidCooler:TwoSpeed")]
-    public class EvaporativeFluidCooler_TwoSpeed : BHoMObject
+    public class EvaporativeFluidCooler_TwoSpeed : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -61,7 +61,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
                      "A and the Design Water Flow Rate, or by specifying the fluid cooler Standard Des" +
                      "ign Capacity or by specifying Design Capacity for Non standard conditions.")]
         [JsonProperty("performance_input_method")]
-        public EmptyNoYes PerformanceInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public EvaporativeFluidCooler_TwoSpeed_PerformanceInputMethod PerformanceInputMethod { get; set; } = (EvaporativeFluidCooler_TwoSpeed_PerformanceInputMethod)Enum.Parse(typeof(EvaporativeFluidCooler_TwoSpeed_PerformanceInputMethod), "StandardDesignCapacity");
         
 
         [Description("Enter the name of an outdoor air node")]
@@ -157,7 +157,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("evaporation_loss_mode")]
-        public EmptyNoYes EvaporationLossMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SaturatedExit");
+        public EvaporativeFluidCooler_TwoSpeed_EvaporationLossMode EvaporationLossMode { get; set; } = (EvaporativeFluidCooler_TwoSpeed_EvaporationLossMode)Enum.Parse(typeof(EvaporativeFluidCooler_TwoSpeed_EvaporationLossMode), "SaturatedExit");
         
 
         [Description("Rate of water evaporation from the Fluid Cooler and lost to the outdoor air [%/K]" +
@@ -174,7 +174,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("blowdown_calculation_mode")]
-        public EmptyNoYes BlowdownCalculationMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ConcentrationRatio");
+        public EvaporativeFluidCooler_TwoSpeed_BlowdownCalculationMode BlowdownCalculationMode { get; set; } = (EvaporativeFluidCooler_TwoSpeed_BlowdownCalculationMode)Enum.Parse(typeof(EvaporativeFluidCooler_TwoSpeed_BlowdownCalculationMode), "ConcentrationRatio");
         
 
         [Description(@"Characterizes the rate of blowdown in the Evaporative Fluid Cooler. Blowdown is water intentionally drained from the Evaporative Fluid Cooler in order to offset the build up of solids in the water that would otherwise occur because of evaporation. Ratio of solids in the blowdown water to solids in the make up water. Default value is under investigation. For now cooling tower's default value is taken.")]

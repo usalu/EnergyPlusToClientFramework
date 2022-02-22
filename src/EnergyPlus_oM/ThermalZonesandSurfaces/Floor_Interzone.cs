@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     [Description("Allows for simplified entry of floors using adjacent zone (interzone) heat transf" +
                  "er - adjacent surface should be a ceiling.")]
     [JsonObject("Floor:Interzone")]
-    public class Floor_Interzone : BHoMObject
+    public class Floor_Interzone : BHoMObject, IEnergyPlusClass
     {
         
 

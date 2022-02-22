@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("Glass material properties for Windows or Glass Doors Transmittance/Reflectance in" +
                  "put method.")]
     [JsonObject("WindowMaterial:Glazing")]
-    public class WindowMaterial_Glazing : BHoMObject
+    public class WindowMaterial_Glazing : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("optical_data_type")]
-        public EmptyNoYes OpticalDataType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public WindowMaterial_Glazing_OpticalDataType OpticalDataType { get; set; } = (WindowMaterial_Glazing_OpticalDataType)Enum.Parse(typeof(WindowMaterial_Glazing_OpticalDataType), "BSDF");
         
 
         [Description("Used only when Optical Data Type = Spectral")]

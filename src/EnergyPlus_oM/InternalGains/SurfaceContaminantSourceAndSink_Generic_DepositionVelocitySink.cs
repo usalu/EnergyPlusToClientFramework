@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     [Description("Simulate generic contaminant source driven by the boundary layer diffusion contro" +
                  "lled model.")]
     [JsonObject("SurfaceContaminantSourceAndSink:Generic:DepositionVelocitySink")]
-    public class SurfaceContaminantSourceAndSink_Generic_DepositionVelocitySink : BHoMObject
+    public class SurfaceContaminantSourceAndSink_Generic_DepositionVelocitySink : BHoMObject, IEnergyPlusClass
     {
         
 

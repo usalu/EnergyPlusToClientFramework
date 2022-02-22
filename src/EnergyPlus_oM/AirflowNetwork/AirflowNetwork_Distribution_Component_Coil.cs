@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines the name of a coil used in an air loop.")]
     [JsonObject("AirflowNetwork:Distribution:Component:Coil")]
-    public class AirflowNetwork_Distribution_Component_Coil : BHoMObject
+    public class AirflowNetwork_Distribution_Component_Coil : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -18,7 +18,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 
         [Description("Select the type of coil corresponding to the name entered in the field above.")]
         [JsonProperty("coil_object_type")]
-        public EmptyNoYes CoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirflowNetwork_Distribution_Component_Coil_CoilObjectType CoilObjectType { get; set; } = (AirflowNetwork_Distribution_Component_Coil_CoilObjectType)Enum.Parse(typeof(AirflowNetwork_Distribution_Component_Coil_CoilObjectType), "CoilCoolingDX");
         
 
         [Description("Enter the air path length (depth) for the coil.")]

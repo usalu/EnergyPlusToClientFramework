@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Specifies a HVAC system solver algorithm to find a root")]
     [JsonObject("HVACSystemRootFindingAlgorithm")]
-    public class HVACSystemRootFindingAlgorithm : BHoMObject
+    public class HVACSystemRootFindingAlgorithm : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("algorithm")]
-        public EmptyNoYes Algorithm { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "RegulaFalsi");
+        public HVACSystemRootFindingAlgorithm_Algorithm Algorithm { get; set; } = (HVACSystemRootFindingAlgorithm_Algorithm)Enum.Parse(typeof(HVACSystemRootFindingAlgorithm_Algorithm), "RegulaFalsi");
         
 
         [Description("This field is used when RegulaFalsiThenBisection or BisectionThenRegulaFalsi is e" +

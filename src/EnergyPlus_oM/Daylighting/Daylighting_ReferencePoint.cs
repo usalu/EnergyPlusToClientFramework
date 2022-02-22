@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
                  " sensor. Reference points are given in coordinates specified in the GlobalGeomet" +
                  "ryRules object Daylighting Reference Point CoordinateSystem field")]
     [JsonObject("Daylighting:ReferencePoint")]
-    public class Daylighting_ReferencePoint : BHoMObject
+    public class Daylighting_ReferencePoint : BHoMObject, IEnergyPlusClass
     {
         
 

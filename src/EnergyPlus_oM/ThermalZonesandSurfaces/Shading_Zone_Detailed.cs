@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     [Description("used For fins, overhangs, elements that shade the building, are attached to the b" +
                  "uilding but are not part of the heat transfer calculations")]
     [JsonObject("Shading:Zone:Detailed")]
-    public class Shading_Zone_Detailed : BHoMObject
+    public class Shading_Zone_Detailed : BHoMObject, IEnergyPlusClass
     {
         
 

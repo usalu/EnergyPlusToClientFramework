@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                  "cur more than once during the study period on a regular schedule, use the LifeCy" +
                  "cleCost:RecurringCost object.")]
     [JsonObject("LifeCycleCost:NonrecurringCost")]
-    public class LifeCycleCost_NonrecurringCost : BHoMObject
+    public class LifeCycleCost_NonrecurringCost : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("category")]
-        public EmptyNoYes Category { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Construction");
+        public LifeCycleCost_NonrecurringCost_Category Category { get; set; } = (LifeCycleCost_NonrecurringCost_Category)Enum.Parse(typeof(LifeCycleCost_NonrecurringCost_Category), "Construction");
         
 
         [Description(@"Enter the non-recurring cost value. For construction and other capital costs the value entered is typically a positive value. For salvage costs the value entered is typically a negative value which represents the money paid to the investor for the equipment at the end of the study period.")]
@@ -26,7 +26,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                      "s past the Start of Costs. For most non-recurring costs the Start of Costs shoul" +
                      "d be Base Period which begins at the base month and year.")]
         [JsonProperty("start_of_costs")]
-        public EmptyNoYes StartOfCosts { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ServicePeriod");
+        public LifeCycleCost_NonrecurringCost_StartOfCosts StartOfCosts { get; set; } = (LifeCycleCost_NonrecurringCost_StartOfCosts)Enum.Parse(typeof(LifeCycleCost_NonrecurringCost_StartOfCosts), "ServicePeriod");
         
 
         [Description(@"This field and the Months From Start field together represent the time from either the start of the Service Period on the service month and year or start of the Base Period on the base month and year (depending on the Start of Cost field) that the costs start to occur. Only integers should be entered representing whole years.")]

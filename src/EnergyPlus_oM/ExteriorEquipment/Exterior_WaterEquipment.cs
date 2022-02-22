@@ -7,12 +7,12 @@ namespace BH.oM.Adapters.EnergyPlus.ExteriorEquipment
 {
     [Description("only used for Meter type reporting, does not affect building loads")]
     [JsonObject("Exterior:WaterEquipment")]
-    public class Exterior_WaterEquipment : BHoMObject
+    public class Exterior_WaterEquipment : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("fuel_use_type")]
-        public EmptyNoYes FuelUseType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Water");
+        public Exterior_WaterEquipment_FuelUseType FuelUseType { get; set; } = (Exterior_WaterEquipment_FuelUseType)Enum.Parse(typeof(Exterior_WaterEquipment_FuelUseType), "Water");
         
 
         [Description("units in Schedule should be fraction applied to capacity of the exterior water eq" +

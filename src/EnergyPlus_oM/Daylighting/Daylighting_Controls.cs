@@ -69,7 +69,7 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
     [Description("Dimming of overhead electric lighting is determined from each reference point. Gl" +
         "are from daylighting is also calculated.")]
     [JsonObject("Daylighting:Controls")]
-    public class Daylighting_Controls : BHoMObject
+    public class Daylighting_Controls : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -78,7 +78,7 @@ public string ZoneName { get; set; } = "";
         
 
 [JsonProperty("daylighting_method")]
-public EmptyNoYes DaylightingMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SplitFlux");
+public Daylighting_Controls_DaylightingMethod DaylightingMethod { get; set; } = (Daylighting_Controls_DaylightingMethod)Enum.Parse(typeof(Daylighting_Controls_DaylightingMethod), "SplitFlux");
         
 
 [JsonProperty("availability_schedule_name")]
@@ -86,7 +86,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("lighting_control_type")]
-public EmptyNoYes LightingControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Continuous");
+public Daylighting_Controls_LightingControlType LightingControlType { get; set; } = (Daylighting_Controls_LightingControlType)Enum.Parse(typeof(Daylighting_Controls_LightingControlType), "Continuous");
         
 
 [JsonProperty("minimum_input_power_fraction_for_continuous_or_continuousoff_dimming_control")]

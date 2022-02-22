@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes fault of chiller supply water temperature sensor offset")]
     [JsonObject("FaultModel:TemperatureSensorOffset:ChillerSupplyWater")]
-    public class FaultModel_TemperatureSensorOffset_ChillerSupplyWater : BHoMObject
+    public class FaultModel_TemperatureSensorOffset_ChillerSupplyWater : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -22,7 +22,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 
         [Description("Enter the type of a chiller object")]
         [JsonProperty("chiller_object_type")]
-        public EmptyNoYes ChillerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public FaultModel_TemperatureSensorOffset_ChillerSupplyWater_ChillerObjectType ChillerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_ChillerSupplyWater_ChillerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_ChillerSupplyWater_ChillerObjectType), "ChillerAbsorption");
         
 
         [Description("Enter the name of a chiller object")]

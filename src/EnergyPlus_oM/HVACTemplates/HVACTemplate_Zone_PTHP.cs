@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Packaged Terminal Heat Pump")]
     [JsonObject("HVACTemplate:Zone:PTHP")]
-    public class HVACTemplate_Zone_PTHP : BHoMObject
+    public class HVACTemplate_Zone_PTHP : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -54,7 +54,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"Flow/Person, Flow/Zone, Flow/Area, Sum, and Maximum use the values in the next three fields: Outdoor Air Flow Rate per Person, Outdoor Air Flow Rate per Zone Floor Area, and Outdoor Air Flow Rate per Zone. DetailedSpecification ignores these three Outdoor Air Flow Rate fields and instead references design specification objects named in the fields Design Specification Outdoor Air Object Name and Design Specification Zone Air Distribution Object Name.")]
         [JsonProperty("outdoor_air_method")]
-        public EmptyNoYes OutdoorAirMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Flow/Person");
+        public HVACTemplate_Zone_PTHP_OutdoorAirMethod OutdoorAirMethod { get; set; } = (HVACTemplate_Zone_PTHP_OutdoorAirMethod)Enum.Parse(typeof(HVACTemplate_Zone_PTHP_OutdoorAirMethod), "Empty");
         
 
         [Description("Default 0.00944 is 20 cfm per person This input is used if the field Outdoor Air " +
@@ -87,7 +87,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("supply_fan_placement")]
-        public EmptyNoYes SupplyFanPlacement { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "DrawThrough");
+        public HVACTemplate_Zone_PTHP_SupplyFanPlacement SupplyFanPlacement { get; set; } = (HVACTemplate_Zone_PTHP_SupplyFanPlacement)Enum.Parse(typeof(HVACTemplate_Zone_PTHP_SupplyFanPlacement), "DrawThrough");
         
 
         [JsonProperty("supply_fan_total_efficiency")]
@@ -103,7 +103,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("cooling_coil_type")]
-        public EmptyNoYes CoolingCoilType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SingleSpeedDX");
+        public HVACTemplate_Zone_PTHP_CoolingCoilType CoolingCoilType { get; set; } = (HVACTemplate_Zone_PTHP_CoolingCoilType)Enum.Parse(typeof(HVACTemplate_Zone_PTHP_CoolingCoilType), "SingleSpeedDX");
         
 
         [Description("If blank, always on")]
@@ -131,7 +131,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_pump_heating_coil_type")]
-        public EmptyNoYes HeatPumpHeatingCoilType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SingleSpeedDXHeatPump");
+        public HVACTemplate_Zone_PTHP_HeatPumpHeatingCoilType HeatPumpHeatingCoilType { get; set; } = (HVACTemplate_Zone_PTHP_HeatPumpHeatingCoilType)Enum.Parse(typeof(HVACTemplate_Zone_PTHP_HeatPumpHeatingCoilType), "SingleSpeedDXHeatPump");
         
 
         [Description("If blank, always on")]
@@ -160,11 +160,11 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_pump_defrost_strategy")]
-        public EmptyNoYes HeatPumpDefrostStrategy { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ReverseCycle");
+        public HVACTemplate_Zone_PTHP_HeatPumpDefrostStrategy HeatPumpDefrostStrategy { get; set; } = (HVACTemplate_Zone_PTHP_HeatPumpDefrostStrategy)Enum.Parse(typeof(HVACTemplate_Zone_PTHP_HeatPumpDefrostStrategy), "ReverseCycle");
         
 
         [JsonProperty("heat_pump_defrost_control")]
-        public EmptyNoYes HeatPumpDefrostControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Timed");
+        public HVACTemplate_Zone_PTHP_HeatPumpDefrostControl HeatPumpDefrostControl { get; set; } = (HVACTemplate_Zone_PTHP_HeatPumpDefrostControl)Enum.Parse(typeof(HVACTemplate_Zone_PTHP_HeatPumpDefrostControl), "Timed");
         
 
         [Description("Fraction of time in defrost mode only applicable if Timed defrost control is spec" +
@@ -174,7 +174,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("supplemental_heating_coil_type")]
-        public EmptyNoYes SupplementalHeatingCoilType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Electric");
+        public HVACTemplate_Zone_PTHP_SupplementalHeatingCoilType SupplementalHeatingCoilType { get; set; } = (HVACTemplate_Zone_PTHP_SupplementalHeatingCoilType)Enum.Parse(typeof(HVACTemplate_Zone_PTHP_SupplementalHeatingCoilType), "Electric");
         
 
         [Description("If blank, always on")]
@@ -213,7 +213,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "ure TemperatureDifference = use the value from Zone Cooling Design Supply Air Te" +
                      "mperature Difference")]
         [JsonProperty("zone_cooling_design_supply_air_temperature_input_method")]
-        public EmptyNoYes ZoneCoolingDesignSupplyAirTemperatureInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SupplyAirTemperature");
+        public HVACTemplate_Zone_PTHP_ZoneCoolingDesignSupplyAirTemperatureInputMethod ZoneCoolingDesignSupplyAirTemperatureInputMethod { get; set; } = (HVACTemplate_Zone_PTHP_ZoneCoolingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(HVACTemplate_Zone_PTHP_ZoneCoolingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 
         [Description("Zone Cooling Design Supply Air Temperature is only used when Zone Cooling Design " +
@@ -231,7 +231,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "ure TemperatureDifference = use the value from Zone Heating Design Supply Air Te" +
                      "mperature Difference")]
         [JsonProperty("zone_heating_design_supply_air_temperature_input_method")]
-        public EmptyNoYes ZoneHeatingDesignSupplyAirTemperatureInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SupplyAirTemperature");
+        public HVACTemplate_Zone_PTHP_ZoneHeatingDesignSupplyAirTemperatureInputMethod ZoneHeatingDesignSupplyAirTemperatureInputMethod { get; set; } = (HVACTemplate_Zone_PTHP_ZoneHeatingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(HVACTemplate_Zone_PTHP_ZoneHeatingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 
         [Description("Zone Heating Design Supply Air Temperature is only used when Zone Heating Design " +
@@ -256,7 +256,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("baseboard_heating_type")]
-        public EmptyNoYes BaseboardHeatingType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_Zone_PTHP_BaseboardHeatingType BaseboardHeatingType { get; set; } = (HVACTemplate_Zone_PTHP_BaseboardHeatingType)Enum.Parse(typeof(HVACTemplate_Zone_PTHP_BaseboardHeatingType), "None");
         
 
         [Description("If blank, always on")]
@@ -269,6 +269,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("capacity_control_method")]
-        public EmptyNoYes CapacityControlMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_Zone_PTHP_CapacityControlMethod CapacityControlMethod { get; set; } = (HVACTemplate_Zone_PTHP_CapacityControlMethod)Enum.Parse(typeof(HVACTemplate_Zone_PTHP_CapacityControlMethod), "None");
     }
 }

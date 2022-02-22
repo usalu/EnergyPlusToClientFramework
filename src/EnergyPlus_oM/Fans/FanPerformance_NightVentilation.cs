@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
 {
     [Description(@"Specifies an alternate set of performance parameters for a fan. These alternate parameters are used when a system manager (such as AvailabilityManager:NightVentilation) sets a specified flow rate. May be used with Fan:ConstantVolume, Fan:VariableVolume and Fan:ComponentModel. If the fan model senses that a fixed flow rate has been set, it will use these alternate performance parameters. It is assumed that the fan will run at a fixed speed in the alternate mode.")]
     [JsonObject("FanPerformance:NightVentilation")]
-    public class FanPerformance_NightVentilation : BHoMObject
+    public class FanPerformance_NightVentilation : BHoMObject, IEnergyPlusClass
     {
         
 

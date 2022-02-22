@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     [Description("This object describes air-cooled electric information technology equipment (ITE) " +
                  "which has variable power consumption as a function of loading and temperature.")]
     [JsonObject("ElectricEquipment:ITE:AirCooled")]
-    public class ElectricEquipment_ITE_AirCooled : BHoMObject
+    public class ElectricEquipment_ITE_AirCooled : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -19,7 +19,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 
         [Description(@"The specified method is used to calculate the IT inlet temperature and zone return air temperature. If FlowFromSystem is chosen, the zone is assumed to be well-mixed. If FlowControlWithApproachTemperatures is chosen, Supply and Return approach temperature should be defined to indicate the temperature difference due to the air distribution. When FlowControlWithApproachTemperatures is chosen, the inputs of Air Inlet Connection Type, Design Recirculation Fraction and Recirculation Function of Loading and Supply Temperature Curve Name are ignored. For multiple ITE objects defined for one zone, the same calculation method should apply. The FlowControlWithApproachTemperatures only applies to ITE zones with single duct VAV terminal unit. Other return air heat gains from window or lights are not allowed when FlowControlWithApproachTemperatures is chosen.")]
         [JsonProperty("air_flow_calculation_method")]
-        public EmptyNoYes AirFlowCalculationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "FlowFromSystem");
+        public ElectricEquipment_ITE_AirCooled_AirFlowCalculationMethod AirFlowCalculationMethod { get; set; } = (ElectricEquipment_ITE_AirCooled_AirFlowCalculationMethod)Enum.Parse(typeof(ElectricEquipment_ITE_AirCooled_AirFlowCalculationMethod), "FlowFromSystem");
         
 
         [Description("The entered calculation method is used to specify the design power input Watts/Un" +
@@ -27,7 +27,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
                      "ea => Watts per Zone Floor Area -- Design Power = Watts per Zone Floor Area * Fl" +
                      "oor Area")]
         [JsonProperty("design_power_input_calculation_method")]
-        public EmptyNoYes DesignPowerInputCalculationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Watts/Unit");
+        public ElectricEquipment_ITE_AirCooled_DesignPowerInputCalculationMethod DesignPowerInputCalculationMethod { get; set; } = (ElectricEquipment_ITE_AirCooled_DesignPowerInputCalculationMethod)Enum.Parse(typeof(ElectricEquipment_ITE_AirCooled_DesignPowerInputCalculationMethod), "Empty");
         
 
         [JsonProperty("watts_per_unit")]
@@ -92,12 +92,12 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
         [Description("Specifies the allowable operating conditions for the air inlet conditions. Used f" +
                      "or reporting time outside allowable conditions.")]
         [JsonProperty("environmental_class")]
-        public EmptyNoYes EnvironmentalClass { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public ElectricEquipment_ITE_AirCooled_EnvironmentalClass EnvironmentalClass { get; set; } = (ElectricEquipment_ITE_AirCooled_EnvironmentalClass)Enum.Parse(typeof(ElectricEquipment_ITE_AirCooled_EnvironmentalClass), "None");
         
 
         [Description(@"Specifies the type of connection between the zone and the ITE air inlet node. AdjustedSupply = ITE inlet temperature will be the current Supply Air Node temperature adjusted by the current recirculation fraction. All heat output is added to the zone air heat balance as a convective gain. ZoneAirNode = ITE air inlet condition is  the average zone condition. All heat output is added to the zone air heat balance as a convective gain. RoomAirModel = ITE air inlet and outlet are connected to room air model nodes. This field is only used when Air Flow Calculation Method is FlowFromSystem.")]
         [JsonProperty("air_inlet_connection_type")]
-        public EmptyNoYes AirInletConnectionType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AdjustedSupply");
+        public ElectricEquipment_ITE_AirCooled_AirInletConnectionType AirInletConnectionType { get; set; } = (ElectricEquipment_ITE_AirCooled_AirInletConnectionType)Enum.Parse(typeof(ElectricEquipment_ITE_AirCooled_AirInletConnectionType), "AdjustedSupply");
         
 
         [Description("Name of a RoomAir:Node object which is connected to the ITE air inlet.")]

@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
                  " within an underground piping domain object and connected on a branch on a plant" +
                  " loop.")]
     [JsonObject("PipingSystem:Underground:PipeCircuit")]
-    public class PipingSystem_Underground_PipeCircuit : BHoMObject
+    public class PipingSystem_Underground_PipeCircuit : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
                  "surface-construction pair and if that pair is used in a simulation, then program" +
                  " will use value provided in schedule instead of calculating it.")]
     [JsonObject("SurfaceProperty:SolarIncidentInside")]
-    public class SurfaceProperty_SolarIncidentInside : BHoMObject
+    public class SurfaceProperty_SolarIncidentInside : BHoMObject, IEnergyPlusClass
     {
         
 

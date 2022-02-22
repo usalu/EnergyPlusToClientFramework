@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object is used to define surface air leakage.")]
     [JsonObject("AirflowNetwork:MultiZone:Surface:EffectiveLeakageArea")]
-    public class AirflowNetwork_MultiZone_Surface_EffectiveLeakageArea : BHoMObject
+    public class AirflowNetwork_MultiZone_Surface_EffectiveLeakageArea : BHoMObject, IEnergyPlusClass
     {
         
 

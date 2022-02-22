@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("Sets internal gains or losses for \"other\" equipment in the zone.")]
     [JsonObject("OtherEquipment")]
-    public class OtherEquipment : BHoMObject
+    public class OtherEquipment : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("fuel_type")]
-        public EmptyNoYes FuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public OtherEquipment_FuelType FuelType { get; set; } = (OtherEquipment_FuelType)Enum.Parse(typeof(OtherEquipment_FuelType), "None");
         
 
         [JsonProperty("zone_or_zonelist_name")]
@@ -28,7 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 
         [Description(@"The entered calculation method is used to create the maximum amount of other equipment. to set a loss, use a negative value in the following fields. for this set of attributes Choices: EquipmentLevel => Design Level -- simply enter power input of equipment Watts/Area or Power/Area => Power per Zone Floor Area -- enter the number to apply. Value * Floor Area = Equipment Level Watts/Person or Power/Person => Power per Person -- enter the number to apply. Value * Occupants = Equipment Level")]
         [JsonProperty("design_level_calculation_method")]
-        public EmptyNoYes DesignLevelCalculationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "EquipmentLevel");
+        public OtherEquipment_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (OtherEquipment_DesignLevelCalculationMethod)Enum.Parse(typeof(OtherEquipment_DesignLevelCalculationMethod), "EquipmentLevel");
         
 
         [JsonProperty("design_level")]

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for simplified entry of interior walls.")]
     [JsonObject("Wall:Adiabatic")]
-    public class Wall_Adiabatic : BHoMObject
+    public class Wall_Adiabatic : BHoMObject, IEnergyPlusClass
     {
         
 

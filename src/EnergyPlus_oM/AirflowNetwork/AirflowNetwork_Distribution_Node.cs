@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object represents an air distribution node in the AirflowNetwork model.")]
     [JsonObject("AirflowNetwork:Distribution:Node")]
-    public class AirflowNetwork_Distribution_Node : BHoMObject
+    public class AirflowNetwork_Distribution_Node : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -19,7 +19,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 
         [Description(@"Designates Node type for the Node or Component Name defined in the field above. AirLoopHVAC:ZoneMixer -- Represents a AirLoopHVAC:ZoneMixer object. AirLoopHVAC:ZoneSplitter -- Represents a AirLoopHVAC:ZoneSplitter object. AirLoopHVAC:OutdoorAirSystem -- Represents an AirLoopHVAC:OutdoorAirSystem object. OAMixerOutdoorAirStreamNode -- Represents an external node used in the OutdoorAir:Mixer OutdoorAir:NodeList -- Represents an external node when a heat exchanger is used before the OutdoorAir:Mixer OutdoorAir:Node -- Represents an external node when a heat exchanger is used before the OutdoorAir:Mixer Other -- none of the above, the Node name already defined in the previous field is part of an air loop.")]
         [JsonProperty("component_object_type_or_node_type")]
-        public EmptyNoYes ComponentObjectTypeOrNodeType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Other");
+        public AirflowNetwork_Distribution_Node_ComponentObjectTypeOrNodeType ComponentObjectTypeOrNodeType { get; set; } = (AirflowNetwork_Distribution_Node_ComponentObjectTypeOrNodeType)Enum.Parse(typeof(AirflowNetwork_Distribution_Node_ComponentObjectTypeOrNodeType), "Other");
         
 
         [Description("Enter the reference height used to calculate the relative pressure.")]

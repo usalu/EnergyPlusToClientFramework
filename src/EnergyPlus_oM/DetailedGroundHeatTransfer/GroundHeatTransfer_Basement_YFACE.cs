@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
     [Description("This is only needed when using manual gridding (not recommended) YFACE: Y Directi" +
                  "on cell face coordinates: m")]
     [JsonObject("GroundHeatTransfer:Basement:YFACE")]
-    public class GroundHeatTransfer_Basement_YFACE : BHoMObject
+    public class GroundHeatTransfer_Basement_YFACE : BHoMObject, IEnergyPlusClass
     {
     }
 }

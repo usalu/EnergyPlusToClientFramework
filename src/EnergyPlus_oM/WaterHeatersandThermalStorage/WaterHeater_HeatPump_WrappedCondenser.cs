@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     [Description(@"This object models an air-source heat pump for water heating where the heating coil is wrapped around the tank, which is typical of residential HPWHs. For pumped condenser HPWHs, see WaterHeater:HeatPump:PumpedCondenser. WaterHeater:HeatPump:WrappedCondenser is a compound object that references other component objects - Coil:WaterHeating:AirToWaterHeatPump:Pumped, Fan:OnOff, WaterHeater:Mixed")]
     [JsonObject("WaterHeater:HeatPump:WrappedCondenser")]
-    public class WaterHeater_HeatPump_WrappedCondenser : BHoMObject
+    public class WaterHeater_HeatPump_WrappedCondenser : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -49,7 +49,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         [Description("Defines the configuration of the airflow path through the air coil and fan sectio" +
                      "n.")]
         [JsonProperty("inlet_air_configuration")]
-        public EmptyNoYes InletAirConfiguration { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public WaterHeater_HeatPump_WrappedCondenser_InletAirConfiguration InletAirConfiguration { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_InletAirConfiguration)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_InletAirConfiguration), "OutdoorAirOnly");
         
 
         [Description("Zone air exhaust node name if Inlet Air Configuration is ZoneAirOnly or ZoneAndOu" +
@@ -98,7 +98,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 
         [Description("Specify the type of water heater tank used by this heat pump water heater.")]
         [JsonProperty("tank_object_type")]
-        public EmptyNoYes TankObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "WaterHeater:Stratified");
+        public WaterHeater_HeatPump_WrappedCondenser_TankObjectType TankObjectType { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_TankObjectType)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_TankObjectType), "Empty");
         
 
         [Description("Needs to match the name used in the corresponding Water Heater object. Must be a " +
@@ -124,7 +124,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         [Description("Specify the type of DX coil used by this heat pump water heater. The only valid c" +
                      "hoice is Coil:WaterHeating:AirToWaterHeatPump:Wrapped")]
         [JsonProperty("dx_coil_object_type")]
-        public EmptyNoYes DxCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Coil:WaterHeating:AirToWaterHeatPump:Wrapped");
+        public WaterHeater_HeatPump_WrappedCondenser_DxCoilObjectType DxCoilObjectType { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_DxCoilObjectType)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_DxCoilObjectType), "Empty");
         
 
         [Description("Must match the name used in the corresponding Coil:WaterHeating:AirToWaterHeatPum" +
@@ -149,7 +149,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
                      "rAir. If Schedule is selected, then you must provide a Compressor Ambient Temper" +
                      "ature Schedule Name below.")]
         [JsonProperty("compressor_location")]
-        public EmptyNoYes CompressorLocation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public WaterHeater_HeatPump_WrappedCondenser_CompressorLocation CompressorLocation { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_CompressorLocation)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_CompressorLocation), "Outdoors");
         
 
         [Description("Used only if Compressor Location is Schedule, otherwise leave field blank.")]
@@ -160,7 +160,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         [Description("Specify the type of fan used by this heat pump water heater. The only valid choic" +
                      "es are Fan:SystemModel or Fan:OnOff.")]
         [JsonProperty("fan_object_type")]
-        public EmptyNoYes FanObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Fan:OnOff");
+        public WaterHeater_HeatPump_WrappedCondenser_FanObjectType FanObjectType { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_FanObjectType)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_FanObjectType), "Empty");
         
 
         [Description("Needs to match the name used in the corresponding Fan:SystemModel or Fan:OnOff ob" +
@@ -172,7 +172,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         [Description("BlowThrough means the fan is located before the air coil (upstream). DrawThrough " +
                      "means the fan is located after the air coil (downstream).")]
         [JsonProperty("fan_placement")]
-        public EmptyNoYes FanPlacement { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "DrawThrough");
+        public WaterHeater_HeatPump_WrappedCondenser_FanPlacement FanPlacement { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_FanPlacement)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_FanPlacement), "DrawThrough");
         
 
         [Description("Parasitic electric power consumed when the heat pump compressor operates. Does no" +
@@ -192,7 +192,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
                      "lance. If Zone is selected, Inlet Air Configuration must be ZoneAirOnly or ZoneA" +
                      "ndOutdoorAir.")]
         [JsonProperty("parasitic_heat_rejection_location")]
-        public EmptyNoYes ParasiticHeatRejectionLocation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Outdoors");
+        public WaterHeater_HeatPump_WrappedCondenser_ParasiticHeatRejectionLocation ParasiticHeatRejectionLocation { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_ParasiticHeatRejectionLocation)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_ParasiticHeatRejectionLocation), "Outdoors");
         
 
         [Description("Required only if Inlet Air Configuration is ZoneAndOutdoorAir, otherwise leave fi" +
@@ -214,7 +214,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 
         [Description(@"MutuallyExclusive means that once the tank heating element is active the heat pump is shut down until setpoint is reached. Simultaneous (default) means that both the tank heating element and heat pump are used at the same time recover the tank temperature.")]
         [JsonProperty("tank_element_control_logic")]
-        public EmptyNoYes TankElementControlLogic { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Simultaneous");
+        public WaterHeater_HeatPump_WrappedCondenser_TankElementControlLogic TankElementControlLogic { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_TankElementControlLogic)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_TankElementControlLogic), "Simultaneous");
         
 
         [Description("Used to indicate height of control sensor if Tank Object Type is WaterHeater:Stra" +

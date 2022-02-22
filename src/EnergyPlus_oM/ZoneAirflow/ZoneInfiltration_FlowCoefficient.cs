@@ -11,7 +11,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
                  "ration=FSchedule * SQRT( (c * Cs*|(Tzone-Todb)|**n)**2 + (c* Cw*(s * WindSpd)**2" +
                  "n)**2 )")]
     [JsonObject("ZoneInfiltration:FlowCoefficient")]
-    public class ZoneInfiltration_FlowCoefficient : BHoMObject
+    public class ZoneInfiltration_FlowCoefficient : BHoMObject, IEnergyPlusClass
     {
         
 

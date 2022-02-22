@@ -11,7 +11,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "lectric compressor, and water pump. Part of a WaterHeater:HeatPump:WrappedConden" +
                  "ser system.")]
     [JsonObject("Coil:WaterHeating:AirToWaterHeatPump:Wrapped")]
-    public class Coil_WaterHeating_AirToWaterHeatPump_Wrapped : BHoMObject
+    public class Coil_WaterHeating_AirToWaterHeatPump_Wrapped : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -90,7 +90,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                      "his input determines whether the inlet air dry-bulb or wet-bulb temperature is u" +
                      "sed to evaluate these curves.")]
         [JsonProperty("evaporator_air_temperature_type_for_curve_objects")]
-        public EmptyNoYes EvaporatorAirTemperatureTypeForCurveObjects { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "WetBulbTemperature");
+        public Coil_WaterHeating_AirToWaterHeatPump_Wrapped_EvaporatorAirTemperatureTypeForCurveObjects EvaporatorAirTemperatureTypeForCurveObjects { get; set; } = (Coil_WaterHeating_AirToWaterHeatPump_Wrapped_EvaporatorAirTemperatureTypeForCurveObjects)Enum.Parse(typeof(Coil_WaterHeating_AirToWaterHeatPump_Wrapped_EvaporatorAirTemperatureTypeForCurveObjects), "WetBulbTemperature");
         
 
         [Description(@"Heating capacity modifier curve (function of temperature) should be biquadratic or cubic. Biquadratic curve = a + b(ta) + c(ta)^2 + d(tw) + e(tw)^2 + f(ta)(tw). Cubic curve = a + b(ta) + c(ta)^2 + d(ta)^3. ta = evaporator inlet air [dry-bulb or wet-bulb] temperature (C). tw = condenser inlet water temperature (C). The field Evaporator Air Temperature Type for Curve Objects determines if dry-bulb or wet-bulb is used as the evaporator inlet air temperature (ta).")]

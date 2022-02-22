@@ -68,7 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     
     [Description(@"Ideal system used to calculate loads without modeling a full HVAC system. All that is required for the ideal system are zone controls, zone equipment configurations, and the ideal loads system component. This component can be thought of as an ideal unit that mixes zone air with the specified amount of outdoor air and then adds or removes heat and moisture at 100% efficiency in order to meet the specified controls. Energy use is reported as DistrictHeating and DistrictCooling.")]
     [JsonObject("ZoneHVAC:IdealLoadsAirSystem")]
-    public class ZoneHVAC_IdealLoadsAirSystem : BHoMObject
+    public class ZoneHVAC_IdealLoadsAirSystem : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -111,7 +111,7 @@ public System.Nullable<float> MinimumCoolingSupplyAirHumidityRatio { get; set; }
         
 
 [JsonProperty("heating_limit")]
-public EmptyNoYes HeatingLimit { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoLimit");
+public ZoneHVAC_IdealLoadsAirSystem_HeatingLimit HeatingLimit { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_HeatingLimit)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_HeatingLimit), "NoLimit");
         
 
 [Description("This field is ignored if Heating Limit = NoLimit If this field is blank, there is" +
@@ -127,7 +127,7 @@ public string MaximumSensibleHeatingCapacity { get; set; } = "";
         
 
 [JsonProperty("cooling_limit")]
-public EmptyNoYes CoolingLimit { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoLimit");
+public ZoneHVAC_IdealLoadsAirSystem_CoolingLimit CoolingLimit { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_CoolingLimit)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_CoolingLimit), "NoLimit");
         
 
 [Description("This field is ignored if Cooling Limit = NoLimit This field is required if Outdoo" +
@@ -153,7 +153,7 @@ public string CoolingAvailabilityScheduleName { get; set; } = "";
 
 [Description(@"ConstantSensibleHeatRatio means that the ideal loads system will be controlled to meet the sensible cooling load, and the latent cooling rate will be computed using a constant sensible heat ratio (SHR) Humidistat means that there is a ZoneControl:Humidistat for this zone and the ideal loads system will attempt to satisfy the humidistat. None means that there is no dehumidification. ConstantSupplyHumidityRatio means that during cooling the supply air will always be at the Minimum Cooling Supply Humidity Ratio.")]
 [JsonProperty("dehumidification_control_type")]
-public EmptyNoYes DehumidificationControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ConstantSensibleHeatRatio");
+public ZoneHVAC_IdealLoadsAirSystem_DehumidificationControlType DehumidificationControlType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_DehumidificationControlType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_DehumidificationControlType), "ConstantSensibleHeatRatio");
         
 
 [Description("This field is applicable only when Dehumidification Control Type is ConstantSensi" +
@@ -164,7 +164,7 @@ public System.Nullable<float> CoolingSensibleHeatRatio { get; set; } = (System.N
 
 [Description(@"None means that there is no humidification. Humidistat means that there is a ZoneControl:Humidistat for this zone and the ideal loads system will attempt to satisfy the humidistat. ConstantSupplyHumidityRatio means that during heating the supply air will always be at the Maximum Heating Supply Humidity Ratio.")]
 [JsonProperty("humidification_control_type")]
-public EmptyNoYes HumidificationControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+public ZoneHVAC_IdealLoadsAirSystem_HumidificationControlType HumidificationControlType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_HumidificationControlType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_HumidificationControlType), "None");
         
 
 [Description(@"When the name of a DesignSpecification:OutdoorAir object is entered, the minimum outdoor air flow rate will be computed using these specifications. The outdoor air flow rate will also be affected by the next two fields. If this field is blank, there will be no outdoor air and the remaining fields will be ignored.")]
@@ -181,18 +181,18 @@ public string OutdoorAirInletNodeName { get; set; } = "";
 
 [Description(@"This field controls how the minimum outdoor air flow rate is calculated. None means that design occupancy will be used to compute the minimum outdoor air flow rate OccupancySchedule means that current occupancy level will be used. CO2Setpoint means that the design occupancy will be used to compute the minimum outdoor air flow rate and the outdoor air flow rate may be increased if necessary to maintain the indoor air carbon dioxide setpoint defined in a ZoneControl:ContaminantController object.")]
 [JsonProperty("demand_controlled_ventilation_type")]
-public EmptyNoYes DemandControlledVentilationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+public ZoneHVAC_IdealLoadsAirSystem_DemandControlledVentilationType DemandControlledVentilationType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_DemandControlledVentilationType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_DemandControlledVentilationType), "None");
         
 
 [Description("DifferentialDryBulb and DifferentialEnthalpy will increase the outdoor air flow r" +
     "ate when there is a cooling load and the outdoor air temperature or enthalpy is " +
     "below the zone exhaust air temperature or enthalpy.")]
 [JsonProperty("outdoor_air_economizer_type")]
-public EmptyNoYes OutdoorAirEconomizerType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoEconomizer");
+public ZoneHVAC_IdealLoadsAirSystem_OutdoorAirEconomizerType OutdoorAirEconomizerType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_OutdoorAirEconomizerType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_OutdoorAirEconomizerType), "NoEconomizer");
         
 
 [JsonProperty("heat_recovery_type")]
-public EmptyNoYes HeatRecoveryType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+public ZoneHVAC_IdealLoadsAirSystem_HeatRecoveryType HeatRecoveryType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_HeatRecoveryType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_HeatRecoveryType), "None");
         
 
 [JsonProperty("sensible_heat_recovery_effectiveness")]

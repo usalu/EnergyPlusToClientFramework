@@ -10,12 +10,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
                  "m node which will produce the reference setpoint condition at the mixed air node" +
                  " when mixed with the return air stream")]
     [JsonObject("SetpointManager:OutdoorAirPretreat")]
-    public class SetpointManager_OutdoorAirPretreat : BHoMObject
+    public class SetpointManager_OutdoorAirPretreat : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
-        public EmptyNoYes ControlVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public SetpointManager_OutdoorAirPretreat_ControlVariable ControlVariable { get; set; } = (SetpointManager_OutdoorAirPretreat_ControlVariable)Enum.Parse(typeof(SetpointManager_OutdoorAirPretreat_ControlVariable), "HumidityRatio");
         
 
         [Description("Applicable only if Control variable is Temperature")]

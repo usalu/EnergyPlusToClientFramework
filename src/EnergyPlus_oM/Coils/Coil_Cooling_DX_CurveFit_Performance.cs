@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  ". Mode 1 is always the base design operating mode. Additional modes are optional" +
                  " states such as subcool reheat for humidity control.")]
     [JsonObject("Coil:Cooling:DX:CurveFit:Performance")]
-    public class Coil_Cooling_DX_CurveFit_Performance : BHoMObject
+    public class Coil_Cooling_DX_CurveFit_Performance : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -32,7 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("capacity_control_method")]
-        public EmptyNoYes CapacityControlMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Discrete");
+        public Coil_Cooling_DX_CurveFit_Performance_CapacityControlMethod CapacityControlMethod { get; set; } = (Coil_Cooling_DX_CurveFit_Performance_CapacityControlMethod)Enum.Parse(typeof(Coil_Cooling_DX_CurveFit_Performance_CapacityControlMethod), "Discrete");
         
 
         [Description(@"This field is only used for Condenser Type = EvaporativelyCooled and for periods when the basin heater is available (field Basin Heater Operating Schedule Name). For this situation, the heater maintains the basin water temperature at the basin heater setpoint temperature when the outdoor air temperature falls below the setpoint temperature. The basin heater only operates when the DX coil is off.")]
@@ -52,7 +52,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("compressor_fuel_type")]
-        public EmptyNoYes CompressorFuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Electricity");
+        public Coil_Cooling_DX_CurveFit_Performance_CompressorFuelType CompressorFuelType { get; set; } = (Coil_Cooling_DX_CurveFit_Performance_CompressorFuelType)Enum.Parse(typeof(Coil_Cooling_DX_CurveFit_Performance_CompressorFuelType), "Electricity");
         
 
         [Description("Operating Mode 1 is always used as the base design operating mode.")]

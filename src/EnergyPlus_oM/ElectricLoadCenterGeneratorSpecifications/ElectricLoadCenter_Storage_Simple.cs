@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description(@"Used to model storage of electricity in an electric load center. This is a simple model that does not attempt to represent any of the characteristics of a real storage device such as a battery. The type of power, AC or DC, depends on the configuration chosen as the Electrical Buss Type in the ElectricLoadCenter:Distribution object.")]
     [JsonObject("ElectricLoadCenter:Storage:Simple")]
-    public class ElectricLoadCenter_Storage_Simple : BHoMObject
+    public class ElectricLoadCenter_Storage_Simple : BHoMObject, IEnergyPlusClass
     {
         
 

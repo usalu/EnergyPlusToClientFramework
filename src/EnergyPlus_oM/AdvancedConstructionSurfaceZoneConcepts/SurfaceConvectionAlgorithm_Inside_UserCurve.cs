@@ -9,14 +9,14 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
                  "fficient If more than one curve is referenced they are all used and added togeth" +
                  "er.")]
     [JsonObject("SurfaceConvectionAlgorithm:Inside:UserCurve")]
-    public class SurfaceConvectionAlgorithm_Inside_UserCurve : BHoMObject
+    public class SurfaceConvectionAlgorithm_Inside_UserCurve : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("Controls which temperature is differenced from surface temperature when using the" +
                      " Hc value")]
         [JsonProperty("reference_temperature_for_convection_heat_transfer")]
-        public EmptyNoYes ReferenceTemperatureForConvectionHeatTransfer { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public SurfaceConvectionAlgorithm_Inside_UserCurve_ReferenceTemperatureForConvectionHeatTransfer ReferenceTemperatureForConvectionHeatTransfer { get; set; } = (SurfaceConvectionAlgorithm_Inside_UserCurve_ReferenceTemperatureForConvectionHeatTransfer)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_UserCurve_ReferenceTemperatureForConvectionHeatTransfer), "AdjacentAirTemperature");
         
 
         [Description("Curve\'s \"x\" is absolute value of delta-T (Surface temperature minus reference tem" +

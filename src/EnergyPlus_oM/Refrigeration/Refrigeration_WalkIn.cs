@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     [Description(@"Works in conjunction with a compressor rack, a refrigeration system, or a refrigeration secondary system to simulate the performance of a walk-in cooler. The walk-in cooler model uses information at rated conditions along with input descriptions for heat transfer surfaces facing multiple zones to determine performance.")]
     [JsonObject("Refrigeration:WalkIn")]
-    public class Refrigeration_WalkIn : BHoMObject
+    public class Refrigeration_WalkIn : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -69,11 +69,11 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         [Description("HotFluid includes either hot gas defrost for a DX system or Hot Brine defrost if " +
                      "this walk in is cooled by brine from a secondary chiller")]
         [JsonProperty("defrost_type")]
-        public EmptyNoYes DefrostType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Electric");
+        public Refrigeration_WalkIn_DefrostType DefrostType { get; set; } = (Refrigeration_WalkIn_DefrostType)Enum.Parse(typeof(Refrigeration_WalkIn_DefrostType), "Electric");
         
 
         [JsonProperty("defrost_control_type")]
-        public EmptyNoYes DefrostControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "TimeSchedule");
+        public Refrigeration_WalkIn_DefrostControlType DefrostControlType { get; set; } = (Refrigeration_WalkIn_DefrostControlType)Enum.Parse(typeof(Refrigeration_WalkIn_DefrostControlType), "TimeSchedule");
         
 
         [Description("The schedule values should be 0 (off) or 1 (on)")]

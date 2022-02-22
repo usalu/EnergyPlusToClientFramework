@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
                  ", a pipe, and a diffuser. The dome and diffuser are defined separately using the" +
                  " FenestrationSurface:Detailed object.")]
     [JsonObject("DaylightingDevice:Tubular")]
-    public class DaylightingDevice_Tubular : BHoMObject
+    public class DaylightingDevice_Tubular : BHoMObject, IEnergyPlusClass
     {
         
 

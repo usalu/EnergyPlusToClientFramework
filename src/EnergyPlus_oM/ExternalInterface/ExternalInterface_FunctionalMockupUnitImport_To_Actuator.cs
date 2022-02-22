@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
     [Description("Hardware portion of EMS used to set up actuators in the model that are dynamicall" +
                  "y updated from the FMU.")]
     [JsonObject("ExternalInterface:FunctionalMockupUnitImport:To:Actuator")]
-    public class ExternalInterface_FunctionalMockupUnitImport_To_Actuator : BHoMObject
+    public class ExternalInterface_FunctionalMockupUnitImport_To_Actuator : BHoMObject, IEnergyPlusClass
     {
         
 

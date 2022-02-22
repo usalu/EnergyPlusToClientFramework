@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     [Description("This object is used to simultaneously control a thermal zone\'s window and door op" +
                  "enings, both exterior and interior.")]
     [JsonObject("AirflowNetwork:MultiZone:Zone")]
-    public class AirflowNetwork_MultiZone_Zone : BHoMObject
+    public class AirflowNetwork_MultiZone_Zone : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -20,7 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 
         [Description(@"When Ventilation Control Mode = Temperature or Enthalpy, the following fields are used to modulate the Ventilation Open Factor for all window and door openings in the zone according to the zone's indoor-outdoor temperature or enthalpy difference. Constant: controlled by field Venting Schedule Name. NoVent: control will not open window or door during simulation (Ventilation Open Factor = 0).")]
         [JsonProperty("ventilation_control_mode")]
-        public EmptyNoYes VentilationControlMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoVent");
+        public AirflowNetwork_MultiZone_Zone_VentilationControlMode VentilationControlMode { get; set; } = (AirflowNetwork_MultiZone_Zone_VentilationControlMode)Enum.Parse(typeof(AirflowNetwork_MultiZone_Zone_VentilationControlMode), "NoVent");
         
 
         [Description("Used only if Ventilation Control Mode = Temperature or Enthalpy.")]
@@ -68,7 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 
         [Description(@"Selecting Advanced results in EnergyPlus calculating modified Wind Pressure Coefficients to account for wind direction and turbulence effects on single sided ventilation rates. Model is only valid for zones with 2 openings, both of which are on a single facade.")]
         [JsonProperty("single_sided_wind_pressure_coefficient_algorithm")]
-        public EmptyNoYes SingleSidedWindPressureCoefficientAlgorithm { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Standard");
+        public AirflowNetwork_MultiZone_Zone_SingleSidedWindPressureCoefficientAlgorithm SingleSidedWindPressureCoefficientAlgorithm { get; set; } = (AirflowNetwork_MultiZone_Zone_SingleSidedWindPressureCoefficientAlgorithm)Enum.Parse(typeof(AirflowNetwork_MultiZone_Zone_SingleSidedWindPressureCoefficientAlgorithm), "Standard");
         
 
         [Description("This is the whole building width along the direction of the facade of this zone.")]

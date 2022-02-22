@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.VariableRefrigerantFlowEquipment
                  "ensing unit. See ZoneHVAC:TerminalUnit:VariableRefrigerantFlow and AirConditione" +
                  "r:VariableRefrigerantFlow.")]
     [JsonObject("ZoneTerminalUnitList")]
-    public class ZoneTerminalUnitList : BHoMObject
+    public class ZoneTerminalUnitList : BHoMObject, IEnergyPlusClass
     {
         
 

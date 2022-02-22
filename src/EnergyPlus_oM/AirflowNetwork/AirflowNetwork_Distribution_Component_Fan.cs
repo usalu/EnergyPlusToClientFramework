@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines the name of the supply Air Fan used in an Air loop.")]
     [JsonObject("AirflowNetwork:Distribution:Component:Fan")]
-    public class AirflowNetwork_Distribution_Component_Fan : BHoMObject
+    public class AirflowNetwork_Distribution_Component_Fan : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -17,6 +17,6 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
         
 
         [JsonProperty("supply_fan_object_type")]
-        public EmptyNoYes SupplyFanObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Fan:ConstantVolume");
+        public AirflowNetwork_Distribution_Component_Fan_SupplyFanObjectType SupplyFanObjectType { get; set; } = (AirflowNetwork_Distribution_Component_Fan_SupplyFanObjectType)Enum.Parse(typeof(AirflowNetwork_Distribution_Component_Fan_SupplyFanObjectType), "Empty");
     }
 }

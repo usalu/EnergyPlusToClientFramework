@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     [Description("This is a movable exterior glass layer that is usually applied in the winter and " +
                  "removed in the summer.")]
     [JsonObject("WindowProperty:StormWindow")]
-    public class WindowProperty_StormWindow : BHoMObject
+    public class WindowProperty_StormWindow : BHoMObject, IEnergyPlusClass
     {
         
 

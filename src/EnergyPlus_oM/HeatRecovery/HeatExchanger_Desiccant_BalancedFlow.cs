@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
 {
     [Description(@"This object models a balanced desiccant heat exchanger. The heat exchanger transfers both sensible and latent energy between the process and regeneration air streams. The air flow rate and face velocity are assumed to be the same on both the process and regeneration sides of the heat exchanger.")]
     [JsonObject("HeatExchanger:Desiccant:BalancedFlow")]
-    public class HeatExchanger_Desiccant_BalancedFlow : BHoMObject
+    public class HeatExchanger_Desiccant_BalancedFlow : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -34,7 +34,7 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
         
 
         [JsonProperty("heat_exchanger_performance_object_type")]
-        public EmptyNoYes HeatExchangerPerformanceObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1");
+        public HeatExchanger_Desiccant_BalancedFlow_HeatExchangerPerformanceObjectType HeatExchangerPerformanceObjectType { get; set; } = (HeatExchanger_Desiccant_BalancedFlow_HeatExchangerPerformanceObjectType)Enum.Parse(typeof(HeatExchanger_Desiccant_BalancedFlow_HeatExchangerPerformanceObjectType), "Empty");
         
 
         [JsonProperty("heat_exchanger_performance_name")]

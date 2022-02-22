@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
                  "sible). Node names cannot be duplicated within a single zone splitter (AirLoopHV" +
                  "AC:ZoneSplitter) list.")]
     [JsonObject("AirLoopHVAC:ZoneSplitter")]
-    public class AirLoopHVAC_ZoneSplitter : BHoMObject
+    public class AirLoopHVAC_ZoneSplitter : BHoMObject, IEnergyPlusClass
     {
         
 

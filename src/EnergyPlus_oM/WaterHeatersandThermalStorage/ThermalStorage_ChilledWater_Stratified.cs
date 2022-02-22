@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
                  "sed\" by drawing from the \"Use Side\" of the water tank. The tank is indirectly ch" +
                  "arged by circulating cold water through the \"Source Side\" of the water tank.")]
     [JsonObject("ThermalStorage:ChilledWater:Stratified")]
-    public class ThermalStorage_ChilledWater_Stratified : BHoMObject
+    public class ThermalStorage_ChilledWater_Stratified : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -24,7 +24,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("tank_shape")]
-        public EmptyNoYes TankShape { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "VerticalCylinder");
+        public ThermalStorage_ChilledWater_Stratified_TankShape TankShape { get; set; } = (ThermalStorage_ChilledWater_Stratified_TankShape)Enum.Parse(typeof(ThermalStorage_ChilledWater_Stratified_TankShape), "VerticalCylinder");
         
 
         [Description("Only used if Tank Shape is Other")]
@@ -53,7 +53,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("ambient_temperature_indicator")]
-        public EmptyNoYes AmbientTemperatureIndicator { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ThermalStorage_ChilledWater_Stratified_AmbientTemperatureIndicator AmbientTemperatureIndicator { get; set; } = (ThermalStorage_ChilledWater_Stratified_AmbientTemperatureIndicator)Enum.Parse(typeof(ThermalStorage_ChilledWater_Stratified_AmbientTemperatureIndicator), "Outdoors");
         
 
         [JsonProperty("ambient_temperature_schedule_name")]
@@ -146,7 +146,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("inlet_mode")]
-        public EmptyNoYes InletMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Fixed");
+        public ThermalStorage_ChilledWater_Stratified_InletMode InletMode { get; set; } = (ThermalStorage_ChilledWater_Stratified_InletMode)Enum.Parse(typeof(ThermalStorage_ChilledWater_Stratified_InletMode), "Fixed");
         
 
         [JsonProperty("number_of_nodes")]

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description("An EIR formulated water to water heat pump model, cooling operation.")]
     [JsonObject("HeatPump:PlantLoop:EIR:Cooling")]
-    public class HeatPump_PlantLoop_EIR_Cooling : BHoMObject
+    public class HeatPump_PlantLoop_EIR_Cooling : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -21,7 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("condenser_type")]
-        public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "WaterSource");
+        public HeatPump_PlantLoop_EIR_Cooling_CondenserType CondenserType { get; set; } = (HeatPump_PlantLoop_EIR_Cooling_CondenserType)Enum.Parse(typeof(HeatPump_PlantLoop_EIR_Cooling_CondenserType), "WaterSource");
         
 
         [JsonProperty("source_side_inlet_node_name")]

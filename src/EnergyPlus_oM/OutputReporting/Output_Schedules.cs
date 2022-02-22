@@ -9,11 +9,11 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
                  " in the eio output file. In the style of input: DaySchedule,  WeekSchedule, and " +
                  "Annual Schedule.")]
     [JsonObject("Output:Schedules")]
-    public class Output_Schedules : BHoMObject
+    public class Output_Schedules : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("key_field")]
-        public EmptyNoYes KeyField { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Output_Schedules_KeyField KeyField { get; set; } = (Output_Schedules_KeyField)Enum.Parse(typeof(Output_Schedules_KeyField), "Hourly");
     }
 }

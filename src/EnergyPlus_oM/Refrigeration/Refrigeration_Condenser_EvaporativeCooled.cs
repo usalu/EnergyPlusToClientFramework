@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     [Description("Evaporative-cooled condenser for a refrigeration system (Refrigeration:System).")]
     [JsonObject("Refrigeration:Condenser:EvaporativeCooled")]
-    public class Refrigeration_Condenser_EvaporativeCooled : BHoMObject
+    public class Refrigeration_Condenser_EvaporativeCooled : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -23,7 +23,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         
 
         [JsonProperty("fan_speed_control_type")]
-        public EmptyNoYes FanSpeedControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Fixed");
+        public Refrigeration_Condenser_EvaporativeCooled_FanSpeedControlType FanSpeedControlType { get; set; } = (Refrigeration_Condenser_EvaporativeCooled_FanSpeedControlType)Enum.Parse(typeof(Refrigeration_Condenser_EvaporativeCooled_FanSpeedControlType), "Fixed");
         
 
         [Description("Power for condenser fan(s) corresponding to rated total heat rejection effect.")]

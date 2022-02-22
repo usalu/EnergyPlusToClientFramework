@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description(@"Desuperheater air heating coil. The heating energy provided by this coil is reclaimed from the superheated refrigerant gas leaving a compressor and does not impact the performance of the compressor. This coil must be used with a water heater tank, see Water Heater:Mixed.")]
     [JsonObject("Coil:WaterHeating:Desuperheater")]
-    public class Coil_WaterHeating_Desuperheater : BHoMObject
+    public class Coil_WaterHeating_Desuperheater : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -73,7 +73,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         [Description("Specify the type of water heater tank used by this desuperheater water heating co" +
                      "il.")]
         [JsonProperty("tank_object_type")]
-        public EmptyNoYes TankObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "WaterHeater:Mixed");
+        public Coil_WaterHeating_Desuperheater_TankObjectType TankObjectType { get; set; } = (Coil_WaterHeating_Desuperheater_TankObjectType)Enum.Parse(typeof(Coil_WaterHeating_Desuperheater_TankObjectType), "Empty");
         
 
         [Description("The name of the water heater tank used by this desuperheater water heating coil. " +
@@ -84,7 +84,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 
         [Description("The type of DX system that is providing waste heat for reclaim.")]
         [JsonProperty("heating_source_object_type")]
-        public EmptyNoYes HeatingSourceObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Coil_WaterHeating_Desuperheater_HeatingSourceObjectType HeatingSourceObjectType { get; set; } = (Coil_WaterHeating_Desuperheater_HeatingSourceObjectType)Enum.Parse(typeof(Coil_WaterHeating_Desuperheater_HeatingSourceObjectType), "CoilCoolingDXMultiSpeed");
         
 
         [Description("The name of the DX system used for heat reclaim.")]

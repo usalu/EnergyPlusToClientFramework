@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     [Description("Compact definition for Schedule:Day:List")]
     [JsonObject("Schedule:Week:Compact")]
-    public class Schedule_Week_Compact : BHoMObject
+    public class Schedule_Week_Compact : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -10,12 +10,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
                  "water temperature for a given timestep and two other curves to place boundary co" +
                  "nditions on the setpoint value.")]
     [JsonObject("SetpointManager:CondenserEnteringReset")]
-    public class SetpointManager_CondenserEnteringReset : BHoMObject
+    public class SetpointManager_CondenserEnteringReset : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
-        public EmptyNoYes ControlVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Temperature");
+        public SetpointManager_CondenserEnteringReset_ControlVariable ControlVariable { get; set; } = (SetpointManager_CondenserEnteringReset_ControlVariable)Enum.Parse(typeof(SetpointManager_CondenserEnteringReset_ControlVariable), "Temperature");
         
 
         [Description("This scheduled setpoint value is only used in a given timestep if the \"Optimized\"" +

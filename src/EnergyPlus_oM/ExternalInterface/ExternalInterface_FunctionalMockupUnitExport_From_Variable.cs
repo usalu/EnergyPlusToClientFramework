@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
 {
     [Description("This object declares an FMU input variable")]
     [JsonObject("ExternalInterface:FunctionalMockupUnitExport:From:Variable")]
-    public class ExternalInterface_FunctionalMockupUnitExport_From_Variable : BHoMObject
+    public class ExternalInterface_FunctionalMockupUnitExport_From_Variable : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
     [Description("quad-tuples of inlet, outlet, control, and zone nodes for multiple different outd" +
                  "oor air systems attached to same collector")]
     [JsonObject("SolarCollector:UnglazedTranspired:Multisystem")]
-    public class SolarCollector_UnglazedTranspired_Multisystem : BHoMObject
+    public class SolarCollector_UnglazedTranspired_Multisystem : BHoMObject, IEnergyPlusClass
     {
         
 

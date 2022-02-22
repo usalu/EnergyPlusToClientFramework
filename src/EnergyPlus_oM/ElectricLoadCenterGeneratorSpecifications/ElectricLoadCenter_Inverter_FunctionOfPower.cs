@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                  " object is for an inverter model where efficiency is a function of normalized po" +
                  "wer.")]
     [JsonObject("ElectricLoadCenter:Inverter:FunctionOfPower")]
-    public class ElectricLoadCenter_Inverter_FunctionOfPower : BHoMObject
+    public class ElectricLoadCenter_Inverter_FunctionOfPower : BHoMObject, IEnergyPlusClass
     {
         
 

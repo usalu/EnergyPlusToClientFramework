@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
                  " share an interior window with a daylighting-controlled  zone. Generally used wi" +
                  "th skylights.")]
     [JsonObject("DaylightingDevice:LightWell")]
-    public class DaylightingDevice_LightWell : BHoMObject
+    public class DaylightingDevice_LightWell : BHoMObject, IEnergyPlusClass
     {
         
 

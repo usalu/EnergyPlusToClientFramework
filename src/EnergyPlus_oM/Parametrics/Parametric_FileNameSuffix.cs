@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Parametrics
                  "ametric run. If this object is omitted, the suffix will default to the run numbe" +
                  "r.")]
     [JsonObject("Parametric:FileNameSuffix")]
-    public class Parametric_FileNameSuffix : BHoMObject
+    public class Parametric_FileNameSuffix : BHoMObject, IEnergyPlusClass
     {
         
 

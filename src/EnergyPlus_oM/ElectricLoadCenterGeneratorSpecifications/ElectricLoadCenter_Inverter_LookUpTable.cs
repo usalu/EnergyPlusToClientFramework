@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                  "model interpolates using CEC test data Input data are at http://www.gosolarcalif" +
                  "ornia.org/equipment/inverter_tests/summaries")]
     [JsonObject("ElectricLoadCenter:Inverter:LookUpTable")]
-    public class ElectricLoadCenter_Inverter_LookUpTable : BHoMObject
+    public class ElectricLoadCenter_Inverter_LookUpTable : BHoMObject, IEnergyPlusClass
     {
         
 

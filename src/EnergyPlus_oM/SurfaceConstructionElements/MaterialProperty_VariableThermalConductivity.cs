@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description(@"Additional properties for temperature dependent thermal conductivity using piecewise linear temperature-conductivity function. HeatBalanceAlgorithm = CondFD(ConductionFiniteDifference) solution algorithm only. Has no effect with other HeatBalanceAlgorithm solution algorithms")]
     [JsonObject("MaterialProperty:VariableThermalConductivity")]
-    public class MaterialProperty_VariableThermalConductivity : BHoMObject
+    public class MaterialProperty_VariableThermalConductivity : BHoMObject, IEnergyPlusClass
     {
         
 

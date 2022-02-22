@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     [Description("This object sets up an EnergyPlus output variable from an Erl variable")]
     [JsonObject("EnergyManagementSystem:OutputVariable")]
-    public class EnergyManagementSystem_OutputVariable : BHoMObject
+    public class EnergyManagementSystem_OutputVariable : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -17,11 +17,11 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
         
 
         [JsonProperty("type_of_data_in_variable")]
-        public EmptyNoYes TypeOfDataInVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public EnergyManagementSystem_OutputVariable_TypeOfDataInVariable TypeOfDataInVariable { get; set; } = (EnergyManagementSystem_OutputVariable_TypeOfDataInVariable)Enum.Parse(typeof(EnergyManagementSystem_OutputVariable_TypeOfDataInVariable), "Averaged");
         
 
         [JsonProperty("update_frequency")]
-        public EmptyNoYes UpdateFrequency { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public EnergyManagementSystem_OutputVariable_UpdateFrequency UpdateFrequency { get; set; } = (EnergyManagementSystem_OutputVariable_UpdateFrequency)Enum.Parse(typeof(EnergyManagementSystem_OutputVariable_UpdateFrequency), "SystemTimestep");
         
 
         [Description("optional for global scope variables, required for local scope variables")]

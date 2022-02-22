@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     [Description("Unit heater. Forced-convection heating-only unit with supply fan, heating coil (g" +
                  "as, electric, hot water, or steam) and fixed-position outdoor air mixer.")]
     [JsonObject("ZoneHVAC:UnitHeater")]
-    public class ZoneHVAC_UnitHeater : BHoMObject
+    public class ZoneHVAC_UnitHeater : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -30,7 +30,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         [Description("Allowable fan types are Fan:ConstantVolume, Fan:OnOff, Fan:VariableVolume and Fan" +
                      ":SystemModel")]
         [JsonProperty("supply_air_fan_object_type")]
-        public EmptyNoYes SupplyAirFanObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_UnitHeater_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_UnitHeater_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_UnitHeater_SupplyAirFanObjectType), "FanConstantVolume");
         
 
         [JsonProperty("supply_air_fan_name")]
@@ -42,7 +42,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("heating_coil_object_type")]
-        public EmptyNoYes HeatingCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_UnitHeater_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_UnitHeater_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_UnitHeater_HeatingCoilObjectType), "CoilHeatingElectric");
         
 
         [JsonProperty("heating_coil_name")]
@@ -56,7 +56,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description(@"This choice field allows the user to define how the unit heater will operate under ""no heating load"" or cooling conditions. If the ""No"" is selected, then the fan will not run unless there is a heating load. If the fan does not run, this effectively shuts the unit heater system off when there is no heating load. If the ""Yes"" is selected, the unit heater is available and has a ConstantVolume fan, or has an OnOff fan with ""Supply Air Fan Operating Mode Schedule"" value greater than zero, then the fan will always run regardless of the zone load.")]
         [JsonProperty("supply_air_fan_operation_during_no_heating")]
-        public EmptyNoYes SupplyAirFanOperationDuringNoHeating { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_UnitHeater_SupplyAirFanOperationDuringNoHeating SupplyAirFanOperationDuringNoHeating { get; set; } = (ZoneHVAC_UnitHeater_SupplyAirFanOperationDuringNoHeating)Enum.Parse(typeof(ZoneHVAC_UnitHeater_SupplyAirFanOperationDuringNoHeating), "No");
         
 
         [Description("Not used when heating coil is gas or electric")]

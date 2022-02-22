@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                  "red in blocks of charges. Multiple UtilityCost:Charge:Block objects may be defin" +
                  "ed for a single tariff and they will be added together.")]
     [JsonObject("UtilityCost:Charge:Block")]
-    public class UtilityCost_Charge_Block : BHoMObject
+    public class UtilityCost_Charge_Block : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -33,14 +33,14 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                      "e:Block for the entire year (all months) otherwise it is calculated only for tho" +
                      "se months in the season defined.")]
         [JsonProperty("season")]
-        public EmptyNoYes Season { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Annual");
+        public UtilityCost_Charge_Block_Season Season { get; set; } = (UtilityCost_Charge_Block_Season)Enum.Parse(typeof(UtilityCost_Charge_Block_Season), "Annual");
         
 
         [Description("This field shows where the charge should be added. The reason to enter this field" +
                      " appropriately is so that the charge gets reported in a reasonable category. The" +
                      " charge automatically gets added to the variable that is the category.")]
         [JsonProperty("category_variable_name")]
-        public EmptyNoYes CategoryVariableName { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public UtilityCost_Charge_Block_CategoryVariableName CategoryVariableName { get; set; } = (UtilityCost_Charge_Block_CategoryVariableName)Enum.Parse(typeof(UtilityCost_Charge_Block_CategoryVariableName), "Adjustment");
         
 
         [Description(@"If the blocks do not use all of the energy or demand from the source some energy and demand remains then the remaining amount should be assigned to a variable. If no variable is assigned and some amount of energy or demand is not used in the block structure a warning will be issued.")]

@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("Settings applied across all Kiva foundation calculations. Object is not required." +
                  " If not defined, defaults will be applied.")]
     [JsonObject("Foundation:Kiva:Settings")]
-    public class Foundation_Kiva_Settings : BHoMObject
+    public class Foundation_Kiva_Settings : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -42,7 +42,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
         
 
         [JsonProperty("deep_ground_boundary_condition")]
-        public EmptyNoYes DeepGroundBoundaryCondition { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Autoselect");
+        public Foundation_Kiva_Settings_DeepGroundBoundaryCondition DeepGroundBoundaryCondition { get; set; } = (Foundation_Kiva_Settings_DeepGroundBoundaryCondition)Enum.Parse(typeof(Foundation_Kiva_Settings_DeepGroundBoundaryCondition), "Autoselect");
         
 
         [JsonProperty("deep_ground_depth")]
@@ -58,6 +58,6 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
         
 
         [JsonProperty("simulation_timestep")]
-        public EmptyNoYes SimulationTimestep { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Hourly");
+        public Foundation_Kiva_Settings_SimulationTimestep SimulationTimestep { get; set; } = (Foundation_Kiva_Settings_SimulationTimestep)Enum.Parse(typeof(Foundation_Kiva_Settings_SimulationTimestep), "Hourly");
     }
 }

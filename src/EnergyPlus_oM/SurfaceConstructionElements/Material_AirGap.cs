@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Air Space in Opaque Construction")]
     [JsonObject("Material:AirGap")]
-    public class Material_AirGap : BHoMObject
+    public class Material_AirGap : BHoMObject, IEnergyPlusClass
     {
         
 

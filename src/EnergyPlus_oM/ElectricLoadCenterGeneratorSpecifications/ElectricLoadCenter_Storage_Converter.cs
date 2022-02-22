@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("This model is for converting AC to DC for grid-supplied charging of DC storage")]
     [JsonObject("ElectricLoadCenter:Storage:Converter")]
-    public class ElectricLoadCenter_Storage_Converter : BHoMObject
+    public class ElectricLoadCenter_Storage_Converter : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -22,7 +22,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                      "y FunctionOfPower indicates power conversion losses are a function of normalized" +
                      " power using a curve or table.")]
         [JsonProperty("power_conversion_efficiency_method")]
-        public EmptyNoYes PowerConversionEfficiencyMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SimpleFixed");
+        public ElectricLoadCenter_Storage_Converter_PowerConversionEfficiencyMethod PowerConversionEfficiencyMethod { get; set; } = (ElectricLoadCenter_Storage_Converter_PowerConversionEfficiencyMethod)Enum.Parse(typeof(ElectricLoadCenter_Storage_Converter_PowerConversionEfficiencyMethod), "SimpleFixed");
         
 
         [Description("Constant efficiency for conversion of AC to DC at all power levels. Field is only" +

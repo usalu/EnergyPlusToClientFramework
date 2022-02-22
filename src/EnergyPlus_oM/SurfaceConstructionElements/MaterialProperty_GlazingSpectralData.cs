@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
                  "ngth, transmittance, front reflectance, back reflectance] for wavelengths coveri" +
                  "ng the solar spectrum (from about 0.25 to 2.5 microns)")]
     [JsonObject("MaterialProperty:GlazingSpectralData")]
-    public class MaterialProperty_GlazingSpectralData : BHoMObject
+    public class MaterialProperty_GlazingSpectralData : BHoMObject, IEnergyPlusClass
     {
         
 

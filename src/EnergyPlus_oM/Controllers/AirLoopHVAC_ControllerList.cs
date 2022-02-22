@@ -7,12 +7,12 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
 {
     [Description("List controllers in order of control sequence")]
     [JsonObject("AirLoopHVAC:ControllerList")]
-    public class AirLoopHVAC_ControllerList : BHoMObject
+    public class AirLoopHVAC_ControllerList : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("controller_1_object_type")]
-        public EmptyNoYes Controller1ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_ControllerList_Controller1ObjectType Controller1ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller1ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller1ObjectType), "ControllerOutdoorAir");
         
 
         [JsonProperty("controller_1_name")]
@@ -20,7 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
         
 
         [JsonProperty("controller_2_object_type")]
-        public EmptyNoYes Controller2ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_ControllerList_Controller2ObjectType Controller2ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller2ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller2ObjectType), "ControllerOutdoorAir");
         
 
         [JsonProperty("controller_2_name")]
@@ -28,7 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
         
 
         [JsonProperty("controller_3_object_type")]
-        public EmptyNoYes Controller3ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_ControllerList_Controller3ObjectType Controller3ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller3ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller3ObjectType), "ControllerOutdoorAir");
         
 
         [JsonProperty("controller_3_name")]
@@ -36,7 +36,7 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
         
 
         [JsonProperty("controller_4_object_type")]
-        public EmptyNoYes Controller4ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_ControllerList_Controller4ObjectType Controller4ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller4ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller4ObjectType), "ControllerOutdoorAir");
         
 
         [JsonProperty("controller_4_name")]
@@ -44,7 +44,7 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
         
 
         [JsonProperty("controller_5_object_type")]
-        public EmptyNoYes Controller5ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_ControllerList_Controller5ObjectType Controller5ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller5ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller5ObjectType), "ControllerOutdoorAir");
         
 
         [JsonProperty("controller_5_name")]
@@ -52,7 +52,7 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
         
 
         [JsonProperty("controller_6_object_type")]
-        public EmptyNoYes Controller6ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_ControllerList_Controller6ObjectType Controller6ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller6ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller6ObjectType), "ControllerOutdoorAir");
         
 
         [JsonProperty("controller_6_name")]
@@ -60,7 +60,7 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
         
 
         [JsonProperty("controller_7_object_type")]
-        public EmptyNoYes Controller7ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_ControllerList_Controller7ObjectType Controller7ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller7ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller7ObjectType), "ControllerOutdoorAir");
         
 
         [JsonProperty("controller_7_name")]
@@ -68,7 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
         
 
         [JsonProperty("controller_8_object_type")]
-        public EmptyNoYes Controller8ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_ControllerList_Controller8ObjectType Controller8ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller8ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller8ObjectType), "ControllerOutdoorAir");
         
 
         [JsonProperty("controller_8_name")]

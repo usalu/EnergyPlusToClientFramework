@@ -1,6 +1,7 @@
 namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     using System.ComponentModel;
+    using BH.oM.Adapters.EnergyPlus;
     using Newtonsoft.Json;
     using BH.oM.Base;
     using BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts;
@@ -66,7 +67,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
     [Description("List components on the branch in simulation and connection order Note: this shoul" +
         "d NOT include splitters or mixers which define endpoints of branches")]
     [JsonObject("Branch")]
-    public class Branch : BHoMObject
+    public class Branch : BHoMObject, IEnergyPlusClass
     {
         
 

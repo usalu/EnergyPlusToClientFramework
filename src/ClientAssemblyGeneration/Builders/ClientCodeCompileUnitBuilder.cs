@@ -16,30 +16,47 @@ namespace ClientAssemblyGeneration.Builders
         {
             clientCodeCompileUnit = new CodeCompileUnit();
         }
-        public virtual void BuildNamespace(string name, string description = "", CodeNamespaceImport[] imports = null)
-        {
-            var clientNamespace = new CodeNamespace(name)
-            {
-                Imports = { new CodeNamespaceImport("System.ComponentModel")}
-            };
-            if (imports != null)
-                clientNamespace.Imports.AddRange(imports);
-            clientCodeCompileUnit.Namespaces.Add(clientNamespace);
-        }
-
-        internal CodeNamespace FindNamespace(string name)
+        public virtual CodeNamespace FindNamespace(string name)
         {
             foreach (CodeNamespace clientNamespace in clientCodeCompileUnit.Namespaces)
                 if (clientNamespace.Name == name)
                     return clientNamespace;
             throw new Exception("The namespace doesn't exist (yet). Make sure to build it first.");
         }
-        internal CodeTypeDeclaration FindClass(string namespaceName, string name)
+        public virtual CodeTypeDeclaration FindClass(string namespaceName, string name)
         {
             foreach (CodeTypeDeclaration clientClass in FindNamespace(namespaceName).Types)
                 if (clientClass.Name == name && clientClass.IsClass==true)
                     return clientClass;
             throw new Exception("The class doesn't exist (yet) in the namespace. Make sure to build it first.");
+        }
+
+        internal CodeTypeDeclaration FindEnum(string namespaceName, string name)
+        {
+            foreach (CodeTypeDeclaration clientClass in FindNamespace(namespaceName).Types)
+                if (clientClass.Name == name && clientClass.IsEnum == true)
+                    return clientClass;
+            throw new Exception("The enum doesn't exist (yet) in the namespace. Make sure to build it first.");
+        }
+
+        internal CodeTypeDeclaration FindEnum(string name)
+        {
+            foreach (CodeNamespace clientNamespace in clientCodeCompileUnit.Namespaces)
+                foreach (CodeTypeDeclaration clientClass in clientNamespace.Types)
+                    if (clientClass.Name == name && clientClass.IsEnum == true)
+                        return clientClass;
+            throw new Exception("The enum doesn't exist (yet). Make sure to build it first.");
+        }
+
+        public virtual void BuildNamespace(string name, string description = "", CodeNamespaceImport[] imports = null)
+        {
+            var clientNamespace = new CodeNamespace(name)
+            {
+                Imports = { new CodeNamespaceImport("System.ComponentModel") }
+            };
+            if (imports != null)
+                clientNamespace.Imports.AddRange(imports);
+            clientCodeCompileUnit.Namespaces.Add(clientNamespace);
         }
 
         public virtual void BuildAttribute() { }

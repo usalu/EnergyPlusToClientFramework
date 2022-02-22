@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
                  "uld probably be close to the average outdoor air temperature for the location. T" +
                  "hey are not used in other models.")]
     [JsonObject("Site:GroundTemperature:Shallow")]
-    public class Site_GroundTemperature_Shallow : BHoMObject
+    public class Site_GroundTemperature_Shallow : BHoMObject, IEnergyPlusClass
     {
         
 

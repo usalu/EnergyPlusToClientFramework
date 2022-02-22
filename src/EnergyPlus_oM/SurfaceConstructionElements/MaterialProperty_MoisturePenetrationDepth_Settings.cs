@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
                  "ce=MoisturePenetrationDepthConductionTransferFunction only Has no effect with ot" +
                  "her HeatBalanceAlgorithm solution algorithms")]
     [JsonObject("MaterialProperty:MoisturePenetrationDepth:Settings")]
-    public class MaterialProperty_MoisturePenetrationDepth_Settings : BHoMObject
+    public class MaterialProperty_MoisturePenetrationDepth_Settings : BHoMObject, IEnergyPlusClass
     {
         
 

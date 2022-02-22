@@ -68,13 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
     
     [Description(null)]
     [JsonObject("ZoneHVAC:Baseboard:RadiantConvective:Water:Design")]
-    public class ZoneHVAC_Baseboard_RadiantConvective_Water_Design : BHoMObject
+    public class ZoneHVAC_Baseboard_RadiantConvective_Water_Design : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"Enter the method used to determine the heating design capacity. HeatingDesignCapacity = > selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea = > selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity = > is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
 [JsonProperty("heating_design_capacity_method")]
-public EmptyNoYes HeatingDesignCapacityMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "HeatingDesignCapacity");
+public ZoneHVAC_Baseboard_RadiantConvective_Water_Design_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (ZoneHVAC_Baseboard_RadiantConvective_Water_Design_HeatingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_Baseboard_RadiantConvective_Water_Design_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
 [Description("Enter the heating design capacity per zone floor area. Required field when the he" +

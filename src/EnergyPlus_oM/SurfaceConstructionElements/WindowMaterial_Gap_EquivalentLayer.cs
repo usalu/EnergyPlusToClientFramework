@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("Gas material properties that are used in Windows Equivalent Layer References only" +
                  " WindowMaterial:Gas properties")]
     [JsonObject("WindowMaterial:Gap:EquivalentLayer")]
-    public class WindowMaterial_Gap_EquivalentLayer : BHoMObject
+    public class WindowMaterial_Gap_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("gas_type")]
-        public EmptyNoYes GasType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public WindowMaterial_Gap_EquivalentLayer_GasType GasType { get; set; } = (WindowMaterial_Gap_EquivalentLayer_GasType)Enum.Parse(typeof(WindowMaterial_Gap_EquivalentLayer_GasType), "AIR");
         
 
         [JsonProperty("thickness")]
@@ -22,7 +22,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 
         [Description(@"Sealed means the gap is enclosed and gas tight, i.e., no venting to indoor or outdoor environment. VentedIndoor means the gap is vented to indoor environment, and VentedOutdoor means the gap is vented to the outdoor environment. The gap types VentedIndoor and VentedOutdoor are used with gas type ""Air"" only.")]
         [JsonProperty("gap_vent_type")]
-        public EmptyNoYes GapVentType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public WindowMaterial_Gap_EquivalentLayer_GapVentType GapVentType { get; set; } = (WindowMaterial_Gap_EquivalentLayer_GapVentType)Enum.Parse(typeof(WindowMaterial_Gap_EquivalentLayer_GapVentType), "Sealed");
         
 
         [Description("Used only if Gas Type = Custom")]

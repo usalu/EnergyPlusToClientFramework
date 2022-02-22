@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("Wind turbine generator.")]
     [JsonObject("Generator:WindTurbine")]
-    public class Generator_WindTurbine : BHoMObject
+    public class Generator_WindTurbine : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -20,7 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 
         [Description("allowed values are: Horizontal Axis Wind Turbine or Vertical Axis Wind Turbine")]
         [JsonProperty("rotor_type")]
-        public EmptyNoYes RotorType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "HorizontalAxisWindTurbine");
+        public Generator_WindTurbine_RotorType RotorType { get; set; } = (Generator_WindTurbine_RotorType)Enum.Parse(typeof(Generator_WindTurbine_RotorType), "HorizontalAxisWindTurbine");
         
 
         [Description("Constant power output is obtained in the last three control types when the wind s" +
@@ -28,7 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                      "Fixed Speed Variable Pitch, Variable Speed Fixed Pitch or Variable Speed Variabl" +
                      "e Pitch")]
         [JsonProperty("power_control")]
-        public EmptyNoYes PowerControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "VariableSpeedVariablePitch");
+        public Generator_WindTurbine_PowerControl PowerControl { get; set; } = (Generator_WindTurbine_PowerControl)Enum.Parse(typeof(Generator_WindTurbine_PowerControl), "VariableSpeedVariablePitch");
         
 
         [JsonProperty("rated_rotor_speed")]

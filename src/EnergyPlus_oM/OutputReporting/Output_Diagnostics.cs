@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
     [Description("Special keys to produce certain warning messages or effect certain simulation cha" +
                  "racteristics.")]
     [JsonObject("Output:Diagnostics")]
-    public class Output_Diagnostics : BHoMObject
+    public class Output_Diagnostics : BHoMObject, IEnergyPlusClass
     {
         
 

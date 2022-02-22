@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     [Description("A Schedule:Day:Hourly contains 24 values for each hour of the day.")]
     [JsonObject("Schedule:Day:Hourly")]
-    public class Schedule_Day_Hourly : BHoMObject
+    public class Schedule_Day_Hourly : BHoMObject, IEnergyPlusClass
     {
         
 

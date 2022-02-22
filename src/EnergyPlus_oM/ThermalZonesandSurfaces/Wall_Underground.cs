@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for simplified entry of underground walls.")]
     [JsonObject("Wall:Underground")]
-    public class Wall_Underground : BHoMObject
+    public class Wall_Underground : BHoMObject, IEnergyPlusClass
     {
         
 

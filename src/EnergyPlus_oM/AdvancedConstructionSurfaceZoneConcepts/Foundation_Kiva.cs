@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
                  "nsional heat transfer calculated using the Kiva ground heat transfer methodology" +
                  ".")]
     [JsonObject("Foundation:Kiva")]
-    public class Foundation_Kiva : BHoMObject
+    public class Foundation_Kiva : BHoMObject, IEnergyPlusClass
     {
         
 

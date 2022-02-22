@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     [Description("This object sets the other side conditions for a surface in a variety of ways.")]
     [JsonObject("SurfaceProperty:OtherSideCoefficients")]
-    public class SurfaceProperty_OtherSideCoefficients : BHoMObject
+    public class SurfaceProperty_OtherSideCoefficients : BHoMObject, IEnergyPlusClass
     {
         
 

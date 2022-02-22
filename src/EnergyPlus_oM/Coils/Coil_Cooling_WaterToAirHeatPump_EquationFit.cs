@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description(@"Direct expansion (DX) cooling coil for water-to-air heat pump (includes electric compressor), single-speed, equation-fit model. Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Equation-fit model uses normalized curves to describe the heat pump performance.")]
     [JsonObject("Coil:Cooling:WaterToAirHeatPump:EquationFit")]
-    public class Coil_Cooling_WaterToAirHeatPump_EquationFit : BHoMObject
+    public class Coil_Cooling_WaterToAirHeatPump_EquationFit : BHoMObject, IEnergyPlusClass
     {
         
 

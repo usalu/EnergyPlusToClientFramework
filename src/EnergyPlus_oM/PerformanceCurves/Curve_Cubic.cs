@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"Cubic curve with one independent variable. Input for a cubic curve consists of the curve name, the 4 coefficients, and the maximum and minimum valid independent variable values. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x + C3*x**2 + C4*x**3")]
     [JsonObject("Curve:Cubic")]
-    public class Curve_Cubic : BHoMObject
+    public class Curve_Cubic : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -46,10 +46,10 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
         
 
         [JsonProperty("input_unit_type_for_x")]
-        public EmptyNoYes InputUnitTypeForX { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_Cubic_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Cubic_InputUnitTypeForX)Enum.Parse(typeof(Curve_Cubic_InputUnitTypeForX), "Dimensionless");
         
 
         [JsonProperty("output_unit_type")]
-        public EmptyNoYes OutputUnitType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_Cubic_OutputUnitType OutputUnitType { get; set; } = (Curve_Cubic_OutputUnitType)Enum.Parse(typeof(Curve_Cubic_OutputUnitType), "Dimensionless");
     }
 }

@@ -7,12 +7,12 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     [Description("Exterior or Interior Insulation on opaque surfaces")]
     [JsonObject("SurfaceControl:MovableInsulation")]
-    public class SurfaceControl_MovableInsulation : BHoMObject
+    public class SurfaceControl_MovableInsulation : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("insulation_type")]
-        public EmptyNoYes InsulationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public SurfaceControl_MovableInsulation_InsulationType InsulationType { get; set; } = (SurfaceControl_MovableInsulation_InsulationType)Enum.Parse(typeof(SurfaceControl_MovableInsulation_InsulationType), "Inside");
         
 
         [JsonProperty("surface_name")]

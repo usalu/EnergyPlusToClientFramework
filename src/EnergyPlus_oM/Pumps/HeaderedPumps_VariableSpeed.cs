@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.Pumps
     [Description("This Headered pump object describes a pump bank with more than 1 pump in parallel" +
                  "")]
     [JsonObject("HeaderedPumps:VariableSpeed")]
-    public class HeaderedPumps_VariableSpeed : BHoMObject
+    public class HeaderedPumps_VariableSpeed : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -32,7 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.Pumps
         
 
         [JsonProperty("flow_sequencing_control_scheme")]
-        public EmptyNoYes FlowSequencingControlScheme { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Sequential");
+        public HeaderedPumps_VariableSpeed_FlowSequencingControlScheme FlowSequencingControlScheme { get; set; } = (HeaderedPumps_VariableSpeed_FlowSequencingControlScheme)Enum.Parse(typeof(HeaderedPumps_VariableSpeed_FlowSequencingControlScheme), "Sequential");
         
 
         [Description("default head is 60 feet")]
@@ -80,7 +80,7 @@ namespace BH.oM.Adapters.EnergyPlus.Pumps
         
 
         [JsonProperty("pump_control_type")]
-        public EmptyNoYes PumpControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Continuous");
+        public HeaderedPumps_VariableSpeed_PumpControlType PumpControlType { get; set; } = (HeaderedPumps_VariableSpeed_PumpControlType)Enum.Parse(typeof(HeaderedPumps_VariableSpeed_PumpControlType), "Continuous");
         
 
         [Description("Modifies the rated flow rate of the pump on a time basis. Default is that the pum" +
@@ -103,7 +103,7 @@ namespace BH.oM.Adapters.EnergyPlus.Pumps
 
         [Description(@"Used to indicate which sizing factor is used to calculate Design Power Consumption. PowerPerFlow indicates that Design Electric Power per Unit Flow Rate is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * scaling factor PowerPerFlowPerPressure indicates that Design Shaft Power per Unit Flow Rate per Unit Head is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * Design Pump Head * scaling factor / Motor Efficiency")]
         [JsonProperty("design_power_sizing_method")]
-        public EmptyNoYes DesignPowerSizingMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "PowerPerFlowPerPressure");
+        public HeaderedPumps_VariableSpeed_DesignPowerSizingMethod DesignPowerSizingMethod { get; set; } = (HeaderedPumps_VariableSpeed_DesignPowerSizingMethod)Enum.Parse(typeof(HeaderedPumps_VariableSpeed_DesignPowerSizingMethod), "PowerPerFlowPerPressure");
         
 
         [Description("Used to size Design Power Consumption from design flow rate")]

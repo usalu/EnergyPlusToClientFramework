@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
                  "e demand side of another loop Loops can be either plant or condenser loops but n" +
                  "o air side connections are allowed")]
     [JsonObject("HeatExchanger:FluidToFluid")]
-    public class HeatExchanger_FluidToFluid : BHoMObject
+    public class HeatExchanger_FluidToFluid : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -49,7 +49,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("heat_exchange_model_type")]
-        public EmptyNoYes HeatExchangeModelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Ideal");
+        public HeatExchanger_FluidToFluid_HeatExchangeModelType HeatExchangeModelType { get; set; } = (HeatExchanger_FluidToFluid_HeatExchangeModelType)Enum.Parse(typeof(HeatExchanger_FluidToFluid_HeatExchangeModelType), "Ideal");
         
 
         [JsonProperty("heat_exchanger_u_factor_times_area_value")]
@@ -57,7 +57,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("control_type")]
-        public EmptyNoYes ControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "UncontrolledOn");
+        public HeatExchanger_FluidToFluid_ControlType ControlType { get; set; } = (HeatExchanger_FluidToFluid_ControlType)Enum.Parse(typeof(HeatExchanger_FluidToFluid_ControlType), "UncontrolledOn");
         
 
         [Description("Setpoint node is needed with any Control Type that is \"*Setpoint*\"")]
@@ -73,7 +73,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 
         [Description("This field controls end use reporting for heat transfer meters")]
         [JsonProperty("heat_transfer_metering_end_use_type")]
-        public EmptyNoYes HeatTransferMeteringEndUseType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "LoopToLoop");
+        public HeatExchanger_FluidToFluid_HeatTransferMeteringEndUseType HeatTransferMeteringEndUseType { get; set; } = (HeatExchanger_FluidToFluid_HeatTransferMeteringEndUseType)Enum.Parse(typeof(HeatExchanger_FluidToFluid_HeatTransferMeteringEndUseType), "LoopToLoop");
         
 
         [Description("This field is only used if Control Type is set to CoolingSetpointOnOffWithCompone" +
@@ -91,7 +91,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         [Description("This field is only used if Control Type is set to CoolingSetpointOnOffWithCompone" +
                      "ntOverride")]
         [JsonProperty("component_override_cooling_control_temperature_mode")]
-        public EmptyNoYes ComponentOverrideCoolingControlTemperatureMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Loop");
+        public HeatExchanger_FluidToFluid_ComponentOverrideCoolingControlTemperatureMode ComponentOverrideCoolingControlTemperatureMode { get; set; } = (HeatExchanger_FluidToFluid_ComponentOverrideCoolingControlTemperatureMode)Enum.Parse(typeof(HeatExchanger_FluidToFluid_ComponentOverrideCoolingControlTemperatureMode), "Loop");
         
 
         [Description("Multiplies the autosized flow rates for this device")]

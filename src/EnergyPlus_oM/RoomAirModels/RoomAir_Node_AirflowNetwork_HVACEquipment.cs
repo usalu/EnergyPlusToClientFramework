@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     [Description("define the zone equipment associated with one particular RoomAir:Node")]
     [JsonObject("RoomAir:Node:AirflowNetwork:HVACEquipment")]
-    public class RoomAir_Node_AirflowNetwork_HVACEquipment : BHoMObject
+    public class RoomAir_Node_AirflowNetwork_HVACEquipment : BHoMObject, IEnergyPlusClass
     {
         
 

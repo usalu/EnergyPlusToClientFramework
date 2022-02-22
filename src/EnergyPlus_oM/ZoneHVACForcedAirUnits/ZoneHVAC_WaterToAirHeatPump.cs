@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
                  "ater-to-air cooling and heating coils, supplemental heating coil (gas, electric," +
                  " hot water, or steam), and fixed-position outdoor air mixer.")]
     [JsonObject("ZoneHVAC:WaterToAirHeatPump")]
-    public class ZoneHVAC_WaterToAirHeatPump : BHoMObject
+    public class ZoneHVAC_WaterToAirHeatPump : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -32,7 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
                      "e left blank if the WSHP is connected to central dedicated outdoor air through a" +
                      "n AirTerminal:SingleDuct:Mixer object.")]
         [JsonProperty("outdoor_air_mixer_object_type")]
-        public EmptyNoYes OutdoorAirMixerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_WaterToAirHeatPump_OutdoorAirMixerObjectType OutdoorAirMixerObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_OutdoorAirMixerObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_OutdoorAirMixerObjectType), "OutdoorAirMixer");
         
 
         [Description(@"If this field is blank, the OutdoorAir:Mixer is not used. This optional field specifies the name of the OutdoorAir:Mixer object. When used, this name needs to match name of the OutdoorAir:Mixer object. This field should be left blank if the WSHP is connected to central dedicated outdoor air through an AirTerminal:SingleDuct:Mixer object.")]
@@ -75,7 +75,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("supply_air_fan_object_type")]
-        public EmptyNoYes SupplyAirFanObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_WaterToAirHeatPump_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_SupplyAirFanObjectType), "FanOnOff");
         
 
         [Description("Needs to match Fan:SystemModel or Fan:OnOff object")]
@@ -84,7 +84,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("heating_coil_object_type")]
-        public EmptyNoYes HeatingCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_WaterToAirHeatPump_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_HeatingCoilObjectType), "CoilHeatingWaterToAirHeatPumpEquationFit");
         
 
         [Description("Needs to match in the water-to-air heat pump heating coil object")]
@@ -93,7 +93,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("cooling_coil_object_type")]
-        public EmptyNoYes CoolingCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_WaterToAirHeatPump_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_CoolingCoilObjectType), "CoilCoolingWaterToAirHeatPumpEquationFit");
         
 
         [Description("Needs to match in the water-to-air heat pump cooling coil object")]
@@ -129,7 +129,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description("works with gas, electric, hot water and steam heating coils")]
         [JsonProperty("supplemental_heating_coil_object_type")]
-        public EmptyNoYes SupplementalHeatingCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_WaterToAirHeatPump_SupplementalHeatingCoilObjectType SupplementalHeatingCoilObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_SupplementalHeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_SupplementalHeatingCoilObjectType), "CoilHeatingElectric");
         
 
         [Description("Needs to match in the supplemental heating coil object")]
@@ -151,7 +151,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("fan_placement")]
-        public EmptyNoYes FanPlacement { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "BlowThrough");
+        public ZoneHVAC_WaterToAirHeatPump_FanPlacement FanPlacement { get; set; } = (ZoneHVAC_WaterToAirHeatPump_FanPlacement)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_FanPlacement), "BlowThrough");
         
 
         [Description(@"Enter the name of a schedule that controls fan operation. Schedule values of 0 denote cycling fan operation (fan cycles with cooling or heating coil). Schedule values greater than 0 denote constant fan operation (fan runs continually regardless of coil operation). The fan operating mode defaults to cycling fan operation if this field is left blank.")]
@@ -166,7 +166,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description(@"used only when the heat pump coils are of the type WaterToAirHeatPump:EquationFit Constant results in 100% water flow regardless of compressor PLR Cycling results in water flow that matches compressor PLR ConstantOnDemand results in 100% water flow whenever the coil is on, but is 0% whenever the coil has no load")]
         [JsonProperty("heat_pump_coil_water_flow_mode")]
-        public EmptyNoYes HeatPumpCoilWaterFlowMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Cycling");
+        public ZoneHVAC_WaterToAirHeatPump_HeatPumpCoilWaterFlowMode HeatPumpCoilWaterFlowMode { get; set; } = (ZoneHVAC_WaterToAirHeatPump_HeatPumpCoilWaterFlowMode)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_HeatPumpCoilWaterFlowMode), "Cycling");
         
 
         [Description("Enter the name of a DesignSpecificationZoneHVACSizing object.")]

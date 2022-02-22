@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     [Description("Allows for detailed entry of building heat transfer surfaces. Does not include su" +
                  "bsurfaces such as windows or doors.")]
     [JsonObject("BuildingSurface:Detailed")]
-    public class BuildingSurface_Detailed : BHoMObject
+    public class BuildingSurface_Detailed : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("surface_type")]
-        public EmptyNoYes SurfaceType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public BuildingSurface_Detailed_SurfaceType SurfaceType { get; set; } = (BuildingSurface_Detailed_SurfaceType)Enum.Parse(typeof(BuildingSurface_Detailed_SurfaceType), "Ceiling");
         
 
         [Description("To be matched with a construction in this input file")]
@@ -27,7 +27,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
         
 
         [JsonProperty("outside_boundary_condition")]
-        public EmptyNoYes OutsideBoundaryCondition { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public BuildingSurface_Detailed_OutsideBoundaryCondition OutsideBoundaryCondition { get; set; } = (BuildingSurface_Detailed_OutsideBoundaryCondition)Enum.Parse(typeof(BuildingSurface_Detailed_OutsideBoundaryCondition), "Adiabatic");
         
 
         [Description(@"Non-blank only if the field Outside Boundary Condition is Surface, Zone, OtherSideCoefficients or OtherSideConditionsModel If Surface, specify name of corresponding surface in adjacent zone or specify current surface name for internal partition separating like zones If Zone, specify the name of the corresponding zone and the program will generate the corresponding interzone surface If Foundation, specify the name of the corresponding Foundation object and the program will calculate the heat transfer appropriately If OtherSideCoefficients, specify name of SurfaceProperty:OtherSideCoefficients If OtherSideConditionsModel, specify name of SurfaceProperty:OtherSideConditionsModel")]
@@ -36,11 +36,11 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
         
 
         [JsonProperty("sun_exposure")]
-        public EmptyNoYes SunExposure { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SunExposed");
+        public BuildingSurface_Detailed_SunExposure SunExposure { get; set; } = (BuildingSurface_Detailed_SunExposure)Enum.Parse(typeof(BuildingSurface_Detailed_SunExposure), "SunExposed");
         
 
         [JsonProperty("wind_exposure")]
-        public EmptyNoYes WindExposure { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "WindExposed");
+        public BuildingSurface_Detailed_WindExposure WindExposure { get; set; } = (BuildingSurface_Detailed_WindExposure)Enum.Parse(typeof(BuildingSurface_Detailed_WindExposure), "WindExposed");
         
 
         [Description(@"From the exterior of the surface Unused if one uses the ""reflections"" options in Solar Distribution in Building input unless a DaylightingDevice:Shelf or DaylightingDevice:Tubular object has been specified. autocalculate will automatically calculate this value from the tilt of the surface")]

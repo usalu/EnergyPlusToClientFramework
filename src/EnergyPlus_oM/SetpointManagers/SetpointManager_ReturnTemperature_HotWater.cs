@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     [Description(@"This setpoint manager is used to place a temperature setpoint on a plant supply outlet node based on a target return water setpoint. The setpoint manager attempts to achieve the desired return water temperature by adjusting the supply temperature setpoint based on the plant conditions at each system time step.")]
     [JsonObject("SetpointManager:ReturnTemperature:HotWater")]
-    public class SetpointManager_ReturnTemperature_HotWater : BHoMObject
+    public class SetpointManager_ReturnTemperature_HotWater : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -39,7 +39,7 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
         [Description("This defines whether the hot water return temperature target is constant, schedul" +
                      "ed, or specified on the supply inlet node by a separate setpoint manager.")]
         [JsonProperty("return_temperature_setpoint_input_type")]
-        public EmptyNoYes ReturnTemperatureSetpointInputType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public SetpointManager_ReturnTemperature_HotWater_ReturnTemperatureSetpointInputType ReturnTemperatureSetpointInputType { get; set; } = (SetpointManager_ReturnTemperature_HotWater_ReturnTemperatureSetpointInputType)Enum.Parse(typeof(SetpointManager_ReturnTemperature_HotWater_ReturnTemperatureSetpointInputType), "Constant");
         
 
         [Description("This is the desired return temperature target, which is met by adjusting the supp" +

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
                  "ly. Relationship between water vapor diffusion and relative humidity fraction Ha" +
                  "s no effect with other HeatBalanceAlgorithm solution algorithms")]
     [JsonObject("MaterialProperty:HeatAndMoistureTransfer:Diffusion")]
-    public class MaterialProperty_HeatAndMoistureTransfer_Diffusion : BHoMObject
+    public class MaterialProperty_HeatAndMoistureTransfer_Diffusion : BHoMObject, IEnergyPlusClass
     {
         
 

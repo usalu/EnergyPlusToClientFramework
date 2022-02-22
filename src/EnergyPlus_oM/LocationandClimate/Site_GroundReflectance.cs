@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
                  " The ground reflectance can be further modified when snow is on the ground by Si" +
                  "te:GroundReflectance:SnowModifier.")]
     [JsonObject("Site:GroundReflectance")]
-    public class Site_GroundReflectance : BHoMObject
+    public class Site_GroundReflectance : BHoMObject, IEnergyPlusClass
     {
         
 

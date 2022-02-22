@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
                  "y storage systems. It replaces a host of setpoint managers with simple, single i" +
                  "nput values. For more complex controls, use the ComponentSetpoint scheme.")]
     [JsonObject("PlantEquipmentOperation:ThermalEnergyStorage")]
-    public class PlantEquipmentOperation_ThermalEnergyStorage : BHoMObject
+    public class PlantEquipmentOperation_ThermalEnergyStorage : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -36,7 +36,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         [Description("This field is the type of object and should either be a chiller or some ice stora" +
                      "ge equipment.")]
         [JsonProperty("component_1_object_type")]
-        public EmptyNoYes Component1ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component1ObjectType Component1ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component1ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component1ObjectType), "ChillerAbsorption");
         
 
         [Description("This field is the name of either the chiller or ice storage equipment on the loop" +
@@ -65,11 +65,11 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
                      "quipment operation scheme, \"Cooling\" should be selected for chiller equipment wh" +
                      "ile ice storage equipment should be defined as \"Dual\".")]
         [JsonProperty("component_1_operation_type")]
-        public EmptyNoYes Component1OperationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component1OperationType Component1OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component1OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component1OperationType), "Cooling");
         
 
         [JsonProperty("component_2_object_type")]
-        public EmptyNoYes Component2ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component2ObjectType Component2ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component2ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component2ObjectType), "ChillerAbsorption");
         
 
         [JsonProperty("component_2_name")]
@@ -89,11 +89,11 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("component_2_operation_type")]
-        public EmptyNoYes Component2OperationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component2OperationType Component2OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component2OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component2OperationType), "Cooling");
         
 
         [JsonProperty("component_3_object_type")]
-        public EmptyNoYes Component3ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component3ObjectType Component3ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component3ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component3ObjectType), "ChillerAbsorption");
         
 
         [JsonProperty("component_3_name")]
@@ -113,11 +113,11 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("component_3_operation_type")]
-        public EmptyNoYes Component3OperationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component3OperationType Component3OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component3OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component3OperationType), "Cooling");
         
 
         [JsonProperty("component_4_object_type")]
-        public EmptyNoYes Component4ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component4ObjectType Component4ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component4ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component4ObjectType), "ChillerAbsorption");
         
 
         [JsonProperty("component_4_name")]
@@ -137,11 +137,11 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("component_4_operation_type")]
-        public EmptyNoYes Component4OperationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component4OperationType Component4OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component4OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component4OperationType), "Cooling");
         
 
         [JsonProperty("component_5_object_type")]
-        public EmptyNoYes Component5ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component5ObjectType Component5ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component5ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component5ObjectType), "ChillerAbsorption");
         
 
         [JsonProperty("component_5_name")]
@@ -161,11 +161,11 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("component_5_operation_type")]
-        public EmptyNoYes Component5OperationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component5OperationType Component5OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component5OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component5OperationType), "Cooling");
         
 
         [JsonProperty("component_6_object_type")]
-        public EmptyNoYes Component6ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component6ObjectType Component6ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component6ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component6ObjectType), "ChillerAbsorption");
         
 
         [JsonProperty("component_6_name")]
@@ -185,11 +185,11 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("component_6_operation_type")]
-        public EmptyNoYes Component6OperationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component6OperationType Component6OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component6OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component6OperationType), "Cooling");
         
 
         [JsonProperty("component_7_object_type")]
-        public EmptyNoYes Component7ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component7ObjectType Component7ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component7ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component7ObjectType), "ChillerAbsorption");
         
 
         [JsonProperty("component_7_name")]
@@ -209,11 +209,11 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("component_7_operation_type")]
-        public EmptyNoYes Component7OperationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component7OperationType Component7OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component7OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component7OperationType), "Cooling");
         
 
         [JsonProperty("component_8_object_type")]
-        public EmptyNoYes Component8ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component8ObjectType Component8ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component8ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component8ObjectType), "ChillerAbsorption");
         
 
         [JsonProperty("component_8_name")]
@@ -233,11 +233,11 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("component_8_operation_type")]
-        public EmptyNoYes Component8OperationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component8OperationType Component8OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component8OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component8OperationType), "Cooling");
         
 
         [JsonProperty("component_9_object_type")]
-        public EmptyNoYes Component9ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component9ObjectType Component9ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component9ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component9ObjectType), "ChillerAbsorption");
         
 
         [JsonProperty("component_9_name")]
@@ -257,11 +257,11 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("component_9_operation_type")]
-        public EmptyNoYes Component9OperationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component9OperationType Component9OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component9OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component9OperationType), "Cooling");
         
 
         [JsonProperty("component_10_object_type")]
-        public EmptyNoYes Component10ObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component10ObjectType Component10ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component10ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component10ObjectType), "ChillerAbsorption");
         
 
         [JsonProperty("component_10_name")]
@@ -281,6 +281,6 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("component_10_operation_type")]
-        public EmptyNoYes Component10OperationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType Component10OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType), "Cooling");
     }
 }

@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description(@"Each Output:Meter command picks meters to be put onto the standard output file (.eso) and meter file (.mtr). Not all meters are reported in every simulation. A list of meters that can be reported are available after a run on the meter dictionary file (.mdd) if the Output:VariableDictionary has been requested.")]
     [JsonObject("Output:Meter")]
-    public class Output_Meter : BHoMObject
+    public class Output_Meter : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -21,6 +21,6 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
         [Description("Timestep refers to the zone Timestep/Number of Timesteps in hour value RunPeriod " +
                      "and Environment are the same")]
         [JsonProperty("reporting_frequency")]
-        public EmptyNoYes ReportingFrequency { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Hourly");
+        public Output_Meter_ReportingFrequency ReportingFrequency { get; set; } = (Output_Meter_ReportingFrequency)Enum.Parse(typeof(Output_Meter_ReportingFrequency), "Hourly");
     }
 }

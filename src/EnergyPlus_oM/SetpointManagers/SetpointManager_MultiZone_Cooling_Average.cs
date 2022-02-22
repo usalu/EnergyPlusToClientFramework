@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
                  "g load requirements of all controlled zones in an air loop served by a central a" +
                  "ir-conditioner.")]
     [JsonObject("SetpointManager:MultiZone:Cooling:Average")]
-    public class SetpointManager_MultiZone_Cooling_Average : BHoMObject
+    public class SetpointManager_MultiZone_Cooling_Average : BHoMObject, IEnergyPlusClass
     {
         
 

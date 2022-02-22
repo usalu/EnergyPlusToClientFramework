@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
     [Description("AutoGrid only necessary when EquivSizing is false If the modeled building is not " +
                  "a rectangle or square, Equivalent sizing MUST be used to get accurate results")]
     [JsonObject("GroundHeatTransfer:Basement:AutoGrid")]
-    public class GroundHeatTransfer_Basement_AutoGrid : BHoMObject
+    public class GroundHeatTransfer_Basement_AutoGrid : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     [Description("Simulate generic contaminant source driven by the pressure difference across a su" +
                  "rface.")]
     [JsonObject("SurfaceContaminantSourceAndSink:Generic:PressureDriven")]
-    public class SurfaceContaminantSourceAndSink_Generic_PressureDriven : BHoMObject
+    public class SurfaceContaminantSourceAndSink_Generic_PressureDriven : BHoMObject, IEnergyPlusClass
     {
         
 

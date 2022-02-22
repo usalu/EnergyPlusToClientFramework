@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     [Description("This object modifies a ZoneControl:Thermostat object to effect temperature contro" +
                  "l based on zone air humidity conditions.")]
     [JsonObject("ZoneControl:Thermostat:TemperatureAndHumidity")]
-    public class ZoneControl_Thermostat_TemperatureAndHumidity : BHoMObject
+    public class ZoneControl_Thermostat_TemperatureAndHumidity : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -24,11 +24,11 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("dehumidification_control_type")]
-        public EmptyNoYes DehumidificationControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Overcool");
+        public ZoneControl_Thermostat_TemperatureAndHumidity_DehumidificationControlType DehumidificationControlType { get; set; } = (ZoneControl_Thermostat_TemperatureAndHumidity_DehumidificationControlType)Enum.Parse(typeof(ZoneControl_Thermostat_TemperatureAndHumidity_DehumidificationControlType), "Overcool");
         
 
         [JsonProperty("overcool_range_input_method")]
-        public EmptyNoYes OvercoolRangeInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Constant");
+        public ZoneControl_Thermostat_TemperatureAndHumidity_OvercoolRangeInputMethod OvercoolRangeInputMethod { get; set; } = (ZoneControl_Thermostat_TemperatureAndHumidity_OvercoolRangeInputMethod)Enum.Parse(typeof(ZoneControl_Thermostat_TemperatureAndHumidity_OvercoolRangeInputMethod), "Constant");
         
 
         [Description("Maximum Overcool temperature range for cooling setpoint reduction. Used with Dehu" +

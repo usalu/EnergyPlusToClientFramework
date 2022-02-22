@@ -68,16 +68,16 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
     [Description("An independent variable representing a single dimension of a Table:Lookup object." +
         "")]
     [JsonObject("Table:IndependentVariable")]
-    public class Table_IndependentVariable : BHoMObject
+    public class Table_IndependentVariable : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("interpolation_method")]
-public EmptyNoYes InterpolationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Linear");
+public Table_IndependentVariable_InterpolationMethod InterpolationMethod { get; set; } = (Table_IndependentVariable_InterpolationMethod)Enum.Parse(typeof(Table_IndependentVariable_InterpolationMethod), "Linear");
         
 
 [JsonProperty("extrapolation_method")]
-public EmptyNoYes ExtrapolationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Constant");
+public Table_IndependentVariable_ExtrapolationMethod ExtrapolationMethod { get; set; } = (Table_IndependentVariable_ExtrapolationMethod)Enum.Parse(typeof(Table_IndependentVariable_ExtrapolationMethod), "Constant");
         
 
 [JsonProperty("minimum_value")]
@@ -93,7 +93,7 @@ public System.Nullable<float> NormalizationReferenceValue { get; set; } = null;
         
 
 [JsonProperty("unit_type")]
-public EmptyNoYes UnitType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+public Table_IndependentVariable_UnitType UnitType { get; set; } = (Table_IndependentVariable_UnitType)Enum.Parse(typeof(Table_IndependentVariable_UnitType), "Dimensionless");
         
 
 [JsonProperty("external_file_name")]

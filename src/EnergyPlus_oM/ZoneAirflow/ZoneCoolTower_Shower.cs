@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 {
     [Description(@"A cooltower (sometimes referred to as a wind tower or a shower cooling tower) models passive downdraught evaporative cooling (PDEC) that is designed to capture the wind at the top of a tower and cool the outdoor air using water evaporation before delivering it to a space.")]
     [JsonObject("ZoneCoolTower:Shower")]
-    public class ZoneCoolTower_Shower : BHoMObject
+    public class ZoneCoolTower_Shower : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -29,7 +29,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
         [Description("Water flow schedule should be selected when the water flow rate is known. Wind-dr" +
                      "iven flow should be selected when the water flow rate is unknown.")]
         [JsonProperty("flow_control_type")]
-        public EmptyNoYes FlowControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "WindDrivenFlow");
+        public ZoneCoolTower_Shower_FlowControlType FlowControlType { get; set; } = (ZoneCoolTower_Shower_FlowControlType)Enum.Parse(typeof(ZoneCoolTower_Shower_FlowControlType), "WindDrivenFlow");
         
 
         [JsonProperty("pump_flow_rate_schedule_name")]

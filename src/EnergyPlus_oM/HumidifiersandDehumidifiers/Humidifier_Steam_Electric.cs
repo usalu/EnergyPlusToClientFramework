@@ -1,6 +1,7 @@
 namespace BH.oM.Adapters.EnergyPlus.HumidifiersandDehumidifiers
 {
     using System.ComponentModel;
+    using BH.oM.Adapters.EnergyPlus;
     using Newtonsoft.Json;
     using BH.oM.Base;
     using BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts;
@@ -65,7 +66,7 @@ namespace BH.oM.Adapters.EnergyPlus.HumidifiersandDehumidifiers
     
     [Description("Electrically heated steam humidifier with fan.")]
     [JsonObject("Humidifier:Steam:Electric")]
-    public class Humidifier_Steam_Electric : BHoMObject
+    public class Humidifier_Steam_Electric : BHoMObject, IEnergyPlusClass
     {
         
 

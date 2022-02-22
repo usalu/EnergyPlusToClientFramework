@@ -71,7 +71,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         " catalog data to second order polynomial equations. Three sets of coefficients a" +
         "re required.")]
     [JsonObject("Generator:InternalCombustionEngine")]
-    public class Generator_InternalCombustionEngine : BHoMObject
+    public class Generator_InternalCombustionEngine : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -156,7 +156,7 @@ public string HeatRecoveryOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("fuel_type")]
-public EmptyNoYes FuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Diesel");
+public Generator_InternalCombustionEngine_FuelType FuelType { get; set; } = (Generator_InternalCombustionEngine_FuelType)Enum.Parse(typeof(Generator_InternalCombustionEngine_FuelType), "Diesel");
         
 
 [JsonProperty("heat_recovery_maximum_temperature")]

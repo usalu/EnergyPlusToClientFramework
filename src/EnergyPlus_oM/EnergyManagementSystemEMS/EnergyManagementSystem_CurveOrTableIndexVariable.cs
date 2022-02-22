@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     [Description("Declares EMS variable that identifies a curve or table")]
     [JsonObject("EnergyManagementSystem:CurveOrTableIndexVariable")]
-    public class EnergyManagementSystem_CurveOrTableIndexVariable : BHoMObject
+    public class EnergyManagementSystem_CurveOrTableIndexVariable : BHoMObject, IEnergyPlusClass
     {
         
 

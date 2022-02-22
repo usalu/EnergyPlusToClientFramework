@@ -68,7 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
     
     [Description(@"The Refrigeration Case object works in conjunction with a compressor rack, a refrigeration system, or a secondary loop to simulate the performance of a refrigerated case system. The object calculates the energy use for lights, fans and anti-sweat heaters and accounts for the sensible and latent heat exchange with the surrounding environment (termed ""case credits"") which impacts the temperature and humidity in the zone where the case is located.")]
     [JsonObject("Refrigeration:Case")]
-    public class Refrigeration_Case : BHoMObject
+    public class Refrigeration_Case : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -113,7 +113,7 @@ public System.Nullable<float> CaseOperatingTemperature { get; set; } = (System.N
         
 
 [JsonProperty("latent_case_credit_curve_type")]
-public EmptyNoYes LatentCaseCreditCurveType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "CaseTemperatureMethod");
+public Refrigeration_Case_LatentCaseCreditCurveType LatentCaseCreditCurveType { get; set; } = (Refrigeration_Case_LatentCaseCreditCurveType)Enum.Parse(typeof(Refrigeration_Case_LatentCaseCreditCurveType), "CaseTemperatureMethod");
         
 
 [JsonProperty("latent_case_credit_curve_name")]
@@ -156,7 +156,7 @@ public System.Nullable<float> MinimumAntiSweatHeaterPowerPerUnitLength { get; se
         
 
 [JsonProperty("anti_sweat_heater_control_type")]
-public EmptyNoYes AntiSweatHeaterControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+public Refrigeration_Case_AntiSweatHeaterControlType AntiSweatHeaterControlType { get; set; } = (Refrigeration_Case_AntiSweatHeaterControlType)Enum.Parse(typeof(Refrigeration_Case_AntiSweatHeaterControlType), "None");
         
 
 [Description("This field is only applicable to Linear AS heater control type Zone relative humi" +
@@ -181,7 +181,7 @@ public System.Nullable<float> CaseDefrostPowerPerUnitLength { get; set; } = (Sys
         
 
 [JsonProperty("case_defrost_type")]
-public EmptyNoYes CaseDefrostType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "OffCycle");
+public Refrigeration_Case_CaseDefrostType CaseDefrostType { get; set; } = (Refrigeration_Case_CaseDefrostType)Enum.Parse(typeof(Refrigeration_Case_CaseDefrostType), "OffCycle");
         
 
 [Description("A case defrost schedule name is required unless case defrost type = None")]
@@ -197,7 +197,7 @@ public string CaseDefrostDripDownScheduleName { get; set; } = "";
 [Description("Case Temperature, Relative Humidity, and Dewpoint Method are applicable to case d" +
     "efrost types with temperature termination only.")]
 [JsonProperty("defrost_energy_correction_curve_type")]
-public EmptyNoYes DefrostEnergyCorrectionCurveType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+public Refrigeration_Case_DefrostEnergyCorrectionCurveType DefrostEnergyCorrectionCurveType { get; set; } = (Refrigeration_Case_DefrostEnergyCorrectionCurveType)Enum.Parse(typeof(Refrigeration_Case_DefrostEnergyCorrectionCurveType), "None");
         
 
 [Description("Defrost Energy Correction Curve Name is applicable to case defrost types with tem" +

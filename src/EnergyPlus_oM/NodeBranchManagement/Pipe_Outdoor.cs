@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description("Pipe model with transport delay and heat transfer to the environment.")]
     [JsonObject("Pipe:Outdoor")]
-    public class Pipe_Outdoor : BHoMObject
+    public class Pipe_Outdoor : BHoMObject, IEnergyPlusClass
     {
         
 

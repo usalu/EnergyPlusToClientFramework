@@ -68,12 +68,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
     [Description("The simplest Setpoint Manager simply uses a schedule to determine one or more set" +
         "points. Values of the nodes are not used as input.")]
     [JsonObject("SetpointManager:Scheduled")]
-    public class SetpointManager_Scheduled : BHoMObject
+    public class SetpointManager_Scheduled : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
-public EmptyNoYes ControlVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public SetpointManager_Scheduled_ControlVariable ControlVariable { get; set; } = (SetpointManager_Scheduled_ControlVariable)Enum.Parse(typeof(SetpointManager_Scheduled_ControlVariable), "HumidityRatio");
         
 
 [JsonProperty("schedule_name")]

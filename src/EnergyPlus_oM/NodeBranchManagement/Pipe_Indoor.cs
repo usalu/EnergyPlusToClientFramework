@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description("Pipe model with transport delay and heat transfer to the environment.")]
     [JsonObject("Pipe:Indoor")]
-    public class Pipe_Indoor : BHoMObject
+    public class Pipe_Indoor : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -24,7 +24,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
         [JsonProperty("environment_type")]
-        public EmptyNoYes EnvironmentType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Zone");
+        public Pipe_Indoor_EnvironmentType EnvironmentType { get; set; } = (Pipe_Indoor_EnvironmentType)Enum.Parse(typeof(Pipe_Indoor_EnvironmentType), "Zone");
         
 
         [JsonProperty("ambient_temperature_zone_name")]

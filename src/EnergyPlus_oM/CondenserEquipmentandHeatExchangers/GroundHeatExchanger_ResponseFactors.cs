@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     [Description("Response factor definitions from third-party tool, commonly referred to a \"g-func" +
                  "tions\"")]
     [JsonObject("GroundHeatExchanger:ResponseFactors")]
-    public class GroundHeatExchanger_ResponseFactors : BHoMObject
+    public class GroundHeatExchanger_ResponseFactors : BHoMObject, IEnergyPlusClass
     {
         
 

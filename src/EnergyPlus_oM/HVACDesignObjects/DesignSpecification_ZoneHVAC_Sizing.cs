@@ -8,13 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
     [Description("This object is used to describe general scalable zone HVAC equipment sizing which" +
                  " are referenced by other objects.")]
     [JsonObject("DesignSpecification:ZoneHVAC:Sizing")]
-    public class DesignSpecification_ZoneHVAC_Sizing : BHoMObject
+    public class DesignSpecification_ZoneHVAC_Sizing : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description(@"Enter the method used to determine the cooling supply air volume flow rate. None is used when a cooling coil is not included in the Zone HVAC Equip or this field may be blank. SupplyAirFlowRate => selected when the magnitude of the supply air volume flow rate is specified. FlowPerFloorArea => selected when the supply air volume flow rate is determined from total floor area served by the Zone HVAC unit and Flow Per Floor Area value specified. FractionOfAutosizedCoolingAirflow => is selected when the supply air volume is determined from a user specified fraction and the autosized cooling supply air flow rate value determined by the simulation. FlowPerCoolingCapacity => is selected when the supply air volume is determined from user specified flow per Cooling Capacity and Cooling Capacity determined by the simulation.")]
         [JsonProperty("cooling_supply_air_flow_rate_method")]
-        public EmptyNoYes CoolingSupplyAirFlowRateMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SupplyAirFlowRate");
+        public DesignSpecification_ZoneHVAC_Sizing_CoolingSupplyAirFlowRateMethod CoolingSupplyAirFlowRateMethod { get; set; } = (DesignSpecification_ZoneHVAC_Sizing_CoolingSupplyAirFlowRateMethod)Enum.Parse(typeof(DesignSpecification_ZoneHVAC_Sizing_CoolingSupplyAirFlowRateMethod), "SupplyAirFlowRate");
         
 
         [Description("Enter the magnitude of supply air volume flow rate during cooling operation. Requ" +
@@ -46,7 +46,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 
         [Description(@"Enter the method used to determine the supply air volume flow rate When No Cooling or Heating is Required. None is used when a cooling or heating coil is not included in the Zone HVAC Equipment or this field may be blank. SupplyAirFlowRate => selected when the magnitude of the supply air volume flow rate is specified. FlowPerFloorArea => selected when the supply air volume flow rate is determined from total floor area served by the Zone HVAC unit and Flow Per Floor Area is specified. FractionOfAutosizedCoolingAirflow => is selected when the supply air volume is determined from a user specified fraction and the Autosized cooling supply air flow rate value determined by the simulation. FractionOfAutosizedHeatingAirflow => is selected when the supply air volume is determined from a user specified fraction and the Autosized heating supply air flow rate value determined by the simulation.")]
         [JsonProperty("no_load_supply_air_flow_rate_method")]
-        public EmptyNoYes NoLoadSupplyAirFlowRateMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SupplyAirFlowRate");
+        public DesignSpecification_ZoneHVAC_Sizing_NoLoadSupplyAirFlowRateMethod NoLoadSupplyAirFlowRateMethod { get; set; } = (DesignSpecification_ZoneHVAC_Sizing_NoLoadSupplyAirFlowRateMethod)Enum.Parse(typeof(DesignSpecification_ZoneHVAC_Sizing_NoLoadSupplyAirFlowRateMethod), "SupplyAirFlowRate");
         
 
         [Description("Enter the magnitude of the supply air volume flow rate during when no cooling or " +
@@ -78,7 +78,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 
         [Description(@"Enter the method used to determine the heating supply air volume flow rate. None is used when a heating coil is not included in the Zone HVAC Equipment or this field may be blank. SupplyAirFlowRate => selected when the magnitude of the heating supply air volume flow rate is specified. FlowPerFloorArea => selected when the supply air volume flow rate is determined from total floor area served by a Zone HVAC unit and user specified value of Flow Per Floor Area. FractionOfAutosizedHeatingAirflow => is selected when the supply air volume is determined from a user specified fraction and the Autosized heating supply air flow rate value determined by the simulation. FlowPerHeatingCapacity => is selected when the supply air volume is determined from user specified flow per Heating Capacity and Heating Capacity determined by the simulation.")]
         [JsonProperty("heating_supply_air_flow_rate_method")]
-        public EmptyNoYes HeatingSupplyAirFlowRateMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SupplyAirFlowRate");
+        public DesignSpecification_ZoneHVAC_Sizing_HeatingSupplyAirFlowRateMethod HeatingSupplyAirFlowRateMethod { get; set; } = (DesignSpecification_ZoneHVAC_Sizing_HeatingSupplyAirFlowRateMethod)Enum.Parse(typeof(DesignSpecification_ZoneHVAC_Sizing_HeatingSupplyAirFlowRateMethod), "SupplyAirFlowRate");
         
 
         [Description("Enter the magnitude of the supply air volume flow rate during heating operation. " +
@@ -111,7 +111,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 
         [Description(@"Enter the method used to determine the cooling design capacity for scalable sizing. None is used when a cooling coils is not included in the Zone HVAC Equipment or this field may be blank. If this input field is left blank, then the design cooling capacity is set to zero. CoolingDesignCapacity => selected when the design cooling capacity value is specified or auto-sized. CapacityPerFloorArea => selected when the design cooling capacity is determine from user specified cooling capacity per floor area and zone floor area. FractionOfAutosizedCoolingCapacity => is selected when the design cooling capacity is determined from a user specified fraction and the auto-sized design cooling capacity.")]
         [JsonProperty("cooling_design_capacity_method")]
-        public EmptyNoYes CoolingDesignCapacityMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public DesignSpecification_ZoneHVAC_Sizing_CoolingDesignCapacityMethod CoolingDesignCapacityMethod { get; set; } = (DesignSpecification_ZoneHVAC_Sizing_CoolingDesignCapacityMethod)Enum.Parse(typeof(DesignSpecification_ZoneHVAC_Sizing_CoolingDesignCapacityMethod), "None");
         
 
         [Description("Enter the design cooling capacity. Required field when the cooling design capacit" +
@@ -134,7 +134,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 
         [Description(@"Enter the method used to determine the heating design capacity for scalable sizing. None is used when a heating coil is not included in the Zone HVAC Equipment or this field may be blank. If this input field is left blank, then the design heating capacity is set to zero. HeatingDesignCapacity => selected when the design heating capacity value is specified or auto-sized. CapacityPerFloorArea => selected when the design cooling capacity is determine from user specified heating capacity per flow area and zone floor area. FractionOfAutosizedHeatingCapacity => is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity")]
         [JsonProperty("heating_design_capacity_method")]
-        public EmptyNoYes HeatingDesignCapacityMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public DesignSpecification_ZoneHVAC_Sizing_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (DesignSpecification_ZoneHVAC_Sizing_HeatingDesignCapacityMethod)Enum.Parse(typeof(DesignSpecification_ZoneHVAC_Sizing_HeatingDesignCapacityMethod), "None");
         
 
         [Description("Enter the design heating capacity. Required field when the heating design capacit" +

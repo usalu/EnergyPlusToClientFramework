@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     [Description("Determines the optimal start of HVAC systems before occupancy.")]
     [JsonObject("AvailabilityManager:OptimumStart")]
-    public class AvailabilityManager_OptimumStart : BHoMObject
+    public class AvailabilityManager_OptimumStart : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -21,7 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
         
 
         [JsonProperty("control_type")]
-        public EmptyNoYes ControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ControlZone");
+        public AvailabilityManager_OptimumStart_ControlType ControlType { get; set; } = (AvailabilityManager_OptimumStart_ControlType)Enum.Parse(typeof(AvailabilityManager_OptimumStart_ControlType), "ControlZone");
         
 
         [JsonProperty("control_zone_name")]
@@ -38,7 +38,7 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
         
 
         [JsonProperty("control_algorithm")]
-        public EmptyNoYes ControlAlgorithm { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AdaptiveASHRAE");
+        public AvailabilityManager_OptimumStart_ControlAlgorithm ControlAlgorithm { get; set; } = (AvailabilityManager_OptimumStart_ControlAlgorithm)Enum.Parse(typeof(AvailabilityManager_OptimumStart_ControlAlgorithm), "AdaptiveASHRAE");
         
 
         [JsonProperty("constant_temperature_gradient_during_cooling")]

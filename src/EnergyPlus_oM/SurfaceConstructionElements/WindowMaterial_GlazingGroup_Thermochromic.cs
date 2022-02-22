@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("thermochromic glass at different temperatures")]
     [JsonObject("WindowMaterial:GlazingGroup:Thermochromic")]
-    public class WindowMaterial_GlazingGroup_Thermochromic : BHoMObject
+    public class WindowMaterial_GlazingGroup_Thermochromic : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
                  " are two possible configurations: under the slab or vertical insulation around t" +
                  "he slab.")]
     [JsonObject("GroundHeatTransfer:Slab:Insulation")]
-    public class GroundHeatTransfer_Slab_Insulation : BHoMObject
+    public class GroundHeatTransfer_Slab_Insulation : BHoMObject, IEnergyPlusClass
     {
         
 

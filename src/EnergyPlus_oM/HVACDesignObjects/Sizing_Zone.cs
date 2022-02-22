@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     [Description(@"Specifies the data needed to perform a zone design air flow calculation. The calculation is done for every sizing period included in the input. The maximum cooling and heating load and cooling, heating, and ventilation air flows are then saved for system level and zone component design calculations.")]
     [JsonObject("Sizing:Zone")]
-    public class Sizing_Zone : BHoMObject
+    public class Sizing_Zone : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -17,7 +17,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("zone_cooling_design_supply_air_temperature_input_method")]
-        public EmptyNoYes ZoneCoolingDesignSupplyAirTemperatureInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SupplyAirTemperature");
+        public Sizing_Zone_ZoneCoolingDesignSupplyAirTemperatureInputMethod ZoneCoolingDesignSupplyAirTemperatureInputMethod { get; set; } = (Sizing_Zone_ZoneCoolingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(Sizing_Zone_ZoneCoolingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 
         [Description("Zone Cooling Design Supply Air Temperature is only used when Zone Cooling Design " +
@@ -32,7 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("zone_heating_design_supply_air_temperature_input_method")]
-        public EmptyNoYes ZoneHeatingDesignSupplyAirTemperatureInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SupplyAirTemperature");
+        public Sizing_Zone_ZoneHeatingDesignSupplyAirTemperatureInputMethod ZoneHeatingDesignSupplyAirTemperatureInputMethod { get; set; } = (Sizing_Zone_ZoneHeatingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(Sizing_Zone_ZoneHeatingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 
         [Description("Zone Heating Design Supply Air Temperature is only used when Zone Heating Design " +
@@ -69,7 +69,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("cooling_design_air_flow_method")]
-        public EmptyNoYes CoolingDesignAirFlowMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "DesignDay");
+        public Sizing_Zone_CoolingDesignAirFlowMethod CoolingDesignAirFlowMethod { get; set; } = (Sizing_Zone_CoolingDesignAirFlowMethod)Enum.Parse(typeof(Sizing_Zone_CoolingDesignAirFlowMethod), "DesignDay");
         
 
         [Description("This input is used if Cooling Design Air Flow Method is Flow/Zone This value will" +
@@ -97,7 +97,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("heating_design_air_flow_method")]
-        public EmptyNoYes HeatingDesignAirFlowMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "DesignDay");
+        public Sizing_Zone_HeatingDesignAirFlowMethod HeatingDesignAirFlowMethod { get; set; } = (Sizing_Zone_HeatingDesignAirFlowMethod)Enum.Parse(typeof(Sizing_Zone_HeatingDesignAirFlowMethod), "DesignDay");
         
 
         [Description("This input is used if Heating Design Air Flow Method is Flow/Zone. This value wil" +
@@ -138,7 +138,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         [Description("1)supply neutral ventilation air; 2)supply neutral dehumidified and reheated vent" +
                      "ilation air; 3)supply cold ventilation air")]
         [JsonProperty("dedicated_outdoor_air_system_control_strategy")]
-        public EmptyNoYes DedicatedOutdoorAirSystemControlStrategy { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NeutralSupplyAir");
+        public Sizing_Zone_DedicatedOutdoorAirSystemControlStrategy DedicatedOutdoorAirSystemControlStrategy { get; set; } = (Sizing_Zone_DedicatedOutdoorAirSystemControlStrategy)Enum.Parse(typeof(Sizing_Zone_DedicatedOutdoorAirSystemControlStrategy), "NeutralSupplyAir");
         
 
         [JsonProperty("dedicated_outdoor_air_low_setpoint_temperature_for_design")]

@@ -7,12 +7,12 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("Used only with Generator:FuelCell and Generator:MicroCHP")]
     [JsonObject("Generator:FuelSupply")]
-    public class Generator_FuelSupply : BHoMObject
+    public class Generator_FuelSupply : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("fuel_temperature_modeling_mode")]
-        public EmptyNoYes FuelTemperatureModelingMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_FuelTemperatureModelingMode FuelTemperatureModelingMode { get; set; } = (Generator_FuelSupply_FuelTemperatureModelingMode)Enum.Parse(typeof(Generator_FuelSupply_FuelTemperatureModelingMode), "Scheduled");
         
 
         [JsonProperty("fuel_temperature_reference_node_name")]
@@ -32,7 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("fuel_type")]
-        public EmptyNoYes FuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_FuelType FuelType { get; set; } = (Generator_FuelSupply_FuelType)Enum.Parse(typeof(Generator_FuelSupply_FuelType), "GaseousConstituents");
         
 
         [JsonProperty("liquid_generic_fuel_lower_heating_value")]
@@ -56,7 +56,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_1_name")]
-        public EmptyNoYes Constituent1Name { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_Constituent1Name Constituent1Name { get; set; } = (Generator_FuelSupply_Constituent1Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent1Name), "Argon");
         
 
         [JsonProperty("constituent_1_molar_fraction")]
@@ -64,7 +64,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_2_name")]
-        public EmptyNoYes Constituent2Name { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_Constituent2Name Constituent2Name { get; set; } = (Generator_FuelSupply_Constituent2Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent2Name), "Argon");
         
 
         [JsonProperty("constituent_2_molar_fraction")]
@@ -72,7 +72,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_3_name")]
-        public EmptyNoYes Constituent3Name { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_Constituent3Name Constituent3Name { get; set; } = (Generator_FuelSupply_Constituent3Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent3Name), "Argon");
         
 
         [JsonProperty("constituent_3_molar_fraction")]
@@ -80,7 +80,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_4_name")]
-        public EmptyNoYes Constituent4Name { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_Constituent4Name Constituent4Name { get; set; } = (Generator_FuelSupply_Constituent4Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent4Name), "Argon");
         
 
         [JsonProperty("constituent_4_molar_fraction")]
@@ -88,7 +88,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_5_name")]
-        public EmptyNoYes Constituent5Name { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_Constituent5Name Constituent5Name { get; set; } = (Generator_FuelSupply_Constituent5Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent5Name), "Argon");
         
 
         [JsonProperty("constituent_5_molar_fraction")]
@@ -96,7 +96,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_6_name")]
-        public EmptyNoYes Constituent6Name { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_Constituent6Name Constituent6Name { get; set; } = (Generator_FuelSupply_Constituent6Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent6Name), "Argon");
         
 
         [JsonProperty("constituent_6_molar_fraction")]
@@ -104,7 +104,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_7_name")]
-        public EmptyNoYes Constituent7Name { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_Constituent7Name Constituent7Name { get; set; } = (Generator_FuelSupply_Constituent7Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent7Name), "Butane");
         
 
         [JsonProperty("constituent_7_molar_fraction")]
@@ -112,7 +112,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_8_name")]
-        public EmptyNoYes Constituent8Name { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_Constituent8Name Constituent8Name { get; set; } = (Generator_FuelSupply_Constituent8Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent8Name), "Argon");
         
 
         [JsonProperty("constituent_8_molar_fraction")]
@@ -120,7 +120,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_9_name")]
-        public EmptyNoYes Constituent9Name { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_Constituent9Name Constituent9Name { get; set; } = (Generator_FuelSupply_Constituent9Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent9Name), "Argon");
         
 
         [JsonProperty("constituent_9_molar_fraction")]
@@ -128,7 +128,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_10_name")]
-        public EmptyNoYes Constituent10Name { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_Constituent10Name Constituent10Name { get; set; } = (Generator_FuelSupply_Constituent10Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent10Name), "Argon");
         
 
         [JsonProperty("constituent_10_molar_fraction")]
@@ -136,7 +136,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_11_name")]
-        public EmptyNoYes Constituent11Name { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_Constituent11Name Constituent11Name { get; set; } = (Generator_FuelSupply_Constituent11Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent11Name), "Argon");
         
 
         [JsonProperty("constituent_11_molar_fraction")]
@@ -144,7 +144,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_12_name")]
-        public EmptyNoYes Constituent12Name { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelSupply_Constituent12Name Constituent12Name { get; set; } = (Generator_FuelSupply_Constituent12Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent12Name), "Argon");
         
 
         [JsonProperty("constituent_12_molar_fraction")]

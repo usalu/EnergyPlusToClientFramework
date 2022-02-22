@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
     [Description("Thermal performance parameters for a hybrid photovoltaic-thermal (PVT) solar coll" +
                  "ector.")]
     [JsonObject("SolarCollectorPerformance:PhotovoltaicThermal:Simple")]
-    public class SolarCollectorPerformance_PhotovoltaicThermal_Simple : BHoMObject
+    public class SolarCollectorPerformance_PhotovoltaicThermal_Simple : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -18,7 +18,7 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
         
 
         [JsonProperty("thermal_conversion_efficiency_input_mode_type")]
-        public EmptyNoYes ThermalConversionEfficiencyInputModeType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public SolarCollectorPerformance_PhotovoltaicThermal_Simple_ThermalConversionEfficiencyInputModeType ThermalConversionEfficiencyInputModeType { get; set; } = (SolarCollectorPerformance_PhotovoltaicThermal_Simple_ThermalConversionEfficiencyInputModeType)Enum.Parse(typeof(SolarCollectorPerformance_PhotovoltaicThermal_Simple_ThermalConversionEfficiencyInputModeType), "Fixed");
         
 
         [Description("Efficiency = (thermal power generated [W])/(incident solar[W])")]

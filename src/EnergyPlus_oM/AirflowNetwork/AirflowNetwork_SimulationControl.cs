@@ -68,29 +68,29 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     
     [Description("This object defines the global parameters used in an Airflow Network simulation.")]
     [JsonObject("AirflowNetwork:SimulationControl")]
-    public class AirflowNetwork_SimulationControl : BHoMObject
+    public class AirflowNetwork_SimulationControl : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"NoMultizoneOrDistribution: Only perform Simple calculations (objects ZoneInfiltration:*, ZoneVentilation:*, ZoneMixing, ZoneCrossMixing, ZoneRefrigerationDoorMixing, ZoneAirBalance:OutdoorAir, ZoneEarthtube, ZoneThermalChimney, and ZoneCoolTower:Shower); MultizoneWithoutDistribution: Use AirflowNetwork objects to simulate multizone Airflows driven by wind during simulation time, and objects of ZoneInfiltration:*, ZoneVentilation:*, ZoneMixing, ZoneCrossMixing ZoneRefrigerationDoorMixing, ZoneAirBalance:OutdoorAir, ZoneEarthtube, ZoneThermalChimney, and ZoneCoolTower:Shower are ignored; MultizoneWithDistributionOnlyDuringFanOperation: Perform distribution system calculations during system fan on time and Simple calculations during system Fan off time; MultizoneWithDistribution: Perform distribution system calculations during system fan on time and multizone Airflow driven by wind during system fan off time.")]
 [JsonProperty("airflownetwork_control")]
-public EmptyNoYes AirflownetworkControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoMultizoneOrDistribution");
+public AirflowNetwork_SimulationControl_AirflownetworkControl AirflownetworkControl { get; set; } = (AirflowNetwork_SimulationControl_AirflownetworkControl)Enum.Parse(typeof(AirflowNetwork_SimulationControl_AirflownetworkControl), "NoMultizoneOrDistribution");
         
 
 [Description(@"Input: User must enter AirflowNetwork:MultiZone:WindPressureCoefficientArray, AirflowNetwork:MultiZone:ExternalNode, and AirflowNetwork:MultiZone:WindPressureCoefficientValues objects. SurfaceAverageCalculation: used only for rectangular buildings. If SurfaceAverageCalculation is selected, AirflowNetwork:MultiZone:WindPressureCoefficientArray, AirflowNetwork:MultiZone:ExternalNode, and AirflowNetwork:MultiZone:WindPressureCoefficientValues objects are not used.")]
 [JsonProperty("wind_pressure_coefficient_type")]
-public EmptyNoYes WindPressureCoefficientType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SurfaceAverageCalculation");
+public AirflowNetwork_SimulationControl_WindPressureCoefficientType WindPressureCoefficientType { get; set; } = (AirflowNetwork_SimulationControl_WindPressureCoefficientType)Enum.Parse(typeof(AirflowNetwork_SimulationControl_WindPressureCoefficientType), "SurfaceAverageCalculation");
         
 
 [Description(@"If ExternalNode is selected, the height given in the AirflowNetwork:MultiZone:ExternalNode object will be used. If OpeningHeight is selected, the surface opening height (centroid) will be used to calculate local wind pressure This field is ignored when the choice of the Wind Pressure Coefficient Type field is SurfaceAverageCalculation.")]
 [JsonProperty("height_selection_for_local_wind_pressure_calculation")]
-public EmptyNoYes HeightSelectionForLocalWindPressureCalculation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "OpeningHeight");
+public AirflowNetwork_SimulationControl_HeightSelectionForLocalWindPressureCalculation HeightSelectionForLocalWindPressureCalculation { get; set; } = (AirflowNetwork_SimulationControl_HeightSelectionForLocalWindPressureCalculation)Enum.Parse(typeof(AirflowNetwork_SimulationControl_HeightSelectionForLocalWindPressureCalculation), "OpeningHeight");
         
 
 [Description("Used only if Wind Pressure Coefficient Type = SurfaceAverageCalculation, otherwis" +
     "e this field may be left blank.")]
 [JsonProperty("building_type")]
-public EmptyNoYes BuildingType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "LowRise");
+public AirflowNetwork_SimulationControl_BuildingType BuildingType { get; set; } = (AirflowNetwork_SimulationControl_BuildingType)Enum.Parse(typeof(AirflowNetwork_SimulationControl_BuildingType), "LowRise");
         
 
 [Description("Determines the maximum number of iterations used to converge on a solution. If th" +
@@ -100,7 +100,7 @@ public System.Nullable<float> MaximumNumberOfIterations { get; set; } = (System.
         
 
 [JsonProperty("initialization_type")]
-public EmptyNoYes InitializationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ZeroNodePressures");
+public AirflowNetwork_SimulationControl_InitializationType InitializationType { get; set; } = (AirflowNetwork_SimulationControl_InitializationType)Enum.Parse(typeof(AirflowNetwork_SimulationControl_InitializationType), "ZeroNodePressures");
         
 
 [Description(@"This tolerance is defined as the absolute value of the sum of the mass Flow Rates divided by the sum of the absolute value of the mass Flow Rates. The mass Flow Rates described here refer to the mass Flow Rates at all Nodes in the AirflowNetwork model. The solution converges when both this tolerance and the tolerance in the next field (Absolute Airflow Convergence Tolerance) are satisfied.")]
@@ -137,7 +137,7 @@ public EmptyNoYes HeightDependenceOfExternalNodeTemperature { get; set; } = (Emp
 
 [Description("Select the solver to use for the pressure network solution")]
 [JsonProperty("solver")]
-public EmptyNoYes Solver { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SkylineLU");
+public AirflowNetwork_SimulationControl_Solver Solver { get; set; } = (AirflowNetwork_SimulationControl_Solver)Enum.Parse(typeof(AirflowNetwork_SimulationControl_Solver), "SkylineLU");
         
 
 [Description(@"Set this input to Yes to have zone equipment that are currently unsupported in the AirflowNetwork model allowed in the simulation if present. Setting this field to Yes, allows the following equipments to be modeled along an AirflowNetwork model: ZoneHVAC:Dehumidifier, ZoneHVAC:EnergyRecoveryVentilator, WaterHeater:HeatPump:*.")]

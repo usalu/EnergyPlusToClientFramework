@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
 {
     [Description(@"Flat plate water solar collector (single glazed, unglazed, or evacuated tube). Thermal and optical properties are taken from the referenced SolarCollectorPerformance:FlatPlate object. Collector tilt, azimuth, and gross area are taken from the referenced building surface or shading surface. The collector surface participates normally in all shading calculations.")]
     [JsonObject("SolarCollector:FlatPlate:Water")]
-    public class SolarCollector_FlatPlate_Water : BHoMObject
+    public class SolarCollector_FlatPlate_Water : BHoMObject, IEnergyPlusClass
     {
         
 

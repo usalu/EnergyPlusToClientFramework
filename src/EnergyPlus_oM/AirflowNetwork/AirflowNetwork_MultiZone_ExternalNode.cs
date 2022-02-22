@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines outdoor environmental conditions outside of the building.")]
     [JsonObject("AirflowNetwork:MultiZone:ExternalNode")]
-    public class AirflowNetwork_MultiZone_ExternalNode : BHoMObject
+    public class AirflowNetwork_MultiZone_ExternalNode : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -35,6 +35,6 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
                      "and the surface azimuth Specify Absolute to use the wind direction angle directl" +
                      "y")]
         [JsonProperty("wind_angle_type")]
-        public EmptyNoYes WindAngleType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Absolute");
+        public AirflowNetwork_MultiZone_ExternalNode_WindAngleType WindAngleType { get; set; } = (AirflowNetwork_MultiZone_ExternalNode_WindAngleType)Enum.Parse(typeof(AirflowNetwork_MultiZone_ExternalNode_WindAngleType), "Absolute");
     }
 }

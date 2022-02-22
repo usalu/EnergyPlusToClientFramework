@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
                  "ng) and heating coil (gas, electric, hot water, or steam). Identical to AirLoopH" +
                  "VAC:UnitaryHeatOnly.")]
     [JsonObject("AirLoopHVAC:Unitary:Furnace:HeatOnly")]
-    public class AirLoopHVAC_Unitary_Furnace_HeatOnly : BHoMObject
+    public class AirLoopHVAC_Unitary_Furnace_HeatOnly : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -48,7 +48,7 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
         [Description("Fan:ConstantVolume only works with continuous fan operating mode (i.e. fan operat" +
                      "ing mode schedule values are greater than 0).")]
         [JsonProperty("supply_fan_object_type")]
-        public EmptyNoYes SupplyFanObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_Unitary_Furnace_HeatOnly_SupplyFanObjectType SupplyFanObjectType { get; set; } = (AirLoopHVAC_Unitary_Furnace_HeatOnly_SupplyFanObjectType)Enum.Parse(typeof(AirLoopHVAC_Unitary_Furnace_HeatOnly_SupplyFanObjectType), "FanConstantVolume");
         
 
         [JsonProperty("supply_fan_name")]
@@ -56,12 +56,12 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
         
 
         [JsonProperty("fan_placement")]
-        public EmptyNoYes FanPlacement { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "BlowThrough");
+        public AirLoopHVAC_Unitary_Furnace_HeatOnly_FanPlacement FanPlacement { get; set; } = (AirLoopHVAC_Unitary_Furnace_HeatOnly_FanPlacement)Enum.Parse(typeof(AirLoopHVAC_Unitary_Furnace_HeatOnly_FanPlacement), "BlowThrough");
         
 
         [Description("works with gas, electric, hot water and steam heating coils")]
         [JsonProperty("heating_coil_object_type")]
-        public EmptyNoYes HeatingCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_Unitary_Furnace_HeatOnly_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (AirLoopHVAC_Unitary_Furnace_HeatOnly_HeatingCoilObjectType)Enum.Parse(typeof(AirLoopHVAC_Unitary_Furnace_HeatOnly_HeatingCoilObjectType), "CoilHeatingElectric");
         
 
         [JsonProperty("heating_coil_name")]

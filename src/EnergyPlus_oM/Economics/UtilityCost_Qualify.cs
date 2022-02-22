@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     [Description(@"The qualify object allows only tariffs to be selected based on limits which may apply such as maximum or minimum demand requirements. If the results of the simulation fall outside of the range of qualifications, that tariff is still calculated but the ""Qualified"" entry will say ""No"" and the UtilityCost:Qualify that caused its exclusion is shown. Multiple UtilityCost:Qualify objects can appear for the same tariff and they can be based on any variable.")]
     [JsonObject("UtilityCost:Qualify")]
-    public class UtilityCost_Qualify : BHoMObject
+    public class UtilityCost_Qualify : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -29,7 +29,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
         
 
         [JsonProperty("qualify_type")]
-        public EmptyNoYes QualifyType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Maximum");
+        public UtilityCost_Qualify_QualifyType QualifyType { get; set; } = (UtilityCost_Qualify_QualifyType)Enum.Parse(typeof(UtilityCost_Qualify_QualifyType), "Maximum");
         
 
         [Description(@"The minimum or maximum value for the qualify. If the variable has values that are less than this value when the qualify type is minimum then the tariff may be disqualified. If the variable has values that are greater than this value when the qualify type is maximum then the tariff may be disqualified.")]
@@ -40,12 +40,12 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
         [Description("If the UtilityCost:Qualify only applies to a season enter the season name. If thi" +
                      "s field is left blank it defaults to Annual.")]
         [JsonProperty("season")]
-        public EmptyNoYes Season { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public UtilityCost_Qualify_Season Season { get; set; } = (UtilityCost_Qualify_Season)Enum.Parse(typeof(UtilityCost_Qualify_Season), "Annual");
         
 
         [Description(@"Uses the number in Number of Months in one of two different ways depending on the Threshold  Test. If the Threshold Test is set to Count then the qualification is based on the count of the total number of months per year. If the Threshold Test is set to consecutive then the qualification is based on a consecutive number of months.")]
         [JsonProperty("threshold_test")]
-        public EmptyNoYes ThresholdTest { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Consecutive");
+        public UtilityCost_Qualify_ThresholdTest ThresholdTest { get; set; } = (UtilityCost_Qualify_ThresholdTest)Enum.Parse(typeof(UtilityCost_Qualify_ThresholdTest), "Consecutive");
         
 
         [Description(@"A number from 1 to 12. If no value entered 12 is assumed when the qualify type is minimum and 1 when the qualify type is maximum. This is the number of months that the threshold test applies to determine if the rate qualifies or not. If the season is less than 12 months (if it is not annual) then the value is automatically reduced to the number of months of the season.")]

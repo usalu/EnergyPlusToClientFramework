@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
                  "ding surface (wall, ceiling, or floor). Controlled by varying the hot or chilled" +
                  " water temperature circulating through the unit.")]
     [JsonObject("ZoneHVAC:LowTemperatureRadiant:ConstantFlow")]
-    public class ZoneHVAC_LowTemperatureRadiant_ConstantFlow : BHoMObject
+    public class ZoneHVAC_LowTemperatureRadiant_ConstantFlow : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -111,7 +111,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
         
 
         [JsonProperty("number_of_circuits")]
-        public EmptyNoYes NumberOfCircuits { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "OnePerSurface");
+        public ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits NumberOfCircuits { get; set; } = (ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits), "OnePerSurface");
         
 
         [JsonProperty("circuit_length")]

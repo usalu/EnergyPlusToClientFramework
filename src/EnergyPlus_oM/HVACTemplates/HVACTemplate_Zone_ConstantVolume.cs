@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("Zone terminal unit, constant volume, reheat optional. Referenced schedules must b" +
                  "e defined elsewhere in the idf.")]
     [JsonObject("HVACTemplate:Zone:ConstantVolume")]
-    public class HVACTemplate_Zone_ConstantVolume : BHoMObject
+    public class HVACTemplate_Zone_ConstantVolume : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -47,7 +47,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"Flow/Person, Flow/Zone, Flow/Area, Sum, and Maximum use the values in the next three fields: Outdoor Air Flow Rate per Person, Outdoor Air Flow Rate per Zone Floor Area, and Outdoor Air Flow Rate per Zone. DetailedSpecification ignores these three Outdoor Air Flow Rate fields and instead references design specification objects named in the fields Design Specification Outdoor Air Object Name and Design Specification Zone Air Distribution Object Name.")]
         [JsonProperty("outdoor_air_method")]
-        public EmptyNoYes OutdoorAirMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Flow/Person");
+        public HVACTemplate_Zone_ConstantVolume_OutdoorAirMethod OutdoorAirMethod { get; set; } = (HVACTemplate_Zone_ConstantVolume_OutdoorAirMethod)Enum.Parse(typeof(HVACTemplate_Zone_ConstantVolume_OutdoorAirMethod), "Empty");
         
 
         [Description("Default 0.00944 is 20 cfm per person This input is used if the field Outdoor Air " +
@@ -77,7 +77,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("reheat_coil_type")]
-        public EmptyNoYes ReheatCoilType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_Zone_ConstantVolume_ReheatCoilType ReheatCoilType { get; set; } = (HVACTemplate_Zone_ConstantVolume_ReheatCoilType)Enum.Parse(typeof(HVACTemplate_Zone_ConstantVolume_ReheatCoilType), "None");
         
 
         [Description("If blank, always on")]
@@ -103,7 +103,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("baseboard_heating_type")]
-        public EmptyNoYes BaseboardHeatingType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public HVACTemplate_Zone_ConstantVolume_BaseboardHeatingType BaseboardHeatingType { get; set; } = (HVACTemplate_Zone_ConstantVolume_BaseboardHeatingType)Enum.Parse(typeof(HVACTemplate_Zone_ConstantVolume_BaseboardHeatingType), "None");
         
 
         [Description("If blank, always on")]
@@ -117,7 +117,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"SupplyAirTemperature = use the value from Zone Cooling Design Supply Air Temperature TemperatureDifference = use the value from Zone Cooling Design Supply Air Temperature Difference SystemSupplyAirTemperature = use the value from HVACTemplate:System:VAV Cooling Coil Design Setpoint")]
         [JsonProperty("zone_cooling_design_supply_air_temperature_input_method")]
-        public EmptyNoYes ZoneCoolingDesignSupplyAirTemperatureInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SystemSupplyAirTemperature");
+        public HVACTemplate_Zone_ConstantVolume_ZoneCoolingDesignSupplyAirTemperatureInputMethod ZoneCoolingDesignSupplyAirTemperatureInputMethod { get; set; } = (HVACTemplate_Zone_ConstantVolume_ZoneCoolingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(HVACTemplate_Zone_ConstantVolume_ZoneCoolingDesignSupplyAirTemperatureInputMethod), "SystemSupplyAirTemperature");
         
 
         [Description("Zone Cooling Design Supply Air Temperature is only used when Zone Cooling Design " +
@@ -135,7 +135,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "ure TemperatureDifference = use the value from Zone Heating Design Supply Air Te" +
                      "mperature Difference")]
         [JsonProperty("zone_heating_design_supply_air_temperature_input_method")]
-        public EmptyNoYes ZoneHeatingDesignSupplyAirTemperatureInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SupplyAirTemperature");
+        public HVACTemplate_Zone_ConstantVolume_ZoneHeatingDesignSupplyAirTemperatureInputMethod ZoneHeatingDesignSupplyAirTemperatureInputMethod { get; set; } = (HVACTemplate_Zone_ConstantVolume_ZoneHeatingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(HVACTemplate_Zone_ConstantVolume_ZoneHeatingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 
         [Description("Zone Heating Design Supply Air Temperature is only used when Zone Heating Design " +

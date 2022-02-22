@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     [Description("Sets internal generic contaminant gains and sinks in a zone with constant values." +
                  "")]
     [JsonObject("ZoneContaminantSourceAndSink:Generic:Constant")]
-    public class ZoneContaminantSourceAndSink_Generic_Constant : BHoMObject
+    public class ZoneContaminantSourceAndSink_Generic_Constant : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description(@"Object provides information about the building and its operating conditions Monthly Average Temperature SetPoint fields specify the average indoor building set point temperatures for each month of the year. These fields are useful for simulating a building that is not temperature controlled for some of the year. In such a case, the average indoor set point temperatures can be obtained by first running the model in EnergyPlus with an insulated floor boundary condition, and then using the resulting monthly average zone temperatures in these fields.")]
     [JsonObject("GroundHeatTransfer:Slab:BldgProps")]
-    public class GroundHeatTransfer_Slab_BldgProps : BHoMObject
+    public class GroundHeatTransfer_Slab_BldgProps : BHoMObject, IEnergyPlusClass
     {
         
 

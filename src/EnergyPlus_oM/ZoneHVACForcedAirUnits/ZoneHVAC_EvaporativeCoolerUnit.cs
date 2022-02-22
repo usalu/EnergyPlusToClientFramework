@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     [Description("Zone evaporative cooler. Forced-convection cooling-only unit with supply fan, 100" +
                  "% outdoor air supply. Optional relief exhaust node")]
     [JsonObject("ZoneHVAC:EvaporativeCoolerUnit")]
-    public class ZoneHVAC_EvaporativeCoolerUnit : BHoMObject
+    public class ZoneHVAC_EvaporativeCoolerUnit : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -40,7 +40,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("supply_air_fan_object_type")]
-        public EmptyNoYes SupplyAirFanObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_EvaporativeCoolerUnit_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_EvaporativeCoolerUnit_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_EvaporativeCoolerUnit_SupplyAirFanObjectType), "FanComponentModel");
         
 
         [JsonProperty("supply_air_fan_name")]
@@ -52,11 +52,11 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("fan_placement")]
-        public EmptyNoYes FanPlacement { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_EvaporativeCoolerUnit_FanPlacement FanPlacement { get; set; } = (ZoneHVAC_EvaporativeCoolerUnit_FanPlacement)Enum.Parse(typeof(ZoneHVAC_EvaporativeCoolerUnit_FanPlacement), "BlowThrough");
         
 
         [JsonProperty("cooler_unit_control_method")]
-        public EmptyNoYes CoolerUnitControlMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_EvaporativeCoolerUnit_CoolerUnitControlMethod CoolerUnitControlMethod { get; set; } = (ZoneHVAC_EvaporativeCoolerUnit_CoolerUnitControlMethod)Enum.Parse(typeof(ZoneHVAC_EvaporativeCoolerUnit_CoolerUnitControlMethod), "ZoneCoolingLoadOnOffCycling");
         
 
         [Description("used for ZoneTemperatureDeadbandOnOffCycling hystersis range for thermostatic con" +
@@ -71,7 +71,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("first_evaporative_cooler_object_type")]
-        public EmptyNoYes FirstEvaporativeCoolerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_EvaporativeCoolerUnit_FirstEvaporativeCoolerObjectType FirstEvaporativeCoolerObjectType { get; set; } = (ZoneHVAC_EvaporativeCoolerUnit_FirstEvaporativeCoolerObjectType)Enum.Parse(typeof(ZoneHVAC_EvaporativeCoolerUnit_FirstEvaporativeCoolerObjectType), "EvaporativeCoolerDirectCelDekPad");
         
 
         [JsonProperty("first_evaporative_cooler_object_name")]
@@ -81,7 +81,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         [Description("optional, used for direct/indirect configurations second cooler must be immediate" +
                      "ly downstream of first cooler, if present")]
         [JsonProperty("second_evaporative_cooler_object_type")]
-        public EmptyNoYes SecondEvaporativeCoolerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_EvaporativeCoolerUnit_SecondEvaporativeCoolerObjectType SecondEvaporativeCoolerObjectType { get; set; } = (ZoneHVAC_EvaporativeCoolerUnit_SecondEvaporativeCoolerObjectType)Enum.Parse(typeof(ZoneHVAC_EvaporativeCoolerUnit_SecondEvaporativeCoolerObjectType), "EvaporativeCoolerDirectCelDekPad");
         
 
         [Description("optional, used for direct/indirect configurations")]

@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("This object defines the local environment properties of a zone object. A correspo" +
                  "nding outdoor air node should be defined and linked to the zone object.")]
     [JsonObject("ZoneProperty:LocalEnvironment")]
-    public class ZoneProperty_LocalEnvironment : BHoMObject
+    public class ZoneProperty_LocalEnvironment : BHoMObject, IEnergyPlusClass
     {
         
 

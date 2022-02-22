@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for simplified entry of Windows.")]
     [JsonObject("Window")]
-    public class Window : BHoMObject
+    public class Window : BHoMObject, IEnergyPlusClass
     {
         
 

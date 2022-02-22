@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
                  "used\" by drawing from the \"Use Side\" of the water tank. The tank is indirectly c" +
                  "harged by circulating cold water through the \"Source Side\" of the water tank.")]
     [JsonObject("ThermalStorage:ChilledWater:Mixed")]
-    public class ThermalStorage_ChilledWater_Mixed : BHoMObject
+    public class ThermalStorage_ChilledWater_Mixed : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -35,7 +35,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("ambient_temperature_indicator")]
-        public EmptyNoYes AmbientTemperatureIndicator { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ThermalStorage_ChilledWater_Mixed_AmbientTemperatureIndicator AmbientTemperatureIndicator { get; set; } = (ThermalStorage_ChilledWater_Mixed_AmbientTemperatureIndicator)Enum.Parse(typeof(ThermalStorage_ChilledWater_Mixed_AmbientTemperatureIndicator), "Outdoors");
         
 
         [JsonProperty("ambient_temperature_schedule_name")]

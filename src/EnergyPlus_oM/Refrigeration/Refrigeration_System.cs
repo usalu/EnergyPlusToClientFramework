@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
                  "ith other objects to define the refrigeration load(s), the compressor(s), and th" +
                  "e condenser.")]
     [JsonObject("Refrigeration:System")]
-    public class Refrigeration_System : BHoMObject
+    public class Refrigeration_System : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -43,7 +43,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         
 
         [JsonProperty("suction_temperature_control_type")]
-        public EmptyNoYes SuctionTemperatureControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ConstantSuctionTemperature");
+        public Refrigeration_System_SuctionTemperatureControlType SuctionTemperatureControlType { get; set; } = (Refrigeration_System_SuctionTemperatureControlType)Enum.Parse(typeof(Refrigeration_System_SuctionTemperatureControlType), "ConstantSuctionTemperature");
         
 
         [Description("Optional Field Recipient of refrigeration capacity, that is receives cool liquid " +
@@ -80,7 +80,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         
 
         [JsonProperty("intercooler_type")]
-        public EmptyNoYes IntercoolerType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public Refrigeration_System_IntercoolerType IntercoolerType { get; set; } = (Refrigeration_System_IntercoolerType)Enum.Parse(typeof(Refrigeration_System_IntercoolerType), "None");
         
 
         [JsonProperty("shell_and_coil_intercooler_effectiveness")]

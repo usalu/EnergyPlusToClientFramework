@@ -11,12 +11,12 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
                  "medium-temperature loads or a two stage system with both medium- and low-tempera" +
                  "ture loads.")]
     [JsonObject("Refrigeration:TranscriticalSystem")]
-    public class Refrigeration_TranscriticalSystem : BHoMObject
+    public class Refrigeration_TranscriticalSystem : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("system_type")]
-        public EmptyNoYes SystemType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Refrigeration_TranscriticalSystem_SystemType SystemType { get; set; } = (Refrigeration_TranscriticalSystem_SystemType)Enum.Parse(typeof(Refrigeration_TranscriticalSystem_SystemType), "SingleStage");
         
 
         [Description(@"Enter the name of a Refrigeration:Case or Refrigeration:WalkIn object. If there is more than one refrigerated case or walk-in served by this system, enter the name of a Refrigeration:CaseAndWalkInList object. Only medium temperature cases and walk-ins served directly by the system should be included in this list.")]

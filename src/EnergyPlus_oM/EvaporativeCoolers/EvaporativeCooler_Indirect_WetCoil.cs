@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.EvaporativeCoolers
     [Description("Indirect evaporative cooler with wetted coil, recirculating water pump, and secon" +
                  "dary air fan. This model has no controls other than its availability schedule.")]
     [JsonObject("EvaporativeCooler:Indirect:WetCoil")]
-    public class EvaporativeCooler_Indirect_WetCoil : BHoMObject
+    public class EvaporativeCooler_Indirect_WetCoil : BHoMObject, IEnergyPlusClass
     {
         
 

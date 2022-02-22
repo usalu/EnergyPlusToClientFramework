@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
                  "ues of [wavelength, spectrum] for wavelengths covering the solar (0.25 to 2.5 mi" +
                  "crons) or visible spectrum (0.38 to 0.78 microns)")]
     [JsonObject("Site:SpectrumData")]
-    public class Site_SpectrumData : BHoMObject
+    public class Site_SpectrumData : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("spectrum_data_type")]
-        public EmptyNoYes SpectrumDataType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Site_SpectrumData_SpectrumDataType SpectrumDataType { get; set; } = (Site_SpectrumData_SpectrumDataType)Enum.Parse(typeof(Site_SpectrumData_SpectrumDataType), "Solar");
         
 
         [JsonProperty("wavelength")]

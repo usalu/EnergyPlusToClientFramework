@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     [Description(@"Hybrid Unitary HVAC. A black box model for multi-mode packaged forced air equipment. Independent variables include outdoor air conditions and indoor air conditions. Controlled inputs include operating mode, supply air flow rate, and outdoor air faction. Emperical lookup tables are required to map supply air temperature supply air humidity, electricity use, fuel uses, water use, fan electricity use, and external static pressure as a function of each indpednent varaible and each controlled input. In each timestep the model will choose one or more combinations of settings for mode, supply air flow rate, outdoor air faction, and part runtime fraction so as to satisfy zone requests for sensible cooling, heating, ventilation, and/or dehumidification with the least resource consumption. Equipment in this class may consume electricity, water, and up to two additional fuel types.")]
     [JsonObject("ZoneHVAC:HybridUnitaryHVAC")]
-    public class ZoneHVAC_HybridUnitaryHVAC : BHoMObject
+    public class ZoneHVAC_HybridUnitaryHVAC : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -53,7 +53,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description(@"Select the method that will be used to choose operating mode(s), supply air flow rate(s), outdoor air fraction(s) and part runtime fraction(s) in each time step. ""Automatic"" = chooses controlled inputs and part runtime fraction(s) to minimize resource use within each time step while best satisfying requested sensible cooling, dehumidification and ventilation, and subject to constraints. ""User Defined"" = EMS will be used to choose controlled inputs and part runtime fraction(s) in each time step. If this field is blank, default to ""Automatic"".")]
         [JsonProperty("method_to_choose_controlled_inputs_and_part_runtime_fraction")]
-        public EmptyNoYes MethodToChooseControlledInputsAndPartRuntimeFraction { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Automatic");
+        public ZoneHVAC_HybridUnitaryHVAC_MethodToChooseControlledInputsAndPartRuntimeFraction MethodToChooseControlledInputsAndPartRuntimeFraction { get; set; } = (ZoneHVAC_HybridUnitaryHVAC_MethodToChooseControlledInputsAndPartRuntimeFraction)Enum.Parse(typeof(ZoneHVAC_HybridUnitaryHVAC_MethodToChooseControlledInputsAndPartRuntimeFraction), "Automatic");
         
 
         [Description("Return air node for the hybrid unit must be a zone exhaust node.")]
@@ -94,7 +94,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description("This field specifies where to add the fan heat in the air stream.")]
         [JsonProperty("fan_heat_gain_location")]
-        public EmptyNoYes FanHeatGainLocation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SupplyAirStream");
+        public ZoneHVAC_HybridUnitaryHVAC_FanHeatGainLocation FanHeatGainLocation { get; set; } = (ZoneHVAC_HybridUnitaryHVAC_FanHeatGainLocation)Enum.Parse(typeof(ZoneHVAC_HybridUnitaryHVAC_FanHeatGainLocation), "SupplyAirStream");
         
 
         [Description("0.0 means no fan heat is added to the air stream, 1.0 means all fan heat is added" +
@@ -118,26 +118,26 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         [Description("Select the fuel type associated with field: \"System Electric Power Lookup Table\" " +
                      "in each mode. If this field is blank, default first fuel type = Electricity.")]
         [JsonProperty("first_fuel_type")]
-        public EmptyNoYes FirstFuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Electricity");
+        public ZoneHVAC_HybridUnitaryHVAC_FirstFuelType FirstFuelType { get; set; } = (ZoneHVAC_HybridUnitaryHVAC_FirstFuelType)Enum.Parse(typeof(ZoneHVAC_HybridUnitaryHVAC_FirstFuelType), "Electricity");
         
 
         [Description("Select the fuel type associated with field: \"System Second Fuel Consumption Looku" +
                      "p Table\" in each mode. If this field is blank, default second fuel type = None.")]
         [JsonProperty("second_fuel_type")]
-        public EmptyNoYes SecondFuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public ZoneHVAC_HybridUnitaryHVAC_SecondFuelType SecondFuelType { get; set; } = (ZoneHVAC_HybridUnitaryHVAC_SecondFuelType)Enum.Parse(typeof(ZoneHVAC_HybridUnitaryHVAC_SecondFuelType), "None");
         
 
         [Description("Select the fuel type associated with field: \"System Third Fuel Consumption Lookup" +
                      " Table\" in each mode. If this field is blank, default third fuel type = None.")]
         [JsonProperty("third_fuel_type")]
-        public EmptyNoYes ThirdFuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public ZoneHVAC_HybridUnitaryHVAC_ThirdFuelType ThirdFuelType { get; set; } = (ZoneHVAC_HybridUnitaryHVAC_ThirdFuelType)Enum.Parse(typeof(ZoneHVAC_HybridUnitaryHVAC_ThirdFuelType), "None");
         
 
         [Description("In each time step, controlled variables will be chosen to minimize the selection " +
                      "in this field, subject to constraints. If this field is blank, the objective fun" +
                      "ction will minimize electricity use.")]
         [JsonProperty("objective_function_to_minimize")]
-        public EmptyNoYes ObjectiveFunctionToMinimize { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Electricity Use");
+        public ZoneHVAC_HybridUnitaryHVAC_ObjectiveFunctionToMinimize ObjectiveFunctionToMinimize { get; set; } = (ZoneHVAC_HybridUnitaryHVAC_ObjectiveFunctionToMinimize)Enum.Parse(typeof(ZoneHVAC_HybridUnitaryHVAC_ObjectiveFunctionToMinimize), "Empty");
         
 
         [Description(@"Enter the name of a DesignSpecification:OutdoorAir object. Information in that object will be used to compute the minimum outdoor air flow rate in each time step. If this field is blank, the system may still supply outdoor air, if it is capable as described by lookup tables, when doing so is the most efficient way to satisfy other constraints.")]

@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Initiates search of the Window data file for a window called Name.")]
     [JsonObject("Construction:WindowDataFile")]
-    public class Construction_WindowDataFile : BHoMObject
+    public class Construction_WindowDataFile : BHoMObject, IEnergyPlusClass
     {
         
 

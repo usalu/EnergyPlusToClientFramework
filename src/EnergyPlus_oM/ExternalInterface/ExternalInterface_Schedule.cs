@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
     [Description("A ExternalInterface:Schedule contains only one value, which is used during the wa" +
                  "rm-up period and the system sizing.")]
     [JsonObject("ExternalInterface:Schedule")]
-    public class ExternalInterface_Schedule : BHoMObject
+    public class ExternalInterface_Schedule : BHoMObject, IEnergyPlusClass
     {
         
 

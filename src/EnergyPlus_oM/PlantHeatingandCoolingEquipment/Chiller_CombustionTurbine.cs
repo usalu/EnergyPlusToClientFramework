@@ -11,12 +11,12 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
                  "catalog data to third order polynomial equations. Three sets of coefficients are" +
                  " required.")]
     [JsonObject("Chiller:CombustionTurbine")]
-    public class Chiller_CombustionTurbine : BHoMObject
+    public class Chiller_CombustionTurbine : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("condenser_type")]
-        public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AirCooled");
+        public Chiller_CombustionTurbine_CondenserType CondenserType { get; set; } = (Chiller_CombustionTurbine_CondenserType)Enum.Parse(typeof(Chiller_CombustionTurbine_CondenserType), "AirCooled");
         
 
         [JsonProperty("nominal_capacity")]
@@ -230,11 +230,11 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 
         [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
         [JsonProperty("chiller_flow_mode")]
-        public EmptyNoYes ChillerFlowMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NotModulated");
+        public Chiller_CombustionTurbine_ChillerFlowMode ChillerFlowMode { get; set; } = (Chiller_CombustionTurbine_ChillerFlowMode)Enum.Parse(typeof(Chiller_CombustionTurbine_ChillerFlowMode), "NotModulated");
         
 
         [JsonProperty("fuel_type")]
-        public EmptyNoYes FuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NaturalGas");
+        public Chiller_CombustionTurbine_FuelType FuelType { get; set; } = (Chiller_CombustionTurbine_FuelType)Enum.Parse(typeof(Chiller_CombustionTurbine_FuelType), "NaturalGas");
         
 
         [JsonProperty("heat_recovery_maximum_temperature")]

@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
                  "s a single pipe leg positioned axially in the local z-direction, at a given x, y" +
                  " location in the domain")]
     [JsonObject("PipingSystem:Underground:PipeSegment")]
-    public class PipingSystem_Underground_PipeSegment : BHoMObject
+    public class PipingSystem_Underground_PipeSegment : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -29,6 +29,6 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         [Description("This segment will be simulated such that the flow is in the selected direction. T" +
                      "his can allow for detailed analysis of circuiting effects in a single domain.")]
         [JsonProperty("flow_direction")]
-        public EmptyNoYes FlowDirection { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PipingSystem_Underground_PipeSegment_FlowDirection FlowDirection { get; set; } = (PipingSystem_Underground_PipeSegment_FlowDirection)Enum.Parse(typeof(PipingSystem_Underground_PipeSegment_FlowDirection), "DecreasingZ");
     }
 }

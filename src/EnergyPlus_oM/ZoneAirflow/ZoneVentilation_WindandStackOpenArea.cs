@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 {
     [Description(@"This object is specified as natural ventilation driven by wind and stack effect only: Ventilation Wind = Cw * Opening Area * Schedule * WindSpd Ventilation Stack = Cd * Opening Area * Schedule * SQRT(2*g*DH*(|(Tzone-Todb)|/Tzone)) Total Ventilation = SQRT((Ventilation Wind)^2 + (Ventilation Stack)^2)")]
     [JsonObject("ZoneVentilation:WindandStackOpenArea")]
-    public class ZoneVentilation_WindandStackOpenArea : BHoMObject
+    public class ZoneVentilation_WindandStackOpenArea : BHoMObject, IEnergyPlusClass
     {
         
 

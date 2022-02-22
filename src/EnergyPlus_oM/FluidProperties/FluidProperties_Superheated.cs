@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     [Description("fluid properties for the superheated region")]
     [JsonObject("FluidProperties:Superheated")]
-    public class FluidProperties_Superheated : BHoMObject
+    public class FluidProperties_Superheated : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -17,7 +17,7 @@ namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 
         [Description("Enthalpy Units are J/kg Density Units are kg/m3")]
         [JsonProperty("fluid_property_type")]
-        public EmptyNoYes FluidPropertyType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public FluidProperties_Superheated_FluidPropertyType FluidPropertyType { get; set; } = (FluidProperties_Superheated_FluidPropertyType)Enum.Parse(typeof(FluidProperties_Superheated_FluidPropertyType), "Density");
         
 
         [Description("Enter the name of a FluidProperties:Temperatures object.")]

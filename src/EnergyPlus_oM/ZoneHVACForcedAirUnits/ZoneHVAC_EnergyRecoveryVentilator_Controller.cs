@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     [Description("This controller is used exclusively by the ZoneHVAC:EnergyRecoveryVentilator obje" +
                  "ct to allow economizer (free cooling) operation when possible.")]
     [JsonObject("ZoneHVAC:EnergyRecoveryVentilator:Controller")]
-    public class ZoneHVAC_EnergyRecoveryVentilator_Controller : BHoMObject
+    public class ZoneHVAC_EnergyRecoveryVentilator_Controller : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -45,11 +45,11 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("exhaust_air_temperature_limit")]
-        public EmptyNoYes ExhaustAirTemperatureLimit { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoExhaustAirTemperatureLimit");
+        public ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirTemperatureLimit ExhaustAirTemperatureLimit { get; set; } = (ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirTemperatureLimit)Enum.Parse(typeof(ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirTemperatureLimit), "NoExhaustAirTemperatureLimit");
         
 
         [JsonProperty("exhaust_air_enthalpy_limit")]
-        public EmptyNoYes ExhaustAirEnthalpyLimit { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoExhaustAirEnthalpyLimit");
+        public ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirEnthalpyLimit ExhaustAirEnthalpyLimit { get; set; } = (ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirEnthalpyLimit)Enum.Parse(typeof(ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirEnthalpyLimit), "NoExhaustAirEnthalpyLimit");
         
 
         [Description("Schedule values greater than 0 indicate economizer operation is active. This sche" +

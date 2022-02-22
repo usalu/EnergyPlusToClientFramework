@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
     [Description("Used to model room air with two temperature gradients in the vertical direction. " +
                  "Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
     [JsonObject("RoomAir:TemperaturePattern:TwoGradient")]
-    public class RoomAir_TemperaturePattern_TwoGradient : BHoMObject
+    public class RoomAir_TemperaturePattern_TwoGradient : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -47,7 +47,7 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
         
 
         [JsonProperty("gradient_interpolation_mode")]
-        public EmptyNoYes GradientInterpolationMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public RoomAir_TemperaturePattern_TwoGradient_GradientInterpolationMode GradientInterpolationMode { get; set; } = (RoomAir_TemperaturePattern_TwoGradient_GradientInterpolationMode)Enum.Parse(typeof(RoomAir_TemperaturePattern_TwoGradient_GradientInterpolationMode), "OutdoorDryBulbTemperature");
         
 
         [JsonProperty("upper_temperature_bound")]

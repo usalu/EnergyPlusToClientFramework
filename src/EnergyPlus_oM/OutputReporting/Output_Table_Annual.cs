@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description(@"Provides a generic method of setting up tables of annual results with one row per object. The report has multiple columns that are each defined using a repeated group of fields for any number of columns. A single Output:Table:Annual produces a single table in the output.")]
     [JsonObject("Output:Table:Annual")]
-    public class Output_Table_Annual : BHoMObject
+    public class Output_Table_Annual : BHoMObject, IEnergyPlusClass
     {
         
 

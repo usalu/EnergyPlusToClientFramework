@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
                  "o autosize tank volume and heater capacity This object is not needed if water he" +
                  "aters are not autosized.")]
     [JsonObject("WaterHeater:Sizing")]
-    public class WaterHeater_Sizing : BHoMObject
+    public class WaterHeater_Sizing : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -18,7 +18,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("design_mode")]
-        public EmptyNoYes DesignMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public WaterHeater_Sizing_DesignMode DesignMode { get; set; } = (WaterHeater_Sizing_DesignMode)Enum.Parse(typeof(WaterHeater_Sizing_DesignMode), "PeakDraw");
         
 
         [Description("Only used for Design Mode = PeakDraw")]

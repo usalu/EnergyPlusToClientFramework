@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     [Description(@"Defines a distribution pattern for the air temperatures adjacent to individual surfaces. This allows controlling the adjacent air temperature on a surface-by-surface basis rather than by height. This allows modeling different adjacent air temperatures on the opposite sides of the zone. Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
     [JsonObject("RoomAir:TemperaturePattern:SurfaceMapping")]
-    public class RoomAir_TemperaturePattern_SurfaceMapping : BHoMObject
+    public class RoomAir_TemperaturePattern_SurfaceMapping : BHoMObject, IEnergyPlusClass
     {
         
 

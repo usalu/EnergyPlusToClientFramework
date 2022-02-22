@@ -76,7 +76,7 @@ namespace ClientAssemblyGeneration.Directors
 
                     string className = StripEPObjectNameToCamelCase(ePObject.Key);
 
-                    _clientCodeCompileUnitBuilder.BuildClass(fullNamespaceName, className, ePObjectJsonSchemeProperty.EPMemo, new CodeTypeReferenceCollection(){ "BHoMObject" } ,GetJsonObjectAttributeDeclarations(ePObject.Key));;
+                    _clientCodeCompileUnitBuilder.BuildClass(fullNamespaceName, className, ePObjectJsonSchemeProperty.EPMemo, new CodeTypeReferenceCollection(){ "BHoMObject","IEnergyPlusClass" } ,GetJsonObjectAttributeDeclarations(ePObject.Key));;
 
                     //In the current tested schemas only these two pattern properties appear
                     var ePGroupProperties = (ePObjectJsonSchemeProperty.EPPatternProperties.NecessaryField != null) ? 
@@ -112,7 +112,7 @@ namespace ClientAssemblyGeneration.Directors
                                         string propertyTypeName = className + "_" + StripEPFieldNameToCamelCase(epPatternProperty.Key);
                                         _clientCodeCompileUnitBuilder.BuildEnum(fullNamespaceName, propertyTypeName, 
                                             epFieldProperty.EPEnum.Select(x => (StripEPFieldNameToCamelCase(x), "",GetJsonPropertyAttributeDeclarations(x))).ToArray(), "");
-                                        ePPatternPropertyTypeReference = new CodeTypeReference(EmptyNoYesEnumName);
+                                        ePPatternPropertyTypeReference = new CodeTypeReference(propertyTypeName);
                                     }
                                 }
 

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
                  "ly. Relationship between moisture content and relative humidity fraction. Has no" +
                  " effect with other HeatBalanceAlgorithm solution algorithms")]
     [JsonObject("MaterialProperty:HeatAndMoistureTransfer:SorptionIsotherm")]
-    public class MaterialProperty_HeatAndMoistureTransfer_SorptionIsotherm : BHoMObject
+    public class MaterialProperty_HeatAndMoistureTransfer_SorptionIsotherm : BHoMObject, IEnergyPlusClass
     {
         
 

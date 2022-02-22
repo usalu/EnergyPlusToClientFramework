@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
     [Description("Sets up curve information for minor loss and/or friction calculations in plant pr" +
                  "essure simulations Expression: DeltaP = {K + f*(L/D)} * (rho * V^2) / 2")]
     [JsonObject("Curve:Functional:PressureDrop")]
-    public class Curve_Functional_PressureDrop : BHoMObject
+    public class Curve_Functional_PressureDrop : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -27,7 +27,7 @@ namespace BH.oM.Adapters.EnergyPlus
 {
     public interface IEnergyPlusClass : IBHoMObject
     {
-        string ClassName { get; set; }
+
     }
 }
 

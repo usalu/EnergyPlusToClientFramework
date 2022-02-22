@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
     [Description("Exhaust fired absorption chiller-heater using performance curves similar to DOE-2" +
                  "")]
     [JsonObject("ChillerHeater:Absorption:DoubleEffect")]
-    public class ChillerHeater_Absorption_DoubleEffect : BHoMObject
+    public class ChillerHeater_Absorption_DoubleEffect : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -158,12 +158,12 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 
         [Description(@"Sets the second independent variable in the three temperature dependent performance curves to either the leaving or entering condenser water temperature. Manufacturers express the performance of their chillers using either the leaving condenser water temperature (to the tower) or the entering condenser water temperature (from the tower).")]
         [JsonProperty("temperature_curve_input_variable")]
-        public EmptyNoYes TemperatureCurveInputVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "EnteringCondenser");
+        public ChillerHeater_Absorption_DoubleEffect_TemperatureCurveInputVariable TemperatureCurveInputVariable { get; set; } = (ChillerHeater_Absorption_DoubleEffect_TemperatureCurveInputVariable)Enum.Parse(typeof(ChillerHeater_Absorption_DoubleEffect_TemperatureCurveInputVariable), "EnteringCondenser");
         
 
         [Description("The condenser can either be air cooled or connected to a cooling tower.")]
         [JsonProperty("condenser_type")]
-        public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "WaterCooled");
+        public ChillerHeater_Absorption_DoubleEffect_CondenserType CondenserType { get; set; } = (ChillerHeater_Absorption_DoubleEffect_CondenserType)Enum.Parse(typeof(ChillerHeater_Absorption_DoubleEffect_CondenserType), "WaterCooled");
         
 
         [Description("The chilled water supply temperature below which the chiller will shut off.")]
@@ -172,7 +172,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("exhaust_source_object_type")]
-        public EmptyNoYes ExhaustSourceObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ChillerHeater_Absorption_DoubleEffect_ExhaustSourceObjectType ExhaustSourceObjectType { get; set; } = (ChillerHeater_Absorption_DoubleEffect_ExhaustSourceObjectType)Enum.Parse(typeof(ChillerHeater_Absorption_DoubleEffect_ExhaustSourceObjectType), "GeneratorMicroTurbine");
         
 
         [JsonProperty("exhaust_source_object_name")]

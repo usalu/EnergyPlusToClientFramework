@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("Equivalent layer window screen physical properties. Can only be located on the ex" +
                  "terior side of a window construction.")]
     [JsonObject("WindowMaterial:Screen:EquivalentLayer")]
-    public class WindowMaterial_Screen_EquivalentLayer : BHoMObject
+    public class WindowMaterial_Screen_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
 

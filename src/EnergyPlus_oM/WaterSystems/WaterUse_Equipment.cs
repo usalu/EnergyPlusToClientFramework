@@ -1,6 +1,7 @@
 namespace BH.oM.Adapters.EnergyPlus.WaterSystems
 {
     using System.ComponentModel;
+    using BH.oM.Adapters.EnergyPlus;
     using System.Globalization;
     using Newtonsoft.Json;
     using BH.oM.Base;
@@ -66,7 +67,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterSystems
     
     [Description(@"A generalized object for simulating all water end uses. Hot and cold water uses are included, as well as controlled mixing of hot and cold water at the tap. The WaterUse:Equipment object can be used stand-alone, or coupled into a plant loop using the WaterUse:Connections object (see below). The WaterUse:Connections object allows water uses to be linked to WaterUse:Storage objects to store and draw reclaimed water. The object can also simulate drainwater heat recovery.")]
     [JsonObject("WaterUse:Equipment")]
-    public class WaterUse_Equipment : BHoMObject
+    public class WaterUse_Equipment : BHoMObject, IEnergyPlusClass
     {
         
 

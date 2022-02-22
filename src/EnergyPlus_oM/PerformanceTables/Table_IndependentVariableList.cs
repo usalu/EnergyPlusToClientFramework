@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
 {
     [Description("A sorted list of independent variables used by one or more Table:Lookup objects.")]
     [JsonObject("Table:IndependentVariableList")]
-    public class Table_IndependentVariableList : BHoMObject
+    public class Table_IndependentVariableList : BHoMObject, IEnergyPlusClass
     {
         
 

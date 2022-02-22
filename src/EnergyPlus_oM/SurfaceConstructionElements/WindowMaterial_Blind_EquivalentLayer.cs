@@ -11,12 +11,12 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
                  "count for curvature effect. Slats are assumed to transmit and reflect diffusely." +
                  "")]
     [JsonObject("WindowMaterial:Blind:EquivalentLayer")]
-    public class WindowMaterial_Blind_EquivalentLayer : BHoMObject
+    public class WindowMaterial_Blind_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("slat_orientation")]
-        public EmptyNoYes SlatOrientation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Horizontal");
+        public WindowMaterial_Blind_EquivalentLayer_SlatOrientation SlatOrientation { get; set; } = (WindowMaterial_Blind_EquivalentLayer_SlatOrientation)Enum.Parse(typeof(WindowMaterial_Blind_EquivalentLayer_SlatOrientation), "Horizontal");
         
 
         [JsonProperty("slat_width")]
@@ -143,6 +143,6 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 
         [Description(@"Used only if slat angle control is desired to either maximize solar gain (MaximizeSolar), maximize visibility while eliminating beam solar radiation (BlockBeamSolar), or fixed slate angle (FixedSlatAngle). If FixedSlatAngle is selected, the slat angle entered above is used.")]
         [JsonProperty("slat_angle_control")]
-        public EmptyNoYes SlatAngleControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "FixedSlatAngle");
+        public WindowMaterial_Blind_EquivalentLayer_SlatAngleControl SlatAngleControl { get; set; } = (WindowMaterial_Blind_EquivalentLayer_SlatAngleControl)Enum.Parse(typeof(WindowMaterial_Blind_EquivalentLayer_SlatAngleControl), "FixedSlatAngle");
     }
 }

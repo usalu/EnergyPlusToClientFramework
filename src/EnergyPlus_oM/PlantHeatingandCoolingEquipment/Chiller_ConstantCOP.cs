@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
     [Description("This constant COP chiller model provides a means of quickly specifying a Chiller " +
                  "where performance data is not available.")]
     [JsonObject("Chiller:ConstantCOP")]
-    public class Chiller_ConstantCOP : BHoMObject
+    public class Chiller_ConstantCOP : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -49,12 +49,12 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("condenser_type")]
-        public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AirCooled");
+        public Chiller_ConstantCOP_CondenserType CondenserType { get; set; } = (Chiller_ConstantCOP_CondenserType)Enum.Parse(typeof(Chiller_ConstantCOP_CondenserType), "AirCooled");
         
 
         [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
         [JsonProperty("chiller_flow_mode")]
-        public EmptyNoYes ChillerFlowMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NotModulated");
+        public Chiller_ConstantCOP_ChillerFlowMode ChillerFlowMode { get; set; } = (Chiller_ConstantCOP_ChillerFlowMode)Enum.Parse(typeof(Chiller_ConstantCOP_ChillerFlowMode), "NotModulated");
         
 
         [Description("Multiplies the autosized capacity and flow rates")]

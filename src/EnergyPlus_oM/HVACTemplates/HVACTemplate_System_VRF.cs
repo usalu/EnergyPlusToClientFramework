@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("Variable refrigerant flow (VRF) heat pump condensing unit. Serves one or more VRF" +
                  " zone terminal units (HVACTemplate:Zone:VRF).")]
     [JsonObject("HVACTemplate:System:VRF")]
-    public class HVACTemplate_System_VRF : BHoMObject
+    public class HVACTemplate_System_VRF : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -86,7 +86,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         [Description("Choose a thermostat control logic scheme. If these control types fail to control " +
                      "zone temperature within a reasonable limit, consider using multiple VRF systems")]
         [JsonProperty("master_thermostat_priority_control_type")]
-        public EmptyNoYes MasterThermostatPriorityControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "MasterThermostatPriority");
+        public HVACTemplate_System_VRF_MasterThermostatPriorityControlType MasterThermostatPriorityControlType { get; set; } = (HVACTemplate_System_VRF_MasterThermostatPriorityControlType)Enum.Parse(typeof(HVACTemplate_System_VRF_MasterThermostatPriorityControlType), "MasterThermostatPriority");
         
 
         [Description("this field is required if Master Thermostat Priority Control Type is Scheduled. S" +
@@ -145,13 +145,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      " to cooling to melt frost formation on the condenser coil. The resistive strateg" +
                      "y uses a resistive heater to melt the frost.")]
         [JsonProperty("defrost_strategy")]
-        public EmptyNoYes DefrostStrategy { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Resistive");
+        public HVACTemplate_System_VRF_DefrostStrategy DefrostStrategy { get; set; } = (HVACTemplate_System_VRF_DefrostStrategy)Enum.Parse(typeof(HVACTemplate_System_VRF_DefrostStrategy), "Resistive");
         
 
         [Description("Choose a defrost control type. Either use a fixed Timed defrost period or select " +
                      "OnDemand to defrost only when necessary.")]
         [JsonProperty("defrost_control")]
-        public EmptyNoYes DefrostControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Timed");
+        public HVACTemplate_System_VRF_DefrostControl DefrostControl { get; set; } = (HVACTemplate_System_VRF_DefrostControl)Enum.Parse(typeof(HVACTemplate_System_VRF_DefrostControl), "Timed");
         
 
         [Description("Fraction of time in defrost mode. Only applicable if timed defrost control is spe" +
@@ -173,7 +173,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description("Select either an air cooled or evaporatively cooled condenser.")]
         [JsonProperty("condenser_type")]
-        public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AirCooled");
+        public HVACTemplate_System_VRF_CondenserType CondenserType { get; set; } = (HVACTemplate_System_VRF_CondenserType)Enum.Parse(typeof(HVACTemplate_System_VRF_CondenserType), "AirCooled");
         
 
         [Description("Only used when Condenser Type = WaterCooled.")]
@@ -216,7 +216,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("fuel_type")]
-        public EmptyNoYes FuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Electricity");
+        public HVACTemplate_System_VRF_FuelType FuelType { get; set; } = (HVACTemplate_System_VRF_FuelType)Enum.Parse(typeof(HVACTemplate_System_VRF_FuelType), "Electricity");
         
 
         [Description("The minimum outdoor temperature below which heat recovery mode will not operate.")]

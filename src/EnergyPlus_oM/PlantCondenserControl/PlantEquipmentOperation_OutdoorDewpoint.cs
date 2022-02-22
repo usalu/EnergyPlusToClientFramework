@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
                  ". Specifies one or more groups of equipment which are available to operate for s" +
                  "uccessive outdoor dewpoint temperature ranges.")]
     [JsonObject("PlantEquipmentOperation:OutdoorDewpoint")]
-    public class PlantEquipmentOperation_OutdoorDewpoint : BHoMObject
+    public class PlantEquipmentOperation_OutdoorDewpoint : BHoMObject, IEnergyPlusClass
     {
         
 

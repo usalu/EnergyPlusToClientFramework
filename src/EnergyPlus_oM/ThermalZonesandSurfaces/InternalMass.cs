@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description(@"Used to describe internal zone surface area that does not need to be part of geometric representation. This should be the total surface area exposed to the zone air. If you use a ZoneList in the Zone or ZoneList name field then this definition applies to all the zones in the ZoneList.")]
     [JsonObject("InternalMass")]
-    public class InternalMass : BHoMObject
+    public class InternalMass : BHoMObject, IEnergyPlusClass
     {
         
 

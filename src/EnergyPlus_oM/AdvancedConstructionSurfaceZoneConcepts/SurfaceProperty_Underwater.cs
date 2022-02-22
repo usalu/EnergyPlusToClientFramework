@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
                  "stream temperature and velocity are scheduled. If the free stream velocity is ze" +
                  "ro, the surface will naturally convect with the surrounding water.")]
     [JsonObject("SurfaceProperty:Underwater")]
-    public class SurfaceProperty_Underwater : BHoMObject
+    public class SurfaceProperty_Underwater : BHoMObject, IEnergyPlusClass
     {
         
 

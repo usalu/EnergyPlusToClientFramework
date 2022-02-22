@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
                  "n be scheduled and varied throughout the simulation for both heating and cooling" +
                  ".")]
     [JsonObject("ThermostatSetpoint:SingleHeatingOrCooling")]
-    public class ThermostatSetpoint_SingleHeatingOrCooling : BHoMObject
+    public class ThermostatSetpoint_SingleHeatingOrCooling : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 {
     [Description(@"ZoneMixing is a simple air exchange from one zone to another. Note that this statement only affects the energy balance of the ""receiving"" zone and will not produce any effect on the ""source"" zone. Mixing statements can be complementary and include multiple zones, but the balancing of flows between zones is left to the user's discretion.")]
     [JsonObject("ZoneMixing")]
-    public class ZoneMixing : BHoMObject
+    public class ZoneMixing : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -22,7 +22,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 
         [Description(@"The entered calculation method is used to create the maximum amount of ventilation for this set of attributes Choices: Flow/Zone => Design Flow Rate -- simply enter Design Flow Rate Flow/Area => Flow Rate per Zone Floor Area - Value * Floor Area (zone) = Design Flow Rate Flow/Person => Flow Rate per Person - Value * #people = Design Flow Rate AirChanges/Hour => Air Changes per Hour - Value * Floor Volume (zone) adjusted for m3/s = Design Volume Flow Rate ""Vdesign"" in Equation is the result.")]
         [JsonProperty("design_flow_rate_calculation_method")]
-        public EmptyNoYes DesignFlowRateCalculationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Flow/Zone");
+        public ZoneMixing_DesignFlowRateCalculationMethod DesignFlowRateCalculationMethod { get; set; } = (ZoneMixing_DesignFlowRateCalculationMethod)Enum.Parse(typeof(ZoneMixing_DesignFlowRateCalculationMethod), "Empty");
         
 
         [JsonProperty("design_flow_rate")]

@@ -8,18 +8,18 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Used to control forced airflow through a gap between glass layers")]
     [JsonObject("WindowProperty:AirflowControl")]
-    public class WindowProperty_AirflowControl : BHoMObject
+    public class WindowProperty_AirflowControl : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("airflow_source")]
-        public EmptyNoYes AirflowSource { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "IndoorAir");
+        public WindowProperty_AirflowControl_AirflowSource AirflowSource { get; set; } = (WindowProperty_AirflowControl_AirflowSource)Enum.Parse(typeof(WindowProperty_AirflowControl_AirflowSource), "IndoorAir");
         
 
         [Description("If ReturnAir is selected, the name of the Return Air Node may be specified below." +
                      "")]
         [JsonProperty("airflow_destination")]
-        public EmptyNoYes AirflowDestination { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "OutdoorAir");
+        public WindowProperty_AirflowControl_AirflowDestination AirflowDestination { get; set; } = (WindowProperty_AirflowControl_AirflowDestination)Enum.Parse(typeof(WindowProperty_AirflowControl_AirflowDestination), "OutdoorAir");
         
 
         [Description("Above is m3/s per m of glazing width")]
@@ -30,7 +30,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
         [Description("ScheduledOnly requires that Airflow Has Multiplier Schedule Name = Yes and that A" +
                      "irflow Multiplier Schedule Name is specified.")]
         [JsonProperty("airflow_control_type")]
-        public EmptyNoYes AirflowControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AlwaysOnAtMaximumFlow");
+        public WindowProperty_AirflowControl_AirflowControlType AirflowControlType { get; set; } = (WindowProperty_AirflowControl_AirflowControlType)Enum.Parse(typeof(WindowProperty_AirflowControl_AirflowControlType), "AlwaysOnAtMaximumFlow");
         
 
         [Description("If Yes, then Airflow Multiplier Schedule Name must be specified")]

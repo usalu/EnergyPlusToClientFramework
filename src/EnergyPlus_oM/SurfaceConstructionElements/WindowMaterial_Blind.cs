@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Window blind thermal properties")]
     [JsonObject("WindowMaterial:Blind")]
-    public class WindowMaterial_Blind : BHoMObject
+    public class WindowMaterial_Blind : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("slat_orientation")]
-        public EmptyNoYes SlatOrientation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Horizontal");
+        public WindowMaterial_Blind_SlatOrientation SlatOrientation { get; set; } = (WindowMaterial_Blind_SlatOrientation)Enum.Parse(typeof(WindowMaterial_Blind_SlatOrientation), "Horizontal");
         
 
         [JsonProperty("slat_width")]

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description(@"Used to specify DX cooling coil performance for one mode of operation for a Coil:Cooling:DX:TwoStageWithHumidityControlMode object which may reference one to four CoilPerformance:DX:Cooling objects depending on the specified number of stages and dehumidification modes. In nearly all cases, the Rated Air Flow Rate will be the same for all performance objects associated with a given coil. If bypass is specified, the Rated Air Flow Rate includes both the bypassed flow and the flow through the active part of the coil.")]
     [JsonObject("CoilPerformance:DX:Cooling")]
-    public class CoilPerformance_DX_Cooling : BHoMObject
+    public class CoilPerformance_DX_Cooling : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -100,7 +100,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("condenser_type")]
-        public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AirCooled");
+        public CoilPerformance_DX_Cooling_CondenserType CondenserType { get; set; } = (CoilPerformance_DX_Cooling_CondenserType)Enum.Parse(typeof(CoilPerformance_DX_Cooling_CondenserType), "AirCooled");
         
 
         [JsonProperty("evaporative_condenser_effectiveness")]

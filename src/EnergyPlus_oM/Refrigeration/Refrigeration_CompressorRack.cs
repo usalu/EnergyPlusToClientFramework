@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     [Description(@"Works in conjunction with the refrigeration case and walk-in objects to simulate the performance of a refrigerated case system. This object models the electric consumption of the rack compressors and the condenser fans. Heat can be rejected either outdoors or to a zone. Compressor rack waste heat can also be reclaimed for use by an optional air- or water-heating coil (Coil:Heating:Desuperheater and Coil:WaterHeating:Desuperheater).")]
     [JsonObject("Refrigeration:CompressorRack")]
-    public class Refrigeration_CompressorRack : BHoMObject
+    public class Refrigeration_CompressorRack : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("heat_rejection_location")]
-        public EmptyNoYes HeatRejectionLocation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Outdoors");
+        public Refrigeration_CompressorRack_HeatRejectionLocation HeatRejectionLocation { get; set; } = (Refrigeration_CompressorRack_HeatRejectionLocation)Enum.Parse(typeof(Refrigeration_CompressorRack_HeatRejectionLocation), "Outdoors");
         
 
         [Description("It is important that this COP correspond to the lowest saturated suction temperat" +
@@ -39,7 +39,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 
         [Description("Applicable only when Heat Rejection Location is Outdoors.")]
         [JsonProperty("condenser_type")]
-        public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "AirCooled");
+        public Refrigeration_CompressorRack_CondenserType CondenserType { get; set; } = (Refrigeration_CompressorRack_CondenserType)Enum.Parse(typeof(Refrigeration_CompressorRack_CondenserType), "AirCooled");
         
 
         [JsonProperty("water_cooled_condenser_inlet_node_name")]
@@ -52,7 +52,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 
         [Description("Applicable only when Condenser Type is WaterCooled.")]
         [JsonProperty("water_cooled_loop_flow_type")]
-        public EmptyNoYes WaterCooledLoopFlowType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "VariableFlow");
+        public Refrigeration_CompressorRack_WaterCooledLoopFlowType WaterCooledLoopFlowType { get; set; } = (Refrigeration_CompressorRack_WaterCooledLoopFlowType)Enum.Parse(typeof(Refrigeration_CompressorRack_WaterCooledLoopFlowType), "VariableFlow");
         
 
         [Description("Applicable only when loop Flow type is VariableFlow.")]

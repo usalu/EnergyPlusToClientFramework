@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "cludes electric compressor and outdoor fan), single-speed, with defrost controls" +
                  ".")]
     [JsonObject("Coil:Heating:DX:SingleSpeed")]
-    public class Coil_Heating_DX_SingleSpeed : BHoMObject
+    public class Coil_Heating_DX_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -108,11 +108,11 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("defrost_strategy")]
-        public EmptyNoYes DefrostStrategy { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ReverseCycle");
+        public Coil_Heating_DX_SingleSpeed_DefrostStrategy DefrostStrategy { get; set; } = (Coil_Heating_DX_SingleSpeed_DefrostStrategy)Enum.Parse(typeof(Coil_Heating_DX_SingleSpeed_DefrostStrategy), "ReverseCycle");
         
 
         [JsonProperty("defrost_control")]
-        public EmptyNoYes DefrostControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Timed");
+        public Coil_Heating_DX_SingleSpeed_DefrostControl DefrostControl { get; set; } = (Coil_Heating_DX_SingleSpeed_DefrostControl)Enum.Parse(typeof(Coil_Heating_DX_SingleSpeed_DefrostControl), "Timed");
         
 
         [Description("Fraction of time in defrost mode only applicable if timed defrost control is spec" +

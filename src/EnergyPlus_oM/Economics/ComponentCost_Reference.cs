@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     [Description(@"Used to allow comparing the current cost estimate to the results of a previous estimate for a reference building. This object parallels the ComponentCost:Adjustments object but adds a field for entering the cost line item model result for the reference building. The factors entered in this object are applied to the reference building while the factors listed in the ComponentCost:Adjustments object are applied to the current building model cost estimate.")]
     [JsonObject("ComponentCost:Reference")]
-    public class ComponentCost_Reference : BHoMObject
+    public class ComponentCost_Reference : BHoMObject, IEnergyPlusClass
     {
         
 

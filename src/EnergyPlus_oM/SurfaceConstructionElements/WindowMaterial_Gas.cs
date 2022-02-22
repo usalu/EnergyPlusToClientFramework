@@ -7,12 +7,12 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Gas material properties that are used in Windows or Glass Doors")]
     [JsonObject("WindowMaterial:Gas")]
-    public class WindowMaterial_Gas : BHoMObject
+    public class WindowMaterial_Gas : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("gas_type")]
-        public EmptyNoYes GasType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public WindowMaterial_Gas_GasType GasType { get; set; } = (WindowMaterial_Gas_GasType)Enum.Parse(typeof(WindowMaterial_Gas_GasType), "Air");
         
 
         [JsonProperty("thickness")]

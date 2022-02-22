@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     [Description(@"Provides inputs related to the overall life-cycle analysis. It establishes many of the assumptions used in computing the present value. It is important that when comparing the results of multiple simulations that the fields in the LifeCycleCost:Parameters objects are the same for all the simulations. When this object is present the tabular report file will contain the Life-Cycle Cost Report.")]
     [JsonObject("LifeCycleCost:Parameters")]
-    public class LifeCycleCost_Parameters : BHoMObject
+    public class LifeCycleCost_Parameters : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -15,12 +15,12 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                      "rring at the end of each year or the middle of each year or the beginning of eac" +
                      "h year. The most common discounting convention uses the end of each year.")]
         [JsonProperty("discounting_convention")]
-        public EmptyNoYes DiscountingConvention { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "EndOfYear");
+        public LifeCycleCost_Parameters_DiscountingConvention DiscountingConvention { get; set; } = (LifeCycleCost_Parameters_DiscountingConvention)Enum.Parse(typeof(LifeCycleCost_Parameters_DiscountingConvention), "EndOfYear");
         
 
         [Description(@"This field is used to determine if the analysis should use constant dollars or current dollars which is related to how inflation is treated. If ConstantDollar is selected then the Real Discount Rate input is used and it excludes the rate of inflation. If CurrentDollar is selected then the Nominal Discount Rate input is used and it includes the rate of inflation.")]
         [JsonProperty("inflation_approach")]
-        public EmptyNoYes InflationApproach { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ConstantDollar");
+        public LifeCycleCost_Parameters_InflationApproach InflationApproach { get; set; } = (LifeCycleCost_Parameters_InflationApproach)Enum.Parse(typeof(LifeCycleCost_Parameters_InflationApproach), "ConstantDollar");
         
 
         [Description(@"Enter the real discount rate as a decimal. For a 3% rate enter the value 0.03. This input is used when the Inflation Approach is ConstantDollar. The real discount rate reflects the interest rates needed to make current and future expenditures have comparable equivalent values when general inflation is ignored. When Inflation Approach is set to CurrentDollar this input is ignored.")]
@@ -42,7 +42,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
         [Description("Enter the month that is the beginning of study period also known as the beginning" +
                      " of the base period.")]
         [JsonProperty("base_date_month")]
-        public EmptyNoYes BaseDateMonth { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "January");
+        public LifeCycleCost_Parameters_BaseDateMonth BaseDateMonth { get; set; } = (LifeCycleCost_Parameters_BaseDateMonth)Enum.Parse(typeof(LifeCycleCost_Parameters_BaseDateMonth), "January");
         
 
         [Description("Enter the four digit year that is the beginning of study period such as 2010. The" +
@@ -53,7 +53,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
 
         [Description(@"Enter the month that is the beginning of building occupancy. Energy costs computed by EnergyPlus are assumed to occur during the year following the service date. The service date must be the same or later than the Base Date. This field could also be referred to as part of beneficial occupancy date.")]
         [JsonProperty("service_date_month")]
-        public EmptyNoYes ServiceDateMonth { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "January");
+        public LifeCycleCost_Parameters_ServiceDateMonth ServiceDateMonth { get; set; } = (LifeCycleCost_Parameters_ServiceDateMonth)Enum.Parse(typeof(LifeCycleCost_Parameters_ServiceDateMonth), "January");
         
 
         [Description("Enter the four digit year that is the beginning of occupancy such as 2010.")]
@@ -77,6 +77,6 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                      " costs are depreciated. Only one depreciation method may be used for an analysis" +
                      " and is applied to all capital expenditures.")]
         [JsonProperty("depreciation_method")]
-        public EmptyNoYes DepreciationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public LifeCycleCost_Parameters_DepreciationMethod DepreciationMethod { get; set; } = (LifeCycleCost_Parameters_DepreciationMethod)Enum.Parse(typeof(LifeCycleCost_Parameters_DepreciationMethod), "None");
     }
 }

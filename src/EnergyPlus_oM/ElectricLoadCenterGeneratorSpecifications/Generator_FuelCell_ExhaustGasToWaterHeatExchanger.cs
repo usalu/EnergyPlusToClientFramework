@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("Describes the exhaust gas heat exchanger subsystem of a fuel cell power generator" +
                  " used to recovery thermal energy")]
     [JsonObject("Generator:FuelCell:ExhaustGasToWaterHeatExchanger")]
-    public class Generator_FuelCell_ExhaustGasToWaterHeatExchanger : BHoMObject
+    public class Generator_FuelCell_ExhaustGasToWaterHeatExchanger : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -29,7 +29,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("heat_exchanger_calculation_method")]
-        public EmptyNoYes HeatExchangerCalculationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelCell_ExhaustGasToWaterHeatExchanger_HeatExchangerCalculationMethod HeatExchangerCalculationMethod { get; set; } = (Generator_FuelCell_ExhaustGasToWaterHeatExchanger_HeatExchangerCalculationMethod)Enum.Parse(typeof(Generator_FuelCell_ExhaustGasToWaterHeatExchanger_HeatExchangerCalculationMethod), "Condensing");
         
 
         [JsonProperty("method_1_heat_exchanger_effectiveness")]

@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
     [Description("depending on zone and outdoor conditions overrides fan schedule to do precooling " +
                  "with outdoor air")]
     [JsonObject("AvailabilityManager:NightVentilation")]
-    public class AvailabilityManager_NightVentilation : BHoMObject
+    public class AvailabilityManager_NightVentilation : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
                  "ct expansion (DX) cooling coil, DX heating coil (air-to-air heat pump), and supp" +
                  "lemental heating coil (gas, electric, hot water, or steam).")]
     [JsonObject("AirLoopHVAC:UnitaryHeatPump:AirToAir")]
-    public class AirLoopHVAC_UnitaryHeatPump_AirToAir : BHoMObject
+    public class AirLoopHVAC_UnitaryHeatPump_AirToAir : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -50,7 +50,7 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
                      "ing mode schedule values are greater than 0 or the fan operating mode schedule n" +
                      "ame field is left blank).")]
         [JsonProperty("supply_air_fan_object_type")]
-        public EmptyNoYes SupplyAirFanObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_UnitaryHeatPump_AirToAir_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (AirLoopHVAC_UnitaryHeatPump_AirToAir_SupplyAirFanObjectType)Enum.Parse(typeof(AirLoopHVAC_UnitaryHeatPump_AirToAir_SupplyAirFanObjectType), "FanConstantVolume");
         
 
         [Description("Needs to match in the fan object")]
@@ -61,7 +61,7 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
         [Description("Only works with Coil:Heating:DX:SingleSpeed or Coil:Heating:DX:VariableSpeed or C" +
                      "oilSystem:IntegratedHeatPump:AirSource")]
         [JsonProperty("heating_coil_object_type")]
-        public EmptyNoYes HeatingCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_UnitaryHeatPump_AirToAir_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (AirLoopHVAC_UnitaryHeatPump_AirToAir_HeatingCoilObjectType)Enum.Parse(typeof(AirLoopHVAC_UnitaryHeatPump_AirToAir_HeatingCoilObjectType), "CoilHeatingDXSingleSpeed");
         
 
         [Description("Needs to match in the DX heating coil object")]
@@ -73,7 +73,7 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
                      "rAssisted or Coil:Cooling:DX:VariableSpeed or CoilSystem:IntegratedHeatPump:AirS" +
                      "ource")]
         [JsonProperty("cooling_coil_object_type")]
-        public EmptyNoYes CoolingCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_UnitaryHeatPump_AirToAir_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (AirLoopHVAC_UnitaryHeatPump_AirToAir_CoolingCoilObjectType)Enum.Parse(typeof(AirLoopHVAC_UnitaryHeatPump_AirToAir_CoolingCoilObjectType), "CoilCoolingDXSingleSpeed");
         
 
         [Description("Needs to match in the DX cooling coil object")]
@@ -83,7 +83,7 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
 
         [Description("works with gas, electric, hot water and steam heating coils")]
         [JsonProperty("supplemental_heating_coil_object_type")]
-        public EmptyNoYes SupplementalHeatingCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirLoopHVAC_UnitaryHeatPump_AirToAir_SupplementalHeatingCoilObjectType SupplementalHeatingCoilObjectType { get; set; } = (AirLoopHVAC_UnitaryHeatPump_AirToAir_SupplementalHeatingCoilObjectType)Enum.Parse(typeof(AirLoopHVAC_UnitaryHeatPump_AirToAir_SupplementalHeatingCoilObjectType), "CoilHeatingElectric");
         
 
         [Description("Needs to match in the supplemental heating coil object")]
@@ -100,7 +100,7 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
         
 
         [JsonProperty("fan_placement")]
-        public EmptyNoYes FanPlacement { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "BlowThrough");
+        public AirLoopHVAC_UnitaryHeatPump_AirToAir_FanPlacement FanPlacement { get; set; } = (AirLoopHVAC_UnitaryHeatPump_AirToAir_FanPlacement)Enum.Parse(typeof(AirLoopHVAC_UnitaryHeatPump_AirToAir_FanPlacement), "BlowThrough");
         
 
         [Description(@"A fan operating mode schedule value of 0 indicates cycling fan mode (supply air fan cycles on and off in tandem with the cooling or heating coil). Any other schedule value indicates continuous fan mode (supply air fan operates continuously regardless of cooling or heating coil operation). Leaving this schedule name blank will default to cycling fan mode for the entire simulation period.")]
@@ -110,6 +110,6 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
 
         [Description(@"None = meet sensible load only Multimode = activate enhanced dehumidification mode as needed and meet sensible load. Valid only with cooling coil type CoilSystem:Cooling:DX:HeatExchangerAssisted. This control mode allows the heat exchanger to be turned on and off based on the zone dehumidification requirements. A ZoneControl:Humidistat object is also required. CoolReheat = cool beyond the dry-bulb setpoint. as required to meet the humidity setpoint. Valid with all cooling coil types. When a heat exchanger assisted Cooling coil is used, the heat exchanger is locked on at all times. A ZoneControl:Humidistat object is also required.")]
         [JsonProperty("dehumidification_control_type")]
-        public EmptyNoYes DehumidificationControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public AirLoopHVAC_UnitaryHeatPump_AirToAir_DehumidificationControlType DehumidificationControlType { get; set; } = (AirLoopHVAC_UnitaryHeatPump_AirToAir_DehumidificationControlType)Enum.Parse(typeof(AirLoopHVAC_UnitaryHeatPump_AirToAir_DehumidificationControlType), "None");
     }
 }

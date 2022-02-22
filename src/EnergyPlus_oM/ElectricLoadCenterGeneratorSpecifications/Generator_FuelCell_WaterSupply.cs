@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                  "ator. This water is used for steam reforming of the fuel and is not the same as " +
                  "the water used for thermal heat recovery.")]
     [JsonObject("Generator:FuelCell:WaterSupply")]
-    public class Generator_FuelCell_WaterSupply : BHoMObject
+    public class Generator_FuelCell_WaterSupply : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -26,7 +26,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("water_temperature_modeling_mode")]
-        public EmptyNoYes WaterTemperatureModelingMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelCell_WaterSupply_WaterTemperatureModelingMode WaterTemperatureModelingMode { get; set; } = (Generator_FuelCell_WaterSupply_WaterTemperatureModelingMode)Enum.Parse(typeof(Generator_FuelCell_WaterSupply_WaterTemperatureModelingMode), "MainsWaterTemperature");
         
 
         [JsonProperty("water_temperature_reference_node_name")]

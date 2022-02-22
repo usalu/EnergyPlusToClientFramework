@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACEquipmentConnections
                  " A zone equipment list is referenced which lists all HVAC equipment connected to" +
                  " the zone.")]
     [JsonObject("ZoneHVAC:EquipmentConnections")]
-    public class ZoneHVAC_EquipmentConnections : BHoMObject
+    public class ZoneHVAC_EquipmentConnections : BHoMObject, IEnergyPlusClass
     {
         
 

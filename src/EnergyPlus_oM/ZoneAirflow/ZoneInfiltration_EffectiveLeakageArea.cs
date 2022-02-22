@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
                  " speed: Infiltration=FSchedule * (AL /1000) SQRT(Cs*|(Tzone-Todb)| +  Cw*WindSpd" +
                  "**2 )")]
     [JsonObject("ZoneInfiltration:EffectiveLeakageArea")]
-    public class ZoneInfiltration_EffectiveLeakageArea : BHoMObject
+    public class ZoneInfiltration_EffectiveLeakageArea : BHoMObject, IEnergyPlusClass
     {
         
 

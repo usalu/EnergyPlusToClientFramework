@@ -10,12 +10,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
                  "er:OutdoorAir object. This setpoint manager is used to establish a temperature s" +
                  "etpoint at the mixed air node.")]
     [JsonObject("SetpointManager:MixedAir")]
-    public class SetpointManager_MixedAir : BHoMObject
+    public class SetpointManager_MixedAir : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
-        public EmptyNoYes ControlVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Temperature");
+        public SetpointManager_MixedAir_ControlVariable ControlVariable { get; set; } = (SetpointManager_MixedAir_ControlVariable)Enum.Parse(typeof(SetpointManager_MixedAir_ControlVariable), "Temperature");
         
 
         [JsonProperty("reference_setpoint_node_name")]

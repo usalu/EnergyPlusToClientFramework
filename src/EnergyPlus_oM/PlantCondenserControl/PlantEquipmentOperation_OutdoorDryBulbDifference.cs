@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
 {
     [Description(@"Plant equipment operation scheme for outdoor dry-bulb temperature difference operation. Specifies one or more groups of equipment which are available to operate for successive ranges based the difference between a reference node temperature and the outdoor dry-bulb temperature.")]
     [JsonObject("PlantEquipmentOperation:OutdoorDryBulbDifference")]
-    public class PlantEquipmentOperation_OutdoorDryBulbDifference : BHoMObject
+    public class PlantEquipmentOperation_OutdoorDryBulbDifference : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("This object adds a boiler to an HVACTemplate:Plant:HotWaterLoop or MixedWaterLoop" +
                  ".")]
     [JsonObject("HVACTemplate:Plant:Boiler")]
-    public class HVACTemplate_Plant_Boiler : BHoMObject
+    public class HVACTemplate_Plant_Boiler : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("boiler_type")]
-        public EmptyNoYes BoilerType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public HVACTemplate_Plant_Boiler_BoilerType BoilerType { get; set; } = (HVACTemplate_Plant_Boiler_BoilerType)Enum.Parse(typeof(HVACTemplate_Plant_Boiler_BoilerType), "CondensingHotWaterBoiler");
         
 
         [JsonProperty("capacity")]
@@ -28,7 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description("Not applicable  if Boiler Type is DistrictHotWater")]
         [JsonProperty("fuel_type")]
-        public EmptyNoYes FuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public HVACTemplate_Plant_Boiler_FuelType FuelType { get; set; } = (HVACTemplate_Plant_Boiler_FuelType)Enum.Parse(typeof(HVACTemplate_Plant_Boiler_FuelType), "Coal");
         
 
         [Description("If Hot Water Plant Operation Scheme Type=Default in HVACTemplate:Plant:HotWaterLo" +
@@ -62,6 +62,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "left blank, will serve a hot water loop if present, or a mixed water loop (if no" +
                      " hot water loop is present).")]
         [JsonProperty("template_plant_loop_type")]
-        public EmptyNoYes TemplatePlantLoopType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public HVACTemplate_Plant_Boiler_TemplatePlantLoopType TemplatePlantLoopType { get; set; } = (HVACTemplate_Plant_Boiler_TemplatePlantLoopType)Enum.Parse(typeof(HVACTemplate_Plant_Boiler_TemplatePlantLoopType), "HotWater");
     }
 }

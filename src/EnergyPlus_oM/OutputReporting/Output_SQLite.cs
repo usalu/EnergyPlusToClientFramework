@@ -7,17 +7,17 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description("Output from EnergyPlus can be written to an SQLite format file.")]
     [JsonObject("Output:SQLite")]
-    public class Output_SQLite : BHoMObject
+    public class Output_SQLite : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("option_type")]
-        public EmptyNoYes OptionType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Output_SQLite_OptionType OptionType { get; set; } = (Output_SQLite_OptionType)Enum.Parse(typeof(Output_SQLite_OptionType), "Simple");
         
 
         [Description("Unit conversion option used when writing SQLite Tabular Data This option applies " +
                      "to TabularData and TabularDatawithString in the SQLite file")]
         [JsonProperty("unit_conversion_for_tabular_data")]
-        public EmptyNoYes UnitConversionForTabularData { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "UseOutputControlTableStyle");
+        public Output_SQLite_UnitConversionForTabularData UnitConversionForTabularData { get; set; } = (Output_SQLite_UnitConversionForTabularData)Enum.Parse(typeof(Output_SQLite_UnitConversionForTabularData), "UseOutputControlTableStyle");
     }
 }

@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     [Description("This object is used to provide advanced thermal comfort control of window opening" +
                  " and closing for both exterior and interior windows.")]
     [JsonObject("AirflowNetwork:OccupantVentilationControl")]
-    public class AirflowNetwork_OccupantVentilationControl : BHoMObject
+    public class AirflowNetwork_OccupantVentilationControl : BHoMObject, IEnergyPlusClass
     {
         
 

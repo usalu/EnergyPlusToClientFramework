@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
                  "pecifies one or more groups of equipment which are available to operate for succ" +
                  "essive outdoor relative humidity ranges.")]
     [JsonObject("PlantEquipmentOperation:OutdoorRelativeHumidity")]
-    public class PlantEquipmentOperation_OutdoorRelativeHumidity : BHoMObject
+    public class PlantEquipmentOperation_OutdoorRelativeHumidity : BHoMObject, IEnergyPlusClass
     {
         
 

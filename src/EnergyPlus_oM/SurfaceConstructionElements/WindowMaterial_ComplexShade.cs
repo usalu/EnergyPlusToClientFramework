@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Complex window shading layer thermal properties")]
     [JsonObject("WindowMaterial:ComplexShade")]
-    public class WindowMaterial_ComplexShade : BHoMObject
+    public class WindowMaterial_ComplexShade : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("layer_type")]
-        public EmptyNoYes LayerType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "OtherShadingType");
+        public WindowMaterial_ComplexShade_LayerType LayerType { get; set; } = (WindowMaterial_ComplexShade_LayerType)Enum.Parse(typeof(WindowMaterial_ComplexShade_LayerType), "OtherShadingType");
         
 
         [JsonProperty("thickness")]

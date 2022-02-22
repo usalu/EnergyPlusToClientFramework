@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description("Conditionally turn on/off output from EnergyPlus.")]
     [JsonObject("OutputControl:Files")]
-    public class OutputControl_Files : BHoMObject
+    public class OutputControl_Files : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "at pump). Used with ZoneHVAC:TerminalUnit:VariableRefrigerantFlow. Condensing un" +
                  "it is modeled separately, see AirConditioner:VariableRefrigerantFlow.")]
     [JsonObject("Coil:Heating:DX:VariableRefrigerantFlow")]
-    public class Coil_Heating_DX_VariableRefrigerantFlow : BHoMObject
+    public class Coil_Heating_DX_VariableRefrigerantFlow : BHoMObject, IEnergyPlusClass
     {
         
 

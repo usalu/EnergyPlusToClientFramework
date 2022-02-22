@@ -8,14 +8,14 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description(@"Direct expansion (DX) cooling coil for water-to-air heat pump (includes electric compressor), single-speed, parameter estimation model. Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Parameter estimation model is a deterministic model that requires a consistent set of parameters to describe the operating conditions of the heat pump components.")]
     [JsonObject("Coil:Cooling:WaterToAirHeatPump:ParameterEstimation")]
-    public class Coil_Cooling_WaterToAirHeatPump_ParameterEstimation : BHoMObject
+    public class Coil_Cooling_WaterToAirHeatPump_ParameterEstimation : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("Parameters 1-5 are as named below. Parameters 6-10 depend on the type of compress" +
                      "or and fluid. Refer to the InputOutputReference on the parameters required")]
         [JsonProperty("compressor_type")]
-        public EmptyNoYes CompressorType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Coil_Cooling_WaterToAirHeatPump_ParameterEstimation_CompressorType CompressorType { get; set; } = (Coil_Cooling_WaterToAirHeatPump_ParameterEstimation_CompressorType)Enum.Parse(typeof(Coil_Cooling_WaterToAirHeatPump_ParameterEstimation_CompressorType), "Reciprocating");
         
 
         [JsonProperty("refrigerant_type")]

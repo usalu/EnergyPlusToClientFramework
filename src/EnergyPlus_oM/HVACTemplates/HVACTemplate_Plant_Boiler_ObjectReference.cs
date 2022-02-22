@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                  "ant:HotWaterLoop or MixedWaterLoop. The user must create a complete detailed boi" +
                  "ler object with all required curve or performance objects.")]
     [JsonObject("HVACTemplate:Plant:Boiler:ObjectReference")]
-    public class HVACTemplate_Plant_Boiler_ObjectReference : BHoMObject
+    public class HVACTemplate_Plant_Boiler_ObjectReference : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("boiler_object_type")]
-        public EmptyNoYes BoilerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Boiler:HotWater");
+        public HVACTemplate_Plant_Boiler_ObjectReference_BoilerObjectType BoilerObjectType { get; set; } = (HVACTemplate_Plant_Boiler_ObjectReference_BoilerObjectType)Enum.Parse(typeof(HVACTemplate_Plant_Boiler_ObjectReference_BoilerObjectType), "Empty");
         
 
         [Description("The name of the detailed boiler object.")]
@@ -32,6 +32,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "left blank, will serve a hot water loop if present, or a mixed water loop (if no" +
                      " hot water loop is present).")]
         [JsonProperty("template_plant_loop_type")]
-        public EmptyNoYes TemplatePlantLoopType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public HVACTemplate_Plant_Boiler_ObjectReference_TemplatePlantLoopType TemplatePlantLoopType { get; set; } = (HVACTemplate_Plant_Boiler_ObjectReference_TemplatePlantLoopType)Enum.Parse(typeof(HVACTemplate_Plant_Boiler_ObjectReference_TemplatePlantLoopType), "HotWater");
     }
 }

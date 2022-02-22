@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("Alternate method of describing windows This window material object is used to def" +
                  "ine an entire glazing system using simple performance parameters.")]
     [JsonObject("WindowMaterial:SimpleGlazingSystem")]
-    public class WindowMaterial_SimpleGlazingSystem : BHoMObject
+    public class WindowMaterial_SimpleGlazingSystem : BHoMObject, IEnergyPlusClass
     {
         
 

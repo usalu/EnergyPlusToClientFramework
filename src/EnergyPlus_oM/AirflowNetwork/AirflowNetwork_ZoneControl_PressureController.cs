@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
                  "exhaust fan flow rate in a controlled zone or the relief air flow rate in an air" +
                  " loop.")]
     [JsonObject("AirflowNetwork:ZoneControl:PressureController")]
-    public class AirflowNetwork_ZoneControl_PressureController : BHoMObject
+    public class AirflowNetwork_ZoneControl_PressureController : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -21,7 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
         [Description("The current selection is AirflowNetwork:MultiZone:Component:ZoneExhaustFan or Air" +
                      "flowNetwork:Distribution:Component:ReliefAirFlow.")]
         [JsonProperty("control_object_type")]
-        public EmptyNoYes ControlObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirflowNetwork_ZoneControl_PressureController_ControlObjectType ControlObjectType { get; set; } = (AirflowNetwork_ZoneControl_PressureController_ControlObjectType)Enum.Parse(typeof(AirflowNetwork_ZoneControl_PressureController_ControlObjectType), "AirflowNetworkDistributionComponentReliefAirFlow");
         
 
         [Description("Control names are names of individual control objects")]

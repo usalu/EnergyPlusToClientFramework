@@ -7,13 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes fault of dirty air filters")]
     [JsonObject("FaultModel:Fouling:AirFilter")]
-    public class FaultModel_Fouling_AirFilter : BHoMObject
+    public class FaultModel_Fouling_AirFilter : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("Choose the type of the fan Support for Fan:SystemModel is pending")]
         [JsonProperty("fan_object_type")]
-        public EmptyNoYes FanObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public FaultModel_Fouling_AirFilter_FanObjectType FanObjectType { get; set; } = (FaultModel_Fouling_AirFilter_FanObjectType)Enum.Parse(typeof(FaultModel_Fouling_AirFilter_FanObjectType), "FanConstantVolume");
         
 
         [Description("Enter the name of a fan object")]

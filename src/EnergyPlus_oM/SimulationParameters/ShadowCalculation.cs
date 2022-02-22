@@ -9,19 +9,19 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
     [Description("This object is used to control details of the solar, shading, and daylighting mod" +
                  "els")]
     [JsonObject("ShadowCalculation")]
-    public class ShadowCalculation : BHoMObject
+    public class ShadowCalculation : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description(@"Select between CPU-based polygon clipping method, the GPU-based pixel counting method, or importing from external shading data. If PixelCounting is selected and GPU hardware (or GPU emulation) is not available, a warning will be displayed and EnergyPlus will revert to PolygonClipping. If Scheduled is chosen, the External Shading Fraction Schedule Name is required in SurfaceProperty:LocalEnvironment. If Imported is chosen, the Schedule:File:Shading object is required.")]
         [JsonProperty("shading_calculation_method")]
-        public EmptyNoYes ShadingCalculationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "PolygonClipping");
+        public ShadowCalculation_ShadingCalculationMethod ShadingCalculationMethod { get; set; } = (ShadowCalculation_ShadingCalculationMethod)Enum.Parse(typeof(ShadowCalculation_ShadingCalculationMethod), "PolygonClipping");
         
 
         [Description("choose calculation frequency method. note that Timestep is only needed for certai" +
                      "n cases and can increase execution time significantly.")]
         [JsonProperty("shading_calculation_update_frequency_method")]
-        public EmptyNoYes ShadingCalculationUpdateFrequencyMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Periodic");
+        public ShadowCalculation_ShadingCalculationUpdateFrequencyMethod ShadingCalculationUpdateFrequencyMethod { get; set; } = (ShadowCalculation_ShadingCalculationUpdateFrequencyMethod)Enum.Parse(typeof(ShadowCalculation_ShadingCalculationUpdateFrequencyMethod), "Periodic");
         
 
         [Description("enter number of days this field is only used if the previous field is set to Peri" +
@@ -38,7 +38,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
         [Description("Advanced Feature. Internal default is SutherlandHodgman Refer to InputOutput Refe" +
                      "rence and Engineering Reference for more information")]
         [JsonProperty("polygon_clipping_algorithm")]
-        public EmptyNoYes PolygonClippingAlgorithm { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SutherlandHodgman");
+        public ShadowCalculation_PolygonClippingAlgorithm PolygonClippingAlgorithm { get; set; } = (ShadowCalculation_PolygonClippingAlgorithm)Enum.Parse(typeof(ShadowCalculation_PolygonClippingAlgorithm), "SutherlandHodgman");
         
 
         [Description("Number of pixels in both dimensions of the surface rendering")]
@@ -51,7 +51,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
                      "etailed method. Refer to InputOutput Reference and Engineering Reference for mor" +
                      "e information")]
         [JsonProperty("sky_diffuse_modeling_algorithm")]
-        public EmptyNoYes SkyDiffuseModelingAlgorithm { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SimpleSkyDiffuseModeling");
+        public ShadowCalculation_SkyDiffuseModelingAlgorithm SkyDiffuseModelingAlgorithm { get; set; } = (ShadowCalculation_SkyDiffuseModelingAlgorithm)Enum.Parse(typeof(ShadowCalculation_SkyDiffuseModelingAlgorithm), "SimpleSkyDiffuseModeling");
         
 
         [Description("If Yes is chosen, the calculated external shading fraction results will be saved " +

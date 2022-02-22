@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     [Description("Central air system terminal unit, dual duct, constant volume.")]
     [JsonObject("AirTerminal:DualDuct:ConstantVolume")]
-    public class AirTerminal_DualDuct_ConstantVolume : BHoMObject
+    public class AirTerminal_DualDuct_ConstantVolume : BHoMObject, IEnergyPlusClass
     {
         
 

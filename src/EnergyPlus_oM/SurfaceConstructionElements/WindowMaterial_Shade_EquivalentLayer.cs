@@ -11,7 +11,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
                  "spherically-diffuse) independent of angle of incidence. Shade represents roller " +
                  "blinds.")]
     [JsonObject("WindowMaterial:Shade:EquivalentLayer")]
-    public class WindowMaterial_Shade_EquivalentLayer : BHoMObject
+    public class WindowMaterial_Shade_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
 

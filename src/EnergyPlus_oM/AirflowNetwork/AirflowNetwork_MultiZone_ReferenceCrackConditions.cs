@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     [Description("This object specifies the conditions under which the air mass flow coefficient wa" +
                  "s measured.")]
     [JsonObject("AirflowNetwork:MultiZone:ReferenceCrackConditions")]
-    public class AirflowNetwork_MultiZone_ReferenceCrackConditions : BHoMObject
+    public class AirflowNetwork_MultiZone_ReferenceCrackConditions : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
 {
     [Description("Models a fan that exhausts air from a zone.")]
     [JsonObject("Fan:ZoneExhaust")]
-    public class Fan_ZoneExhaust : BHoMObject
+    public class Fan_ZoneExhaust : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -53,7 +53,7 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
         [Description("Control if fan is to be interlocked with HVAC system Availability Managers or not" +
                      ".")]
         [JsonProperty("system_availability_manager_coupling_mode")]
-        public EmptyNoYes SystemAvailabilityManagerCouplingMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Coupled");
+        public Fan_ZoneExhaust_SystemAvailabilityManagerCouplingMode SystemAvailabilityManagerCouplingMode { get; set; } = (Fan_ZoneExhaust_SystemAvailabilityManagerCouplingMode)Enum.Parse(typeof(Fan_ZoneExhaust_SystemAvailabilityManagerCouplingMode), "Coupled");
         
 
         [Description("If field is used, the exhaust fan will not run if the zone temperature is lower t" +

@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
     [Description("A return air path can only contain one AirLoopHVAC:ZoneMixer and one or more AirL" +
                  "oopHVAC:ReturnPlenum objects.")]
     [JsonObject("AirLoopHVAC:ReturnPath")]
-    public class AirLoopHVAC_ReturnPath : BHoMObject
+    public class AirLoopHVAC_ReturnPath : BHoMObject, IEnergyPlusClass
     {
         
 

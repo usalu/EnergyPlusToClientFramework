@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     [Description("Used to control a zone to a specified indoor level of CO2 or generic contaminants" +
                  ", or to specify minimum CO2 concentration schedule name for a zone.")]
     [JsonObject("ZoneControl:ContaminantController")]
-    public class ZoneControl_ContaminantController : BHoMObject
+    public class ZoneControl_ContaminantController : BHoMObject, IEnergyPlusClass
     {
         
 

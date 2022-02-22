@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
     [Description("This setpoint manager sets both the supply air temperature and the supply air flo" +
                  "w rate.")]
     [JsonObject("SetpointManager:WarmestTemperatureFlow")]
-    public class SetpointManager_WarmestTemperatureFlow : BHoMObject
+    public class SetpointManager_WarmestTemperatureFlow : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
-        public EmptyNoYes ControlVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public SetpointManager_WarmestTemperatureFlow_ControlVariable ControlVariable { get; set; } = (SetpointManager_WarmestTemperatureFlow_ControlVariable)Enum.Parse(typeof(SetpointManager_WarmestTemperatureFlow_ControlVariable), "Temperature");
         
 
         [Description("Enter the name of an AirLoopHVAC object.")]
@@ -32,7 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 
         [Description(@"For TemperatureFirst the manager tries to find the highest setpoint temperature that will satisfy all the zone cooling loads at minimum supply air flow rate. If this setpoint temperature is less than the minimum, the setpoint temperature is set to the minimum, and the supply air flow rate is increased to meet the loads. For FlowFirst the manager tries to find the lowest supply air flow rate that will satisfy all the zone cooling loads at the maximum setpoint temperature. If this flow is greater than the maximum, the flow is set to the maximum and the setpoint temperature is reduced to satisfy the cooling loads.")]
         [JsonProperty("strategy")]
-        public EmptyNoYes Strategy { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "TemperatureFirst");
+        public SetpointManager_WarmestTemperatureFlow_Strategy Strategy { get; set; } = (SetpointManager_WarmestTemperatureFlow_Strategy)Enum.Parse(typeof(SetpointManager_WarmestTemperatureFlow_Strategy), "TemperatureFirst");
         
 
         [Description("Node(s) at which the temperature will be set")]

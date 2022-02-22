@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     [Description(@"Works in conjunction with one or multiple air chillers, compressor racks, refrigeration systems, or refrigeration secondary system objects to simulate the performance of a group of air chillers cooling a single zone. The chiller set model passes information about the zone conditions to determine the performance of individual chiller coils within the set, thus providing the sensible and latent heat exchange with the zone environment.")]
     [JsonObject("ZoneHVAC:RefrigerationChillerSet")]
-    public class ZoneHVAC_RefrigerationChillerSet : BHoMObject
+    public class ZoneHVAC_RefrigerationChillerSet : BHoMObject, IEnergyPlusClass
     {
         
 

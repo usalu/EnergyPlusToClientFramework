@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
                  "calling points for the same class instance by overriding multiple calling point " +
                  "methods.")]
     [JsonObject("PythonPlugin:Instance")]
-    public class PythonPlugin_Instance : BHoMObject
+    public class PythonPlugin_Instance : BHoMObject, IEnergyPlusClass
     {
         
 

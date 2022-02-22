@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
                  "dule. This fan will not cycle on and off based on cooling/heating load or other " +
                  "control signals.")]
     [JsonObject("Fan:ConstantVolume")]
-    public class Fan_ConstantVolume : BHoMObject
+    public class Fan_ConstantVolume : BHoMObject, IEnergyPlusClass
     {
         
 

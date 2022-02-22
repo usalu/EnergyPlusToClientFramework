@@ -9,13 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
                  "t is to provide a single parameter that can be used to reshape the building desc" +
                  "ription contained in the rest of the input file.")]
     [JsonObject("GeometryTransform")]
-    public class GeometryTransform : BHoMObject
+    public class GeometryTransform : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("only current allowed value is \"XY\"")]
         [JsonProperty("plane_of_transform")]
-        public EmptyNoYes PlaneOfTransform { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "XY");
+        public GeometryTransform_PlaneOfTransform PlaneOfTransform { get; set; } = (GeometryTransform_PlaneOfTransform)Enum.Parse(typeof(GeometryTransform_PlaneOfTransform), "XY");
         
 
         [Description("Aspect ratio of building as described in idf")]

@@ -68,7 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
     
     [Description("Defines a central forced air system.")]
     [JsonObject("AirLoopHVAC")]
-    public class AirLoopHVAC : BHoMObject
+    public class AirLoopHVAC : BHoMObject, IEnergyPlusClass
     {
         
 

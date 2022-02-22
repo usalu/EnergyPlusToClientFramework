@@ -9,14 +9,14 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
                  "pes. Water mains temperatures are a function of outdoor climate conditions and v" +
                  "ary with time of year.")]
     [JsonObject("Site:WaterMainsTemperature")]
-    public class Site_WaterMainsTemperature : BHoMObject
+    public class Site_WaterMainsTemperature : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("If calculation method is CorrelationFromWeatherFile, the two numeric input fields" +
                      " are ignored. Instead, EnergyPlus calculates them from weather file.")]
         [JsonProperty("calculation_method")]
-        public EmptyNoYes CalculationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "CorrelationFromWeatherFile");
+        public Site_WaterMainsTemperature_CalculationMethod CalculationMethod { get; set; } = (Site_WaterMainsTemperature_CalculationMethod)Enum.Parse(typeof(Site_WaterMainsTemperature_CalculationMethod), "CorrelationFromWeatherFile");
         
 
         [JsonProperty("temperature_schedule_name")]

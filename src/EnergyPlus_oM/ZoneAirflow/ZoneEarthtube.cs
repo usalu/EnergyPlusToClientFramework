@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
                  "n, temperature difference and wind speed: Earthtube=Edesign * Fschedule * (A + B" +
                  "*|(Tzone-Todb)| + C*WindSpd + D * WindSpd**2)")]
     [JsonObject("ZoneEarthtube")]
-    public class ZoneEarthtube : BHoMObject
+    public class ZoneEarthtube : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -44,7 +44,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
         
 
         [JsonProperty("earthtube_type")]
-        public EmptyNoYes EarthtubeType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Natural");
+        public ZoneEarthtube_EarthtubeType EarthtubeType { get; set; } = (ZoneEarthtube_EarthtubeType)Enum.Parse(typeof(ZoneEarthtube_EarthtubeType), "Natural");
         
 
         [Description("pressure rise across the fan")]
@@ -77,7 +77,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
         
 
         [JsonProperty("soil_condition")]
-        public EmptyNoYes SoilCondition { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "HeavyAndDamp");
+        public ZoneEarthtube_SoilCondition SoilCondition { get; set; } = (ZoneEarthtube_SoilCondition)Enum.Parse(typeof(ZoneEarthtube_SoilCondition), "HeavyAndDamp");
         
 
         [JsonProperty("average_soil_surface_temperature")]

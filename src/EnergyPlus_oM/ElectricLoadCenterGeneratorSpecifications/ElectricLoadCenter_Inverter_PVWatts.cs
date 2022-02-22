@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                  "t (AC) in an electric load center that contains Generator:PVWatts objects. It im" +
                  "plements the PVWatts inverter performance curves.")]
     [JsonObject("ElectricLoadCenter:Inverter:PVWatts")]
-    public class ElectricLoadCenter_Inverter_PVWatts : BHoMObject
+    public class ElectricLoadCenter_Inverter_PVWatts : BHoMObject, IEnergyPlusClass
     {
         
 

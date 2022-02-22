@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
                  "l ventilation. It consists of an absorber wall, air gap and glass cover with hig" +
                  "h solar transmissivity.")]
     [JsonObject("ZoneThermalChimney")]
-    public class ZoneThermalChimney : BHoMObject
+    public class ZoneThermalChimney : BHoMObject, IEnergyPlusClass
     {
         
 

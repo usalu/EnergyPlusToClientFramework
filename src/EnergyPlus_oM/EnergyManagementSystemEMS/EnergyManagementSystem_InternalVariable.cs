@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     [Description("Declares EMS variable as an internal data variable")]
     [JsonObject("EnergyManagementSystem:InternalVariable")]
-    public class EnergyManagementSystem_InternalVariable : BHoMObject
+    public class EnergyManagementSystem_InternalVariable : BHoMObject, IEnergyPlusClass
     {
         
 

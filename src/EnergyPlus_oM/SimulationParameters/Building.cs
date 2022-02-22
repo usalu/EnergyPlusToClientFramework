@@ -11,7 +11,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
                  "n the Site:WeatherStation and Site:HeightVariation objects, specifically the Ter" +
                  "rain field.")]
     [JsonObject("Building")]
-    public class Building : BHoMObject
+    public class Building : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -23,7 +23,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
         [Description("Country=FlatOpenCountry | Suburbs=CountryTownsSuburbs | City=CityCenter | Ocean=b" +
                      "ody of water (5km) | Urban=Urban-Industrial-Forest")]
         [JsonProperty("terrain")]
-        public EmptyNoYes Terrain { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Suburbs");
+        public Building_Terrain Terrain { get; set; } = (Building_Terrain)Enum.Parse(typeof(Building_Terrain), "Suburbs");
         
 
         [Description("Loads Convergence Tolerance Value is a change in load from one warmup day to the " +
@@ -39,7 +39,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
         [Description("MinimalShadowing | FullExterior | FullInteriorAndExterior | FullExteriorWithRefle" +
                      "ctions | FullInteriorAndExteriorWithReflections")]
         [JsonProperty("solar_distribution")]
-        public EmptyNoYes SolarDistribution { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "FullExterior");
+        public Building_SolarDistribution SolarDistribution { get; set; } = (Building_SolarDistribution)Enum.Parse(typeof(Building_SolarDistribution), "FullExterior");
         
 
         [Description("EnergyPlus will only use as many warmup days as needed to reach convergence toler" +

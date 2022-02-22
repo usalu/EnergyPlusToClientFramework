@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
                  "er configurations. To access these meters by name, one must first run a simulati" +
                  "on to generate the RDD/MDD files and names.")]
     [JsonObject("Meter:CustomDecrement")]
-    public class Meter_CustomDecrement : BHoMObject
+    public class Meter_CustomDecrement : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("resource_type")]
-        public EmptyNoYes ResourceType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Meter_CustomDecrement_ResourceType ResourceType { get; set; } = (Meter_CustomDecrement_ResourceType)Enum.Parse(typeof(Meter_CustomDecrement_ResourceType), "Coal");
         
 
         [JsonProperty("source_meter_name")]

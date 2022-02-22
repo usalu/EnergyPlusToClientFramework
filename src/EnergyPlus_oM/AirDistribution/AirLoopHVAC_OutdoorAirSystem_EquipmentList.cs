@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
 {
     [Description("List equipment in simulation order")]
     [JsonObject("AirLoopHVAC:OutdoorAirSystem:EquipmentList")]
-    public class AirLoopHVAC_OutdoorAirSystem_EquipmentList : BHoMObject
+    public class AirLoopHVAC_OutdoorAirSystem_EquipmentList : BHoMObject, IEnergyPlusClass
     {
         
 

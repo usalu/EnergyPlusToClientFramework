@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                  "l so that the overall costs of the project will reflect various profit and fees." +
                  "")]
     [JsonObject("ComponentCost:Adjustments")]
-    public class ComponentCost_Adjustments : BHoMObject
+    public class ComponentCost_Adjustments : BHoMObject, IEnergyPlusClass
     {
         
 

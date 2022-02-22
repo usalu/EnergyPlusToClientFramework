@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.EvaporativeCoolers
                  " pump, and secondary air fan. This model has no controls other than its availabi" +
                  "lity schedule.")]
     [JsonObject("EvaporativeCooler:Indirect:CelDekPad")]
-    public class EvaporativeCooler_Indirect_CelDekPad : BHoMObject
+    public class EvaporativeCooler_Indirect_CelDekPad : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
                  "r each value Currently, is set up to allow for 10 minute intervals for an entire" +
                  " day.")]
     [JsonObject("Schedule:Day:Interval")]
-    public class Schedule_Day_Interval : BHoMObject
+    public class Schedule_Day_Interval : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -19,7 +19,7 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
 
         [Description(@"when the interval does not match the user specified timestep a Average choice will average between the intervals request (to timestep resolution. A No choice will use the interval value at the simulation timestep without regard to if it matches the boundary or not. A Linear choice will interpolate linearly between successive values.")]
         [JsonProperty("interpolate_to_timestep")]
-        public EmptyNoYes InterpolateToTimestep { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
+        public Schedule_Day_Interval_InterpolateToTimestep InterpolateToTimestep { get; set; } = (Schedule_Day_Interval_InterpolateToTimestep)Enum.Parse(typeof(Schedule_Day_Interval_InterpolateToTimestep), "No");
         
 
         [JsonProperty("data")]

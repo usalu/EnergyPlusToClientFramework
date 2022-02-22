@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
     [Description("Central air system terminal unit, single duct, constant volume, with cooled beam " +
                  "(active or passive).")]
     [JsonObject("AirTerminal:SingleDuct:ConstantVolume:CooledBeam")]
-    public class AirTerminal_SingleDuct_ConstantVolume_CooledBeam : BHoMObject
+    public class AirTerminal_SingleDuct_ConstantVolume_CooledBeam : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -20,7 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
         
 
         [JsonProperty("cooled_beam_type")]
-        public EmptyNoYes CooledBeamType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public AirTerminal_SingleDuct_ConstantVolume_CooledBeam_CooledBeamType CooledBeamType { get; set; } = (AirTerminal_SingleDuct_ConstantVolume_CooledBeam_CooledBeamType)Enum.Parse(typeof(AirTerminal_SingleDuct_ConstantVolume_CooledBeam_CooledBeamType), "Active");
         
 
         [JsonProperty("supply_air_inlet_node_name")]

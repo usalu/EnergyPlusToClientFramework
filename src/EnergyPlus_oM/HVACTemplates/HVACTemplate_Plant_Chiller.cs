@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("This object adds a chiller to an HVACTemplate:Plant:ChilledWaterLoop.")]
     [JsonObject("HVACTemplate:Plant:Chiller")]
-    public class HVACTemplate_Plant_Chiller : BHoMObject
+    public class HVACTemplate_Plant_Chiller : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("chiller_type")]
-        public EmptyNoYes ChillerType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public HVACTemplate_Plant_Chiller_ChillerType ChillerType { get; set; } = (HVACTemplate_Plant_Chiller_ChillerType)Enum.Parse(typeof(HVACTemplate_Plant_Chiller_ChillerType), "DistrictChilledWater");
         
 
         [JsonProperty("capacity")]
@@ -28,7 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description("Not applicable if Chiller Type is DistrictChilledWater")]
         [JsonProperty("condenser_type")]
-        public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "WaterCooled");
+        public HVACTemplate_Plant_Chiller_CondenserType CondenserType { get; set; } = (HVACTemplate_Plant_Chiller_CondenserType)Enum.Parse(typeof(HVACTemplate_Plant_Chiller_CondenserType), "WaterCooled");
         
 
         [Description("If Chiller Plant Operation Scheme Type=Default in HVACTemplate:Plant:ChilledWater" +

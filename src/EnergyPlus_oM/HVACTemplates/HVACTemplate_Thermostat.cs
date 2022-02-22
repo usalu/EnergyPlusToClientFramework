@@ -1,6 +1,7 @@
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     using System.ComponentModel;
+    using BH.oM.Adapters.EnergyPlus;
     using Newtonsoft.Json;
     using BH.oM.Base;
     using BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts;
@@ -65,7 +66,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     
     [Description(@"Zone thermostat control. Referenced schedules must be defined elsewhere in the idf. Thermostat control type is dual setpoint with deadband. It is not necessary to create a thermostat object for every zone, only for each unique set of setpoint schedules. For example, an office building may have two thermostat objects, one for ""Office"" and one for ""Storage"".")]
     [JsonObject("HVACTemplate:Thermostat")]
-    public class HVACTemplate_Thermostat : BHoMObject
+    public class HVACTemplate_Thermostat : BHoMObject, IEnergyPlusClass
     {
         
 

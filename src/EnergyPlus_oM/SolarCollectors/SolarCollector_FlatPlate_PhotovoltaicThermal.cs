@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
                  "olar energy into both electricity and useful thermal energy by heating air or wa" +
                  "ter.")]
     [JsonObject("SolarCollector:FlatPlate:PhotovoltaicThermal")]
-    public class SolarCollector_FlatPlate_PhotovoltaicThermal : BHoMObject
+    public class SolarCollector_FlatPlate_PhotovoltaicThermal : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -27,7 +27,7 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
         
 
         [JsonProperty("thermal_working_fluid_type")]
-        public EmptyNoYes ThermalWorkingFluidType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public SolarCollector_FlatPlate_PhotovoltaicThermal_ThermalWorkingFluidType ThermalWorkingFluidType { get; set; } = (SolarCollector_FlatPlate_PhotovoltaicThermal_ThermalWorkingFluidType)Enum.Parse(typeof(SolarCollector_FlatPlate_PhotovoltaicThermal_ThermalWorkingFluidType), "Air");
         
 
         [JsonProperty("water_inlet_node_name")]

@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
                  " load or other control signals. This fan can also operate continuously like Fan:" +
                  "ConstantVolume.")]
     [JsonObject("Fan:OnOff")]
-    public class Fan_OnOff : BHoMObject
+    public class Fan_OnOff : BHoMObject, IEnergyPlusClass
     {
         
 

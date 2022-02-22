@@ -67,7 +67,7 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
     
     [Description(@"Thermal and optical performance parameters for a single flat plate solar collector module. These parameters are based on the testing methodologies described in ASHRAE Standards 93 and 96 which are used Solar Rating and Certification Corporation (SRCC) Directory of SRCC Certified Solar Collector Ratings. See EnergyPlus DataSets file SolarCollectors.idf.")]
     [JsonObject("SolarCollectorPerformance:FlatPlate")]
-    public class SolarCollectorPerformance_FlatPlate : BHoMObject
+    public class SolarCollectorPerformance_FlatPlate : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -76,7 +76,7 @@ public System.Nullable<float> GrossArea { get; set; } = null;
         
 
 [JsonProperty("test_fluid")]
-public EmptyNoYes TestFluid { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Water");
+public SolarCollectorPerformance_FlatPlate_TestFluid TestFluid { get; set; } = (SolarCollectorPerformance_FlatPlate_TestFluid)Enum.Parse(typeof(SolarCollectorPerformance_FlatPlate_TestFluid), "Water");
         
 
 [JsonProperty("test_flow_rate")]
@@ -84,7 +84,7 @@ public System.Nullable<float> TestFlowRate { get; set; } = null;
         
 
 [JsonProperty("test_correlation_type")]
-public EmptyNoYes TestCorrelationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+public SolarCollectorPerformance_FlatPlate_TestCorrelationType TestCorrelationType { get; set; } = (SolarCollectorPerformance_FlatPlate_TestCorrelationType)Enum.Parse(typeof(SolarCollectorPerformance_FlatPlate_TestCorrelationType), "Average");
         
 
 [Description("Y-intercept term")]

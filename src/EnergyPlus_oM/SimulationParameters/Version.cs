@@ -1,6 +1,7 @@
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     using System.ComponentModel;
+    using BH.oM.Adapters.EnergyPlus;
     using Newtonsoft.Json;
     using BH.oM.Base;
     using BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts;
@@ -65,7 +66,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
     
     [Description("Specifies the EnergyPlus version of the IDF file.")]
     [JsonObject("Version")]
-    public class Version : BHoMObject
+    public class Version : BHoMObject, IEnergyPlusClass
     {
         
 

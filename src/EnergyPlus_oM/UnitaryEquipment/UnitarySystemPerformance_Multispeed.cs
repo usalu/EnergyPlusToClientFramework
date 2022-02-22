@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
 {
     [Description(@"The UnitarySystemPerformance object is used to specify the air flow ratio at each operating speed. This object is primarily used for multispeed DX and water coils to allow operation at alternate flow rates different from those specified in the coil object.")]
     [JsonObject("UnitarySystemPerformance:Multispeed")]
-    public class UnitarySystemPerformance_Multispeed : BHoMObject
+    public class UnitarySystemPerformance_Multispeed : BHoMObject, IEnergyPlusClass
     {
         
 

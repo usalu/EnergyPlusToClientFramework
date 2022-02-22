@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     [Description("This object is used for air-source integrated heat pump, a collection of its work" +
                  "ing modes.")]
     [JsonObject("CoilSystem:IntegratedHeatPump:AirSource")]
-    public class CoilSystem_IntegratedHeatPump_AirSource : BHoMObject
+    public class CoilSystem_IntegratedHeatPump_AirSource : BHoMObject, IEnergyPlusClass
     {
         
 

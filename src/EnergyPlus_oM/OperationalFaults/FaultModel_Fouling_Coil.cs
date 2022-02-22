@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes fouling water heating or cooling coils")]
     [JsonObject("FaultModel:Fouling:Coil")]
-    public class FaultModel_Fouling_Coil : BHoMObject
+    public class FaultModel_Fouling_Coil : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -25,7 +25,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
         
 
         [JsonProperty("fouling_input_method")]
-        public EmptyNoYes FoulingInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "FouledUARated");
+        public FaultModel_Fouling_Coil_FoulingInputMethod FoulingInputMethod { get; set; } = (FaultModel_Fouling_Coil_FoulingInputMethod)Enum.Parse(typeof(FaultModel_Fouling_Coil_FoulingInputMethod), "FouledUARated");
         
 
         [Description("Fouling coil UA value under rating conditions For Fouling Input Method: FouledUAR" +

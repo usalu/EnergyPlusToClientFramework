@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Internal heat source to be attached to a construction layer")]
     [JsonObject("ConstructionProperty:InternalHeatSource")]
-    public class ConstructionProperty_InternalHeatSource : BHoMObject
+    public class ConstructionProperty_InternalHeatSource : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
                  "fer simulation. Only the Foundation Wall, Floor Slab, Soil, and Gravel propertie" +
                  "s are currently used.")]
     [JsonObject("GroundHeatTransfer:Basement:MatlProps")]
-    public class GroundHeatTransfer_Basement_MatlProps : BHoMObject
+    public class GroundHeatTransfer_Basement_MatlProps : BHoMObject, IEnergyPlusClass
     {
         
 

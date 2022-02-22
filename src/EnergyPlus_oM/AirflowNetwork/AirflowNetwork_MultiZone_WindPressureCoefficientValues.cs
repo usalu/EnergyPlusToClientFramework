@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description(@"Used only if Wind Pressure Coefficient (WPC) Type = INPUT in the AirflowNetwork:SimulationControl object. The number of WPC numeric inputs must correspond to the number of wind direction inputs in the AirflowNetwork:Multizone:WindPressureCoefficientArray object.")]
     [JsonObject("AirflowNetwork:MultiZone:WindPressureCoefficientValues")]
-    public class AirflowNetwork_MultiZone_WindPressureCoefficientValues : BHoMObject
+    public class AirflowNetwork_MultiZone_WindPressureCoefficientValues : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description(@"This object sets the temperature and humidity conditions for an outdoor air node. It allows the height above ground to be specified. This object may be used more than once. The same node name may not appear in both an OutdoorAir:Node object and an OutdoorAir:NodeList object. This object defines local outdoor air environmental conditions.")]
     [JsonObject("OutdoorAir:Node")]
-    public class OutdoorAir_Node : BHoMObject
+    public class OutdoorAir_Node : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -56,6 +56,6 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
                      "and the surface azimuth Specify Absolute to use the wind direction angle directl" +
                      "y")]
         [JsonProperty("wind_angle_type")]
-        public EmptyNoYes WindAngleType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Absolute");
+        public OutdoorAir_Node_WindAngleType WindAngleType { get; set; } = (OutdoorAir_Node_WindAngleType)Enum.Parse(typeof(OutdoorAir_Node_WindAngleType), "Absolute");
     }
 }

@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
     [Description("Direct fired gas absorption chiller-heater using performance curves similar to DO" +
                  "E-2")]
     [JsonObject("ChillerHeater:Absorption:DirectFired")]
-    public class ChillerHeater_Absorption_DirectFired : BHoMObject
+    public class ChillerHeater_Absorption_DirectFired : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -158,12 +158,12 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 
         [Description(@"Sets the second independent variable in the three temperature dependent performance curves to either the leaving or entering condenser water temperature. Manufacturers express the performance of their chillers using either the leaving condenser water temperature (to the tower) or the entering condenser water temperature (from the tower).")]
         [JsonProperty("temperature_curve_input_variable")]
-        public EmptyNoYes TemperatureCurveInputVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "EnteringCondenser");
+        public ChillerHeater_Absorption_DirectFired_TemperatureCurveInputVariable TemperatureCurveInputVariable { get; set; } = (ChillerHeater_Absorption_DirectFired_TemperatureCurveInputVariable)Enum.Parse(typeof(ChillerHeater_Absorption_DirectFired_TemperatureCurveInputVariable), "EnteringCondenser");
         
 
         [Description("The condenser can either be air cooled or connected to a cooling tower.")]
         [JsonProperty("condenser_type")]
-        public EmptyNoYes CondenserType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "WaterCooled");
+        public ChillerHeater_Absorption_DirectFired_CondenserType CondenserType { get; set; } = (ChillerHeater_Absorption_DirectFired_CondenserType)Enum.Parse(typeof(ChillerHeater_Absorption_DirectFired_CondenserType), "WaterCooled");
         
 
         [Description("The chilled water supply temperature below which the chiller will shut off.")]
@@ -177,7 +177,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("fuel_type")]
-        public EmptyNoYes FuelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NaturalGas");
+        public ChillerHeater_Absorption_DirectFired_FuelType FuelType { get; set; } = (ChillerHeater_Absorption_DirectFired_FuelType)Enum.Parse(typeof(ChillerHeater_Absorption_DirectFired_FuelType), "NaturalGas");
         
 
         [Description("Multiplies the autosized capacity and flow rates")]

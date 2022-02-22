@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("used to define pillar geometry for support pillars")]
     [JsonObject("WindowGap:SupportPillar")]
-    public class WindowGap_SupportPillar : BHoMObject
+    public class WindowGap_SupportPillar : BHoMObject, IEnergyPlusClass
     {
         
 

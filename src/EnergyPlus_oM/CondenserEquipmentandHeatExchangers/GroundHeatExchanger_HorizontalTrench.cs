@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
                  "uses the PipingSystem:Underground underlying algorithms, but provides a more usa" +
                  "ble input interface.")]
     [JsonObject("GroundHeatExchanger:HorizontalTrench")]
-    public class GroundHeatExchanger_HorizontalTrench : BHoMObject
+    public class GroundHeatExchanger_HorizontalTrench : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -91,7 +91,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("undisturbed_ground_temperature_model_type")]
-        public EmptyNoYes UndisturbedGroundTemperatureModelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public GroundHeatExchanger_HorizontalTrench_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (GroundHeatExchanger_HorizontalTrench_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(GroundHeatExchanger_HorizontalTrench_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
         [JsonProperty("undisturbed_ground_temperature_model_name")]

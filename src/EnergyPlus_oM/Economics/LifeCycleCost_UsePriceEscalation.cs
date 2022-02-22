@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                  "e annual supplement to NIST Handbook 135 in Tables Ca-1 to Ca-5 and are included" +
                  " in an EnergyPlus dataset file.")]
     [JsonObject("LifeCycleCost:UsePriceEscalation")]
-    public class LifeCycleCost_UsePriceEscalation : BHoMObject
+    public class LifeCycleCost_UsePriceEscalation : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -19,7 +19,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
         
 
         [JsonProperty("resource")]
-        public EmptyNoYes Resource { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public LifeCycleCost_UsePriceEscalation_Resource Resource { get; set; } = (LifeCycleCost_UsePriceEscalation_Resource)Enum.Parse(typeof(LifeCycleCost_UsePriceEscalation_Resource), "Coal");
         
 
         [Description("This field and the Escalation Start Month define the time that corresponds to Yea" +
@@ -33,7 +33,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                      " 1 Escalation such as 2010 when the escalation rates are applied. This field and" +
                      " the Escalation Start Year define the time that escalation begins.")]
         [JsonProperty("escalation_start_month")]
-        public EmptyNoYes EscalationStartMonth { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "January");
+        public LifeCycleCost_UsePriceEscalation_EscalationStartMonth EscalationStartMonth { get; set; } = (LifeCycleCost_UsePriceEscalation_EscalationStartMonth)Enum.Parse(typeof(LifeCycleCost_UsePriceEscalation_EscalationStartMonth), "January");
         
 
         [JsonProperty("escalations")]

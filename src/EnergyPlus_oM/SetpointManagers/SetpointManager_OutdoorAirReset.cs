@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
                  "rding to the outdoor air temperature using a reset rule. The outdoor air tempera" +
                  "ture is obtained from the weather information during the simulation.")]
     [JsonObject("SetpointManager:OutdoorAirReset")]
-    public class SetpointManager_OutdoorAirReset : BHoMObject
+    public class SetpointManager_OutdoorAirReset : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
-        public EmptyNoYes ControlVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Temperature");
+        public SetpointManager_OutdoorAirReset_ControlVariable ControlVariable { get; set; } = (SetpointManager_OutdoorAirReset_ControlVariable)Enum.Parse(typeof(SetpointManager_OutdoorAirReset_ControlVariable), "Temperature");
         
 
         [JsonProperty("setpoint_at_outdoor_low_temperature")]

@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description("The ground domain object for underground piping system simulation.")]
     [JsonObject("PipingSystem:Underground:Domain")]
-    public class PipingSystem_Underground_Domain : BHoMObject
+    public class PipingSystem_Underground_Domain : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -33,7 +33,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
         [JsonProperty("x_direction_mesh_type")]
-        public EmptyNoYes XDirectionMeshType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PipingSystem_Underground_Domain_XDirectionMeshType XDirectionMeshType { get; set; } = (PipingSystem_Underground_Domain_XDirectionMeshType)Enum.Parse(typeof(PipingSystem_Underground_Domain_XDirectionMeshType), "SymmetricGeometric");
         
 
         [Description("optional Only used if mesh type is symmetric geometric")]
@@ -47,7 +47,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
         [JsonProperty("y_direction_mesh_type")]
-        public EmptyNoYes YDirectionMeshType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PipingSystem_Underground_Domain_YDirectionMeshType YDirectionMeshType { get; set; } = (PipingSystem_Underground_Domain_YDirectionMeshType)Enum.Parse(typeof(PipingSystem_Underground_Domain_YDirectionMeshType), "SymmetricGeometric");
         
 
         [Description("optional Only used if mesh type is symmetric geometric")]
@@ -61,7 +61,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
         [JsonProperty("z_direction_mesh_type")]
-        public EmptyNoYes ZDirectionMeshType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PipingSystem_Underground_Domain_ZDirectionMeshType ZDirectionMeshType { get; set; } = (PipingSystem_Underground_Domain_ZDirectionMeshType)Enum.Parse(typeof(PipingSystem_Underground_Domain_ZDirectionMeshType), "SymmetricGeometric");
         
 
         [Description("optional Only used if mesh type is symmetric geometric")]
@@ -92,7 +92,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
         [JsonProperty("undisturbed_ground_temperature_model_type")]
-        public EmptyNoYes UndisturbedGroundTemperatureModelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
         [JsonProperty("undisturbed_ground_temperature_model_name")]
@@ -117,7 +117,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 
         [Description("Required only if Domain Has Basement Interaction")]
         [JsonProperty("shift_pipe_x_coordinates_by_basement_width")]
-        public EmptyNoYes ShiftPipeXCoordinatesByBasementWidth { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth ShiftPipeXCoordinatesByBasementWidth { get; set; } = (PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth)Enum.Parse(typeof(PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth), "No");
         
 
         [Description("Required only if Domain Has Basement Interaction")]

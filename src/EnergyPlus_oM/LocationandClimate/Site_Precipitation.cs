@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("Used to describe the amount of water precipitation at the building site. Precipit" +
                  "ation includes both rain and the equivalent water content of snow.")]
     [JsonObject("Site:Precipitation")]
-    public class Site_Precipitation : BHoMObject
+    public class Site_Precipitation : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("precipitation_model_type")]
-        public EmptyNoYes PrecipitationModelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Site_Precipitation_PrecipitationModelType PrecipitationModelType { get; set; } = (Site_Precipitation_PrecipitationModelType)Enum.Parse(typeof(Site_Precipitation_PrecipitationModelType), "ScheduleAndDesignLevel");
         
 
         [Description("meters of water per year used for design level")]

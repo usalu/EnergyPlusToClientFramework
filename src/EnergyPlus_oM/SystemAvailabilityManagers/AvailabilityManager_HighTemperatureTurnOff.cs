@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     [Description("Overrides fan/pump schedules depending on temperature at sensor node.")]
     [JsonObject("AvailabilityManager:HighTemperatureTurnOff")]
-    public class AvailabilityManager_HighTemperatureTurnOff : BHoMObject
+    public class AvailabilityManager_HighTemperatureTurnOff : BHoMObject, IEnergyPlusClass
     {
         
 

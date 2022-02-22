@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
                  "n effectiveness and secondary recirculation fraction. It is referenced by Sizing" +
                  ":Zone and Controller:MechanicalVentilation objects")]
     [JsonObject("DesignSpecification:ZoneAirDistribution")]
-    public class DesignSpecification_ZoneAirDistribution : BHoMObject
+    public class DesignSpecification_ZoneAirDistribution : BHoMObject, IEnergyPlusClass
     {
         
 

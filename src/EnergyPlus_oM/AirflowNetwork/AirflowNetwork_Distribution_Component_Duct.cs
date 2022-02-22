@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     [Description("This object defines the relationship between pressure and air flow through the du" +
                  "ct.")]
     [JsonObject("AirflowNetwork:Distribution:Component:Duct")]
-    public class AirflowNetwork_Distribution_Component_Duct : BHoMObject
+    public class AirflowNetwork_Distribution_Component_Duct : BHoMObject, IEnergyPlusClass
     {
         
 

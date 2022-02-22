@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("Undisturbed ground temperature object using the Xing 2014 2 harmonic parameter mo" +
                  "del.")]
     [JsonObject("Site:GroundTemperature:Undisturbed:Xing")]
-    public class Site_GroundTemperature_Undisturbed_Xing : BHoMObject
+    public class Site_GroundTemperature_Undisturbed_Xing : BHoMObject, IEnergyPlusClass
     {
         
 

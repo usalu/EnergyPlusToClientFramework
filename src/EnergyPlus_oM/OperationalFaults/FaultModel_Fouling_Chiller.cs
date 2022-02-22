@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes the fouling fault of chillers with water-cooled condensers")]
     [JsonObject("FaultModel:Fouling:Chiller")]
-    public class FaultModel_Fouling_Chiller : BHoMObject
+    public class FaultModel_Fouling_Chiller : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -23,7 +23,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
         [Description("Enter the type of a chiller object The fault applies to the chillers with water-c" +
                      "ooled condensers")]
         [JsonProperty("chiller_object_type")]
-        public EmptyNoYes ChillerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public FaultModel_Fouling_Chiller_ChillerObjectType ChillerObjectType { get; set; } = (FaultModel_Fouling_Chiller_ChillerObjectType)Enum.Parse(typeof(FaultModel_Fouling_Chiller_ChillerObjectType), "ChillerCombustionTurbine");
         
 
         [Description("Enter the name of a chiller object")]

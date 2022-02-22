@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("If this object is omitted, the default solar and visible spectrum data will be us" +
                  "ed.")]
     [JsonObject("Site:SolarAndVisibleSpectrum")]
-    public class Site_SolarAndVisibleSpectrum : BHoMObject
+    public class Site_SolarAndVisibleSpectrum : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -16,7 +16,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
                      "alculations. Choices: Default - existing hard-wired spectrum data in EnergyPlus." +
                      " UserDefined - user specified spectrum data referenced by the next two fields")]
         [JsonProperty("spectrum_data_method")]
-        public EmptyNoYes SpectrumDataMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Default");
+        public Site_SolarAndVisibleSpectrum_SpectrumDataMethod SpectrumDataMethod { get; set; } = (Site_SolarAndVisibleSpectrum_SpectrumDataMethod)Enum.Parse(typeof(Site_SolarAndVisibleSpectrum_SpectrumDataMethod), "Default");
         
 
         [JsonProperty("solar_spectrum_data_object_name")]

@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Gas mixtures that are used in Windows or Glass Doors")]
     [JsonObject("WindowMaterial:GasMixture")]
-    public class WindowMaterial_GasMixture : BHoMObject
+    public class WindowMaterial_GasMixture : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -20,7 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
         
 
         [JsonProperty("gas_1_type")]
-        public EmptyNoYes Gas1Type { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public WindowMaterial_GasMixture_Gas1Type Gas1Type { get; set; } = (WindowMaterial_GasMixture_Gas1Type)Enum.Parse(typeof(WindowMaterial_GasMixture_Gas1Type), "Air");
         
 
         [JsonProperty("gas_1_fraction")]
@@ -28,7 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
         
 
         [JsonProperty("gas_2_type")]
-        public EmptyNoYes Gas2Type { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public WindowMaterial_GasMixture_Gas2Type Gas2Type { get; set; } = (WindowMaterial_GasMixture_Gas2Type)Enum.Parse(typeof(WindowMaterial_GasMixture_Gas2Type), "Air");
         
 
         [JsonProperty("gas_2_fraction")]
@@ -36,7 +36,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
         
 
         [JsonProperty("gas_3_type")]
-        public EmptyNoYes Gas3Type { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public WindowMaterial_GasMixture_Gas3Type Gas3Type { get; set; } = (WindowMaterial_GasMixture_Gas3Type)Enum.Parse(typeof(WindowMaterial_GasMixture_Gas3Type), "Air");
         
 
         [JsonProperty("gas_3_fraction")]
@@ -44,7 +44,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
         
 
         [JsonProperty("gas_4_type")]
-        public EmptyNoYes Gas4Type { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public WindowMaterial_GasMixture_Gas4Type Gas4Type { get; set; } = (WindowMaterial_GasMixture_Gas4Type)Enum.Parse(typeof(WindowMaterial_GasMixture_Gas4Type), "Air");
         
 
         [JsonProperty("gas_4_fraction")]

@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
                  "ata such as TMY2, IWEC, and ASHRAE design day data are all measured at the defau" +
                  "lt conditions and do not require this object.")]
     [JsonObject("Site:WeatherStation")]
-    public class Site_WeatherStation : BHoMObject
+    public class Site_WeatherStation : BHoMObject, IEnergyPlusClass
     {
         
 

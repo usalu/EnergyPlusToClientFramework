@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
                  "ystems. It includes inputs that describe the air-distribution system as well as " +
                  "the fan, drive belt (if used), motor, and variable-frequency-drive (if used).")]
     [JsonObject("Fan:ComponentModel")]
-    public class Fan_ComponentModel : BHoMObject
+    public class Fan_ComponentModel : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -112,7 +112,7 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
                      "action of full-load motor input power If field blank, then assumes constant VFD " +
                      "efficiency (0.97)")]
         [JsonProperty("vfd_efficiency_type")]
-        public EmptyNoYes VfdEfficiencyType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Fan_ComponentModel_VfdEfficiencyType VfdEfficiencyType { get; set; } = (Fan_ComponentModel_VfdEfficiencyType)Enum.Parse(typeof(Fan_ComponentModel_VfdEfficiencyType), "Power");
         
 
         [Description("Maximum power input to motor by VFD")]

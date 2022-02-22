@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     [Description(@"This setpoint manager detects the control zone load to meet the current cooling setpoint, zone inlet node flow rate, and zone node temperature, and calculates a setpoint temperature for the supply air that will satisfy the zone cooling load for the control zone.")]
     [JsonObject("SetpointManager:SingleZone:Cooling")]
-    public class SetpointManager_SingleZone_Cooling : BHoMObject
+    public class SetpointManager_SingleZone_Cooling : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
-        public EmptyNoYes ControlVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Temperature");
+        public SetpointManager_SingleZone_Cooling_ControlVariable ControlVariable { get; set; } = (SetpointManager_SingleZone_Cooling_ControlVariable)Enum.Parse(typeof(SetpointManager_SingleZone_Cooling_ControlVariable), "Temperature");
         
 
         [JsonProperty("minimum_supply_air_temperature")]

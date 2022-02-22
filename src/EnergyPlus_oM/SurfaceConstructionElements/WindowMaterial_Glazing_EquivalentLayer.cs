@@ -9,13 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("Glass material properties for Windows or Glass Doors Transmittance/Reflectance in" +
                  "put method.")]
     [JsonObject("WindowMaterial:Glazing:EquivalentLayer")]
-    public class WindowMaterial_Glazing_EquivalentLayer : BHoMObject
+    public class WindowMaterial_Glazing_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("Spectral is not currently supported and SpectralAverage is the default.")]
         [JsonProperty("optical_data_type")]
-        public EmptyNoYes OpticalDataType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SpectralAverage");
+        public WindowMaterial_Glazing_EquivalentLayer_OpticalDataType OpticalDataType { get; set; } = (WindowMaterial_Glazing_EquivalentLayer_OpticalDataType)Enum.Parse(typeof(WindowMaterial_Glazing_EquivalentLayer_OpticalDataType), "SpectralAverage");
         
 
         [Description("Spectral data is not currently supported. Used only when Optical Data Type = Spec" +

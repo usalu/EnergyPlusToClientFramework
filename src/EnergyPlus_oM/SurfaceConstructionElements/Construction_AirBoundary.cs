@@ -8,13 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description(@"Indicates an open boundary between two zones. It may be used for base surfaces and fenestration surfaces. The two adjacent zones are grouped together for solar, daylighting and radiant exchange. When this construction type is used, the Outside Boundary Condition of the surface (or the base surface of a fenestration surface) must be either Surface or Zone. A base surface with Construction:AirBoundary cannot hold any fenestration surfaces.")]
     [JsonObject("Construction:AirBoundary")]
-    public class Construction_AirBoundary : BHoMObject
+    public class Construction_AirBoundary : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("This field controls how air exchange is modeled across this boundary.")]
         [JsonProperty("air_exchange_method")]
-        public EmptyNoYes AirExchangeMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public Construction_AirBoundary_AirExchangeMethod AirExchangeMethod { get; set; } = (Construction_AirBoundary_AirExchangeMethod)Enum.Parse(typeof(Construction_AirBoundary_AirExchangeMethod), "None");
         
 
         [Description("If the Air Exchange Method is SimpleMixing then this field specifies the air chan" +

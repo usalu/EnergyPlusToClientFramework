@@ -1,6 +1,7 @@
 namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     using System.ComponentModel;
+    using BH.oM.Adapters.EnergyPlus;
     using System.Globalization;
     using Newtonsoft.Json;
     using BH.oM.Base;
@@ -68,7 +69,7 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
         "be reported are available after a run on the report (.rdd) or meter dictionary f" +
         "ile (.mdd) if the Output:VariableDictionary has been requested.")]
     [JsonObject("EnergyManagementSystem:Sensor")]
-    public class EnergyManagementSystem_Sensor : BHoMObject
+    public class EnergyManagementSystem_Sensor : BHoMObject, IEnergyPlusClass
     {
         
 

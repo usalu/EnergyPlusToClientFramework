@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"Quadratic curve with one independent variable. Input for a quadratic curve consists of the curve name, the three coefficients, and the maximum and minimum valid independent variable values. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x + C3*x**2")]
     [JsonObject("Curve:Quadratic")]
-    public class Curve_Quadratic : BHoMObject
+    public class Curve_Quadratic : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -42,10 +42,10 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
         
 
         [JsonProperty("input_unit_type_for_x")]
-        public EmptyNoYes InputUnitTypeForX { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_Quadratic_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Quadratic_InputUnitTypeForX)Enum.Parse(typeof(Curve_Quadratic_InputUnitTypeForX), "Dimensionless");
         
 
         [JsonProperty("output_unit_type")]
-        public EmptyNoYes OutputUnitType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_Quadratic_OutputUnitType OutputUnitType { get; set; } = (Curve_Quadratic_OutputUnitType)Enum.Parse(typeof(Curve_Quadratic_OutputUnitType), "Dimensionless");
     }
 }

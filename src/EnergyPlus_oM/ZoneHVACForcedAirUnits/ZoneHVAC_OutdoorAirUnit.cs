@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
                  "). Forced-convection 100% outdoor air unit with supply fan and optional equipmen" +
                  "t including exhaust fan, heating coil, cooling coil, and heat recovery.")]
     [JsonObject("ZoneHVAC:OutdoorAirUnit")]
-    public class ZoneHVAC_OutdoorAirUnit : BHoMObject
+    public class ZoneHVAC_OutdoorAirUnit : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -39,7 +39,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("supply_fan_placement")]
-        public EmptyNoYes SupplyFanPlacement { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "DrawThrough");
+        public ZoneHVAC_OutdoorAirUnit_SupplyFanPlacement SupplyFanPlacement { get; set; } = (ZoneHVAC_OutdoorAirUnit_SupplyFanPlacement)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_SupplyFanPlacement), "DrawThrough");
         
 
         [Description("Allowable fan types are Fan:SystemModel and Fan:ConstantVolume and Fan:VariableVo" +
@@ -57,7 +57,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("unit_control_type")]
-        public EmptyNoYes UnitControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NeutralControl");
+        public ZoneHVAC_OutdoorAirUnit_UnitControlType UnitControlType { get; set; } = (ZoneHVAC_OutdoorAirUnit_UnitControlType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_UnitControlType), "NeutralControl");
         
 
         [Description(@"Air and control temperatures for cooling. If outdoor air temperature is above the high air control temperature, then the zone inlet air temperature is set to the high air control temperature. If the outdoor air is between high and low air control temperature, then there is no cooling/heating requirements.")]

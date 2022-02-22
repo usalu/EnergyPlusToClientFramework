@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Overhangs are usually flat shading surfaces that reference a window or door.")]
     [JsonObject("Shading:Overhang")]
-    public class Shading_Overhang : BHoMObject
+    public class Shading_Overhang : BHoMObject, IEnergyPlusClass
     {
         
 

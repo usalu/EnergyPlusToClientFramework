@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
                  "ude fixed, proportional, scheduled, economizer, and demand-controlled ventilatio" +
                  "n.")]
     [JsonObject("Controller:OutdoorAir")]
-    public class Controller_OutdoorAir : BHoMObject
+    public class Controller_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -43,11 +43,11 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
         
 
         [JsonProperty("economizer_control_type")]
-        public EmptyNoYes EconomizerControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoEconomizer");
+        public Controller_OutdoorAir_EconomizerControlType EconomizerControlType { get; set; } = (Controller_OutdoorAir_EconomizerControlType)Enum.Parse(typeof(Controller_OutdoorAir_EconomizerControlType), "NoEconomizer");
         
 
         [JsonProperty("economizer_control_action_type")]
-        public EmptyNoYes EconomizerControlActionType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ModulateFlow");
+        public Controller_OutdoorAir_EconomizerControlActionType EconomizerControlActionType { get; set; } = (Controller_OutdoorAir_EconomizerControlActionType)Enum.Parse(typeof(Controller_OutdoorAir_EconomizerControlActionType), "ModulateFlow");
         
 
         [Description("Enter the maximum outdoor dry-bulb temperature limit for FixedDryBulb economizer " +
@@ -84,11 +84,11 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
         
 
         [JsonProperty("lockout_type")]
-        public EmptyNoYes LockoutType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "NoLockout");
+        public Controller_OutdoorAir_LockoutType LockoutType { get; set; } = (Controller_OutdoorAir_LockoutType)Enum.Parse(typeof(Controller_OutdoorAir_LockoutType), "NoLockout");
         
 
         [JsonProperty("minimum_limit_type")]
-        public EmptyNoYes MinimumLimitType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ProportionalMinimum");
+        public Controller_OutdoorAir_MinimumLimitType MinimumLimitType { get; set; } = (Controller_OutdoorAir_MinimumLimitType)Enum.Parse(typeof(Controller_OutdoorAir_MinimumLimitType), "ProportionalMinimum");
         
 
         [Description("Schedule values multiply the minimum outdoor air flow rate")]
@@ -144,6 +144,6 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
 
         [Description(@"BypassWhenWithinEconomizerLimits specifies that heat recovery is active only when the economizer is off because conditions are outside the economizer control limits BypassWhenOAFlowGreaterThanMinimum specifies enhanced economizer controls to allow heat recovery when economizer is active (within limits) but the outdoor air flow rate is at the minimum.")]
         [JsonProperty("heat_recovery_bypass_control_type")]
-        public EmptyNoYes HeatRecoveryBypassControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "BypassWhenWithinEconomizerLimits");
+        public Controller_OutdoorAir_HeatRecoveryBypassControlType HeatRecoveryBypassControlType { get; set; } = (Controller_OutdoorAir_HeatRecoveryBypassControlType)Enum.Parse(typeof(Controller_OutdoorAir_HeatRecoveryBypassControlType), "BypassWhenWithinEconomizerLimits");
     }
 }

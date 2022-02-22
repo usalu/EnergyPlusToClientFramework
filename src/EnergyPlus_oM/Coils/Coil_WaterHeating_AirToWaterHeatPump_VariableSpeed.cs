@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description(@"vairlable-speed Heat pump water heater (VSHPWH) heating coil, air-to-water direct-expansion (DX) system which includes a variable-speed water heating coil, evaporator air coil, evaporator fan, electric compressor, and water pump. Part of a WaterHeater:HeatPump system.")]
     [JsonObject("Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed")]
-    public class Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed : BHoMObject
+    public class Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -121,7 +121,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                      "his input determines whether the inlet air dry-bulb or wet-bulb temperature is u" +
                      "sed to evaluate these curves.")]
         [JsonProperty("evaporator_air_temperature_type_for_curve_objects")]
-        public EmptyNoYes EvaporatorAirTemperatureTypeForCurveObjects { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "WetBulbTemperature");
+        public Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed_EvaporatorAirTemperatureTypeForCurveObjects EvaporatorAirTemperatureTypeForCurveObjects { get; set; } = (Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed_EvaporatorAirTemperatureTypeForCurveObjects)Enum.Parse(typeof(Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed_EvaporatorAirTemperatureTypeForCurveObjects), "WetBulbTemperature");
         
 
         [Description(@"Table:Lookup object can also be used Part Load Fraction Correlation (function of part load ratio) should be quadratic or cubic. Quadratic curve = a + b(PLR) + c(PLR)^2. Cubic curve = a + b(PLR) + c(PLR)^2 + d(PLR)^3. PLR = part load ratio (heating delivered/steady state heating capacity). Use curve coefficients of 1,0,0 or leave this field blank when neglecting performance impacts due to variations in part load ratio.")]

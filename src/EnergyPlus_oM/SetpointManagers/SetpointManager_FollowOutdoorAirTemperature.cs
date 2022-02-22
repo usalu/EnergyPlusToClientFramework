@@ -10,16 +10,16 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
                  " air conditions are obtained from the weather information during the simulation." +
                  "")]
     [JsonObject("SetpointManager:FollowOutdoorAirTemperature")]
-    public class SetpointManager_FollowOutdoorAirTemperature : BHoMObject
+    public class SetpointManager_FollowOutdoorAirTemperature : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
-        public EmptyNoYes ControlVariable { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Temperature");
+        public SetpointManager_FollowOutdoorAirTemperature_ControlVariable ControlVariable { get; set; } = (SetpointManager_FollowOutdoorAirTemperature_ControlVariable)Enum.Parse(typeof(SetpointManager_FollowOutdoorAirTemperature_ControlVariable), "Temperature");
         
 
         [JsonProperty("reference_temperature_type")]
-        public EmptyNoYes ReferenceTemperatureType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "OutdoorAirWetBulb");
+        public SetpointManager_FollowOutdoorAirTemperature_ReferenceTemperatureType ReferenceTemperatureType { get; set; } = (SetpointManager_FollowOutdoorAirTemperature_ReferenceTemperatureType)Enum.Parse(typeof(SetpointManager_FollowOutdoorAirTemperature_ReferenceTemperatureType), "OutdoorAirWetBulb");
         
 
         [JsonProperty("offset_temperature_difference")]

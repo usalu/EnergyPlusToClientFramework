@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
                  "ce-construction pair and if that pair is used in a simulation, then program will" +
                  " use value provided in schedules instead of calculating it.")]
     [JsonObject("ComplexFenestrationProperty:SolarAbsorbedLayers")]
-    public class ComplexFenestrationProperty_SolarAbsorbedLayers : BHoMObject
+    public class ComplexFenestrationProperty_SolarAbsorbedLayers : BHoMObject, IEnergyPlusClass
     {
         
 

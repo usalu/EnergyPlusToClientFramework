@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     [Description(@"Works in conjunction with a refrigeration chiller set, compressor rack, a refrigeration system, or a refrigeration secondary system to simulate the performance of an air chiller, similar to one found in a refrigerated warehouse. Energy use for fans and heaters is modeled based on inputs for nominal power, schedules, and control type. The air chiller model accounts for the sensible and latent heat exchange with the surrounding environment.")]
     [JsonObject("Refrigeration:AirChiller")]
-    public class Refrigeration_AirChiller : BHoMObject
+    public class Refrigeration_AirChiller : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -20,7 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 
         [Description(@"In each case, select the rating option that corresponds to the expected service conditions. For example, U.S. manufacturers quote a separate Unit Load Factor for wet or frosted coils. If the evaporating temperature is less than 0C, input the frosted coil value. Within the European convention, select SC1, 2, 3, 4, or 5 depending upon the expected evaporating temperature.")]
         [JsonProperty("capacity_rating_type")]
-        public EmptyNoYes CapacityRatingType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Refrigeration_AirChiller_CapacityRatingType CapacityRatingType { get; set; } = (Refrigeration_AirChiller_CapacityRatingType)Enum.Parse(typeof(Refrigeration_AirChiller_CapacityRatingType), "CapacityTotalSpecificConditions");
         
 
         [Description(@"The sensible cooling capacity in watts (W/C) at rated conditions. The value entered for this field must be greater than zero, with no default value. This value is only used if the Capacity Rating Type is UnitLoadFactorSensibleOnly. The value given must be based upon the difference between the chiller inlet and outlet air temperatures, not on the difference between the zone mean temperature and the outlet air temperature")]
@@ -76,7 +76,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
                      "e. default LinearSHR60 unless Capacity Rating Type = CapacityTotalSpecificCondit" +
                      "ions")]
         [JsonProperty("capacity_correction_curve_type")]
-        public EmptyNoYes CapacityCorrectionCurveType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Refrigeration_AirChiller_CapacityCorrectionCurveType CapacityCorrectionCurveType { get; set; } = (Refrigeration_AirChiller_CapacityCorrectionCurveType)Enum.Parse(typeof(Refrigeration_AirChiller_CapacityCorrectionCurveType), "European");
         
 
         [Description("Should be blank for LinearSHR60 correction curve type")]
@@ -101,7 +101,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         
 
         [JsonProperty("fan_speed_control_type")]
-        public EmptyNoYes FanSpeedControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Fixed");
+        public Refrigeration_AirChiller_FanSpeedControlType FanSpeedControlType { get; set; } = (Refrigeration_AirChiller_FanSpeedControlType)Enum.Parse(typeof(Refrigeration_AirChiller_FanSpeedControlType), "Fixed");
         
 
         [JsonProperty("rated_fan_power")]
@@ -120,11 +120,11 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         [Description("HotFluid includes either hot gas defrost for a DX system or Hot Brine defrost if " +
                      "this walk in is cooled by brine from a secondary chiller")]
         [JsonProperty("defrost_type")]
-        public EmptyNoYes DefrostType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Electric");
+        public Refrigeration_AirChiller_DefrostType DefrostType { get; set; } = (Refrigeration_AirChiller_DefrostType)Enum.Parse(typeof(Refrigeration_AirChiller_DefrostType), "Electric");
         
 
         [JsonProperty("defrost_control_type")]
-        public EmptyNoYes DefrostControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "TimeSchedule");
+        public Refrigeration_AirChiller_DefrostControlType DefrostControlType { get; set; } = (Refrigeration_AirChiller_DefrostControlType)Enum.Parse(typeof(Refrigeration_AirChiller_DefrostControlType), "TimeSchedule");
         
 
         [Description("The schedule values should be 0 (off) or 1 (on)")]
@@ -150,7 +150,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         
 
         [JsonProperty("vertical_location")]
-        public EmptyNoYes VerticalLocation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Middle");
+        public Refrigeration_AirChiller_VerticalLocation VerticalLocation { get; set; } = (Refrigeration_AirChiller_VerticalLocation)Enum.Parse(typeof(Refrigeration_AirChiller_VerticalLocation), "Middle");
         
 
         [Description("This value is only used if the Cooling Source Type is DXEvaporator")]

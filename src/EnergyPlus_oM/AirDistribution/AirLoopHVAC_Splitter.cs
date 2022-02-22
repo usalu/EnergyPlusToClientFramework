@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
 {
     [Description(@"Split one air stream from AirLoopHVAC:DedicatedOutdoorAirSystem outlet node into N outlet streams (currently 10 as default, but extensible). Node names should be Outdoor Air Stream Node Name in OutdoorAir:Mixer objects served by AirLoopHVAC objects listed in AirLoopHVAC:DedicatedOutdoorAirSystem.")]
     [JsonObject("AirLoopHVAC:Splitter")]
-    public class AirLoopHVAC_Splitter : BHoMObject
+    public class AirLoopHVAC_Splitter : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
     [Description("The transcritical refrigeration system requires a single gas cooler to reject the" +
                  " system heat.")]
     [JsonObject("Refrigeration:GasCooler:AirCooled")]
-    public class Refrigeration_GasCooler_AirCooled : BHoMObject
+    public class Refrigeration_GasCooler_AirCooled : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -21,7 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         
 
         [JsonProperty("gas_cooler_fan_speed_control_type")]
-        public EmptyNoYes GasCoolerFanSpeedControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Fixed");
+        public Refrigeration_GasCooler_AirCooled_GasCoolerFanSpeedControlType GasCoolerFanSpeedControlType { get; set; } = (Refrigeration_GasCooler_AirCooled_GasCoolerFanSpeedControlType)Enum.Parse(typeof(Refrigeration_GasCooler_AirCooled_GasCoolerFanSpeedControlType), "Fixed");
         
 
         [Description("Power for gas cooler fan(s) corresponding to rated total heat rejection effect.")]

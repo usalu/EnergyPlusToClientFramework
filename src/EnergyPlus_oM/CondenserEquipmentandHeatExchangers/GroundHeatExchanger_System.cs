@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
                  " developed by Eskilson. Response factors are calculated using a finite line sour" +
                  "ce model assuming uniform heat flux at the borehole wall.")]
     [JsonObject("GroundHeatExchanger:System")]
-    public class GroundHeatExchanger_System : BHoMObject
+    public class GroundHeatExchanger_System : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -26,7 +26,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("undisturbed_ground_temperature_model_type")]
-        public EmptyNoYes UndisturbedGroundTemperatureModelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public GroundHeatExchanger_System_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (GroundHeatExchanger_System_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(GroundHeatExchanger_System_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
         [JsonProperty("undisturbed_ground_temperature_model_name")]

@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     [Description("Used for a heating only thermostat. The setpoint can be scheduled and varied thro" +
                  "ughout the simulation but only heating is allowed with this control type.")]
     [JsonObject("ThermostatSetpoint:SingleHeating")]
-    public class ThermostatSetpoint_SingleHeating : BHoMObject
+    public class ThermostatSetpoint_SingleHeating : BHoMObject, IEnergyPlusClass
     {
         
 

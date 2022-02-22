@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
     [Description("Multiplier altering the relative capacitance of the air compared to an empty zone" +
                  "")]
     [JsonObject("ZoneCapacitanceMultiplier:ResearchSpecial")]
-    public class ZoneCapacitanceMultiplier_ResearchSpecial : BHoMObject
+    public class ZoneCapacitanceMultiplier_ResearchSpecial : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -10,11 +10,11 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
                  "ng programs -- there tab may be a better choice. Fixed puts spaces between the \"" +
                  "columns\"")]
     [JsonObject("OutputControl:Sizing:Style")]
-    public class OutputControl_Sizing_Style : BHoMObject
+    public class OutputControl_Sizing_Style : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("column_separator")]
-        public EmptyNoYes ColumnSeparator { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public OutputControl_Sizing_Style_ColumnSeparator ColumnSeparator { get; set; } = (OutputControl_Sizing_Style_ColumnSeparator)Enum.Parse(typeof(OutputControl_Sizing_Style_ColumnSeparator), "Comma");
     }
 }

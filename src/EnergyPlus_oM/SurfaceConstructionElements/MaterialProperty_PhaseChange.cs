@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description(@"Additional properties for temperature dependent thermal conductivity and enthalpy for Phase Change Materials (PCM) HeatBalanceAlgorithm = CondFD(ConductionFiniteDifference) solution algorithm only. Constructions with this should use the detailed CondFD process. Has no effect with other HeatBalanceAlgorithm solution algorithms")]
     [JsonObject("MaterialProperty:PhaseChange")]
-    public class MaterialProperty_PhaseChange : BHoMObject
+    public class MaterialProperty_PhaseChange : BHoMObject, IEnergyPlusClass
     {
         
 

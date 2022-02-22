@@ -68,7 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
     
     [Description(@"Add directories to the search path for Python plugin modules The directory containing the EnergyPlus executable file is automatically added so that the Python interpreter can find the packaged up pyenergyplus Python package. By default, the current working directory and input file directory are also added to the search path. However, this object allows modifying this behavior. With this object, searching these directories can be disabled, and users can add supplemental search paths that point to libraries of plugin scripts.")]
     [JsonObject("PythonPlugin:SearchPaths")]
-    public class PythonPlugin_SearchPaths : BHoMObject
+    public class PythonPlugin_SearchPaths : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -68,7 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
     
     [Description(@"Infiltration is specified as a design level which is modified by a Schedule fraction, temperature difference and wind speed: Infiltration=Idesign * FSchedule * (A + B*|(Tzone-Todb)| + C*WindSpd + D * WindSpd**2) If you use a ZoneList in the Zone or ZoneList name field then this definition applies to all the zones in the ZoneList.")]
     [JsonObject("ZoneInfiltration:DesignFlowRate")]
-    public class ZoneInfiltration_DesignFlowRate : BHoMObject
+    public class ZoneInfiltration_DesignFlowRate : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -82,7 +82,7 @@ public string ScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum amount of infiltration for this set of attributes Choices: Flow/Zone => Design Flow Rate -- simply enter Design Flow Rate Flow/Area => Flow per Zone Floor Area - Value * Floor Area (zone) = Design Flow Rate Flow/ExteriorArea => Flow per Exterior Surface Area - Value * Exterior Surface Area (zone) = Design Flow Rate Flow/ExteriorWallArea => Flow per Exterior Surface Area - Value * Exterior Wall Surface Area (zone) = Design Flow Rate AirChanges/Hour => Air Changes per Hour - Value * Floor Volume (zone) adjusted for m3/s = Design Volume Flow Rate ""Idesign"" in Equation is the result.")]
 [JsonProperty("design_flow_rate_calculation_method")]
-public EmptyNoYes DesignFlowRateCalculationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Flow/Zone");
+public ZoneInfiltration_DesignFlowRate_DesignFlowRateCalculationMethod DesignFlowRateCalculationMethod { get; set; } = (ZoneInfiltration_DesignFlowRate_DesignFlowRateCalculationMethod)Enum.Parse(typeof(ZoneInfiltration_DesignFlowRate_DesignFlowRateCalculationMethod), "Empty");
         
 
 [JsonProperty("design_flow_rate")]

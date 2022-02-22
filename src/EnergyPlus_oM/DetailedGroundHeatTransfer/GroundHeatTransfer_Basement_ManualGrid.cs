@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("Manual Grid only necessary using manual gridding (not recommended)")]
     [JsonObject("GroundHeatTransfer:Basement:ManualGrid")]
-    public class GroundHeatTransfer_Basement_ManualGrid : BHoMObject
+    public class GroundHeatTransfer_Basement_ManualGrid : BHoMObject, IEnergyPlusClass
     {
         
 

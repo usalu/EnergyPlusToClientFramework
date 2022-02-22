@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("Ground-coupled slab model for on-grade and in-grade cases with or without insulat" +
                  "ion.")]
     [JsonObject("Site:GroundDomain:Slab")]
-    public class Site_GroundDomain_Slab : BHoMObject
+    public class Site_GroundDomain_Slab : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -46,7 +46,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         
 
         [JsonProperty("undisturbed_ground_temperature_model_type")]
-        public EmptyNoYes UndisturbedGroundTemperatureModelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Site_GroundDomain_Slab_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (Site_GroundDomain_Slab_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(Site_GroundDomain_Slab_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
         [JsonProperty("undisturbed_ground_temperature_model_name")]
@@ -64,7 +64,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 
         [Description("This field specifies whether the slab is located \"in-grade\" or \"on-grade\"")]
         [JsonProperty("slab_location")]
-        public EmptyNoYes SlabLocation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Site_GroundDomain_Slab_SlabLocation SlabLocation { get; set; } = (Site_GroundDomain_Slab_SlabLocation)Enum.Parse(typeof(Site_GroundDomain_Slab_SlabLocation), "InGrade");
         
 
         [Description("Only applicable for the in-grade case")]
@@ -86,7 +86,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         [Description("This field specifies whether the horizontal insulation fully insulates the surfac" +
                      "e or is perimeter only insulation")]
         [JsonProperty("horizontal_insulation_extents")]
-        public EmptyNoYes HorizontalInsulationExtents { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Full");
+        public Site_GroundDomain_Slab_HorizontalInsulationExtents HorizontalInsulationExtents { get; set; } = (Site_GroundDomain_Slab_HorizontalInsulationExtents)Enum.Parse(typeof(Site_GroundDomain_Slab_HorizontalInsulationExtents), "Full");
         
 
         [Description("This field specifies the width of the underfloor perimeter insulation")]
@@ -112,7 +112,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 
         [Description("This field specifies the ground domain simulation timestep.")]
         [JsonProperty("simulation_timestep")]
-        public EmptyNoYes SimulationTimestep { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Hourly");
+        public Site_GroundDomain_Slab_SimulationTimestep SimulationTimestep { get; set; } = (Site_GroundDomain_Slab_SimulationTimestep)Enum.Parse(typeof(Site_GroundDomain_Slab_SimulationTimestep), "Hourly");
         
 
         [JsonProperty("geometric_mesh_coefficient")]

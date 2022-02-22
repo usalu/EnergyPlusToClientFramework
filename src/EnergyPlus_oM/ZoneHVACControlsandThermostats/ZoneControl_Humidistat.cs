@@ -1,6 +1,7 @@
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
 {
     using System.ComponentModel;
+    using BH.oM.Adapters.EnergyPlus;
     using Newtonsoft.Json;
     using BH.oM.Base;
     using BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts;
@@ -66,7 +67,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     [Description("Specifies zone relative humidity setpoint schedules for humidifying and dehumidif" +
         "ying.")]
     [JsonObject("ZoneControl:Humidistat")]
-    public class ZoneControl_Humidistat : BHoMObject
+    public class ZoneControl_Humidistat : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -7,12 +7,12 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     [Description(@"Used by advanced users to adjust the energy or water use costs for future years. This should not be used for compensating for inflation but should only be used to increase the costs of energy or water based on assumed changes to the actual usage, such as anticipated changes in the future function of the building. The adjustments begin at the start of the service period.")]
     [JsonObject("LifeCycleCost:UseAdjustment")]
-    public class LifeCycleCost_UseAdjustment : BHoMObject
+    public class LifeCycleCost_UseAdjustment : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("resource")]
-        public EmptyNoYes Resource { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public LifeCycleCost_UseAdjustment_Resource Resource { get; set; } = (LifeCycleCost_UseAdjustment_Resource)Enum.Parse(typeof(LifeCycleCost_UseAdjustment_Resource), "Coal");
         
 
         [JsonProperty("multipliers")]

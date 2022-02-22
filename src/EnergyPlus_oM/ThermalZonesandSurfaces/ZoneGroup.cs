@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
                  "ecessary for simulating repetitive structures, such as the identical floors of a" +
                  " multi-story building.")]
     [JsonObject("ZoneGroup")]
-    public class ZoneGroup : BHoMObject
+    public class ZoneGroup : BHoMObject, IEnergyPlusClass
     {
         
 

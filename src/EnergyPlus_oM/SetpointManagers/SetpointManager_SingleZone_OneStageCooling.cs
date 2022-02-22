@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     [Description(@"This object can be used with CoilSystem:Cooling:DX to model on/off cycling control of single stage air systems. Setpoints are modulated to run coil full on or full off depending on zone conditions. Intended for use with ZoneControl:Thermostat:StagedDualSetpoint")]
     [JsonObject("SetpointManager:SingleZone:OneStageCooling")]
-    public class SetpointManager_SingleZone_OneStageCooling : BHoMObject
+    public class SetpointManager_SingleZone_OneStageCooling : BHoMObject, IEnergyPlusClass
     {
         
 

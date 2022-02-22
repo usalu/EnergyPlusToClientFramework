@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
 {
     [Description(@"Lookup tables are used in place of curves and can represent any number of independent variables (defined as Table:IndependentVariable objects in a Table:IndependentVariableList). Output values are interpolated within the bounds defined by each independent variable and extrapolated beyond the bounds according to the interpolation/extrapolation methods defined by each independent variable.")]
     [JsonObject("Table:Lookup")]
-    public class Table_Lookup : BHoMObject
+    public class Table_Lookup : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -17,7 +17,7 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
         
 
         [JsonProperty("normalization_method")]
-        public EmptyNoYes NormalizationMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public Table_Lookup_NormalizationMethod NormalizationMethod { get; set; } = (Table_Lookup_NormalizationMethod)Enum.Parse(typeof(Table_Lookup_NormalizationMethod), "None");
         
 
         [JsonProperty("normalization_divisor")]
@@ -33,7 +33,7 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
         
 
         [JsonProperty("output_unit_type")]
-        public EmptyNoYes OutputUnitType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Table_Lookup_OutputUnitType OutputUnitType { get; set; } = (Table_Lookup_OutputUnitType)Enum.Parse(typeof(Table_Lookup_OutputUnitType), "Dimensionless");
         
 
         [JsonProperty("external_file_name")]

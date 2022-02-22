@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "compressor), single-speed, equation-fit model. Equation-fit model uses normalize" +
                  "d curves to describe the heat pump performance.")]
     [JsonObject("Coil:Heating:WaterToAirHeatPump:EquationFit")]
-    public class Coil_Heating_WaterToAirHeatPump_EquationFit : BHoMObject
+    public class Coil_Heating_WaterToAirHeatPump_EquationFit : BHoMObject, IEnergyPlusClass
     {
         
 

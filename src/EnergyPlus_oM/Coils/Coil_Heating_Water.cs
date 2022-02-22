@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "ger. Two options for capacity inputs: UA and water flow rate or capacity and des" +
                  "ign temperatures.")]
     [JsonObject("Coil:Heating:Water")]
-    public class Coil_Heating_Water : BHoMObject
+    public class Coil_Heating_Water : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -46,7 +46,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("performance_input_method")]
-        public EmptyNoYes PerformanceInputMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "UFactorTimesAreaAndDesignWaterFlowRate");
+        public Coil_Heating_Water_PerformanceInputMethod PerformanceInputMethod { get; set; } = (Coil_Heating_Water_PerformanceInputMethod)Enum.Parse(typeof(Coil_Heating_Water_PerformanceInputMethod), "UFactorTimesAreaAndDesignWaterFlowRate");
         
 
         [JsonProperty("rated_capacity")]

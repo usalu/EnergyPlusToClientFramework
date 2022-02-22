@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
                  " moisture load requirements of all controlled zones in an air loop served by a c" +
                  "entral air-conditioner.")]
     [JsonObject("SetpointManager:MultiZone:MaximumHumidity:Average")]
-    public class SetpointManager_MultiZone_MaximumHumidity_Average : BHoMObject
+    public class SetpointManager_MultiZone_MaximumHumidity_Average : BHoMObject, IEnergyPlusClass
     {
         
 

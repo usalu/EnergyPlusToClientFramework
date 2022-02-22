@@ -68,7 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
     [Description("Object determines if the Slab and Basement preprocessors are going to be executed" +
         ".")]
     [JsonObject("GroundHeatTransfer:Control")]
-    public class GroundHeatTransfer_Control : BHoMObject
+    public class GroundHeatTransfer_Control : BHoMObject, IEnergyPlusClass
     {
         
 

@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("Ground-coupled basement model for simulating basements or other underground zones" +
                  ".")]
     [JsonObject("Site:GroundDomain:Basement")]
-    public class Site_GroundDomain_Basement : BHoMObject
+    public class Site_GroundDomain_Basement : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -49,7 +49,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         
 
         [JsonProperty("undisturbed_ground_temperature_model_type")]
-        public EmptyNoYes UndisturbedGroundTemperatureModelType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Site_GroundDomain_Basement_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (Site_GroundDomain_Basement_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(Site_GroundDomain_Basement_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
         [JsonProperty("undisturbed_ground_temperature_model_name")]
@@ -77,7 +77,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         [Description("This field specifies whether the horizontal insulation fully insulates the surfac" +
                      "e or is perimeter only insulation")]
         [JsonProperty("horizontal_insulation_extents")]
-        public EmptyNoYes HorizontalInsulationExtents { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Full");
+        public Site_GroundDomain_Basement_HorizontalInsulationExtents HorizontalInsulationExtents { get; set; } = (Site_GroundDomain_Basement_HorizontalInsulationExtents)Enum.Parse(typeof(Site_GroundDomain_Basement_HorizontalInsulationExtents), "Full");
         
 
         [Description("Width of horizontal perimeter insulation measured from foundation wall inside sur" +
@@ -110,7 +110,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 
         [Description("This field specifies the basement domain simulation interval.")]
         [JsonProperty("simulation_timestep")]
-        public EmptyNoYes SimulationTimestep { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Hourly");
+        public Site_GroundDomain_Basement_SimulationTimestep SimulationTimestep { get; set; } = (Site_GroundDomain_Basement_SimulationTimestep)Enum.Parse(typeof(Site_GroundDomain_Basement_SimulationTimestep), "Hourly");
         
 
         [JsonProperty("mesh_density_parameter")]

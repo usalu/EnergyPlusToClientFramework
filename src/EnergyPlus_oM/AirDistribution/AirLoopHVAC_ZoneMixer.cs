@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
                  "de names cannot be duplicated within a single zone mixer (AirLoopHVAC:ZoneMixer)" +
                  " list.")]
     [JsonObject("AirLoopHVAC:ZoneMixer")]
-    public class AirLoopHVAC_ZoneMixer : BHoMObject
+    public class AirLoopHVAC_ZoneMixer : BHoMObject, IEnergyPlusClass
     {
         
 

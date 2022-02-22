@@ -7,11 +7,11 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Determines which algorithm will be used to solve the zone air heat balance.")]
     [JsonObject("ZoneAirHeatBalanceAlgorithm")]
-    public class ZoneAirHeatBalanceAlgorithm : BHoMObject
+    public class ZoneAirHeatBalanceAlgorithm : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("algorithm")]
-        public EmptyNoYes Algorithm { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ThirdOrderBackwardDifference");
+        public ZoneAirHeatBalanceAlgorithm_Algorithm Algorithm { get; set; } = (ZoneAirHeatBalanceAlgorithm_Algorithm)Enum.Parse(typeof(ZoneAirHeatBalanceAlgorithm_Algorithm), "ThirdOrderBackwardDifference");
     }
 }

@@ -7,7 +7,7 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"Quadratic curve with three independent variables. Input consists of the curve name, the twenty seven coefficients, and min and max values for each of the independent variables. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = a0 + a1*x**2 + a2*x + a3*y**2 + a4*y + a5*z**2 + a6*z + a7*x**2*y**2 + a8*x*y + a9*x*y**2 + a10*x**2*y + a11*x**2*z**2 + a12*x*z + a13*x*z**2 + a14*x**2*z + a15*y**2*z**2 + a16*y*z + a17*y*z**2 + a18*y**2*z + a19*x**2*y**2*z**2 + a20*x**2*y**2*z + a21*x**2*y*z**2 + a22*x*y**2*z**2 + a23*x**2*y*z + a24*x*y**2*z + a25*x*y*z**2 +a26*x*y*z")]
     [JsonObject("Curve:Triquadratic")]
-    public class Curve_Triquadratic : BHoMObject
+    public class Curve_Triquadratic : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -154,18 +154,18 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
         
 
         [JsonProperty("input_unit_type_for_x")]
-        public EmptyNoYes InputUnitTypeForX { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_Triquadratic_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Triquadratic_InputUnitTypeForX)Enum.Parse(typeof(Curve_Triquadratic_InputUnitTypeForX), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_y")]
-        public EmptyNoYes InputUnitTypeForY { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_Triquadratic_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_Triquadratic_InputUnitTypeForY)Enum.Parse(typeof(Curve_Triquadratic_InputUnitTypeForY), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_z")]
-        public EmptyNoYes InputUnitTypeForZ { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_Triquadratic_InputUnitTypeForZ InputUnitTypeForZ { get; set; } = (Curve_Triquadratic_InputUnitTypeForZ)Enum.Parse(typeof(Curve_Triquadratic_InputUnitTypeForZ), "Dimensionless");
         
 
         [JsonProperty("output_unit_type")]
-        public EmptyNoYes OutputUnitType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Dimensionless");
+        public Curve_Triquadratic_OutputUnitType OutputUnitType { get; set; } = (Curve_Triquadratic_OutputUnitType)Enum.Parse(typeof(Curve_Triquadratic_OutputUnitType), "Dimensionless");
     }
 }

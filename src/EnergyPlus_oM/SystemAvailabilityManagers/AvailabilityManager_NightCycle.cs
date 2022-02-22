@@ -9,7 +9,7 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
     [Description("Determines the availability of a loop or system: whether it is on or off. Dependi" +
                  "ng on zone temperatures, overrides Schedules and forces system Fans on.")]
     [JsonObject("AvailabilityManager:NightCycle")]
-    public class AvailabilityManager_NightCycle : BHoMObject
+    public class AvailabilityManager_NightCycle : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -25,7 +25,7 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
                      "nager assignment list, the key choices for Control Type would only be StayOff an" +
                      "d CycleOnControlZone")]
         [JsonProperty("control_type")]
-        public EmptyNoYes ControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "StayOff");
+        public AvailabilityManager_NightCycle_ControlType ControlType { get; set; } = (AvailabilityManager_NightCycle_ControlType)Enum.Parse(typeof(AvailabilityManager_NightCycle_ControlType), "StayOff");
         
 
         [JsonProperty("thermostat_tolerance")]
@@ -33,7 +33,7 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
         
 
         [JsonProperty("cycling_run_time_control_type")]
-        public EmptyNoYes CyclingRunTimeControlType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "FixedRunTime");
+        public AvailabilityManager_NightCycle_CyclingRunTimeControlType CyclingRunTimeControlType { get; set; } = (AvailabilityManager_NightCycle_CyclingRunTimeControlType)Enum.Parse(typeof(AvailabilityManager_NightCycle_CyclingRunTimeControlType), "FixedRunTime");
         
 
         [JsonProperty("cycling_run_time")]

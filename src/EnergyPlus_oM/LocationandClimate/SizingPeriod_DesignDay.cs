@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description(@"The design day object creates the parameters for the program to create the 24 hour weather profile that can be used for sizing as well as running to test the other simulation parameters. Parameters in this include a date (month and day), a day type (which uses the appropriate schedules for either sizing or simple tests), min/max temperatures, wind speeds, and solar radiation values.")]
     [JsonObject("SizingPeriod:DesignDay")]
-    public class SizingPeriod_DesignDay : BHoMObject
+    public class SizingPeriod_DesignDay : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -23,7 +23,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 
         [Description("Day Type selects the schedules appropriate for this design day")]
         [JsonProperty("day_type")]
-        public EmptyNoYes DayType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public SizingPeriod_DesignDay_DayType DayType { get; set; } = (SizingPeriod_DesignDay_DayType)Enum.Parse(typeof(SizingPeriod_DesignDay_DayType), "CustomDay1");
         
 
         [Description("This field is required when field \"Dry-Bulb Temperature Range Modifier Type\" is n" +
@@ -40,7 +40,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 
         [Description("Type of modifier to the dry-bulb temperature calculated for the timestep")]
         [JsonProperty("dry_bulb_temperature_range_modifier_type")]
-        public EmptyNoYes DryBulbTemperatureRangeModifierType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "DefaultMultipliers");
+        public SizingPeriod_DesignDay_DryBulbTemperatureRangeModifierType DryBulbTemperatureRangeModifierType { get; set; } = (SizingPeriod_DesignDay_DryBulbTemperatureRangeModifierType)Enum.Parse(typeof(SizingPeriod_DesignDay_DryBulbTemperatureRangeModifierType), "DefaultMultipliers");
         
 
         [Description(@"Only used when previous field is ""MultiplierSchedule"", ""DifferenceSchedule"" or ""TemperatureProfileSchedule"". For type ""MultiplierSchedule""  the hour/time interval values should specify the fraction (0-1) of the dry-bulb temperature range to be subtracted from the maximum dry-bulb temperature for each timestep in the day For type ""DifferenceSchedule"" the values should specify a number to be subtracted from the maximum dry-bulb temperature for each timestep in the day. Note that numbers in the difference schedule cannot be negative as that would result in a higher maximum than the maximum previously specified. For type ""TemperatureProfileSchedule"" the values should specify the actual dry-bulb temperature for each timestep in the day.")]
@@ -51,7 +51,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         [Description("values/schedules indicated here and in subsequent fields create the humidity valu" +
                      "es in the 24 hour design day conditions profile.")]
         [JsonProperty("humidity_condition_type")]
-        public EmptyNoYes HumidityConditionType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "WetBulb");
+        public SizingPeriod_DesignDay_HumidityConditionType HumidityConditionType { get; set; } = (SizingPeriod_DesignDay_HumidityConditionType)Enum.Parse(typeof(SizingPeriod_DesignDay_HumidityConditionType), "WetBulb");
         
 
         [Description("Wetbulb or dewpoint temperature coincident with the maximum temperature. Required" +
@@ -119,7 +119,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         
 
         [JsonProperty("solar_model_indicator")]
-        public EmptyNoYes SolarModelIndicator { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "ASHRAEClearSky");
+        public SizingPeriod_DesignDay_SolarModelIndicator SolarModelIndicator { get; set; } = (SizingPeriod_DesignDay_SolarModelIndicator)Enum.Parse(typeof(SizingPeriod_DesignDay_SolarModelIndicator), "ASHRAEClearSky");
         
 
         [Description("if Solar Model Indicator = Schedule, then beam schedule name (for day)")]
@@ -161,6 +161,6 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
                      "ning of the design day. When using a series of similiar design days, this field " +
                      "can be used to retain warmup state from the previous design day.")]
         [JsonProperty("begin_environment_reset_mode")]
-        public EmptyNoYes BeginEnvironmentResetMode { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "FullResetAtBeginEnvironment");
+        public SizingPeriod_DesignDay_BeginEnvironmentResetMode BeginEnvironmentResetMode { get; set; } = (SizingPeriod_DesignDay_BeginEnvironmentResetMode)Enum.Parse(typeof(SizingPeriod_DesignDay_BeginEnvironmentResetMode), "FullResetAtBeginEnvironment");
     }
 }

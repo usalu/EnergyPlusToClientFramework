@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
                  "d by EnergyPlus users. This object permits user selection of rectangular slab di" +
                  "mensions. NO SLAB DIMENSIONS LESS THAN 6 m.")]
     [JsonObject("GroundHeatTransfer:Slab:AutoGrid")]
-    public class GroundHeatTransfer_Slab_AutoGrid : BHoMObject
+    public class GroundHeatTransfer_Slab_AutoGrid : BHoMObject, IEnergyPlusClass
     {
         
 

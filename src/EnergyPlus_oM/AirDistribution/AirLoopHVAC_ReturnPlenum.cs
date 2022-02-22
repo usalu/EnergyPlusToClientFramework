@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
                  "ly 500 per air loop) Node names cannot be duplicated within a single plenum list" +
                  ".")]
     [JsonObject("AirLoopHVAC:ReturnPlenum")]
-    public class AirLoopHVAC_ReturnPlenum : BHoMObject
+    public class AirLoopHVAC_ReturnPlenum : BHoMObject, IEnergyPlusClass
     {
         
 

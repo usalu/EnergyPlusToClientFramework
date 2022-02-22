@@ -6,7 +6,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines the connection between two nodes and a component.")]
     [JsonObject("AirflowNetwork:Distribution:Linkage")]
-    public class AirflowNetwork_Distribution_Linkage : BHoMObject
+    public class AirflowNetwork_Distribution_Linkage : BHoMObject, IEnergyPlusClass
     {
         
 

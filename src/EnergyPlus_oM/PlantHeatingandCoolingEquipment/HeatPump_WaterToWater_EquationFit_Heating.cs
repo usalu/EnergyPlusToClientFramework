@@ -8,7 +8,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description("simple water-water hp curve-fit model")]
     [JsonObject("HeatPump:WaterToWater:EquationFit:Heating")]
-    public class HeatPump_WaterToWater_EquationFit_Heating : BHoMObject
+    public class HeatPump_WaterToWater_EquationFit_Heating : BHoMObject, IEnergyPlusClass
     {
         
 

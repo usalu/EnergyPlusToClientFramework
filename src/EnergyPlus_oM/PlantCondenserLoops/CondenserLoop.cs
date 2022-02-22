@@ -10,12 +10,12 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserLoops
                  "entical except some components and operation schemes are applicable to only one " +
                  "loop type or the other.")]
     [JsonObject("CondenserLoop")]
-    public class CondenserLoop : BHoMObject
+    public class CondenserLoop : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("fluid_type")]
-        public EmptyNoYes FluidType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Water");
+        public CondenserLoop_FluidType FluidType { get; set; } = (CondenserLoop_FluidType)Enum.Parse(typeof(CondenserLoop_FluidType), "Water");
         
 
         [Description("This field is only required when Fluid Type is UserDefinedFluidType")]
@@ -84,11 +84,11 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserLoops
         
 
         [JsonProperty("load_distribution_scheme")]
-        public EmptyNoYes LoadDistributionScheme { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "SequentialLoad");
+        public CondenserLoop_LoadDistributionScheme LoadDistributionScheme { get; set; } = (CondenserLoop_LoadDistributionScheme)Enum.Parse(typeof(CondenserLoop_LoadDistributionScheme), "SequentialLoad");
         
 
         [JsonProperty("pressure_simulation_type")]
-        public EmptyNoYes PressureSimulationType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "None");
+        public CondenserLoop_PressureSimulationType PressureSimulationType { get; set; } = (CondenserLoop_PressureSimulationType)Enum.Parse(typeof(CondenserLoop_PressureSimulationType), "None");
         
 
         [Description("This field is only used to autocalulate the Condenser Loop Volume. Loop Volume = " +

@@ -10,7 +10,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
                  "upply fan, hot water heating coil, chilled water cooling coil, and fixed-positio" +
                  "n outdoor air mixer.")]
     [JsonObject("ZoneHVAC:FourPipeFanCoil")]
-    public class ZoneHVAC_FourPipeFanCoil : BHoMObject
+    public class ZoneHVAC_FourPipeFanCoil : BHoMObject, IEnergyPlusClass
     {
         
 
@@ -21,7 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("capacity_control_method")]
-        public EmptyNoYes CapacityControlMethod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_FourPipeFanCoil_CapacityControlMethod CapacityControlMethod { get; set; } = (ZoneHVAC_FourPipeFanCoil_CapacityControlMethod)Enum.Parse(typeof(ZoneHVAC_FourPipeFanCoil_CapacityControlMethod), "ASHRAE90VariableFan");
         
 
         [JsonProperty("maximum_supply_air_flow_rate")]
@@ -59,7 +59,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
                      "e left blank if the FanCoil is connected to central dedicated outdoor air throug" +
                      "h an AirTerminal:SingleDuct:Mixer object.")]
         [JsonProperty("outdoor_air_mixer_object_type")]
-        public EmptyNoYes OutdoorAirMixerObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_FourPipeFanCoil_OutdoorAirMixerObjectType OutdoorAirMixerObjectType { get; set; } = (ZoneHVAC_FourPipeFanCoil_OutdoorAirMixerObjectType)Enum.Parse(typeof(ZoneHVAC_FourPipeFanCoil_OutdoorAirMixerObjectType), "OutdoorAirMixer");
         
 
         [Description(@"If this field is blank, the OutdoorAir:Mixer is not used. This optional field specifies the name of the OutdoorAir:Mixer object. When used, this name needs to match name of the OutdoorAir:Mixer object. This field should be left blank if the FanCoil is connected to central dedicated outdoor air through an AirTerminal:SingleDuct:Mixer object.")]
@@ -69,7 +69,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description(@"Fan type must be according to capacity control method (see I/O) For ConstantFanVariableFlow a Fan:OnOff or Fan:ConstantVolume is valid. For CyclingFan a Fan:OnOff is valid. For VariableFanVariableFlow or VariableFanConstantFlow a Fan:VariableVolume is valid. For ASHRAE90.1 a Fan:OnOff or Fan:VariableVolume is valid. Fan:SystemModel is valid for all capacity control methods. The fan's inlet node should be the same as the outdoor air mixer's mixed air node.")]
         [JsonProperty("supply_air_fan_object_type")]
-        public EmptyNoYes SupplyAirFanObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_FourPipeFanCoil_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_FourPipeFanCoil_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_FourPipeFanCoil_SupplyAirFanObjectType), "FanConstantVolume");
         
 
         [JsonProperty("supply_air_fan_name")]
@@ -77,7 +77,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("cooling_coil_object_type")]
-        public EmptyNoYes CoolingCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_FourPipeFanCoil_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_FourPipeFanCoil_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_FourPipeFanCoil_CoolingCoilObjectType), "CoilCoolingWater");
         
 
         [JsonProperty("cooling_coil_name")]
@@ -97,7 +97,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("heating_coil_object_type")]
-        public EmptyNoYes HeatingCoilObjectType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public ZoneHVAC_FourPipeFanCoil_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_FourPipeFanCoil_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_FourPipeFanCoil_HeatingCoilObjectType), "CoilHeatingElectric");
         
 
         [JsonProperty("heating_coil_name")]

@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                  ". The electrical storage model is a very simple \"constrained bucket\" model. Note" +
                  " that this electrical storage is embedded within the FC device.")]
     [JsonObject("Generator:FuelCell:ElectricalStorage")]
-    public class Generator_FuelCell_ElectricalStorage : BHoMObject
+    public class Generator_FuelCell_ElectricalStorage : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("choice_of_model")]
-        public EmptyNoYes ChoiceOfModel { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public Generator_FuelCell_ElectricalStorage_ChoiceOfModel ChoiceOfModel { get; set; } = (Generator_FuelCell_ElectricalStorage_ChoiceOfModel)Enum.Parse(typeof(Generator_FuelCell_ElectricalStorage_ChoiceOfModel), "SimpleEfficiencyWithConstraints");
         
 
         [JsonProperty("nominal_charging_energetic_efficiency")]

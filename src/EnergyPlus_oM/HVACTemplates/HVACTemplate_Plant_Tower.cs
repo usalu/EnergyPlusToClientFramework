@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("This object adds a cooling tower to an HVACTemplate:Plant:ChilledWaterLoop or Mix" +
                  "edWaterLoop.")]
     [JsonObject("HVACTemplate:Plant:Tower")]
-    public class HVACTemplate_Plant_Tower : BHoMObject
+    public class HVACTemplate_Plant_Tower : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("tower_type")]
-        public EmptyNoYes TowerType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public HVACTemplate_Plant_Tower_TowerType TowerType { get; set; } = (HVACTemplate_Plant_Tower_TowerType)Enum.Parse(typeof(HVACTemplate_Plant_Tower_TowerType), "SingleSpeed");
         
 
         [Description(@"Applicable for tower type SingleSpeed and TwoSpeed Nominal tower capacity with entering water at 35C (95F), leaving water at 29.44C (85F), entering air at 25.56C (78F) wet-bulb temperature and 35C (95F) dry-bulb temperature, with the tower fan operating at high speed. Design water flow rate assumed to be 5.382E-8 m3/s per watt(3 gpm/ton). Nominal tower capacity times (1.25) gives the actual tower heat rejection at these operating conditions.")]
@@ -58,6 +58,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "If left blank, will serve a chilled water loop if present, or a mixed water loop" +
                      " (if no chilled water loop is present).")]
         [JsonProperty("template_plant_loop_type")]
-        public EmptyNoYes TemplatePlantLoopType { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Empty");
+        public HVACTemplate_Plant_Tower_TemplatePlantLoopType TemplatePlantLoopType { get; set; } = (HVACTemplate_Plant_Tower_TemplatePlantLoopType)Enum.Parse(typeof(HVACTemplate_Plant_Tower_TemplatePlantLoopType), "ChilledWater");
     }
 }
