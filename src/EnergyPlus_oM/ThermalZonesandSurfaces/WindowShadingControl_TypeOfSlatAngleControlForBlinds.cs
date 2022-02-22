@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum WindowShadingControl_TypeOfSlatAngleControlForBlinds
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlockBeamSolar")]
+        [System.Runtime.Serialization.EnumMember(Value="BlockBeamSolar")]
         BlockBeamSolar = 1,
         
-        [JsonProperty("FixedSlatAngle")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedSlatAngle")]
         FixedSlatAngle = 2,
         
-        [JsonProperty("ScheduledSlatAngle")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledSlatAngle")]
         ScheduledSlatAngle = 3,
     }
 }

@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum SizingPeriod_DesignDay_SolarModelIndicator
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEClearSky")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEClearSky")]
         ASHRAEClearSky = 1,
         
-        [JsonProperty("ASHRAETau")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAETau")]
         ASHRAETau = 2,
         
-        [JsonProperty("ASHRAETau2017")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAETau2017")]
         ASHRAETau2017 = 3,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 4,
         
-        [JsonProperty("ZhangHuang")]
+        [System.Runtime.Serialization.EnumMember(Value="ZhangHuang")]
         ZhangHuang = 5,
     }
 }

@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DoNotModel")]
+        [System.Runtime.Serialization.EnumMember(Value="DoNotModel")]
         DoNotModel = 1,
         
-        [JsonProperty("ModelAsDiffuse")]
+        [System.Runtime.Serialization.EnumMember(Value="ModelAsDiffuse")]
         ModelAsDiffuse = 2,
         
-        [JsonProperty("ModelAsDirectBeam")]
+        [System.Runtime.Serialization.EnumMember(Value="ModelAsDirectBeam")]
         ModelAsDirectBeam = 3,
     }
 }

@@ -8,13 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
 {
     [Description("Thermal and optical performance parameters for a single glazed solar collector wi" +
                  "th integral storage unit.")]
-    [JsonObject("SolarCollectorPerformance:IntegralCollectorStorage")]
     public class SolarCollectorPerformance_IntegralCollectorStorage : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("Currently only RectangularTank ICS collector type is available.")]
         [JsonProperty("ics_collector_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SolarCollectorPerformance_IntegralCollectorStorage_IcsCollectorType IcsCollectorType { get; set; } = (SolarCollectorPerformance_IntegralCollectorStorage_IcsCollectorType)Enum.Parse(typeof(SolarCollectorPerformance_IntegralCollectorStorage_IcsCollectorType), "RectangularTank");
         
 

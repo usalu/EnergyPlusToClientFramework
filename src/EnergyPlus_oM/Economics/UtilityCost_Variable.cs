@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     [Description("Allows for the direct entry of monthly values into a utility tariff variable.")]
-    [JsonObject("UtilityCost:Variable")]
     public class UtilityCost_Variable : BHoMObject, IEnergyPlusClass
     {
         
@@ -18,6 +17,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
         
 
         [JsonProperty("variable_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UtilityCost_Variable_VariableType VariableType { get; set; } = (UtilityCost_Variable_VariableType)Enum.Parse(typeof(UtilityCost_Variable_VariableType), "Dimensionless");
         
 

@@ -7,12 +7,12 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for detailed entry of building heat transfer surfaces. Does not include su" +
                  "bsurfaces such as windows or doors.")]
-    [JsonObject("BuildingSurface:Detailed")]
     public class BuildingSurface_Detailed : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("surface_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BuildingSurface_Detailed_SurfaceType SurfaceType { get; set; } = (BuildingSurface_Detailed_SurfaceType)Enum.Parse(typeof(BuildingSurface_Detailed_SurfaceType), "Ceiling");
         
 
@@ -27,6 +27,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
         
 
         [JsonProperty("outside_boundary_condition")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BuildingSurface_Detailed_OutsideBoundaryCondition OutsideBoundaryCondition { get; set; } = (BuildingSurface_Detailed_OutsideBoundaryCondition)Enum.Parse(typeof(BuildingSurface_Detailed_OutsideBoundaryCondition), "Adiabatic");
         
 
@@ -36,10 +37,12 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
         
 
         [JsonProperty("sun_exposure")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BuildingSurface_Detailed_SunExposure SunExposure { get; set; } = (BuildingSurface_Detailed_SunExposure)Enum.Parse(typeof(BuildingSurface_Detailed_SunExposure), "SunExposed");
         
 
         [JsonProperty("wind_exposure")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BuildingSurface_Detailed_WindExposure WindExposure { get; set; } = (BuildingSurface_Detailed_WindExposure)Enum.Parse(typeof(BuildingSurface_Detailed_WindExposure), "WindExposed");
         
 

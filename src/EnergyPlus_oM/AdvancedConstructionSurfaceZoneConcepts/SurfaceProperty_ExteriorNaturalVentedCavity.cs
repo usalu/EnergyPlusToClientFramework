@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("Used to describe the decoupled layer, or baffle, and the characteristics of the c" +
                  "avity and openings for naturally ventilated exterior surfaces. This object is al" +
                  "so used in conjunction with the OtherSideConditionsModel.")]
-    [JsonObject("SurfaceProperty:ExteriorNaturalVentedCavity")]
     public class SurfaceProperty_ExteriorNaturalVentedCavity : BHoMObject, IEnergyPlusClass
     {
         
@@ -46,6 +45,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
         
 
         [JsonProperty("roughness_of_exterior_surface")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface RoughnessOfExteriorSurface { get; set; } = (SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface)Enum.Parse(typeof(SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface), "MediumRough");
         
 

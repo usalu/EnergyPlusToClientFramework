@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     [Description("Overrides fan/pump schedules depending on temperature at sensor node.")]
-    [JsonObject("AvailabilityManager:LowTemperatureTurnOn")]
     public class AvailabilityManager_LowTemperatureTurnOn : BHoMObject, IEnergyPlusClass
     {
         

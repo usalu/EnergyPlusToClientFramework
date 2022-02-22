@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("Specifies outside temperature-controlled electric baseboard heating.")]
-    [JsonObject("ZoneBaseboard:OutdoorTemperatureControlled")]
     public class ZoneBaseboard_OutdoorTemperatureControlled : BHoMObject, IEnergyPlusClass
     {
         

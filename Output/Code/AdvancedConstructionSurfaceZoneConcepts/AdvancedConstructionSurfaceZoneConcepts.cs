@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     
     
     [Description(@"Determines which Heat Balance Algorithm will be used for a specific surface Allows selectively overriding the global setting in HeatBalanceAlgorithm CTF (Conduction Transfer Functions), EMPD (Effective Moisture Penetration Depth with Conduction Transfer Functions). Advanced/Research Usage: CondFD (Conduction Finite Difference) Advanced/Research Usage: HAMT (Combined Heat And Moisture Finite Element)")]
-    [JsonObject("SurfaceProperty:HeatTransferAlgorithm")]
     public class SurfaceProperty_HeatTransferAlgorithm : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,99 +76,101 @@ public string SurfaceName { get; set; } = "";
         
 
 [JsonProperty("algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_HeatTransferAlgorithm_Algorithm Algorithm { get; set; } = (SurfaceProperty_HeatTransferAlgorithm_Algorithm)Enum.Parse(typeof(SurfaceProperty_HeatTransferAlgorithm_Algorithm), "ConductionTransferFunction");
     }
     
     public enum SurfaceProperty_HeatTransferAlgorithm_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CombinedHeatAndMoistureFiniteElement")]
+        [System.Runtime.Serialization.EnumMember(Value="CombinedHeatAndMoistureFiniteElement")]
         CombinedHeatAndMoistureFiniteElement = 1,
         
-        [JsonProperty("ConductionFiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="ConductionFiniteDifference")]
         ConductionFiniteDifference = 2,
         
-        [JsonProperty("ConductionTransferFunction")]
+        [System.Runtime.Serialization.EnumMember(Value="ConductionTransferFunction")]
         ConductionTransferFunction = 3,
         
-        [JsonProperty("MoisturePenetrationDepthConductionTransferFunction")]
+        [System.Runtime.Serialization.EnumMember(Value="MoisturePenetrationDepthConductionTransferFunction")]
         MoisturePenetrationDepthConductionTransferFunction = 4,
     }
     
     [Description(@"Determines which Heat Balance Algorithm will be used for a group of surface types Allows selectively overriding the global setting in HeatBalanceAlgorithm CTF (Conduction Transfer Functions), EMPD (Effective Moisture Penetration Depth with Conduction Transfer Functions). Advanced/Research Usage: CondFD (Conduction Finite Difference) Advanced/Research Usage: HAMT (Combined Heat And Moisture Finite Element)")]
-    [JsonObject("SurfaceProperty:HeatTransferAlgorithm:MultipleSurface")]
     public class SurfaceProperty_HeatTransferAlgorithm_MultipleSurface : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("surface_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_HeatTransferAlgorithm_MultipleSurface_SurfaceType SurfaceType { get; set; } = (SurfaceProperty_HeatTransferAlgorithm_MultipleSurface_SurfaceType)Enum.Parse(typeof(SurfaceProperty_HeatTransferAlgorithm_MultipleSurface_SurfaceType), "AllExteriorFloors");
         
 
 [JsonProperty("algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_HeatTransferAlgorithm_MultipleSurface_Algorithm Algorithm { get; set; } = (SurfaceProperty_HeatTransferAlgorithm_MultipleSurface_Algorithm)Enum.Parse(typeof(SurfaceProperty_HeatTransferAlgorithm_MultipleSurface_Algorithm), "ConductionTransferFunction");
     }
     
     public enum SurfaceProperty_HeatTransferAlgorithm_MultipleSurface_SurfaceType
     {
         
-        [JsonProperty("AllExteriorFloors")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorFloors")]
         AllExteriorFloors = 0,
         
-        [JsonProperty("AllExteriorRoofs")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorRoofs")]
         AllExteriorRoofs = 1,
         
-        [JsonProperty("AllExteriorSurfaces")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorSurfaces")]
         AllExteriorSurfaces = 2,
         
-        [JsonProperty("AllExteriorWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorWalls")]
         AllExteriorWalls = 3,
         
-        [JsonProperty("AllGroundContactSurfaces")]
+        [System.Runtime.Serialization.EnumMember(Value="AllGroundContactSurfaces")]
         AllGroundContactSurfaces = 4,
         
-        [JsonProperty("AllInteriorCeilings")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorCeilings")]
         AllInteriorCeilings = 5,
         
-        [JsonProperty("AllInteriorFloors")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorFloors")]
         AllInteriorFloors = 6,
         
-        [JsonProperty("AllInteriorSurfaces")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorSurfaces")]
         AllInteriorSurfaces = 7,
         
-        [JsonProperty("AllInteriorWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorWalls")]
         AllInteriorWalls = 8,
     }
     
     public enum SurfaceProperty_HeatTransferAlgorithm_MultipleSurface_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CombinedHeatAndMoistureFiniteElement")]
+        [System.Runtime.Serialization.EnumMember(Value="CombinedHeatAndMoistureFiniteElement")]
         CombinedHeatAndMoistureFiniteElement = 1,
         
-        [JsonProperty("ConductionFiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="ConductionFiniteDifference")]
         ConductionFiniteDifference = 2,
         
-        [JsonProperty("ConductionTransferFunction")]
+        [System.Runtime.Serialization.EnumMember(Value="ConductionTransferFunction")]
         ConductionTransferFunction = 3,
         
-        [JsonProperty("MoisturePenetrationDepthConductionTransferFunction")]
+        [System.Runtime.Serialization.EnumMember(Value="MoisturePenetrationDepthConductionTransferFunction")]
         MoisturePenetrationDepthConductionTransferFunction = 4,
     }
     
     [Description(@"Determines which Heat Balance Algorithm will be used for a list of surfaces Allows selectively overriding the global setting in HeatBalanceAlgorithm CTF (Conduction Transfer Functions), EMPD (Effective Moisture Penetration Depth with Conduction Transfer Functions). Advanced/Research Usage: CondFD (Conduction Finite Difference) Advanced/Research Usage: HAMT (Combined Heat And Moisture Finite Element)")]
-    [JsonObject("SurfaceProperty:HeatTransferAlgorithm:SurfaceList")]
     public class SurfaceProperty_HeatTransferAlgorithm_SurfaceList : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_HeatTransferAlgorithm_SurfaceList_Algorithm Algorithm { get; set; } = (SurfaceProperty_HeatTransferAlgorithm_SurfaceList_Algorithm)Enum.Parse(typeof(SurfaceProperty_HeatTransferAlgorithm_SurfaceList_Algorithm), "ConductionTransferFunction");
         
 
@@ -180,29 +181,29 @@ public string Surface { get; set; } = "";
     public enum SurfaceProperty_HeatTransferAlgorithm_SurfaceList_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CombinedHeatAndMoistureFiniteElement")]
+        [System.Runtime.Serialization.EnumMember(Value="CombinedHeatAndMoistureFiniteElement")]
         CombinedHeatAndMoistureFiniteElement = 1,
         
-        [JsonProperty("ConductionFiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="ConductionFiniteDifference")]
         ConductionFiniteDifference = 2,
         
-        [JsonProperty("ConductionTransferFunction")]
+        [System.Runtime.Serialization.EnumMember(Value="ConductionTransferFunction")]
         ConductionTransferFunction = 3,
         
-        [JsonProperty("MoisturePenetrationDepthConductionTransferFunction")]
+        [System.Runtime.Serialization.EnumMember(Value="MoisturePenetrationDepthConductionTransferFunction")]
         MoisturePenetrationDepthConductionTransferFunction = 4,
     }
     
     [Description(@"Determines which Heat Balance Algorithm will be used for surfaces that have a specific type of construction Allows selectively overriding the global setting in HeatBalanceAlgorithm CTF (Conduction Transfer Functions), EMPD (Effective Moisture Penetration Depth with Conduction Transfer Functions). Advanced/Research Usage: CondFD (Conduction Finite Difference) Advanced/Research Usage: HAMT (Combined Heat And Moisture Finite Element)")]
-    [JsonObject("SurfaceProperty:HeatTransferAlgorithm:Construction")]
     public class SurfaceProperty_HeatTransferAlgorithm_Construction : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_HeatTransferAlgorithm_Construction_Algorithm Algorithm { get; set; } = (SurfaceProperty_HeatTransferAlgorithm_Construction_Algorithm)Enum.Parse(typeof(SurfaceProperty_HeatTransferAlgorithm_Construction_Algorithm), "ConductionTransferFunction");
         
 
@@ -213,26 +214,25 @@ public string ConstructionName { get; set; } = "";
     public enum SurfaceProperty_HeatTransferAlgorithm_Construction_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CombinedHeatAndMoistureFiniteElement")]
+        [System.Runtime.Serialization.EnumMember(Value="CombinedHeatAndMoistureFiniteElement")]
         CombinedHeatAndMoistureFiniteElement = 1,
         
-        [JsonProperty("ConductionFiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="ConductionFiniteDifference")]
         ConductionFiniteDifference = 2,
         
-        [JsonProperty("ConductionTransferFunction")]
+        [System.Runtime.Serialization.EnumMember(Value="ConductionTransferFunction")]
         ConductionTransferFunction = 3,
         
-        [JsonProperty("MoisturePenetrationDepthConductionTransferFunction")]
+        [System.Runtime.Serialization.EnumMember(Value="MoisturePenetrationDepthConductionTransferFunction")]
         MoisturePenetrationDepthConductionTransferFunction = 4,
     }
     
     [Description("Allows an additional heat source term to be added to the inside or outside surfac" +
         "e boundary. A heat source can be added to either or both the inside and outside " +
         "of the same surface.")]
-    [JsonObject("SurfaceProperty:HeatBalanceSourceTerm")]
     public class SurfaceProperty_HeatBalanceSourceTerm : BHoMObject, IEnergyPlusClass
     {
         
@@ -252,12 +252,12 @@ public string OutsideFaceHeatSourceTermScheduleName { get; set; } = "";
     }
     
     [Description("Exterior or Interior Insulation on opaque surfaces")]
-    [JsonObject("SurfaceControl:MovableInsulation")]
     public class SurfaceControl_MovableInsulation : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("insulation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceControl_MovableInsulation_InsulationType InsulationType { get; set; } = (SurfaceControl_MovableInsulation_InsulationType)Enum.Parse(typeof(SurfaceControl_MovableInsulation_InsulationType), "Inside");
         
 
@@ -276,15 +276,14 @@ public string ScheduleName { get; set; } = "";
     public enum SurfaceControl_MovableInsulation_InsulationType
     {
         
-        [JsonProperty("Inside")]
+        [System.Runtime.Serialization.EnumMember(Value="Inside")]
         Inside = 0,
         
-        [JsonProperty("Outside")]
+        [System.Runtime.Serialization.EnumMember(Value="Outside")]
         Outside = 1,
     }
     
     [Description("This object sets the other side conditions for a surface in a variety of ways.")]
-    [JsonObject("SurfaceProperty:OtherSideCoefficients")]
     public class SurfaceProperty_OtherSideCoefficients : BHoMObject, IEnergyPlusClass
     {
         
@@ -331,6 +330,7 @@ public string ConstantTemperatureScheduleName { get; set; } = "";
 
 [Description("Optionally used to vary Constant Temperature Coefficient with unitary sine wave")]
 [JsonProperty("sinusoidal_variation_of_constant_temperature_coefficient")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes SinusoidalVariationOfConstantTemperatureCoefficient { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -359,39 +359,38 @@ public System.Nullable<float> MaximumOtherSideTemperatureLimit { get; set; } = n
     
     [Description("This object sets up modifying the other side conditions for a surface from other " +
         "model results.")]
-    [JsonObject("SurfaceProperty:OtherSideConditionsModel")]
     public class SurfaceProperty_OtherSideConditionsModel : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"GapConvectionRadiation provides boundary conditions for convection and linearized thermal radiation across a gap or cavity on the other side of the surface that are modeled separately. UndergroundPipingSystemSurface provides boundary conditions for surfaces in contact with PipingSystem:Underground domains GroundCoupledSurface provides boundary conditions for surfaces in contact with GroundDomain objects ConvectiveUnderwater provides a connection between a surface and an underwater boundary condition defined using a SurfaceProperty:Underwater object")]
 [JsonProperty("type_of_modeling")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_OtherSideConditionsModel_TypeOfModeling TypeOfModeling { get; set; } = (SurfaceProperty_OtherSideConditionsModel_TypeOfModeling)Enum.Parse(typeof(SurfaceProperty_OtherSideConditionsModel_TypeOfModeling), "GapConvectionRadiation");
     }
     
     public enum SurfaceProperty_OtherSideConditionsModel_TypeOfModeling
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConvectiveUnderwater")]
+        [System.Runtime.Serialization.EnumMember(Value="ConvectiveUnderwater")]
         ConvectiveUnderwater = 1,
         
-        [JsonProperty("GapConvectionRadiation")]
+        [System.Runtime.Serialization.EnumMember(Value="GapConvectionRadiation")]
         GapConvectionRadiation = 2,
         
-        [JsonProperty("GroundCoupledSurface")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundCoupledSurface")]
         GroundCoupledSurface = 3,
         
-        [JsonProperty("UndergroundPipingSystemSurface")]
+        [System.Runtime.Serialization.EnumMember(Value="UndergroundPipingSystemSurface")]
         UndergroundPipingSystemSurface = 4,
     }
     
     [Description("This object sets up a convective water boundary condition for a surface The free " +
         "stream temperature and velocity are scheduled. If the free stream velocity is ze" +
         "ro, the surface will naturally convect with the surrounding water.")]
-    [JsonObject("SurfaceProperty:Underwater")]
     public class SurfaceProperty_Underwater : BHoMObject, IEnergyPlusClass
     {
         
@@ -414,7 +413,6 @@ public string FreeStreamWaterVelocitySchedule { get; set; } = "";
     [Description("Refined definition of the foundation surface construction used to inform two-dime" +
         "nsional heat transfer calculated using the Kiva ground heat transfer methodology" +
         ".")]
-    [JsonObject("Foundation:Kiva")]
     public class Foundation_Kiva : BHoMObject, IEnergyPlusClass
     {
         
@@ -505,7 +503,6 @@ public string Blocks { get; set; } = "";
     
     [Description("Settings applied across all Kiva foundation calculations. Object is not required." +
         " If not defined, defaults will be applied.")]
-    [JsonObject("Foundation:Kiva:Settings")]
     public class Foundation_Kiva_Settings : BHoMObject, IEnergyPlusClass
     {
         
@@ -539,6 +536,7 @@ public System.Nullable<float> FarFieldWidth { get; set; } = (System.Nullable<flo
         
 
 [JsonProperty("deep_ground_boundary_condition")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Foundation_Kiva_Settings_DeepGroundBoundaryCondition DeepGroundBoundaryCondition { get; set; } = (Foundation_Kiva_Settings_DeepGroundBoundaryCondition)Enum.Parse(typeof(Foundation_Kiva_Settings_DeepGroundBoundaryCondition), "Autoselect");
         
 
@@ -555,40 +553,40 @@ public System.Nullable<float> MaximumCellGrowthCoefficient { get; set; } = (Syst
         
 
 [JsonProperty("simulation_timestep")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Foundation_Kiva_Settings_SimulationTimestep SimulationTimestep { get; set; } = (Foundation_Kiva_Settings_SimulationTimestep)Enum.Parse(typeof(Foundation_Kiva_Settings_SimulationTimestep), "Hourly");
     }
     
     public enum Foundation_Kiva_Settings_DeepGroundBoundaryCondition
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Autoselect")]
+        [System.Runtime.Serialization.EnumMember(Value="Autoselect")]
         Autoselect = 1,
         
-        [JsonProperty("GroundWater")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundWater")]
         GroundWater = 2,
         
-        [JsonProperty("ZeroFlux")]
+        [System.Runtime.Serialization.EnumMember(Value="ZeroFlux")]
         ZeroFlux = 3,
     }
     
     public enum Foundation_Kiva_Settings_SimulationTimestep
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 1,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 2,
     }
     
     [Description(@"Defines the perimeter of a foundation floor that is exposed to the exterior environment through the floor. User may either define the total exposed perimeter, fraction of perimeter exposed or individually define which segments of the floor surface perimeter are exposed.")]
-    [JsonObject("SurfaceProperty:ExposedFoundationPerimeter")]
     public class SurfaceProperty_ExposedFoundationPerimeter : BHoMObject, IEnergyPlusClass
     {
         
@@ -599,6 +597,7 @@ public string SurfaceName { get; set; } = "";
 
 [Description(@"Choices: TotalExposedPerimeter => total exposed perimeter in meters ExposedPerimeterFraction => fraction of total perimeter that is exposed. Value * Fraction = Total exposed perimeter BySegment => define whether the segment between each set of consecutive vertices of the floor surface is exposed. SUM(exposed segement lengths) = Total exposed perimeter")]
 [JsonProperty("exposed_perimeter_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_ExposedFoundationPerimeter_ExposedPerimeterCalculationMethod ExposedPerimeterCalculationMethod { get; set; } = (SurfaceProperty_ExposedFoundationPerimeter_ExposedPerimeterCalculationMethod)Enum.Parse(typeof(SurfaceProperty_ExposedFoundationPerimeter_ExposedPerimeterCalculationMethod), "BySegment");
         
 
@@ -617,24 +616,24 @@ public string Surfaces { get; set; } = "";
     public enum SurfaceProperty_ExposedFoundationPerimeter_ExposedPerimeterCalculationMethod
     {
         
-        [JsonProperty("BySegment")]
+        [System.Runtime.Serialization.EnumMember(Value="BySegment")]
         BySegment = 0,
         
-        [JsonProperty("ExposedPerimeterFraction")]
+        [System.Runtime.Serialization.EnumMember(Value="ExposedPerimeterFraction")]
         ExposedPerimeterFraction = 1,
         
-        [JsonProperty("TotalExposedPerimeter")]
+        [System.Runtime.Serialization.EnumMember(Value="TotalExposedPerimeter")]
         TotalExposedPerimeter = 2,
     }
     
     [Description(@"Options to change the individual convection model equations for dynamic selection when using AdaptiveConvectiongAlgorithm This object is only needed to make changes to the default model selections for any or all of the surface categories. This object is for the inside face, the side of the surface facing a thermal zone.")]
-    [JsonObject("SurfaceConvectionAlgorithm:Inside:AdaptiveModelSelections")]
     public class SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description("Applies to zone with no HVAC or when HVAC is off This is for vertical walls")]
 [JsonProperty("simple_buoyancy_vertical_wall_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyVerticalWallEquationSource SimpleBuoyancyVerticalWallEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyVerticalWallEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyVerticalWallEquationSource), "FohannoPolidoriVerticalWall");
         
 
@@ -647,6 +646,7 @@ public string SimpleBuoyancyVerticalWallUserCurveName { get; set; } = "";
 [Description("Applies to zone with no HVAC or when HVAC is off This is for horizontal surfaces " +
     "with heat flow directed for stable thermal stratification")]
 [JsonProperty("simple_buoyancy_stable_horizontal_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyStableHorizontalEquationSource SimpleBuoyancyStableHorizontalEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyStableHorizontalEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyStableHorizontalEquationSource), "AlamdariHammondStableHorizontal");
         
 
@@ -659,6 +659,7 @@ public string SimpleBuoyancyStableHorizontalEquationUserCurveName { get; set; } 
 [Description("Applies to zone with no HVAC or when HVAC is off This is for passive horizontal s" +
     "urfaces with heat flow for unstable thermal stratification")]
 [JsonProperty("simple_buoyancy_unstable_horizontal_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyUnstableHorizontalEquationSource SimpleBuoyancyUnstableHorizontalEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyUnstableHorizontalEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyUnstableHorizontalEquationSource), "AlamdariHammondUnstableHorizontal");
         
 
@@ -671,6 +672,7 @@ public string SimpleBuoyancyUnstableHorizontalEquationUserCurveName { get; set; 
 [Description("Applies to zone with no HVAC or when HVAC is off This is for tilted surfaces with" +
     " heat flow for stable thermal stratification")]
 [JsonProperty("simple_buoyancy_stable_tilted_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyStableTiltedEquationSource SimpleBuoyancyStableTiltedEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyStableTiltedEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyStableTiltedEquationSource), "WaltonStableHorizontalOrTilt");
         
 
@@ -683,6 +685,7 @@ public string SimpleBuoyancyStableTiltedEquationUserCurveName { get; set; } = ""
 [Description("Applies to zone with no HVAC or when HVAC is off This is for tilted surfaces with" +
     " heat flow for unstable thermal stratification")]
 [JsonProperty("simple_buoyancy_unstable_tilted_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyUnstableTiltedEquationSource SimpleBuoyancyUnstableTiltedEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyUnstableTiltedEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyUnstableTiltedEquationSource), "WaltonUnstableHorizontalOrTilt");
         
 
@@ -694,6 +697,7 @@ public string SimpleBuoyancyUnstableTiltedEquationUserCurveName { get; set; } = 
 
 [Description("Applies to zone with no HVAC or when HVAC is off This is for all window surfaces")]
 [JsonProperty("simple_buoyancy_windows_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyWindowsEquationSource SimpleBuoyancyWindowsEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyWindowsEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyWindowsEquationSource), "ISO15099Windows");
         
 
@@ -706,6 +710,7 @@ public string SimpleBuoyancyWindowsEquationUserCurveName { get; set; } = "";
 [Description("Applies to zone with in-floor heating and/or in-ceiling cooling This is for verti" +
     "cal walls")]
 [JsonProperty("floor_heat_ceiling_cool_vertical_wall_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolVerticalWallEquationSource FloorHeatCeilingCoolVerticalWallEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolVerticalWallEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolVerticalWallEquationSource), "KhalifaEq3WallAwayFromHeat");
         
 
@@ -718,6 +723,7 @@ public string FloorHeatCeilingCoolVerticalWallEquationUserCurveName { get; set; 
 [Description("Applies to zone with in-floor heating and/or in-ceiling cooling This is for passi" +
     "ve horizontal surfaces with heat flow for stable thermal stratification")]
 [JsonProperty("floor_heat_ceiling_cool_stable_horizontal_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolStableHorizontalEquationSource FloorHeatCeilingCoolStableHorizontalEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolStableHorizontalEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolStableHorizontalEquationSource), "AlamdariHammondStableHorizontal");
         
 
@@ -730,6 +736,7 @@ public string FloorHeatCeilingCoolStableHorizontalEquationUserCurveName { get; s
 [Description("Applies to zone with in-floor heating and/or in-ceiling cooling This is for passi" +
     "ve horizontal surfaces with heat flow for unstable thermal stratification")]
 [JsonProperty("floor_heat_ceiling_cool_unstable_horizontal_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolUnstableHorizontalEquationSource FloorHeatCeilingCoolUnstableHorizontalEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolUnstableHorizontalEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolUnstableHorizontalEquationSource), "KhalifaEq4CeilingAwayFromHeat");
         
 
@@ -742,6 +749,7 @@ public string FloorHeatCeilingCoolUnstableHorizontalEquationUserCurveName { get;
 [Description("Applies to zone with in-floor heating and/or in-ceiling cooling This is for a flo" +
     "or with active heating elements")]
 [JsonProperty("floor_heat_ceiling_cool_heated_floor_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolHeatedFloorEquationSource FloorHeatCeilingCoolHeatedFloorEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolHeatedFloorEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolHeatedFloorEquationSource), "AwbiHattonHeatedFloor");
         
 
@@ -754,6 +762,7 @@ public string FloorHeatCeilingCoolHeatedFloorEquationUserCurveName { get; set; }
 [Description("Applies to zone with in-floor heating and/or in-ceiling cooling This is for a cei" +
     "ling with active cooling elements")]
 [JsonProperty("floor_heat_ceiling_cool_chilled_ceiling_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolChilledCeilingEquationSource FloorHeatCeilingCoolChilledCeilingEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolChilledCeilingEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolChilledCeilingEquationSource), "KaradagChilledCeiling");
         
 
@@ -766,6 +775,7 @@ public string FloorHeatCeilingCoolChilledCeilingEquationUserCurveName { get; set
 [Description("Applies to zone with in-floor heating and/or in-ceiling cooling This is for tilte" +
     "d surfaces with heat flow for stable thermal stratification")]
 [JsonProperty("floor_heat_ceiling_cool_stable_tilted_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolStableTiltedEquationSource FloorHeatCeilingCoolStableTiltedEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolStableTiltedEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolStableTiltedEquationSource), "WaltonStableHorizontalOrTilt");
         
 
@@ -778,6 +788,7 @@ public string FloorHeatCeilingCoolStableTiltedEquationUserCurveName { get; set; 
 [Description("Applies to zone with in-floor heating and/or in-ceiling cooling This is for tilte" +
     "d surfaces with heat flow for unstable thermal stratification")]
 [JsonProperty("floor_heat_ceiling_cool_unstable_tilted_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolUnstableTiltedEquationSource FloorHeatCeilingCoolUnstableTiltedEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolUnstableTiltedEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolUnstableTiltedEquationSource), "WaltonUnstableHorizontalOrTilt");
         
 
@@ -790,6 +801,7 @@ public string FloorHeatCeilingCoolUnstableTiltedEquationUserCurveName { get; set
 [Description("Applies to zone with in-floor heating and/or in-ceiling cooling This is for all w" +
     "indow surfaces")]
 [JsonProperty("floor_heat_ceiling_cool_window_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolWindowEquationSource FloorHeatCeilingCoolWindowEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolWindowEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolWindowEquationSource), "ISO15099Windows");
         
 
@@ -802,6 +814,7 @@ public string FloorHeatCeilingCoolWindowEquationUserCurveName { get; set; } = ""
 [Description("Applies to zone with in-wall panel heating This is for vertical walls that are no" +
     "t actively heated")]
 [JsonProperty("wall_panel_heating_vertical_wall_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingVerticalWallEquationSource WallPanelHeatingVerticalWallEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingVerticalWallEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingVerticalWallEquationSource), "KhalifaEq6NonHeatedWalls");
         
 
@@ -814,6 +827,7 @@ public string WallPanelHeatingVerticalWallEquationUserCurveName { get; set; } = 
 [Description("Applies to zone with in-wall panel heating This is for vertical walls that are be" +
     "ing actively heated")]
 [JsonProperty("wall_panel_heating_heated_wall_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingHeatedWallEquationSource WallPanelHeatingHeatedWallEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingHeatedWallEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingHeatedWallEquationSource), "AwbiHattonHeatedWall");
         
 
@@ -826,6 +840,7 @@ public string WallPanelHeatingHeatedWallEquationUserCurveName { get; set; } = ""
 [Description("Applies to zone with in-wall panel heating This is for horizontal surfaces with h" +
     "eat flow directed for stable thermal stratification")]
 [JsonProperty("wall_panel_heating_stable_horizontal_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingStableHorizontalEquationSource WallPanelHeatingStableHorizontalEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingStableHorizontalEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingStableHorizontalEquationSource), "AlamdariHammondStableHorizontal");
         
 
@@ -838,6 +853,7 @@ public string WallPanelHeatingStableHorizontalEquationUserCurveName { get; set; 
 [Description("Applies to zone with in-wall panel heating This is for horizontal surfaces with h" +
     "eat flow directed for unstable thermal stratification")]
 [JsonProperty("wall_panel_heating_unstable_horizontal_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingUnstableHorizontalEquationSource WallPanelHeatingUnstableHorizontalEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingUnstableHorizontalEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingUnstableHorizontalEquationSource), "KhalifaEq7Ceiling");
         
 
@@ -850,6 +866,7 @@ public string WallPanelHeatingUnstableHorizontalEquationUserCurveName { get; set
 [Description("Applies to zone with in-wall panel heating This is for tilted surfaces with heat " +
     "flow for stable thermal stratification")]
 [JsonProperty("wall_panel_heating_stable_tilted_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingStableTiltedEquationSource WallPanelHeatingStableTiltedEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingStableTiltedEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingStableTiltedEquationSource), "WaltonStableHorizontalOrTilt");
         
 
@@ -862,6 +879,7 @@ public string WallPanelHeatingStableTiltedEquationUserCurveName { get; set; } = 
 [Description("Applies to zone with in-wall panel heating This is for tilted surfaces with heat " +
     "flow for unstable thermal stratification")]
 [JsonProperty("wall_panel_heating_unstable_tilted_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingUnstableTiltedEquationSource WallPanelHeatingUnstableTiltedEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingUnstableTiltedEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingUnstableTiltedEquationSource), "WaltonUnstableHorizontalOrTilt");
         
 
@@ -873,6 +891,7 @@ public string WallPanelHeatingUnstableTiltedEquationUserCurveName { get; set; } 
 
 [Description("Applies to zone with in-wall panel heating This is for all window surfaces")]
 [JsonProperty("wall_panel_heating_window_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingWindowEquationSource WallPanelHeatingWindowEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingWindowEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingWindowEquationSource), "ISO15099Windows");
         
 
@@ -885,6 +904,7 @@ public string WallPanelHeatingWindowEquationUserCurveName { get; set; } = "";
 [Description("Applies to zone with convective heater This is for vertical walls not directly af" +
     "fected by heater")]
 [JsonProperty("convective_zone_heater_vertical_wall_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterVerticalWallEquationSource ConvectiveZoneHeaterVerticalWallEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterVerticalWallEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterVerticalWallEquationSource), "FohannoPolidoriVerticalWall");
         
 
@@ -898,6 +918,7 @@ public string ConvectiveZoneHeaterVerticalWallEquationUserCurveName { get; set; 
     "ly affected by heater Walls are considered \"near\" when listed in field set for F" +
     "raction of Radiant Energy to Surface")]
 [JsonProperty("convective_zone_heater_vertical_walls_near_heater_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterVerticalWallsNearHeaterEquationSource ConvectiveZoneHeaterVerticalWallsNearHeaterEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterVerticalWallsNearHeaterEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterVerticalWallsNearHeaterEquationSource), "KhalifaEq5WallNearHeat");
         
 
@@ -910,6 +931,7 @@ public string ConvectiveZoneHeaterVerticalWallsNearHeaterEquationUserCurveName {
 [Description("Applies to zone with convective heater This is for horizontal surfaces with heat " +
     "flow directed for stable thermal stratification")]
 [JsonProperty("convective_zone_heater_stable_horizontal_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterStableHorizontalEquationSource ConvectiveZoneHeaterStableHorizontalEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterStableHorizontalEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterStableHorizontalEquationSource), "AlamdariHammondStableHorizontal");
         
 
@@ -922,6 +944,7 @@ public string ConvectiveZoneHeaterStableHorizontalEquationUserCurveName { get; s
 [Description("Applies to zone with convective heater This is for horizontal surfaces with heat " +
     "flow directed for unstable thermal stratification")]
 [JsonProperty("convective_zone_heater_unstable_horizontal_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterUnstableHorizontalEquationSource ConvectiveZoneHeaterUnstableHorizontalEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterUnstableHorizontalEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterUnstableHorizontalEquationSource), "KhalifaEq7Ceiling");
         
 
@@ -934,6 +957,7 @@ public string ConvectiveZoneHeaterUnstableHorizontalEquationUserCurveName { get;
 [Description("Applies to zone with convective heater This is for tilted surfaces with heat flow" +
     " for stable thermal stratification")]
 [JsonProperty("convective_zone_heater_stable_tilted_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterStableTiltedEquationSource ConvectiveZoneHeaterStableTiltedEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterStableTiltedEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterStableTiltedEquationSource), "WaltonStableHorizontalOrTilt");
         
 
@@ -946,6 +970,7 @@ public string ConvectiveZoneHeaterStableTiltedEquationUserCurveName { get; set; 
 [Description("Applies to zone with convective heater This is for tilted surfaces with heat flow" +
     " for unstable thermal stratification")]
 [JsonProperty("convective_zone_heater_unstable_tilted_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterUnstableTiltedEquationSource ConvectiveZoneHeaterUnstableTiltedEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterUnstableTiltedEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterUnstableTiltedEquationSource), "WaltonUnstableHorizontalOrTilt");
         
 
@@ -957,6 +982,7 @@ public string ConvectiveZoneHeaterUnstableTiltedEquationUserCurveName { get; set
 
 [Description("Applies to zone with convective heater This is for all window surfaces")]
 [JsonProperty("convective_zone_heater_windows_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterWindowsEquationSource ConvectiveZoneHeaterWindowsEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterWindowsEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterWindowsEquationSource), "ISO15099Windows");
         
 
@@ -969,6 +995,7 @@ public string ConvectiveZoneHeaterWindowsEquationUserCurveName { get; set; } = "
 [Description("Applies to zone with mechanical forced central air with diffusers This is for all" +
     " wall surfaces")]
 [JsonProperty("central_air_diffuser_wall_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserWallEquationSource CentralAirDiffuserWallEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserWallEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserWallEquationSource), "GoldsteinNovoselacCeilingDiffuserWalls");
         
 
@@ -981,6 +1008,7 @@ public string CentralAirDiffuserWallEquationUserCurveName { get; set; } = "";
 [Description("Applies to zone with mechanical forced central air with diffusers This is for all" +
     " ceiling surfaces")]
 [JsonProperty("central_air_diffuser_ceiling_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserCeilingEquationSource CentralAirDiffuserCeilingEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserCeilingEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserCeilingEquationSource), "FisherPedersenCeilingDiffuserCeiling");
         
 
@@ -993,6 +1021,7 @@ public string CentralAirDiffuserCeilingEquationUserCurveName { get; set; } = "";
 [Description("Applies to zone with mechanical forced central air with diffusers This is for all" +
     " floor surfaces")]
 [JsonProperty("central_air_diffuser_floor_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserFloorEquationSource CentralAirDiffuserFloorEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserFloorEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserFloorEquationSource), "GoldsteinNovoselacCeilingDiffuserFloor");
         
 
@@ -1005,6 +1034,7 @@ public string CentralAirDiffuserFloorEquationUserCurveName { get; set; } = "";
 [Description("Applies to zone with mechanical forced central air with diffusers This is for all" +
     " window surfaces")]
 [JsonProperty("central_air_diffuser_window_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserWindowEquationSource CentralAirDiffuserWindowEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserWindowEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserWindowEquationSource), "GoldsteinNovoselacCeilingDiffuserWindow");
         
 
@@ -1016,6 +1046,7 @@ public string CentralAirDiffuserWindowEquationUserCurveName { get; set; } = "";
 
 [Description("reference choice fields")]
 [JsonProperty("mechanical_zone_fan_circulation_vertical_wall_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationVerticalWallEquationSource MechanicalZoneFanCirculationVerticalWallEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationVerticalWallEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationVerticalWallEquationSource), "KhalifaEq3WallAwayFromHeat");
         
 
@@ -1027,6 +1058,7 @@ public string MechanicalZoneFanCirculationVerticalWallEquationUserCurveName { ge
 
 [Description("reference choice fields")]
 [JsonProperty("mechanical_zone_fan_circulation_stable_horizontal_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationStableHorizontalEquationSource MechanicalZoneFanCirculationStableHorizontalEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationStableHorizontalEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationStableHorizontalEquationSource), "AlamdariHammondStableHorizontal");
         
 
@@ -1038,6 +1070,7 @@ public string MechanicalZoneFanCirculationStableHorizontalEquationUserCurveName 
 
 [Description("reference choice fields")]
 [JsonProperty("mechanical_zone_fan_circulation_unstable_horizontal_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationUnstableHorizontalEquationSource MechanicalZoneFanCirculationUnstableHorizontalEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationUnstableHorizontalEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationUnstableHorizontalEquationSource), "KhalifaEq4CeilingAwayFromHeat");
         
 
@@ -1049,6 +1082,7 @@ public string MechanicalZoneFanCirculationUnstableHorizontalEquationUserCurveNam
 
 [Description("reference choice fields")]
 [JsonProperty("mechanical_zone_fan_circulation_stable_tilted_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationStableTiltedEquationSource MechanicalZoneFanCirculationStableTiltedEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationStableTiltedEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationStableTiltedEquationSource), "WaltonStableHorizontalOrTilt");
         
 
@@ -1060,6 +1094,7 @@ public string MechanicalZoneFanCirculationStableTiltedEquationUserCurveName { ge
 
 [Description("reference choice fields")]
 [JsonProperty("mechanical_zone_fan_circulation_unstable_tilted_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationUnstableTiltedEquationSource MechanicalZoneFanCirculationUnstableTiltedEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationUnstableTiltedEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationUnstableTiltedEquationSource), "WaltonUnstableHorizontalOrTilt");
         
 
@@ -1071,6 +1106,7 @@ public string MechanicalZoneFanCirculationUnstableTiltedEquationUserCurveName { 
 
 [Description("reference choice fields")]
 [JsonProperty("mechanical_zone_fan_circulation_window_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationWindowEquationSource MechanicalZoneFanCirculationWindowEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationWindowEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationWindowEquationSource), "ISO15099Windows");
         
 
@@ -1082,6 +1118,7 @@ public string MechanicalZoneFanCirculationWindowEquationUserCurveName { get; set
 
 [Description("reference choice fields")]
 [JsonProperty("mixed_regime_buoyancy_assisting_flow_on_walls_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeBuoyancyAssistingFlowOnWallsEquationSource MixedRegimeBuoyancyAssistingFlowOnWallsEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeBuoyancyAssistingFlowOnWallsEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeBuoyancyAssistingFlowOnWallsEquationSource), "BeausoleilMorrisonMixedAssistedWall");
         
 
@@ -1093,6 +1130,7 @@ public string MixedRegimeBuoyancyAssistingFlowOnWallsEquationUserCurveName { get
 
 [Description("reference choice fields")]
 [JsonProperty("mixed_regime_buoyancy_opposing_flow_on_walls_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeBuoyancyOpposingFlowOnWallsEquationSource MixedRegimeBuoyancyOpposingFlowOnWallsEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeBuoyancyOpposingFlowOnWallsEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeBuoyancyOpposingFlowOnWallsEquationSource), "BeausoleilMorrisonMixedOpposingWall");
         
 
@@ -1104,6 +1142,7 @@ public string MixedRegimeBuoyancyOpposingFlowOnWallsEquationUserCurveName { get;
 
 [Description("reference choice fields")]
 [JsonProperty("mixed_regime_stable_floor_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeStableFloorEquationSource MixedRegimeStableFloorEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeStableFloorEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeStableFloorEquationSource), "BeausoleilMorrisonMixedStableFloor");
         
 
@@ -1115,6 +1154,7 @@ public string MixedRegimeStableFloorEquationUserCurveName { get; set; } = "";
 
 [Description("reference choice fields")]
 [JsonProperty("mixed_regime_unstable_floor_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeUnstableFloorEquationSource MixedRegimeUnstableFloorEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeUnstableFloorEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeUnstableFloorEquationSource), "BeausoleilMorrisonMixedUnstableFloor");
         
 
@@ -1126,6 +1166,7 @@ public string MixedRegimeUnstableFloorEquationUserCurveName { get; set; } = "";
 
 [Description("reference choice fields")]
 [JsonProperty("mixed_regime_stable_ceiling_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeStableCeilingEquationSource MixedRegimeStableCeilingEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeStableCeilingEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeStableCeilingEquationSource), "BeausoleilMorrisonMixedStableCeiling");
         
 
@@ -1137,6 +1178,7 @@ public string MixedRegimeStableCeilingEquationUserCurveName { get; set; } = "";
 
 [Description("reference choice fields")]
 [JsonProperty("mixed_regime_unstable_ceiling_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeUnstableCeilingEquationSource MixedRegimeUnstableCeilingEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeUnstableCeilingEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeUnstableCeilingEquationSource), "BeausoleilMorrisonMixedUnstableCeiling");
         
 
@@ -1148,6 +1190,7 @@ public string MixedRegimeUnstableCeilingEquationUserCurveName { get; set; } = ""
 
 [Description("reference choice fields")]
 [JsonProperty("mixed_regime_window_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeWindowEquationSource MixedRegimeWindowEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeWindowEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeWindowEquationSource), "GoldsteinNovoselacCeilingDiffuserWindow");
         
 
@@ -1160,970 +1203,970 @@ public string MixedRegimeWindowEquationUserCurveName { get; set; } = "";
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyVerticalWallEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 3,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 4,
         
-        [JsonProperty("KhalifaEq3WallAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq3WallAwayFromHeat")]
         KhalifaEq3WallAwayFromHeat = 5,
         
-        [JsonProperty("KhalifaEq6NonHeatedWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq6NonHeatedWalls")]
         KhalifaEq6NonHeatedWalls = 6,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 7,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyStableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 2,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 3,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyUnstableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 2,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 3,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyStableTiltedEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 2,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 3,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyUnstableTiltedEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 2,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 3,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_SimpleBuoyancyWindowsEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 3,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 4,
         
-        [JsonProperty("KaradagChilledCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KaradagChilledCeiling")]
         KaradagChilledCeiling = 5,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 6,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolVerticalWallEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 3,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 4,
         
-        [JsonProperty("KhalifaEq3WallAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq3WallAwayFromHeat")]
         KhalifaEq3WallAwayFromHeat = 5,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 6,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolStableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 2,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 3,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolUnstableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("KhalifaEq4CeilingAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq4CeilingAwayFromHeat")]
         KhalifaEq4CeilingAwayFromHeat = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolHeatedFloorEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("AwbiHattonHeatedFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedFloor")]
         AwbiHattonHeatedFloor = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolChilledCeilingEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("KaradagChilledCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KaradagChilledCeiling")]
         KaradagChilledCeiling = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolStableTiltedEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolUnstableTiltedEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_FloorHeatCeilingCoolWindowEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 3,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingVerticalWallEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 3,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 4,
         
-        [JsonProperty("KhalifaEq6NonHeatedWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq6NonHeatedWalls")]
         KhalifaEq6NonHeatedWalls = 5,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 6,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingHeatedWallEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("AwbiHattonHeatedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedWall")]
         AwbiHattonHeatedWall = 3,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 4,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 5,
         
-        [JsonProperty("KhalifaEq5WallNearHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq5WallNearHeat")]
         KhalifaEq5WallNearHeat = 6,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 7,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingStableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 2,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 3,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingUnstableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 2,
         
-        [JsonProperty("KaradagChilledCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KaradagChilledCeiling")]
         KaradagChilledCeiling = 3,
         
-        [JsonProperty("KhalifaEq7Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq7Ceiling")]
         KhalifaEq7Ceiling = 4,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 5,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 6,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingStableTiltedEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingUnstableTiltedEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingWindowEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 3,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 4,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 5,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterVerticalWallEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 3,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 4,
         
-        [JsonProperty("KhalifaEq3WallAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq3WallAwayFromHeat")]
         KhalifaEq3WallAwayFromHeat = 5,
         
-        [JsonProperty("KhalifaEq6NonHeatedWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq6NonHeatedWalls")]
         KhalifaEq6NonHeatedWalls = 6,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 7,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterVerticalWallsNearHeaterEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("AwbiHattonHeatedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedWall")]
         AwbiHattonHeatedWall = 3,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 4,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 5,
         
-        [JsonProperty("KhalifaEq5WallNearHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq5WallNearHeat")]
         KhalifaEq5WallNearHeat = 6,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 7,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterStableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 2,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 3,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterUnstableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("KhalifaEq4CeilingAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq4CeilingAwayFromHeat")]
         KhalifaEq4CeilingAwayFromHeat = 2,
         
-        [JsonProperty("KhalifaEq7Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq7Ceiling")]
         KhalifaEq7Ceiling = 3,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 4,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 5,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterStableTiltedEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 2,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 3,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterUnstableTiltedEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 2,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 3,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterWindowsEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 3,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 4,
         
-        [JsonProperty("KhalifaEq3WallAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq3WallAwayFromHeat")]
         KhalifaEq3WallAwayFromHeat = 5,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 6,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserWallEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("BeausoleilMorrisonMixedAssistedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedAssistedWall")]
         BeausoleilMorrisonMixedAssistedWall = 3,
         
-        [JsonProperty("BeausoleilMorrisonMixedOpposingWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedOpposingWall")]
         BeausoleilMorrisonMixedOpposingWall = 4,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserWalls")]
         FisherPedersenCeilingDiffuserWalls = 5,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 6,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWalls")]
         GoldsteinNovoselacCeilingDiffuserWalls = 7,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 8,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 9,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserCeilingEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableCeiling")]
         BeausoleilMorrisonMixedStableCeiling = 1,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableCeiling")]
         BeausoleilMorrisonMixedUnstableCeiling = 2,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserCeiling")]
         FisherPedersenCeilingDiffuserCeiling = 3,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserFloorEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableFloor")]
         BeausoleilMorrisonMixedStableFloor = 1,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableFloor")]
         BeausoleilMorrisonMixedUnstableFloor = 2,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserFloor")]
         FisherPedersenCeilingDiffuserFloor = 3,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserFloor")]
         GoldsteinNovoselacCeilingDiffuserFloor = 4,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 5,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserWindowEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("BeausoleilMorrisonMixedAssistedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedAssistedWall")]
         BeausoleilMorrisonMixedAssistedWall = 3,
         
-        [JsonProperty("BeausoleilMorrisonMixedOpposingWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedOpposingWall")]
         BeausoleilMorrisonMixedOpposingWall = 4,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserWalls")]
         FisherPedersenCeilingDiffuserWalls = 5,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 6,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWindow")]
         GoldsteinNovoselacCeilingDiffuserWindow = 7,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 8,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 9,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationVerticalWallEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("BeausoleilMorrisonMixedAssistedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedAssistedWall")]
         BeausoleilMorrisonMixedAssistedWall = 3,
         
-        [JsonProperty("BeausoleilMorrisonMixedOpposingWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedOpposingWall")]
         BeausoleilMorrisonMixedOpposingWall = 4,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserWalls")]
         FisherPedersenCeilingDiffuserWalls = 5,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 6,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWalls")]
         GoldsteinNovoselacCeilingDiffuserWalls = 7,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 8,
         
-        [JsonProperty("KhalifaEq3WallAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq3WallAwayFromHeat")]
         KhalifaEq3WallAwayFromHeat = 9,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 10,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationStableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 2,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 3,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationUnstableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("KhalifaEq4CeilingAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq4CeilingAwayFromHeat")]
         KhalifaEq4CeilingAwayFromHeat = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationStableTiltedEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 1,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 2,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationUnstableTiltedEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 2,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 3,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MechanicalZoneFanCirculationWindowEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 3,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWindow")]
         GoldsteinNovoselacCeilingDiffuserWindow = 4,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 5,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 6,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeBuoyancyAssistingFlowOnWallsEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("BeausoleilMorrisonMixedAssistedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedAssistedWall")]
         BeausoleilMorrisonMixedAssistedWall = 3,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserWalls")]
         FisherPedersenCeilingDiffuserWalls = 4,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 5,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWalls")]
         GoldsteinNovoselacCeilingDiffuserWalls = 6,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 7,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeBuoyancyOpposingFlowOnWallsEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("BeausoleilMorrisonMixedOpposingWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedOpposingWall")]
         BeausoleilMorrisonMixedOpposingWall = 3,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserWalls")]
         FisherPedersenCeilingDiffuserWalls = 4,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 5,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWalls")]
         GoldsteinNovoselacCeilingDiffuserWalls = 6,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 7,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeStableFloorEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableFloor")]
         BeausoleilMorrisonMixedStableFloor = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeUnstableFloorEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableFloor")]
         BeausoleilMorrisonMixedUnstableFloor = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeStableCeilingEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableCeiling")]
         BeausoleilMorrisonMixedStableCeiling = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeUnstableCeilingEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableCeiling")]
         BeausoleilMorrisonMixedUnstableCeiling = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeWindowEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWindow")]
         GoldsteinNovoselacCeilingDiffuserWindow = 1,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
     }
     
     [Description(@"Options to change the individual convection model equations for dynamic selection when using AdaptiveConvectiongAlgorithm This object is only needed to make changes to the default model selections for any or all of the surface categories. This object is for the outside face, the side of the surface facing away from the thermal zone.")]
-    [JsonObject("SurfaceConvectionAlgorithm:Outside:AdaptiveModelSelections")]
     public class SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("wind_convection_windward_vertical_wall_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionWindwardVerticalWallEquationSource WindConvectionWindwardVerticalWallEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionWindwardVerticalWallEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionWindwardVerticalWallEquationSource), "TARPWindward");
         
 
@@ -2134,6 +2177,7 @@ public string WindConvectionWindwardEquationVerticalWallUserCurveName { get; set
         
 
 [JsonProperty("wind_convection_leeward_vertical_wall_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionLeewardVerticalWallEquationSource WindConvectionLeewardVerticalWallEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionLeewardVerticalWallEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionLeewardVerticalWallEquationSource), "TARPLeeward");
         
 
@@ -2144,6 +2188,7 @@ public string WindConvectionLeewardVerticalWallEquationUserCurveName { get; set;
         
 
 [JsonProperty("wind_convection_horizontal_roof_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionHorizontalRoofEquationSource WindConvectionHorizontalRoofEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionHorizontalRoofEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionHorizontalRoofEquationSource), "ClearRoof");
         
 
@@ -2155,6 +2200,7 @@ public string WindConvectionHorizontalRoofUserCurveName { get; set; } = "";
 
 [Description("This is for vertical walls")]
 [JsonProperty("natural_convection_vertical_wall_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionVerticalWallEquationSource NaturalConvectionVerticalWallEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionVerticalWallEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionVerticalWallEquationSource), "ASHRAEVerticalWall");
         
 
@@ -2167,6 +2213,7 @@ public string NaturalConvectionVerticalWallEquationUserCurveName { get; set; } =
 [Description("This is for horizontal surfaces with heat flow directed for stable thermal strati" +
     "fication")]
 [JsonProperty("natural_convection_stable_horizontal_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionStableHorizontalEquationSource NaturalConvectionStableHorizontalEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionStableHorizontalEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionStableHorizontalEquationSource), "WaltonStableHorizontalOrTilt");
         
 
@@ -2177,6 +2224,7 @@ public string NaturalConvectionStableHorizontalEquationUserCurveName { get; set;
         
 
 [JsonProperty("natural_convection_unstable_horizontal_equation_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionUnstableHorizontalEquationSource NaturalConvectionUnstableHorizontalEquationSource { get; set; } = (SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionUnstableHorizontalEquationSource)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionUnstableHorizontalEquationSource), "WaltonUnstableHorizontalOrTilt");
         
 
@@ -2189,181 +2237,180 @@ public string NaturalConvectionUnstableHorizontalEquationUserCurveName { get; se
     public enum SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionWindwardVerticalWallEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlockenWindward")]
+        [System.Runtime.Serialization.EnumMember(Value="BlockenWindward")]
         BlockenWindward = 1,
         
-        [JsonProperty("DOE2Windward")]
+        [System.Runtime.Serialization.EnumMember(Value="DOE2Windward")]
         DOE2Windward = 2,
         
-        [JsonProperty("EmmelVertical")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelVertical")]
         EmmelVertical = 3,
         
-        [JsonProperty("McAdams")]
+        [System.Runtime.Serialization.EnumMember(Value="McAdams")]
         McAdams = 4,
         
-        [JsonProperty("Mitchell")]
+        [System.Runtime.Serialization.EnumMember(Value="Mitchell")]
         Mitchell = 5,
         
-        [JsonProperty("MoWiTTWindward")]
+        [System.Runtime.Serialization.EnumMember(Value="MoWiTTWindward")]
         MoWiTTWindward = 6,
         
-        [JsonProperty("NusseltJurges")]
+        [System.Runtime.Serialization.EnumMember(Value="NusseltJurges")]
         NusseltJurges = 7,
         
-        [JsonProperty("SimpleCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleCombined")]
         SimpleCombined = 8,
         
-        [JsonProperty("TARPWindward")]
+        [System.Runtime.Serialization.EnumMember(Value="TARPWindward")]
         TARPWindward = 9,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 10,
     }
     
     public enum SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionLeewardVerticalWallEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DOE2Leeward")]
+        [System.Runtime.Serialization.EnumMember(Value="DOE2Leeward")]
         DOE2Leeward = 1,
         
-        [JsonProperty("EmmelVertical")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelVertical")]
         EmmelVertical = 2,
         
-        [JsonProperty("McAdams")]
+        [System.Runtime.Serialization.EnumMember(Value="McAdams")]
         McAdams = 3,
         
-        [JsonProperty("Mitchell")]
+        [System.Runtime.Serialization.EnumMember(Value="Mitchell")]
         Mitchell = 4,
         
-        [JsonProperty("MoWiTTLeeward")]
+        [System.Runtime.Serialization.EnumMember(Value="MoWiTTLeeward")]
         MoWiTTLeeward = 5,
         
-        [JsonProperty("NusseltJurges")]
+        [System.Runtime.Serialization.EnumMember(Value="NusseltJurges")]
         NusseltJurges = 6,
         
-        [JsonProperty("SimpleCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleCombined")]
         SimpleCombined = 7,
         
-        [JsonProperty("TARPLeeward")]
+        [System.Runtime.Serialization.EnumMember(Value="TARPLeeward")]
         TARPLeeward = 8,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 9,
     }
     
     public enum SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionHorizontalRoofEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlockenWindward")]
+        [System.Runtime.Serialization.EnumMember(Value="BlockenWindward")]
         BlockenWindward = 1,
         
-        [JsonProperty("ClearRoof")]
+        [System.Runtime.Serialization.EnumMember(Value="ClearRoof")]
         ClearRoof = 2,
         
-        [JsonProperty("DOE2Windward")]
+        [System.Runtime.Serialization.EnumMember(Value="DOE2Windward")]
         DOE2Windward = 3,
         
-        [JsonProperty("EmmelRoof")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelRoof")]
         EmmelRoof = 4,
         
-        [JsonProperty("McAdams")]
+        [System.Runtime.Serialization.EnumMember(Value="McAdams")]
         McAdams = 5,
         
-        [JsonProperty("Mitchell")]
+        [System.Runtime.Serialization.EnumMember(Value="Mitchell")]
         Mitchell = 6,
         
-        [JsonProperty("MoWiTTWindward")]
+        [System.Runtime.Serialization.EnumMember(Value="MoWiTTWindward")]
         MoWiTTWindward = 7,
         
-        [JsonProperty("NusseltJurges")]
+        [System.Runtime.Serialization.EnumMember(Value="NusseltJurges")]
         NusseltJurges = 8,
         
-        [JsonProperty("SimpleCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleCombined")]
         SimpleCombined = 9,
         
-        [JsonProperty("TARPWindward")]
+        [System.Runtime.Serialization.EnumMember(Value="TARPWindward")]
         TARPWindward = 10,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 11,
     }
     
     public enum SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionVerticalWallEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 3,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 4,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 5,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 6,
     }
     
     public enum SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionStableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 4,
     }
     
     public enum SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionUnstableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 4,
     }
     
     [Description("Used to describe a custom model equation for surface convection heat transfer coe" +
         "fficient If more than one curve is referenced they are all used and added togeth" +
         "er.")]
-    [JsonObject("SurfaceConvectionAlgorithm:Inside:UserCurve")]
     public class SurfaceConvectionAlgorithm_Inside_UserCurve : BHoMObject, IEnergyPlusClass
     {
         
@@ -2371,6 +2418,7 @@ public string NaturalConvectionUnstableHorizontalEquationUserCurveName { get; se
 [Description("Controls which temperature is differenced from surface temperature when using the" +
     " Hc value")]
 [JsonProperty("reference_temperature_for_convection_heat_transfer")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_UserCurve_ReferenceTemperatureForConvectionHeatTransfer ReferenceTemperatureForConvectionHeatTransfer { get; set; } = (SurfaceConvectionAlgorithm_Inside_UserCurve_ReferenceTemperatureForConvectionHeatTransfer)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_UserCurve_ReferenceTemperatureForConvectionHeatTransfer), "AdjacentAirTemperature");
         
 
@@ -2403,25 +2451,25 @@ public string HcFunctionOfAirSystemVolumeFlowRateDividedByZonePerimeterLengthCur
     public enum SurfaceConvectionAlgorithm_Inside_UserCurve_ReferenceTemperatureForConvectionHeatTransfer
     {
         
-        [JsonProperty("AdjacentAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjacentAirTemperature")]
         AdjacentAirTemperature = 0,
         
-        [JsonProperty("MeanAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanAirTemperature")]
         MeanAirTemperature = 1,
         
-        [JsonProperty("SupplyAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplyAirTemperature")]
         SupplyAirTemperature = 2,
     }
     
     [Description("Used to describe a custom model equation for surface convection heat transfer coe" +
         "fficient If more than one curve is referenced they are all used and added togeth" +
         "er.")]
-    [JsonObject("SurfaceConvectionAlgorithm:Outside:UserCurve")]
     public class SurfaceConvectionAlgorithm_Outside_UserCurve : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("wind_speed_type_for_curve")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Outside_UserCurve_WindSpeedTypeForCurve WindSpeedTypeForCurve { get; set; } = (SurfaceConvectionAlgorithm_Outside_UserCurve_WindSpeedTypeForCurve)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Outside_UserCurve_WindSpeedTypeForCurve), "HeightAdjust");
         
 
@@ -2446,24 +2494,23 @@ public string HnFunctionOfTemperatureDifferenceDividedByHeightCurveName { get; s
     public enum SurfaceConvectionAlgorithm_Outside_UserCurve_WindSpeedTypeForCurve
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HeightAdjust")]
+        [System.Runtime.Serialization.EnumMember(Value="HeightAdjust")]
         HeightAdjust = 1,
         
-        [JsonProperty("ParallelComponent")]
+        [System.Runtime.Serialization.EnumMember(Value="ParallelComponent")]
         ParallelComponent = 2,
         
-        [JsonProperty("ParallelComponentHeightAdjust")]
+        [System.Runtime.Serialization.EnumMember(Value="ParallelComponentHeightAdjust")]
         ParallelComponentHeightAdjust = 3,
         
-        [JsonProperty("WeatherFile")]
+        [System.Runtime.Serialization.EnumMember(Value="WeatherFile")]
         WeatherFile = 4,
     }
     
     [Description(@"Allow user settable interior and/or exterior convection coefficients. Note that some other factors may limit the lower bounds for these values, such as for windows, the interior convection coefficient must be >.28, for trombe wall algorithm selection (zone), the interior convection coefficient must be >.1 for TARP interior convection, the lower limit is also .1 Minimum and maximum limits are set in HeatBalanceAlgorithm object. Defaults in HeatBalanceAlgorithm object are [.1,1000].")]
-    [JsonObject("SurfaceProperty:ConvectionCoefficients")]
     public class SurfaceProperty_ConvectionCoefficients : BHoMObject, IEnergyPlusClass
     {
         
@@ -2473,10 +2520,12 @@ public string SurfaceName { get; set; } = "";
         
 
 [JsonProperty("convection_coefficient_1_location")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient1Location ConvectionCoefficient1Location { get; set; } = (SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient1Location)Enum.Parse(typeof(SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient1Location), "Inside");
         
 
 [JsonProperty("convection_coefficient_1_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient1Type ConvectionCoefficient1Type { get; set; } = (SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient1Type)Enum.Parse(typeof(SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient1Type), "ASHRAEVerticalWall");
         
 
@@ -2498,10 +2547,12 @@ public string ConvectionCoefficient1UserCurveName { get; set; } = "";
         
 
 [JsonProperty("convection_coefficient_2_location")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient2Location ConvectionCoefficient2Location { get; set; } = (SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient2Location)Enum.Parse(typeof(SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient2Location), "Inside");
         
 
 [JsonProperty("convection_coefficient_2_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient2Type ConvectionCoefficient2Type { get; set; } = (SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient2Type)Enum.Parse(typeof(SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient2Type), "ASHRAEVerticalWall");
         
 
@@ -2525,310 +2576,312 @@ public string ConvectionCoefficient2UserCurveName { get; set; } = "";
     public enum SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient1Location
     {
         
-        [JsonProperty("Inside")]
+        [System.Runtime.Serialization.EnumMember(Value="Inside")]
         Inside = 0,
         
-        [JsonProperty("Outside")]
+        [System.Runtime.Serialization.EnumMember(Value="Outside")]
         Outside = 1,
     }
     
     public enum SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient1Type
     {
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 0,
         
-        [JsonProperty("ASTMC1340")]
+        [System.Runtime.Serialization.EnumMember(Value="ASTMC1340")]
         ASTMC1340 = 1,
         
-        [JsonProperty("AdaptiveConvectionAlgorithm")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveConvectionAlgorithm")]
         AdaptiveConvectionAlgorithm = 2,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 3,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 4,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 5,
         
-        [JsonProperty("AwbiHattonHeatedFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedFloor")]
         AwbiHattonHeatedFloor = 6,
         
-        [JsonProperty("AwbiHattonHeatedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedWall")]
         AwbiHattonHeatedWall = 7,
         
-        [JsonProperty("BeausoleilMorrisonMixedAssistedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedAssistedWall")]
         BeausoleilMorrisonMixedAssistedWall = 8,
         
-        [JsonProperty("BeausoleilMorrisonMixedOpposingWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedOpposingWall")]
         BeausoleilMorrisonMixedOpposingWall = 9,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableCeiling")]
         BeausoleilMorrisonMixedStableCeiling = 10,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableFloor")]
         BeausoleilMorrisonMixedStableFloor = 11,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableCeiling")]
         BeausoleilMorrisonMixedUnstableCeiling = 12,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableFloor")]
         BeausoleilMorrisonMixedUnstableFloor = 13,
         
-        [JsonProperty("ClearRoof")]
+        [System.Runtime.Serialization.EnumMember(Value="ClearRoof")]
         ClearRoof = 14,
         
-        [JsonProperty("DOE-2")]
+        [System.Runtime.Serialization.EnumMember(Value="DOE-2")]
         DOE2 = 15,
         
-        [JsonProperty("EmmelRoof")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelRoof")]
         EmmelRoof = 16,
         
-        [JsonProperty("EmmelVertical")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelVertical")]
         EmmelVertical = 17,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserCeiling")]
         FisherPedersenCeilingDiffuserCeiling = 18,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserFloor")]
         FisherPedersenCeilingDiffuserFloor = 19,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserWalls")]
         FisherPedersenCeilingDiffuserWalls = 20,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 21,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserFloor")]
         GoldsteinNovoselacCeilingDiffuserFloor = 22,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWalls")]
         GoldsteinNovoselacCeilingDiffuserWalls = 23,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWindow")]
         GoldsteinNovoselacCeilingDiffuserWindow = 24,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 25,
         
-        [JsonProperty("KaradagChilledCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KaradagChilledCeiling")]
         KaradagChilledCeiling = 26,
         
-        [JsonProperty("KhalifaEq3WallAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq3WallAwayFromHeat")]
         KhalifaEq3WallAwayFromHeat = 27,
         
-        [JsonProperty("KhalifaEq4CeilingAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq4CeilingAwayFromHeat")]
         KhalifaEq4CeilingAwayFromHeat = 28,
         
-        [JsonProperty("KhalifaEq5WallNearHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq5WallNearHeat")]
         KhalifaEq5WallNearHeat = 29,
         
-        [JsonProperty("KhalifaEq6NonHeatedWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq6NonHeatedWalls")]
         KhalifaEq6NonHeatedWalls = 30,
         
-        [JsonProperty("KhalifaEq7Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq7Ceiling")]
         KhalifaEq7Ceiling = 31,
         
-        [JsonProperty("McAdams")]
+        [System.Runtime.Serialization.EnumMember(Value="McAdams")]
         McAdams = 32,
         
-        [JsonProperty("Mitchell")]
+        [System.Runtime.Serialization.EnumMember(Value="Mitchell")]
         Mitchell = 33,
         
-        [JsonProperty("MoWitt")]
+        [System.Runtime.Serialization.EnumMember(Value="MoWitt")]
         MoWitt = 34,
         
-        [JsonProperty("NusseltJurges")]
+        [System.Runtime.Serialization.EnumMember(Value="NusseltJurges")]
         NusseltJurges = 35,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 36,
         
-        [JsonProperty("Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="Simple")]
         Simple = 37,
         
-        [JsonProperty("SimpleCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleCombined")]
         SimpleCombined = 38,
         
-        [JsonProperty("TARP")]
+        [System.Runtime.Serialization.EnumMember(Value="TARP")]
         TARP = 39,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 40,
         
-        [JsonProperty("Value")]
+        [System.Runtime.Serialization.EnumMember(Value="Value")]
         Value = 41,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 42,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 43,
     }
     
     public enum SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient2Location
     {
         
-        [JsonProperty("Inside")]
+        [System.Runtime.Serialization.EnumMember(Value="Inside")]
         Inside = 0,
         
-        [JsonProperty("Outside")]
+        [System.Runtime.Serialization.EnumMember(Value="Outside")]
         Outside = 1,
     }
     
     public enum SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient2Type
     {
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 0,
         
-        [JsonProperty("ASTMC1340")]
+        [System.Runtime.Serialization.EnumMember(Value="ASTMC1340")]
         ASTMC1340 = 1,
         
-        [JsonProperty("AdaptiveConvectionAlgorithm")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveConvectionAlgorithm")]
         AdaptiveConvectionAlgorithm = 2,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 3,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 4,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 5,
         
-        [JsonProperty("AwbiHattonHeatedFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedFloor")]
         AwbiHattonHeatedFloor = 6,
         
-        [JsonProperty("AwbiHattonHeatedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedWall")]
         AwbiHattonHeatedWall = 7,
         
-        [JsonProperty("BeausoleilMorrisonMixedAssistedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedAssistedWall")]
         BeausoleilMorrisonMixedAssistedWall = 8,
         
-        [JsonProperty("BeausoleilMorrisonMixedOpposingWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedOpposingWall")]
         BeausoleilMorrisonMixedOpposingWall = 9,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableCeiling")]
         BeausoleilMorrisonMixedStableCeiling = 10,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableFloor")]
         BeausoleilMorrisonMixedStableFloor = 11,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableCeiling")]
         BeausoleilMorrisonMixedUnstableCeiling = 12,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableFloor")]
         BeausoleilMorrisonMixedUnstableFloor = 13,
         
-        [JsonProperty("ClearRoof")]
+        [System.Runtime.Serialization.EnumMember(Value="ClearRoof")]
         ClearRoof = 14,
         
-        [JsonProperty("DOE-2")]
+        [System.Runtime.Serialization.EnumMember(Value="DOE-2")]
         DOE2 = 15,
         
-        [JsonProperty("EmmelRoof")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelRoof")]
         EmmelRoof = 16,
         
-        [JsonProperty("EmmelVertical")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelVertical")]
         EmmelVertical = 17,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserCeiling")]
         FisherPedersenCeilingDiffuserCeiling = 18,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserFloor")]
         FisherPedersenCeilingDiffuserFloor = 19,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserWalls")]
         FisherPedersenCeilingDiffuserWalls = 20,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 21,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserFloor")]
         GoldsteinNovoselacCeilingDiffuserFloor = 22,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWalls")]
         GoldsteinNovoselacCeilingDiffuserWalls = 23,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWindow")]
         GoldsteinNovoselacCeilingDiffuserWindow = 24,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 25,
         
-        [JsonProperty("KaradagChilledCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KaradagChilledCeiling")]
         KaradagChilledCeiling = 26,
         
-        [JsonProperty("KhalifaEq3WallAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq3WallAwayFromHeat")]
         KhalifaEq3WallAwayFromHeat = 27,
         
-        [JsonProperty("KhalifaEq4CeilingAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq4CeilingAwayFromHeat")]
         KhalifaEq4CeilingAwayFromHeat = 28,
         
-        [JsonProperty("KhalifaEq5WallNearHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq5WallNearHeat")]
         KhalifaEq5WallNearHeat = 29,
         
-        [JsonProperty("KhalifaEq6NonHeatedWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq6NonHeatedWalls")]
         KhalifaEq6NonHeatedWalls = 30,
         
-        [JsonProperty("KhalifaEq7Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq7Ceiling")]
         KhalifaEq7Ceiling = 31,
         
-        [JsonProperty("McAdams")]
+        [System.Runtime.Serialization.EnumMember(Value="McAdams")]
         McAdams = 32,
         
-        [JsonProperty("Mitchell")]
+        [System.Runtime.Serialization.EnumMember(Value="Mitchell")]
         Mitchell = 33,
         
-        [JsonProperty("MoWitt")]
+        [System.Runtime.Serialization.EnumMember(Value="MoWitt")]
         MoWitt = 34,
         
-        [JsonProperty("NusseltJurges")]
+        [System.Runtime.Serialization.EnumMember(Value="NusseltJurges")]
         NusseltJurges = 35,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 36,
         
-        [JsonProperty("Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="Simple")]
         Simple = 37,
         
-        [JsonProperty("SimpleCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleCombined")]
         SimpleCombined = 38,
         
-        [JsonProperty("TARP")]
+        [System.Runtime.Serialization.EnumMember(Value="TARP")]
         TARP = 39,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 40,
         
-        [JsonProperty("Value")]
+        [System.Runtime.Serialization.EnumMember(Value="Value")]
         Value = 41,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 42,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 43,
     }
     
     [Description(@"Allow user settable interior and/or exterior convection coefficients. Note that some other factors may limit the lower bounds for these values, such as for windows, the interior convection coefficient must be >.28, for trombe wall algorithm selection (zone), the interior convection coefficient must be >.1 for TARP interior convection, the lower limit is also .1 Minimum and maximum limits are set in HeatBalanceAlgorithm object. Defaults in HeatBalanceAlgorithm object are [.1,1000].")]
-    [JsonObject("SurfaceProperty:ConvectionCoefficients:MultipleSurface")]
     public class SurfaceProperty_ConvectionCoefficients_MultipleSurface : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("surface_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_ConvectionCoefficients_MultipleSurface_SurfaceType SurfaceType { get; set; } = (SurfaceProperty_ConvectionCoefficients_MultipleSurface_SurfaceType)Enum.Parse(typeof(SurfaceProperty_ConvectionCoefficients_MultipleSurface_SurfaceType), "AllExteriorFloors");
         
 
 [JsonProperty("convection_coefficient_1_location")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient1Location ConvectionCoefficient1Location { get; set; } = (SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient1Location)Enum.Parse(typeof(SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient1Location), "Inside");
         
 
 [JsonProperty("convection_coefficient_1_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient1Type ConvectionCoefficient1Type { get; set; } = (SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient1Type)Enum.Parse(typeof(SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient1Type), "ASHRAEVerticalWall");
         
 
@@ -2850,10 +2903,12 @@ public string ConvectionCoefficient1UserCurveName { get; set; } = "";
         
 
 [JsonProperty("convection_coefficient_2_location")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient2Location ConvectionCoefficient2Location { get; set; } = (SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient2Location)Enum.Parse(typeof(SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient2Location), "Inside");
         
 
 [JsonProperty("convection_coefficient_2_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient2Type ConvectionCoefficient2Type { get; set; } = (SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient2Type)Enum.Parse(typeof(SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient2Type), "ASHRAEVerticalWall");
         
 
@@ -2877,337 +2932,336 @@ public string ConvectionCoefficient2UserCurveName { get; set; } = "";
     public enum SurfaceProperty_ConvectionCoefficients_MultipleSurface_SurfaceType
     {
         
-        [JsonProperty("AllExteriorFloors")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorFloors")]
         AllExteriorFloors = 0,
         
-        [JsonProperty("AllExteriorRoofs")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorRoofs")]
         AllExteriorRoofs = 1,
         
-        [JsonProperty("AllExteriorSurfaces")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorSurfaces")]
         AllExteriorSurfaces = 2,
         
-        [JsonProperty("AllExteriorWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorWalls")]
         AllExteriorWalls = 3,
         
-        [JsonProperty("AllExteriorWindows")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorWindows")]
         AllExteriorWindows = 4,
         
-        [JsonProperty("AllInteriorCeilings")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorCeilings")]
         AllInteriorCeilings = 5,
         
-        [JsonProperty("AllInteriorFloors")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorFloors")]
         AllInteriorFloors = 6,
         
-        [JsonProperty("AllInteriorSurfaces")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorSurfaces")]
         AllInteriorSurfaces = 7,
         
-        [JsonProperty("AllInteriorWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorWalls")]
         AllInteriorWalls = 8,
         
-        [JsonProperty("AllInteriorWindows")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorWindows")]
         AllInteriorWindows = 9,
     }
     
     public enum SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient1Location
     {
         
-        [JsonProperty("Inside")]
+        [System.Runtime.Serialization.EnumMember(Value="Inside")]
         Inside = 0,
         
-        [JsonProperty("Outside")]
+        [System.Runtime.Serialization.EnumMember(Value="Outside")]
         Outside = 1,
     }
     
     public enum SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient1Type
     {
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 0,
         
-        [JsonProperty("ASTMC1340")]
+        [System.Runtime.Serialization.EnumMember(Value="ASTMC1340")]
         ASTMC1340 = 1,
         
-        [JsonProperty("AdaptiveConvectionAlgorithm")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveConvectionAlgorithm")]
         AdaptiveConvectionAlgorithm = 2,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 3,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 4,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 5,
         
-        [JsonProperty("AwbiHattonHeatedFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedFloor")]
         AwbiHattonHeatedFloor = 6,
         
-        [JsonProperty("AwbiHattonHeatedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedWall")]
         AwbiHattonHeatedWall = 7,
         
-        [JsonProperty("BeausoleilMorrisonMixedAssistedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedAssistedWall")]
         BeausoleilMorrisonMixedAssistedWall = 8,
         
-        [JsonProperty("BeausoleilMorrisonMixedOpposingWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedOpposingWall")]
         BeausoleilMorrisonMixedOpposingWall = 9,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableCeiling")]
         BeausoleilMorrisonMixedStableCeiling = 10,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableFloor")]
         BeausoleilMorrisonMixedStableFloor = 11,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableCeiling")]
         BeausoleilMorrisonMixedUnstableCeiling = 12,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableFloor")]
         BeausoleilMorrisonMixedUnstableFloor = 13,
         
-        [JsonProperty("BlockenWindard")]
+        [System.Runtime.Serialization.EnumMember(Value="BlockenWindard")]
         BlockenWindard = 14,
         
-        [JsonProperty("ClearRoof")]
+        [System.Runtime.Serialization.EnumMember(Value="ClearRoof")]
         ClearRoof = 15,
         
-        [JsonProperty("DOE-2")]
+        [System.Runtime.Serialization.EnumMember(Value="DOE-2")]
         DOE2 = 16,
         
-        [JsonProperty("EmmelRoof")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelRoof")]
         EmmelRoof = 17,
         
-        [JsonProperty("EmmelVertical")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelVertical")]
         EmmelVertical = 18,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserCeiling")]
         FisherPedersenCeilingDiffuserCeiling = 19,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserFloor")]
         FisherPedersenCeilingDiffuserFloor = 20,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserWalls")]
         FisherPedersenCeilingDiffuserWalls = 21,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 22,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserFloor")]
         GoldsteinNovoselacCeilingDiffuserFloor = 23,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWalls")]
         GoldsteinNovoselacCeilingDiffuserWalls = 24,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWindow")]
         GoldsteinNovoselacCeilingDiffuserWindow = 25,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 26,
         
-        [JsonProperty("KaradagChilledCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KaradagChilledCeiling")]
         KaradagChilledCeiling = 27,
         
-        [JsonProperty("KhalifaEq3WallAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq3WallAwayFromHeat")]
         KhalifaEq3WallAwayFromHeat = 28,
         
-        [JsonProperty("KhalifaEq4CeilingAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq4CeilingAwayFromHeat")]
         KhalifaEq4CeilingAwayFromHeat = 29,
         
-        [JsonProperty("KhalifaEq5WallNearHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq5WallNearHeat")]
         KhalifaEq5WallNearHeat = 30,
         
-        [JsonProperty("KhalifaEq6NonHeatedWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq6NonHeatedWalls")]
         KhalifaEq6NonHeatedWalls = 31,
         
-        [JsonProperty("KhalifaEq7Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq7Ceiling")]
         KhalifaEq7Ceiling = 32,
         
-        [JsonProperty("McAdams")]
+        [System.Runtime.Serialization.EnumMember(Value="McAdams")]
         McAdams = 33,
         
-        [JsonProperty("Mitchell")]
+        [System.Runtime.Serialization.EnumMember(Value="Mitchell")]
         Mitchell = 34,
         
-        [JsonProperty("MoWitt")]
+        [System.Runtime.Serialization.EnumMember(Value="MoWitt")]
         MoWitt = 35,
         
-        [JsonProperty("NusseltJurges")]
+        [System.Runtime.Serialization.EnumMember(Value="NusseltJurges")]
         NusseltJurges = 36,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 37,
         
-        [JsonProperty("Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="Simple")]
         Simple = 38,
         
-        [JsonProperty("SimpleCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleCombined")]
         SimpleCombined = 39,
         
-        [JsonProperty("TARP")]
+        [System.Runtime.Serialization.EnumMember(Value="TARP")]
         TARP = 40,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 41,
         
-        [JsonProperty("Value")]
+        [System.Runtime.Serialization.EnumMember(Value="Value")]
         Value = 42,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 43,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 44,
     }
     
     public enum SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient2Location
     {
         
-        [JsonProperty("Inside")]
+        [System.Runtime.Serialization.EnumMember(Value="Inside")]
         Inside = 0,
         
-        [JsonProperty("Outside")]
+        [System.Runtime.Serialization.EnumMember(Value="Outside")]
         Outside = 1,
     }
     
     public enum SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoefficient2Type
     {
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 0,
         
-        [JsonProperty("ASTMC1340")]
+        [System.Runtime.Serialization.EnumMember(Value="ASTMC1340")]
         ASTMC1340 = 1,
         
-        [JsonProperty("AdaptiveConvectionAlgorithm")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveConvectionAlgorithm")]
         AdaptiveConvectionAlgorithm = 2,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 3,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 4,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 5,
         
-        [JsonProperty("AwbiHattonHeatedFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedFloor")]
         AwbiHattonHeatedFloor = 6,
         
-        [JsonProperty("AwbiHattonHeatedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedWall")]
         AwbiHattonHeatedWall = 7,
         
-        [JsonProperty("BeausoleilMorrisonMixedAssistedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedAssistedWall")]
         BeausoleilMorrisonMixedAssistedWall = 8,
         
-        [JsonProperty("BeausoleilMorrisonMixedOpposingWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedOpposingWall")]
         BeausoleilMorrisonMixedOpposingWall = 9,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableCeiling")]
         BeausoleilMorrisonMixedStableCeiling = 10,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableFloor")]
         BeausoleilMorrisonMixedStableFloor = 11,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableCeiling")]
         BeausoleilMorrisonMixedUnstableCeiling = 12,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableFloor")]
         BeausoleilMorrisonMixedUnstableFloor = 13,
         
-        [JsonProperty("BlockenWindard")]
+        [System.Runtime.Serialization.EnumMember(Value="BlockenWindard")]
         BlockenWindard = 14,
         
-        [JsonProperty("ClearRoof")]
+        [System.Runtime.Serialization.EnumMember(Value="ClearRoof")]
         ClearRoof = 15,
         
-        [JsonProperty("DOE-2")]
+        [System.Runtime.Serialization.EnumMember(Value="DOE-2")]
         DOE2 = 16,
         
-        [JsonProperty("EmmelRoof")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelRoof")]
         EmmelRoof = 17,
         
-        [JsonProperty("EmmelVertical")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelVertical")]
         EmmelVertical = 18,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserCeiling")]
         FisherPedersenCeilingDiffuserCeiling = 19,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserFloor")]
         FisherPedersenCeilingDiffuserFloor = 20,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserWalls")]
         FisherPedersenCeilingDiffuserWalls = 21,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 22,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserFloor")]
         GoldsteinNovoselacCeilingDiffuserFloor = 23,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWalls")]
         GoldsteinNovoselacCeilingDiffuserWalls = 24,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWindow")]
         GoldsteinNovoselacCeilingDiffuserWindow = 25,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 26,
         
-        [JsonProperty("KaradagChilledCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KaradagChilledCeiling")]
         KaradagChilledCeiling = 27,
         
-        [JsonProperty("KhalifaEq3WallAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq3WallAwayFromHeat")]
         KhalifaEq3WallAwayFromHeat = 28,
         
-        [JsonProperty("KhalifaEq4CeilingAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq4CeilingAwayFromHeat")]
         KhalifaEq4CeilingAwayFromHeat = 29,
         
-        [JsonProperty("KhalifaEq5WallNearHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq5WallNearHeat")]
         KhalifaEq5WallNearHeat = 30,
         
-        [JsonProperty("KhalifaEq6NonHeatedWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq6NonHeatedWalls")]
         KhalifaEq6NonHeatedWalls = 31,
         
-        [JsonProperty("KhalifaEq7Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq7Ceiling")]
         KhalifaEq7Ceiling = 32,
         
-        [JsonProperty("McAdams")]
+        [System.Runtime.Serialization.EnumMember(Value="McAdams")]
         McAdams = 33,
         
-        [JsonProperty("Mitchell")]
+        [System.Runtime.Serialization.EnumMember(Value="Mitchell")]
         Mitchell = 34,
         
-        [JsonProperty("MoWitt")]
+        [System.Runtime.Serialization.EnumMember(Value="MoWitt")]
         MoWitt = 35,
         
-        [JsonProperty("NusseltJurges")]
+        [System.Runtime.Serialization.EnumMember(Value="NusseltJurges")]
         NusseltJurges = 36,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 37,
         
-        [JsonProperty("Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="Simple")]
         Simple = 38,
         
-        [JsonProperty("SimpleCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleCombined")]
         SimpleCombined = 39,
         
-        [JsonProperty("TARP")]
+        [System.Runtime.Serialization.EnumMember(Value="TARP")]
         TARP = 40,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 41,
         
-        [JsonProperty("Value")]
+        [System.Runtime.Serialization.EnumMember(Value="Value")]
         Value = 42,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 43,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 44,
     }
     
     [Description(@"The interior and external vapor transfer coefficients. Normally these value are calculated using the heat convection coefficient values. Use this object to used fixed constant values. Units are kg/Pa.s.m2 This will only work with the CombinedHeatAndMoistureFiniteElement algorithm for surfaces. Other algorithms will ignore these coefficients")]
-    [JsonObject("SurfaceProperties:VaporCoefficients")]
     public class SurfaceProperties_VaporCoefficients : BHoMObject, IEnergyPlusClass
     {
         
@@ -3217,6 +3271,7 @@ public string SurfaceName { get; set; } = "";
         
 
 [JsonProperty("constant_external_vapor_transfer_coefficient")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ConstantExternalVaporTransferCoefficient { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -3225,6 +3280,7 @@ public System.Nullable<float> ExternalVaporCoefficientValue { get; set; } = (Sys
         
 
 [JsonProperty("constant_internal_vapor_transfer_coefficient")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ConstantInternalVaporTransferCoefficient { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -3235,7 +3291,6 @@ public System.Nullable<float> InternalVaporCoefficientValue { get; set; } = (Sys
     [Description("Used to describe the decoupled layer, or baffle, and the characteristics of the c" +
         "avity and openings for naturally ventilated exterior surfaces. This object is al" +
         "so used in conjunction with the OtherSideConditionsModel.")]
-    [JsonObject("SurfaceProperty:ExteriorNaturalVentedCavity")]
     public class SurfaceProperty_ExteriorNaturalVentedCavity : BHoMObject, IEnergyPlusClass
     {
         
@@ -3272,6 +3327,7 @@ public System.Nullable<float> RatioOfActualSurfaceAreaToProjectedSurfaceArea { g
         
 
 [JsonProperty("roughness_of_exterior_surface")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface RoughnessOfExteriorSurface { get; set; } = (SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface)Enum.Parse(typeof(SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface), "MediumRough");
         
 
@@ -3290,29 +3346,28 @@ public string Surface { get; set; } = "";
     public enum SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface
     {
         
-        [JsonProperty("MediumRough")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumRough")]
         MediumRough = 0,
         
-        [JsonProperty("MediumSmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumSmooth")]
         MediumSmooth = 1,
         
-        [JsonProperty("Rough")]
+        [System.Runtime.Serialization.EnumMember(Value="Rough")]
         Rough = 2,
         
-        [JsonProperty("Smooth")]
+        [System.Runtime.Serialization.EnumMember(Value="Smooth")]
         Smooth = 3,
         
-        [JsonProperty("VeryRough")]
+        [System.Runtime.Serialization.EnumMember(Value="VeryRough")]
         VeryRough = 4,
         
-        [JsonProperty("VerySmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="VerySmooth")]
         VerySmooth = 5,
     }
     
     [Description("Used to provide incident solar radiation on the inside of the surface. Reference " +
         "surface-construction pair and if that pair is used in a simulation, then program" +
         " will use value provided in schedule instead of calculating it.")]
-    [JsonObject("SurfaceProperty:SolarIncidentInside")]
     public class SurfaceProperty_SolarIncidentInside : BHoMObject, IEnergyPlusClass
     {
         
@@ -3333,7 +3388,6 @@ public string InsideSurfaceIncidentSunSolarRadiationScheduleName { get; set; } =
     [Description("This object defines the local environment properties of an exterior surface. One " +
         "or more environment properties have to be defined and linked to the exterior sur" +
         "face.")]
-    [JsonObject("SurfaceProperty:LocalEnvironment")]
     public class SurfaceProperty_LocalEnvironment : BHoMObject, IEnergyPlusClass
     {
         
@@ -3360,7 +3414,6 @@ public string OutdoorAirNodeName { get; set; } = "";
     
     [Description("This object defines the local environment properties of a zone object. A correspo" +
         "nding outdoor air node should be defined and linked to the zone object.")]
-    [JsonObject("ZoneProperty:LocalEnvironment")]
     public class ZoneProperty_LocalEnvironment : BHoMObject, IEnergyPlusClass
     {
         
@@ -3376,7 +3429,6 @@ public string OutdoorAirNodeName { get; set; } = "";
     }
     
     [Description("This object defines a list of surrounding surfaces for an exterior surface.")]
-    [JsonObject("SurfaceProperty:SurroundingSurfaces")]
     public class SurfaceProperty_SurroundingSurfaces : BHoMObject, IEnergyPlusClass
     {
         
@@ -3408,7 +3460,6 @@ public string Surfaces { get; set; } = "";
     [Description("Used to provide solar radiation absorbed in fenestration layers. References surfa" +
         "ce-construction pair and if that pair is used in a simulation, then program will" +
         " use value provided in schedules instead of calculating it.")]
-    [JsonObject("ComplexFenestrationProperty:SolarAbsorbedLayers")]
     public class ComplexFenestrationProperty_SolarAbsorbedLayers : BHoMObject, IEnergyPlusClass
     {
         
@@ -3448,7 +3499,6 @@ public string Layer5SolarRadiationAbsorbedScheduleName { get; set; } = "";
     
     [Description("View factors for Surface to Surface in a zone. (Number of Surfaces)**2 are expect" +
         "ed. Any omitted surface pairs will be assumed to have a view factor of zero.")]
-    [JsonObject("ZoneProperty:UserViewFactors:BySurfaceName")]
     public class ZoneProperty_UserViewFactors_BySurfaceName : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
 {
     public enum AirLoopHVAC_UnitaryHeatPump_AirToAir_FanPlacement
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlowThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="BlowThrough")]
         BlowThrough = 1,
         
-        [JsonProperty("DrawThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="DrawThrough")]
         DrawThrough = 2,
     }
 }

@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Constant Air Volume air loop with optional chilled water cooling coil, optional h" +
                  "eating coil and optional preheat.")]
-    [JsonObject("HVACTemplate:System:ConstantVolume")]
     public class HVACTemplate_System_ConstantVolume : BHoMObject, IEnergyPlusClass
     {
         
@@ -43,10 +42,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("supply_fan_placement")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_SupplyFanPlacement SupplyFanPlacement { get; set; } = (HVACTemplate_System_ConstantVolume_SupplyFanPlacement)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_SupplyFanPlacement), "DrawThrough");
         
 
         [JsonProperty("cooling_coil_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_CoolingCoilType CoolingCoilType { get; set; } = (HVACTemplate_System_ConstantVolume_CoolingCoilType)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_CoolingCoilType), "ChilledWater");
         
 
@@ -56,6 +57,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("cooling_coil_setpoint_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_CoolingCoilSetpointControlType CoolingCoilSetpointControlType { get; set; } = (HVACTemplate_System_ConstantVolume_CoolingCoilSetpointControlType)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_CoolingCoilSetpointControlType), "FixedSetpoint");
         
 
@@ -98,6 +100,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heating_coil_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_HeatingCoilType HeatingCoilType { get; set; } = (HVACTemplate_System_ConstantVolume_HeatingCoilType)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_HeatingCoilType), "HotWater");
         
 
@@ -107,6 +110,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heating_coil_setpoint_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_HeatingCoilSetpointControlType HeatingCoilSetpointControlType { get; set; } = (HVACTemplate_System_ConstantVolume_HeatingCoilSetpointControlType)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_HeatingCoilSetpointControlType), "FixedSetpoint");
         
 
@@ -161,6 +165,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("preheat_coil_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_PreheatCoilType PreheatCoilType { get; set; } = (HVACTemplate_System_ConstantVolume_PreheatCoilType)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_PreheatCoilType), "None");
         
 
@@ -203,6 +208,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("economizer_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_EconomizerType EconomizerType { get; set; } = (HVACTemplate_System_ConstantVolume_EconomizerType)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_EconomizerType), "NoEconomizer");
         
 
@@ -242,6 +248,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("night_cycle_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_NightCycleControl NightCycleControl { get; set; } = (HVACTemplate_System_ConstantVolume_NightCycleControl)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_NightCycleControl), "StayOff");
         
 
@@ -251,6 +258,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_recovery_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_HeatRecoveryType HeatRecoveryType { get; set; } = (HVACTemplate_System_ConstantVolume_HeatRecoveryType)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_HeatRecoveryType), "None");
         
 
@@ -263,16 +271,19 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_recovery_heat_exchanger_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_HeatRecoveryHeatExchangerType HeatRecoveryHeatExchangerType { get; set; } = (HVACTemplate_System_ConstantVolume_HeatRecoveryHeatExchangerType)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_HeatRecoveryHeatExchangerType), "Plate");
         
 
         [JsonProperty("heat_recovery_frost_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_HeatRecoveryFrostControlType HeatRecoveryFrostControlType { get; set; } = (HVACTemplate_System_ConstantVolume_HeatRecoveryFrostControlType)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_HeatRecoveryFrostControlType), "None");
         
 
         [Description("None = meet sensible load only CoolReheat = cool beyond the dry-bulb setpoint as " +
                      "required to meet the humidity setpoint.")]
         [JsonProperty("dehumidification_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_DehumidificationControlType DehumidificationControlType { get; set; } = (HVACTemplate_System_ConstantVolume_DehumidificationControlType)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_DehumidificationControlType), "None");
         
 
@@ -295,6 +306,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("humidifier_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_ConstantVolume_HumidifierType HumidifierType { get; set; } = (HVACTemplate_System_ConstantVolume_HumidifierType)Enum.Parse(typeof(HVACTemplate_System_ConstantVolume_HumidifierType), "None");
         
 
@@ -334,6 +346,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description("Specifies if the system has a return fan.")]
         [JsonProperty("return_fan")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes ReturnFan { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 

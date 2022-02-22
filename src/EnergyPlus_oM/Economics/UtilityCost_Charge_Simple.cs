@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     [Description(@"UtilityCost:Charge:Simple is one of the most often used objects for tariff calculation. It is used to compute energy and demand charges that are very simple. It may also be used for taxes, surcharges and any other charges that occur on a utility bill. Multiple UtilityCost:Charge:Simple objects may be defined for a single tariff and they will be added together.")]
-    [JsonObject("UtilityCost:Charge:Simple")]
     public class UtilityCost_Charge_Simple : BHoMObject, IEnergyPlusClass
     {
         
@@ -31,6 +30,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                      "e:Simple for the entire year (all months) otherwise it is calculated only for th" +
                      "ose months in the season defined.")]
         [JsonProperty("season")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UtilityCost_Charge_Simple_Season Season { get; set; } = (UtilityCost_Charge_Simple_Season)Enum.Parse(typeof(UtilityCost_Charge_Simple_Season), "Annual");
         
 
@@ -38,6 +38,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                      " appropriately is so that the charge gets reported in a reasonable category. The" +
                      " charge automatically gets added to the variable that is the category.")]
         [JsonProperty("category_variable_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UtilityCost_Charge_Simple_CategoryVariableName CategoryVariableName { get; set; } = (UtilityCost_Charge_Simple_CategoryVariableName)Enum.Parse(typeof(UtilityCost_Charge_Simple_CategoryVariableName), "Adjustment");
         
 

@@ -6,13 +6,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     [Description(@"Two types of subcoolers are modeled by the detailed refrigeration system. The liquid suction heat exchanger uses cool suction gas to subcool the hot condensate after it leaves the condenser and before it reaches the thermal expansion valve. A mechanical subcooler is used to transfer cooling capacity from one refrigeration system to another.")]
-    [JsonObject("Refrigeration:Subcooler")]
     public class Refrigeration_Subcooler : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("plan to add ambient subcoolers at future time")]
         [JsonProperty("subcooler_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Refrigeration_Subcooler_SubcoolerType SubcoolerType { get; set; } = (Refrigeration_Subcooler_SubcoolerType)Enum.Parse(typeof(Refrigeration_Subcooler_SubcoolerType), "LiquidSuction");
         
 

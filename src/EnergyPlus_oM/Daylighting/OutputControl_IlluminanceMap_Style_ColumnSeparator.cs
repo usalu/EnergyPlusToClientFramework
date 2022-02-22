@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Daylighting
 {
     public enum OutputControl_IlluminanceMap_Style_ColumnSeparator
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Comma")]
+        [System.Runtime.Serialization.EnumMember(Value="Comma")]
         Comma = 1,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 2,
         
-        [JsonProperty("Tab")]
+        [System.Runtime.Serialization.EnumMember(Value="Tab")]
         Tab = 3,
     }
 }

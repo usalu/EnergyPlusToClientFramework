@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     public enum RoomAirSettings_UnderFloorAirDistributionInterior_FloorDiffuserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Custom")]
+        [System.Runtime.Serialization.EnumMember(Value="Custom")]
         Custom = 1,
         
-        [JsonProperty("HorizontalSwirl")]
+        [System.Runtime.Serialization.EnumMember(Value="HorizontalSwirl")]
         HorizontalSwirl = 2,
         
-        [JsonProperty("LinearBarGrille")]
+        [System.Runtime.Serialization.EnumMember(Value="LinearBarGrille")]
         LinearBarGrille = 3,
         
-        [JsonProperty("Swirl")]
+        [System.Runtime.Serialization.EnumMember(Value="Swirl")]
         Swirl = 4,
         
-        [JsonProperty("VariableArea")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableArea")]
         VariableArea = 5,
     }
 }

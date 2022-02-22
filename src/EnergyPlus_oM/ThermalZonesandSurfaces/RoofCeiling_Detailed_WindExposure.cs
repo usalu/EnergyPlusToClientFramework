@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum RoofCeiling_Detailed_WindExposure
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NoWind")]
+        [System.Runtime.Serialization.EnumMember(Value="NoWind")]
         NoWind = 1,
         
-        [JsonProperty("WindExposed")]
+        [System.Runtime.Serialization.EnumMember(Value="WindExposed")]
         WindExposed = 2,
     }
 }

@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
     [Description("This chiller model is the empirical model from the DOE-2 building Energy simulati" +
                  "on program. Chiller performance at off-reference conditions is modeled using thr" +
                  "ee polynomial equations. Three curves objects are required.")]
-    [JsonObject("Chiller:Electric:EIR")]
     public class Chiller_Electric_EIR : BHoMObject, IEnergyPlusClass
     {
         
@@ -108,6 +107,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("condenser_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Chiller_Electric_EIR_CondenserType CondenserType { get; set; } = (Chiller_Electric_EIR_CondenserType)Enum.Parse(typeof(Chiller_Electric_EIR_CondenserType), "WaterCooled");
         
 
@@ -128,6 +128,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 
         [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
         [JsonProperty("chiller_flow_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Chiller_Electric_EIR_ChillerFlowMode ChillerFlowMode { get; set; } = (Chiller_Electric_EIR_ChillerFlowMode)Enum.Parse(typeof(Chiller_Electric_EIR_ChillerFlowMode), "NotModulated");
         
 

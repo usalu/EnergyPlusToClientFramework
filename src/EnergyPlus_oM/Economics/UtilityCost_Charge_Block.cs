@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     [Description("Used to compute energy and demand charges (or any other charges) that are structu" +
                  "red in blocks of charges. Multiple UtilityCost:Charge:Block objects may be defin" +
                  "ed for a single tariff and they will be added together.")]
-    [JsonObject("UtilityCost:Charge:Block")]
     public class UtilityCost_Charge_Block : BHoMObject, IEnergyPlusClass
     {
         
@@ -33,6 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                      "e:Block for the entire year (all months) otherwise it is calculated only for tho" +
                      "se months in the season defined.")]
         [JsonProperty("season")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UtilityCost_Charge_Block_Season Season { get; set; } = (UtilityCost_Charge_Block_Season)Enum.Parse(typeof(UtilityCost_Charge_Block_Season), "Annual");
         
 
@@ -40,6 +40,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                      " appropriately is so that the charge gets reported in a reasonable category. The" +
                      " charge automatically gets added to the variable that is the category.")]
         [JsonProperty("category_variable_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UtilityCost_Charge_Block_CategoryVariableName CategoryVariableName { get; set; } = (UtilityCost_Charge_Block_CategoryVariableName)Enum.Parse(typeof(UtilityCost_Charge_Block_CategoryVariableName), "Adjustment");
         
 

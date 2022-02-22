@@ -69,7 +69,6 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserFlowControl
     [Description("Temperature-controlled diversion valve used to divert flow around one or more pla" +
         "nt components such as a hot water heater. It can only be used on one of two bran" +
         "ches between a Splitter and a Mixer.")]
-    [JsonObject("TemperingValve")]
     public class TemperingValve : BHoMObject, IEnergyPlusClass
     {
         

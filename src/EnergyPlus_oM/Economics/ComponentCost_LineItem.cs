@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     [Description("Each instance of this object creates a cost line item and will contribute to the " +
                  "total for a cost estimate.")]
-    [JsonObject("ComponentCost:LineItem")]
     public class ComponentCost_LineItem : BHoMObject, IEnergyPlusClass
     {
         
@@ -18,6 +17,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
 
         [Description("extend choice-keys as Cases are added to code")]
         [JsonProperty("line_item_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ComponentCost_LineItem_LineItemType LineItemType { get; set; } = (ComponentCost_LineItem_LineItemType)Enum.Parse(typeof(ComponentCost_LineItem_LineItemType), "ChillerElectric");
         
 

@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     [Description(@"Applicable to exterior spaces that are served by an underfloor air distribution system. The dominant sources of heat gain should be from people, equipment, and other localized sources located in the occupied part of the room, as well as convective gain coming from a warm window. Used with RoomAirModelType = CrossVentilation.")]
-    [JsonObject("RoomAirSettings:UnderFloorAirDistributionExterior")]
     public class RoomAirSettings_UnderFloorAirDistributionExterior : BHoMObject, IEnergyPlusClass
     {
         
@@ -49,6 +48,7 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
         
 
         [JsonProperty("floor_diffuser_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public RoomAirSettings_UnderFloorAirDistributionExterior_FloorDiffuserType FloorDiffuserType { get; set; } = (RoomAirSettings_UnderFloorAirDistributionExterior_FloorDiffuserType)Enum.Parse(typeof(RoomAirSettings_UnderFloorAirDistributionExterior_FloorDiffuserType), "Swirl");
         
 

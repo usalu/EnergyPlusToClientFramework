@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     [Description("The zone outdoor air unit models a single-zone dedicated outdoor air system (DOAS" +
                  "). Forced-convection 100% outdoor air unit with supply fan and optional equipmen" +
                  "t including exhaust fan, heating coil, cooling coil, and heat recovery.")]
-    [JsonObject("ZoneHVAC:OutdoorAirUnit")]
     public class ZoneHVAC_OutdoorAirUnit : BHoMObject, IEnergyPlusClass
     {
         
@@ -39,6 +38,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("supply_fan_placement")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_OutdoorAirUnit_SupplyFanPlacement SupplyFanPlacement { get; set; } = (ZoneHVAC_OutdoorAirUnit_SupplyFanPlacement)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_SupplyFanPlacement), "DrawThrough");
         
 
@@ -57,6 +57,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("unit_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_OutdoorAirUnit_UnitControlType UnitControlType { get; set; } = (ZoneHVAC_OutdoorAirUnit_UnitControlType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_UnitControlType), "NeutralControl");
         
 

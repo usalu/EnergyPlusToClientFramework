@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
 {
     public enum PythonPlugin_OutputVariable_GroupType
     {
         
-        [JsonProperty("Building")]
+        [System.Runtime.Serialization.EnumMember(Value="Building")]
         Building = 0,
         
-        [JsonProperty("HVAC")]
+        [System.Runtime.Serialization.EnumMember(Value="HVAC")]
         HVAC = 1,
         
-        [JsonProperty("Plant")]
+        [System.Runtime.Serialization.EnumMember(Value="Plant")]
         Plant = 2,
         
-        [JsonProperty("System")]
+        [System.Runtime.Serialization.EnumMember(Value="System")]
         System = 3,
     }
 }

@@ -1,32 +1,30 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     public enum ElectricEquipment_ITE_AirCooled_EnvironmentalClass
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("A1")]
+        [System.Runtime.Serialization.EnumMember(Value="A1")]
         A1 = 1,
         
-        [JsonProperty("A2")]
+        [System.Runtime.Serialization.EnumMember(Value="A2")]
         A2 = 2,
         
-        [JsonProperty("A3")]
+        [System.Runtime.Serialization.EnumMember(Value="A3")]
         A3 = 3,
         
-        [JsonProperty("A4")]
+        [System.Runtime.Serialization.EnumMember(Value="A4")]
         A4 = 4,
         
-        [JsonProperty("B")]
+        [System.Runtime.Serialization.EnumMember(Value="B")]
         B = 5,
         
-        [JsonProperty("C")]
+        [System.Runtime.Serialization.EnumMember(Value="C")]
         C = 6,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 7,
     }
 }

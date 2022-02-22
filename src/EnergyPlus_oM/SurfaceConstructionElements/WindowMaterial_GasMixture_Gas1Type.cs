@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum WindowMaterial_GasMixture_Gas1Type
     {
         
-        [JsonProperty("Air")]
+        [System.Runtime.Serialization.EnumMember(Value="Air")]
         Air = 0,
         
-        [JsonProperty("Argon")]
+        [System.Runtime.Serialization.EnumMember(Value="Argon")]
         Argon = 1,
         
-        [JsonProperty("Krypton")]
+        [System.Runtime.Serialization.EnumMember(Value="Krypton")]
         Krypton = 2,
         
-        [JsonProperty("Xenon")]
+        [System.Runtime.Serialization.EnumMember(Value="Xenon")]
         Xenon = 3,
     }
 }

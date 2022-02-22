@@ -10,12 +10,12 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
                  " supermarkets. The object allows for modeling either a single stage system with " +
                  "medium-temperature loads or a two stage system with both medium- and low-tempera" +
                  "ture loads.")]
-    [JsonObject("Refrigeration:TranscriticalSystem")]
     public class Refrigeration_TranscriticalSystem : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("system_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Refrigeration_TranscriticalSystem_SystemType SystemType { get; set; } = (Refrigeration_TranscriticalSystem_SystemType)Enum.Parse(typeof(Refrigeration_TranscriticalSystem_SystemType), "SingleStage");
         
 

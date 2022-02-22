@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum Site_GroundDomain_Slab_HorizontalInsulationExtents
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Full")]
+        [System.Runtime.Serialization.EnumMember(Value="Full")]
         Full = 1,
         
-        [JsonProperty("Perimeter")]
+        [System.Runtime.Serialization.EnumMember(Value="Perimeter")]
         Perimeter = 2,
     }
 }

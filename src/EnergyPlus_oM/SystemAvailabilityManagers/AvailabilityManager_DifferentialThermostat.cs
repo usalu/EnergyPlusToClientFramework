@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     [Description("Overrides fan/pump schedules depending on temperature difference between two node" +
                  "s.")]
-    [JsonObject("AvailabilityManager:DifferentialThermostat")]
     public class AvailabilityManager_DifferentialThermostat : BHoMObject, IEnergyPlusClass
     {
         

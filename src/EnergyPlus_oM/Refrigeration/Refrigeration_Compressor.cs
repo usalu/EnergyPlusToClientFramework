@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     [Description("Refrigeration system compressor. Data is available for many compressors in the Re" +
                  "frigerationCompressor.idf dataset")]
-    [JsonObject("Refrigeration:Compressor")]
     public class Refrigeration_Compressor : BHoMObject, IEnergyPlusClass
     {
         
@@ -53,6 +52,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         
 
         [JsonProperty("mode_of_operation")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Refrigeration_Compressor_ModeOfOperation ModeOfOperation { get; set; } = (Refrigeration_Compressor_ModeOfOperation)Enum.Parse(typeof(Refrigeration_Compressor_ModeOfOperation), "Subcritical");
         
 

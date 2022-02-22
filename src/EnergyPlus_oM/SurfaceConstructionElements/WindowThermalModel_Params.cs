@@ -8,16 +8,17 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("object is used to select which thermal model should be used in tarcog simulations" +
                  "")]
-    [JsonObject("WindowThermalModel:Params")]
     public class WindowThermalModel_Params : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("standard")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WindowThermalModel_Params_Standard Standard { get; set; } = (WindowThermalModel_Params_Standard)Enum.Parse(typeof(WindowThermalModel_Params_Standard), "ISO15099");
         
 
         [JsonProperty("thermal_model")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WindowThermalModel_Params_ThermalModel ThermalModel { get; set; } = (WindowThermalModel_Params_ThermalModel)Enum.Parse(typeof(WindowThermalModel_Params_ThermalModel), "ISO15099");
         
 
@@ -26,6 +27,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
         
 
         [JsonProperty("deflection_model")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WindowThermalModel_Params_DeflectionModel DeflectionModel { get; set; } = (WindowThermalModel_Params_DeflectionModel)Enum.Parse(typeof(WindowThermalModel_Params_DeflectionModel), "NoDeflection");
         
 

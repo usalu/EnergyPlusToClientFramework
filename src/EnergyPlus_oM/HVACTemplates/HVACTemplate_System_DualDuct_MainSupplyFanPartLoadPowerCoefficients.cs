@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_DualDuct_MainSupplyFanPartLoadPowerCoefficients
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAE90.1-2004AppendixG")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAE90.1-2004AppendixG")]
         ASHRAE9012004AppendixG = 1,
         
-        [JsonProperty("InletVaneDampers")]
+        [System.Runtime.Serialization.EnumMember(Value="InletVaneDampers")]
         InletVaneDampers = 2,
         
-        [JsonProperty("OutletDampers")]
+        [System.Runtime.Serialization.EnumMember(Value="OutletDampers")]
         OutletDampers = 3,
         
-        [JsonProperty("VariableSpeedMotor")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableSpeedMotor")]
         VariableSpeedMotor = 4,
         
-        [JsonProperty("VariableSpeedMotorPressureReset")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableSpeedMotorPressureReset")]
         VariableSpeedMotorPressureReset = 5,
     }
 }

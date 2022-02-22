@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
     [Description("Used to explicitly define temperature patterns that are to be applied to the mean" +
                  " air temperature within a thermal zone. Used with RoomAirModelType = UserDefined" +
                  ".")]
-    [JsonObject("RoomAir:TemperaturePattern:UserDefined")]
     public class RoomAir_TemperaturePattern_UserDefined : BHoMObject, IEnergyPlusClass
     {
         

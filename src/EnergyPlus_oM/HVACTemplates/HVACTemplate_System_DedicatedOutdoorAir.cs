@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("This object creates a dedicated outdoor air system that must be used with HVACTem" +
                  "plate:Zone:* objects for BaseboardHeat FanCoil PTAC PTHP WaterToAirHeatPump and " +
                  "VRF. Does not support HVACTemplate:Zone:VAV or other central multizone systems")]
-    [JsonObject("HVACTemplate:System:DedicatedOutdoorAir")]
     public class HVACTemplate_System_DedicatedOutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -21,6 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("air_outlet_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_DedicatedOutdoorAir_AirOutletType AirOutletType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_AirOutletType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_AirOutletType), "DirectIntoZone");
         
 
@@ -45,10 +45,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("supply_fan_placement")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_DedicatedOutdoorAir_SupplyFanPlacement SupplyFanPlacement { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_SupplyFanPlacement)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_SupplyFanPlacement), "DrawThrough");
         
 
         [JsonProperty("cooling_coil_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilType CoolingCoilType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilType), "ChilledWater");
         
 
@@ -58,6 +60,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("cooling_coil_setpoint_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilSetpointControlType CoolingCoilSetpointControlType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilSetpointControlType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilSetpointControlType), "FixedSetpoint");
         
 
@@ -110,6 +113,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heating_coil_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_DedicatedOutdoorAir_HeatingCoilType HeatingCoilType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_HeatingCoilType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_HeatingCoilType), "HotWater");
         
 
@@ -121,6 +125,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         [Description("When selecting OutdoorAirTemperatureReset, the Heating Coil Design Setpoint may n" +
                      "eed to be changed")]
         [JsonProperty("heating_coil_setpoint_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_DedicatedOutdoorAir_HeatingCoilSetpointControlType HeatingCoilSetpointControlType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_HeatingCoilSetpointControlType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_HeatingCoilSetpointControlType), "FixedSetpoint");
         
 
@@ -165,6 +170,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_recovery_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryType HeatRecoveryType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryType), "None");
         
 
@@ -177,15 +183,18 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_recovery_heat_exchanger_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryHeatExchangerType HeatRecoveryHeatExchangerType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryHeatExchangerType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryHeatExchangerType), "Plate");
         
 
         [JsonProperty("heat_recovery_frost_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryFrostControlType HeatRecoveryFrostControlType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryFrostControlType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_HeatRecoveryFrostControlType), "None");
         
 
         [Description(@"None = meet sensible load only CoolReheatHeatingCoil = cool beyond the dry-bulb setpoint, reheat with heating coil Valid for all cooling coil types. If no heating coil specified, cold supply temps may occur. CoolReheatDesuperheater = cool beyond the dry-bulb setpoint as required to meet the humidity setpoint, reheat with desuperheater coil. Valid only for Cooling Coil Type = TwoSpeedDX, TwoStageDX, TwoStageHumidityControlDX, or HeatExchangerAssistedDX. Multimode = activate enhanced dehumidification mode as needed and meet sensible load. Valid only for Cooling Coil Type = TwoStageHumidityControlDX or HeatExchangerAssistedDX")]
         [JsonProperty("dehumidification_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_DedicatedOutdoorAir_DehumidificationControlType DehumidificationControlType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_DehumidificationControlType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_DehumidificationControlType), "None");
         
 
@@ -197,6 +206,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("humidifier_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_DedicatedOutdoorAir_HumidifierType HumidifierType { get; set; } = (HVACTemplate_System_DedicatedOutdoorAir_HumidifierType)Enum.Parse(typeof(HVACTemplate_System_DedicatedOutdoorAir_HumidifierType), "None");
         
 

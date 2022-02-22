@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
                  "hours that occurs in different bins for a single specific output variable or met" +
                  "er. Two different types of binning are reported: by month and by hour of the day" +
                  ".")]
-    [JsonObject("Output:Table:TimeBins")]
     public class Output_Table_TimeBins : BHoMObject, IEnergyPlusClass
     {
         
@@ -48,6 +47,7 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
         [Description("Optional input on the type of units for the variable used by other fields in the " +
                      "object.")]
         [JsonProperty("variable_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Output_Table_TimeBins_VariableType VariableType { get; set; } = (Output_Table_TimeBins_VariableType)Enum.Parse(typeof(Output_Table_TimeBins_VariableType), "Energy");
     }
 }

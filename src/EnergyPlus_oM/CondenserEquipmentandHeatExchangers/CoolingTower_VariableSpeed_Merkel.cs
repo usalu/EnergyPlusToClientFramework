@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     [Description(@"This tower model is based on Merkel's theory, which is also the basis for the tower model in ASHRAE's HVAC1 Toolkit. The open wet cooling tower is modeled as a counter flow heat exchanger with a variable-speed fan drawing air through the tower (induced-draft configuration). For a multi-cell tower, the capacity and air/water flow rate inputs are for the entire tower.")]
-    [JsonObject("CoolingTower:VariableSpeed:Merkel")]
     public class CoolingTower_VariableSpeed_Merkel : BHoMObject, IEnergyPlusClass
     {
         
@@ -26,6 +25,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
                      "Air Flow Rate and the Design Water Flow Rate, or by specifying the tower nominal" +
                      " capacity")]
         [JsonProperty("performance_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CoolingTower_VariableSpeed_Merkel_PerformanceInputMethod PerformanceInputMethod { get; set; } = (CoolingTower_VariableSpeed_Merkel_PerformanceInputMethod)Enum.Parse(typeof(CoolingTower_VariableSpeed_Merkel_PerformanceInputMethod), "NominalCapacity");
         
 
@@ -180,6 +180,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("evaporation_loss_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CoolingTower_VariableSpeed_Merkel_EvaporationLossMode EvaporationLossMode { get; set; } = (CoolingTower_VariableSpeed_Merkel_EvaporationLossMode)Enum.Parse(typeof(CoolingTower_VariableSpeed_Merkel_EvaporationLossMode), "LossFactor");
         
 
@@ -195,6 +196,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("blowdown_calculation_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CoolingTower_VariableSpeed_Merkel_BlowdownCalculationMode BlowdownCalculationMode { get; set; } = (CoolingTower_VariableSpeed_Merkel_BlowdownCalculationMode)Enum.Parse(typeof(CoolingTower_VariableSpeed_Merkel_BlowdownCalculationMode), "ConcentrationRatio");
         
 
@@ -222,6 +224,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("cell_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CoolingTower_VariableSpeed_Merkel_CellControl CellControl { get; set; } = (CoolingTower_VariableSpeed_Merkel_CellControl)Enum.Parse(typeof(CoolingTower_VariableSpeed_Merkel_CellControl), "MinimalCell");
         
 

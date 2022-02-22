@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
     [Description("This object supplies the information about insulation used around the slab. There" +
                  " are two possible configurations: under the slab or vertical insulation around t" +
                  "he slab.")]
-    [JsonObject("GroundHeatTransfer:Slab:Insulation")]
     public class GroundHeatTransfer_Slab_Insulation : BHoMObject, IEnergyPlusClass
     {
         

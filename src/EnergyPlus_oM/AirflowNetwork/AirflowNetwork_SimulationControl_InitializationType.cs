@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     public enum AirflowNetwork_SimulationControl_InitializationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LinearInitializationMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="LinearInitializationMethod")]
         LinearInitializationMethod = 1,
         
-        [JsonProperty("ZeroNodePressures")]
+        [System.Runtime.Serialization.EnumMember(Value="ZeroNodePressures")]
         ZeroNodePressures = 2,
     }
 }

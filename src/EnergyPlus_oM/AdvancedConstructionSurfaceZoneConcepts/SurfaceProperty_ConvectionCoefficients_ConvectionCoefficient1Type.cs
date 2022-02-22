@@ -1,140 +1,138 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient1Type
     {
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 0,
         
-        [JsonProperty("ASTMC1340")]
+        [System.Runtime.Serialization.EnumMember(Value="ASTMC1340")]
         ASTMC1340 = 1,
         
-        [JsonProperty("AdaptiveConvectionAlgorithm")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveConvectionAlgorithm")]
         AdaptiveConvectionAlgorithm = 2,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 3,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 4,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 5,
         
-        [JsonProperty("AwbiHattonHeatedFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedFloor")]
         AwbiHattonHeatedFloor = 6,
         
-        [JsonProperty("AwbiHattonHeatedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AwbiHattonHeatedWall")]
         AwbiHattonHeatedWall = 7,
         
-        [JsonProperty("BeausoleilMorrisonMixedAssistedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedAssistedWall")]
         BeausoleilMorrisonMixedAssistedWall = 8,
         
-        [JsonProperty("BeausoleilMorrisonMixedOpposingWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedOpposingWall")]
         BeausoleilMorrisonMixedOpposingWall = 9,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableCeiling")]
         BeausoleilMorrisonMixedStableCeiling = 10,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableFloor")]
         BeausoleilMorrisonMixedStableFloor = 11,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableCeiling")]
         BeausoleilMorrisonMixedUnstableCeiling = 12,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableFloor")]
         BeausoleilMorrisonMixedUnstableFloor = 13,
         
-        [JsonProperty("ClearRoof")]
+        [System.Runtime.Serialization.EnumMember(Value="ClearRoof")]
         ClearRoof = 14,
         
-        [JsonProperty("DOE-2")]
+        [System.Runtime.Serialization.EnumMember(Value="DOE-2")]
         DOE2 = 15,
         
-        [JsonProperty("EmmelRoof")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelRoof")]
         EmmelRoof = 16,
         
-        [JsonProperty("EmmelVertical")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelVertical")]
         EmmelVertical = 17,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserCeiling")]
         FisherPedersenCeilingDiffuserCeiling = 18,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserFloor")]
         FisherPedersenCeilingDiffuserFloor = 19,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserWalls")]
         FisherPedersenCeilingDiffuserWalls = 20,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 21,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserFloor")]
         GoldsteinNovoselacCeilingDiffuserFloor = 22,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWalls")]
         GoldsteinNovoselacCeilingDiffuserWalls = 23,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWindow")]
         GoldsteinNovoselacCeilingDiffuserWindow = 24,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 25,
         
-        [JsonProperty("KaradagChilledCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KaradagChilledCeiling")]
         KaradagChilledCeiling = 26,
         
-        [JsonProperty("KhalifaEq3WallAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq3WallAwayFromHeat")]
         KhalifaEq3WallAwayFromHeat = 27,
         
-        [JsonProperty("KhalifaEq4CeilingAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq4CeilingAwayFromHeat")]
         KhalifaEq4CeilingAwayFromHeat = 28,
         
-        [JsonProperty("KhalifaEq5WallNearHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq5WallNearHeat")]
         KhalifaEq5WallNearHeat = 29,
         
-        [JsonProperty("KhalifaEq6NonHeatedWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq6NonHeatedWalls")]
         KhalifaEq6NonHeatedWalls = 30,
         
-        [JsonProperty("KhalifaEq7Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq7Ceiling")]
         KhalifaEq7Ceiling = 31,
         
-        [JsonProperty("McAdams")]
+        [System.Runtime.Serialization.EnumMember(Value="McAdams")]
         McAdams = 32,
         
-        [JsonProperty("Mitchell")]
+        [System.Runtime.Serialization.EnumMember(Value="Mitchell")]
         Mitchell = 33,
         
-        [JsonProperty("MoWitt")]
+        [System.Runtime.Serialization.EnumMember(Value="MoWitt")]
         MoWitt = 34,
         
-        [JsonProperty("NusseltJurges")]
+        [System.Runtime.Serialization.EnumMember(Value="NusseltJurges")]
         NusseltJurges = 35,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 36,
         
-        [JsonProperty("Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="Simple")]
         Simple = 37,
         
-        [JsonProperty("SimpleCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleCombined")]
         SimpleCombined = 38,
         
-        [JsonProperty("TARP")]
+        [System.Runtime.Serialization.EnumMember(Value="TARP")]
         TARP = 39,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 40,
         
-        [JsonProperty("Value")]
+        [System.Runtime.Serialization.EnumMember(Value="Value")]
         Value = 41,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 42,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 43,
     }
 }

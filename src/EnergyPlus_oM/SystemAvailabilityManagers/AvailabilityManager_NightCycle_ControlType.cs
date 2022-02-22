@@ -1,35 +1,33 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     public enum AvailabilityManager_NightCycle_ControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CycleOnAny")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAny")]
         CycleOnAny = 1,
         
-        [JsonProperty("CycleOnAnyCoolingOrHeatingZone")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAnyCoolingOrHeatingZone")]
         CycleOnAnyCoolingOrHeatingZone = 2,
         
-        [JsonProperty("CycleOnAnyCoolingZone")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAnyCoolingZone")]
         CycleOnAnyCoolingZone = 3,
         
-        [JsonProperty("CycleOnAnyHeatingZone")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAnyHeatingZone")]
         CycleOnAnyHeatingZone = 4,
         
-        [JsonProperty("CycleOnAnyHeatingZoneFansOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAnyHeatingZoneFansOnly")]
         CycleOnAnyHeatingZoneFansOnly = 5,
         
-        [JsonProperty("CycleOnAnyZoneFansOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAnyZoneFansOnly")]
         CycleOnAnyZoneFansOnly = 6,
         
-        [JsonProperty("CycleOnControlZone")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnControlZone")]
         CycleOnControlZone = 7,
         
-        [JsonProperty("StayOff")]
+        [System.Runtime.Serialization.EnumMember(Value="StayOff")]
         StayOff = 8,
     }
 }

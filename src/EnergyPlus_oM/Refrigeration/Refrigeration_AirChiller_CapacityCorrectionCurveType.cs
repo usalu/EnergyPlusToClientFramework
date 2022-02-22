@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_AirChiller_CapacityCorrectionCurveType
     {
         
-        [JsonProperty("European")]
+        [System.Runtime.Serialization.EnumMember(Value="European")]
         European = 0,
         
-        [JsonProperty("LinearSHR60")]
+        [System.Runtime.Serialization.EnumMember(Value="LinearSHR60")]
         LinearSHR60 = 1,
         
-        [JsonProperty("QuadraticSHR")]
+        [System.Runtime.Serialization.EnumMember(Value="QuadraticSHR")]
         QuadraticSHR = 2,
         
-        [JsonProperty("TabularRHxDT1xTRoom")]
+        [System.Runtime.Serialization.EnumMember(Value="TabularRHxDT1xTRoom")]
         TabularRHxDT1xTRoom = 3,
     }
 }

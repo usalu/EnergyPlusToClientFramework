@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description(@"Used only if Wind Pressure Coefficient (WPC) Type = Input in the AirflowNetwork:SimulationControl object. Number of WPC Values in the corresponding AirflowNetwork:MultiZone:WindPressureCoefficientValues object must be the same as the number of wind directions specified for this AirflowNetwork:MultiZone:WindPressureCoefficientArray object.")]
-    [JsonObject("AirflowNetwork:MultiZone:WindPressureCoefficientArray")]
     public class AirflowNetwork_MultiZone_WindPressureCoefficientArray : BHoMObject, IEnergyPlusClass
     {
         

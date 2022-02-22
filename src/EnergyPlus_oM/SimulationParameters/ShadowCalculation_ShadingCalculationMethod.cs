@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum ShadowCalculation_ShadingCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Imported")]
+        [System.Runtime.Serialization.EnumMember(Value="Imported")]
         Imported = 1,
         
-        [JsonProperty("PixelCounting")]
+        [System.Runtime.Serialization.EnumMember(Value="PixelCounting")]
         PixelCounting = 2,
         
-        [JsonProperty("PolygonClipping")]
+        [System.Runtime.Serialization.EnumMember(Value="PolygonClipping")]
         PolygonClipping = 3,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 4,
     }
 }

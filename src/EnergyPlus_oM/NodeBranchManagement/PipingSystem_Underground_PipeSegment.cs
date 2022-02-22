@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
     [Description("The pipe segment to be used in an underground piping system This object represent" +
                  "s a single pipe leg positioned axially in the local z-direction, at a given x, y" +
                  " location in the domain")]
-    [JsonObject("PipingSystem:Underground:PipeSegment")]
     public class PipingSystem_Underground_PipeSegment : BHoMObject, IEnergyPlusClass
     {
         
@@ -29,6 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         [Description("This segment will be simulated such that the flow is in the selected direction. T" +
                      "his can allow for detailed analysis of circuiting effects in a single domain.")]
         [JsonProperty("flow_direction")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PipingSystem_Underground_PipeSegment_FlowDirection FlowDirection { get; set; } = (PipingSystem_Underground_PipeSegment_FlowDirection)Enum.Parse(typeof(PipingSystem_Underground_PipeSegment_FlowDirection), "DecreasingZ");
     }
 }

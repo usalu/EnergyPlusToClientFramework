@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Zone_ConstantVolume_ZoneHeatingDesignSupplyAirTemperatureInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("SupplyAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplyAirTemperature")]
         SupplyAirTemperature = 1,
         
-        [JsonProperty("TemperatureDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureDifference")]
         TemperatureDifference = 2,
     }
 }

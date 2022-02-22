@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     public enum PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType
     {
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:FiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:FiniteDifference")]
         SiteGroundTemperatureUndisturbedFiniteDifference = 0,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
         SiteGroundTemperatureUndisturbedKusudaAchenbach = 1,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:Xing")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:Xing")]
         SiteGroundTemperatureUndisturbedXing = 2,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Controllers
 {
     public enum Controller_WaterCoil_ControlVariable
     {
         
-        [JsonProperty("HumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="HumidityRatio")]
         HumidityRatio = 0,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 1,
         
-        [JsonProperty("TemperatureAndHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureAndHumidityRatio")]
         TemperatureAndHumidityRatio = 2,
     }
 }

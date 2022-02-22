@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum ZoneAirMassFlowConservation_InfiltrationBalancingZones
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AllZones")]
+        [System.Runtime.Serialization.EnumMember(Value="AllZones")]
         AllZones = 1,
         
-        [JsonProperty("MixingSourceZonesOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="MixingSourceZonesOnly")]
         MixingSourceZonesOnly = 2,
     }
 }

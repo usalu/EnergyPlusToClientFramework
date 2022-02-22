@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
     
     
     [Description(@"Controller for a water coil which is located directly in an air loop branch or outdoor air equipment list. Controls the coil water flow to meet the specified leaving air setpoint(s). Used with Coil:Heating:Water, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry, and CoilSystem:Cooling:Water:HeatexchangerAssisted.")]
-    [JsonObject("Controller:WaterCoil")]
     public class Controller_WaterCoil : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,16 +76,19 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
     "r:MultiZone:MaximumHumidity:Average, or SetpointManager:Multizone:Humidity:Maxim" +
     "um object")]
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Controller_WaterCoil_ControlVariable ControlVariable { get; set; } = (Controller_WaterCoil_ControlVariable)Enum.Parse(typeof(Controller_WaterCoil_ControlVariable), "HumidityRatio");
         
 
 [Description("Leave blank to have this automatically selected from coil type. Chilled water coi" +
     "ls should be reverse action Hot water coils should be normal action")]
 [JsonProperty("action")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Controller_WaterCoil_Action Action { get; set; } = (Controller_WaterCoil_Action)Enum.Parse(typeof(Controller_WaterCoil_Action), "Normal");
         
 
 [JsonProperty("actuator_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Controller_WaterCoil_ActuatorVariable ActuatorVariable { get; set; } = (Controller_WaterCoil_ActuatorVariable)Enum.Parse(typeof(Controller_WaterCoil_ActuatorVariable), "Flow");
         
 

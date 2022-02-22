@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("This object contains the material properties for the materials used in the model." +
                  " The fields are mostly self explanatory.")]
-    [JsonObject("GroundHeatTransfer:Slab:MatlProps")]
     public class GroundHeatTransfer_Slab_MatlProps : BHoMObject, IEnergyPlusClass
     {
         

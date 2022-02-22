@@ -1,50 +1,48 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum RoofCeiling_Detailed_OutsideBoundaryCondition
     {
         
-        [JsonProperty("Adiabatic")]
+        [System.Runtime.Serialization.EnumMember(Value="Adiabatic")]
         Adiabatic = 0,
         
-        [JsonProperty("Ground")]
+        [System.Runtime.Serialization.EnumMember(Value="Ground")]
         Ground = 1,
         
-        [JsonProperty("GroundBasementPreprocessorAverageFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorAverageFloor")]
         GroundBasementPreprocessorAverageFloor = 2,
         
-        [JsonProperty("GroundBasementPreprocessorAverageWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorAverageWall")]
         GroundBasementPreprocessorAverageWall = 3,
         
-        [JsonProperty("GroundBasementPreprocessorLowerWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorLowerWall")]
         GroundBasementPreprocessorLowerWall = 4,
         
-        [JsonProperty("GroundBasementPreprocessorUpperWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorUpperWall")]
         GroundBasementPreprocessorUpperWall = 5,
         
-        [JsonProperty("GroundSlabPreprocessorAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorAverage")]
         GroundSlabPreprocessorAverage = 6,
         
-        [JsonProperty("GroundSlabPreprocessorCore")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorCore")]
         GroundSlabPreprocessorCore = 7,
         
-        [JsonProperty("GroundSlabPreprocessorPerimeter")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorPerimeter")]
         GroundSlabPreprocessorPerimeter = 8,
         
-        [JsonProperty("OtherSideCoefficients")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideCoefficients")]
         OtherSideCoefficients = 9,
         
-        [JsonProperty("OtherSideConditionsModel")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideConditionsModel")]
         OtherSideConditionsModel = 10,
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 11,
         
-        [JsonProperty("Surface")]
+        [System.Runtime.Serialization.EnumMember(Value="Surface")]
         Surface = 12,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 13,
     }
 }

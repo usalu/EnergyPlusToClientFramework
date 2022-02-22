@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum ShadowCalculation_SkyDiffuseModelingAlgorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DetailedSkyDiffuseModeling")]
+        [System.Runtime.Serialization.EnumMember(Value="DetailedSkyDiffuseModeling")]
         DetailedSkyDiffuseModeling = 1,
         
-        [JsonProperty("SimpleSkyDiffuseModeling")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleSkyDiffuseModeling")]
         SimpleSkyDiffuseModeling = 2,
     }
 }

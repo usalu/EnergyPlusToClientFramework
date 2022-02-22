@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     
     
     [Description(@"Ideal system used to calculate loads without modeling a full HVAC system. All that is required for the ideal system are zone controls, zone equipment configurations, and the ideal loads system component. This component can be thought of as an ideal unit that mixes zone air with the specified amount of outdoor air and then adds or removes heat and moisture at 100% efficiency in order to meet the specified controls. Energy use is reported as DistrictHeating and DistrictCooling.")]
-    [JsonObject("ZoneHVAC:IdealLoadsAirSystem")]
     public class ZoneHVAC_IdealLoadsAirSystem : BHoMObject, IEnergyPlusClass
     {
         
@@ -111,6 +110,7 @@ public System.Nullable<float> MinimumCoolingSupplyAirHumidityRatio { get; set; }
         
 
 [JsonProperty("heating_limit")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_HeatingLimit HeatingLimit { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_HeatingLimit)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_HeatingLimit), "NoLimit");
         
 
@@ -127,6 +127,7 @@ public string MaximumSensibleHeatingCapacity { get; set; } = "";
         
 
 [JsonProperty("cooling_limit")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_CoolingLimit CoolingLimit { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_CoolingLimit)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_CoolingLimit), "NoLimit");
         
 
@@ -153,6 +154,7 @@ public string CoolingAvailabilityScheduleName { get; set; } = "";
 
 [Description(@"ConstantSensibleHeatRatio means that the ideal loads system will be controlled to meet the sensible cooling load, and the latent cooling rate will be computed using a constant sensible heat ratio (SHR) Humidistat means that there is a ZoneControl:Humidistat for this zone and the ideal loads system will attempt to satisfy the humidistat. None means that there is no dehumidification. ConstantSupplyHumidityRatio means that during cooling the supply air will always be at the Minimum Cooling Supply Humidity Ratio.")]
 [JsonProperty("dehumidification_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_DehumidificationControlType DehumidificationControlType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_DehumidificationControlType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_DehumidificationControlType), "ConstantSensibleHeatRatio");
         
 
@@ -164,6 +166,7 @@ public System.Nullable<float> CoolingSensibleHeatRatio { get; set; } = (System.N
 
 [Description(@"None means that there is no humidification. Humidistat means that there is a ZoneControl:Humidistat for this zone and the ideal loads system will attempt to satisfy the humidistat. ConstantSupplyHumidityRatio means that during heating the supply air will always be at the Maximum Heating Supply Humidity Ratio.")]
 [JsonProperty("humidification_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_HumidificationControlType HumidificationControlType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_HumidificationControlType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_HumidificationControlType), "None");
         
 
@@ -181,6 +184,7 @@ public string OutdoorAirInletNodeName { get; set; } = "";
 
 [Description(@"This field controls how the minimum outdoor air flow rate is calculated. None means that design occupancy will be used to compute the minimum outdoor air flow rate OccupancySchedule means that current occupancy level will be used. CO2Setpoint means that the design occupancy will be used to compute the minimum outdoor air flow rate and the outdoor air flow rate may be increased if necessary to maintain the indoor air carbon dioxide setpoint defined in a ZoneControl:ContaminantController object.")]
 [JsonProperty("demand_controlled_ventilation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_DemandControlledVentilationType DemandControlledVentilationType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_DemandControlledVentilationType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_DemandControlledVentilationType), "None");
         
 
@@ -188,10 +192,12 @@ public ZoneHVAC_IdealLoadsAirSystem_DemandControlledVentilationType DemandContro
     "ate when there is a cooling load and the outdoor air temperature or enthalpy is " +
     "below the zone exhaust air temperature or enthalpy.")]
 [JsonProperty("outdoor_air_economizer_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_OutdoorAirEconomizerType OutdoorAirEconomizerType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_OutdoorAirEconomizerType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_OutdoorAirEconomizerType), "NoEconomizer");
         
 
 [JsonProperty("heat_recovery_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_HeatRecoveryType HeatRecoveryType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_HeatRecoveryType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_HeatRecoveryType), "None");
         
 

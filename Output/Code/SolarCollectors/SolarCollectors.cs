@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
     
     
     [Description(@"Thermal and optical performance parameters for a single flat plate solar collector module. These parameters are based on the testing methodologies described in ASHRAE Standards 93 and 96 which are used Solar Rating and Certification Corporation (SRCC) Directory of SRCC Certified Solar Collector Ratings. See EnergyPlus DataSets file SolarCollectors.idf.")]
-    [JsonObject("SolarCollectorPerformance:FlatPlate")]
     public class SolarCollectorPerformance_FlatPlate : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,6 +76,7 @@ public System.Nullable<float> GrossArea { get; set; } = null;
         
 
 [JsonProperty("test_fluid")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SolarCollectorPerformance_FlatPlate_TestFluid TestFluid { get; set; } = (SolarCollectorPerformance_FlatPlate_TestFluid)Enum.Parse(typeof(SolarCollectorPerformance_FlatPlate_TestFluid), "Water");
         
 
@@ -85,6 +85,7 @@ public System.Nullable<float> TestFlowRate { get; set; } = null;
         
 
 [JsonProperty("test_correlation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SolarCollectorPerformance_FlatPlate_TestCorrelationType TestCorrelationType { get; set; } = (SolarCollectorPerformance_FlatPlate_TestCorrelationType)Enum.Parse(typeof(SolarCollectorPerformance_FlatPlate_TestCorrelationType), "Average");
         
 
@@ -116,28 +117,27 @@ public System.Nullable<float> Coefficient3OfIncidentAngleModifier { get; set; } 
     public enum SolarCollectorPerformance_FlatPlate_TestFluid
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 1,
     }
     
     public enum SolarCollectorPerformance_FlatPlate_TestCorrelationType
     {
         
-        [JsonProperty("Average")]
+        [System.Runtime.Serialization.EnumMember(Value="Average")]
         Average = 0,
         
-        [JsonProperty("Inlet")]
+        [System.Runtime.Serialization.EnumMember(Value="Inlet")]
         Inlet = 1,
         
-        [JsonProperty("Outlet")]
+        [System.Runtime.Serialization.EnumMember(Value="Outlet")]
         Outlet = 2,
     }
     
     [Description(@"Flat plate water solar collector (single glazed, unglazed, or evacuated tube). Thermal and optical properties are taken from the referenced SolarCollectorPerformance:FlatPlate object. Collector tilt, azimuth, and gross area are taken from the referenced building surface or shading surface. The collector surface participates normally in all shading calculations.")]
-    [JsonObject("SolarCollector:FlatPlate:Water")]
     public class SolarCollector_FlatPlate_Water : BHoMObject, IEnergyPlusClass
     {
         
@@ -165,7 +165,6 @@ public System.Nullable<float> MaximumFlowRate { get; set; } = null;
     [Description("Models hybrid photovoltaic-thermal (PVT) solar collectors that convert incident s" +
         "olar energy into both electricity and useful thermal energy by heating air or wa" +
         "ter.")]
-    [JsonObject("SolarCollector:FlatPlate:PhotovoltaicThermal")]
     public class SolarCollector_FlatPlate_PhotovoltaicThermal : BHoMObject, IEnergyPlusClass
     {
         
@@ -184,6 +183,7 @@ public string PhotovoltaicName { get; set; } = "";
         
 
 [JsonProperty("thermal_working_fluid_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SolarCollector_FlatPlate_PhotovoltaicThermal_ThermalWorkingFluidType ThermalWorkingFluidType { get; set; } = (SolarCollector_FlatPlate_PhotovoltaicThermal_ThermalWorkingFluidType)Enum.Parse(typeof(SolarCollector_FlatPlate_PhotovoltaicThermal_ThermalWorkingFluidType), "Air");
         
 
@@ -210,16 +210,15 @@ public string DesignFlowRate { get; set; } = "";
     public enum SolarCollector_FlatPlate_PhotovoltaicThermal_ThermalWorkingFluidType
     {
         
-        [JsonProperty("Air")]
+        [System.Runtime.Serialization.EnumMember(Value="Air")]
         Air = 0,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 1,
     }
     
     [Description("Thermal performance parameters for a hybrid photovoltaic-thermal (PVT) solar coll" +
         "ector.")]
-    [JsonObject("SolarCollectorPerformance:PhotovoltaicThermal:Simple")]
     public class SolarCollectorPerformance_PhotovoltaicThermal_Simple : BHoMObject, IEnergyPlusClass
     {
         
@@ -229,6 +228,7 @@ public System.Nullable<float> FractionOfSurfaceAreaWithActiveThermalCollector { 
         
 
 [JsonProperty("thermal_conversion_efficiency_input_mode_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SolarCollectorPerformance_PhotovoltaicThermal_Simple_ThermalConversionEfficiencyInputModeType ThermalConversionEfficiencyInputModeType { get; set; } = (SolarCollectorPerformance_PhotovoltaicThermal_Simple_ThermalConversionEfficiencyInputModeType)Enum.Parse(typeof(SolarCollectorPerformance_PhotovoltaicThermal_Simple_ThermalConversionEfficiencyInputModeType), "Fixed");
         
 
@@ -248,15 +248,14 @@ public System.Nullable<float> FrontSurfaceEmittance { get; set; } = (System.Null
     public enum SolarCollectorPerformance_PhotovoltaicThermal_Simple_ThermalConversionEfficiencyInputModeType
     {
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 0,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 1,
     }
     
     [Description(@"Glazed solar collector with integral storage unit. Thermal and optical properties are taken from the referenced SolarCollectorPerformance:IntegralCollectorStorage object. Collector tilt, azimuth, and gross area are taken from the referenced building surface or shading surface. The collector surface participates normally in all shading calculations.")]
-    [JsonObject("SolarCollector:IntegralCollectorStorage")]
     public class SolarCollector_IntegralCollectorStorage : BHoMObject, IEnergyPlusClass
     {
         
@@ -270,6 +269,7 @@ public string SurfaceName { get; set; } = "";
         
 
 [JsonProperty("bottom_surface_boundary_conditions_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SolarCollector_IntegralCollectorStorage_BottomSurfaceBoundaryConditionsType BottomSurfaceBoundaryConditionsType { get; set; } = (SolarCollector_IntegralCollectorStorage_BottomSurfaceBoundaryConditionsType)Enum.Parse(typeof(SolarCollector_IntegralCollectorStorage_BottomSurfaceBoundaryConditionsType), "AmbientAir");
         
 
@@ -295,25 +295,25 @@ public System.Nullable<float> MaximumFlowRate { get; set; } = null;
     public enum SolarCollector_IntegralCollectorStorage_BottomSurfaceBoundaryConditionsType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AmbientAir")]
+        [System.Runtime.Serialization.EnumMember(Value="AmbientAir")]
         AmbientAir = 1,
         
-        [JsonProperty("OtherSideConditionsModel")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideConditionsModel")]
         OtherSideConditionsModel = 2,
     }
     
     [Description("Thermal and optical performance parameters for a single glazed solar collector wi" +
         "th integral storage unit.")]
-    [JsonObject("SolarCollectorPerformance:IntegralCollectorStorage")]
     public class SolarCollectorPerformance_IntegralCollectorStorage : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description("Currently only RectangularTank ICS collector type is available.")]
 [JsonProperty("ics_collector_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SolarCollectorPerformance_IntegralCollectorStorage_IcsCollectorType IcsCollectorType { get; set; } = (SolarCollectorPerformance_IntegralCollectorStorage_IcsCollectorType)Enum.Parse(typeof(SolarCollectorPerformance_IntegralCollectorStorage_IcsCollectorType), "RectangularTank");
         
 
@@ -414,15 +414,14 @@ public System.Nullable<float> EmissivityOfAbsorberPlate { get; set; } = (System.
     public enum SolarCollectorPerformance_IntegralCollectorStorage_IcsCollectorType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("RectangularTank")]
+        [System.Runtime.Serialization.EnumMember(Value="RectangularTank")]
         RectangularTank = 1,
     }
     
     [Description(@"Unglazed transpired solar collector (UTSC) used to condition outdoor air. This type of collector is generally used to heat air drawn through perforated absorbers and also recover heat conducted out through the underlying surface. This object represents a single collector attached to one or more building or shading surfaces and to one or more outdoor air systems.")]
-    [JsonObject("SolarCollector:UnglazedTranspired")]
     public class SolarCollector_UnglazedTranspired : BHoMObject, IEnergyPlusClass
     {
         
@@ -495,10 +494,12 @@ public System.Nullable<float> EffectiveCrossSectionAreaOfPlenumBehindCollector {
         
 
 [JsonProperty("hole_layout_pattern_for_pitch")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SolarCollector_UnglazedTranspired_HoleLayoutPatternForPitch HoleLayoutPatternForPitch { get; set; } = (SolarCollector_UnglazedTranspired_HoleLayoutPatternForPitch)Enum.Parse(typeof(SolarCollector_UnglazedTranspired_HoleLayoutPatternForPitch), "Square");
         
 
 [JsonProperty("heat_exchange_effectiveness_correlation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SolarCollector_UnglazedTranspired_HeatExchangeEffectivenessCorrelation HeatExchangeEffectivenessCorrelation { get; set; } = (SolarCollector_UnglazedTranspired_HeatExchangeEffectivenessCorrelation)Enum.Parse(typeof(SolarCollector_UnglazedTranspired_HeatExchangeEffectivenessCorrelation), "Kutscher1994");
         
 
@@ -508,6 +509,7 @@ public System.Nullable<float> RatioOfActualCollectorSurfaceAreaToProjectedSurfac
         
 
 [JsonProperty("roughness_of_collector")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SolarCollector_UnglazedTranspired_RoughnessOfCollector RoughnessOfCollector { get; set; } = (SolarCollector_UnglazedTranspired_RoughnessOfCollector)Enum.Parse(typeof(SolarCollector_UnglazedTranspired_RoughnessOfCollector), "MediumRough");
         
 
@@ -534,54 +536,53 @@ public string Surfaces { get; set; } = "";
     public enum SolarCollector_UnglazedTranspired_HoleLayoutPatternForPitch
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Square")]
+        [System.Runtime.Serialization.EnumMember(Value="Square")]
         Square = 1,
         
-        [JsonProperty("Triangle")]
+        [System.Runtime.Serialization.EnumMember(Value="Triangle")]
         Triangle = 2,
     }
     
     public enum SolarCollector_UnglazedTranspired_HeatExchangeEffectivenessCorrelation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Kutscher1994")]
+        [System.Runtime.Serialization.EnumMember(Value="Kutscher1994")]
         Kutscher1994 = 1,
         
-        [JsonProperty("VanDeckerHollandsBrunger2001")]
+        [System.Runtime.Serialization.EnumMember(Value="VanDeckerHollandsBrunger2001")]
         VanDeckerHollandsBrunger2001 = 2,
     }
     
     public enum SolarCollector_UnglazedTranspired_RoughnessOfCollector
     {
         
-        [JsonProperty("MediumRough")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumRough")]
         MediumRough = 0,
         
-        [JsonProperty("MediumSmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumSmooth")]
         MediumSmooth = 1,
         
-        [JsonProperty("Rough")]
+        [System.Runtime.Serialization.EnumMember(Value="Rough")]
         Rough = 2,
         
-        [JsonProperty("Smooth")]
+        [System.Runtime.Serialization.EnumMember(Value="Smooth")]
         Smooth = 3,
         
-        [JsonProperty("VeryRough")]
+        [System.Runtime.Serialization.EnumMember(Value="VeryRough")]
         VeryRough = 4,
         
-        [JsonProperty("VerySmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="VerySmooth")]
         VerySmooth = 5,
     }
     
     [Description("quad-tuples of inlet, outlet, control, and zone nodes for multiple different outd" +
         "oor air systems attached to same collector")]
-    [JsonObject("SolarCollector:UnglazedTranspired:Multisystem")]
     public class SolarCollector_UnglazedTranspired_Multisystem : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
 {
     public enum SolarCollectorPerformance_FlatPlate_TestCorrelationType
     {
         
-        [JsonProperty("Average")]
+        [System.Runtime.Serialization.EnumMember(Value="Average")]
         Average = 0,
         
-        [JsonProperty("Inlet")]
+        [System.Runtime.Serialization.EnumMember(Value="Inlet")]
         Inlet = 1,
         
-        [JsonProperty("Outlet")]
+        [System.Runtime.Serialization.EnumMember(Value="Outlet")]
         Outlet = 2,
     }
 }

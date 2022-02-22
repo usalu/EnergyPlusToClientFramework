@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     
     [Description("If CurrencyType is not specified, it will default to USD and produce $ in the rep" +
         "orts.")]
-    [JsonObject("CurrencyType")]
     public class CurrencyType : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,343 +76,344 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     "ry or region. Based on ISO 4217 currency codes. Common currency codes are USD fo" +
     "r $ and EUR for Euros.")]
 [JsonProperty("monetary_unit")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CurrencyType_MonetaryUnit MonetaryUnit { get; set; } = (CurrencyType_MonetaryUnit)Enum.Parse(typeof(CurrencyType_MonetaryUnit), "AFN");
     }
     
     public enum CurrencyType_MonetaryUnit
     {
         
-        [JsonProperty("AFN")]
+        [System.Runtime.Serialization.EnumMember(Value="AFN")]
         AFN = 0,
         
-        [JsonProperty("ALL")]
+        [System.Runtime.Serialization.EnumMember(Value="ALL")]
         ALL = 1,
         
-        [JsonProperty("ANG")]
+        [System.Runtime.Serialization.EnumMember(Value="ANG")]
         ANG = 2,
         
-        [JsonProperty("ARS")]
+        [System.Runtime.Serialization.EnumMember(Value="ARS")]
         ARS = 3,
         
-        [JsonProperty("AUD")]
+        [System.Runtime.Serialization.EnumMember(Value="AUD")]
         AUD = 4,
         
-        [JsonProperty("AWG")]
+        [System.Runtime.Serialization.EnumMember(Value="AWG")]
         AWG = 5,
         
-        [JsonProperty("AZN")]
+        [System.Runtime.Serialization.EnumMember(Value="AZN")]
         AZN = 6,
         
-        [JsonProperty("BAM")]
+        [System.Runtime.Serialization.EnumMember(Value="BAM")]
         BAM = 7,
         
-        [JsonProperty("BBD")]
+        [System.Runtime.Serialization.EnumMember(Value="BBD")]
         BBD = 8,
         
-        [JsonProperty("BGN")]
+        [System.Runtime.Serialization.EnumMember(Value="BGN")]
         BGN = 9,
         
-        [JsonProperty("BMD")]
+        [System.Runtime.Serialization.EnumMember(Value="BMD")]
         BMD = 10,
         
-        [JsonProperty("BND")]
+        [System.Runtime.Serialization.EnumMember(Value="BND")]
         BND = 11,
         
-        [JsonProperty("BOB")]
+        [System.Runtime.Serialization.EnumMember(Value="BOB")]
         BOB = 12,
         
-        [JsonProperty("BRL")]
+        [System.Runtime.Serialization.EnumMember(Value="BRL")]
         BRL = 13,
         
-        [JsonProperty("BSD")]
+        [System.Runtime.Serialization.EnumMember(Value="BSD")]
         BSD = 14,
         
-        [JsonProperty("BWP")]
+        [System.Runtime.Serialization.EnumMember(Value="BWP")]
         BWP = 15,
         
-        [JsonProperty("BYR")]
+        [System.Runtime.Serialization.EnumMember(Value="BYR")]
         BYR = 16,
         
-        [JsonProperty("BZD")]
+        [System.Runtime.Serialization.EnumMember(Value="BZD")]
         BZD = 17,
         
-        [JsonProperty("CAD")]
+        [System.Runtime.Serialization.EnumMember(Value="CAD")]
         CAD = 18,
         
-        [JsonProperty("CHF")]
+        [System.Runtime.Serialization.EnumMember(Value="CHF")]
         CHF = 19,
         
-        [JsonProperty("CLP")]
+        [System.Runtime.Serialization.EnumMember(Value="CLP")]
         CLP = 20,
         
-        [JsonProperty("CNY")]
+        [System.Runtime.Serialization.EnumMember(Value="CNY")]
         CNY = 21,
         
-        [JsonProperty("COP")]
+        [System.Runtime.Serialization.EnumMember(Value="COP")]
         COP = 22,
         
-        [JsonProperty("CRC")]
+        [System.Runtime.Serialization.EnumMember(Value="CRC")]
         CRC = 23,
         
-        [JsonProperty("CUP")]
+        [System.Runtime.Serialization.EnumMember(Value="CUP")]
         CUP = 24,
         
-        [JsonProperty("CZK")]
+        [System.Runtime.Serialization.EnumMember(Value="CZK")]
         CZK = 25,
         
-        [JsonProperty("DKK")]
+        [System.Runtime.Serialization.EnumMember(Value="DKK")]
         DKK = 26,
         
-        [JsonProperty("DOP")]
+        [System.Runtime.Serialization.EnumMember(Value="DOP")]
         DOP = 27,
         
-        [JsonProperty("EEK")]
+        [System.Runtime.Serialization.EnumMember(Value="EEK")]
         EEK = 28,
         
-        [JsonProperty("EGP")]
+        [System.Runtime.Serialization.EnumMember(Value="EGP")]
         EGP = 29,
         
-        [JsonProperty("EUR")]
+        [System.Runtime.Serialization.EnumMember(Value="EUR")]
         EUR = 30,
         
-        [JsonProperty("FJD")]
+        [System.Runtime.Serialization.EnumMember(Value="FJD")]
         FJD = 31,
         
-        [JsonProperty("GBP")]
+        [System.Runtime.Serialization.EnumMember(Value="GBP")]
         GBP = 32,
         
-        [JsonProperty("GHC")]
+        [System.Runtime.Serialization.EnumMember(Value="GHC")]
         GHC = 33,
         
-        [JsonProperty("GIP")]
+        [System.Runtime.Serialization.EnumMember(Value="GIP")]
         GIP = 34,
         
-        [JsonProperty("GTQ")]
+        [System.Runtime.Serialization.EnumMember(Value="GTQ")]
         GTQ = 35,
         
-        [JsonProperty("GYD")]
+        [System.Runtime.Serialization.EnumMember(Value="GYD")]
         GYD = 36,
         
-        [JsonProperty("HKD")]
+        [System.Runtime.Serialization.EnumMember(Value="HKD")]
         HKD = 37,
         
-        [JsonProperty("HNL")]
+        [System.Runtime.Serialization.EnumMember(Value="HNL")]
         HNL = 38,
         
-        [JsonProperty("HRK")]
+        [System.Runtime.Serialization.EnumMember(Value="HRK")]
         HRK = 39,
         
-        [JsonProperty("HUF")]
+        [System.Runtime.Serialization.EnumMember(Value="HUF")]
         HUF = 40,
         
-        [JsonProperty("IDR")]
+        [System.Runtime.Serialization.EnumMember(Value="IDR")]
         IDR = 41,
         
-        [JsonProperty("ILS")]
+        [System.Runtime.Serialization.EnumMember(Value="ILS")]
         ILS = 42,
         
-        [JsonProperty("IMP")]
+        [System.Runtime.Serialization.EnumMember(Value="IMP")]
         IMP = 43,
         
-        [JsonProperty("INR")]
+        [System.Runtime.Serialization.EnumMember(Value="INR")]
         INR = 44,
         
-        [JsonProperty("IRR")]
+        [System.Runtime.Serialization.EnumMember(Value="IRR")]
         IRR = 45,
         
-        [JsonProperty("ISK")]
+        [System.Runtime.Serialization.EnumMember(Value="ISK")]
         ISK = 46,
         
-        [JsonProperty("JEP")]
+        [System.Runtime.Serialization.EnumMember(Value="JEP")]
         JEP = 47,
         
-        [JsonProperty("JMD")]
+        [System.Runtime.Serialization.EnumMember(Value="JMD")]
         JMD = 48,
         
-        [JsonProperty("JPY")]
+        [System.Runtime.Serialization.EnumMember(Value="JPY")]
         JPY = 49,
         
-        [JsonProperty("KGS")]
+        [System.Runtime.Serialization.EnumMember(Value="KGS")]
         KGS = 50,
         
-        [JsonProperty("KHR")]
+        [System.Runtime.Serialization.EnumMember(Value="KHR")]
         KHR = 51,
         
-        [JsonProperty("KPW")]
+        [System.Runtime.Serialization.EnumMember(Value="KPW")]
         KPW = 52,
         
-        [JsonProperty("KRW")]
+        [System.Runtime.Serialization.EnumMember(Value="KRW")]
         KRW = 53,
         
-        [JsonProperty("KYD")]
+        [System.Runtime.Serialization.EnumMember(Value="KYD")]
         KYD = 54,
         
-        [JsonProperty("KZT")]
+        [System.Runtime.Serialization.EnumMember(Value="KZT")]
         KZT = 55,
         
-        [JsonProperty("LAK")]
+        [System.Runtime.Serialization.EnumMember(Value="LAK")]
         LAK = 56,
         
-        [JsonProperty("LBP")]
+        [System.Runtime.Serialization.EnumMember(Value="LBP")]
         LBP = 57,
         
-        [JsonProperty("LKR")]
+        [System.Runtime.Serialization.EnumMember(Value="LKR")]
         LKR = 58,
         
-        [JsonProperty("LRD")]
+        [System.Runtime.Serialization.EnumMember(Value="LRD")]
         LRD = 59,
         
-        [JsonProperty("LTL")]
+        [System.Runtime.Serialization.EnumMember(Value="LTL")]
         LTL = 60,
         
-        [JsonProperty("LVL")]
+        [System.Runtime.Serialization.EnumMember(Value="LVL")]
         LVL = 61,
         
-        [JsonProperty("MKD")]
+        [System.Runtime.Serialization.EnumMember(Value="MKD")]
         MKD = 62,
         
-        [JsonProperty("MNT")]
+        [System.Runtime.Serialization.EnumMember(Value="MNT")]
         MNT = 63,
         
-        [JsonProperty("MUR")]
+        [System.Runtime.Serialization.EnumMember(Value="MUR")]
         MUR = 64,
         
-        [JsonProperty("MXN")]
+        [System.Runtime.Serialization.EnumMember(Value="MXN")]
         MXN = 65,
         
-        [JsonProperty("MYR")]
+        [System.Runtime.Serialization.EnumMember(Value="MYR")]
         MYR = 66,
         
-        [JsonProperty("MZN")]
+        [System.Runtime.Serialization.EnumMember(Value="MZN")]
         MZN = 67,
         
-        [JsonProperty("NAD")]
+        [System.Runtime.Serialization.EnumMember(Value="NAD")]
         NAD = 68,
         
-        [JsonProperty("NGN")]
+        [System.Runtime.Serialization.EnumMember(Value="NGN")]
         NGN = 69,
         
-        [JsonProperty("NIO")]
+        [System.Runtime.Serialization.EnumMember(Value="NIO")]
         NIO = 70,
         
-        [JsonProperty("NOK")]
+        [System.Runtime.Serialization.EnumMember(Value="NOK")]
         NOK = 71,
         
-        [JsonProperty("NPR")]
+        [System.Runtime.Serialization.EnumMember(Value="NPR")]
         NPR = 72,
         
-        [JsonProperty("NZD")]
+        [System.Runtime.Serialization.EnumMember(Value="NZD")]
         NZD = 73,
         
-        [JsonProperty("OMR")]
+        [System.Runtime.Serialization.EnumMember(Value="OMR")]
         OMR = 74,
         
-        [JsonProperty("PAB")]
+        [System.Runtime.Serialization.EnumMember(Value="PAB")]
         PAB = 75,
         
-        [JsonProperty("PEN")]
+        [System.Runtime.Serialization.EnumMember(Value="PEN")]
         PEN = 76,
         
-        [JsonProperty("PHP")]
+        [System.Runtime.Serialization.EnumMember(Value="PHP")]
         PHP = 77,
         
-        [JsonProperty("PKR")]
+        [System.Runtime.Serialization.EnumMember(Value="PKR")]
         PKR = 78,
         
-        [JsonProperty("PLN")]
+        [System.Runtime.Serialization.EnumMember(Value="PLN")]
         PLN = 79,
         
-        [JsonProperty("PYG")]
+        [System.Runtime.Serialization.EnumMember(Value="PYG")]
         PYG = 80,
         
-        [JsonProperty("QAR")]
+        [System.Runtime.Serialization.EnumMember(Value="QAR")]
         QAR = 81,
         
-        [JsonProperty("RON")]
+        [System.Runtime.Serialization.EnumMember(Value="RON")]
         RON = 82,
         
-        [JsonProperty("RSD")]
+        [System.Runtime.Serialization.EnumMember(Value="RSD")]
         RSD = 83,
         
-        [JsonProperty("RUB")]
+        [System.Runtime.Serialization.EnumMember(Value="RUB")]
         RUB = 84,
         
-        [JsonProperty("SAR")]
+        [System.Runtime.Serialization.EnumMember(Value="SAR")]
         SAR = 85,
         
-        [JsonProperty("SBD")]
+        [System.Runtime.Serialization.EnumMember(Value="SBD")]
         SBD = 86,
         
-        [JsonProperty("SCR")]
+        [System.Runtime.Serialization.EnumMember(Value="SCR")]
         SCR = 87,
         
-        [JsonProperty("SEK")]
+        [System.Runtime.Serialization.EnumMember(Value="SEK")]
         SEK = 88,
         
-        [JsonProperty("SGD")]
+        [System.Runtime.Serialization.EnumMember(Value="SGD")]
         SGD = 89,
         
-        [JsonProperty("SHP")]
+        [System.Runtime.Serialization.EnumMember(Value="SHP")]
         SHP = 90,
         
-        [JsonProperty("SOS")]
+        [System.Runtime.Serialization.EnumMember(Value="SOS")]
         SOS = 91,
         
-        [JsonProperty("SRD")]
+        [System.Runtime.Serialization.EnumMember(Value="SRD")]
         SRD = 92,
         
-        [JsonProperty("SVC")]
+        [System.Runtime.Serialization.EnumMember(Value="SVC")]
         SVC = 93,
         
-        [JsonProperty("SYP")]
+        [System.Runtime.Serialization.EnumMember(Value="SYP")]
         SYP = 94,
         
-        [JsonProperty("THB")]
+        [System.Runtime.Serialization.EnumMember(Value="THB")]
         THB = 95,
         
-        [JsonProperty("TRL")]
+        [System.Runtime.Serialization.EnumMember(Value="TRL")]
         TRL = 96,
         
-        [JsonProperty("TRY")]
+        [System.Runtime.Serialization.EnumMember(Value="TRY")]
         TRY = 97,
         
-        [JsonProperty("TTD")]
+        [System.Runtime.Serialization.EnumMember(Value="TTD")]
         TTD = 98,
         
-        [JsonProperty("TVD")]
+        [System.Runtime.Serialization.EnumMember(Value="TVD")]
         TVD = 99,
         
-        [JsonProperty("TWD")]
+        [System.Runtime.Serialization.EnumMember(Value="TWD")]
         TWD = 100,
         
-        [JsonProperty("UAH")]
+        [System.Runtime.Serialization.EnumMember(Value="UAH")]
         UAH = 101,
         
-        [JsonProperty("USD")]
+        [System.Runtime.Serialization.EnumMember(Value="USD")]
         USD = 102,
         
-        [JsonProperty("UYU")]
+        [System.Runtime.Serialization.EnumMember(Value="UYU")]
         UYU = 103,
         
-        [JsonProperty("UZS")]
+        [System.Runtime.Serialization.EnumMember(Value="UZS")]
         UZS = 104,
         
-        [JsonProperty("VEF")]
+        [System.Runtime.Serialization.EnumMember(Value="VEF")]
         VEF = 105,
         
-        [JsonProperty("VND")]
+        [System.Runtime.Serialization.EnumMember(Value="VND")]
         VND = 106,
         
-        [JsonProperty("XCD")]
+        [System.Runtime.Serialization.EnumMember(Value="XCD")]
         XCD = 107,
         
-        [JsonProperty("YER")]
+        [System.Runtime.Serialization.EnumMember(Value="YER")]
         YER = 108,
         
-        [JsonProperty("ZAR")]
+        [System.Runtime.Serialization.EnumMember(Value="ZAR")]
         ZAR = 109,
         
-        [JsonProperty("ZWD")]
+        [System.Runtime.Serialization.EnumMember(Value="ZWD")]
         ZWD = 110,
     }
     
@@ -421,7 +421,6 @@ public CurrencyType_MonetaryUnit MonetaryUnit { get; set; } = (CurrencyType_Mone
         "stimate for total project costs. This object allows extending the line item mode" +
         "l so that the overall costs of the project will reflect various profit and fees." +
         "")]
-    [JsonObject("ComponentCost:Adjustments")]
     public class ComponentCost_Adjustments : BHoMObject, IEnergyPlusClass
     {
         
@@ -458,7 +457,6 @@ public System.Nullable<float> RegionalAdjustmentFactor { get; set; } = null;
     }
     
     [Description(@"Used to allow comparing the current cost estimate to the results of a previous estimate for a reference building. This object parallels the ComponentCost:Adjustments object but adds a field for entering the cost line item model result for the reference building. The factors entered in this object are applied to the reference building while the factors listed in the ComponentCost:Adjustments object are applied to the current building model cost estimate.")]
-    [JsonObject("ComponentCost:Reference")]
     public class ComponentCost_Reference : BHoMObject, IEnergyPlusClass
     {
         
@@ -501,7 +499,6 @@ public System.Nullable<float> ReferenceBuildingRegionalAdjustmentFactor { get; s
     
     [Description("Each instance of this object creates a cost line item and will contribute to the " +
         "total for a cost estimate.")]
-    [JsonObject("ComponentCost:LineItem")]
     public class ComponentCost_LineItem : BHoMObject, IEnergyPlusClass
     {
         
@@ -512,6 +509,7 @@ public string Type { get; set; } = "";
 
 [Description("extend choice-keys as Cases are added to code")]
 [JsonProperty("line_item_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ComponentCost_LineItem_LineItemType LineItemType { get; set; } = (ComponentCost_LineItem_LineItemType)Enum.Parse(typeof(ComponentCost_LineItem_LineItemType), "ChillerElectric");
         
 
@@ -563,39 +561,38 @@ public System.Nullable<float> Quantity { get; set; } = null;
     public enum ComponentCost_LineItem_LineItemType
     {
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 0,
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 1,
         
-        [JsonProperty("Coil:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:DX")]
         CoilDX = 2,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 3,
         
-        [JsonProperty("Construction")]
+        [System.Runtime.Serialization.EnumMember(Value="Construction")]
         Construction = 4,
         
-        [JsonProperty("Daylighting:Controls")]
+        [System.Runtime.Serialization.EnumMember(Value="Daylighting:Controls")]
         DaylightingControls = 5,
         
-        [JsonProperty("General")]
+        [System.Runtime.Serialization.EnumMember(Value="General")]
         General = 6,
         
-        [JsonProperty("Generator:Photovoltaic")]
+        [System.Runtime.Serialization.EnumMember(Value="Generator:Photovoltaic")]
         GeneratorPhotovoltaic = 7,
         
-        [JsonProperty("Lights")]
+        [System.Runtime.Serialization.EnumMember(Value="Lights")]
         Lights = 8,
         
-        [JsonProperty("Shading:Zone:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="Shading:Zone:Detailed")]
         ShadingZoneDetailed = 9,
     }
     
     [Description(@"Defines the name of a utility cost tariff, the type of tariff, and other details about the overall tariff. Each other object that is part of the tariff model references the tariff name. See UtilityCost:Charge:Simple, UtilityCost:Charge:Block, UtilityCost:Ratchet, UtilityCost:Qualify, UtilityCost:Variable and UtilityCost:Computation objects.")]
-    [JsonObject("UtilityCost:Tariff")]
     public class UtilityCost_Tariff : BHoMObject, IEnergyPlusClass
     {
         
@@ -611,6 +608,7 @@ public string OutputMeterName { get; set; } = "";
     "elds. If left blank m3 is used for water meters and kWh are used for all other m" +
     "eters.")]
 [JsonProperty("conversion_factor_choice")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Tariff_ConversionFactorChoice ConversionFactorChoice { get; set; } = (UtilityCost_Tariff_ConversionFactorChoice)Enum.Parse(typeof(UtilityCost_Tariff_ConversionFactorChoice), "CCF");
         
 
@@ -641,6 +639,7 @@ public string MonthScheduleName { get; set; } = "";
 
 [Description(@"The determination of demand can vary by utility. Some utilities use the peak instantaneous demand measured but most use a fifteen minute average demand or a one hour average demand. Some gas utilities measure demand as the use during the peak day or peak week.")]
 [JsonProperty("demand_window_length")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Tariff_DemandWindowLength DemandWindowLength { get; set; } = (UtilityCost_Tariff_DemandWindowLength)Enum.Parse(typeof(UtilityCost_Tariff_DemandWindowLength), "Day");
         
 
@@ -680,83 +679,83 @@ public string GroupName { get; set; } = "";
 
 [Description(@"Sets whether the tariff is used for buying selling or both to the utility. This should be allowed to default to buyFromUtility unless a power generation system is included in the building that may generate more power than the building needs during the year")]
 [JsonProperty("buy_or_sell")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Tariff_BuyOrSell BuyOrSell { get; set; } = (UtilityCost_Tariff_BuyOrSell)Enum.Parse(typeof(UtilityCost_Tariff_BuyOrSell), "BuyFromUtility");
     }
     
     public enum UtilityCost_Tariff_ConversionFactorChoice
     {
         
-        [JsonProperty("CCF")]
+        [System.Runtime.Serialization.EnumMember(Value="CCF")]
         CCF = 0,
         
-        [JsonProperty("MCF")]
+        [System.Runtime.Serialization.EnumMember(Value="MCF")]
         MCF = 1,
         
-        [JsonProperty("MJ")]
+        [System.Runtime.Serialization.EnumMember(Value="MJ")]
         MJ = 2,
         
-        [JsonProperty("MMBtu")]
+        [System.Runtime.Serialization.EnumMember(Value="MMBtu")]
         MMBtu = 3,
         
-        [JsonProperty("Therm")]
+        [System.Runtime.Serialization.EnumMember(Value="Therm")]
         Therm = 4,
         
-        [JsonProperty("UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefined")]
         UserDefined = 5,
         
-        [JsonProperty("gal")]
+        [System.Runtime.Serialization.EnumMember(Value="gal")]
         Gal = 6,
         
-        [JsonProperty("kBtu")]
+        [System.Runtime.Serialization.EnumMember(Value="kBtu")]
         KBtu = 7,
         
-        [JsonProperty("kWh")]
+        [System.Runtime.Serialization.EnumMember(Value="kWh")]
         KWh = 8,
         
-        [JsonProperty("kgal")]
+        [System.Runtime.Serialization.EnumMember(Value="kgal")]
         Kgal = 9,
         
-        [JsonProperty("m3")]
+        [System.Runtime.Serialization.EnumMember(Value="m3")]
         M3 = 10,
     }
     
     public enum UtilityCost_Tariff_DemandWindowLength
     {
         
-        [JsonProperty("Day")]
+        [System.Runtime.Serialization.EnumMember(Value="Day")]
         Day = 0,
         
-        [JsonProperty("FullHour")]
+        [System.Runtime.Serialization.EnumMember(Value="FullHour")]
         FullHour = 1,
         
-        [JsonProperty("HalfHour")]
+        [System.Runtime.Serialization.EnumMember(Value="HalfHour")]
         HalfHour = 2,
         
-        [JsonProperty("QuarterHour")]
+        [System.Runtime.Serialization.EnumMember(Value="QuarterHour")]
         QuarterHour = 3,
         
-        [JsonProperty("Week")]
+        [System.Runtime.Serialization.EnumMember(Value="Week")]
         Week = 4,
     }
     
     public enum UtilityCost_Tariff_BuyOrSell
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BuyFromUtility")]
+        [System.Runtime.Serialization.EnumMember(Value="BuyFromUtility")]
         BuyFromUtility = 1,
         
-        [JsonProperty("NetMetering")]
+        [System.Runtime.Serialization.EnumMember(Value="NetMetering")]
         NetMetering = 2,
         
-        [JsonProperty("SellToUtility")]
+        [System.Runtime.Serialization.EnumMember(Value="SellToUtility")]
         SellToUtility = 3,
     }
     
     [Description(@"The qualify object allows only tariffs to be selected based on limits which may apply such as maximum or minimum demand requirements. If the results of the simulation fall outside of the range of qualifications, that tariff is still calculated but the ""Qualified"" entry will say ""No"" and the UtilityCost:Qualify that caused its exclusion is shown. Multiple UtilityCost:Qualify objects can appear for the same tariff and they can be based on any variable.")]
-    [JsonObject("UtilityCost:Qualify")]
     public class UtilityCost_Qualify : BHoMObject, IEnergyPlusClass
     {
         
@@ -779,6 +778,7 @@ public string VariableName { get; set; } = "";
         
 
 [JsonProperty("qualify_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Qualify_QualifyType QualifyType { get; set; } = (UtilityCost_Qualify_QualifyType)Enum.Parse(typeof(UtilityCost_Qualify_QualifyType), "Maximum");
         
 
@@ -790,11 +790,13 @@ public string ThresholdValueOrVariableName { get; set; } = "";
 [Description("If the UtilityCost:Qualify only applies to a season enter the season name. If thi" +
     "s field is left blank it defaults to Annual.")]
 [JsonProperty("season")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Qualify_Season Season { get; set; } = (UtilityCost_Qualify_Season)Enum.Parse(typeof(UtilityCost_Qualify_Season), "Annual");
         
 
 [Description(@"Uses the number in Number of Months in one of two different ways depending on the Threshold  Test. If the Threshold Test is set to Count then the qualification is based on the count of the total number of months per year. If the Threshold Test is set to consecutive then the qualification is based on a consecutive number of months.")]
 [JsonProperty("threshold_test")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Qualify_ThresholdTest ThresholdTest { get; set; } = (UtilityCost_Qualify_ThresholdTest)Enum.Parse(typeof(UtilityCost_Qualify_ThresholdTest), "Consecutive");
         
 
@@ -806,50 +808,49 @@ public System.Nullable<float> NumberOfMonths { get; set; } = null;
     public enum UtilityCost_Qualify_QualifyType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Maximum")]
+        [System.Runtime.Serialization.EnumMember(Value="Maximum")]
         Maximum = 1,
         
-        [JsonProperty("Minimum")]
+        [System.Runtime.Serialization.EnumMember(Value="Minimum")]
         Minimum = 2,
     }
     
     public enum UtilityCost_Qualify_Season
     {
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 0,
         
-        [JsonProperty("Fall")]
+        [System.Runtime.Serialization.EnumMember(Value="Fall")]
         Fall = 1,
         
-        [JsonProperty("Spring")]
+        [System.Runtime.Serialization.EnumMember(Value="Spring")]
         Spring = 2,
         
-        [JsonProperty("Summer")]
+        [System.Runtime.Serialization.EnumMember(Value="Summer")]
         Summer = 3,
         
-        [JsonProperty("Winter")]
+        [System.Runtime.Serialization.EnumMember(Value="Winter")]
         Winter = 4,
     }
     
     public enum UtilityCost_Qualify_ThresholdTest
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Consecutive")]
+        [System.Runtime.Serialization.EnumMember(Value="Consecutive")]
         Consecutive = 1,
         
-        [JsonProperty("Count")]
+        [System.Runtime.Serialization.EnumMember(Value="Count")]
         Count = 2,
     }
     
     [Description(@"UtilityCost:Charge:Simple is one of the most often used objects for tariff calculation. It is used to compute energy and demand charges that are very simple. It may also be used for taxes, surcharges and any other charges that occur on a utility bill. Multiple UtilityCost:Charge:Simple objects may be defined for a single tariff and they will be added together.")]
-    [JsonObject("UtilityCost:Charge:Simple")]
     public class UtilityCost_Charge_Simple : BHoMObject, IEnergyPlusClass
     {
         
@@ -874,6 +875,7 @@ public string SourceVariable { get; set; } = "";
     "e:Simple for the entire year (all months) otherwise it is calculated only for th" +
     "ose months in the season defined.")]
 [JsonProperty("season")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Charge_Simple_Season Season { get; set; } = (UtilityCost_Charge_Simple_Season)Enum.Parse(typeof(UtilityCost_Charge_Simple_Season), "Annual");
         
 
@@ -881,6 +883,7 @@ public UtilityCost_Charge_Simple_Season Season { get; set; } = (UtilityCost_Char
     " appropriately is so that the charge gets reported in a reasonable category. The" +
     " charge automatically gets added to the variable that is the category.")]
 [JsonProperty("category_variable_name")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Charge_Simple_CategoryVariableName CategoryVariableName { get; set; } = (UtilityCost_Charge_Simple_CategoryVariableName)Enum.Parse(typeof(UtilityCost_Charge_Simple_CategoryVariableName), "Adjustment");
         
 
@@ -892,60 +895,59 @@ public string CostPerUnitValueOrVariableName { get; set; } = "";
     public enum UtilityCost_Charge_Simple_Season
     {
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 0,
         
-        [JsonProperty("Fall")]
+        [System.Runtime.Serialization.EnumMember(Value="Fall")]
         Fall = 1,
         
-        [JsonProperty("Spring")]
+        [System.Runtime.Serialization.EnumMember(Value="Spring")]
         Spring = 2,
         
-        [JsonProperty("Summer")]
+        [System.Runtime.Serialization.EnumMember(Value="Summer")]
         Summer = 3,
         
-        [JsonProperty("Winter")]
+        [System.Runtime.Serialization.EnumMember(Value="Winter")]
         Winter = 4,
     }
     
     public enum UtilityCost_Charge_Simple_CategoryVariableName
     {
         
-        [JsonProperty("Adjustment")]
+        [System.Runtime.Serialization.EnumMember(Value="Adjustment")]
         Adjustment = 0,
         
-        [JsonProperty("Basis")]
+        [System.Runtime.Serialization.EnumMember(Value="Basis")]
         Basis = 1,
         
-        [JsonProperty("DemandCharges")]
+        [System.Runtime.Serialization.EnumMember(Value="DemandCharges")]
         DemandCharges = 2,
         
-        [JsonProperty("EnergyCharges")]
+        [System.Runtime.Serialization.EnumMember(Value="EnergyCharges")]
         EnergyCharges = 3,
         
-        [JsonProperty("NotIncluded")]
+        [System.Runtime.Serialization.EnumMember(Value="NotIncluded")]
         NotIncluded = 4,
         
-        [JsonProperty("ServiceCharges")]
+        [System.Runtime.Serialization.EnumMember(Value="ServiceCharges")]
         ServiceCharges = 5,
         
-        [JsonProperty("Subtotal")]
+        [System.Runtime.Serialization.EnumMember(Value="Subtotal")]
         Subtotal = 6,
         
-        [JsonProperty("Surcharge")]
+        [System.Runtime.Serialization.EnumMember(Value="Surcharge")]
         Surcharge = 7,
         
-        [JsonProperty("Taxes")]
+        [System.Runtime.Serialization.EnumMember(Value="Taxes")]
         Taxes = 8,
         
-        [JsonProperty("Total")]
+        [System.Runtime.Serialization.EnumMember(Value="Total")]
         Total = 9,
     }
     
     [Description("Used to compute energy and demand charges (or any other charges) that are structu" +
         "red in blocks of charges. Multiple UtilityCost:Charge:Block objects may be defin" +
         "ed for a single tariff and they will be added together.")]
-    [JsonObject("UtilityCost:Charge:Block")]
     public class UtilityCost_Charge_Block : BHoMObject, IEnergyPlusClass
     {
         
@@ -970,6 +972,7 @@ public string SourceVariable { get; set; } = "";
     "e:Block for the entire year (all months) otherwise it is calculated only for tho" +
     "se months in the season defined.")]
 [JsonProperty("season")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Charge_Block_Season Season { get; set; } = (UtilityCost_Charge_Block_Season)Enum.Parse(typeof(UtilityCost_Charge_Block_Season), "Annual");
         
 
@@ -977,6 +980,7 @@ public UtilityCost_Charge_Block_Season Season { get; set; } = (UtilityCost_Charg
     " appropriately is so that the charge gets reported in a reasonable category. The" +
     " charge automatically gets added to the variable that is the category.")]
 [JsonProperty("category_variable_name")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Charge_Block_CategoryVariableName CategoryVariableName { get; set; } = (UtilityCost_Charge_Block_CategoryVariableName)Enum.Parse(typeof(UtilityCost_Charge_Block_CategoryVariableName), "Adjustment");
         
 
@@ -1158,61 +1162,60 @@ public string Block15CostPerUnitValueOrVariableName { get; set; } = "";
     public enum UtilityCost_Charge_Block_Season
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 1,
         
-        [JsonProperty("Fall")]
+        [System.Runtime.Serialization.EnumMember(Value="Fall")]
         Fall = 2,
         
-        [JsonProperty("Spring")]
+        [System.Runtime.Serialization.EnumMember(Value="Spring")]
         Spring = 3,
         
-        [JsonProperty("Summer")]
+        [System.Runtime.Serialization.EnumMember(Value="Summer")]
         Summer = 4,
         
-        [JsonProperty("Winter")]
+        [System.Runtime.Serialization.EnumMember(Value="Winter")]
         Winter = 5,
     }
     
     public enum UtilityCost_Charge_Block_CategoryVariableName
     {
         
-        [JsonProperty("Adjustment")]
+        [System.Runtime.Serialization.EnumMember(Value="Adjustment")]
         Adjustment = 0,
         
-        [JsonProperty("Basis")]
+        [System.Runtime.Serialization.EnumMember(Value="Basis")]
         Basis = 1,
         
-        [JsonProperty("DemandCharges")]
+        [System.Runtime.Serialization.EnumMember(Value="DemandCharges")]
         DemandCharges = 2,
         
-        [JsonProperty("EnergyCharges")]
+        [System.Runtime.Serialization.EnumMember(Value="EnergyCharges")]
         EnergyCharges = 3,
         
-        [JsonProperty("NotIncluded")]
+        [System.Runtime.Serialization.EnumMember(Value="NotIncluded")]
         NotIncluded = 4,
         
-        [JsonProperty("ServiceCharges")]
+        [System.Runtime.Serialization.EnumMember(Value="ServiceCharges")]
         ServiceCharges = 5,
         
-        [JsonProperty("Subtotal")]
+        [System.Runtime.Serialization.EnumMember(Value="Subtotal")]
         Subtotal = 6,
         
-        [JsonProperty("Surcharge")]
+        [System.Runtime.Serialization.EnumMember(Value="Surcharge")]
         Surcharge = 7,
         
-        [JsonProperty("Taxes")]
+        [System.Runtime.Serialization.EnumMember(Value="Taxes")]
         Taxes = 8,
         
-        [JsonProperty("Total")]
+        [System.Runtime.Serialization.EnumMember(Value="Total")]
         Total = 9,
     }
     
     [Description(@"Allows the modeling of tariffs that include some type of seasonal ratcheting. Ratchets are most common when used with electric demand charges. A ratchet is when a utility requires that the demand charge for a month with a low demand may be increased to be more consistent with a month that set a higher demand charge.")]
-    [JsonObject("UtilityCost:Ratchet")]
     public class UtilityCost_Ratchet : BHoMObject, IEnergyPlusClass
     {
         
@@ -1235,11 +1238,13 @@ public string AdjustmentSourceVariable { get; set; } = "";
 
 [Description(@"The name of the season that is being examined. The maximum value for all of the months in the named season is what is used with the multiplier and offset. This is most commonly Summer or Annual. When Monthly is used the adjustment source variable is used directly for all months.")]
 [JsonProperty("season_from")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Ratchet_SeasonFrom SeasonFrom { get; set; } = (UtilityCost_Ratchet_SeasonFrom)Enum.Parse(typeof(UtilityCost_Ratchet_SeasonFrom), "Annual");
         
 
 [Description(@"The name of the season when the ratchet would be calculated. This is most commonly Winter. The ratchet only is applied to the months in the named season. The resulting variable for months not in the Season To selection will contain the values as appear in the baseline source variable.")]
 [JsonProperty("season_to")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Ratchet_SeasonTo SeasonTo { get; set; } = (UtilityCost_Ratchet_SeasonTo)Enum.Parse(typeof(UtilityCost_Ratchet_SeasonTo), "Annual");
         
 
@@ -1256,46 +1261,45 @@ public string OffsetValueOrVariableName { get; set; } = "";
     public enum UtilityCost_Ratchet_SeasonFrom
     {
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 0,
         
-        [JsonProperty("Fall")]
+        [System.Runtime.Serialization.EnumMember(Value="Fall")]
         Fall = 1,
         
-        [JsonProperty("Monthly")]
+        [System.Runtime.Serialization.EnumMember(Value="Monthly")]
         Monthly = 2,
         
-        [JsonProperty("Spring")]
+        [System.Runtime.Serialization.EnumMember(Value="Spring")]
         Spring = 3,
         
-        [JsonProperty("Summer")]
+        [System.Runtime.Serialization.EnumMember(Value="Summer")]
         Summer = 4,
         
-        [JsonProperty("Winter")]
+        [System.Runtime.Serialization.EnumMember(Value="Winter")]
         Winter = 5,
     }
     
     public enum UtilityCost_Ratchet_SeasonTo
     {
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 0,
         
-        [JsonProperty("Fall")]
+        [System.Runtime.Serialization.EnumMember(Value="Fall")]
         Fall = 1,
         
-        [JsonProperty("Spring")]
+        [System.Runtime.Serialization.EnumMember(Value="Spring")]
         Spring = 2,
         
-        [JsonProperty("Summer")]
+        [System.Runtime.Serialization.EnumMember(Value="Summer")]
         Summer = 3,
         
-        [JsonProperty("Winter")]
+        [System.Runtime.Serialization.EnumMember(Value="Winter")]
         Winter = 4,
     }
     
     [Description("Allows for the direct entry of monthly values into a utility tariff variable.")]
-    [JsonObject("UtilityCost:Variable")]
     public class UtilityCost_Variable : BHoMObject, IEnergyPlusClass
     {
         
@@ -1307,6 +1311,7 @@ public string TariffName { get; set; } = "";
         
 
 [JsonProperty("variable_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Variable_VariableType VariableType { get; set; } = (UtilityCost_Variable_VariableType)Enum.Parse(typeof(UtilityCost_Variable_VariableType), "Dimensionless");
         
 
@@ -1361,24 +1366,23 @@ public System.Nullable<float> DecemberValue { get; set; } = null;
     public enum UtilityCost_Variable_VariableType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Currency")]
+        [System.Runtime.Serialization.EnumMember(Value="Currency")]
         Currency = 1,
         
-        [JsonProperty("Demand")]
+        [System.Runtime.Serialization.EnumMember(Value="Demand")]
         Demand = 2,
         
-        [JsonProperty("Dimensionless")]
+        [System.Runtime.Serialization.EnumMember(Value="Dimensionless")]
         Dimensionless = 3,
         
-        [JsonProperty("Energy")]
+        [System.Runtime.Serialization.EnumMember(Value="Energy")]
         Energy = 4,
     }
     
     [Description(@"The object lists a series of computations that are used to perform the utility bill calculation. The object is only used for complex tariffs that cannot be modeled any other way. For most utility tariffs, UtilityCost:Computation is unnecessary and should be avoided. If UtilityCost:Computation is used, it must contain references to all objects involved in the rate in the order that they should be computed.")]
-    [JsonObject("UtilityCost:Computation")]
     public class UtilityCost_Computation : BHoMObject, IEnergyPlusClass
     {
         
@@ -1512,7 +1516,6 @@ public string ComputeStep30 { get; set; } = "";
     }
     
     [Description(@"Provides inputs related to the overall life-cycle analysis. It establishes many of the assumptions used in computing the present value. It is important that when comparing the results of multiple simulations that the fields in the LifeCycleCost:Parameters objects are the same for all the simulations. When this object is present the tabular report file will contain the Life-Cycle Cost Report.")]
-    [JsonObject("LifeCycleCost:Parameters")]
     public class LifeCycleCost_Parameters : BHoMObject, IEnergyPlusClass
     {
         
@@ -1521,11 +1524,13 @@ public string ComputeStep30 { get; set; } = "";
     "rring at the end of each year or the middle of each year or the beginning of eac" +
     "h year. The most common discounting convention uses the end of each year.")]
 [JsonProperty("discounting_convention")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_Parameters_DiscountingConvention DiscountingConvention { get; set; } = (LifeCycleCost_Parameters_DiscountingConvention)Enum.Parse(typeof(LifeCycleCost_Parameters_DiscountingConvention), "EndOfYear");
         
 
 [Description(@"This field is used to determine if the analysis should use constant dollars or current dollars which is related to how inflation is treated. If ConstantDollar is selected then the Real Discount Rate input is used and it excludes the rate of inflation. If CurrentDollar is selected then the Nominal Discount Rate input is used and it includes the rate of inflation.")]
 [JsonProperty("inflation_approach")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_Parameters_InflationApproach InflationApproach { get; set; } = (LifeCycleCost_Parameters_InflationApproach)Enum.Parse(typeof(LifeCycleCost_Parameters_InflationApproach), "ConstantDollar");
         
 
@@ -1548,6 +1553,7 @@ public System.Nullable<float> Inflation { get; set; } = null;
 [Description("Enter the month that is the beginning of study period also known as the beginning" +
     " of the base period.")]
 [JsonProperty("base_date_month")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_Parameters_BaseDateMonth BaseDateMonth { get; set; } = (LifeCycleCost_Parameters_BaseDateMonth)Enum.Parse(typeof(LifeCycleCost_Parameters_BaseDateMonth), "January");
         
 
@@ -1559,6 +1565,7 @@ public System.Nullable<float> BaseDateYear { get; set; } = null;
 
 [Description(@"Enter the month that is the beginning of building occupancy. Energy costs computed by EnergyPlus are assumed to occur during the year following the service date. The service date must be the same or later than the Base Date. This field could also be referred to as part of beneficial occupancy date.")]
 [JsonProperty("service_date_month")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_Parameters_ServiceDateMonth ServiceDateMonth { get; set; } = (LifeCycleCost_Parameters_ServiceDateMonth)Enum.Parse(typeof(LifeCycleCost_Parameters_ServiceDateMonth), "January");
         
 
@@ -1583,173 +1590,174 @@ public System.Nullable<float> TaxRate { get; set; } = null;
     " costs are depreciated. Only one depreciation method may be used for an analysis" +
     " and is applied to all capital expenditures.")]
 [JsonProperty("depreciation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_Parameters_DepreciationMethod DepreciationMethod { get; set; } = (LifeCycleCost_Parameters_DepreciationMethod)Enum.Parse(typeof(LifeCycleCost_Parameters_DepreciationMethod), "None");
     }
     
     public enum LifeCycleCost_Parameters_DiscountingConvention
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BeginningOfYear")]
+        [System.Runtime.Serialization.EnumMember(Value="BeginningOfYear")]
         BeginningOfYear = 1,
         
-        [JsonProperty("EndOfYear")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfYear")]
         EndOfYear = 2,
         
-        [JsonProperty("MidYear")]
+        [System.Runtime.Serialization.EnumMember(Value="MidYear")]
         MidYear = 3,
     }
     
     public enum LifeCycleCost_Parameters_InflationApproach
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantDollar")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantDollar")]
         ConstantDollar = 1,
         
-        [JsonProperty("CurrentDollar")]
+        [System.Runtime.Serialization.EnumMember(Value="CurrentDollar")]
         CurrentDollar = 2,
     }
     
     public enum LifeCycleCost_Parameters_BaseDateMonth
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("April")]
+        [System.Runtime.Serialization.EnumMember(Value="April")]
         April = 1,
         
-        [JsonProperty("August")]
+        [System.Runtime.Serialization.EnumMember(Value="August")]
         August = 2,
         
-        [JsonProperty("December")]
+        [System.Runtime.Serialization.EnumMember(Value="December")]
         December = 3,
         
-        [JsonProperty("February")]
+        [System.Runtime.Serialization.EnumMember(Value="February")]
         February = 4,
         
-        [JsonProperty("January")]
+        [System.Runtime.Serialization.EnumMember(Value="January")]
         January = 5,
         
-        [JsonProperty("July")]
+        [System.Runtime.Serialization.EnumMember(Value="July")]
         July = 6,
         
-        [JsonProperty("June")]
+        [System.Runtime.Serialization.EnumMember(Value="June")]
         June = 7,
         
-        [JsonProperty("March")]
+        [System.Runtime.Serialization.EnumMember(Value="March")]
         March = 8,
         
-        [JsonProperty("May")]
+        [System.Runtime.Serialization.EnumMember(Value="May")]
         May = 9,
         
-        [JsonProperty("November")]
+        [System.Runtime.Serialization.EnumMember(Value="November")]
         November = 10,
         
-        [JsonProperty("October")]
+        [System.Runtime.Serialization.EnumMember(Value="October")]
         October = 11,
         
-        [JsonProperty("September")]
+        [System.Runtime.Serialization.EnumMember(Value="September")]
         September = 12,
     }
     
     public enum LifeCycleCost_Parameters_ServiceDateMonth
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("April")]
+        [System.Runtime.Serialization.EnumMember(Value="April")]
         April = 1,
         
-        [JsonProperty("August")]
+        [System.Runtime.Serialization.EnumMember(Value="August")]
         August = 2,
         
-        [JsonProperty("December")]
+        [System.Runtime.Serialization.EnumMember(Value="December")]
         December = 3,
         
-        [JsonProperty("February")]
+        [System.Runtime.Serialization.EnumMember(Value="February")]
         February = 4,
         
-        [JsonProperty("January")]
+        [System.Runtime.Serialization.EnumMember(Value="January")]
         January = 5,
         
-        [JsonProperty("July")]
+        [System.Runtime.Serialization.EnumMember(Value="July")]
         July = 6,
         
-        [JsonProperty("June")]
+        [System.Runtime.Serialization.EnumMember(Value="June")]
         June = 7,
         
-        [JsonProperty("March")]
+        [System.Runtime.Serialization.EnumMember(Value="March")]
         March = 8,
         
-        [JsonProperty("May")]
+        [System.Runtime.Serialization.EnumMember(Value="May")]
         May = 9,
         
-        [JsonProperty("November")]
+        [System.Runtime.Serialization.EnumMember(Value="November")]
         November = 10,
         
-        [JsonProperty("October")]
+        [System.Runtime.Serialization.EnumMember(Value="October")]
         October = 11,
         
-        [JsonProperty("September")]
+        [System.Runtime.Serialization.EnumMember(Value="September")]
         September = 12,
     }
     
     public enum LifeCycleCost_Parameters_DepreciationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ModifiedAcceleratedCostRecoverySystem-10year")]
+        [System.Runtime.Serialization.EnumMember(Value="ModifiedAcceleratedCostRecoverySystem-10year")]
         ModifiedAcceleratedCostRecoverySystem10year = 1,
         
-        [JsonProperty("ModifiedAcceleratedCostRecoverySystem-15year")]
+        [System.Runtime.Serialization.EnumMember(Value="ModifiedAcceleratedCostRecoverySystem-15year")]
         ModifiedAcceleratedCostRecoverySystem15year = 2,
         
-        [JsonProperty("ModifiedAcceleratedCostRecoverySystem-20year")]
+        [System.Runtime.Serialization.EnumMember(Value="ModifiedAcceleratedCostRecoverySystem-20year")]
         ModifiedAcceleratedCostRecoverySystem20year = 3,
         
-        [JsonProperty("ModifiedAcceleratedCostRecoverySystem-3year")]
+        [System.Runtime.Serialization.EnumMember(Value="ModifiedAcceleratedCostRecoverySystem-3year")]
         ModifiedAcceleratedCostRecoverySystem3year = 4,
         
-        [JsonProperty("ModifiedAcceleratedCostRecoverySystem-5year")]
+        [System.Runtime.Serialization.EnumMember(Value="ModifiedAcceleratedCostRecoverySystem-5year")]
         ModifiedAcceleratedCostRecoverySystem5year = 5,
         
-        [JsonProperty("ModifiedAcceleratedCostRecoverySystem-7year")]
+        [System.Runtime.Serialization.EnumMember(Value="ModifiedAcceleratedCostRecoverySystem-7year")]
         ModifiedAcceleratedCostRecoverySystem7year = 6,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 7,
         
-        [JsonProperty("StraightLine-27year")]
+        [System.Runtime.Serialization.EnumMember(Value="StraightLine-27year")]
         StraightLine27year = 8,
         
-        [JsonProperty("StraightLine-31year")]
+        [System.Runtime.Serialization.EnumMember(Value="StraightLine-31year")]
         StraightLine31year = 9,
         
-        [JsonProperty("StraightLine-39year")]
+        [System.Runtime.Serialization.EnumMember(Value="StraightLine-39year")]
         StraightLine39year = 10,
         
-        [JsonProperty("StraightLine-40year")]
+        [System.Runtime.Serialization.EnumMember(Value="StraightLine-40year")]
         StraightLine40year = 11,
     }
     
     [Description("Recurring costs are costs that repeat over time on a regular schedule during the " +
         "study period. If costs associated with equipment do repeat but not on a regular " +
         "schedule, use LifeCycleCost:NonrecurringCost objects instead.")]
-    [JsonObject("LifeCycleCost:RecurringCosts")]
     public class LifeCycleCost_RecurringCosts : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("category")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_RecurringCosts_Category Category { get; set; } = (LifeCycleCost_RecurringCosts_Category)Enum.Parse(typeof(LifeCycleCost_RecurringCosts_Category), "Maintenance");
         
 
@@ -1764,6 +1772,7 @@ public System.Nullable<float> Cost { get; set; } = null;
     "s past the Start of Costs. For most maintenance costs the Start of Costs should " +
     "be Service Period.")]
 [JsonProperty("start_of_costs")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_RecurringCosts_StartOfCosts StartOfCosts { get; set; } = (LifeCycleCost_RecurringCosts_StartOfCosts)Enum.Parse(typeof(LifeCycleCost_RecurringCosts_StartOfCosts), "ServicePeriod");
         
 
@@ -1800,53 +1809,53 @@ public System.Nullable<float> AnnualEscalationRate { get; set; } = null;
     public enum LifeCycleCost_RecurringCosts_Category
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Maintenance")]
+        [System.Runtime.Serialization.EnumMember(Value="Maintenance")]
         Maintenance = 1,
         
-        [JsonProperty("MajorOverhaul")]
+        [System.Runtime.Serialization.EnumMember(Value="MajorOverhaul")]
         MajorOverhaul = 2,
         
-        [JsonProperty("MinorOverhaul")]
+        [System.Runtime.Serialization.EnumMember(Value="MinorOverhaul")]
         MinorOverhaul = 3,
         
-        [JsonProperty("Operation")]
+        [System.Runtime.Serialization.EnumMember(Value="Operation")]
         Operation = 4,
         
-        [JsonProperty("OtherOperational")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherOperational")]
         OtherOperational = 5,
         
-        [JsonProperty("Repair")]
+        [System.Runtime.Serialization.EnumMember(Value="Repair")]
         Repair = 6,
         
-        [JsonProperty("Replacement")]
+        [System.Runtime.Serialization.EnumMember(Value="Replacement")]
         Replacement = 7,
     }
     
     public enum LifeCycleCost_RecurringCosts_StartOfCosts
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BasePeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="BasePeriod")]
         BasePeriod = 1,
         
-        [JsonProperty("ServicePeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="ServicePeriod")]
         ServicePeriod = 2,
     }
     
     [Description("A non-recurring cost happens only once during the study period. For costs that oc" +
         "cur more than once during the study period on a regular schedule, use the LifeCy" +
         "cleCost:RecurringCost object.")]
-    [JsonObject("LifeCycleCost:NonrecurringCost")]
     public class LifeCycleCost_NonrecurringCost : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("category")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_NonrecurringCost_Category Category { get; set; } = (LifeCycleCost_NonrecurringCost_Category)Enum.Parse(typeof(LifeCycleCost_NonrecurringCost_Category), "Construction");
         
 
@@ -1859,6 +1868,7 @@ public System.Nullable<float> Cost { get; set; } = null;
     "s past the Start of Costs. For most non-recurring costs the Start of Costs shoul" +
     "d be Base Period which begins at the base month and year.")]
 [JsonProperty("start_of_costs")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_NonrecurringCost_StartOfCosts StartOfCosts { get; set; } = (LifeCycleCost_NonrecurringCost_StartOfCosts)Enum.Parse(typeof(LifeCycleCost_NonrecurringCost_StartOfCosts), "ServicePeriod");
         
 
@@ -1875,36 +1885,35 @@ public System.Nullable<float> MonthsFromStart { get; set; } = null;
     public enum LifeCycleCost_NonrecurringCost_Category
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Construction")]
+        [System.Runtime.Serialization.EnumMember(Value="Construction")]
         Construction = 1,
         
-        [JsonProperty("OtherCapital")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherCapital")]
         OtherCapital = 2,
         
-        [JsonProperty("Salvage")]
+        [System.Runtime.Serialization.EnumMember(Value="Salvage")]
         Salvage = 3,
     }
     
     public enum LifeCycleCost_NonrecurringCost_StartOfCosts
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BasePeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="BasePeriod")]
         BasePeriod = 1,
         
-        [JsonProperty("ServicePeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="ServicePeriod")]
         ServicePeriod = 2,
     }
     
     [Description("Life cycle cost escalation factors. The values for this object may be found in th" +
         "e annual supplement to NIST Handbook 135 in Tables Ca-1 to Ca-5 and are included" +
         " in an EnergyPlus dataset file.")]
-    [JsonObject("LifeCycleCost:UsePriceEscalation")]
     public class LifeCycleCost_UsePriceEscalation : BHoMObject, IEnergyPlusClass
     {
         
@@ -1915,6 +1924,7 @@ public string LccPriceEscalationName { get; set; } = "";
         
 
 [JsonProperty("resource")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_UsePriceEscalation_Resource Resource { get; set; } = (LifeCycleCost_UsePriceEscalation_Resource)Enum.Parse(typeof(LifeCycleCost_UsePriceEscalation_Resource), "Coal");
         
 
@@ -1929,6 +1939,7 @@ public System.Nullable<float> EscalationStartYear { get; set; } = null;
     " 1 Escalation such as 2010 when the escalation rates are applied. This field and" +
     " the Escalation Start Year define the time that escalation begins.")]
 [JsonProperty("escalation_start_month")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_UsePriceEscalation_EscalationStartMonth EscalationStartMonth { get; set; } = (LifeCycleCost_UsePriceEscalation_EscalationStartMonth)Enum.Parse(typeof(LifeCycleCost_UsePriceEscalation_EscalationStartMonth), "January");
         
 
@@ -1939,105 +1950,105 @@ public string Escalations { get; set; } = "";
     public enum LifeCycleCost_UsePriceEscalation_Resource
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 2,
         
-        [JsonProperty("ElectricityNet")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricityNet")]
         ElectricityNet = 3,
         
-        [JsonProperty("ElectricityProduced")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricityProduced")]
         ElectricityProduced = 4,
         
-        [JsonProperty("ElectricityPurchased")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricityPurchased")]
         ElectricityPurchased = 5,
         
-        [JsonProperty("ElectricitySurplusSold")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricitySurplusSold")]
         ElectricitySurplusSold = 6,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 7,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 8,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 9,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 10,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 11,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 12,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 13,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 14,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 15,
     }
     
     public enum LifeCycleCost_UsePriceEscalation_EscalationStartMonth
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("April")]
+        [System.Runtime.Serialization.EnumMember(Value="April")]
         April = 1,
         
-        [JsonProperty("August")]
+        [System.Runtime.Serialization.EnumMember(Value="August")]
         August = 2,
         
-        [JsonProperty("December")]
+        [System.Runtime.Serialization.EnumMember(Value="December")]
         December = 3,
         
-        [JsonProperty("February")]
+        [System.Runtime.Serialization.EnumMember(Value="February")]
         February = 4,
         
-        [JsonProperty("January")]
+        [System.Runtime.Serialization.EnumMember(Value="January")]
         January = 5,
         
-        [JsonProperty("July")]
+        [System.Runtime.Serialization.EnumMember(Value="July")]
         July = 6,
         
-        [JsonProperty("June")]
+        [System.Runtime.Serialization.EnumMember(Value="June")]
         June = 7,
         
-        [JsonProperty("March")]
+        [System.Runtime.Serialization.EnumMember(Value="March")]
         March = 8,
         
-        [JsonProperty("May")]
+        [System.Runtime.Serialization.EnumMember(Value="May")]
         May = 9,
         
-        [JsonProperty("November")]
+        [System.Runtime.Serialization.EnumMember(Value="November")]
         November = 10,
         
-        [JsonProperty("October")]
+        [System.Runtime.Serialization.EnumMember(Value="October")]
         October = 11,
         
-        [JsonProperty("September")]
+        [System.Runtime.Serialization.EnumMember(Value="September")]
         September = 12,
     }
     
     [Description(@"Used by advanced users to adjust the energy or water use costs for future years. This should not be used for compensating for inflation but should only be used to increase the costs of energy or water based on assumed changes to the actual usage, such as anticipated changes in the future function of the building. The adjustments begin at the start of the service period.")]
-    [JsonObject("LifeCycleCost:UseAdjustment")]
     public class LifeCycleCost_UseAdjustment : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("resource")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_UseAdjustment_Resource Resource { get; set; } = (LifeCycleCost_UseAdjustment_Resource)Enum.Parse(typeof(LifeCycleCost_UseAdjustment_Resource), "Coal");
         
 
@@ -2048,52 +2059,52 @@ public string Multipliers { get; set; } = "";
     public enum LifeCycleCost_UseAdjustment_Resource
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 2,
         
-        [JsonProperty("ElectricityNet")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricityNet")]
         ElectricityNet = 3,
         
-        [JsonProperty("ElectricityProduced")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricityProduced")]
         ElectricityProduced = 4,
         
-        [JsonProperty("ElectricityPurchased")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricityPurchased")]
         ElectricityPurchased = 5,
         
-        [JsonProperty("ElectricitySurplusSold")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricitySurplusSold")]
         ElectricitySurplusSold = 6,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 7,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 8,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 9,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 10,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 11,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 12,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 13,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 14,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 15,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum WindowProperty_FrameAndDivider_DividerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DividedLite")]
+        [System.Runtime.Serialization.EnumMember(Value="DividedLite")]
         DividedLite = 1,
         
-        [JsonProperty("Suspended")]
+        [System.Runtime.Serialization.EnumMember(Value="Suspended")]
         Suspended = 2,
     }
 }

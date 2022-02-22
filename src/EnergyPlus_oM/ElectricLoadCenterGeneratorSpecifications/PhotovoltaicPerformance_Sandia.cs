@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("Describes performance input data needed for specific makes and models of producti" +
                  "on PV panels using the empirical coefficients assembled by Sandia National Labor" +
                  "atory.")]
-    [JsonObject("PhotovoltaicPerformance:Sandia")]
     public class PhotovoltaicPerformance_Sandia : BHoMObject, IEnergyPlusClass
     {
         

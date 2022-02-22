@@ -50,20 +50,29 @@ namespace ClientAssemblyGeneration.Builders
                     //defaultValueCode = defaultValue;
                     break;
                 default:
-                    defaultValueCode = (defaultValue == "") ? "Empty" : defaultValue;
-                    var enumType = FindEnum(propertyType.BaseType);
-                    bool isDefaultValueInside = false;
-                    foreach (CodeTypeMember enumValue in enumType.Members)
+                    //Check if field is enum
+                    if (IsEnumAvailable(propertyType.BaseType))
                     {
-                        if (enumValue.Name==defaultValue)
+                        defaultValueCode = (defaultValue == "") ? "Empty" : defaultValue;
+                        var enumType = FindEnum(propertyType.BaseType);
+                        bool isDefaultValueInside = false;
+                        foreach (CodeTypeMember enumValue in enumType.Members)
                         {
-                            isDefaultValueInside = true;
-                            break;
-                        }   
+                            if (enumValue.Name == defaultValue)
+                            {
+                                isDefaultValueInside = true;
+                                break;
+                            }
+                        }
+                        //If there is no default value and no empty string, the first options will be chosen. Reason: Enums can't be null. It will be up to the user to change it.
+                        defaultValueCode = isDefaultValueInside ? defaultValueCode : enumType.Members[0].Name;
+                        defaultValueCode = "(" + propertyType.BaseType + ")Enum.Parse(typeof(" + propertyType.BaseType + "), \"" + defaultValueCode + "\")";
                     }
-                    //If there is no default value and no empty string, the first options will be chosen. Reason: Enums can't be null. It will be up to the user to change it.
-                    defaultValueCode = isDefaultValueInside ? defaultValueCode : enumType.Members[0].Name;
-                    defaultValueCode = "(" + propertyType.BaseType + ")Enum.Parse(typeof(" + propertyType.BaseType + "), \"" + defaultValueCode + "\")";
+                    //Property is a class
+                    else
+                    {
+                        defaultValueCode = (defaultValue == "") ? "null" : defaultValue;
+                    }
                     break;
 
             }

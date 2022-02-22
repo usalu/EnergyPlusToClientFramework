@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantCondenserLoops
 {
     public enum PlantLoop_FluidType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 1,
         
-        [JsonProperty("UserDefinedFluidType")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefinedFluidType")]
         UserDefinedFluidType = 2,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 3,
     }
 }

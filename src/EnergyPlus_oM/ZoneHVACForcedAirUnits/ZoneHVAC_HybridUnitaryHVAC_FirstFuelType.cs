@@ -1,53 +1,51 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_HybridUnitaryHVAC_FirstFuelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 1,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 2,
         
-        [JsonProperty("DistrictCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictCooling")]
         DistrictCooling = 3,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 4,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 5,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 6,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 7,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 8,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 9,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 10,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 11,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 12,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 13,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 14,
     }
 }

@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines outdoor environmental conditions outside of the building.")]
-    [JsonObject("AirflowNetwork:MultiZone:ExternalNode")]
     public class AirflowNetwork_MultiZone_ExternalNode : BHoMObject, IEnergyPlusClass
     {
         
@@ -27,6 +26,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
                      "at should be evaluated from 0 to 180 degrees Specify No for curves that should b" +
                      "e evaluated from 0 to 360 degrees")]
         [JsonProperty("symmetric_wind_pressure_coefficient_curve")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes SymmetricWindPressureCoefficientCurve { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -35,6 +35,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
                      "and the surface azimuth Specify Absolute to use the wind direction angle directl" +
                      "y")]
         [JsonProperty("wind_angle_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirflowNetwork_MultiZone_ExternalNode_WindAngleType WindAngleType { get; set; } = (AirflowNetwork_MultiZone_ExternalNode_WindAngleType)Enum.Parse(typeof(AirflowNetwork_MultiZone_ExternalNode_WindAngleType), "Absolute");
     }
 }

@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
     [Description("The Single Zone Maximum Humidity Setpoint Manager allows the control of a single " +
                  "zone maximum humidity level. This setpoint manager can be used in conjunction wi" +
                  "th object ZoneControl:Humidistat to detect humidity levels.")]
-    [JsonObject("SetpointManager:SingleZone:Humidity:Maximum")]
     public class SetpointManager_SingleZone_Humidity_Maximum : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     public enum Chiller_Electric_ReformulatedEIR_ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LeavingCondenserWaterTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="LeavingCondenserWaterTemperature")]
         LeavingCondenserWaterTemperature = 1,
         
-        [JsonProperty("Lift")]
+        [System.Runtime.Serialization.EnumMember(Value="Lift")]
         Lift = 2,
     }
 }

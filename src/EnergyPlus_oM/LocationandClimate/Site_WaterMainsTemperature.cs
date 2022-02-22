@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("Used to calculate water mains temperatures delivered by underground water main pi" +
                  "pes. Water mains temperatures are a function of outdoor climate conditions and v" +
                  "ary with time of year.")]
-    [JsonObject("Site:WaterMainsTemperature")]
     public class Site_WaterMainsTemperature : BHoMObject, IEnergyPlusClass
     {
         
@@ -16,6 +15,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         [Description("If calculation method is CorrelationFromWeatherFile, the two numeric input fields" +
                      " are ignored. Instead, EnergyPlus calculates them from weather file.")]
         [JsonProperty("calculation_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Site_WaterMainsTemperature_CalculationMethod CalculationMethod { get; set; } = (Site_WaterMainsTemperature_CalculationMethod)Enum.Parse(typeof(Site_WaterMainsTemperature_CalculationMethod), "CorrelationFromWeatherFile");
         
 

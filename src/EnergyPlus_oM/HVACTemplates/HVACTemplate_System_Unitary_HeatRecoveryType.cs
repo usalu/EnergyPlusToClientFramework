@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_Unitary_HeatRecoveryType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Enthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="Enthalpy")]
         Enthalpy = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("Sensible")]
+        [System.Runtime.Serialization.EnumMember(Value="Sensible")]
         Sensible = 3,
     }
 }

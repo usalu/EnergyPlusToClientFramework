@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("This object references a detailed boiler object and adds it to an HVACTemplate:Pl" +
                  "ant:HotWaterLoop or MixedWaterLoop. The user must create a complete detailed boi" +
                  "ler object with all required curve or performance objects.")]
-    [JsonObject("HVACTemplate:Plant:Boiler:ObjectReference")]
     public class HVACTemplate_Plant_Boiler_ObjectReference : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("boiler_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Plant_Boiler_ObjectReference_BoilerObjectType BoilerObjectType { get; set; } = (HVACTemplate_Plant_Boiler_ObjectReference_BoilerObjectType)Enum.Parse(typeof(HVACTemplate_Plant_Boiler_ObjectReference_BoilerObjectType), "Empty");
         
 
@@ -32,6 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "left blank, will serve a hot water loop if present, or a mixed water loop (if no" +
                      " hot water loop is present).")]
         [JsonProperty("template_plant_loop_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Plant_Boiler_ObjectReference_TemplatePlantLoopType TemplatePlantLoopType { get; set; } = (HVACTemplate_Plant_Boiler_ObjectReference_TemplatePlantLoopType)Enum.Parse(typeof(HVACTemplate_Plant_Boiler_ObjectReference_TemplatePlantLoopType), "HotWater");
     }
 }

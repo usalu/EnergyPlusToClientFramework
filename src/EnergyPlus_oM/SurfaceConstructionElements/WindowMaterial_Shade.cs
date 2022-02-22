@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description(@"Specifies the properties of window shade materials. Reflectance and emissivity properties are assumed to be the same on both sides of the shade. Shades are considered to be perfect diffusers (all transmitted and reflected radiation is hemispherically-diffuse) independent of angle of incidence.")]
-    [JsonObject("WindowMaterial:Shade")]
     public class WindowMaterial_Shade : BHoMObject, IEnergyPlusClass
     {
         

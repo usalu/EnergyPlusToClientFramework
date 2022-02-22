@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     public enum ThermalStorage_Ice_Simple_IceStorageType
     {
         
-        [JsonProperty("IceOnCoilExternal")]
+        [System.Runtime.Serialization.EnumMember(Value="IceOnCoilExternal")]
         IceOnCoilExternal = 0,
         
-        [JsonProperty("IceOnCoilInternal")]
+        [System.Runtime.Serialization.EnumMember(Value="IceOnCoilInternal")]
         IceOnCoilInternal = 1,
     }
 }

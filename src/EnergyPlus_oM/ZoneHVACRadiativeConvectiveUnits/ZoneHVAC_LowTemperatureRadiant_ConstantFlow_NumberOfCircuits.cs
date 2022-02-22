@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 {
     public enum ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CalculateFromCircuitLength")]
+        [System.Runtime.Serialization.EnumMember(Value="CalculateFromCircuitLength")]
         CalculateFromCircuitLength = 1,
         
-        [JsonProperty("OnePerSurface")]
+        [System.Runtime.Serialization.EnumMember(Value="OnePerSurface")]
         OnePerSurface = 2,
     }
 }

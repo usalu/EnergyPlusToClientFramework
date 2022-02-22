@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_System_SuctionTemperatureControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantSuctionTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantSuctionTemperature")]
         ConstantSuctionTemperature = 1,
         
-        [JsonProperty("FloatSuctionTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="FloatSuctionTemperature")]
         FloatSuctionTemperature = 2,
     }
 }

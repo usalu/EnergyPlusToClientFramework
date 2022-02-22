@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     public enum WaterHeater_HeatPump_WrappedCondenser_DxCoilObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coil:WaterHeating:AirToWaterHeatPump:Wrapped")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:WaterHeating:AirToWaterHeatPump:Wrapped")]
         CoilWaterHeatingAirToWaterHeatPumpWrapped = 1,
     }
 }

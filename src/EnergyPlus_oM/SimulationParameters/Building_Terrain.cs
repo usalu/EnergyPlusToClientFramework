@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum Building_Terrain
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("City")]
+        [System.Runtime.Serialization.EnumMember(Value="City")]
         City = 1,
         
-        [JsonProperty("Country")]
+        [System.Runtime.Serialization.EnumMember(Value="Country")]
         Country = 2,
         
-        [JsonProperty("Ocean")]
+        [System.Runtime.Serialization.EnumMember(Value="Ocean")]
         Ocean = 3,
         
-        [JsonProperty("Suburbs")]
+        [System.Runtime.Serialization.EnumMember(Value="Suburbs")]
         Suburbs = 4,
         
-        [JsonProperty("Urban")]
+        [System.Runtime.Serialization.EnumMember(Value="Urban")]
         Urban = 5,
     }
 }

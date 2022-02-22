@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_VAV_MinimumOutdoorAirControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FixedMinimum")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedMinimum")]
         FixedMinimum = 1,
         
-        [JsonProperty("ProportionalMinimum")]
+        [System.Runtime.Serialization.EnumMember(Value="ProportionalMinimum")]
         ProportionalMinimum = 2,
     }
 }

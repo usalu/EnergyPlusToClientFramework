@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
 {
     public enum SolarCollector_IntegralCollectorStorage_BottomSurfaceBoundaryConditionsType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AmbientAir")]
+        [System.Runtime.Serialization.EnumMember(Value="AmbientAir")]
         AmbientAir = 1,
         
-        [JsonProperty("OtherSideConditionsModel")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideConditionsModel")]
         OtherSideConditionsModel = 2,
     }
 }

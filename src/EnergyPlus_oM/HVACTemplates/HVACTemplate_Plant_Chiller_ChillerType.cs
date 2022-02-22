@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Plant_Chiller_ChillerType
     {
         
-        [JsonProperty("DistrictChilledWater")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictChilledWater")]
         DistrictChilledWater = 0,
         
-        [JsonProperty("ElectricCentrifugalChiller")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricCentrifugalChiller")]
         ElectricCentrifugalChiller = 1,
         
-        [JsonProperty("ElectricReciprocatingChiller")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricReciprocatingChiller")]
         ElectricReciprocatingChiller = 2,
         
-        [JsonProperty("ElectricScrewChiller")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricScrewChiller")]
         ElectricScrewChiller = 3,
     }
 }

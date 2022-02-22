@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     public enum AirTerminal_SingleDuct_ConstantVolume_CooledBeam_CooledBeamType
     {
         
-        [JsonProperty("Active")]
+        [System.Runtime.Serialization.EnumMember(Value="Active")]
         Active = 0,
         
-        [JsonProperty("Passive")]
+        [System.Runtime.Serialization.EnumMember(Value="Passive")]
         Passive = 1,
     }
 }

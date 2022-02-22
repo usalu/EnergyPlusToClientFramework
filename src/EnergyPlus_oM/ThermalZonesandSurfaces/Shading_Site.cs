@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("used for shading elements such as trees these items are fixed in space and would " +
                  "not move with relative geometry")]
-    [JsonObject("Shading:Site")]
     public class Shading_Site : BHoMObject, IEnergyPlusClass
     {
         

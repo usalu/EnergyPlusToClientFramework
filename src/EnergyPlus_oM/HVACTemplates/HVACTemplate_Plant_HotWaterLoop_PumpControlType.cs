@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Plant_HotWaterLoop_PumpControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Continuous")]
+        [System.Runtime.Serialization.EnumMember(Value="Continuous")]
         Continuous = 1,
         
-        [JsonProperty("Intermittent")]
+        [System.Runtime.Serialization.EnumMember(Value="Intermittent")]
         Intermittent = 2,
     }
 }

@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Alternate method of describing underground wall constructions")]
-    [JsonObject("Construction:CfactorUndergroundWall")]
     public class Construction_CfactorUndergroundWall : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
 {
     public enum PythonPlugin_OutputVariable_UpdateFrequency
     {
         
-        [JsonProperty("SystemTimestep")]
+        [System.Runtime.Serialization.EnumMember(Value="SystemTimestep")]
         SystemTimestep = 0,
         
-        [JsonProperty("ZoneTimestep")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneTimestep")]
         ZoneTimestep = 1,
     }
 }

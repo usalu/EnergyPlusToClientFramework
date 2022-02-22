@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Fans
 {
     public enum Fan_ZoneExhaust_SystemAvailabilityManagerCouplingMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coupled")]
+        [System.Runtime.Serialization.EnumMember(Value="Coupled")]
         Coupled = 1,
         
-        [JsonProperty("Decoupled")]
+        [System.Runtime.Serialization.EnumMember(Value="Decoupled")]
         Decoupled = 2,
     }
 }

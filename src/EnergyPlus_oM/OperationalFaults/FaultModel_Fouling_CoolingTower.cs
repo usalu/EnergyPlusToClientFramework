@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes the fault of fouling cooling towers")]
-    [JsonObject("FaultModel:Fouling:CoolingTower")]
     public class FaultModel_Fouling_CoolingTower : BHoMObject, IEnergyPlusClass
     {
         
@@ -21,6 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 
         [Description("Enter the type of the cooling tower affected")]
         [JsonProperty("cooling_tower_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FaultModel_Fouling_CoolingTower_CoolingTowerObjectType CoolingTowerObjectType { get; set; } = (FaultModel_Fouling_CoolingTower_CoolingTowerObjectType)Enum.Parse(typeof(FaultModel_Fouling_CoolingTower_CoolingTowerObjectType), "CoolingTowerSingleSpeed");
         
 

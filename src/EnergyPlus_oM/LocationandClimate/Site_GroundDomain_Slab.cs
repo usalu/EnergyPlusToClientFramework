@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Ground-coupled slab model for on-grade and in-grade cases with or without insulat" +
                  "ion.")]
-    [JsonObject("Site:GroundDomain:Slab")]
     public class Site_GroundDomain_Slab : BHoMObject, IEnergyPlusClass
     {
         
@@ -46,6 +45,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         
 
         [JsonProperty("undisturbed_ground_temperature_model_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Site_GroundDomain_Slab_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (Site_GroundDomain_Slab_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(Site_GroundDomain_Slab_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
@@ -64,6 +64,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 
         [Description("This field specifies whether the slab is located \"in-grade\" or \"on-grade\"")]
         [JsonProperty("slab_location")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Site_GroundDomain_Slab_SlabLocation SlabLocation { get; set; } = (Site_GroundDomain_Slab_SlabLocation)Enum.Parse(typeof(Site_GroundDomain_Slab_SlabLocation), "InGrade");
         
 
@@ -75,6 +76,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         [Description("This field specifies the presence of insulation beneath the slab. Only required f" +
                      "or in-grade case.")]
         [JsonProperty("horizontal_insulation")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes HorizontalInsulation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -86,6 +88,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         [Description("This field specifies whether the horizontal insulation fully insulates the surfac" +
                      "e or is perimeter only insulation")]
         [JsonProperty("horizontal_insulation_extents")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Site_GroundDomain_Slab_HorizontalInsulationExtents HorizontalInsulationExtents { get; set; } = (Site_GroundDomain_Slab_HorizontalInsulationExtents)Enum.Parse(typeof(Site_GroundDomain_Slab_HorizontalInsulationExtents), "Full");
         
 
@@ -96,6 +99,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 
         [Description("This field specifies the presence of vertical insulation at the slab edge.")]
         [JsonProperty("vertical_insulation")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes VerticalInsulation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -112,6 +116,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 
         [Description("This field specifies the ground domain simulation timestep.")]
         [JsonProperty("simulation_timestep")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Site_GroundDomain_Slab_SimulationTimestep SimulationTimestep { get; set; } = (Site_GroundDomain_Slab_SimulationTimestep)Enum.Parse(typeof(Site_GroundDomain_Slab_SimulationTimestep), "Hourly");
         
 

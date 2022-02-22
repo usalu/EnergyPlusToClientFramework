@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description("The ground domain object for underground piping system simulation.")]
-    [JsonObject("PipingSystem:Underground:Domain")]
     public class PipingSystem_Underground_Domain : BHoMObject, IEnergyPlusClass
     {
         
@@ -33,6 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
         [JsonProperty("x_direction_mesh_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PipingSystem_Underground_Domain_XDirectionMeshType XDirectionMeshType { get; set; } = (PipingSystem_Underground_Domain_XDirectionMeshType)Enum.Parse(typeof(PipingSystem_Underground_Domain_XDirectionMeshType), "SymmetricGeometric");
         
 
@@ -47,6 +47,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
         [JsonProperty("y_direction_mesh_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PipingSystem_Underground_Domain_YDirectionMeshType YDirectionMeshType { get; set; } = (PipingSystem_Underground_Domain_YDirectionMeshType)Enum.Parse(typeof(PipingSystem_Underground_Domain_YDirectionMeshType), "SymmetricGeometric");
         
 
@@ -61,6 +62,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
         [JsonProperty("z_direction_mesh_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PipingSystem_Underground_Domain_ZDirectionMeshType ZDirectionMeshType { get; set; } = (PipingSystem_Underground_Domain_ZDirectionMeshType)Enum.Parse(typeof(PipingSystem_Underground_Domain_ZDirectionMeshType), "SymmetricGeometric");
         
 
@@ -92,6 +94,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
         [JsonProperty("undisturbed_ground_temperature_model_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
@@ -102,6 +105,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         [Description("if Yes, then the following basement inputs are used if No, then the following bas" +
                      "ement inputs are *ignored*")]
         [JsonProperty("this_domain_includes_basement_surface_interaction")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes ThisDomainIncludesBasementSurfaceInteraction { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -117,6 +121,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 
         [Description("Required only if Domain Has Basement Interaction")]
         [JsonProperty("shift_pipe_x_coordinates_by_basement_width")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth ShiftPipeXCoordinatesByBasementWidth { get; set; } = (PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth)Enum.Parse(typeof(PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth), "No");
         
 

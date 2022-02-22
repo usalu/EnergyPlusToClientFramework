@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     public enum PlantComponent_TemperatureSource_TemperatureSpecificationType
     {
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 0,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 1,
     }
 }

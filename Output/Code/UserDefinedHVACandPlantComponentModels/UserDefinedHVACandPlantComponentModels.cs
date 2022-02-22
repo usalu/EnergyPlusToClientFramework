@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
     
     [Description("Defines a generic zone air unit for custom modeling using Energy Management Syste" +
         "m or External Interface")]
-    [JsonObject("ZoneHVAC:ForcedAir:UserDefined")]
     public class ZoneHVAC_ForcedAir_UserDefined : BHoMObject, IEnergyPlusClass
     {
         
@@ -146,7 +145,6 @@ public string AmbientZoneName { get; set; } = "";
     
     [Description("Defines a generic single duct air terminal unit for custom modeling using Energy " +
         "Management System or External Interface")]
-    [JsonObject("AirTerminal:SingleDuct:UserDefined")]
     public class AirTerminal_SingleDuct_UserDefined : BHoMObject, IEnergyPlusClass
     {
         
@@ -216,7 +214,6 @@ public string AmbientZoneName { get; set; } = "";
     
     [Description("Defines a generic air system component for custom modeling using Energy Managemen" +
         "t System or External Interface")]
-    [JsonObject("Coil:UserDefined")]
     public class Coil_UserDefined : BHoMObject, IEnergyPlusClass
     {
         
@@ -254,6 +251,7 @@ public string AirConnection2OutletNodeName { get; set; } = "";
         
 
 [JsonProperty("plant_connection_is_used")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_UserDefined_PlantConnectionIsUsed PlantConnectionIsUsed { get; set; } = (Coil_UserDefined_PlantConnectionIsUsed)Enum.Parse(typeof(Coil_UserDefined_PlantConnectionIsUsed), "No");
         
 
@@ -283,16 +281,15 @@ public string AmbientZoneName { get; set; } = "";
     public enum Coil_UserDefined_PlantConnectionIsUsed
     {
         
-        [JsonProperty("No")]
+        [System.Runtime.Serialization.EnumMember(Value="No")]
         No = 0,
         
-        [JsonProperty("Yes")]
+        [System.Runtime.Serialization.EnumMember(Value="Yes")]
         Yes = 1,
     }
     
     [Description("Defines a generic plant component for custom modeling using Energy Management Sys" +
         "tem or External Interface")]
-    [JsonObject("PlantComponent:UserDefined")]
     public class PlantComponent_UserDefined : BHoMObject, IEnergyPlusClass
     {
         
@@ -314,10 +311,12 @@ public string PlantConnection1OutletNodeName { get; set; } = "";
         
 
 [JsonProperty("plant_connection_1_loading_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection1LoadingMode PlantConnection1LoadingMode { get; set; } = (PlantComponent_UserDefined_PlantConnection1LoadingMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection1LoadingMode), "DemandsLoad");
         
 
 [JsonProperty("plant_connection_1_loop_flow_request_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection1LoopFlowRequestMode PlantConnection1LoopFlowRequestMode { get; set; } = (PlantComponent_UserDefined_PlantConnection1LoopFlowRequestMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection1LoopFlowRequestMode), "NeedsFlowAndTurnsLoopOn");
         
 
@@ -338,10 +337,12 @@ public string PlantConnection2OutletNodeName { get; set; } = "";
         
 
 [JsonProperty("plant_connection_2_loading_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection2LoadingMode PlantConnection2LoadingMode { get; set; } = (PlantComponent_UserDefined_PlantConnection2LoadingMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection2LoadingMode), "DemandsLoad");
         
 
 [JsonProperty("plant_connection_2_loop_flow_request_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection2LoopFlowRequestMode PlantConnection2LoopFlowRequestMode { get; set; } = (PlantComponent_UserDefined_PlantConnection2LoopFlowRequestMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection2LoopFlowRequestMode), "NeedsFlowAndTurnsLoopOn");
         
 
@@ -362,10 +363,12 @@ public string PlantConnection3OutletNodeName { get; set; } = "";
         
 
 [JsonProperty("plant_connection_3_loading_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection3LoadingMode PlantConnection3LoadingMode { get; set; } = (PlantComponent_UserDefined_PlantConnection3LoadingMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection3LoadingMode), "DemandsLoad");
         
 
 [JsonProperty("plant_connection_3_loop_flow_request_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection3LoopFlowRequestMode PlantConnection3LoopFlowRequestMode { get; set; } = (PlantComponent_UserDefined_PlantConnection3LoopFlowRequestMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection3LoopFlowRequestMode), "NeedsFlowAndTurnsLoopOn");
         
 
@@ -386,10 +389,12 @@ public string PlantConnection4OutletNodeName { get; set; } = "";
         
 
 [JsonProperty("plant_connection_4_loading_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection4LoadingMode PlantConnection4LoadingMode { get; set; } = (PlantComponent_UserDefined_PlantConnection4LoadingMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection4LoadingMode), "DemandsLoad");
         
 
 [JsonProperty("plant_connection_4_loop_flow_request_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection4LoopFlowRequestMode PlantConnection4LoopFlowRequestMode { get; set; } = (PlantComponent_UserDefined_PlantConnection4LoopFlowRequestMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection4LoopFlowRequestMode), "NeedsFlowAndTurnsLoopOn");
         
 
@@ -429,134 +434,133 @@ public string AmbientZoneName { get; set; } = "";
     public enum PlantComponent_UserDefined_PlantConnection1LoadingMode
     {
         
-        [JsonProperty("DemandsLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="DemandsLoad")]
         DemandsLoad = 0,
         
-        [JsonProperty("MeetsLoadWithNominalCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetsLoadWithNominalCapacity")]
         MeetsLoadWithNominalCapacity = 1,
         
-        [JsonProperty("MeetsLoadWithNominalCapacityHiOutLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetsLoadWithNominalCapacityHiOutLimit")]
         MeetsLoadWithNominalCapacityHiOutLimit = 2,
         
-        [JsonProperty("MeetsLoadWithNominalCapacityLowOutLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetsLoadWithNominalCapacityLowOutLimit")]
         MeetsLoadWithNominalCapacityLowOutLimit = 3,
         
-        [JsonProperty("MeetsLoadWithPassiveCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetsLoadWithPassiveCapacity")]
         MeetsLoadWithPassiveCapacity = 4,
     }
     
     public enum PlantComponent_UserDefined_PlantConnection1LoopFlowRequestMode
     {
         
-        [JsonProperty("NeedsFlowAndTurnsLoopOn")]
+        [System.Runtime.Serialization.EnumMember(Value="NeedsFlowAndTurnsLoopOn")]
         NeedsFlowAndTurnsLoopOn = 0,
         
-        [JsonProperty("NeedsFlowIfLoopOn")]
+        [System.Runtime.Serialization.EnumMember(Value="NeedsFlowIfLoopOn")]
         NeedsFlowIfLoopOn = 1,
         
-        [JsonProperty("ReceivesWhateverFlowAvailable")]
+        [System.Runtime.Serialization.EnumMember(Value="ReceivesWhateverFlowAvailable")]
         ReceivesWhateverFlowAvailable = 2,
     }
     
     public enum PlantComponent_UserDefined_PlantConnection2LoadingMode
     {
         
-        [JsonProperty("DemandsLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="DemandsLoad")]
         DemandsLoad = 0,
         
-        [JsonProperty("MeetLoadWithNominalCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetLoadWithNominalCapacity")]
         MeetLoadWithNominalCapacity = 1,
         
-        [JsonProperty("MeetLoadWithNominalCapacityHiOutLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetLoadWithNominalCapacityHiOutLimit")]
         MeetLoadWithNominalCapacityHiOutLimit = 2,
         
-        [JsonProperty("MeetLoadWithNominalCapacityLowOutLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetLoadWithNominalCapacityLowOutLimit")]
         MeetLoadWithNominalCapacityLowOutLimit = 3,
         
-        [JsonProperty("MeetLoadWithPassiveCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetLoadWithPassiveCapacity")]
         MeetLoadWithPassiveCapacity = 4,
     }
     
     public enum PlantComponent_UserDefined_PlantConnection2LoopFlowRequestMode
     {
         
-        [JsonProperty("NeedsFlowAndTurnsLoopOn")]
+        [System.Runtime.Serialization.EnumMember(Value="NeedsFlowAndTurnsLoopOn")]
         NeedsFlowAndTurnsLoopOn = 0,
         
-        [JsonProperty("NeedsFlowIfLoopOn")]
+        [System.Runtime.Serialization.EnumMember(Value="NeedsFlowIfLoopOn")]
         NeedsFlowIfLoopOn = 1,
         
-        [JsonProperty("ReceivesWhateverFlowAvailable")]
+        [System.Runtime.Serialization.EnumMember(Value="ReceivesWhateverFlowAvailable")]
         ReceivesWhateverFlowAvailable = 2,
     }
     
     public enum PlantComponent_UserDefined_PlantConnection3LoadingMode
     {
         
-        [JsonProperty("DemandsLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="DemandsLoad")]
         DemandsLoad = 0,
         
-        [JsonProperty("MeetLoadWithNominalCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetLoadWithNominalCapacity")]
         MeetLoadWithNominalCapacity = 1,
         
-        [JsonProperty("MeetLoadWithNominalCapacityHiOutLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetLoadWithNominalCapacityHiOutLimit")]
         MeetLoadWithNominalCapacityHiOutLimit = 2,
         
-        [JsonProperty("MeetLoadWithNominalCapacityLowOutLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetLoadWithNominalCapacityLowOutLimit")]
         MeetLoadWithNominalCapacityLowOutLimit = 3,
         
-        [JsonProperty("MeetLoadWithPassiveCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetLoadWithPassiveCapacity")]
         MeetLoadWithPassiveCapacity = 4,
     }
     
     public enum PlantComponent_UserDefined_PlantConnection3LoopFlowRequestMode
     {
         
-        [JsonProperty("NeedsFlowAndTurnsLoopOn")]
+        [System.Runtime.Serialization.EnumMember(Value="NeedsFlowAndTurnsLoopOn")]
         NeedsFlowAndTurnsLoopOn = 0,
         
-        [JsonProperty("NeedsFlowIfLoopOn")]
+        [System.Runtime.Serialization.EnumMember(Value="NeedsFlowIfLoopOn")]
         NeedsFlowIfLoopOn = 1,
         
-        [JsonProperty("ReceivesWhateverFlowAvailable")]
+        [System.Runtime.Serialization.EnumMember(Value="ReceivesWhateverFlowAvailable")]
         ReceivesWhateverFlowAvailable = 2,
     }
     
     public enum PlantComponent_UserDefined_PlantConnection4LoadingMode
     {
         
-        [JsonProperty("DemandsLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="DemandsLoad")]
         DemandsLoad = 0,
         
-        [JsonProperty("MeetLoadWithNominalCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetLoadWithNominalCapacity")]
         MeetLoadWithNominalCapacity = 1,
         
-        [JsonProperty("MeetLoadWithNominalCapacityHiOutLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetLoadWithNominalCapacityHiOutLimit")]
         MeetLoadWithNominalCapacityHiOutLimit = 2,
         
-        [JsonProperty("MeetLoadWithNominalCapacityLowOutLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetLoadWithNominalCapacityLowOutLimit")]
         MeetLoadWithNominalCapacityLowOutLimit = 3,
         
-        [JsonProperty("MeetLoadWithPassiveCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetLoadWithPassiveCapacity")]
         MeetLoadWithPassiveCapacity = 4,
     }
     
     public enum PlantComponent_UserDefined_PlantConnection4LoopFlowRequestMode
     {
         
-        [JsonProperty("NeedsFlowAndTurnsLoopOn")]
+        [System.Runtime.Serialization.EnumMember(Value="NeedsFlowAndTurnsLoopOn")]
         NeedsFlowAndTurnsLoopOn = 0,
         
-        [JsonProperty("NeedsFlowIfLoopOn")]
+        [System.Runtime.Serialization.EnumMember(Value="NeedsFlowIfLoopOn")]
         NeedsFlowIfLoopOn = 1,
         
-        [JsonProperty("ReceivesWhateverFlowAvailable")]
+        [System.Runtime.Serialization.EnumMember(Value="ReceivesWhateverFlowAvailable")]
         ReceivesWhateverFlowAvailable = 2,
     }
     
     [Description("Defines a generic plant operation scheme for custom supervisory control using Ene" +
         "rgy Management System or External Interface to dispatch loads")]
-    [JsonObject("PlantEquipmentOperation:UserDefined")]
     public class PlantEquipmentOperation_UserDefined : BHoMObject, IEnergyPlusClass
     {
         

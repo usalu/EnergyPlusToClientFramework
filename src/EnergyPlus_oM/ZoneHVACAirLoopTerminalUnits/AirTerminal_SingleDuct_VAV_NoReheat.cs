@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     [Description("Central air system terminal unit, single duct, variable volume, with no reheat co" +
                  "il.")]
-    [JsonObject("AirTerminal:SingleDuct:VAV:NoReheat")]
     public class AirTerminal_SingleDuct_VAV_NoReheat : BHoMObject, IEnergyPlusClass
     {
         
@@ -35,6 +34,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
                      "rate) Scheduled = Scheduled Minimum Air Flow Fraction (a fraction of Maximum Air" +
                      " Flow")]
         [JsonProperty("zone_minimum_air_flow_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirTerminal_SingleDuct_VAV_NoReheat_ZoneMinimumAirFlowInputMethod ZoneMinimumAirFlowInputMethod { get; set; } = (AirTerminal_SingleDuct_VAV_NoReheat_ZoneMinimumAirFlowInputMethod)Enum.Parse(typeof(AirTerminal_SingleDuct_VAV_NoReheat_ZoneMinimumAirFlowInputMethod), "Constant");
         
 

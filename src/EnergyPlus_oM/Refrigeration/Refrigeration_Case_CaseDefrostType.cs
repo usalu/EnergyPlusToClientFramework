@@ -1,35 +1,33 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_Case_CaseDefrostType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Electric")]
         Electric = 1,
         
-        [JsonProperty("ElectricWithTemperatureTermination")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricWithTemperatureTermination")]
         ElectricWithTemperatureTermination = 2,
         
-        [JsonProperty("HotFluid")]
+        [System.Runtime.Serialization.EnumMember(Value="HotFluid")]
         HotFluid = 3,
         
-        [JsonProperty("HotFluidWithTemperatureTermination")]
+        [System.Runtime.Serialization.EnumMember(Value="HotFluidWithTemperatureTermination")]
         HotFluidWithTemperatureTermination = 4,
         
-        [JsonProperty("HotGas")]
+        [System.Runtime.Serialization.EnumMember(Value="HotGas")]
         HotGas = 5,
         
-        [JsonProperty("HotGasWithTemperatureTermination")]
+        [System.Runtime.Serialization.EnumMember(Value="HotGasWithTemperatureTermination")]
         HotGasWithTemperatureTermination = 6,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 7,
         
-        [JsonProperty("OffCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="OffCycle")]
         OffCycle = 8,
     }
 }

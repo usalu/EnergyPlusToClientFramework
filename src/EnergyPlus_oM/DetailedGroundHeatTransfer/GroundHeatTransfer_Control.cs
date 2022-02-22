@@ -67,16 +67,17 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
     
     [Description("Object determines if the Slab and Basement preprocessors are going to be executed" +
         ".")]
-    [JsonObject("GroundHeatTransfer:Control")]
     public class GroundHeatTransfer_Control : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("run_basement_preprocessor")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RunBasementPreprocessor { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("run_slab_preprocessor")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RunSlabPreprocessor { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
 }

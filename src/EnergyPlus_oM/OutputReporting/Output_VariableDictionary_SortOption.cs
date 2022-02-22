@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_VariableDictionary_SortOption
     {
         
-        [JsonProperty("Name")]
+        [System.Runtime.Serialization.EnumMember(Value="Name")]
         Name = 0,
         
-        [JsonProperty("Unsorted")]
+        [System.Runtime.Serialization.EnumMember(Value="Unsorted")]
         Unsorted = 1,
     }
 }

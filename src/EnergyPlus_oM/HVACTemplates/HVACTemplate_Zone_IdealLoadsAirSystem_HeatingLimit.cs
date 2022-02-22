@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Zone_IdealLoadsAirSystem_HeatingLimit
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LimitCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="LimitCapacity")]
         LimitCapacity = 1,
         
-        [JsonProperty("LimitFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="LimitFlowRate")]
         LimitFlowRate = 2,
         
-        [JsonProperty("LimitFlowRateAndCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="LimitFlowRateAndCapacity")]
         LimitFlowRateAndCapacity = 3,
         
-        [JsonProperty("NoLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="NoLimit")]
         NoLimit = 4,
     }
 }

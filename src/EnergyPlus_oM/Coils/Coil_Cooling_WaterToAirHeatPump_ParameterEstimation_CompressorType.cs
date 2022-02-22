@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     public enum Coil_Cooling_WaterToAirHeatPump_ParameterEstimation_CompressorType
     {
         
-        [JsonProperty("Reciprocating")]
+        [System.Runtime.Serialization.EnumMember(Value="Reciprocating")]
         Reciprocating = 0,
         
-        [JsonProperty("Rotary")]
+        [System.Runtime.Serialization.EnumMember(Value="Rotary")]
         Rotary = 1,
         
-        [JsonProperty("Scroll")]
+        [System.Runtime.Serialization.EnumMember(Value="Scroll")]
         Scroll = 2,
     }
 }

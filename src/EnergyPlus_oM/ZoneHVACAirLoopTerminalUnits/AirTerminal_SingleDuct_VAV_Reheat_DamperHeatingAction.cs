@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     public enum AirTerminal_SingleDuct_VAV_Reheat_DamperHeatingAction
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Normal")]
+        [System.Runtime.Serialization.EnumMember(Value="Normal")]
         Normal = 1,
         
-        [JsonProperty("Reverse")]
+        [System.Runtime.Serialization.EnumMember(Value="Reverse")]
         Reverse = 2,
         
-        [JsonProperty("ReverseWithLimits")]
+        [System.Runtime.Serialization.EnumMember(Value="ReverseWithLimits")]
         ReverseWithLimits = 3,
     }
 }

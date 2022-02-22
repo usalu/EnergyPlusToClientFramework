@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     [Description("Central air system terminal unit, single duct, variable volume, induction unit wi" +
                  "th hot water reheat coil and chilled water recool coil.")]
-    [JsonObject("AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction")]
     public class AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction : BHoMObject, IEnergyPlusClass
     {
         
@@ -43,6 +42,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
         
 
         [JsonProperty("heating_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_HeatingCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_HeatingCoilObjectType), "CoilHeatingWater");
         
 
@@ -65,6 +65,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
         
 
         [JsonProperty("cooling_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_CoolingCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_CoolingCoilObjectType), "CoilCoolingWater");
         
 

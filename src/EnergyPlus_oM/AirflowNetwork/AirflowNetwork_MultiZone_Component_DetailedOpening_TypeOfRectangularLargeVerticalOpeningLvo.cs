@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     public enum AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLargeVerticalOpeningLvo
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HorizontallyPivoted")]
+        [System.Runtime.Serialization.EnumMember(Value="HorizontallyPivoted")]
         HorizontallyPivoted = 1,
         
-        [JsonProperty("NonPivoted")]
+        [System.Runtime.Serialization.EnumMember(Value="NonPivoted")]
         NonPivoted = 2,
     }
 }

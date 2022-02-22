@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     [Description(@"This object calculates the performance of zone (room) air dehumidifiers. Meant to model conventional direct expansion (DX) cooling-based room air dehumidifiers (reject 100% of condenser heat to the zone air), but this object might be able to be used to model other room air dehumidifier types.")]
-    [JsonObject("ZoneHVAC:Dehumidifier:DX")]
     public class ZoneHVAC_Dehumidifier_DX : BHoMObject, IEnergyPlusClass
     {
         

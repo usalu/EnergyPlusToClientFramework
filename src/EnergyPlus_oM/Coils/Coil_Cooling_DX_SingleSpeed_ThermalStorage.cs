@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     [Description("Direct expansion (DX) cooling coil and condensing unit (includes electric compres" +
                  "sor and condenser fan), single-speed with packaged integrated thermal storage fo" +
                  "r cooling.")]
-    [JsonObject("Coil:Cooling:DX:SingleSpeed:ThermalStorage")]
     public class Coil_Cooling_DX_SingleSpeed_ThermalStorage : BHoMObject, IEnergyPlusClass
     {
         
@@ -21,6 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("operating_mode_control_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Cooling_DX_SingleSpeed_ThermalStorage_OperatingModeControlMethod OperatingModeControlMethod { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_OperatingModeControlMethod)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_OperatingModeControlMethod), "EMSControlled");
         
 
@@ -32,6 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("storage_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Cooling_DX_SingleSpeed_ThermalStorage_StorageType StorageType { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_StorageType)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_StorageType), "Ice");
         
 
@@ -84,6 +85,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("cooling_only_mode_available")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingOnlyModeAvailable CoolingOnlyModeAvailable { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingOnlyModeAvailable)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingOnlyModeAvailable), "No");
         
 
@@ -153,6 +155,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("cooling_and_charge_mode_available")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndChargeModeAvailable CoolingAndChargeModeAvailable { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndChargeModeAvailable)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndChargeModeAvailable), "No");
         
 
@@ -281,6 +284,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("cooling_and_discharge_mode_available")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndDischargeModeAvailable CoolingAndDischargeModeAvailable { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndDischargeModeAvailable)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndDischargeModeAvailable), "No");
         
 
@@ -420,6 +424,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("charge_only_mode_available")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Cooling_DX_SingleSpeed_ThermalStorage_ChargeOnlyModeAvailable ChargeOnlyModeAvailable { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_ChargeOnlyModeAvailable)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_ChargeOnlyModeAvailable), "No");
         
 
@@ -454,6 +459,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("discharge_only_mode_available")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Cooling_DX_SingleSpeed_ThermalStorage_DischargeOnlyModeAvailable DischargeOnlyModeAvailable { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_DischargeOnlyModeAvailable)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_DischargeOnlyModeAvailable), "No");
         
 
@@ -569,6 +575,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("condenser_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Cooling_DX_SingleSpeed_ThermalStorage_CondenserType CondenserType { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_CondenserType)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_CondenserType), "AirCooled");
         
 

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Zone_VRF_HeatPumpHeatingCoilType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 1,
         
-        [JsonProperty("VariableRefrigerantFlowDX")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableRefrigerantFlowDX")]
         VariableRefrigerantFlowDX = 2,
     }
 }

@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
 {
     public enum AirLoopHVAC_UnitarySystem_NoLoadSupplyAirFlowRateMethod
     {
         
-        [JsonProperty("FlowPerCoolingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerCoolingCapacity")]
         FlowPerCoolingCapacity = 0,
         
-        [JsonProperty("FlowPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerFloorArea")]
         FlowPerFloorArea = 1,
         
-        [JsonProperty("FlowPerHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerHeatingCapacity")]
         FlowPerHeatingCapacity = 2,
         
-        [JsonProperty("FractionOfAutosizedCoolingValue")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedCoolingValue")]
         FractionOfAutosizedCoolingValue = 3,
         
-        [JsonProperty("FractionOfAutosizedHeatingValue")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingValue")]
         FractionOfAutosizedHeatingValue = 4,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 5,
         
-        [JsonProperty("SupplyAirFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplyAirFlowRate")]
         SupplyAirFlowRate = 6,
     }
 }

@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     [Description("Properties for vertical ground heat exchanger systems")]
-    [JsonObject("GroundHeatExchanger:Vertical:Properties")]
     public class GroundHeatExchanger_Vertical_Properties : BHoMObject, IEnergyPlusClass
     {
         

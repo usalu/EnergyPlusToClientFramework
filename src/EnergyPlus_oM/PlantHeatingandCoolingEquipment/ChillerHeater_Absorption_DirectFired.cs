@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description("Direct fired gas absorption chiller-heater using performance curves similar to DO" +
                  "E-2")]
-    [JsonObject("ChillerHeater:Absorption:DirectFired")]
     public class ChillerHeater_Absorption_DirectFired : BHoMObject, IEnergyPlusClass
     {
         
@@ -158,11 +157,13 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 
         [Description(@"Sets the second independent variable in the three temperature dependent performance curves to either the leaving or entering condenser water temperature. Manufacturers express the performance of their chillers using either the leaving condenser water temperature (to the tower) or the entering condenser water temperature (from the tower).")]
         [JsonProperty("temperature_curve_input_variable")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ChillerHeater_Absorption_DirectFired_TemperatureCurveInputVariable TemperatureCurveInputVariable { get; set; } = (ChillerHeater_Absorption_DirectFired_TemperatureCurveInputVariable)Enum.Parse(typeof(ChillerHeater_Absorption_DirectFired_TemperatureCurveInputVariable), "EnteringCondenser");
         
 
         [Description("The condenser can either be air cooled or connected to a cooling tower.")]
         [JsonProperty("condenser_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ChillerHeater_Absorption_DirectFired_CondenserType CondenserType { get; set; } = (ChillerHeater_Absorption_DirectFired_CondenserType)Enum.Parse(typeof(ChillerHeater_Absorption_DirectFired_CondenserType), "WaterCooled");
         
 
@@ -177,6 +178,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("fuel_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ChillerHeater_Absorption_DirectFired_FuelType FuelType { get; set; } = (ChillerHeater_Absorption_DirectFired_FuelType)Enum.Parse(typeof(ChillerHeater_Absorption_DirectFired_FuelType), "NaturalGas");
         
 

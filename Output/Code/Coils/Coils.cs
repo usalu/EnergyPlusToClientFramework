@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     
     [Description("Chilled water cooling coil, NTU-effectiveness model, with inputs for design enter" +
         "ing and leaving conditions.")]
-    [JsonObject("Coil:Cooling:Water")]
     public class Coil_Cooling_Water : BHoMObject, IEnergyPlusClass
     {
         
@@ -124,10 +123,12 @@ public string AirOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("type_of_analysis")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_Water_TypeOfAnalysis TypeOfAnalysis { get; set; } = (Coil_Cooling_Water_TypeOfAnalysis)Enum.Parse(typeof(Coil_Cooling_Water_TypeOfAnalysis), "SimpleAnalysis");
         
 
 [JsonProperty("heat_exchanger_configuration")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_Water_HeatExchangerConfiguration HeatExchangerConfiguration { get; set; } = (Coil_Cooling_Water_HeatExchangerConfiguration)Enum.Parse(typeof(Coil_Cooling_Water_HeatExchangerConfiguration), "CounterFlow");
         
 
@@ -145,32 +146,31 @@ public System.Nullable<float> DesignWaterTemperatureDifference { get; set; } = n
     public enum Coil_Cooling_Water_TypeOfAnalysis
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DetailedAnalysis")]
+        [System.Runtime.Serialization.EnumMember(Value="DetailedAnalysis")]
         DetailedAnalysis = 1,
         
-        [JsonProperty("SimpleAnalysis")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleAnalysis")]
         SimpleAnalysis = 2,
     }
     
     public enum Coil_Cooling_Water_HeatExchangerConfiguration
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CounterFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="CounterFlow")]
         CounterFlow = 1,
         
-        [JsonProperty("CrossFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlow")]
         CrossFlow = 2,
     }
     
     [Description("Chilled water cooling coil, detailed flat fin coil model for continuous plate fin" +
         "s, with inputs for detailed coil geometry specifications.")]
-    [JsonObject("Coil:Cooling:Water:DetailedGeometry")]
     public class Coil_Cooling_Water_DetailedGeometry : BHoMObject, IEnergyPlusClass
     {
         
@@ -279,7 +279,6 @@ public System.Nullable<float> DesignWaterTemperatureDifference { get; set; } = n
     }
     
     [Description(@"New general DX cooling coil supporting on or more speeds and one or or operating  modes. Includes DX evaporator coil, compressor, and condenser. Object is currently only supported by the AIRLOOPHVAC:UNITARYSYSTEM object. Remaining Coil:Cooling:DX* objects will be deprecated at a future date, after which, this object will replace all other Coil:Cooling:DX* objects.")]
-    [JsonObject("Coil:Cooling:DX")]
     public class Coil_Cooling_DX : BHoMObject, IEnergyPlusClass
     {
         
@@ -329,7 +328,6 @@ public string EvaporativeCondenserSupplyWaterStorageTankName { get; set; } = "";
     [Description("DX cooling coil performance specification referencing one or more operating modes" +
         ". Mode 1 is always the base design operating mode. Additional modes are optional" +
         " states such as subcool reheat for humidity control.")]
-    [JsonObject("Coil:Cooling:DX:CurveFit:Performance")]
     public class Coil_Cooling_DX_CurveFit_Performance : BHoMObject, IEnergyPlusClass
     {
         
@@ -352,6 +350,7 @@ public System.Nullable<float> UnitInternalStaticAirPressure { get; set; } = null
         
 
 [JsonProperty("capacity_control_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_CurveFit_Performance_CapacityControlMethod CapacityControlMethod { get; set; } = (Coil_Cooling_DX_CurveFit_Performance_CapacityControlMethod)Enum.Parse(typeof(Coil_Cooling_DX_CurveFit_Performance_CapacityControlMethod), "Discrete");
         
 
@@ -372,6 +371,7 @@ public string EvaporativeCondenserBasinHeaterOperatingScheduleName { get; set; }
         
 
 [JsonProperty("compressor_fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_CurveFit_Performance_CompressorFuelType CompressorFuelType { get; set; } = (Coil_Cooling_DX_CurveFit_Performance_CompressorFuelType)Enum.Parse(typeof(Coil_Cooling_DX_CurveFit_Performance_CompressorFuelType), "Electricity");
         
 
@@ -393,53 +393,52 @@ public string AlternativeOperatingMode2 { get; set; } = "";
     public enum Coil_Cooling_DX_CurveFit_Performance_CapacityControlMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Continuous")]
+        [System.Runtime.Serialization.EnumMember(Value="Continuous")]
         Continuous = 1,
         
-        [JsonProperty("Discrete")]
+        [System.Runtime.Serialization.EnumMember(Value="Discrete")]
         Discrete = 2,
     }
     
     public enum Coil_Cooling_DX_CurveFit_Performance_CompressorFuelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 2,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 3,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 4,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 5,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 6,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 7,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 8,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 9,
     }
     
     [Description("DX cooling coil performance for a single operating mode which may have one or mor" +
         "e speeds.")]
-    [JsonObject("Coil:Cooling:DX:CurveFit:OperatingMode")]
     public class Coil_Cooling_DX_CurveFit_OperatingMode : BHoMObject, IEnergyPlusClass
     {
         
@@ -486,10 +485,12 @@ public System.Nullable<float> NominalTimeForCondensateRemovalToBegin { get; set;
         
 
 [JsonProperty("apply_latent_degradation_to_speeds_greater_than_1")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ApplyLatentDegradationToSpeedsGreaterThan1 { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("condenser_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_CurveFit_OperatingMode_CondenserType CondenserType { get; set; } = (Coil_Cooling_DX_CurveFit_OperatingMode_CondenserType)Enum.Parse(typeof(Coil_Cooling_DX_CurveFit_OperatingMode_CondenserType), "AirCooled");
         
 
@@ -547,18 +548,17 @@ public string Speed10Name { get; set; } = "";
     public enum Coil_Cooling_DX_CurveFit_OperatingMode_CondenserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
         AirCooled = 1,
         
-        [JsonProperty("EvaporativelyCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativelyCooled")]
         EvaporativelyCooled = 2,
     }
     
     [Description("DX cooling coil performance for a single speed within a single operating mode.")]
-    [JsonObject("Coil:Cooling:DX:CurveFit:Speed")]
     public class Coil_Cooling_DX_CurveFit_Speed : BHoMObject, IEnergyPlusClass
     {
         
@@ -669,7 +669,6 @@ public string SensibleHeatRatioModifierFunctionOfFlowFractionCurveName { get; se
     [Description("Direct expansion (DX) cooling coil and condensing unit (includes electric compres" +
         "sor and condenser fan), single-speed. Optional inputs for moisture evaporation f" +
         "rom wet coil when compressor cycles off with continuous fan operation.")]
-    [JsonObject("Coil:Cooling:DX:SingleSpeed")]
     public class Coil_Cooling_DX_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -782,6 +781,7 @@ public string CondenserAirInletNodeName { get; set; } = "";
         
 
 [JsonProperty("condenser_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_SingleSpeed_CondenserType CondenserType { get; set; } = (Coil_Cooling_DX_SingleSpeed_CondenserType)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_CondenserType), "AirCooled");
         
 
@@ -849,6 +849,7 @@ public string SensibleHeatRatioFunctionOfFlowFractionCurveName { get; set; } = "
     "ling capacity and total electric power input of DX cooling coils per ANSI/ASHRAE" +
     " 127.")]
 [JsonProperty("report_ashrae_standard_127_performance_ratings")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ReportAshraeStandard127PerformanceRatings { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -860,18 +861,17 @@ public string ZoneNameForCondenserPlacement { get; set; } = "";
     public enum Coil_Cooling_DX_SingleSpeed_CondenserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
         AirCooled = 1,
         
-        [JsonProperty("EvaporativelyCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativelyCooled")]
         EvaporativelyCooled = 2,
     }
     
     [Description(@"Direct expansion (DX) cooling coil and condensing unit (includes electric compressor and condenser fan), two-speed (or variable-speed). Requires two sets of performance data and will interpolate between speeds. Modeled as a single coil (multi-speed compressor or multiple compressors with row split or intertwined coil).")]
-    [JsonObject("Coil:Cooling:DX:TwoSpeed")]
     public class Coil_Cooling_DX_TwoSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -992,6 +992,7 @@ public string CondenserAirInletNodeName { get; set; } = "";
         
 
 [JsonProperty("condenser_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_TwoSpeed_CondenserType CondenserType { get; set; } = (Coil_Cooling_DX_TwoSpeed_CondenserType)Enum.Parse(typeof(Coil_Cooling_DX_TwoSpeed_CondenserType), "AirCooled");
         
 
@@ -1087,18 +1088,17 @@ public string ZoneNameForCondenserPlacement { get; set; } = "";
     public enum Coil_Cooling_DX_TwoSpeed_CondenserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
         AirCooled = 1,
         
-        [JsonProperty("EvaporativelyCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativelyCooled")]
         EvaporativelyCooled = 2,
     }
     
     [Description(@"Direct expansion (DX) cooling coil and condensing unit (includes electric or engine-driven compressor and condenser fan), multi-speed (or variable-speed). Optional moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Requires two to four sets of performance data and will interpolate between speeds. Modeled as a single coil (multi-speed compressor or multiple compressors with row split or intertwined coil).")]
-    [JsonObject("Coil:Cooling:DX:MultiSpeed")]
     public class Coil_Cooling_DX_MultiSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -1124,6 +1124,7 @@ public string CondenserAirInletNodeName { get; set; } = "";
         
 
 [JsonProperty("condenser_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_MultiSpeed_CondenserType CondenserType { get; set; } = (Coil_Cooling_DX_MultiSpeed_CondenserType)Enum.Parse(typeof(Coil_Cooling_DX_MultiSpeed_CondenserType), "AirCooled");
         
 
@@ -1140,10 +1141,12 @@ public string CondensateCollectionWaterStorageTankName { get; set; } = "";
         
 
 [JsonProperty("apply_part_load_fraction_to_speeds_greater_than_1")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ApplyPartLoadFractionToSpeedsGreaterThan1 { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("apply_latent_degradation_to_speeds_greater_than_1")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ApplyLatentDegradationToSpeedsGreaterThan1 { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -1172,6 +1175,7 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [JsonProperty("fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_MultiSpeed_FuelType FuelType { get; set; } = (Coil_Cooling_DX_MultiSpeed_FuelType)Enum.Parse(typeof(Coil_Cooling_DX_MultiSpeed_FuelType), "Diesel");
         
 
@@ -1625,49 +1629,48 @@ public string ZoneNameForCondenserPlacement { get; set; } = "";
     public enum Coil_Cooling_DX_MultiSpeed_CondenserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
         AirCooled = 1,
         
-        [JsonProperty("EvaporativelyCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativelyCooled")]
         EvaporativelyCooled = 2,
     }
     
     public enum Coil_Cooling_DX_MultiSpeed_FuelType
     {
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 0,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 1,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 2,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 3,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 4,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 5,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 6,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 7,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 8,
     }
     
     [Description(@"Direct expansion (DX) cooling coil and condensing unit (includes electric compressor and condenser fan), variable-speed. Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Requires two to ten sets of performance data and will interpolate between speeds. Modeled as a single coil with variable-speed compressor.")]
-    [JsonObject("Coil:Cooling:DX:VariableSpeed")]
     public class Coil_Cooling_DX_VariableSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -1719,6 +1722,7 @@ public string CondenserAirInletNodeName { get; set; } = "";
         
 
 [JsonProperty("condenser_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_VariableSpeed_CondenserType CondenserType { get; set; } = (Coil_Cooling_DX_VariableSpeed_CondenserType)Enum.Parse(typeof(Coil_Cooling_DX_VariableSpeed_CondenserType), "AirCooled");
         
 
@@ -2262,18 +2266,17 @@ public string Speed10EnergyInputRatioFunctionOfAirFlowFractionCurveName { get; s
     public enum Coil_Cooling_DX_VariableSpeed_CondenserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
         AirCooled = 1,
         
-        [JsonProperty("EvaporativelyCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativelyCooled")]
         EvaporativelyCooled = 2,
     }
     
     [Description(@"Direct expansion (DX) cooling coil and condensing unit (includes electric compressor and condenser fan), two-stage with humidity control mode (e.g. sub-cool or hot gas reheat). Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Requires two to four sets of performance data, see CoilPerformance:DX:Cooling. Stages are modeled as a face-split coil.")]
-    [JsonObject("Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
     public class Coil_Cooling_DX_TwoStageWithHumidityControlMode : BHoMObject, IEnergyPlusClass
     {
         
@@ -2309,6 +2312,7 @@ public System.Nullable<float> NumberOfEnhancedDehumidificationModes { get; set; 
         
 
 [JsonProperty("normal_mode_stage_1_coil_performance_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_TwoStageWithHumidityControlMode_NormalModeStage1CoilPerformanceObjectType NormalModeStage1CoilPerformanceObjectType { get; set; } = (Coil_Cooling_DX_TwoStageWithHumidityControlMode_NormalModeStage1CoilPerformanceObjectType)Enum.Parse(typeof(Coil_Cooling_DX_TwoStageWithHumidityControlMode_NormalModeStage1CoilPerformanceObjectType), "CoilPerformanceDXCooling");
         
 
@@ -2317,6 +2321,7 @@ public string NormalModeStage1CoilPerformanceName { get; set; } = "";
         
 
 [JsonProperty("normal_mode_stage_1_2_coil_performance_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_TwoStageWithHumidityControlMode_NormalModeStage12CoilPerformanceObjectType NormalModeStage12CoilPerformanceObjectType { get; set; } = (Coil_Cooling_DX_TwoStageWithHumidityControlMode_NormalModeStage12CoilPerformanceObjectType)Enum.Parse(typeof(Coil_Cooling_DX_TwoStageWithHumidityControlMode_NormalModeStage12CoilPerformanceObjectType), "CoilPerformanceDXCooling");
         
 
@@ -2325,6 +2330,7 @@ public string NormalModeStage12CoilPerformanceName { get; set; } = "";
         
 
 [JsonProperty("dehumidification_mode_1_stage_1_coil_performance_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_TwoStageWithHumidityControlMode_DehumidificationMode1Stage1CoilPerformanceObjectType DehumidificationMode1Stage1CoilPerformanceObjectType { get; set; } = (Coil_Cooling_DX_TwoStageWithHumidityControlMode_DehumidificationMode1Stage1CoilPerformanceObjectType)Enum.Parse(typeof(Coil_Cooling_DX_TwoStageWithHumidityControlMode_DehumidificationMode1Stage1CoilPerformanceObjectType), "CoilPerformanceDXCooling");
         
 
@@ -2333,6 +2339,7 @@ public string DehumidificationMode1Stage1CoilPerformanceName { get; set; } = "";
         
 
 [JsonProperty("dehumidification_mode_1_stage_1_2_coil_performance_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_TwoStageWithHumidityControlMode_DehumidificationMode1Stage12CoilPerformanceObjectType DehumidificationMode1Stage12CoilPerformanceObjectType { get; set; } = (Coil_Cooling_DX_TwoStageWithHumidityControlMode_DehumidificationMode1Stage12CoilPerformanceObjectType)Enum.Parse(typeof(Coil_Cooling_DX_TwoStageWithHumidityControlMode_DehumidificationMode1Stage12CoilPerformanceObjectType), "CoilPerformanceDXCooling");
         
 
@@ -2371,33 +2378,32 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
     public enum Coil_Cooling_DX_TwoStageWithHumidityControlMode_NormalModeStage1CoilPerformanceObjectType
     {
         
-        [JsonProperty("CoilPerformance:DX:Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilPerformance:DX:Cooling")]
         CoilPerformanceDXCooling = 0,
     }
     
     public enum Coil_Cooling_DX_TwoStageWithHumidityControlMode_NormalModeStage12CoilPerformanceObjectType
     {
         
-        [JsonProperty("CoilPerformance:DX:Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilPerformance:DX:Cooling")]
         CoilPerformanceDXCooling = 0,
     }
     
     public enum Coil_Cooling_DX_TwoStageWithHumidityControlMode_DehumidificationMode1Stage1CoilPerformanceObjectType
     {
         
-        [JsonProperty("CoilPerformance:DX:Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilPerformance:DX:Cooling")]
         CoilPerformanceDXCooling = 0,
     }
     
     public enum Coil_Cooling_DX_TwoStageWithHumidityControlMode_DehumidificationMode1Stage12CoilPerformanceObjectType
     {
         
-        [JsonProperty("CoilPerformance:DX:Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilPerformance:DX:Cooling")]
         CoilPerformanceDXCooling = 0,
     }
     
     [Description(@"Used to specify DX cooling coil performance for one mode of operation for a Coil:Cooling:DX:TwoStageWithHumidityControlMode object which may reference one to four CoilPerformance:DX:Cooling objects depending on the specified number of stages and dehumidification modes. In nearly all cases, the Rated Air Flow Rate will be the same for all performance objects associated with a given coil. If bypass is specified, the Rated Air Flow Rate includes both the bypassed flow and the flow through the active part of the coil.")]
-    [JsonObject("CoilPerformance:DX:Cooling")]
     public class CoilPerformance_DX_Cooling : BHoMObject, IEnergyPlusClass
     {
         
@@ -2490,6 +2496,7 @@ public string CondenserAirInletNodeName { get; set; } = "";
         
 
 [JsonProperty("condenser_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoilPerformance_DX_Cooling_CondenserType CondenserType { get; set; } = (CoilPerformance_DX_Cooling_CondenserType)Enum.Parse(typeof(CoilPerformance_DX_Cooling_CondenserType), "AirCooled");
         
 
@@ -2524,20 +2531,19 @@ public string SensibleHeatRatioFunctionOfFlowFractionCurveName { get; set; } = "
     public enum CoilPerformance_DX_Cooling_CondenserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
         AirCooled = 1,
         
-        [JsonProperty("EvaporativelyCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativelyCooled")]
         EvaporativelyCooled = 2,
     }
     
     [Description("Variable refrigerant flow (VRF) direct expansion (DX) cooling coil. Used with Zon" +
         "eHVAC:TerminalUnit:VariableRefrigerantFlow. Condensing unit is modeled separatel" +
         "y, see AirConditioner:VariableRefrigerantFlow.")]
-    [JsonObject("Coil:Cooling:DX:VariableRefrigerantFlow")]
     public class Coil_Cooling_DX_VariableRefrigerantFlow : BHoMObject, IEnergyPlusClass
     {
         
@@ -2590,7 +2596,6 @@ public string NameOfWaterStorageTankForCondensateCollection { get; set; } = "";
     [Description("Variable refrigerant flow (VRF) direct expansion (DX) heating coil (air-to-air he" +
         "at pump). Used with ZoneHVAC:TerminalUnit:VariableRefrigerantFlow. Condensing un" +
         "it is modeled separately, see AirConditioner:VariableRefrigerantFlow.")]
-    [JsonObject("Coil:Heating:DX:VariableRefrigerantFlow")]
     public class Coil_Heating_DX_VariableRefrigerantFlow : BHoMObject, IEnergyPlusClass
     {
         
@@ -2631,7 +2636,6 @@ public string HeatingCapacityModifierFunctionOfFlowFractionCurveName { get; set;
     }
     
     [Description(@"This is a key object in the new physics based VRF model applicable for Fluid Temperature Control. It describes the the indoor unit coil of the system at cooling mode. Used with ZoneHVAC:TerminalUnit:VariableRefrigerantFlow. Outdoor unit is modeled separately, see AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl or AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR")]
-    [JsonObject("Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl")]
     public class Coil_Cooling_DX_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject, IEnergyPlusClass
     {
         
@@ -2676,7 +2680,6 @@ public string NameOfWaterStorageTankForCondensateCollection { get; set; } = "";
     }
     
     [Description(@"This is a key object in the new physics based VRF model applicable for Fluid Temperature Control. It describes the the indoor unit coil of the system at heating mode. Used with ZoneHVAC:TerminalUnit:VariableRefrigerantFlow. Outdoor unit is modeled separately, see AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl or AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR")]
-    [JsonObject("Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl")]
     public class Coil_Heating_DX_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject, IEnergyPlusClass
     {
         
@@ -2714,7 +2717,6 @@ public string IndoorUnitCondensingTemperatureFunctionOfSubcoolingCurveName { get
     [Description("Hot water heating coil, NTU-effectiveness model, assumes a cross-flow heat exchan" +
         "ger. Two options for capacity inputs: UA and water flow rate or capacity and des" +
         "ign temperatures.")]
-    [JsonObject("Coil:Heating:Water")]
     public class Coil_Heating_Water : BHoMObject, IEnergyPlusClass
     {
         
@@ -2751,6 +2753,7 @@ public string AirOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("performance_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Heating_Water_PerformanceInputMethod PerformanceInputMethod { get; set; } = (Coil_Heating_Water_PerformanceInputMethod)Enum.Parse(typeof(Coil_Heating_Water_PerformanceInputMethod), "UFactorTimesAreaAndDesignWaterFlowRate");
         
 
@@ -2788,19 +2791,18 @@ public System.Nullable<float> DesignWaterTemperatureDifference { get; set; } = n
     public enum Coil_Heating_Water_PerformanceInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NominalCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="NominalCapacity")]
         NominalCapacity = 1,
         
-        [JsonProperty("UFactorTimesAreaAndDesignWaterFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="UFactorTimesAreaAndDesignWaterFlowRate")]
         UFactorTimesAreaAndDesignWaterFlowRate = 2,
     }
     
     [Description("Steam heating coil. Condenses and sub-cools steam at loop pressure and discharges" +
         " condensate through steam traps to low pressure condensate line.")]
-    [JsonObject("Coil:Heating:Steam")]
     public class Coil_Heating_Steam : BHoMObject, IEnergyPlusClass
     {
         
@@ -2844,6 +2846,7 @@ public string AirOutletNodeName { get; set; } = "";
     "ntControl if the coil is located directly in an air loop branch or outdoor air e" +
     "quipment list.")]
 [JsonProperty("coil_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Heating_Steam_CoilControlType CoilControlType { get; set; } = (Coil_Heating_Steam_CoilControlType)Enum.Parse(typeof(Coil_Heating_Steam_CoilControlType), "TemperatureSetpointControl");
         
 
@@ -2855,15 +2858,14 @@ public string TemperatureSetpointNodeName { get; set; } = "";
     public enum Coil_Heating_Steam_CoilControlType
     {
         
-        [JsonProperty("TemperatureSetpointControl")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureSetpointControl")]
         TemperatureSetpointControl = 0,
         
-        [JsonProperty("ZoneLoadControl")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneLoadControl")]
         ZoneLoadControl = 1,
     }
     
     [Description(@"Electric heating coil. If the coil is located directly in an air loop branch or outdoor air equipment list, then it is controlled on leaving air temperature and the Temperature Setpoint Node Name must be specified. If the coil is contained within another component such as an air terminal unit, zone HVAC equipment, or unitary system, then the coil is controlled by the parent component and the setpoint node name is not entered.")]
-    [JsonObject("Coil:Heating:Electric")]
     public class Coil_Heating_Electric : BHoMObject, IEnergyPlusClass
     {
         
@@ -2896,7 +2898,6 @@ public string TemperatureSetpointNodeName { get; set; } = "";
     }
     
     [Description(@"Electric heating coil, multi-stage. If the coil is located directly in an air loop branch or outdoor air equipment list, then it is controlled on leaving air temperature and the Temperature Setpoint Node Name must be specified. If the coil is contained within another component such as an air terminal unit, zone HVAC equipment, or unitary system, then the coil is controlled by the parent component and the setpoint node name is not entered.")]
-    [JsonObject("Coil:Heating:Electric:MultiStage")]
     public class Coil_Heating_Electric_MultiStage : BHoMObject, IEnergyPlusClass
     {
         
@@ -2958,7 +2959,6 @@ public string Stage4NominalCapacity { get; set; } = "";
     }
     
     [Description(@"Gas or other fuel heating coil. If the coil is located directly in an air loop branch or outdoor air equipment list, then it is controlled on leaving air temperature and the Temperature Setpoint Node Name must be specified. If the coil is contained within another component such as an air terminal unit, zone HVAC equipment, or unitary system, then the coil is controlled by the parent component and the setpoint node name is not entered.")]
-    [JsonObject("Coil:Heating:Fuel")]
     public class Coil_Heating_Fuel : BHoMObject, IEnergyPlusClass
     {
         
@@ -2970,6 +2970,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Heating_Fuel_FuelType FuelType { get; set; } = (Coil_Heating_Fuel_FuelType)Enum.Parse(typeof(Coil_Heating_Fuel_FuelType), "NaturalGas");
         
 
@@ -3014,39 +3015,38 @@ public System.Nullable<float> ParasiticFuelLoad { get; set; } = null;
     public enum Coil_Heating_Fuel_FuelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 1,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 2,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 3,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 4,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 5,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 6,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 7,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 8,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 9,
     }
     
     [Description(@"Gas heating coil, multi-stage. If the coil is located directly in an air loop branch or outdoor air equipment list, then it is controlled on leaving air temperature and the Temperature Setpoint Node Name must be specified. If the coil is contained within another component such as an air terminal unit, zone HVAC equipment, or unitary system, then the coil is controlled by the parent component and the setpoint node name is not entered.")]
-    [JsonObject("Coil:Heating:Gas:MultiStage")]
     public class Coil_Heating_Gas_MultiStage : BHoMObject, IEnergyPlusClass
     {
         
@@ -3147,7 +3147,6 @@ public System.Nullable<float> Stage4ParasiticElectricLoad { get; set; } = null;
     }
     
     [Description(@"Desuperheater air heating coil. The heating energy provided by this coil is reclaimed from the superheated refrigerant gas leaving a compressor and does not impact the performance of the compressor. If the coil is located directly in an air loop branch or outdoor air equipment list, then it is controlled on leaving air temperature and the Temperature Setpoint Node Name must be specified. If the coil is contained within another component such as a unitary system, then the coil is controlled by the parent component and the setpoint node name is not entered.")]
-    [JsonObject("Coil:Heating:Desuperheater")]
     public class Coil_Heating_Desuperheater : BHoMObject, IEnergyPlusClass
     {
         
@@ -3171,6 +3170,7 @@ public string AirOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("heating_source_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Heating_Desuperheater_HeatingSourceObjectType HeatingSourceObjectType { get; set; } = (Coil_Heating_Desuperheater_HeatingSourceObjectType)Enum.Parse(typeof(Coil_Heating_Desuperheater_HeatingSourceObjectType), "CoilCoolingDXSingleSpeed");
         
 
@@ -3193,35 +3193,34 @@ public System.Nullable<float> ParasiticElectricLoad { get; set; } = null;
     public enum Coil_Heating_Desuperheater_HeatingSourceObjectType
     {
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 0,
         
-        [JsonProperty("Coil:Cooling:DX:TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoSpeed")]
         CoilCoolingDXTwoSpeed = 1,
         
-        [JsonProperty("Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
         CoilCoolingDXTwoStageWithHumidityControlMode = 2,
         
-        [JsonProperty("Coil:Cooling:DX:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:VariableSpeed")]
         CoilCoolingDXVariableSpeed = 3,
         
-        [JsonProperty("Refrigeration:CompressorRack")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration:CompressorRack")]
         RefrigerationCompressorRack = 4,
         
-        [JsonProperty("Refrigeration:Condenser:AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration:Condenser:AirCooled")]
         RefrigerationCondenserAirCooled = 5,
         
-        [JsonProperty("Refrigeration:Condenser:EvaporativeCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration:Condenser:EvaporativeCooled")]
         RefrigerationCondenserEvaporativeCooled = 6,
         
-        [JsonProperty("Refrigeration:Condenser:WaterCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration:Condenser:WaterCooled")]
         RefrigerationCondenserWaterCooled = 7,
     }
     
     [Description("Direct expansion (DX) heating coil (air-to-air heat pump) and compressor unit (in" +
         "cludes electric compressor and outdoor fan), single-speed, with defrost controls" +
         ".")]
-    [JsonObject("Coil:Heating:DX:SingleSpeed")]
     public class Coil_Heating_DX_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -3320,10 +3319,12 @@ public System.Nullable<float> MaximumOutdoorDryBulbTemperatureForCrankcaseHeater
         
 
 [JsonProperty("defrost_strategy")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Heating_DX_SingleSpeed_DefrostStrategy DefrostStrategy { get; set; } = (Coil_Heating_DX_SingleSpeed_DefrostStrategy)Enum.Parse(typeof(Coil_Heating_DX_SingleSpeed_DefrostStrategy), "ReverseCycle");
         
 
 [JsonProperty("defrost_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Heating_DX_SingleSpeed_DefrostControl DefrostControl { get; set; } = (Coil_Heating_DX_SingleSpeed_DefrostControl)Enum.Parse(typeof(Coil_Heating_DX_SingleSpeed_DefrostControl), "Timed");
         
 
@@ -3384,31 +3385,30 @@ public string SensibleHeatRatioModifierFunctionOfFlowFractionCurveName { get; se
     public enum Coil_Heating_DX_SingleSpeed_DefrostStrategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Resistive")]
+        [System.Runtime.Serialization.EnumMember(Value="Resistive")]
         Resistive = 1,
         
-        [JsonProperty("ReverseCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="ReverseCycle")]
         ReverseCycle = 2,
     }
     
     public enum Coil_Heating_DX_SingleSpeed_DefrostControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("OnDemand")]
+        [System.Runtime.Serialization.EnumMember(Value="OnDemand")]
         OnDemand = 1,
         
-        [JsonProperty("Timed")]
+        [System.Runtime.Serialization.EnumMember(Value="Timed")]
         Timed = 2,
     }
     
     [Description(@"Direct expansion (DX) heating coil (air-to-air heat pump) and compressor unit (includes electric or engine-driven compressor and outdoor fan), multi-speed (or variable-speed), with defrost controls. Requires two to four sets of performance data and will interpolate between speeds.")]
-    [JsonObject("Coil:Heating:DX:MultiSpeed")]
     public class Coil_Heating_DX_MultiSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -3456,10 +3456,12 @@ public System.Nullable<float> MaximumOutdoorDryBulbTemperatureForDefrostOperatio
         
 
 [JsonProperty("defrost_strategy")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Heating_DX_MultiSpeed_DefrostStrategy DefrostStrategy { get; set; } = (Coil_Heating_DX_MultiSpeed_DefrostStrategy)Enum.Parse(typeof(Coil_Heating_DX_MultiSpeed_DefrostStrategy), "ReverseCycle");
         
 
 [JsonProperty("defrost_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Heating_DX_MultiSpeed_DefrostControl DefrostControl { get; set; } = (Coil_Heating_DX_MultiSpeed_DefrostControl)Enum.Parse(typeof(Coil_Heating_DX_MultiSpeed_DefrostControl), "Timed");
         
 
@@ -3475,10 +3477,12 @@ public string ResistiveDefrostHeaterCapacity { get; set; } = (System.String)"0";
         
 
 [JsonProperty("apply_part_load_fraction_to_speeds_greater_than_1")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ApplyPartLoadFractionToSpeedsGreaterThan1 { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Heating_DX_MultiSpeed_FuelType FuelType { get; set; } = (Coil_Heating_DX_MultiSpeed_FuelType)Enum.Parse(typeof(Coil_Heating_DX_MultiSpeed_FuelType), "Diesel");
         
 
@@ -3853,57 +3857,57 @@ public string Speed4SensibleHeatRatioModifierFunctionOfFlowFractionCurveName { g
     public enum Coil_Heating_DX_MultiSpeed_DefrostStrategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Resistive")]
+        [System.Runtime.Serialization.EnumMember(Value="Resistive")]
         Resistive = 1,
         
-        [JsonProperty("ReverseCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="ReverseCycle")]
         ReverseCycle = 2,
     }
     
     public enum Coil_Heating_DX_MultiSpeed_DefrostControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("OnDemand")]
+        [System.Runtime.Serialization.EnumMember(Value="OnDemand")]
         OnDemand = 1,
         
-        [JsonProperty("Timed")]
+        [System.Runtime.Serialization.EnumMember(Value="Timed")]
         Timed = 2,
     }
     
     public enum Coil_Heating_DX_MultiSpeed_FuelType
     {
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 0,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 1,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 2,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 3,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 4,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 5,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 6,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 7,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 8,
     }
     
@@ -3911,7 +3915,6 @@ public string Speed4SensibleHeatRatioModifierFunctionOfFlowFractionCurveName { g
         "cludes electric compressor and outdoor fan), variable-speed, with defrost contro" +
         "ls. Requires two to ten sets of performance data and will interpolate between sp" +
         "eeds.")]
-    [JsonObject("Coil:Heating:DX:VariableSpeed")]
     public class Coil_Heating_DX_VariableSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -3976,10 +3979,12 @@ public System.Nullable<float> MaximumOutdoorDryBulbTemperatureForCrankcaseHeater
         
 
 [JsonProperty("defrost_strategy")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Heating_DX_VariableSpeed_DefrostStrategy DefrostStrategy { get; set; } = (Coil_Heating_DX_VariableSpeed_DefrostStrategy)Enum.Parse(typeof(Coil_Heating_DX_VariableSpeed_DefrostStrategy), "ReverseCycle");
         
 
 [JsonProperty("defrost_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Heating_DX_VariableSpeed_DefrostControl DefrostControl { get; set; } = (Coil_Heating_DX_VariableSpeed_DefrostControl)Enum.Parse(typeof(Coil_Heating_DX_VariableSpeed_DefrostControl), "Timed");
         
 
@@ -4367,31 +4372,30 @@ public string Speed10EnergyInputRatioFunctionOfAirFlowFractionCurveName { get; s
     public enum Coil_Heating_DX_VariableSpeed_DefrostStrategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Resistive")]
+        [System.Runtime.Serialization.EnumMember(Value="Resistive")]
         Resistive = 1,
         
-        [JsonProperty("ReverseCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="ReverseCycle")]
         ReverseCycle = 2,
     }
     
     public enum Coil_Heating_DX_VariableSpeed_DefrostControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("OnDemand")]
+        [System.Runtime.Serialization.EnumMember(Value="OnDemand")]
         OnDemand = 1,
         
-        [JsonProperty("Timed")]
+        [System.Runtime.Serialization.EnumMember(Value="Timed")]
         Timed = 2,
     }
     
     [Description(@"Direct expansion (DX) cooling coil for water-to-air heat pump (includes electric compressor), single-speed, parameter estimation model. Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Parameter estimation model is a deterministic model that requires a consistent set of parameters to describe the operating conditions of the heat pump components.")]
-    [JsonObject("Coil:Cooling:WaterToAirHeatPump:ParameterEstimation")]
     public class Coil_Cooling_WaterToAirHeatPump_ParameterEstimation : BHoMObject, IEnergyPlusClass
     {
         
@@ -4399,6 +4403,7 @@ public string Speed10EnergyInputRatioFunctionOfAirFlowFractionCurveName { get; s
 [Description("Parameters 1-5 are as named below. Parameters 6-10 depend on the type of compress" +
     "or and fluid. Refer to the InputOutputReference on the parameters required")]
 [JsonProperty("compressor_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_WaterToAirHeatPump_ParameterEstimation_CompressorType CompressorType { get; set; } = (Coil_Cooling_WaterToAirHeatPump_ParameterEstimation_CompressorType)Enum.Parse(typeof(Coil_Cooling_WaterToAirHeatPump_ParameterEstimation_CompressorType), "Reciprocating");
         
 
@@ -4531,18 +4536,17 @@ public System.Nullable<float> SourceSideHeatTransferResistance2 { get; set; } = 
     public enum Coil_Cooling_WaterToAirHeatPump_ParameterEstimation_CompressorType
     {
         
-        [JsonProperty("Reciprocating")]
+        [System.Runtime.Serialization.EnumMember(Value="Reciprocating")]
         Reciprocating = 0,
         
-        [JsonProperty("Rotary")]
+        [System.Runtime.Serialization.EnumMember(Value="Rotary")]
         Rotary = 1,
         
-        [JsonProperty("Scroll")]
+        [System.Runtime.Serialization.EnumMember(Value="Scroll")]
         Scroll = 2,
     }
     
     [Description(@"Direct expansion (DX) heating coil for water-to-air heat pump (includes electric compressor), single-speed, parameter estimation model. Parameter estimation model is a deterministic model that requires a consistent set of parameters to describe the operating conditions of the heat pump components.")]
-    [JsonObject("Coil:Heating:WaterToAirHeatPump:ParameterEstimation")]
     public class Coil_Heating_WaterToAirHeatPump_ParameterEstimation : BHoMObject, IEnergyPlusClass
     {
         
@@ -4550,6 +4554,7 @@ public System.Nullable<float> SourceSideHeatTransferResistance2 { get; set; } = 
 [Description("Parameters 1-4 are as named below. Parameters 5-9 depend on the type of compresso" +
     "r. Refer to the InputOutputReference on the parameters required")]
 [JsonProperty("compressor_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Heating_WaterToAirHeatPump_ParameterEstimation_CompressorType CompressorType { get; set; } = (Coil_Heating_WaterToAirHeatPump_ParameterEstimation_CompressorType)Enum.Parse(typeof(Coil_Heating_WaterToAirHeatPump_ParameterEstimation_CompressorType), "Reciprocating");
         
 
@@ -4668,18 +4673,17 @@ public System.Nullable<float> SourceSideHeatTransferResistance2 { get; set; } = 
     public enum Coil_Heating_WaterToAirHeatPump_ParameterEstimation_CompressorType
     {
         
-        [JsonProperty("Reciprocating")]
+        [System.Runtime.Serialization.EnumMember(Value="Reciprocating")]
         Reciprocating = 0,
         
-        [JsonProperty("Rotary")]
+        [System.Runtime.Serialization.EnumMember(Value="Rotary")]
         Rotary = 1,
         
-        [JsonProperty("Scroll")]
+        [System.Runtime.Serialization.EnumMember(Value="Scroll")]
         Scroll = 2,
     }
     
     [Description(@"Direct expansion (DX) cooling coil for water-to-air heat pump (includes electric compressor), single-speed, equation-fit model. Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Equation-fit model uses normalized curves to describe the heat pump performance.")]
-    [JsonObject("Coil:Cooling:WaterToAirHeatPump:EquationFit")]
     public class Coil_Cooling_WaterToAirHeatPump_EquationFit : BHoMObject, IEnergyPlusClass
     {
         
@@ -4744,7 +4748,6 @@ public System.Nullable<float> RatioOfInitialMoistureEvaporationRateAndSteadyStat
     }
     
     [Description(@"Direct expansion (DX) cooling coil for water-to-air heat pump (includes electric compressor), variable-speed, equation-fit model. Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Equation-fit model uses normalized curves to describe the heat pump performance. Requires two to ten sets of performance data and will interpolate between speeds. Modeled as a single coil with variable-speed compressor.")]
-    [JsonObject("Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit")]
     public class Coil_Cooling_WaterToAirHeatPump_VariableSpeedEquationFit : BHoMObject, IEnergyPlusClass
     {
         
@@ -5503,7 +5506,6 @@ public string Speed10WasteHeatFunctionOfTemperatureCurveName { get; set; } = "";
     [Description("Direct expansion (DX) heating coil for water-to-air heat pump (includes electric " +
         "compressor), single-speed, equation-fit model. Equation-fit model uses normalize" +
         "d curves to describe the heat pump performance.")]
-    [JsonObject("Coil:Heating:WaterToAirHeatPump:EquationFit")]
     public class Coil_Heating_WaterToAirHeatPump_EquationFit : BHoMObject, IEnergyPlusClass
     {
         
@@ -5550,7 +5552,6 @@ public string HeatingPowerConsumptionCurveName { get; set; } = "";
     }
     
     [Description(@"Direct expansion (DX) heating coil for water-to-air heat pump (includes electric compressor), variable-speed, equation-fit model. Equation-fit model uses normalized curves to describe the heat pump performance. Requires two to ten sets of performance data and will interpolate between speeds.")]
-    [JsonObject("Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit")]
     public class Coil_Heating_WaterToAirHeatPump_VariableSpeedEquationFit : BHoMObject, IEnergyPlusClass
     {
         
@@ -6256,7 +6257,6 @@ public string Speed10WasteHeatFunctionOfTemperatureCurveName { get; set; } = "";
         "stem which includes a water heating coil, evaporator air coil, evaporator fan, e" +
         "lectric compressor, and water pump. Part of a WaterHeater:HeatPump:PumpedCondens" +
         "er system.")]
-    [JsonObject("Coil:WaterHeating:AirToWaterHeatPump:Pumped")]
     public class Coil_WaterHeating_AirToWaterHeatPump_Pumped : BHoMObject, IEnergyPlusClass
     {
         
@@ -6314,12 +6314,14 @@ public string RatedCondenserWaterFlowRate { get; set; } = "";
 [Description("Select Yes if the evaporator fan power is included in the rated COP. This choice " +
     "field impacts the calculation of compressor electric power.")]
 [JsonProperty("evaporator_fan_power_included_in_rated_cop")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes EvaporatorFanPowerIncludedInRatedCop { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [Description("Select Yes if the condenser pump power is included in the rated COP. This choice " +
     "field impacts the calculation of compressor electric power.")]
 [JsonProperty("condenser_pump_power_included_in_rated_cop")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes CondenserPumpPowerIncludedInRatedCop { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -6327,6 +6329,7 @@ public EmptyNoYes CondenserPumpPowerIncludedInRatedCop { get; set; } = (EmptyNoY
     "nd rated COP. This choice field impacts the calculation of water heating capacit" +
     "y.")]
 [JsonProperty("condenser_pump_heat_included_in_rated_heating_capacity_and_rated_cop")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes CondenserPumpHeatIncludedInRatedHeatingCapacityAndRatedCop { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -6381,6 +6384,7 @@ public System.Nullable<float> MaximumAmbientTemperatureForCrankcaseHeaterOperati
     "his input determines whether the inlet air dry-bulb or wet-bulb temperature is u" +
     "sed to evaluate these curves.")]
 [JsonProperty("evaporator_air_temperature_type_for_curve_objects")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_WaterHeating_AirToWaterHeatPump_Pumped_EvaporatorAirTemperatureTypeForCurveObjects EvaporatorAirTemperatureTypeForCurveObjects { get; set; } = (Coil_WaterHeating_AirToWaterHeatPump_Pumped_EvaporatorAirTemperatureTypeForCurveObjects)Enum.Parse(typeof(Coil_WaterHeating_AirToWaterHeatPump_Pumped_EvaporatorAirTemperatureTypeForCurveObjects), "WetBulbTemperature");
         
 
@@ -6422,13 +6426,13 @@ public string PartLoadFractionCorrelationCurveName { get; set; } = "";
     public enum Coil_WaterHeating_AirToWaterHeatPump_Pumped_EvaporatorAirTemperatureTypeForCurveObjects
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="DryBulbTemperature")]
         DryBulbTemperature = 1,
         
-        [JsonProperty("WetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbTemperature")]
         WetBulbTemperature = 2,
     }
     
@@ -6436,7 +6440,6 @@ public string PartLoadFractionCorrelationCurveName { get; set; } = "";
         "stem which includes a water heating coil, evaporator air coil, evaporator fan, e" +
         "lectric compressor, and water pump. Part of a WaterHeater:HeatPump:WrappedConden" +
         "ser system.")]
-    [JsonObject("Coil:WaterHeating:AirToWaterHeatPump:Wrapped")]
     public class Coil_WaterHeating_AirToWaterHeatPump_Wrapped : BHoMObject, IEnergyPlusClass
     {
         
@@ -6489,6 +6492,7 @@ public string RatedEvaporatorAirFlowRate { get; set; } = "";
 [Description("Select Yes if the evaporator fan power is included in the rated COP. This choice " +
     "field impacts the calculation of compressor electric power.")]
 [JsonProperty("evaporator_fan_power_included_in_rated_cop")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes EvaporatorFanPowerIncludedInRatedCop { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
@@ -6516,6 +6520,7 @@ public System.Nullable<float> MaximumAmbientTemperatureForCrankcaseHeaterOperati
     "his input determines whether the inlet air dry-bulb or wet-bulb temperature is u" +
     "sed to evaluate these curves.")]
 [JsonProperty("evaporator_air_temperature_type_for_curve_objects")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_WaterHeating_AirToWaterHeatPump_Wrapped_EvaporatorAirTemperatureTypeForCurveObjects EvaporatorAirTemperatureTypeForCurveObjects { get; set; } = (Coil_WaterHeating_AirToWaterHeatPump_Wrapped_EvaporatorAirTemperatureTypeForCurveObjects)Enum.Parse(typeof(Coil_WaterHeating_AirToWaterHeatPump_Wrapped_EvaporatorAirTemperatureTypeForCurveObjects), "WetBulbTemperature");
         
 
@@ -6547,18 +6552,17 @@ public string PartLoadFractionCorrelationCurveName { get; set; } = "";
     public enum Coil_WaterHeating_AirToWaterHeatPump_Wrapped_EvaporatorAirTemperatureTypeForCurveObjects
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="DryBulbTemperature")]
         DryBulbTemperature = 1,
         
-        [JsonProperty("WetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbTemperature")]
         WetBulbTemperature = 2,
     }
     
     [Description(@"vairlable-speed Heat pump water heater (VSHPWH) heating coil, air-to-water direct-expansion (DX) system which includes a variable-speed water heating coil, evaporator air coil, evaporator fan, electric compressor, and water pump. Part of a WaterHeater:HeatPump system.")]
-    [JsonObject("Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed")]
     public class Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -6612,12 +6616,14 @@ public string RatedCondenserWaterFlowRate { get; set; } = "";
 [Description("Select Yes if the evaporator fan power is included in the rated COP. This choice " +
     "field impacts the calculation of compressor electric power.")]
 [JsonProperty("evaporator_fan_power_included_in_rated_cop")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes EvaporatorFanPowerIncludedInRatedCop { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [Description("Select Yes if the condenser pump power is included in the rated COP. This choice " +
     "field impacts the calculation of compressor electric power.")]
 [JsonProperty("condenser_pump_power_included_in_rated_cop")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes CondenserPumpPowerIncludedInRatedCop { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -6625,6 +6631,7 @@ public EmptyNoYes CondenserPumpPowerIncludedInRatedCop { get; set; } = (EmptyNoY
     "nd rated COP. This choice field impacts the calculation of water heating capacit" +
     "y.")]
 [JsonProperty("condenser_pump_heat_included_in_rated_heating_capacity_and_rated_cop")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes CondenserPumpHeatIncludedInRatedHeatingCapacityAndRatedCop { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -6672,6 +6679,7 @@ public System.Nullable<float> MaximumAmbientTemperatureForCrankcaseHeaterOperati
     "his input determines whether the inlet air dry-bulb or wet-bulb temperature is u" +
     "sed to evaluate these curves.")]
 [JsonProperty("evaporator_air_temperature_type_for_curve_objects")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed_EvaporatorAirTemperatureTypeForCurveObjects EvaporatorAirTemperatureTypeForCurveObjects { get; set; } = (Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed_EvaporatorAirTemperatureTypeForCurveObjects)Enum.Parse(typeof(Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed_EvaporatorAirTemperatureTypeForCurveObjects), "WetBulbTemperature");
         
 
@@ -7393,18 +7401,17 @@ public string Speed10CopFunctionOfWaterFlowFractionCurveName { get; set; } = "";
     public enum Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed_EvaporatorAirTemperatureTypeForCurveObjects
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="DryBulbTemperature")]
         DryBulbTemperature = 1,
         
-        [JsonProperty("WetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbTemperature")]
         WetBulbTemperature = 2,
     }
     
     [Description(@"Desuperheater air heating coil. The heating energy provided by this coil is reclaimed from the superheated refrigerant gas leaving a compressor and does not impact the performance of the compressor. This coil must be used with a water heater tank, see Water Heater:Mixed.")]
-    [JsonObject("Coil:WaterHeating:Desuperheater")]
     public class Coil_WaterHeating_Desuperheater : BHoMObject, IEnergyPlusClass
     {
         
@@ -7470,6 +7477,7 @@ public string WaterOutletNodeName { get; set; } = "";
 [Description("Specify the type of water heater tank used by this desuperheater water heating co" +
     "il.")]
 [JsonProperty("tank_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_WaterHeating_Desuperheater_TankObjectType TankObjectType { get; set; } = (Coil_WaterHeating_Desuperheater_TankObjectType)Enum.Parse(typeof(Coil_WaterHeating_Desuperheater_TankObjectType), "Empty");
         
 
@@ -7481,6 +7489,7 @@ public string TankName { get; set; } = "";
 
 [Description("The type of DX system that is providing waste heat for reclaim.")]
 [JsonProperty("heating_source_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_WaterHeating_Desuperheater_HeatingSourceObjectType HeatingSourceObjectType { get; set; } = (Coil_WaterHeating_Desuperheater_HeatingSourceObjectType)Enum.Parse(typeof(Coil_WaterHeating_Desuperheater_HeatingSourceObjectType), "CoilCoolingDXMultiSpeed");
         
 
@@ -7523,47 +7532,47 @@ public System.Nullable<float> OffCycleParasiticElectricLoad { get; set; } = (Sys
     public enum Coil_WaterHeating_Desuperheater_TankObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("WaterHeater:Mixed")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterHeater:Mixed")]
         WaterHeaterMixed = 1,
         
-        [JsonProperty("WaterHeater:Stratified")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterHeater:Stratified")]
         WaterHeaterStratified = 2,
     }
     
     public enum Coil_WaterHeating_Desuperheater_HeatingSourceObjectType
     {
         
-        [JsonProperty("Coil:Cooling:DX:MultiSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:MultiSpeed")]
         CoilCoolingDXMultiSpeed = 0,
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 1,
         
-        [JsonProperty("Coil:Cooling:DX:TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoSpeed")]
         CoilCoolingDXTwoSpeed = 2,
         
-        [JsonProperty("Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
         CoilCoolingDXTwoStageWithHumidityControlMode = 3,
         
-        [JsonProperty("Coil:Cooling:DX:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:VariableSpeed")]
         CoilCoolingDXVariableSpeed = 4,
         
-        [JsonProperty("Coil:Cooling:WaterToAirHeatPump:EquationFit")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:WaterToAirHeatPump:EquationFit")]
         CoilCoolingWaterToAirHeatPumpEquationFit = 5,
         
-        [JsonProperty("Refrigeration:CompressorRack")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration:CompressorRack")]
         RefrigerationCompressorRack = 6,
         
-        [JsonProperty("Refrigeration:Condenser:AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration:Condenser:AirCooled")]
         RefrigerationCondenserAirCooled = 7,
         
-        [JsonProperty("Refrigeration:Condenser:EvaporativeCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration:Condenser:EvaporativeCooled")]
         RefrigerationCondenserEvaporativeCooled = 8,
         
-        [JsonProperty("Refrigeration:Condenser:WaterCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration:Condenser:WaterCooled")]
         RefrigerationCondenserWaterCooled = 9,
     }
     
@@ -7571,7 +7580,6 @@ public System.Nullable<float> OffCycleParasiticElectricLoad { get; set; } = (Sys
         " controls. This control object supports several different types of DX cooling co" +
         "ils and may be placed directly in an air loop branch or outdoor air equipment li" +
         "st.")]
-    [JsonObject("CoilSystem:Cooling:DX")]
     public class CoilSystem_Cooling_DX : BHoMObject, IEnergyPlusClass
     {
         
@@ -7595,6 +7603,7 @@ public string DxCoolingCoilSystemSensorNodeName { get; set; } = "";
         
 
 [JsonProperty("cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoilSystem_Cooling_DX_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (CoilSystem_Cooling_DX_CoolingCoilObjectType)Enum.Parse(typeof(CoilSystem_Cooling_DX_CoolingCoilObjectType), "CoilCoolingDXSingleSpeed");
         
 
@@ -7604,6 +7613,7 @@ public string CoolingCoilName { get; set; } = "";
 
 [Description(@"None = meet sensible load only Multimode = activate enhanced dehumidification mode as needed and meet sensible load. If no sensible load exists, and Run on Latent Load = Yes, and a latent load exists, the unit will operate to meet the latent load. Valid only with Coil:Cooling:DX:TwoStageWithHumidityControlMode or CoilSystem:Cooling:DX:HeatExchangerAssisted. CoolReheat = cool beyond the dry-bulb setpoint. as required to meet the humidity setpoint. Valid for all coil types. For all dehumidification controls, the max humidity setpoint on the Sensor Node is used. SetpointManager:SingleZone:Humidity:Maximum, SetpointManager:MultiZone:Humidity:Maximum, or SetpointManager:MultiZone:MaximumHumidity:Average, and SetpointManager:OutdoorAirPretreat (optional) objects.")]
 [JsonProperty("dehumidification_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoilSystem_Cooling_DX_DehumidificationControlType DehumidificationControlType { get; set; } = (CoilSystem_Cooling_DX_DehumidificationControlType)Enum.Parse(typeof(CoilSystem_Cooling_DX_DehumidificationControlType), "None");
         
 
@@ -7611,6 +7621,7 @@ public CoilSystem_Cooling_DX_DehumidificationControlType DehumidificationControl
     "ere is only a sensible load. Dehumidification controls will be active if specifi" +
     "ed.")]
 [JsonProperty("run_on_sensible_load")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RunOnSensibleLoad { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
@@ -7618,11 +7629,13 @@ public EmptyNoYes RunOnSensibleLoad { get; set; } = (EmptyNoYes)Enum.Parse(typeo
     "d. If No, unit will not run only if there is a latent load. Dehumidification con" +
     "trols will be active if specified.")]
 [JsonProperty("run_on_latent_load")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RunOnLatentLoad { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description(@"This input field is designed for use with DX cooling coils with low air flow to capacity ratio range (100 - 300 cfm/ton). Typical application is 100% dedicated outdoor air system (DOAS). Other air loop or zone HVAC systems with low flow to capacity ratio range may also use this input field. If Yes, the DX cooling coil runs as 100% DOAS DX coil or low flow to capacity ratio range. If No, the DX cooling coil runs as a regular DX coil. If left blank the default is regular DX coil.")]
 [JsonProperty("use_outdoor_air_dx_cooling_coil")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes UseOutdoorAirDxCoolingCoil { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -7636,38 +7649,38 @@ public System.Nullable<float> OutdoorAirDxCoolingCoilLeavingMinimumAirTemperatur
     public enum CoilSystem_Cooling_DX_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 0,
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed:ThermalStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed:ThermalStorage")]
         CoilCoolingDXSingleSpeedThermalStorage = 1,
         
-        [JsonProperty("Coil:Cooling:DX:TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoSpeed")]
         CoilCoolingDXTwoSpeed = 2,
         
-        [JsonProperty("Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
         CoilCoolingDXTwoStageWithHumidityControlMode = 3,
         
-        [JsonProperty("Coil:Cooling:DX:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:VariableSpeed")]
         CoilCoolingDXVariableSpeed = 4,
         
-        [JsonProperty("CoilSystem:Cooling:DX:HeatExchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX:HeatExchangerAssisted")]
         CoilSystemCoolingDXHeatExchangerAssisted = 5,
     }
     
     public enum CoilSystem_Cooling_DX_DehumidificationControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CoolReheat")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolReheat")]
         CoolReheat = 1,
         
-        [JsonProperty("Multimode")]
+        [System.Runtime.Serialization.EnumMember(Value="Multimode")]
         Multimode = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
     }
     
@@ -7675,7 +7688,6 @@ public System.Nullable<float> OutdoorAirDxCoolingCoilLeavingMinimumAirTemperatur
         "s associated controls. This control object supports two different types of DX he" +
         "ating coils and may be placed directly in an air loop branch or outdoor air equi" +
         "pment list.")]
-    [JsonObject("CoilSystem:Heating:DX")]
     public class CoilSystem_Heating_DX : BHoMObject, IEnergyPlusClass
     {
         
@@ -7687,6 +7699,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoilSystem_Heating_DX_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (CoilSystem_Heating_DX_HeatingCoilObjectType)Enum.Parse(typeof(CoilSystem_Heating_DX_HeatingCoilObjectType), "CoilHeatingDXSingleSpeed");
         
 
@@ -7697,20 +7710,20 @@ public string HeatingCoilName { get; set; } = "";
     public enum CoilSystem_Heating_DX_HeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:DX:SingleSpeed")]
         CoilHeatingDXSingleSpeed = 0,
         
-        [JsonProperty("Coil:Heating:DX:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:DX:VariableSpeed")]
         CoilHeatingDXVariableSpeed = 1,
     }
     
     [Description(@"Virtual component consisting of a chilled-water cooling coil and an air-to-air heat exchanger. The air-to-air heat exchanger precools the air entering the cooling coil and reuses this energy to reheat the supply air leaving the cooling coil. This heat exchange process improves the latent removal performance of the cooling coil (lower sensible heat ratio).")]
-    [JsonObject("CoilSystem:Cooling:Water:HeatExchangerAssisted")]
     public class CoilSystem_Cooling_Water_HeatExchangerAssisted : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("heat_exchanger_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoilSystem_Cooling_Water_HeatExchangerAssisted_HeatExchangerObjectType HeatExchangerObjectType { get; set; } = (CoilSystem_Cooling_Water_HeatExchangerAssisted_HeatExchangerObjectType)Enum.Parse(typeof(CoilSystem_Cooling_Water_HeatExchangerAssisted_HeatExchangerObjectType), "HeatExchangerAirToAirFlatPlate");
         
 
@@ -7719,6 +7732,7 @@ public string HeatExchangerName { get; set; } = "";
         
 
 [JsonProperty("cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoilSystem_Cooling_Water_HeatExchangerAssisted_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (CoilSystem_Cooling_Water_HeatExchangerAssisted_CoolingCoilObjectType)Enum.Parse(typeof(CoilSystem_Cooling_Water_HeatExchangerAssisted_CoolingCoilObjectType), "CoilCoolingWater");
         
 
@@ -7729,30 +7743,30 @@ public string CoolingCoilName { get; set; } = "";
     public enum CoilSystem_Cooling_Water_HeatExchangerAssisted_HeatExchangerObjectType
     {
         
-        [JsonProperty("HeatExchanger:AirToAir:FlatPlate")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:FlatPlate")]
         HeatExchangerAirToAirFlatPlate = 0,
         
-        [JsonProperty("HeatExchanger:AirToAir:SensibleAndLatent")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:SensibleAndLatent")]
         HeatExchangerAirToAirSensibleAndLatent = 1,
     }
     
     public enum CoilSystem_Cooling_Water_HeatExchangerAssisted_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 0,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 1,
     }
     
     [Description(@"Virtual component consisting of a direct expansion (DX) cooling coil and an air-to-air heat exchanger. The air-to-air heat exchanger precools the air entering the cooling coil and reuses this energy to reheat the supply air leaving the cooling coil. This heat exchange process improves the latent removal performance of the cooling coil (lower sensible heat ratio).")]
-    [JsonObject("CoilSystem:Cooling:DX:HeatExchangerAssisted")]
     public class CoilSystem_Cooling_DX_HeatExchangerAssisted : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("heat_exchanger_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoilSystem_Cooling_DX_HeatExchangerAssisted_HeatExchangerObjectType HeatExchangerObjectType { get; set; } = (CoilSystem_Cooling_DX_HeatExchangerAssisted_HeatExchangerObjectType)Enum.Parse(typeof(CoilSystem_Cooling_DX_HeatExchangerAssisted_HeatExchangerObjectType), "HeatExchangerAirToAirFlatPlate");
         
 
@@ -7761,6 +7775,7 @@ public string HeatExchangerName { get; set; } = "";
         
 
 [JsonProperty("cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoilSystem_Cooling_DX_HeatExchangerAssisted_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (CoilSystem_Cooling_DX_HeatExchangerAssisted_CoolingCoilObjectType)Enum.Parse(typeof(CoilSystem_Cooling_DX_HeatExchangerAssisted_CoolingCoilObjectType), "CoilCoolingDXSingleSpeed");
         
 
@@ -7771,29 +7786,28 @@ public string CoolingCoilName { get; set; } = "";
     public enum CoilSystem_Cooling_DX_HeatExchangerAssisted_HeatExchangerObjectType
     {
         
-        [JsonProperty("HeatExchanger:AirToAir:FlatPlate")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:FlatPlate")]
         HeatExchangerAirToAirFlatPlate = 0,
         
-        [JsonProperty("HeatExchanger:AirToAir:SensibleAndLatent")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:SensibleAndLatent")]
         HeatExchangerAirToAirSensibleAndLatent = 1,
         
-        [JsonProperty("HeatExchanger:Desiccant:BalancedFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:Desiccant:BalancedFlow")]
         HeatExchangerDesiccantBalancedFlow = 2,
     }
     
     public enum CoilSystem_Cooling_DX_HeatExchangerAssisted_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 0,
         
-        [JsonProperty("Coil:Cooling:DX:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:VariableSpeed")]
         CoilCoolingDXVariableSpeed = 1,
     }
     
     [Description("This object is used for air-source integrated heat pump, a collection of its work" +
         "ing modes.")]
-    [JsonObject("CoilSystem:IntegratedHeatPump:AirSource")]
     public class CoilSystem_IntegratedHeatPump_AirSource : BHoMObject, IEnergyPlusClass
     {
         
@@ -7904,7 +7918,6 @@ public System.Nullable<float> MinimumSpeedLevelForShdwhMode { get; set; } = (Sys
     [Description("Direct expansion (DX) cooling coil and condensing unit (includes electric compres" +
         "sor and condenser fan), single-speed with packaged integrated thermal storage fo" +
         "r cooling.")]
-    [JsonObject("Coil:Cooling:DX:SingleSpeed:ThermalStorage")]
     public class Coil_Cooling_DX_SingleSpeed_ThermalStorage : BHoMObject, IEnergyPlusClass
     {
         
@@ -7916,6 +7929,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("operating_mode_control_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_SingleSpeed_ThermalStorage_OperatingModeControlMethod OperatingModeControlMethod { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_OperatingModeControlMethod)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_OperatingModeControlMethod), "EMSControlled");
         
 
@@ -7927,6 +7941,7 @@ public string OperationModeControlScheduleName { get; set; } = "";
         
 
 [JsonProperty("storage_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_SingleSpeed_ThermalStorage_StorageType StorageType { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_StorageType)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_StorageType), "Ice");
         
 
@@ -7979,6 +7994,7 @@ public string EvaporatorAirOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("cooling_only_mode_available")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingOnlyModeAvailable CoolingOnlyModeAvailable { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingOnlyModeAvailable)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingOnlyModeAvailable), "No");
         
 
@@ -8048,6 +8064,7 @@ public string CoolingOnlyModeSensibleHeatRatioFunctionOfFlowFractionCurveName { 
         
 
 [JsonProperty("cooling_and_charge_mode_available")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndChargeModeAvailable CoolingAndChargeModeAvailable { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndChargeModeAvailable)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndChargeModeAvailable), "No");
         
 
@@ -8176,6 +8193,7 @@ public string CoolingAndChargeModeSensibleHeatRatioFunctionOfFlowFractionCurveNa
         
 
 [JsonProperty("cooling_and_discharge_mode_available")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndDischargeModeAvailable CoolingAndDischargeModeAvailable { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndDischargeModeAvailable)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndDischargeModeAvailable), "No");
         
 
@@ -8315,6 +8333,7 @@ public string CoolingAndDischargeModeSensibleHeatRatioFunctionOfFlowFractionCurv
         
 
 [JsonProperty("charge_only_mode_available")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_SingleSpeed_ThermalStorage_ChargeOnlyModeAvailable ChargeOnlyModeAvailable { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_ChargeOnlyModeAvailable)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_ChargeOnlyModeAvailable), "No");
         
 
@@ -8349,6 +8368,7 @@ public string ChargeOnlyModeStorageEnergyInputRatioFunctionOfTemperatureCurveNam
         
 
 [JsonProperty("discharge_only_mode_available")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_SingleSpeed_ThermalStorage_DischargeOnlyModeAvailable DischargeOnlyModeAvailable { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_DischargeOnlyModeAvailable)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_DischargeOnlyModeAvailable), "No");
         
 
@@ -8464,6 +8484,7 @@ public System.Nullable<float> CondenserAirFlowSizingFactor { get; set; } = (Syst
         
 
 [JsonProperty("condenser_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_DX_SingleSpeed_ThermalStorage_CondenserType CondenserType { get; set; } = (Coil_Cooling_DX_SingleSpeed_ThermalStorage_CondenserType)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_ThermalStorage_CondenserType), "AirCooled");
         
 
@@ -8532,86 +8553,86 @@ public System.Nullable<float> StorageTankMaximumOperatingLimitFluidTemperature {
     public enum Coil_Cooling_DX_SingleSpeed_ThermalStorage_OperatingModeControlMethod
     {
         
-        [JsonProperty("EMSControlled")]
+        [System.Runtime.Serialization.EnumMember(Value="EMSControlled")]
         EMSControlled = 0,
         
-        [JsonProperty("ScheduledModes")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledModes")]
         ScheduledModes = 1,
     }
     
     public enum Coil_Cooling_DX_SingleSpeed_ThermalStorage_StorageType
     {
         
-        [JsonProperty("Ice")]
+        [System.Runtime.Serialization.EnumMember(Value="Ice")]
         Ice = 0,
         
-        [JsonProperty("UserDefinedFluidType")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefinedFluidType")]
         UserDefinedFluidType = 1,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 2,
     }
     
     public enum Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingOnlyModeAvailable
     {
         
-        [JsonProperty("No")]
+        [System.Runtime.Serialization.EnumMember(Value="No")]
         No = 0,
         
-        [JsonProperty("Yes")]
+        [System.Runtime.Serialization.EnumMember(Value="Yes")]
         Yes = 1,
     }
     
     public enum Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndChargeModeAvailable
     {
         
-        [JsonProperty("No")]
+        [System.Runtime.Serialization.EnumMember(Value="No")]
         No = 0,
         
-        [JsonProperty("Yes")]
+        [System.Runtime.Serialization.EnumMember(Value="Yes")]
         Yes = 1,
     }
     
     public enum Coil_Cooling_DX_SingleSpeed_ThermalStorage_CoolingAndDischargeModeAvailable
     {
         
-        [JsonProperty("No")]
+        [System.Runtime.Serialization.EnumMember(Value="No")]
         No = 0,
         
-        [JsonProperty("Yes")]
+        [System.Runtime.Serialization.EnumMember(Value="Yes")]
         Yes = 1,
     }
     
     public enum Coil_Cooling_DX_SingleSpeed_ThermalStorage_ChargeOnlyModeAvailable
     {
         
-        [JsonProperty("No")]
+        [System.Runtime.Serialization.EnumMember(Value="No")]
         No = 0,
         
-        [JsonProperty("Yes")]
+        [System.Runtime.Serialization.EnumMember(Value="Yes")]
         Yes = 1,
     }
     
     public enum Coil_Cooling_DX_SingleSpeed_ThermalStorage_DischargeOnlyModeAvailable
     {
         
-        [JsonProperty("No")]
+        [System.Runtime.Serialization.EnumMember(Value="No")]
         No = 0,
         
-        [JsonProperty("Yes")]
+        [System.Runtime.Serialization.EnumMember(Value="Yes")]
         Yes = 1,
     }
     
     public enum Coil_Cooling_DX_SingleSpeed_ThermalStorage_CondenserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
         AirCooled = 1,
         
-        [JsonProperty("EvaporativelyCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativelyCooled")]
         EvaporativelyCooled = 2,
     }
 }

@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     public enum Lights_DesignLevelCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LightingLevel")]
+        [System.Runtime.Serialization.EnumMember(Value="LightingLevel")]
         LightingLevel = 1,
         
-        [JsonProperty("Watts/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Area")]
         WattsArea = 2,
         
-        [JsonProperty("Watts/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Person")]
         WattsPerson = 3,
     }
 }

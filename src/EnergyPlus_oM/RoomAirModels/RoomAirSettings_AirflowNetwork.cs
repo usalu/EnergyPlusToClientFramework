@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     [Description("RoomAir modeling using Airflow pressure network solver")]
-    [JsonObject("RoomAirSettings:AirflowNetwork")]
     public class RoomAirSettings_AirflowNetwork : BHoMObject, IEnergyPlusClass
     {
         

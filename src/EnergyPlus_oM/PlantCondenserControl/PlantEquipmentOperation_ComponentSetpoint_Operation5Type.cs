@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
 {
     public enum PlantEquipmentOperation_ComponentSetpoint_Operation5Type
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
 }

@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     public enum Curve_Triquadratic_OutputUnitType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Capacity")]
+        [System.Runtime.Serialization.EnumMember(Value="Capacity")]
         Capacity = 1,
         
-        [JsonProperty("Dimensionless")]
+        [System.Runtime.Serialization.EnumMember(Value="Dimensionless")]
         Dimensionless = 2,
         
-        [JsonProperty("Power")]
+        [System.Runtime.Serialization.EnumMember(Value="Power")]
         Power = 3,
         
-        [JsonProperty("Pressure")]
+        [System.Runtime.Serialization.EnumMember(Value="Pressure")]
         Pressure = 4,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 5,
     }
 }

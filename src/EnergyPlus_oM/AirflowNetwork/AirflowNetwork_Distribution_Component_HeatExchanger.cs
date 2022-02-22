@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines the name of an air-to-air heat exchanger used in an air loop." +
                  "")]
-    [JsonObject("AirflowNetwork:Distribution:Component:HeatExchanger")]
     public class AirflowNetwork_Distribution_Component_HeatExchanger : BHoMObject, IEnergyPlusClass
     {
         
@@ -20,6 +19,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
         [Description("Select the type of heat exchanger corresponding to the name entered in the field " +
                      "above.")]
         [JsonProperty("heatexchanger_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirflowNetwork_Distribution_Component_HeatExchanger_HeatexchangerObjectType HeatexchangerObjectType { get; set; } = (AirflowNetwork_Distribution_Component_HeatExchanger_HeatexchangerObjectType)Enum.Parse(typeof(AirflowNetwork_Distribution_Component_HeatExchanger_HeatexchangerObjectType), "HeatExchangerAirToAirFlatPlate");
         
 

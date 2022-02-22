@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_PVWatts_ArrayType
     {
         
-        [JsonProperty("FixedOpenRack")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedOpenRack")]
         FixedOpenRack = 0,
         
-        [JsonProperty("FixedRoofMounted")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedRoofMounted")]
         FixedRoofMounted = 1,
         
-        [JsonProperty("OneAxis")]
+        [System.Runtime.Serialization.EnumMember(Value="OneAxis")]
         OneAxis = 2,
         
-        [JsonProperty("OneAxisBacktracking")]
+        [System.Runtime.Serialization.EnumMember(Value="OneAxisBacktracking")]
         OneAxisBacktracking = 3,
         
-        [JsonProperty("TwoAxis")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoAxis")]
         TwoAxis = 4,
     }
 }

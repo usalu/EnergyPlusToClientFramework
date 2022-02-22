@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     public enum WaterHeater_HeatPump_PumpedCondenser_TankObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("WaterHeater:Mixed")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterHeater:Mixed")]
         WaterHeaterMixed = 1,
         
-        [JsonProperty("WaterHeater:Stratified")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterHeater:Stratified")]
         WaterHeaterStratified = 2,
     }
 }

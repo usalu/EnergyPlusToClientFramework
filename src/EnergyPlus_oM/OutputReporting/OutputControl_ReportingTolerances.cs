@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
     [Description("Calculations of the time that setpoints are not met use a tolerance of 0.2C. This" +
                  " object allows changing the tolerance used to determine when setpoints are being" +
                  " met.")]
-    [JsonObject("OutputControl:ReportingTolerances")]
     public class OutputControl_ReportingTolerances : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_UnitaryHeatPump_AirToAir_EconomizerLockout
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LockoutWithCompressor")]
+        [System.Runtime.Serialization.EnumMember(Value="LockoutWithCompressor")]
         LockoutWithCompressor = 1,
         
-        [JsonProperty("LockoutWithHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="LockoutWithHeating")]
         LockoutWithHeating = 2,
         
-        [JsonProperty("NoLockout")]
+        [System.Runtime.Serialization.EnumMember(Value="NoLockout")]
         NoLockout = 3,
     }
 }

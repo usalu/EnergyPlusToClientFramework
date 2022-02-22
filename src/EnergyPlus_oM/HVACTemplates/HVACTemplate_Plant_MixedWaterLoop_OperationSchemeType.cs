@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Plant_MixedWaterLoop_OperationSchemeType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Default")]
+        [System.Runtime.Serialization.EnumMember(Value="Default")]
         Default = 1,
         
-        [JsonProperty("UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefined")]
         UserDefined = 2,
     }
 }

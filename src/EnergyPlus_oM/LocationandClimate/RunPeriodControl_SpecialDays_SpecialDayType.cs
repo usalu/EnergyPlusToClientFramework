@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum RunPeriodControl_SpecialDays_SpecialDayType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CustomDay1")]
+        [System.Runtime.Serialization.EnumMember(Value="CustomDay1")]
         CustomDay1 = 1,
         
-        [JsonProperty("CustomDay2")]
+        [System.Runtime.Serialization.EnumMember(Value="CustomDay2")]
         CustomDay2 = 2,
         
-        [JsonProperty("Holiday")]
+        [System.Runtime.Serialization.EnumMember(Value="Holiday")]
         Holiday = 3,
         
-        [JsonProperty("SummerDesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="SummerDesignDay")]
         SummerDesignDay = 4,
         
-        [JsonProperty("WinterDesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="WinterDesignDay")]
         WinterDesignDay = 5,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 {
     public enum ZoneHVAC_VentilatedSlab_OutdoorAirControlType
     {
         
-        [JsonProperty("FixedAmount")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedAmount")]
         FixedAmount = 0,
         
-        [JsonProperty("FixedTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedTemperature")]
         FixedTemperature = 1,
         
-        [JsonProperty("VariablePercent")]
+        [System.Runtime.Serialization.EnumMember(Value="VariablePercent")]
         VariablePercent = 2,
     }
 }

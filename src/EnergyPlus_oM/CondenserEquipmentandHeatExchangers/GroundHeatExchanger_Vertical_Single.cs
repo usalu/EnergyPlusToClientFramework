@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     [Description(null)]
-    [JsonObject("GroundHeatExchanger:Vertical:Single")]
     public class GroundHeatExchanger_Vertical_Single : BHoMObject, IEnergyPlusClass
     {
         

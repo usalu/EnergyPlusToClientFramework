@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterStableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondStableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondStableHorizontal")]
         AlamdariHammondStableHorizontal = 1,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 2,
         
-        [JsonProperty("WaltonStableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonStableHorizontalOrTilt")]
         WaltonStableHorizontalOrTilt = 3,
     }
 }

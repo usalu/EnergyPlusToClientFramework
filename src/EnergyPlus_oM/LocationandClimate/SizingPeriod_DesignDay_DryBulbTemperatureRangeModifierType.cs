@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum SizingPeriod_DesignDay_DryBulbTemperatureRangeModifierType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DefaultMultipliers")]
+        [System.Runtime.Serialization.EnumMember(Value="DefaultMultipliers")]
         DefaultMultipliers = 1,
         
-        [JsonProperty("DifferenceSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferenceSchedule")]
         DifferenceSchedule = 2,
         
-        [JsonProperty("MultiplierSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="MultiplierSchedule")]
         MultiplierSchedule = 3,
         
-        [JsonProperty("TemperatureProfileSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureProfileSchedule")]
         TemperatureProfileSchedule = 4,
     }
 }

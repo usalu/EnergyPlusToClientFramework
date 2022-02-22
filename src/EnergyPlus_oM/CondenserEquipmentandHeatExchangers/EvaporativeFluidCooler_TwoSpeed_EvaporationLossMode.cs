@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum EvaporativeFluidCooler_TwoSpeed_EvaporationLossMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LossFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="LossFactor")]
         LossFactor = 1,
         
-        [JsonProperty("SaturatedExit")]
+        [System.Runtime.Serialization.EnumMember(Value="SaturatedExit")]
         SaturatedExit = 2,
     }
 }

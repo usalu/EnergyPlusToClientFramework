@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum HeatBalanceAlgorithm_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CombinedHeatAndMoistureFiniteElement")]
+        [System.Runtime.Serialization.EnumMember(Value="CombinedHeatAndMoistureFiniteElement")]
         CombinedHeatAndMoistureFiniteElement = 1,
         
-        [JsonProperty("ConductionFiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="ConductionFiniteDifference")]
         ConductionFiniteDifference = 2,
         
-        [JsonProperty("ConductionTransferFunction")]
+        [System.Runtime.Serialization.EnumMember(Value="ConductionTransferFunction")]
         ConductionTransferFunction = 3,
         
-        [JsonProperty("MoisturePenetrationDepthConductionTransferFunction")]
+        [System.Runtime.Serialization.EnumMember(Value="MoisturePenetrationDepthConductionTransferFunction")]
         MoisturePenetrationDepthConductionTransferFunction = 4,
     }
 }

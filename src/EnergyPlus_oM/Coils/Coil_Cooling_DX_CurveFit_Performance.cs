@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     [Description("DX cooling coil performance specification referencing one or more operating modes" +
                  ". Mode 1 is always the base design operating mode. Additional modes are optional" +
                  " states such as subcool reheat for humidity control.")]
-    [JsonObject("Coil:Cooling:DX:CurveFit:Performance")]
     public class Coil_Cooling_DX_CurveFit_Performance : BHoMObject, IEnergyPlusClass
     {
         
@@ -32,6 +31,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("capacity_control_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Cooling_DX_CurveFit_Performance_CapacityControlMethod CapacityControlMethod { get; set; } = (Coil_Cooling_DX_CurveFit_Performance_CapacityControlMethod)Enum.Parse(typeof(Coil_Cooling_DX_CurveFit_Performance_CapacityControlMethod), "Discrete");
         
 
@@ -52,6 +52,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("compressor_fuel_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Cooling_DX_CurveFit_Performance_CompressorFuelType CompressorFuelType { get; set; } = (Coil_Cooling_DX_CurveFit_Performance_CompressorFuelType)Enum.Parse(typeof(Coil_Cooling_DX_CurveFit_Performance_CompressorFuelType), "Electricity");
         
 

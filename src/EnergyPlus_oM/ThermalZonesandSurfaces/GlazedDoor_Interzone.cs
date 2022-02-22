@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for simplified entry of interzone (glass interior) doors (adjacent to othe" +
                  "r zones).")]
-    [JsonObject("GlazedDoor:Interzone")]
     public class GlazedDoor_Interzone : BHoMObject, IEnergyPlusClass
     {
         

@@ -67,12 +67,12 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserLoops
     
     
     [Description("Defines a central plant loop.")]
-    [JsonObject("PlantLoop")]
     public class PlantLoop : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("fluid_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_FluidType FluidType { get; set; } = (PlantLoop_FluidType)Enum.Parse(typeof(PlantLoop_FluidType), "Water");
         
 
@@ -142,6 +142,7 @@ public string DemandSideConnectorListName { get; set; } = "";
         
 
 [JsonProperty("load_distribution_scheme")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_LoadDistributionScheme LoadDistributionScheme { get; set; } = (PlantLoop_LoadDistributionScheme)Enum.Parse(typeof(PlantLoop_LoadDistributionScheme), "SequentialLoad");
         
 
@@ -150,15 +151,18 @@ public string AvailabilityManagerListName { get; set; } = "";
         
 
 [JsonProperty("plant_loop_demand_calculation_scheme")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_PlantLoopDemandCalculationScheme PlantLoopDemandCalculationScheme { get; set; } = (PlantLoop_PlantLoopDemandCalculationScheme)Enum.Parse(typeof(PlantLoop_PlantLoopDemandCalculationScheme), "SingleSetpoint");
         
 
 [Description(@"Specifies a primary-secondary loop configuration. The plant side is the primary loop, and the demand side is the secondary loop. A secondary supply pump is required on the demand side. None = Primary-only, no secondary simulation CommonPipe = Primary-secondary with no temperature control at primary-secondary interface TwoWayCommonPipe = Primary-secondary with control of secondary supply temperature or primary return temperature (requires a setpoint be placed on the plant side or demand side inlet node).")]
 [JsonProperty("common_pipe_simulation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_CommonPipeSimulation CommonPipeSimulation { get; set; } = (PlantLoop_CommonPipeSimulation)Enum.Parse(typeof(PlantLoop_CommonPipeSimulation), "None");
         
 
 [JsonProperty("pressure_simulation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_PressureSimulationType PressureSimulationType { get; set; } = (PlantLoop_PressureSimulationType)Enum.Parse(typeof(PlantLoop_PressureSimulationType), "None");
         
 

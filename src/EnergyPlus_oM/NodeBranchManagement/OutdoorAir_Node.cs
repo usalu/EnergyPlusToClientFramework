@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description(@"This object sets the temperature and humidity conditions for an outdoor air node. It allows the height above ground to be specified. This object may be used more than once. The same node name may not appear in both an OutdoorAir:Node object and an OutdoorAir:NodeList object. This object defines local outdoor air environmental conditions.")]
-    [JsonObject("OutdoorAir:Node")]
     public class OutdoorAir_Node : BHoMObject, IEnergyPlusClass
     {
         
@@ -48,6 +47,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
                      "at should be evaluated from 0 to 180 degrees Specify No for curves that should b" +
                      "e evaluated from 0 to 360 degrees")]
         [JsonProperty("symmetric_wind_pressure_coefficient_curve")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes SymmetricWindPressureCoefficientCurve { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -56,6 +56,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
                      "and the surface azimuth Specify Absolute to use the wind direction angle directl" +
                      "y")]
         [JsonProperty("wind_angle_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OutdoorAir_Node_WindAngleType WindAngleType { get; set; } = (OutdoorAir_Node_WindAngleType)Enum.Parse(typeof(OutdoorAir_Node_WindAngleType), "Absolute");
     }
 }

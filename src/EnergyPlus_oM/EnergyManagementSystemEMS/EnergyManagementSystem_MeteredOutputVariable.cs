@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     [Description("This object sets up an EnergyPlus output variable from an Erl variable")]
-    [JsonObject("EnergyManagementSystem:MeteredOutputVariable")]
     public class EnergyManagementSystem_MeteredOutputVariable : BHoMObject, IEnergyPlusClass
     {
         
@@ -17,6 +16,7 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
         
 
         [JsonProperty("update_frequency")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EnergyManagementSystem_MeteredOutputVariable_UpdateFrequency UpdateFrequency { get; set; } = (EnergyManagementSystem_MeteredOutputVariable_UpdateFrequency)Enum.Parse(typeof(EnergyManagementSystem_MeteredOutputVariable_UpdateFrequency), "SystemTimestep");
         
 
@@ -28,17 +28,20 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
         [Description("choose the type of fuel, water, electricity, pollution or heat rate that should b" +
                      "e metered.")]
         [JsonProperty("resource_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EnergyManagementSystem_MeteredOutputVariable_ResourceType ResourceType { get; set; } = (EnergyManagementSystem_MeteredOutputVariable_ResourceType)Enum.Parse(typeof(EnergyManagementSystem_MeteredOutputVariable_ResourceType), "Coal");
         
 
         [Description("choose a general classification, building (internal services), HVAC (air systems)" +
                      ", or plant (hydronic systems), or system")]
         [JsonProperty("group_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EnergyManagementSystem_MeteredOutputVariable_GroupType GroupType { get; set; } = (EnergyManagementSystem_MeteredOutputVariable_GroupType)Enum.Parse(typeof(EnergyManagementSystem_MeteredOutputVariable_GroupType), "Building");
         
 
         [Description("choose how the metered output should be classified for end-use category")]
         [JsonProperty("end_use_category")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EnergyManagementSystem_MeteredOutputVariable_EndUseCategory EndUseCategory { get; set; } = (EnergyManagementSystem_MeteredOutputVariable_EndUseCategory)Enum.Parse(typeof(EnergyManagementSystem_MeteredOutputVariable_EndUseCategory), "Baseboard");
         
 

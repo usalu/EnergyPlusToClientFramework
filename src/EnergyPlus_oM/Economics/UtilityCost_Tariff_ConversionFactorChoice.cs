@@ -1,41 +1,39 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum UtilityCost_Tariff_ConversionFactorChoice
     {
         
-        [JsonProperty("CCF")]
+        [System.Runtime.Serialization.EnumMember(Value="CCF")]
         CCF = 0,
         
-        [JsonProperty("MCF")]
+        [System.Runtime.Serialization.EnumMember(Value="MCF")]
         MCF = 1,
         
-        [JsonProperty("MJ")]
+        [System.Runtime.Serialization.EnumMember(Value="MJ")]
         MJ = 2,
         
-        [JsonProperty("MMBtu")]
+        [System.Runtime.Serialization.EnumMember(Value="MMBtu")]
         MMBtu = 3,
         
-        [JsonProperty("Therm")]
+        [System.Runtime.Serialization.EnumMember(Value="Therm")]
         Therm = 4,
         
-        [JsonProperty("UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefined")]
         UserDefined = 5,
         
-        [JsonProperty("gal")]
+        [System.Runtime.Serialization.EnumMember(Value="gal")]
         Gal = 6,
         
-        [JsonProperty("kBtu")]
+        [System.Runtime.Serialization.EnumMember(Value="kBtu")]
         KBtu = 7,
         
-        [JsonProperty("kWh")]
+        [System.Runtime.Serialization.EnumMember(Value="kWh")]
         KWh = 8,
         
-        [JsonProperty("kgal")]
+        [System.Runtime.Serialization.EnumMember(Value="kgal")]
         Kgal = 9,
         
-        [JsonProperty("m3")]
+        [System.Runtime.Serialization.EnumMember(Value="m3")]
         M3 = 10,
     }
 }

@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"Quadratic-linear curve with two independent variables. Input consists of the curve name, the six coefficients, and min and max values for each of the independent variables. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = (C1 + C2*x + C3*x**2) + (C4 + C5*x + C6*x**2)*y")]
-    [JsonObject("Curve:QuadraticLinear")]
     public class Curve_QuadraticLinear : BHoMObject, IEnergyPlusClass
     {
         
@@ -62,14 +61,17 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
         
 
         [JsonProperty("input_unit_type_for_x")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_QuadraticLinear_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_QuadraticLinear_InputUnitTypeForX)Enum.Parse(typeof(Curve_QuadraticLinear_InputUnitTypeForX), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_y")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_QuadraticLinear_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_QuadraticLinear_InputUnitTypeForY)Enum.Parse(typeof(Curve_QuadraticLinear_InputUnitTypeForY), "Dimensionless");
         
 
         [JsonProperty("output_unit_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_QuadraticLinear_OutputUnitType OutputUnitType { get; set; } = (Curve_QuadraticLinear_OutputUnitType)Enum.Parse(typeof(Curve_QuadraticLinear_OutputUnitType), "Dimensionless");
     }
 }

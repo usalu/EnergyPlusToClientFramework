@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     public enum Curve_ChillerPartLoadWithLift_InputUnitTypeForY
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Dimensionless")]
+        [System.Runtime.Serialization.EnumMember(Value="Dimensionless")]
         Dimensionless = 1,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum Foundation_Kiva_Settings_SimulationTimestep
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 1,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 2,
     }
 }

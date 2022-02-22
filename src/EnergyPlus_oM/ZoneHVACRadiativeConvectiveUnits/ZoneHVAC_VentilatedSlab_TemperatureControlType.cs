@@ -1,32 +1,30 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 {
     public enum ZoneHVAC_VentilatedSlab_TemperatureControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MeanAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanAirTemperature")]
         MeanAirTemperature = 1,
         
-        [JsonProperty("MeanRadiantTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanRadiantTemperature")]
         MeanRadiantTemperature = 2,
         
-        [JsonProperty("OperativeTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OperativeTemperature")]
         OperativeTemperature = 3,
         
-        [JsonProperty("OutdoorDryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorDryBulbTemperature")]
         OutdoorDryBulbTemperature = 4,
         
-        [JsonProperty("OutdoorWetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorWetBulbTemperature")]
         OutdoorWetBulbTemperature = 5,
         
-        [JsonProperty("SurfaceTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SurfaceTemperature")]
         SurfaceTemperature = 6,
         
-        [JsonProperty("ZoneAirDewPointTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAirDewPointTemperature")]
         ZoneAirDewPointTemperature = 7,
     }
 }

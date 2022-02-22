@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("This object adds a boiler to an HVACTemplate:Plant:HotWaterLoop or MixedWaterLoop" +
                  ".")]
-    [JsonObject("HVACTemplate:Plant:Boiler")]
     public class HVACTemplate_Plant_Boiler : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("boiler_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Plant_Boiler_BoilerType BoilerType { get; set; } = (HVACTemplate_Plant_Boiler_BoilerType)Enum.Parse(typeof(HVACTemplate_Plant_Boiler_BoilerType), "CondensingHotWaterBoiler");
         
 
@@ -28,6 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description("Not applicable  if Boiler Type is DistrictHotWater")]
         [JsonProperty("fuel_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Plant_Boiler_FuelType FuelType { get; set; } = (HVACTemplate_Plant_Boiler_FuelType)Enum.Parse(typeof(HVACTemplate_Plant_Boiler_FuelType), "Coal");
         
 
@@ -62,6 +63,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "left blank, will serve a hot water loop if present, or a mixed water loop (if no" +
                      " hot water loop is present).")]
         [JsonProperty("template_plant_loop_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Plant_Boiler_TemplatePlantLoopType TemplatePlantLoopType { get; set; } = (HVACTemplate_Plant_Boiler_TemplatePlantLoopType)Enum.Parse(typeof(HVACTemplate_Plant_Boiler_TemplatePlantLoopType), "HotWater");
     }
 }

@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
     
     
     [Description(@"Versatile simple fan that can be used in variable air volume, constant volume, on-off cycling, two-speed or multi-speed applications. Performance at different flow rates, or speed levels, is determined using separate performance curve or table or prescribed power fractions at discrete speed levels for two-speed or multi-speed fans.")]
-    [JsonObject("Fan:SystemModel")]
     public class Fan_SystemModel : BHoMObject, IEnergyPlusClass
     {
         
@@ -91,6 +90,7 @@ public string DesignMaximumAirFlowRate { get; set; } = "";
         
 
 [JsonProperty("speed_control_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Fan_SystemModel_SpeedControlMethod SpeedControlMethod { get; set; } = (Fan_SystemModel_SpeedControlMethod)Enum.Parse(typeof(Fan_SystemModel_SpeedControlMethod), "Discrete");
         
 
@@ -118,6 +118,7 @@ public string DesignElectricPowerConsumption { get; set; } = (System.String)"Aut
         
 
 [JsonProperty("design_power_sizing_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Fan_SystemModel_DesignPowerSizingMethod DesignPowerSizingMethod { get; set; } = (Fan_SystemModel_DesignPowerSizingMethod)Enum.Parse(typeof(Fan_SystemModel_DesignPowerSizingMethod), "PowerPerFlowPerPressure");
         
 
@@ -180,36 +181,35 @@ public string SpeedFractions { get; set; } = "";
     public enum Fan_SystemModel_SpeedControlMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Continuous")]
+        [System.Runtime.Serialization.EnumMember(Value="Continuous")]
         Continuous = 1,
         
-        [JsonProperty("Discrete")]
+        [System.Runtime.Serialization.EnumMember(Value="Discrete")]
         Discrete = 2,
     }
     
     public enum Fan_SystemModel_DesignPowerSizingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("PowerPerFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlow")]
         PowerPerFlow = 1,
         
-        [JsonProperty("PowerPerFlowPerPressure")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlowPerPressure")]
         PowerPerFlowPerPressure = 2,
         
-        [JsonProperty("TotalEfficiencyAndPressure")]
+        [System.Runtime.Serialization.EnumMember(Value="TotalEfficiencyAndPressure")]
         TotalEfficiencyAndPressure = 3,
     }
     
     [Description("Constant volume fan that is intended to operate continuously based on a time sche" +
         "dule. This fan will not cycle on and off based on cooling/heating load or other " +
         "control signals.")]
-    [JsonObject("Fan:ConstantVolume")]
     public class Fan_ConstantVolume : BHoMObject, IEnergyPlusClass
     {
         
@@ -257,7 +257,6 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     
     [Description("Variable air volume fan where the electric power input varies according to a perf" +
         "ormance curve as a function of flow fraction.")]
-    [JsonObject("Fan:VariableVolume")]
     public class Fan_VariableVolume : BHoMObject, IEnergyPlusClass
     {
         
@@ -281,6 +280,7 @@ public string MaximumFlowRate { get; set; } = "";
         
 
 [JsonProperty("fan_power_minimum_flow_rate_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Fan_VariableVolume_FanPowerMinimumFlowRateInputMethod FanPowerMinimumFlowRateInputMethod { get; set; } = (Fan_VariableVolume_FanPowerMinimumFlowRateInputMethod)Enum.Parse(typeof(Fan_VariableVolume_FanPowerMinimumFlowRateInputMethod), "Fraction");
         
 
@@ -340,20 +340,19 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Fan_VariableVolume_FanPowerMinimumFlowRateInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FixedFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedFlowRate")]
         FixedFlowRate = 1,
         
-        [JsonProperty("Fraction")]
+        [System.Runtime.Serialization.EnumMember(Value="Fraction")]
         Fraction = 2,
     }
     
     [Description("Constant volume fan that is intended to cycle on and off based on cooling/heating" +
         " load or other control signals. This fan can also operate continuously like Fan:" +
         "ConstantVolume.")]
-    [JsonObject("Fan:OnOff")]
     public class Fan_OnOff : BHoMObject, IEnergyPlusClass
     {
         
@@ -408,7 +407,6 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     [Description("Models a fan that exhausts air from a zone.")]
-    [JsonObject("Fan:ZoneExhaust")]
     public class Fan_ZoneExhaust : BHoMObject, IEnergyPlusClass
     {
         
@@ -454,6 +452,7 @@ public string FlowFractionScheduleName { get; set; } = "";
 [Description("Control if fan is to be interlocked with HVAC system Availability Managers or not" +
     ".")]
 [JsonProperty("system_availability_manager_coupling_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Fan_ZoneExhaust_SystemAvailabilityManagerCouplingMode SystemAvailabilityManagerCouplingMode { get; set; } = (Fan_ZoneExhaust_SystemAvailabilityManagerCouplingMode)Enum.Parse(typeof(Fan_ZoneExhaust_SystemAvailabilityManagerCouplingMode), "Coupled");
         
 
@@ -472,18 +471,17 @@ public string BalancedExhaustFractionScheduleName { get; set; } = "";
     public enum Fan_ZoneExhaust_SystemAvailabilityManagerCouplingMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coupled")]
+        [System.Runtime.Serialization.EnumMember(Value="Coupled")]
         Coupled = 1,
         
-        [JsonProperty("Decoupled")]
+        [System.Runtime.Serialization.EnumMember(Value="Decoupled")]
         Decoupled = 2,
     }
     
     [Description(@"Specifies an alternate set of performance parameters for a fan. These alternate parameters are used when a system manager (such as AvailabilityManager:NightVentilation) sets a specified flow rate. May be used with Fan:ConstantVolume, Fan:VariableVolume and Fan:ComponentModel. If the fan model senses that a fixed flow rate has been set, it will use these alternate performance parameters. It is assumed that the fan will run at a fixed speed in the alternate mode.")]
-    [JsonObject("FanPerformance:NightVentilation")]
     public class FanPerformance_NightVentilation : BHoMObject, IEnergyPlusClass
     {
         
@@ -516,7 +514,6 @@ public System.Nullable<float> MotorInAirstreamFraction { get; set; } = (System.N
     [Description("A detailed fan type for constant-air-volume (CAV) and variable-air-volume (VAV) s" +
         "ystems. It includes inputs that describe the air-distribution system as well as " +
         "the fan, drive belt (if used), motor, and variable-frequency-drive (if used).")]
-    [JsonObject("Fan:ComponentModel")]
     public class Fan_ComponentModel : BHoMObject, IEnergyPlusClass
     {
         
@@ -619,6 +616,7 @@ public System.Nullable<float> MotorInAirstreamFraction { get; set; } = (System.N
     "action of full-load motor input power If field blank, then assumes constant VFD " +
     "efficiency (0.97)")]
 [JsonProperty("vfd_efficiency_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Fan_ComponentModel_VfdEfficiencyType VfdEfficiencyType { get; set; } = (Fan_ComponentModel_VfdEfficiencyType)Enum.Parse(typeof(Fan_ComponentModel_VfdEfficiencyType), "Power");
         
 
@@ -718,10 +716,10 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Fan_ComponentModel_VfdEfficiencyType
     {
         
-        [JsonProperty("Power")]
+        [System.Runtime.Serialization.EnumMember(Value="Power")]
         Power = 0,
         
-        [JsonProperty("Speed")]
+        [System.Runtime.Serialization.EnumMember(Value="Speed")]
         Speed = 1,
     }
 }

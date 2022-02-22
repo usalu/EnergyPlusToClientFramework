@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
 {
     public enum ZoneControl_Thermostat_TemperatureAndHumidity_OvercoolRangeInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 1,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 2,
     }
 }

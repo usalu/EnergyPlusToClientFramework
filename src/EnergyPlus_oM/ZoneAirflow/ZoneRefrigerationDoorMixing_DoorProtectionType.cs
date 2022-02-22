@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 {
     public enum ZoneRefrigerationDoorMixing_DoorProtectionType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirCurtain")]
+        [System.Runtime.Serialization.EnumMember(Value="AirCurtain")]
         AirCurtain = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("StripCurtain")]
+        [System.Runtime.Serialization.EnumMember(Value="StripCurtain")]
         StripCurtain = 3,
     }
 }

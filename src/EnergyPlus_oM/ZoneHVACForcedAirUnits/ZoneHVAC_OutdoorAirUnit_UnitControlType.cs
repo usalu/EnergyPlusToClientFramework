@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_OutdoorAirUnit_UnitControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NeutralControl")]
+        [System.Runtime.Serialization.EnumMember(Value="NeutralControl")]
         NeutralControl = 1,
         
-        [JsonProperty("TemperatureControl")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureControl")]
         TemperatureControl = 2,
     }
 }

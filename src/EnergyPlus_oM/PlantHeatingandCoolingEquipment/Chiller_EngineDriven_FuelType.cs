@@ -1,32 +1,30 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     public enum Chiller_EngineDriven_FuelType
     {
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 0,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 1,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 2,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 3,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 4,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 5,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 6,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 7,
     }
 }

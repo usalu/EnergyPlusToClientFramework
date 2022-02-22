@@ -1,41 +1,39 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_WindConvectionWindwardVerticalWallEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlockenWindward")]
+        [System.Runtime.Serialization.EnumMember(Value="BlockenWindward")]
         BlockenWindward = 1,
         
-        [JsonProperty("DOE2Windward")]
+        [System.Runtime.Serialization.EnumMember(Value="DOE2Windward")]
         DOE2Windward = 2,
         
-        [JsonProperty("EmmelVertical")]
+        [System.Runtime.Serialization.EnumMember(Value="EmmelVertical")]
         EmmelVertical = 3,
         
-        [JsonProperty("McAdams")]
+        [System.Runtime.Serialization.EnumMember(Value="McAdams")]
         McAdams = 4,
         
-        [JsonProperty("Mitchell")]
+        [System.Runtime.Serialization.EnumMember(Value="Mitchell")]
         Mitchell = 5,
         
-        [JsonProperty("MoWiTTWindward")]
+        [System.Runtime.Serialization.EnumMember(Value="MoWiTTWindward")]
         MoWiTTWindward = 6,
         
-        [JsonProperty("NusseltJurges")]
+        [System.Runtime.Serialization.EnumMember(Value="NusseltJurges")]
         NusseltJurges = 7,
         
-        [JsonProperty("SimpleCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleCombined")]
         SimpleCombined = 8,
         
-        [JsonProperty("TARPWindward")]
+        [System.Runtime.Serialization.EnumMember(Value="TARPWindward")]
         TARPWindward = 9,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 10,
     }
 }

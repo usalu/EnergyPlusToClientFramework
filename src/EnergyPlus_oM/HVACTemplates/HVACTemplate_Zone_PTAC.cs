@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Packaged Terminal Air Conditioner")]
-    [JsonObject("HVACTemplate:Zone:PTAC")]
     public class HVACTemplate_Zone_PTAC : BHoMObject, IEnergyPlusClass
     {
         
@@ -54,6 +53,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"Flow/Person, Flow/Zone, Flow/Area, Sum, and Maximum use the values in the next three fields: Outdoor Air Flow Rate per Person, Outdoor Air Flow Rate per Zone Floor Area, and Outdoor Air Flow Rate per Zone. DetailedSpecification ignores these three Outdoor Air Flow Rate fields and instead references design specification objects named in the fields Design Specification Outdoor Air Object Name and Design Specification Zone Air Distribution Object Name.")]
         [JsonProperty("outdoor_air_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_PTAC_OutdoorAirMethod OutdoorAirMethod { get; set; } = (HVACTemplate_Zone_PTAC_OutdoorAirMethod)Enum.Parse(typeof(HVACTemplate_Zone_PTAC_OutdoorAirMethod), "Empty");
         
 
@@ -87,6 +87,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("supply_fan_placement")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_PTAC_SupplyFanPlacement SupplyFanPlacement { get; set; } = (HVACTemplate_Zone_PTAC_SupplyFanPlacement)Enum.Parse(typeof(HVACTemplate_Zone_PTAC_SupplyFanPlacement), "DrawThrough");
         
 
@@ -103,6 +104,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("cooling_coil_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_PTAC_CoolingCoilType CoolingCoilType { get; set; } = (HVACTemplate_Zone_PTAC_CoolingCoilType)Enum.Parse(typeof(HVACTemplate_Zone_PTAC_CoolingCoilType), "SingleSpeedDX");
         
 
@@ -131,6 +133,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heating_coil_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_PTAC_HeatingCoilType HeatingCoilType { get; set; } = (HVACTemplate_Zone_PTAC_HeatingCoilType)Enum.Parse(typeof(HVACTemplate_Zone_PTAC_HeatingCoilType), "Electric");
         
 
@@ -164,6 +167,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "ure TemperatureDifference = use the value from Zone Cooling Design Supply Air Te" +
                      "mperature Difference")]
         [JsonProperty("zone_cooling_design_supply_air_temperature_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_PTAC_ZoneCoolingDesignSupplyAirTemperatureInputMethod ZoneCoolingDesignSupplyAirTemperatureInputMethod { get; set; } = (HVACTemplate_Zone_PTAC_ZoneCoolingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(HVACTemplate_Zone_PTAC_ZoneCoolingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 
@@ -182,6 +186,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "ure TemperatureDifference = use the value from Zone Heating Design Supply Air Te" +
                      "mperature Difference")]
         [JsonProperty("zone_heating_design_supply_air_temperature_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_PTAC_ZoneHeatingDesignSupplyAirTemperatureInputMethod ZoneHeatingDesignSupplyAirTemperatureInputMethod { get; set; } = (HVACTemplate_Zone_PTAC_ZoneHeatingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(HVACTemplate_Zone_PTAC_ZoneHeatingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 
@@ -207,6 +212,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("baseboard_heating_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_PTAC_BaseboardHeatingType BaseboardHeatingType { get; set; } = (HVACTemplate_Zone_PTAC_BaseboardHeatingType)Enum.Parse(typeof(HVACTemplate_Zone_PTAC_BaseboardHeatingType), "None");
         
 
@@ -220,6 +226,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("capacity_control_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_PTAC_CapacityControlMethod CapacityControlMethod { get; set; } = (HVACTemplate_Zone_PTAC_CapacityControlMethod)Enum.Parse(typeof(HVACTemplate_Zone_PTAC_CapacityControlMethod), "None");
     }
 }

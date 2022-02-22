@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
     
     [Description("Flat plate air-to-air heat exchanger, typically used for exhaust or relief air he" +
         "at recovery.")]
-    [JsonObject("HeatExchanger:AirToAir:FlatPlate")]
     public class HeatExchanger_AirToAir_FlatPlate : BHoMObject, IEnergyPlusClass
     {
         
@@ -79,12 +78,14 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("flow_arrangement_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_AirToAir_FlatPlate_FlowArrangementType FlowArrangementType { get; set; } = (HeatExchanger_AirToAir_FlatPlate_FlowArrangementType)Enum.Parse(typeof(HeatExchanger_AirToAir_FlatPlate_FlowArrangementType), "CounterFlow");
         
 
 [Description("Yes means that the heat exchanger will be locked out (off) when the economizer is" +
     " operating or high humidity control is active")]
 [JsonProperty("economizer_lockout")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 

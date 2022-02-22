@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_Schedules_KeyField
     {
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 0,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 1,
     }
 }

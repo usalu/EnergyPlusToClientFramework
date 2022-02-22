@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_CentralAirDiffuserFloorEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BeausoleilMorrisonMixedStableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedStableFloor")]
         BeausoleilMorrisonMixedStableFloor = 1,
         
-        [JsonProperty("BeausoleilMorrisonMixedUnstableFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedUnstableFloor")]
         BeausoleilMorrisonMixedUnstableFloor = 2,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserFloor")]
         FisherPedersenCeilingDiffuserFloor = 3,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserFloor")]
         GoldsteinNovoselacCeilingDiffuserFloor = 4,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 5,
     }
 }

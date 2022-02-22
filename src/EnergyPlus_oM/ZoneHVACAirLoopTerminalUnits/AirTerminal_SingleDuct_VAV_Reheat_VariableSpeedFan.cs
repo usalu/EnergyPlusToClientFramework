@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     [Description(@"Central air system terminal unit, single duct, variable volume, with reheat coil (hot water, electric, gas, or steam) and variable-speed fan. These units are usually employed in underfloor air distribution (UFAD) systems where the air is supplied at low static pressure through an underfloor plenum. The fan is used to control the flow of conditioned air that enters the space.")]
-    [JsonObject("AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan")]
     public class AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan : BHoMObject, IEnergyPlusClass
     {
         
@@ -45,6 +44,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
         
 
         [JsonProperty("fan_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_FanObjectType FanObjectType { get; set; } = (AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_FanObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_FanObjectType), "FanSystemModel");
         
 
@@ -53,6 +53,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
         
 
         [JsonProperty("heating_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_HeatingCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_HeatingCoilObjectType), "CoilHeatingElectric");
         
 

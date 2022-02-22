@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("Wind turbine generator.")]
-    [JsonObject("Generator:WindTurbine")]
     public class Generator_WindTurbine : BHoMObject, IEnergyPlusClass
     {
         
@@ -20,6 +19,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 
         [Description("allowed values are: Horizontal Axis Wind Turbine or Vertical Axis Wind Turbine")]
         [JsonProperty("rotor_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_WindTurbine_RotorType RotorType { get; set; } = (Generator_WindTurbine_RotorType)Enum.Parse(typeof(Generator_WindTurbine_RotorType), "HorizontalAxisWindTurbine");
         
 
@@ -28,6 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                      "Fixed Speed Variable Pitch, Variable Speed Fixed Pitch or Variable Speed Variabl" +
                      "e Pitch")]
         [JsonProperty("power_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_WindTurbine_PowerControl PowerControl { get; set; } = (Generator_WindTurbine_PowerControl)Enum.Parse(typeof(Generator_WindTurbine_PowerControl), "VariableSpeedVariablePitch");
         
 

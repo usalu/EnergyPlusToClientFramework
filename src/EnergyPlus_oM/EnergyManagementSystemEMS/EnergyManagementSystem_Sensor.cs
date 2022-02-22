@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
     [Description("Declares EMS variable as a sensor a list of output variables and meters that can " +
         "be reported are available after a run on the report (.rdd) or meter dictionary f" +
         "ile (.mdd) if the Output:VariableDictionary has been requested.")]
-    [JsonObject("EnergyManagementSystem:Sensor")]
     public class EnergyManagementSystem_Sensor : BHoMObject, IEnergyPlusClass
     {
         

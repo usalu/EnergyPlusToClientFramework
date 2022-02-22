@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Pumps
 {
     [Description("This pump model is described in the ASHRAE secondary HVAC toolkit.")]
-    [JsonObject("Pump:ConstantSpeed")]
     public class Pump_ConstantSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -47,6 +46,7 @@ namespace BH.oM.Adapters.EnergyPlus.Pumps
         
 
         [JsonProperty("pump_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Pump_ConstantSpeed_PumpControlType PumpControlType { get; set; } = (Pump_ConstantSpeed_PumpControlType)Enum.Parse(typeof(Pump_ConstantSpeed_PumpControlType), "Continuous");
         
 
@@ -85,6 +85,7 @@ namespace BH.oM.Adapters.EnergyPlus.Pumps
 
         [Description(@"Used to indicate which sizing factor is used to calculate Design Power Consumption. PowerPerFlow indicates that Design Electric Power per Unit Flow Rate is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * scaling factor PowerPerFlowPerPressure indicates that Design Shaft Power per Unit Flow Rate per Unit Head is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * Design Pump Head * scaling factor / Motor Efficiency")]
         [JsonProperty("design_power_sizing_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Pump_ConstantSpeed_DesignPowerSizingMethod DesignPowerSizingMethod { get; set; } = (Pump_ConstantSpeed_DesignPowerSizingMethod)Enum.Parse(typeof(Pump_ConstantSpeed_DesignPowerSizingMethod), "PowerPerFlowPerPressure");
         
 

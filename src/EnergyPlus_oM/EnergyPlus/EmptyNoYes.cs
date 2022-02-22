@@ -1,22 +1,15 @@
 namespace BH.oM.Adapters.EnergyPlus
 {
-    using System.ComponentModel;
-    using System;
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using BH.oM.Base;
-    
-    
     public enum EmptyNoYes
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("No")]
+        [System.Runtime.Serialization.EnumMember(Value="No")]
         No = 1,
         
-        [JsonProperty("Yes")]
+        [System.Runtime.Serialization.EnumMember(Value="Yes")]
         Yes = 2,
     }
 }

@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     [Description("Sets internal gains for lights in the zone. If you use a ZoneList in the Zone or " +
                  "ZoneList name field then this definition applies to all the zones in the ZoneLis" +
                  "t.")]
-    [JsonObject("Lights")]
     public class Lights : BHoMObject, IEnergyPlusClass
     {
         
@@ -26,6 +25,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 
         [Description(@"The entered calculation method is used to create the maximum amount of lights for this set of attributes Choices: LightingLevel => Lighting Level -- simply enter watts of lights Watts/Area => Watts per Zone Floor Area -- enter the number to apply. Value * Floor Area = Lights Watts/Person => Watts per Person -- enter the number to apply. Value * Occupants = Lights")]
         [JsonProperty("design_level_calculation_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Lights_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (Lights_DesignLevelCalculationMethod)Enum.Parse(typeof(Lights_DesignLevelCalculationMethod), "LightingLevel");
         
 
@@ -68,6 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
         
 
         [JsonProperty("return_air_fraction_calculated_from_plenum_temperature")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes ReturnAirFractionCalculatedFromPlenumTemperature { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 

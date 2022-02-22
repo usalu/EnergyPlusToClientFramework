@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     public enum AirflowNetwork_MultiZone_Zone_VentilationControlMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAE55Adaptive")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAE55Adaptive")]
         ASHRAE55Adaptive = 1,
         
-        [JsonProperty("CEN15251Adaptive")]
+        [System.Runtime.Serialization.EnumMember(Value="CEN15251Adaptive")]
         CEN15251Adaptive = 2,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 3,
         
-        [JsonProperty("Enthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="Enthalpy")]
         Enthalpy = 4,
         
-        [JsonProperty("NoVent")]
+        [System.Runtime.Serialization.EnumMember(Value="NoVent")]
         NoVent = 5,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 6,
     }
 }

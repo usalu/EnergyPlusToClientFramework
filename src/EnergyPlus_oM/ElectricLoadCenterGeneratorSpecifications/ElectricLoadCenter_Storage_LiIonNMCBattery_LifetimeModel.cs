@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum ElectricLoadCenter_Storage_LiIonNMCBattery_LifetimeModel
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("KandlerSmith")]
+        [System.Runtime.Serialization.EnumMember(Value="KandlerSmith")]
         KandlerSmith = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
     }
 }

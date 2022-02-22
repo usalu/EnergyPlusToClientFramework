@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("Used to provide incident solar radiation on the inside of the surface. Reference " +
                  "surface-construction pair and if that pair is used in a simulation, then program" +
                  " will use value provided in schedule instead of calculating it.")]
-    [JsonObject("SurfaceProperty:SolarIncidentInside")]
     public class SurfaceProperty_SolarIncidentInside : BHoMObject, IEnergyPlusClass
     {
         

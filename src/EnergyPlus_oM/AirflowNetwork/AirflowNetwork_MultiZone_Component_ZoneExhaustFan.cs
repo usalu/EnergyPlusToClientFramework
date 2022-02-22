@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object specifies the additional properties for a zone exhaust fan to perform" +
                  " multizone airflow calculations.")]
-    [JsonObject("AirflowNetwork:MultiZone:Component:ZoneExhaustFan")]
     public class AirflowNetwork_MultiZone_Component_ZoneExhaustFan : BHoMObject, IEnergyPlusClass
     {
         

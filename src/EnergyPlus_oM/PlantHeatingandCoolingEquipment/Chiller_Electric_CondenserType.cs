@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     public enum Chiller_Electric_CondenserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
         AirCooled = 1,
         
-        [JsonProperty("EvaporativelyCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativelyCooled")]
         EvaporativelyCooled = 2,
         
-        [JsonProperty("WaterCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterCooled")]
         WaterCooled = 3,
     }
 }

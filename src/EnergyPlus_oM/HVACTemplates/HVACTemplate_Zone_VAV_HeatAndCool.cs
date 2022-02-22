@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("VAV system with VAV for both heating and cooling and optional reheat coil. For he" +
                  "ating, this unit increases airflow first, then activates reheat coil.")]
-    [JsonObject("HVACTemplate:Zone:VAV:HeatAndCool")]
     public class HVACTemplate_Zone_VAV_HeatAndCool : BHoMObject, IEnergyPlusClass
     {
         
@@ -53,6 +52,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"Flow/Person, Flow/Zone, Flow/Area, Sum, and Maximum use the values in the next three fields: Outdoor Air Flow Rate per Person, Outdoor Air Flow Rate per Zone Floor Area, and Outdoor Air Flow Rate per Zone. DetailedSpecification ignores these three Outdoor Air Flow Rate fields and instead references design specification objects named in the fields Design Specification Outdoor Air Object Name and Design Specification Zone Air Distribution Object Name.")]
         [JsonProperty("outdoor_air_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_VAV_HeatAndCool_OutdoorAirMethod OutdoorAirMethod { get; set; } = (HVACTemplate_Zone_VAV_HeatAndCool_OutdoorAirMethod)Enum.Parse(typeof(HVACTemplate_Zone_VAV_HeatAndCool_OutdoorAirMethod), "Empty");
         
 
@@ -83,6 +83,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("reheat_coil_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_VAV_HeatAndCool_ReheatCoilType ReheatCoilType { get; set; } = (HVACTemplate_Zone_VAV_HeatAndCool_ReheatCoilType)Enum.Parse(typeof(HVACTemplate_Zone_VAV_HeatAndCool_ReheatCoilType), "None");
         
 
@@ -109,6 +110,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("baseboard_heating_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_VAV_HeatAndCool_BaseboardHeatingType BaseboardHeatingType { get; set; } = (HVACTemplate_Zone_VAV_HeatAndCool_BaseboardHeatingType)Enum.Parse(typeof(HVACTemplate_Zone_VAV_HeatAndCool_BaseboardHeatingType), "None");
         
 
@@ -123,6 +125,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"SupplyAirTemperature = use the value from Zone Cooling Design Supply Air Temperature TemperatureDifference = use the value from Zone Cooling Design Supply Air Temperature Difference SystemSupplyAirTemperature = use the value from HVACTemplate:System:VAV Cooling Coil Design Setpoint")]
         [JsonProperty("zone_cooling_design_supply_air_temperature_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_VAV_HeatAndCool_ZoneCoolingDesignSupplyAirTemperatureInputMethod ZoneCoolingDesignSupplyAirTemperatureInputMethod { get; set; } = (HVACTemplate_Zone_VAV_HeatAndCool_ZoneCoolingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(HVACTemplate_Zone_VAV_HeatAndCool_ZoneCoolingDesignSupplyAirTemperatureInputMethod), "SystemSupplyAirTemperature");
         
 
@@ -139,6 +142,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"SupplyAirTemperature = use the value from Zone Heating Design Supply Air Temperature SystemSupplyAirTemperature = use the value from HVACTemplate:System:VAV Heating Coil Design Setpoint TemperatureDifference = use the value from Zone Heating Design Supply Air Temperature Difference")]
         [JsonProperty("zone_heating_design_supply_air_temperature_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_VAV_HeatAndCool_ZoneHeatingDesignSupplyAirTemperatureInputMethod ZoneHeatingDesignSupplyAirTemperatureInputMethod { get; set; } = (HVACTemplate_Zone_VAV_HeatAndCool_ZoneHeatingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(HVACTemplate_Zone_VAV_HeatAndCool_ZoneHeatingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 

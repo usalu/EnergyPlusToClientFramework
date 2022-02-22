@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for simplified entry of exterior walls. View Factor to Ground is automatic" +
                  "ally calculated.")]
-    [JsonObject("Wall:Exterior")]
     public class Wall_Exterior : BHoMObject, IEnergyPlusClass
     {
         

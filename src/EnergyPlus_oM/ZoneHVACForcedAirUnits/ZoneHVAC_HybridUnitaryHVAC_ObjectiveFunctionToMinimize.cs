@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_HybridUnitaryHVAC_ObjectiveFunctionToMinimize
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Electricity Use")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity Use")]
         ElectricityUse = 1,
         
-        [JsonProperty("Second Fuel Use")]
+        [System.Runtime.Serialization.EnumMember(Value="Second Fuel Use")]
         SecondFuelUse = 2,
         
-        [JsonProperty("Third Fuel Use")]
+        [System.Runtime.Serialization.EnumMember(Value="Third Fuel Use")]
         ThirdFuelUse = 3,
         
-        [JsonProperty("Water Use")]
+        [System.Runtime.Serialization.EnumMember(Value="Water Use")]
         WaterUse = 4,
     }
 }

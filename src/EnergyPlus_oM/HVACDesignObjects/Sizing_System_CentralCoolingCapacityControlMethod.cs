@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     public enum Sizing_System_CentralCoolingCapacityControlMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Bypass")]
+        [System.Runtime.Serialization.EnumMember(Value="Bypass")]
         Bypass = 1,
         
-        [JsonProperty("OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="OnOff")]
         OnOff = 2,
         
-        [JsonProperty("VAV")]
+        [System.Runtime.Serialization.EnumMember(Value="VAV")]
         VAV = 3,
         
-        [JsonProperty("VT")]
+        [System.Runtime.Serialization.EnumMember(Value="VT")]
         VT = 4,
     }
 }

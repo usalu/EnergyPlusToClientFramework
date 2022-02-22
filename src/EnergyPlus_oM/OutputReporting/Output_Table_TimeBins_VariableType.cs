@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_Table_TimeBins_VariableType
     {
         
-        [JsonProperty("Energy")]
+        [System.Runtime.Serialization.EnumMember(Value="Energy")]
         Energy = 0,
         
-        [JsonProperty("Power")]
+        [System.Runtime.Serialization.EnumMember(Value="Power")]
         Power = 1,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 2,
         
-        [JsonProperty("VolumetricFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="VolumetricFlow")]
         VolumetricFlow = 3,
     }
 }

@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterSystems
 {
     public enum WaterUse_Connections_DrainWaterHeatExchangerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CounterFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="CounterFlow")]
         CounterFlow = 1,
         
-        [JsonProperty("CrossFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlow")]
         CrossFlow = 2,
         
-        [JsonProperty("Ideal")]
+        [System.Runtime.Serialization.EnumMember(Value="Ideal")]
         Ideal = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
 }

@@ -1,11 +1,9 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Controllers
 {
     public enum Controller_WaterCoil_ActuatorVariable
     {
         
-        [JsonProperty("Flow")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow")]
         Flow = 0,
     }
 }

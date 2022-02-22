@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description("Passes inlet node state variables to outlet node state variables")]
-    [JsonObject("Duct")]
     public class Duct : BHoMObject, IEnergyPlusClass
     {
         

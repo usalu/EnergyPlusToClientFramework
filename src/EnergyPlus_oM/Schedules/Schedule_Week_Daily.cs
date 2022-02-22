@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     [Description("A Schedule:Week:Daily contains 12 Schedule:Day:Hourly objects, one for each day t" +
                  "ype.")]
-    [JsonObject("Schedule:Week:Daily")]
     public class Schedule_Week_Daily : BHoMObject, IEnergyPlusClass
     {
         

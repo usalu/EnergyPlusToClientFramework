@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     public enum AirflowNetwork_SimulationControl_AirflownetworkControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MultizoneWithDistribution")]
+        [System.Runtime.Serialization.EnumMember(Value="MultizoneWithDistribution")]
         MultizoneWithDistribution = 1,
         
-        [JsonProperty("MultizoneWithDistributionOnlyDuringFanOperation")]
+        [System.Runtime.Serialization.EnumMember(Value="MultizoneWithDistributionOnlyDuringFanOperation")]
         MultizoneWithDistributionOnlyDuringFanOperation = 2,
         
-        [JsonProperty("MultizoneWithoutDistribution")]
+        [System.Runtime.Serialization.EnumMember(Value="MultizoneWithoutDistribution")]
         MultizoneWithoutDistribution = 3,
         
-        [JsonProperty("NoMultizoneOrDistribution")]
+        [System.Runtime.Serialization.EnumMember(Value="NoMultizoneOrDistribution")]
         NoMultizoneOrDistribution = 4,
     }
 }

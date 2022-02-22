@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     public enum People_MeanRadiantTemperatureCalculationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AngleFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="AngleFactor")]
         AngleFactor = 1,
         
-        [JsonProperty("SurfaceWeighted")]
+        [System.Runtime.Serialization.EnumMember(Value="SurfaceWeighted")]
         SurfaceWeighted = 2,
         
-        [JsonProperty("ZoneAveraged")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAveraged")]
         ZoneAveraged = 3,
     }
 }

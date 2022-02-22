@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     public enum FluidProperties_GlycolConcentration_GlycolType
     {
         
-        [JsonProperty("EthyleneGlycol")]
+        [System.Runtime.Serialization.EnumMember(Value="EthyleneGlycol")]
         EthyleneGlycol = 0,
         
-        [JsonProperty("PropyleneGlycol")]
+        [System.Runtime.Serialization.EnumMember(Value="PropyleneGlycol")]
         PropyleneGlycol = 1,
         
-        [JsonProperty("UserDefinedGlycolType")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefinedGlycolType")]
         UserDefinedGlycolType = 2,
     }
 }

@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Zone_FanCoil_CapacityControlMethod
     {
         
-        [JsonProperty("ASHRAE90VariableFan")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAE90VariableFan")]
         ASHRAE90VariableFan = 0,
         
-        [JsonProperty("ConstantFanVariableFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantFanVariableFlow")]
         ConstantFanVariableFlow = 1,
         
-        [JsonProperty("CyclingFan")]
+        [System.Runtime.Serialization.EnumMember(Value="CyclingFan")]
         CyclingFan = 2,
         
-        [JsonProperty("MultiSpeedFan")]
+        [System.Runtime.Serialization.EnumMember(Value="MultiSpeedFan")]
         MultiSpeedFan = 3,
         
-        [JsonProperty("VariableFanConstantFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableFanConstantFlow")]
         VariableFanConstantFlow = 4,
         
-        [JsonProperty("VariableFanVariableFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableFanVariableFlow")]
         VariableFanVariableFlow = 5,
     }
 }

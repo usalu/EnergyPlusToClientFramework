@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum EvaporativeFluidCooler_SingleSpeed_PerformanceInputMethod
     {
         
-        [JsonProperty("StandardDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="StandardDesignCapacity")]
         StandardDesignCapacity = 0,
         
-        [JsonProperty("UFactorTimesAreaAndDesignWaterFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="UFactorTimesAreaAndDesignWaterFlowRate")]
         UFactorTimesAreaAndDesignWaterFlowRate = 1,
         
-        [JsonProperty("UserSpecifiedDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="UserSpecifiedDesignCapacity")]
         UserSpecifiedDesignCapacity = 2,
     }
 }

@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     [Description("Central air system terminal unit, dual duct, variable volume.")]
-    [JsonObject("AirTerminal:DualDuct:VAV")]
     public class AirTerminal_DualDuct_VAV : BHoMObject, IEnergyPlusClass
     {
         

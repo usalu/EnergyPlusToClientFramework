@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_PreprocessorMessage_ErrorSeverity
     {
         
-        [JsonProperty("Fatal")]
+        [System.Runtime.Serialization.EnumMember(Value="Fatal")]
         Fatal = 0,
         
-        [JsonProperty("Information")]
+        [System.Runtime.Serialization.EnumMember(Value="Information")]
         Information = 1,
         
-        [JsonProperty("Severe")]
+        [System.Runtime.Serialization.EnumMember(Value="Severe")]
         Severe = 2,
         
-        [JsonProperty("Warning")]
+        [System.Runtime.Serialization.EnumMember(Value="Warning")]
         Warning = 3,
     }
 }

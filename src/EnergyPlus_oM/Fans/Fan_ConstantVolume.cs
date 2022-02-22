@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
     [Description("Constant volume fan that is intended to operate continuously based on a time sche" +
                  "dule. This fan will not cycle on and off based on cooling/heating load or other " +
                  "control signals.")]
-    [JsonObject("Fan:ConstantVolume")]
     public class Fan_ConstantVolume : BHoMObject, IEnergyPlusClass
     {
         

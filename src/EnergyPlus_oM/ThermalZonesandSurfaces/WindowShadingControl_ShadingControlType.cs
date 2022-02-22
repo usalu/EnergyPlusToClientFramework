@@ -1,71 +1,69 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum WindowShadingControl_ShadingControlType
     {
         
-        [JsonProperty("AlwaysOff")]
+        [System.Runtime.Serialization.EnumMember(Value="AlwaysOff")]
         AlwaysOff = 0,
         
-        [JsonProperty("AlwaysOn")]
+        [System.Runtime.Serialization.EnumMember(Value="AlwaysOn")]
         AlwaysOn = 1,
         
-        [JsonProperty("MeetDaylightIlluminanceSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetDaylightIlluminanceSetpoint")]
         MeetDaylightIlluminanceSetpoint = 2,
         
-        [JsonProperty("OffNightAndOnDayIfCoolingAndHighSolarOnWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="OffNightAndOnDayIfCoolingAndHighSolarOnWindow")]
         OffNightAndOnDayIfCoolingAndHighSolarOnWindow = 3,
         
-        [JsonProperty("OnIfHighGlare")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighGlare")]
         OnIfHighGlare = 4,
         
-        [JsonProperty("OnIfHighHorizontalSolar")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighHorizontalSolar")]
         OnIfHighHorizontalSolar = 5,
         
-        [JsonProperty("OnIfHighOutdoorAirTempAndHighHorizontalSolar")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighOutdoorAirTempAndHighHorizontalSolar")]
         OnIfHighOutdoorAirTempAndHighHorizontalSolar = 6,
         
-        [JsonProperty("OnIfHighOutdoorAirTempAndHighSolarOnWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighOutdoorAirTempAndHighSolarOnWindow")]
         OnIfHighOutdoorAirTempAndHighSolarOnWindow = 7,
         
-        [JsonProperty("OnIfHighOutdoorAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighOutdoorAirTemperature")]
         OnIfHighOutdoorAirTemperature = 8,
         
-        [JsonProperty("OnIfHighSolarOnWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighSolarOnWindow")]
         OnIfHighSolarOnWindow = 9,
         
-        [JsonProperty("OnIfHighZoneAirTempAndHighHorizontalSolar")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighZoneAirTempAndHighHorizontalSolar")]
         OnIfHighZoneAirTempAndHighHorizontalSolar = 10,
         
-        [JsonProperty("OnIfHighZoneAirTempAndHighSolarOnWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighZoneAirTempAndHighSolarOnWindow")]
         OnIfHighZoneAirTempAndHighSolarOnWindow = 11,
         
-        [JsonProperty("OnIfHighZoneAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighZoneAirTemperature")]
         OnIfHighZoneAirTemperature = 12,
         
-        [JsonProperty("OnIfHighZoneCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighZoneCooling")]
         OnIfHighZoneCooling = 13,
         
-        [JsonProperty("OnIfScheduleAllows")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfScheduleAllows")]
         OnIfScheduleAllows = 14,
         
-        [JsonProperty("OnNightAndOnDayIfCoolingAndHighSolarOnWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="OnNightAndOnDayIfCoolingAndHighSolarOnWindow")]
         OnNightAndOnDayIfCoolingAndHighSolarOnWindow = 15,
         
-        [JsonProperty("OnNightIfHeatingAndOffDay")]
+        [System.Runtime.Serialization.EnumMember(Value="OnNightIfHeatingAndOffDay")]
         OnNightIfHeatingAndOffDay = 16,
         
-        [JsonProperty("OnNightIfHeatingAndOnDayIfCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="OnNightIfHeatingAndOnDayIfCooling")]
         OnNightIfHeatingAndOnDayIfCooling = 17,
         
-        [JsonProperty("OnNightIfLowInsideTempAndOffDay")]
+        [System.Runtime.Serialization.EnumMember(Value="OnNightIfLowInsideTempAndOffDay")]
         OnNightIfLowInsideTempAndOffDay = 18,
         
-        [JsonProperty("OnNightIfLowOutdoorTempAndOffDay")]
+        [System.Runtime.Serialization.EnumMember(Value="OnNightIfLowOutdoorTempAndOffDay")]
         OnNightIfLowOutdoorTempAndOffDay = 19,
         
-        [JsonProperty("OnNightIfLowOutdoorTempAndOnDayIfCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="OnNightIfLowOutdoorTempAndOnDayIfCooling")]
         OnNightIfLowOutdoorTempAndOnDayIfCooling = 20,
     }
 }

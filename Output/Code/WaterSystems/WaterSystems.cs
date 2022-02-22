@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.WaterSystems
     
     
     [Description(@"A generalized object for simulating all water end uses. Hot and cold water uses are included, as well as controlled mixing of hot and cold water at the tap. The WaterUse:Equipment object can be used stand-alone, or coupled into a plant loop using the WaterUse:Connections object (see below). The WaterUse:Connections object allows water uses to be linked to WaterUse:Storage objects to store and draw reclaimed water. The object can also simulate drainwater heat recovery.")]
-    [JsonObject("WaterUse:Equipment")]
     public class WaterUse_Equipment : BHoMObject, IEnergyPlusClass
     {
         
@@ -117,7 +116,6 @@ public string LatentFractionScheduleName { get; set; } = "";
     }
     
     [Description(@"A subsystem that groups together multiple WaterUse:Equipment components. As its name suggests, the object provides connections that are shared by these components, including: 1. Inlet node and outlet node connections to a plant loop 2. Connections to WaterUse:Storage objects to store and draw reclaimed water 3. Internal connections to simulate drainwater heat recovery.")]
-    [JsonObject("WaterUse:Connections")]
     public class WaterUse_Connections : BHoMObject, IEnergyPlusClass
     {
         
@@ -150,10 +148,12 @@ public string ColdWaterSupplyTemperatureScheduleName { get; set; } = "";
         
 
 [JsonProperty("drain_water_heat_exchanger_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_Connections_DrainWaterHeatExchangerType DrainWaterHeatExchangerType { get; set; } = (WaterUse_Connections_DrainWaterHeatExchangerType)Enum.Parse(typeof(WaterUse_Connections_DrainWaterHeatExchangerType), "None");
         
 
 [JsonProperty("drain_water_heat_exchanger_destination")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_Connections_DrainWaterHeatExchangerDestination DrainWaterHeatExchangerDestination { get; set; } = (WaterUse_Connections_DrainWaterHeatExchangerDestination)Enum.Parse(typeof(WaterUse_Connections_DrainWaterHeatExchangerDestination), "Plant");
         
 
@@ -168,40 +168,39 @@ public string Connections { get; set; } = "";
     public enum WaterUse_Connections_DrainWaterHeatExchangerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CounterFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="CounterFlow")]
         CounterFlow = 1,
         
-        [JsonProperty("CrossFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlow")]
         CrossFlow = 2,
         
-        [JsonProperty("Ideal")]
+        [System.Runtime.Serialization.EnumMember(Value="Ideal")]
         Ideal = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
     
     public enum WaterUse_Connections_DrainWaterHeatExchangerDestination
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Equipment")]
+        [System.Runtime.Serialization.EnumMember(Value="Equipment")]
         Equipment = 1,
         
-        [JsonProperty("Plant")]
+        [System.Runtime.Serialization.EnumMember(Value="Plant")]
         Plant = 2,
         
-        [JsonProperty("PlantAndEquipment")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantAndEquipment")]
         PlantAndEquipment = 3,
     }
     
     [Description(@"A water storage tank. If the building model is to include any on-site water collection, wells, or storing and reuse of graywater, then a WaterUse:Storage object is needed. Each WaterUse:Storage can serve as a central node and make connections to numerous sources of supply or numerous components with demand. If a maximum capacity is not specified, the tank is assumed to have unlimited capacity.")]
-    [JsonObject("WaterUse:Storage")]
     public class WaterUse_Storage : BHoMObject, IEnergyPlusClass
     {
         
@@ -235,6 +234,7 @@ public string OverflowDestination { get; set; } = "";
         
 
 [JsonProperty("type_of_supply_controlled_by_float_valve")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_Storage_TypeOfSupplyControlledByFloatValve TypeOfSupplyControlledByFloatValve { get; set; } = (WaterUse_Storage_TypeOfSupplyControlledByFloatValve)Enum.Parse(typeof(WaterUse_Storage_TypeOfSupplyControlledByFloatValve), "GroundwaterWell");
         
 
@@ -259,6 +259,7 @@ public string OtherTankName { get; set; } = "";
         
 
 [JsonProperty("water_thermal_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_Storage_WaterThermalMode WaterThermalMode { get; set; } = (WaterUse_Storage_WaterThermalMode)Enum.Parse(typeof(WaterUse_Storage_WaterThermalMode), "ScheduledTemperature");
         
 
@@ -267,6 +268,7 @@ public string WaterTemperatureScheduleName { get; set; } = "";
         
 
 [JsonProperty("ambient_temperature_indicator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_Storage_AmbientTemperatureIndicator AmbientTemperatureIndicator { get; set; } = (WaterUse_Storage_AmbientTemperatureIndicator)Enum.Parse(typeof(WaterUse_Storage_AmbientTemperatureIndicator), "Outdoors");
         
 
@@ -293,44 +295,43 @@ public string TankOutsideSurfaceMaterialName { get; set; } = "";
     public enum WaterUse_Storage_TypeOfSupplyControlledByFloatValve
     {
         
-        [JsonProperty("GroundwaterWell")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundwaterWell")]
         GroundwaterWell = 0,
         
-        [JsonProperty("Mains")]
+        [System.Runtime.Serialization.EnumMember(Value="Mains")]
         Mains = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("OtherTank")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherTank")]
         OtherTank = 3,
     }
     
     public enum WaterUse_Storage_WaterThermalMode
     {
         
-        [JsonProperty("ScheduledTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledTemperature")]
         ScheduledTemperature = 0,
         
-        [JsonProperty("ThermalModel")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalModel")]
         ThermalModel = 1,
     }
     
     public enum WaterUse_Storage_AmbientTemperatureIndicator
     {
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 0,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 1,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 2,
     }
     
     [Description(@"Simulates on-site water supply from a well. Well water is pumped out of the ground into a WaterUse:Storage. The operation of the ground water well is controlled by the associated WaterUse:Storage which is assumed to be operated as a vented cistern with no pressure tank.")]
-    [JsonObject("WaterUse:Well")]
     public class WaterUse_Well : BHoMObject, IEnergyPlusClass
     {
         
@@ -368,6 +369,7 @@ public System.Nullable<float> NominalWellStorageVolume { get; set; } = null;
         
 
 [JsonProperty("water_table_depth_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_Well_WaterTableDepthMode WaterTableDepthMode { get; set; } = (WaterUse_Well_WaterTableDepthMode)Enum.Parse(typeof(WaterUse_Well_WaterTableDepthMode), "Constant");
         
 
@@ -382,17 +384,16 @@ public string WaterTableDepthScheduleName { get; set; } = "";
     public enum WaterUse_Well_WaterTableDepthMode
     {
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 0,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 1,
     }
     
     [Description("Used for harvesting rainwater falling on building surfaces. The rainwater is sent" +
         " to a WaterUse:Storage object. In order to use this object it is necessary to al" +
         "so include a Site:Precipitation object to describe the rates of rainfall.")]
-    [JsonObject("WaterUse:RainCollector")]
     public class WaterUse_RainCollector : BHoMObject, IEnergyPlusClass
     {
         
@@ -402,6 +403,7 @@ public string StorageTankName { get; set; } = "";
         
 
 [JsonProperty("loss_factor_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_RainCollector_LossFactorMode LossFactorMode { get; set; } = (WaterUse_RainCollector_LossFactorMode)Enum.Parse(typeof(WaterUse_RainCollector_LossFactorMode), "Constant");
         
 
@@ -427,10 +429,10 @@ public string Surfaces { get; set; } = "";
     public enum WaterUse_RainCollector_LossFactorMode
     {
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 0,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 1,
     }
 }

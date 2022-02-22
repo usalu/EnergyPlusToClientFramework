@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum HVACSystemRootFindingAlgorithm_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Alternation")]
+        [System.Runtime.Serialization.EnumMember(Value="Alternation")]
         Alternation = 1,
         
-        [JsonProperty("Bisection")]
+        [System.Runtime.Serialization.EnumMember(Value="Bisection")]
         Bisection = 2,
         
-        [JsonProperty("BisectionThenRegulaFalsi")]
+        [System.Runtime.Serialization.EnumMember(Value="BisectionThenRegulaFalsi")]
         BisectionThenRegulaFalsi = 3,
         
-        [JsonProperty("RegulaFalsi")]
+        [System.Runtime.Serialization.EnumMember(Value="RegulaFalsi")]
         RegulaFalsi = 4,
         
-        [JsonProperty("RegulaFalsiThenBisection")]
+        [System.Runtime.Serialization.EnumMember(Value="RegulaFalsiThenBisection")]
         RegulaFalsiThenBisection = 5,
     }
 }

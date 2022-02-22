@@ -7,12 +7,12 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description("only two connectors allowed per loop if two entered, one must be Connector:Splitt" +
                  "er and one must be Connector:Mixer")]
-    [JsonObject("ConnectorList")]
     public class ConnectorList : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("connector_1_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ConnectorList_Connector1ObjectType Connector1ObjectType { get; set; } = (ConnectorList_Connector1ObjectType)Enum.Parse(typeof(ConnectorList_Connector1ObjectType), "ConnectorMixer");
         
 
@@ -21,6 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
         [JsonProperty("connector_2_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ConnectorList_Connector2ObjectType Connector2ObjectType { get; set; } = (ConnectorList_Connector2ObjectType)Enum.Parse(typeof(ConnectorList_Connector2ObjectType), "ConnectorMixer");
         
 

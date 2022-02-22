@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Used to describe the amount of irrigation on the ecoroof surface over the course " +
                  "of the simulation runperiod.")]
-    [JsonObject("RoofIrrigation")]
     public class RoofIrrigation : BHoMObject, IEnergyPlusClass
     {
         
@@ -16,6 +15,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         [Description("SmartSchedule will not allow irrigation when soil is already moist. Current thres" +
                      "hold set at 30% of saturation.")]
         [JsonProperty("irrigation_model_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public RoofIrrigation_IrrigationModelType IrrigationModelType { get; set; } = (RoofIrrigation_IrrigationModelType)Enum.Parse(typeof(RoofIrrigation_IrrigationModelType), "Schedule");
         
 

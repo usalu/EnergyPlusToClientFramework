@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     public enum SetpointManager_FollowOutdoorAirTemperature_ReferenceTemperatureType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("OutdoorAirDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAirDryBulb")]
         OutdoorAirDryBulb = 1,
         
-        [JsonProperty("OutdoorAirWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAirWetBulb")]
         OutdoorAirWetBulb = 2,
     }
 }

@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum WindowMaterial_Gap_EquivalentLayer_GasType
     {
         
-        [JsonProperty("AIR")]
+        [System.Runtime.Serialization.EnumMember(Value="AIR")]
         AIR = 0,
         
-        [JsonProperty("ARGON")]
+        [System.Runtime.Serialization.EnumMember(Value="ARGON")]
         ARGON = 1,
         
-        [JsonProperty("CUSTOM")]
+        [System.Runtime.Serialization.EnumMember(Value="CUSTOM")]
         CUSTOM = 2,
         
-        [JsonProperty("KRYPTON")]
+        [System.Runtime.Serialization.EnumMember(Value="KRYPTON")]
         KRYPTON = 3,
         
-        [JsonProperty("XENON")]
+        [System.Runtime.Serialization.EnumMember(Value="XENON")]
         XENON = 4,
     }
 }

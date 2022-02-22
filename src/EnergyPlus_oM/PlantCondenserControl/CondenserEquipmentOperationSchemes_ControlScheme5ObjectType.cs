@@ -1,41 +1,39 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
 {
     public enum CondenserEquipmentOperationSchemes_ControlScheme5ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 0,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 8,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 9,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 10,
     }
 }

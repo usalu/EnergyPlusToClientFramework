@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
 {
     public enum DemandManager_ElectricEquipment_LimitControl
     {
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 0,
         
-        [JsonProperty("Off")]
+        [System.Runtime.Serialization.EnumMember(Value="Off")]
         Off = 1,
     }
 }

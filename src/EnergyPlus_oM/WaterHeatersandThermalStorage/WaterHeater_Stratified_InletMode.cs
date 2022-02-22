@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     public enum WaterHeater_Stratified_InletMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 1,
         
-        [JsonProperty("Seeking")]
+        [System.Runtime.Serialization.EnumMember(Value="Seeking")]
         Seeking = 2,
     }
 }

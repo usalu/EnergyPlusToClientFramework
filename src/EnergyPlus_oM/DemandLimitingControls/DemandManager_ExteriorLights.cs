@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
 {
     [Description("used for demand limiting Exterior:Lights objects.")]
-    [JsonObject("DemandManager:ExteriorLights")]
     public class DemandManager_ExteriorLights : BHoMObject, IEnergyPlusClass
     {
         
@@ -18,6 +17,7 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
         
 
         [JsonProperty("limit_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public DemandManager_ExteriorLights_LimitControl LimitControl { get; set; } = (DemandManager_ExteriorLights_LimitControl)Enum.Parse(typeof(DemandManager_ExteriorLights_LimitControl), "Fixed");
         
 
@@ -36,6 +36,7 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
         
 
         [JsonProperty("selection_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public DemandManager_ExteriorLights_SelectionControl SelectionControl { get; set; } = (DemandManager_ExteriorLights_SelectionControl)Enum.Parse(typeof(DemandManager_ExteriorLights_SelectionControl), "All");
         
 

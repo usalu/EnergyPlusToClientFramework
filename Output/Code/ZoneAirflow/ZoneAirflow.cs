@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
     
     
     [Description(@"Infiltration is specified as a design level which is modified by a Schedule fraction, temperature difference and wind speed: Infiltration=Idesign * FSchedule * (A + B*|(Tzone-Todb)| + C*WindSpd + D * WindSpd**2) If you use a ZoneList in the Zone or ZoneList name field then this definition applies to all the zones in the ZoneList.")]
-    [JsonObject("ZoneInfiltration:DesignFlowRate")]
     public class ZoneInfiltration_DesignFlowRate : BHoMObject, IEnergyPlusClass
     {
         
@@ -82,6 +81,7 @@ public string ScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum amount of infiltration for this set of attributes Choices: Flow/Zone => Design Flow Rate -- simply enter Design Flow Rate Flow/Area => Flow per Zone Floor Area - Value * Floor Area (zone) = Design Flow Rate Flow/ExteriorArea => Flow per Exterior Surface Area - Value * Exterior Surface Area (zone) = Design Flow Rate Flow/ExteriorWallArea => Flow per Exterior Surface Area - Value * Exterior Wall Surface Area (zone) = Design Flow Rate AirChanges/Hour => Air Changes per Hour - Value * Floor Volume (zone) adjusted for m3/s = Design Volume Flow Rate ""Idesign"" in Equation is the result.")]
 [JsonProperty("design_flow_rate_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneInfiltration_DesignFlowRate_DesignFlowRateCalculationMethod DesignFlowRateCalculationMethod { get; set; } = (ZoneInfiltration_DesignFlowRate_DesignFlowRateCalculationMethod)Enum.Parse(typeof(ZoneInfiltration_DesignFlowRate_DesignFlowRateCalculationMethod), "Empty");
         
 
@@ -126,22 +126,22 @@ public System.Nullable<float> VelocitySquaredTermCoefficient { get; set; } = (Sy
     public enum ZoneInfiltration_DesignFlowRate_DesignFlowRateCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirChanges/Hour")]
+        [System.Runtime.Serialization.EnumMember(Value="AirChanges/Hour")]
         AirChangesHour = 1,
         
-        [JsonProperty("Flow/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Area")]
         FlowArea = 2,
         
-        [JsonProperty("Flow/ExteriorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/ExteriorArea")]
         FlowExteriorArea = 3,
         
-        [JsonProperty("Flow/ExteriorWallArea")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/ExteriorWallArea")]
         FlowExteriorWallArea = 4,
         
-        [JsonProperty("Flow/Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Zone")]
         FlowZone = 5,
     }
     
@@ -149,7 +149,6 @@ public System.Nullable<float> VelocitySquaredTermCoefficient { get; set; } = (Sy
         "tack and wind coefficients, and is a function of temperature difference and wind" +
         " speed: Infiltration=FSchedule * (AL /1000) SQRT(Cs*|(Tzone-Todb)| +  Cw*WindSpd" +
         "**2 )")]
-    [JsonObject("ZoneInfiltration:EffectiveLeakageArea")]
     public class ZoneInfiltration_EffectiveLeakageArea : BHoMObject, IEnergyPlusClass
     {
         
@@ -181,7 +180,6 @@ public System.Nullable<float> WindCoefficient { get; set; } = null;
         "coefficients, and is a function of temperature difference and wind speed: Infilt" +
         "ration=FSchedule * SQRT( (c * Cs*|(Tzone-Todb)|**n)**2 + (c* Cw*(s * WindSpd)**2" +
         "n)**2 )")]
-    [JsonObject("ZoneInfiltration:FlowCoefficient")]
     public class ZoneInfiltration_FlowCoefficient : BHoMObject, IEnergyPlusClass
     {
         
@@ -220,7 +218,6 @@ public System.Nullable<float> ShelterFactor { get; set; } = null;
     }
     
     [Description(@"Ventilation is specified as a design level which is modified by a schedule fraction, temperature difference and wind speed: Ventilation=Vdesign * Fschedule * (A + B*|(Tzone-Todb)| + C*WindSpd + D * WindSpd**2) If you use a ZoneList in the Zone or ZoneList name field then this definition applies to all the zones in the ZoneList.")]
-    [JsonObject("ZoneVentilation:DesignFlowRate")]
     public class ZoneVentilation_DesignFlowRate : BHoMObject, IEnergyPlusClass
     {
         
@@ -235,6 +232,7 @@ public string ScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum amount of ventilation for this set of attributes Choices: Flow/Zone => Design Flow Rate -- simply enter Design Flow Rate Flow/Area => Flow Rate per Zone Floor Area - Value * Floor Area (zone) = Design Flow Rate Flow/Person => Flow Rate per Person - Value * #people = Design Flow Rate AirChanges/Hour => Air Changes per Hour - Value * Floor Volume (zone) adjusted for m3/s = Design Volume Flow Rate ""Vdesign"" in Equation is the result.")]
 [JsonProperty("design_flow_rate_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneVentilation_DesignFlowRate_DesignFlowRateCalculationMethod DesignFlowRateCalculationMethod { get; set; } = (ZoneVentilation_DesignFlowRate_DesignFlowRateCalculationMethod)Enum.Parse(typeof(ZoneVentilation_DesignFlowRate_DesignFlowRateCalculationMethod), "Empty");
         
 
@@ -255,6 +253,7 @@ public System.Nullable<float> AirChangesPerHour { get; set; } = null;
         
 
 [JsonProperty("ventilation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneVentilation_DesignFlowRate_VentilationType VentilationType { get; set; } = (ZoneVentilation_DesignFlowRate_VentilationType)Enum.Parse(typeof(ZoneVentilation_DesignFlowRate_VentilationType), "Natural");
         
 
@@ -350,43 +349,42 @@ public System.Nullable<float> MaximumWindSpeed { get; set; } = (System.Nullable<
     public enum ZoneVentilation_DesignFlowRate_DesignFlowRateCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirChanges/Hour")]
+        [System.Runtime.Serialization.EnumMember(Value="AirChanges/Hour")]
         AirChangesHour = 1,
         
-        [JsonProperty("Flow/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Area")]
         FlowArea = 2,
         
-        [JsonProperty("Flow/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Person")]
         FlowPerson = 3,
         
-        [JsonProperty("Flow/Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Zone")]
         FlowZone = 4,
     }
     
     public enum ZoneVentilation_DesignFlowRate_VentilationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Balanced")]
+        [System.Runtime.Serialization.EnumMember(Value="Balanced")]
         Balanced = 1,
         
-        [JsonProperty("Exhaust")]
+        [System.Runtime.Serialization.EnumMember(Value="Exhaust")]
         Exhaust = 2,
         
-        [JsonProperty("Intake")]
+        [System.Runtime.Serialization.EnumMember(Value="Intake")]
         Intake = 3,
         
-        [JsonProperty("Natural")]
+        [System.Runtime.Serialization.EnumMember(Value="Natural")]
         Natural = 4,
     }
     
     [Description(@"This object is specified as natural ventilation driven by wind and stack effect only: Ventilation Wind = Cw * Opening Area * Schedule * WindSpd Ventilation Stack = Cd * Opening Area * Schedule * SQRT(2*g*DH*(|(Tzone-Todb)|/Tzone)) Total Ventilation = SQRT((Ventilation Wind)^2 + (Ventilation Stack)^2)")]
-    [JsonObject("ZoneVentilation:WindandStackOpenArea")]
     public class ZoneVentilation_WindandStackOpenArea : BHoMObject, IEnergyPlusClass
     {
         
@@ -494,7 +492,6 @@ public System.Nullable<float> MaximumWindSpeed { get; set; } = (System.Nullable<
     }
     
     [Description(@"Provide a combined zone outdoor air flow by including interactions between mechanical ventilation, infiltration and duct leakage. This object will combine outdoor flows from all ZoneInfiltration and ZoneVentilation objects in the same zone. Balanced flows will be summed, while unbalanced flows will be added in quadrature.")]
-    [JsonObject("ZoneAirBalance:OutdoorAir")]
     public class ZoneAirBalance_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -506,6 +503,7 @@ public string ZoneName { get; set; } = "";
 [Description("None: Only perform simple calculations without using a combined zone outdoor air." +
     " Quadrature: A combined outdoor air is used in the quadrature sum.")]
 [JsonProperty("air_balance_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneAirBalance_OutdoorAir_AirBalanceMethod AirBalanceMethod { get; set; } = (ZoneAirBalance_OutdoorAir_AirBalanceMethod)Enum.Parse(typeof(ZoneAirBalance_OutdoorAir_AirBalanceMethod), "Quadrature");
         
 
@@ -522,18 +520,17 @@ public string InducedOutdoorAirScheduleName { get; set; } = "";
     public enum ZoneAirBalance_OutdoorAir_AirBalanceMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 1,
         
-        [JsonProperty("Quadrature")]
+        [System.Runtime.Serialization.EnumMember(Value="Quadrature")]
         Quadrature = 2,
     }
     
     [Description(@"ZoneMixing is a simple air exchange from one zone to another. Note that this statement only affects the energy balance of the ""receiving"" zone and will not produce any effect on the ""source"" zone. Mixing statements can be complementary and include multiple zones, but the balancing of flows between zones is left to the user's discretion.")]
-    [JsonObject("ZoneMixing")]
     public class ZoneMixing : BHoMObject, IEnergyPlusClass
     {
         
@@ -548,6 +545,7 @@ public string ScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum amount of ventilation for this set of attributes Choices: Flow/Zone => Design Flow Rate -- simply enter Design Flow Rate Flow/Area => Flow Rate per Zone Floor Area - Value * Floor Area (zone) = Design Flow Rate Flow/Person => Flow Rate per Person - Value * #people = Design Flow Rate AirChanges/Hour => Air Changes per Hour - Value * Floor Volume (zone) adjusted for m3/s = Design Volume Flow Rate ""Vdesign"" in Equation is the result.")]
 [JsonProperty("design_flow_rate_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneMixing_DesignFlowRateCalculationMethod DesignFlowRateCalculationMethod { get; set; } = (ZoneMixing_DesignFlowRateCalculationMethod)Enum.Parse(typeof(ZoneMixing_DesignFlowRateCalculationMethod), "Empty");
         
 
@@ -622,25 +620,24 @@ public string MaximumOutdoorTemperatureScheduleName { get; set; } = "";
     public enum ZoneMixing_DesignFlowRateCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirChanges/Hour")]
+        [System.Runtime.Serialization.EnumMember(Value="AirChanges/Hour")]
         AirChangesHour = 1,
         
-        [JsonProperty("Flow/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Area")]
         FlowArea = 2,
         
-        [JsonProperty("Flow/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Person")]
         FlowPerson = 3,
         
-        [JsonProperty("Flow/Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Zone")]
         FlowZone = 4,
     }
     
     [Description("ZoneCrossMixing exchanges an equal amount of air between two zones. Note that thi" +
         "s statement affects the energy balance of both zones.")]
-    [JsonObject("ZoneCrossMixing")]
     public class ZoneCrossMixing : BHoMObject, IEnergyPlusClass
     {
         
@@ -655,6 +652,7 @@ public string ScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum amount of ventilation for this set of attributes Choices: Flow/Zone => Design Flow Rate -- simply enter Design Flow Rate Flow/Area => Flow Rate per Zone Floor Area - Value * Floor Area (zone) = Design Flow Rate Flow/Person => Flow Rate per Person - Value * #people = Design Flow Rate AirChanges/Hour => Air Changes per Hour - Value * Floor Volume (zone) adjusted for m3/s = Design Volume Flow Rate ""Vdesign"" in Equation is the result.")]
 [JsonProperty("design_flow_rate_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneCrossMixing_DesignFlowRateCalculationMethod DesignFlowRateCalculationMethod { get; set; } = (ZoneCrossMixing_DesignFlowRateCalculationMethod)Enum.Parse(typeof(ZoneCrossMixing_DesignFlowRateCalculationMethod), "Empty");
         
 
@@ -730,24 +728,23 @@ public string MaximumOutdoorTemperatureScheduleName { get; set; } = "";
     public enum ZoneCrossMixing_DesignFlowRateCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirChanges/Hour")]
+        [System.Runtime.Serialization.EnumMember(Value="AirChanges/Hour")]
         AirChangesHour = 1,
         
-        [JsonProperty("Flow/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Area")]
         FlowArea = 2,
         
-        [JsonProperty("Flow/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Person")]
         FlowPerson = 3,
         
-        [JsonProperty("Flow/Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Zone")]
         FlowZone = 4,
     }
     
     [Description(@"Refrigeration Door Mixing is used for an opening between two zones that are at the same elevation but have different air temperatures. In this case, the mixing air flow between the two zones is determined by the density difference between the two zones. This would typically be used between two zones in a refrigerated warehouse that are controlled at different temperatures. It could also be used to model a door to a walk-in refrigerated space if that space were modeled as a zone instead of using the object Refrigeration:WalkIn.")]
-    [JsonObject("ZoneRefrigerationDoorMixing")]
     public class ZoneRefrigerationDoorMixing : BHoMObject, IEnergyPlusClass
     {
         
@@ -777,29 +774,29 @@ public System.Nullable<float> DoorArea { get; set; } = (System.Nullable<float>)S
     "value is \"None\" Choices: \"None\", \"AirCurtain\", and \"StripCurtain\" A strip curtai" +
     "n reduces the air flow more than an air curtain")]
 [JsonProperty("door_protection_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneRefrigerationDoorMixing_DoorProtectionType DoorProtectionType { get; set; } = (ZoneRefrigerationDoorMixing_DoorProtectionType)Enum.Parse(typeof(ZoneRefrigerationDoorMixing_DoorProtectionType), "None");
     }
     
     public enum ZoneRefrigerationDoorMixing_DoorProtectionType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirCurtain")]
+        [System.Runtime.Serialization.EnumMember(Value="AirCurtain")]
         AirCurtain = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("StripCurtain")]
+        [System.Runtime.Serialization.EnumMember(Value="StripCurtain")]
         StripCurtain = 3,
     }
     
     [Description("Earth Tube is specified as a design level which is modified by a Schedule fractio" +
         "n, temperature difference and wind speed: Earthtube=Edesign * Fschedule * (A + B" +
         "*|(Tzone-Todb)| + C*WindSpd + D * WindSpd**2)")]
-    [JsonObject("ZoneEarthtube")]
     public class ZoneEarthtube : BHoMObject, IEnergyPlusClass
     {
         
@@ -834,6 +831,7 @@ public System.Nullable<float> DeltaTemperature { get; set; } = null;
         
 
 [JsonProperty("earthtube_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneEarthtube_EarthtubeType EarthtubeType { get; set; } = (ZoneEarthtube_EarthtubeType)Enum.Parse(typeof(ZoneEarthtube_EarthtubeType), "Natural");
         
 
@@ -867,6 +865,7 @@ public System.Nullable<float> PipeDepthUnderGroundSurface { get; set; } = (Syste
         
 
 [JsonProperty("soil_condition")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneEarthtube_SoilCondition SoilCondition { get; set; } = (ZoneEarthtube_SoilCondition)Enum.Parse(typeof(ZoneEarthtube_SoilCondition), "HeavyAndDamp");
         
 
@@ -905,40 +904,39 @@ public System.Nullable<float> VelocitySquaredTermFlowCoefficient { get; set; } =
     public enum ZoneEarthtube_EarthtubeType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Exhaust")]
+        [System.Runtime.Serialization.EnumMember(Value="Exhaust")]
         Exhaust = 1,
         
-        [JsonProperty("Intake")]
+        [System.Runtime.Serialization.EnumMember(Value="Intake")]
         Intake = 2,
         
-        [JsonProperty("Natural")]
+        [System.Runtime.Serialization.EnumMember(Value="Natural")]
         Natural = 3,
     }
     
     public enum ZoneEarthtube_SoilCondition
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HeavyAndDamp")]
+        [System.Runtime.Serialization.EnumMember(Value="HeavyAndDamp")]
         HeavyAndDamp = 1,
         
-        [JsonProperty("HeavyAndDry")]
+        [System.Runtime.Serialization.EnumMember(Value="HeavyAndDry")]
         HeavyAndDry = 2,
         
-        [JsonProperty("HeavyAndSaturated")]
+        [System.Runtime.Serialization.EnumMember(Value="HeavyAndSaturated")]
         HeavyAndSaturated = 3,
         
-        [JsonProperty("LightAndDry")]
+        [System.Runtime.Serialization.EnumMember(Value="LightAndDry")]
         LightAndDry = 4,
     }
     
     [Description(@"A cooltower (sometimes referred to as a wind tower or a shower cooling tower) models passive downdraught evaporative cooling (PDEC) that is designed to capture the wind at the top of a tower and cool the outdoor air using water evaporation before delivering it to a space.")]
-    [JsonObject("ZoneCoolTower:Shower")]
     public class ZoneCoolTower_Shower : BHoMObject, IEnergyPlusClass
     {
         
@@ -961,6 +959,7 @@ public string WaterSupplyStorageTankName { get; set; } = "";
 [Description("Water flow schedule should be selected when the water flow rate is known. Wind-dr" +
     "iven flow should be selected when the water flow rate is unknown.")]
 [JsonProperty("flow_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneCoolTower_Shower_FlowControlType FlowControlType { get; set; } = (ZoneCoolTower_Shower_FlowControlType)Enum.Parse(typeof(ZoneCoolTower_Shower_FlowControlType), "WindDrivenFlow");
         
 
@@ -1009,20 +1008,19 @@ public System.Nullable<float> RatedPowerConsumption { get; set; } = null;
     public enum ZoneCoolTower_Shower_FlowControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("WaterFlowSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterFlowSchedule")]
         WaterFlowSchedule = 1,
         
-        [JsonProperty("WindDrivenFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="WindDrivenFlow")]
         WindDrivenFlow = 2,
     }
     
     [Description("A thermal chimney is a vertical shaft utilizing solar radiation to enhance natura" +
         "l ventilation. It consists of an absorber wall, air gap and glass cover with hig" +
         "h solar transmissivity.")]
-    [JsonObject("ZoneThermalChimney")]
     public class ZoneThermalChimney : BHoMObject, IEnergyPlusClass
     {
         

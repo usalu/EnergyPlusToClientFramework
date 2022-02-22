@@ -1,32 +1,30 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum LifeCycleCost_RecurringCosts_Category
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Maintenance")]
+        [System.Runtime.Serialization.EnumMember(Value="Maintenance")]
         Maintenance = 1,
         
-        [JsonProperty("MajorOverhaul")]
+        [System.Runtime.Serialization.EnumMember(Value="MajorOverhaul")]
         MajorOverhaul = 2,
         
-        [JsonProperty("MinorOverhaul")]
+        [System.Runtime.Serialization.EnumMember(Value="MinorOverhaul")]
         MinorOverhaul = 3,
         
-        [JsonProperty("Operation")]
+        [System.Runtime.Serialization.EnumMember(Value="Operation")]
         Operation = 4,
         
-        [JsonProperty("OtherOperational")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherOperational")]
         OtherOperational = 5,
         
-        [JsonProperty("Repair")]
+        [System.Runtime.Serialization.EnumMember(Value="Repair")]
         Repair = 6,
         
-        [JsonProperty("Replacement")]
+        [System.Runtime.Serialization.EnumMember(Value="Replacement")]
         Replacement = 7,
     }
 }

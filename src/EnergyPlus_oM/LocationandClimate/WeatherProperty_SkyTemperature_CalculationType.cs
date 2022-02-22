@@ -1,32 +1,30 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum WeatherProperty_SkyTemperature_CalculationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BerdahlMartin")]
+        [System.Runtime.Serialization.EnumMember(Value="BerdahlMartin")]
         BerdahlMartin = 1,
         
-        [JsonProperty("Brunt")]
+        [System.Runtime.Serialization.EnumMember(Value="Brunt")]
         Brunt = 2,
         
-        [JsonProperty("ClarkAllen")]
+        [System.Runtime.Serialization.EnumMember(Value="ClarkAllen")]
         ClarkAllen = 3,
         
-        [JsonProperty("DifferenceScheduleDewPointValue")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferenceScheduleDewPointValue")]
         DifferenceScheduleDewPointValue = 4,
         
-        [JsonProperty("DifferenceScheduleDryBulbValue")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferenceScheduleDryBulbValue")]
         DifferenceScheduleDryBulbValue = 5,
         
-        [JsonProperty("Idso")]
+        [System.Runtime.Serialization.EnumMember(Value="Idso")]
         Idso = 6,
         
-        [JsonProperty("ScheduleValue")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduleValue")]
         ScheduleValue = 7,
     }
 }

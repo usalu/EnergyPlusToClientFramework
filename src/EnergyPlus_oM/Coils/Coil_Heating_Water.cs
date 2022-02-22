@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     [Description("Hot water heating coil, NTU-effectiveness model, assumes a cross-flow heat exchan" +
                  "ger. Two options for capacity inputs: UA and water flow rate or capacity and des" +
                  "ign temperatures.")]
-    [JsonObject("Coil:Heating:Water")]
     public class Coil_Heating_Water : BHoMObject, IEnergyPlusClass
     {
         
@@ -46,6 +45,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("performance_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Heating_Water_PerformanceInputMethod PerformanceInputMethod { get; set; } = (Coil_Heating_Water_PerformanceInputMethod)Enum.Parse(typeof(Coil_Heating_Water_PerformanceInputMethod), "UFactorTimesAreaAndDesignWaterFlowRate");
         
 

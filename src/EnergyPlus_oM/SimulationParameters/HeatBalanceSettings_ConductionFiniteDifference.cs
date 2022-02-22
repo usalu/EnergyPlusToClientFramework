@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Determines settings for the Conduction Finite Difference algorithm for surface he" +
                  "at transfer modeling.")]
-    [JsonObject("HeatBalanceSettings:ConductionFiniteDifference")]
     public class HeatBalanceSettings_ConductionFiniteDifference : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("difference_scheme")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HeatBalanceSettings_ConductionFiniteDifference_DifferenceScheme DifferenceScheme { get; set; } = (HeatBalanceSettings_ConductionFiniteDifference_DifferenceScheme)Enum.Parse(typeof(HeatBalanceSettings_ConductionFiniteDifference_DifferenceScheme), "FullyImplicitFirstOrder");
         
 

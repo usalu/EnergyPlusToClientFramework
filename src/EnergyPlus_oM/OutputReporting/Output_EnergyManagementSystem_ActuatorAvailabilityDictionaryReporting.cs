@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_EnergyManagementSystem_ActuatorAvailabilityDictionaryReporting
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 1,
         
-        [JsonProperty("NotByUniqueKeyNames")]
+        [System.Runtime.Serialization.EnumMember(Value="NotByUniqueKeyNames")]
         NotByUniqueKeyNames = 2,
         
-        [JsonProperty("Verbose")]
+        [System.Runtime.Serialization.EnumMember(Value="Verbose")]
         Verbose = 3,
     }
 }

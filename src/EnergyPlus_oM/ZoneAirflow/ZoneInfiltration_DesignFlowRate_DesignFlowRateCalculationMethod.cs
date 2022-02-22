@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 {
     public enum ZoneInfiltration_DesignFlowRate_DesignFlowRateCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirChanges/Hour")]
+        [System.Runtime.Serialization.EnumMember(Value="AirChanges/Hour")]
         AirChangesHour = 1,
         
-        [JsonProperty("Flow/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Area")]
         FlowArea = 2,
         
-        [JsonProperty("Flow/ExteriorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/ExteriorArea")]
         FlowExteriorArea = 3,
         
-        [JsonProperty("Flow/ExteriorWallArea")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/ExteriorWallArea")]
         FlowExteriorWallArea = 4,
         
-        [JsonProperty("Flow/Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Zone")]
         FlowZone = 5,
     }
 }

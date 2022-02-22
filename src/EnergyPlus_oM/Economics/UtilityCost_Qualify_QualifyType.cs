@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum UtilityCost_Qualify_QualifyType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Maximum")]
+        [System.Runtime.Serialization.EnumMember(Value="Maximum")]
         Maximum = 1,
         
-        [JsonProperty("Minimum")]
+        [System.Runtime.Serialization.EnumMember(Value="Minimum")]
         Minimum = 2,
     }
 }

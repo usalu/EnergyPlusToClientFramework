@@ -67,12 +67,12 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     
     
     [Description("Regular materials described with full set of thermal properties")]
-    [JsonObject("Material")]
     public class Material : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("roughness")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Material_Roughness Roughness { get; set; } = (Material_Roughness)Enum.Parse(typeof(Material_Roughness), "MediumRough");
         
 
@@ -107,33 +107,33 @@ public System.Nullable<float> VisibleAbsorptance { get; set; } = (System.Nullabl
     public enum Material_Roughness
     {
         
-        [JsonProperty("MediumRough")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumRough")]
         MediumRough = 0,
         
-        [JsonProperty("MediumSmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumSmooth")]
         MediumSmooth = 1,
         
-        [JsonProperty("Rough")]
+        [System.Runtime.Serialization.EnumMember(Value="Rough")]
         Rough = 2,
         
-        [JsonProperty("Smooth")]
+        [System.Runtime.Serialization.EnumMember(Value="Smooth")]
         Smooth = 3,
         
-        [JsonProperty("VeryRough")]
+        [System.Runtime.Serialization.EnumMember(Value="VeryRough")]
         VeryRough = 4,
         
-        [JsonProperty("VerySmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="VerySmooth")]
         VerySmooth = 5,
     }
     
     [Description("Regular materials properties described whose principal description is R (Thermal " +
         "Resistance)")]
-    [JsonObject("Material:NoMass")]
     public class Material_NoMass : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("roughness")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Material_NoMass_Roughness Roughness { get; set; } = (Material_NoMass_Roughness)Enum.Parse(typeof(Material_NoMass_Roughness), "MediumRough");
         
 
@@ -156,33 +156,31 @@ public System.Nullable<float> VisibleAbsorptance { get; set; } = (System.Nullabl
     public enum Material_NoMass_Roughness
     {
         
-        [JsonProperty("MediumRough")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumRough")]
         MediumRough = 0,
         
-        [JsonProperty("MediumSmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumSmooth")]
         MediumSmooth = 1,
         
-        [JsonProperty("Rough")]
+        [System.Runtime.Serialization.EnumMember(Value="Rough")]
         Rough = 2,
         
-        [JsonProperty("Smooth")]
+        [System.Runtime.Serialization.EnumMember(Value="Smooth")]
         Smooth = 3,
         
-        [JsonProperty("VeryRough")]
+        [System.Runtime.Serialization.EnumMember(Value="VeryRough")]
         VeryRough = 4,
         
-        [JsonProperty("VerySmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="VerySmooth")]
         VerySmooth = 5,
     }
     
     [Description(@"Special infrared transparent material. Similar to a Material:Nomass with low thermal resistance. High absorptance in both wavelengths. Area will be doubled internally to make internal radiant exchange accurate. Should be only material in single layer surface construction. All thermal properties are set internally. User needs only to supply name. Cannot be used with ConductionFiniteDifference solution algorithms")]
-    [JsonObject("Material:InfraredTransparent")]
     public class Material_InfraredTransparent : BHoMObject, IEnergyPlusClass
     {
     }
     
     [Description("Air Space in Opaque Construction")]
-    [JsonObject("Material:AirGap")]
     public class Material_AirGap : BHoMObject, IEnergyPlusClass
     {
         
@@ -192,7 +190,6 @@ public System.Nullable<float> ThermalResistance { get; set; } = null;
     }
     
     [Description(@"EcoRoof model, plant layer plus soil layer Implemented by Portland State University (Sailor et al., January, 2007) only one material must be referenced per simulation though the same EcoRoof material could be used in multiple constructions. New moisture redistribution scheme (2010) requires higher number of timesteps per hour (minimum 12 recommended).")]
-    [JsonObject("Material:RoofVegetation")]
     public class Material_RoofVegetation : BHoMObject, IEnergyPlusClass
     {
         
@@ -226,6 +223,7 @@ public string SoilLayerName { get; set; } = (System.String)"Green Roof Soil";
         
 
 [JsonProperty("roughness")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Material_RoofVegetation_Roughness Roughness { get; set; } = (Material_RoofVegetation_Roughness)Enum.Parse(typeof(Material_RoofVegetation_Roughness), "MediumRough");
         
 
@@ -281,50 +279,50 @@ public System.Nullable<float> InitialVolumetricMoistureContentOfTheSoilLayer { g
 
 [Description("Advanced calculation requires increased number of timesteps (recommended >20).")]
 [JsonProperty("moisture_diffusion_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Material_RoofVegetation_MoistureDiffusionCalculationMethod MoistureDiffusionCalculationMethod { get; set; } = (Material_RoofVegetation_MoistureDiffusionCalculationMethod)Enum.Parse(typeof(Material_RoofVegetation_MoistureDiffusionCalculationMethod), "Advanced");
     }
     
     public enum Material_RoofVegetation_Roughness
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MediumRough")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumRough")]
         MediumRough = 1,
         
-        [JsonProperty("MediumSmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumSmooth")]
         MediumSmooth = 2,
         
-        [JsonProperty("Rough")]
+        [System.Runtime.Serialization.EnumMember(Value="Rough")]
         Rough = 3,
         
-        [JsonProperty("Smooth")]
+        [System.Runtime.Serialization.EnumMember(Value="Smooth")]
         Smooth = 4,
         
-        [JsonProperty("VeryRough")]
+        [System.Runtime.Serialization.EnumMember(Value="VeryRough")]
         VeryRough = 5,
         
-        [JsonProperty("VerySmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="VerySmooth")]
         VerySmooth = 6,
     }
     
     public enum Material_RoofVegetation_MoistureDiffusionCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Advanced")]
+        [System.Runtime.Serialization.EnumMember(Value="Advanced")]
         Advanced = 1,
         
-        [JsonProperty("Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="Simple")]
         Simple = 2,
     }
     
     [Description("Alternate method of describing windows This window material object is used to def" +
         "ine an entire glazing system using simple performance parameters.")]
-    [JsonObject("WindowMaterial:SimpleGlazingSystem")]
     public class WindowMaterial_SimpleGlazingSystem : BHoMObject, IEnergyPlusClass
     {
         
@@ -347,12 +345,12 @@ public System.Nullable<float> VisibleTransmittance { get; set; } = null;
     
     [Description("Glass material properties for Windows or Glass Doors Transmittance/Reflectance in" +
         "put method.")]
-    [JsonObject("WindowMaterial:Glazing")]
     public class WindowMaterial_Glazing : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("optical_data_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Glazing_OpticalDataType OpticalDataType { get; set; } = (WindowMaterial_Glazing_OpticalDataType)Enum.Parse(typeof(WindowMaterial_Glazing_OpticalDataType), "BSDF");
         
 
@@ -418,6 +416,7 @@ public System.Nullable<float> DirtCorrectionFactorForSolarAndVisibleTransmittanc
         
 
 [JsonProperty("solar_diffusing")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes SolarDiffusing { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -451,21 +450,20 @@ public string WindowGlassSpectralAndIncidentAngleBackReflectanceDataSetTableName
     public enum WindowMaterial_Glazing_OpticalDataType
     {
         
-        [JsonProperty("BSDF")]
+        [System.Runtime.Serialization.EnumMember(Value="BSDF")]
         BSDF = 0,
         
-        [JsonProperty("Spectral")]
+        [System.Runtime.Serialization.EnumMember(Value="Spectral")]
         Spectral = 1,
         
-        [JsonProperty("SpectralAndAngle")]
+        [System.Runtime.Serialization.EnumMember(Value="SpectralAndAngle")]
         SpectralAndAngle = 2,
         
-        [JsonProperty("SpectralAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="SpectralAverage")]
         SpectralAverage = 3,
     }
     
     [Description("thermochromic glass at different temperatures")]
-    [JsonObject("WindowMaterial:GlazingGroup:Thermochromic")]
     public class WindowMaterial_GlazingGroup_Thermochromic : BHoMObject, IEnergyPlusClass
     {
         
@@ -476,7 +474,6 @@ public string TemperatureData { get; set; } = "";
     
     [Description("Glass material properties for Windows or Glass Doors Index of Refraction/Extincti" +
         "on Coefficient input method Not to be used for coated glass")]
-    [JsonObject("WindowMaterial:Glazing:RefractionExtinctionMethod")]
     public class WindowMaterial_Glazing_RefractionExtinctionMethod : BHoMObject, IEnergyPlusClass
     {
         
@@ -519,16 +516,17 @@ public System.Nullable<float> DirtCorrectionFactorForSolarAndVisibleTransmittanc
         
 
 [JsonProperty("solar_diffusing")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes SolarDiffusing { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
     
     [Description("Gas material properties that are used in Windows or Glass Doors")]
-    [JsonObject("WindowMaterial:Gas")]
     public class WindowMaterial_Gas : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("gas_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Gas_GasType GasType { get; set; } = (WindowMaterial_Gas_GasType)Enum.Parse(typeof(WindowMaterial_Gas_GasType), "Air");
         
 
@@ -594,24 +592,23 @@ public System.Nullable<float> SpecificHeatRatio { get; set; } = null;
     public enum WindowMaterial_Gas_GasType
     {
         
-        [JsonProperty("Air")]
+        [System.Runtime.Serialization.EnumMember(Value="Air")]
         Air = 0,
         
-        [JsonProperty("Argon")]
+        [System.Runtime.Serialization.EnumMember(Value="Argon")]
         Argon = 1,
         
-        [JsonProperty("Custom")]
+        [System.Runtime.Serialization.EnumMember(Value="Custom")]
         Custom = 2,
         
-        [JsonProperty("Krypton")]
+        [System.Runtime.Serialization.EnumMember(Value="Krypton")]
         Krypton = 3,
         
-        [JsonProperty("Xenon")]
+        [System.Runtime.Serialization.EnumMember(Value="Xenon")]
         Xenon = 4,
     }
     
     [Description("used to define pillar geometry for support pillars")]
-    [JsonObject("WindowGap:SupportPillar")]
     public class WindowGap_SupportPillar : BHoMObject, IEnergyPlusClass
     {
         
@@ -627,7 +624,6 @@ public System.Nullable<float> Radius { get; set; } = (System.Nullable<float>)Sin
     [Description("Used to enter data describing deflection state of the gap. It is referenced from " +
         "WindowMaterial:Gap object only and it is used only when deflection model is set " +
         "to MeasuredDeflection, otherwise it is ignored.")]
-    [JsonObject("WindowGap:DeflectionState")]
     public class WindowGap_DeflectionState : BHoMObject, IEnergyPlusClass
     {
         
@@ -646,7 +642,6 @@ public System.Nullable<float> InitialPressure { get; set; } = (System.Nullable<f
     }
     
     [Description("Gas mixtures that are used in Windows or Glass Doors")]
-    [JsonObject("WindowMaterial:GasMixture")]
     public class WindowMaterial_GasMixture : BHoMObject, IEnergyPlusClass
     {
         
@@ -660,6 +655,7 @@ public System.Nullable<float> NumberOfGasesInMixture { get; set; } = null;
         
 
 [JsonProperty("gas_1_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_GasMixture_Gas1Type Gas1Type { get; set; } = (WindowMaterial_GasMixture_Gas1Type)Enum.Parse(typeof(WindowMaterial_GasMixture_Gas1Type), "Air");
         
 
@@ -668,6 +664,7 @@ public System.Nullable<float> Gas1Fraction { get; set; } = null;
         
 
 [JsonProperty("gas_2_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_GasMixture_Gas2Type Gas2Type { get; set; } = (WindowMaterial_GasMixture_Gas2Type)Enum.Parse(typeof(WindowMaterial_GasMixture_Gas2Type), "Air");
         
 
@@ -676,6 +673,7 @@ public System.Nullable<float> Gas2Fraction { get; set; } = null;
         
 
 [JsonProperty("gas_3_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_GasMixture_Gas3Type Gas3Type { get; set; } = (WindowMaterial_GasMixture_Gas3Type)Enum.Parse(typeof(WindowMaterial_GasMixture_Gas3Type), "Air");
         
 
@@ -684,6 +682,7 @@ public System.Nullable<float> Gas3Fraction { get; set; } = null;
         
 
 [JsonProperty("gas_4_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_GasMixture_Gas4Type Gas4Type { get; set; } = (WindowMaterial_GasMixture_Gas4Type)Enum.Parse(typeof(WindowMaterial_GasMixture_Gas4Type), "Air");
         
 
@@ -694,69 +693,68 @@ public System.Nullable<float> Gas4Fraction { get; set; } = null;
     public enum WindowMaterial_GasMixture_Gas1Type
     {
         
-        [JsonProperty("Air")]
+        [System.Runtime.Serialization.EnumMember(Value="Air")]
         Air = 0,
         
-        [JsonProperty("Argon")]
+        [System.Runtime.Serialization.EnumMember(Value="Argon")]
         Argon = 1,
         
-        [JsonProperty("Krypton")]
+        [System.Runtime.Serialization.EnumMember(Value="Krypton")]
         Krypton = 2,
         
-        [JsonProperty("Xenon")]
+        [System.Runtime.Serialization.EnumMember(Value="Xenon")]
         Xenon = 3,
     }
     
     public enum WindowMaterial_GasMixture_Gas2Type
     {
         
-        [JsonProperty("Air")]
+        [System.Runtime.Serialization.EnumMember(Value="Air")]
         Air = 0,
         
-        [JsonProperty("Argon")]
+        [System.Runtime.Serialization.EnumMember(Value="Argon")]
         Argon = 1,
         
-        [JsonProperty("Krypton")]
+        [System.Runtime.Serialization.EnumMember(Value="Krypton")]
         Krypton = 2,
         
-        [JsonProperty("Xenon")]
+        [System.Runtime.Serialization.EnumMember(Value="Xenon")]
         Xenon = 3,
     }
     
     public enum WindowMaterial_GasMixture_Gas3Type
     {
         
-        [JsonProperty("Air")]
+        [System.Runtime.Serialization.EnumMember(Value="Air")]
         Air = 0,
         
-        [JsonProperty("Argon")]
+        [System.Runtime.Serialization.EnumMember(Value="Argon")]
         Argon = 1,
         
-        [JsonProperty("Krypton")]
+        [System.Runtime.Serialization.EnumMember(Value="Krypton")]
         Krypton = 2,
         
-        [JsonProperty("Xenon")]
+        [System.Runtime.Serialization.EnumMember(Value="Xenon")]
         Xenon = 3,
     }
     
     public enum WindowMaterial_GasMixture_Gas4Type
     {
         
-        [JsonProperty("Air")]
+        [System.Runtime.Serialization.EnumMember(Value="Air")]
         Air = 0,
         
-        [JsonProperty("Argon")]
+        [System.Runtime.Serialization.EnumMember(Value="Argon")]
         Argon = 1,
         
-        [JsonProperty("Krypton")]
+        [System.Runtime.Serialization.EnumMember(Value="Krypton")]
         Krypton = 2,
         
-        [JsonProperty("Xenon")]
+        [System.Runtime.Serialization.EnumMember(Value="Xenon")]
         Xenon = 3,
     }
     
     [Description(@"Used to define the gap between two layers in a complex fenestration system, where the Construction:ComplexFenestrationState object is used. It is referenced as a layer in the Construction:ComplexFenestrationState object. It cannot be referenced as a layer from the Construction object.")]
-    [JsonObject("WindowMaterial:Gap")]
     public class WindowMaterial_Gap : BHoMObject, IEnergyPlusClass
     {
         
@@ -786,7 +784,6 @@ public string SupportPillar { get; set; } = "";
     }
     
     [Description(@"Specifies the properties of window shade materials. Reflectance and emissivity properties are assumed to be the same on both sides of the shade. Shades are considered to be perfect diffusers (all transmitted and reflected radiation is hemispherically-diffuse) independent of angle of incidence.")]
-    [JsonObject("WindowMaterial:Shade")]
     public class WindowMaterial_Shade : BHoMObject, IEnergyPlusClass
     {
         
@@ -852,12 +849,12 @@ public System.Nullable<float> AirflowPermeability { get; set; } = (System.Nullab
     }
     
     [Description("Complex window shading layer thermal properties")]
-    [JsonObject("WindowMaterial:ComplexShade")]
     public class WindowMaterial_ComplexShade : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("layer_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_ComplexShade_LayerType LayerType { get; set; } = (WindowMaterial_ComplexShade_LayerType)Enum.Parse(typeof(WindowMaterial_ComplexShade_LayerType), "OtherShadingType");
         
 
@@ -933,35 +930,35 @@ public System.Nullable<float> SlatCurve { get; set; } = (System.Nullable<float>)
     public enum WindowMaterial_ComplexShade_LayerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BSDF")]
+        [System.Runtime.Serialization.EnumMember(Value="BSDF")]
         BSDF = 1,
         
-        [JsonProperty("OtherShadingType")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherShadingType")]
         OtherShadingType = 2,
         
-        [JsonProperty("Perforated")]
+        [System.Runtime.Serialization.EnumMember(Value="Perforated")]
         Perforated = 3,
         
-        [JsonProperty("VenetianHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="VenetianHorizontal")]
         VenetianHorizontal = 4,
         
-        [JsonProperty("VenetianVertical")]
+        [System.Runtime.Serialization.EnumMember(Value="VenetianVertical")]
         VenetianVertical = 5,
         
-        [JsonProperty("Woven")]
+        [System.Runtime.Serialization.EnumMember(Value="Woven")]
         Woven = 6,
     }
     
     [Description("Window blind thermal properties")]
-    [JsonObject("WindowMaterial:Blind")]
     public class WindowMaterial_Blind : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("slat_orientation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Blind_SlatOrientation SlatOrientation { get; set; } = (WindowMaterial_Blind_SlatOrientation)Enum.Parse(typeof(WindowMaterial_Blind_SlatOrientation), "Horizontal");
         
 
@@ -1099,19 +1096,18 @@ public System.Nullable<float> MaximumSlatAngle { get; set; } = (System.Nullable<
     public enum WindowMaterial_Blind_SlatOrientation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Horizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="Horizontal")]
         Horizontal = 1,
         
-        [JsonProperty("Vertical")]
+        [System.Runtime.Serialization.EnumMember(Value="Vertical")]
         Vertical = 2,
     }
     
     [Description("Window screen physical properties. Can only be located on the exterior side of a " +
         "window construction.")]
-    [JsonObject("WindowMaterial:Screen")]
     public class WindowMaterial_Screen : BHoMObject, IEnergyPlusClass
     {
         
@@ -1119,6 +1115,7 @@ public System.Nullable<float> MaximumSlatAngle { get; set; } = (System.Nullable<
 [Description("Select the method used to account for the beam solar reflected off the material s" +
     "urface.")]
 [JsonProperty("reflected_beam_transmittance_accounting_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod ReflectedBeamTransmittanceAccountingMethod { get; set; } = (WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod)Enum.Parse(typeof(WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod), "ModelAsDiffuse");
         
 
@@ -1195,16 +1192,16 @@ public string AngleOfResolutionForScreenTransmittanceOutputMap { get; set; } = (
     public enum WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DoNotModel")]
+        [System.Runtime.Serialization.EnumMember(Value="DoNotModel")]
         DoNotModel = 1,
         
-        [JsonProperty("ModelAsDiffuse")]
+        [System.Runtime.Serialization.EnumMember(Value="ModelAsDiffuse")]
         ModelAsDiffuse = 2,
         
-        [JsonProperty("ModelAsDirectBeam")]
+        [System.Runtime.Serialization.EnumMember(Value="ModelAsDirectBeam")]
         ModelAsDirectBeam = 3,
     }
     
@@ -1212,7 +1209,6 @@ public string AngleOfResolutionForScreenTransmittanceOutputMap { get; set; } = (
         "sidered to be perfect diffusers (all transmitted and reflected radiation is hemi" +
         "spherically-diffuse) independent of angle of incidence. Shade represents roller " +
         "blinds.")]
-    [JsonObject("WindowMaterial:Shade:EquivalentLayer")]
     public class WindowMaterial_Shade_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
@@ -1288,7 +1284,6 @@ public System.Nullable<float> BackSideShadeMaterialInfraredEmissivity { get; set
     }
     
     [Description(@"Specifies the properties of equivalent layer drape fabric materials. Shades are considered to be perfect diffusers (all transmitted and reflected radiation is hemispherically-diffuse) independent of angle of incidence. unpleated drape fabric is treated as thin and flat layer.")]
-    [JsonObject("WindowMaterial:Drape:EquivalentLayer")]
     public class WindowMaterial_Drape_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
@@ -1382,12 +1377,12 @@ public System.Nullable<float> LengthOfPleatedFabric { get; set; } = (System.Null
         "mes that slats are thin and flat, applies correction empirical correlation to ac" +
         "count for curvature effect. Slats are assumed to transmit and reflect diffusely." +
         "")]
-    [JsonObject("WindowMaterial:Blind:EquivalentLayer")]
     public class WindowMaterial_Blind_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("slat_orientation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Blind_EquivalentLayer_SlatOrientation SlatOrientation { get; set; } = (WindowMaterial_Blind_EquivalentLayer_SlatOrientation)Enum.Parse(typeof(WindowMaterial_Blind_EquivalentLayer_SlatOrientation), "Horizontal");
         
 
@@ -1515,41 +1510,41 @@ public System.Nullable<float> BackSideSlatInfraredEmissivity { get; set; } = (Sy
 
 [Description(@"Used only if slat angle control is desired to either maximize solar gain (MaximizeSolar), maximize visibility while eliminating beam solar radiation (BlockBeamSolar), or fixed slate angle (FixedSlatAngle). If FixedSlatAngle is selected, the slat angle entered above is used.")]
 [JsonProperty("slat_angle_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Blind_EquivalentLayer_SlatAngleControl SlatAngleControl { get; set; } = (WindowMaterial_Blind_EquivalentLayer_SlatAngleControl)Enum.Parse(typeof(WindowMaterial_Blind_EquivalentLayer_SlatAngleControl), "FixedSlatAngle");
     }
     
     public enum WindowMaterial_Blind_EquivalentLayer_SlatOrientation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Horizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="Horizontal")]
         Horizontal = 1,
         
-        [JsonProperty("Vertical")]
+        [System.Runtime.Serialization.EnumMember(Value="Vertical")]
         Vertical = 2,
     }
     
     public enum WindowMaterial_Blind_EquivalentLayer_SlatAngleControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlockBeamSolar")]
+        [System.Runtime.Serialization.EnumMember(Value="BlockBeamSolar")]
         BlockBeamSolar = 1,
         
-        [JsonProperty("FixedSlatAngle")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedSlatAngle")]
         FixedSlatAngle = 2,
         
-        [JsonProperty("MaximizeSolar")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximizeSolar")]
         MaximizeSolar = 3,
     }
     
     [Description("Equivalent layer window screen physical properties. Can only be located on the ex" +
         "terior side of a window construction.")]
-    [JsonObject("WindowMaterial:Screen:EquivalentLayer")]
     public class WindowMaterial_Screen_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
@@ -1618,13 +1613,13 @@ public System.Nullable<float> ScreenWireDiameter { get; set; } = (System.Nullabl
     
     [Description("Glass material properties for Windows or Glass Doors Transmittance/Reflectance in" +
         "put method.")]
-    [JsonObject("WindowMaterial:Glazing:EquivalentLayer")]
     public class WindowMaterial_Glazing_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description("Spectral is not currently supported and SpectralAverage is the default.")]
 [JsonProperty("optical_data_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Glazing_EquivalentLayer_OpticalDataType OpticalDataType { get; set; } = (WindowMaterial_Glazing_EquivalentLayer_OpticalDataType)Enum.Parse(typeof(WindowMaterial_Glazing_EquivalentLayer_OpticalDataType), "SpectralAverage");
         
 
@@ -1781,24 +1776,24 @@ public System.Nullable<float> ThermalResistance { get; set; } = (System.Nullable
     public enum WindowMaterial_Glazing_EquivalentLayer_OpticalDataType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Spectral")]
+        [System.Runtime.Serialization.EnumMember(Value="Spectral")]
         Spectral = 1,
         
-        [JsonProperty("SpectralAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="SpectralAverage")]
         SpectralAverage = 2,
     }
     
     [Description("Gas material properties that are used in Windows Equivalent Layer References only" +
         " WindowMaterial:Gas properties")]
-    [JsonObject("WindowMaterial:Gap:EquivalentLayer")]
     public class WindowMaterial_Gap_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("gas_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Gap_EquivalentLayer_GasType GasType { get; set; } = (WindowMaterial_Gap_EquivalentLayer_GasType)Enum.Parse(typeof(WindowMaterial_Gap_EquivalentLayer_GasType), "AIR");
         
 
@@ -1808,6 +1803,7 @@ public System.Nullable<float> Thickness { get; set; } = null;
 
 [Description(@"Sealed means the gap is enclosed and gas tight, i.e., no venting to indoor or outdoor environment. VentedIndoor means the gap is vented to indoor environment, and VentedOutdoor means the gap is vented to the outdoor environment. The gap types VentedIndoor and VentedOutdoor are used with gas type ""Air"" only.")]
 [JsonProperty("gap_vent_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Gap_EquivalentLayer_GapVentType GapVentType { get; set; } = (WindowMaterial_Gap_EquivalentLayer_GapVentType)Enum.Parse(typeof(WindowMaterial_Gap_EquivalentLayer_GapVentType), "Sealed");
         
 
@@ -1869,39 +1865,38 @@ public System.Nullable<float> SpecificHeatRatio { get; set; } = null;
     public enum WindowMaterial_Gap_EquivalentLayer_GasType
     {
         
-        [JsonProperty("AIR")]
+        [System.Runtime.Serialization.EnumMember(Value="AIR")]
         AIR = 0,
         
-        [JsonProperty("ARGON")]
+        [System.Runtime.Serialization.EnumMember(Value="ARGON")]
         ARGON = 1,
         
-        [JsonProperty("CUSTOM")]
+        [System.Runtime.Serialization.EnumMember(Value="CUSTOM")]
         CUSTOM = 2,
         
-        [JsonProperty("KRYPTON")]
+        [System.Runtime.Serialization.EnumMember(Value="KRYPTON")]
         KRYPTON = 3,
         
-        [JsonProperty("XENON")]
+        [System.Runtime.Serialization.EnumMember(Value="XENON")]
         XENON = 4,
     }
     
     public enum WindowMaterial_Gap_EquivalentLayer_GapVentType
     {
         
-        [JsonProperty("Sealed")]
+        [System.Runtime.Serialization.EnumMember(Value="Sealed")]
         Sealed = 0,
         
-        [JsonProperty("VentedIndoor")]
+        [System.Runtime.Serialization.EnumMember(Value="VentedIndoor")]
         VentedIndoor = 1,
         
-        [JsonProperty("VentedOutdoor")]
+        [System.Runtime.Serialization.EnumMember(Value="VentedOutdoor")]
         VentedOutdoor = 2,
     }
     
     [Description("Additional properties for moisture using EMPD procedure HeatBalanceAlgorithm choi" +
         "ce=MoisturePenetrationDepthConductionTransferFunction only Has no effect with ot" +
         "her HeatBalanceAlgorithm solution algorithms")]
-    [JsonObject("MaterialProperty:MoisturePenetrationDepth:Settings")]
     public class MaterialProperty_MoisturePenetrationDepth_Settings : BHoMObject, IEnergyPlusClass
     {
         
@@ -1948,7 +1943,6 @@ public System.Nullable<float> CoatingLayerWaterVaporDiffusionResistanceFactor { 
     }
     
     [Description(@"Additional properties for temperature dependent thermal conductivity and enthalpy for Phase Change Materials (PCM) HeatBalanceAlgorithm = CondFD(ConductionFiniteDifference) solution algorithm only. Constructions with this should use the detailed CondFD process. Has no effect with other HeatBalanceAlgorithm solution algorithms")]
-    [JsonObject("MaterialProperty:PhaseChange")]
     public class MaterialProperty_PhaseChange : BHoMObject, IEnergyPlusClass
     {
         
@@ -2121,7 +2115,6 @@ public System.Nullable<float> Enthalpy16 { get; set; } = null;
     }
     
     [Description(@"Additional properties for temperature dependent thermal conductivity and enthalpy for Phase Change Materials (PCM) with separate melting and freezing curves. HeatBalanceAlgorithm = CondFD (ConductionFiniteDifference) solution algorithm only. Constructions with this should use the detailed CondFD process. Has no effect with other HeatBalanceAlgorithm solution algorithms.")]
-    [JsonObject("MaterialProperty:PhaseChangeHysteresis")]
     public class MaterialProperty_PhaseChangeHysteresis : BHoMObject, IEnergyPlusClass
     {
         
@@ -2197,7 +2190,6 @@ public System.Nullable<float> LowTemperatureDifferenceOfFreezingCurve { get; set
     }
     
     [Description(@"Additional properties for temperature dependent thermal conductivity using piecewise linear temperature-conductivity function. HeatBalanceAlgorithm = CondFD(ConductionFiniteDifference) solution algorithm only. Has no effect with other HeatBalanceAlgorithm solution algorithms")]
-    [JsonObject("MaterialProperty:VariableThermalConductivity")]
     public class MaterialProperty_VariableThermalConductivity : BHoMObject, IEnergyPlusClass
     {
         
@@ -2305,7 +2297,6 @@ public System.Nullable<float> ThermalConductivity10 { get; set; } = null;
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
         "ly. Additional material properties for surfaces. Has no effect with other HeatBa" +
         "lanceAlgorithm solution algorithms")]
-    [JsonObject("MaterialProperty:HeatAndMoistureTransfer:Settings")]
     public class MaterialProperty_HeatAndMoistureTransfer_Settings : BHoMObject, IEnergyPlusClass
     {
         
@@ -2328,7 +2319,6 @@ public System.Nullable<float> InitialWaterContentRatio { get; set; } = (System.N
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
         "ly. Relationship between moisture content and relative humidity fraction. Has no" +
         " effect with other HeatBalanceAlgorithm solution algorithms")]
-    [JsonObject("MaterialProperty:HeatAndMoistureTransfer:SorptionIsotherm")]
     public class MaterialProperty_HeatAndMoistureTransfer_SorptionIsotherm : BHoMObject, IEnergyPlusClass
     {
         
@@ -2571,7 +2561,6 @@ public System.Nullable<float> MoistureContent25 { get; set; } = null;
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
         "ly. Relationship between liquid suction transport coefficient and moisture conte" +
         "nt Has no effect with other HeatBalanceAlgorithm solution algorithms")]
-    [JsonObject("MaterialProperty:HeatAndMoistureTransfer:Suction")]
     public class MaterialProperty_HeatAndMoistureTransfer_Suction : BHoMObject, IEnergyPlusClass
     {
         
@@ -2789,7 +2778,6 @@ public System.Nullable<float> LiquidTransportCoefficient25 { get; set; } = null;
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
         "ly. Relationship between liquid transport coefficient and moisture content Has n" +
         "o effect with other HeatBalanceAlgorithm solution algorithms")]
-    [JsonObject("MaterialProperty:HeatAndMoistureTransfer:Redistribution")]
     public class MaterialProperty_HeatAndMoistureTransfer_Redistribution : BHoMObject, IEnergyPlusClass
     {
         
@@ -3007,7 +2995,6 @@ public System.Nullable<float> LiquidTransportCoefficient25 { get; set; } = null;
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
         "ly. Relationship between water vapor diffusion and relative humidity fraction Ha" +
         "s no effect with other HeatBalanceAlgorithm solution algorithms")]
-    [JsonObject("MaterialProperty:HeatAndMoistureTransfer:Diffusion")]
     public class MaterialProperty_HeatAndMoistureTransfer_Diffusion : BHoMObject, IEnergyPlusClass
     {
         
@@ -3250,7 +3237,6 @@ public System.Nullable<float> WaterVaporDiffusionResistanceFactor25 { get; set; 
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
         "ly. Relationship between thermal conductivity and moisture content Has no effect" +
         " with other HeatBalanceAlgorithm solution algorithms")]
-    [JsonObject("MaterialProperty:HeatAndMoistureTransfer:ThermalConductivity")]
     public class MaterialProperty_HeatAndMoistureTransfer_ThermalConductivity : BHoMObject, IEnergyPlusClass
     {
         
@@ -3468,7 +3454,6 @@ public System.Nullable<float> ThermalConductivity25 { get; set; } = null;
     [Description("Name is followed by up to 800 sets of normal-incidence measured values of [wavele" +
         "ngth, transmittance, front reflectance, back reflectance] for wavelengths coveri" +
         "ng the solar spectrum (from about 0.25 to 2.5 microns)")]
-    [JsonObject("MaterialProperty:GlazingSpectralData")]
     public class MaterialProperty_GlazingSpectralData : BHoMObject, IEnergyPlusClass
     {
         
@@ -3543,7 +3528,6 @@ public string Extensions { get; set; } = "";
     
     [Description("Start with outside layer and work your way to the inside layer Up to 10 layers to" +
         "tal, 8 for windows Enter the material name for each layer")]
-    [JsonObject("Construction")]
     public class Construction : BHoMObject, IEnergyPlusClass
     {
         
@@ -3589,7 +3573,6 @@ public string Layer10 { get; set; } = "";
     }
     
     [Description("Alternate method of describing underground wall constructions")]
-    [JsonObject("Construction:CfactorUndergroundWall")]
     public class Construction_CfactorUndergroundWall : BHoMObject, IEnergyPlusClass
     {
         
@@ -3605,7 +3588,6 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Alternate method of describing slab-on-grade or underground floor constructions")]
-    [JsonObject("Construction:FfactorGroundFloor")]
     public class Construction_FfactorGroundFloor : BHoMObject, IEnergyPlusClass
     {
         
@@ -3625,7 +3607,6 @@ public System.Nullable<float> Perimeterexposed { get; set; } = null;
     }
     
     [Description("Internal heat source to be attached to a construction layer")]
-    [JsonObject("ConstructionProperty:InternalHeatSource")]
     public class ConstructionProperty_InternalHeatSource : BHoMObject, IEnergyPlusClass
     {
         
@@ -3661,13 +3642,13 @@ public System.Nullable<float> TwoDimensionalTemperatureCalculationPosition { get
     }
     
     [Description(@"Indicates an open boundary between two zones. It may be used for base surfaces and fenestration surfaces. The two adjacent zones are grouped together for solar, daylighting and radiant exchange. When this construction type is used, the Outside Boundary Condition of the surface (or the base surface of a fenestration surface) must be either Surface or Zone. A base surface with Construction:AirBoundary cannot hold any fenestration surfaces.")]
-    [JsonObject("Construction:AirBoundary")]
     public class Construction_AirBoundary : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description("This field controls how air exchange is modeled across this boundary.")]
 [JsonProperty("air_exchange_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Construction_AirBoundary_AirExchangeMethod AirExchangeMethod { get; set; } = (Construction_AirBoundary_AirExchangeMethod)Enum.Parse(typeof(Construction_AirBoundary_AirExchangeMethod), "None");
         
 
@@ -3688,28 +3669,29 @@ public string SimpleMixingScheduleName { get; set; } = "";
     public enum Construction_AirBoundary_AirExchangeMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 1,
         
-        [JsonProperty("SimpleMixing")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleMixing")]
         SimpleMixing = 2,
     }
     
     [Description("object is used to select which thermal model should be used in tarcog simulations" +
         "")]
-    [JsonObject("WindowThermalModel:Params")]
     public class WindowThermalModel_Params : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("standard")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowThermalModel_Params_Standard Standard { get; set; } = (WindowThermalModel_Params_Standard)Enum.Parse(typeof(WindowThermalModel_Params_Standard), "ISO15099");
         
 
 [JsonProperty("thermal_model")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowThermalModel_Params_ThermalModel ThermalModel { get; set; } = (WindowThermalModel_Params_ThermalModel)Enum.Parse(typeof(WindowThermalModel_Params_ThermalModel), "ISO15099");
         
 
@@ -3718,6 +3700,7 @@ public System.Nullable<float> Sdscalar { get; set; } = (System.Nullable<float>)S
         
 
 [JsonProperty("deflection_model")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowThermalModel_Params_DeflectionModel DeflectionModel { get; set; } = (WindowThermalModel_Params_DeflectionModel)Enum.Parse(typeof(WindowThermalModel_Params_DeflectionModel), "NoDeflection");
         
 
@@ -3738,89 +3721,90 @@ public System.Nullable<float> InitialPressure { get; set; } = (System.Nullable<f
     public enum WindowThermalModel_Params_Standard
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("EN673Declared")]
+        [System.Runtime.Serialization.EnumMember(Value="EN673Declared")]
         EN673Declared = 1,
         
-        [JsonProperty("EN673Design")]
+        [System.Runtime.Serialization.EnumMember(Value="EN673Design")]
         EN673Design = 2,
         
-        [JsonProperty("ISO15099")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099")]
         ISO15099 = 3,
     }
     
     public enum WindowThermalModel_Params_ThermalModel
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConvectiveScalarModel_NoSDThickness")]
+        [System.Runtime.Serialization.EnumMember(Value="ConvectiveScalarModel_NoSDThickness")]
         ConvectiveScalarModelNoSDThickness = 1,
         
-        [JsonProperty("ConvectiveScalarModel_withSDThickness")]
+        [System.Runtime.Serialization.EnumMember(Value="ConvectiveScalarModel_withSDThickness")]
         ConvectiveScalarModelWithSDThickness = 2,
         
-        [JsonProperty("ISO15099")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099")]
         ISO15099 = 3,
         
-        [JsonProperty("ScaledCavityWidth")]
+        [System.Runtime.Serialization.EnumMember(Value="ScaledCavityWidth")]
         ScaledCavityWidth = 4,
     }
     
     public enum WindowThermalModel_Params_DeflectionModel
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MeasuredDeflection")]
+        [System.Runtime.Serialization.EnumMember(Value="MeasuredDeflection")]
         MeasuredDeflection = 1,
         
-        [JsonProperty("NoDeflection")]
+        [System.Runtime.Serialization.EnumMember(Value="NoDeflection")]
         NoDeflection = 2,
         
-        [JsonProperty("TemperatureAndPressureInput")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureAndPressureInput")]
         TemperatureAndPressureInput = 3,
     }
     
     [Description(@"Describes which window model will be used in calculations. Built in windows model will use algorithms that are part of EnergyPlus, while ExternalWindowsModel will use Windows-CalcEngine library to perform optical and thermal performances of windows and doors.")]
-    [JsonObject("WindowsCalculationEngine")]
     public class WindowsCalculationEngine : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("windows_engine")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowsCalculationEngine_WindowsEngine WindowsEngine { get; set; } = (WindowsCalculationEngine_WindowsEngine)Enum.Parse(typeof(WindowsCalculationEngine_WindowsEngine), "BuiltInWindowsModel");
     }
     
     public enum WindowsCalculationEngine_WindowsEngine
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BuiltInWindowsModel")]
+        [System.Runtime.Serialization.EnumMember(Value="BuiltInWindowsModel")]
         BuiltInWindowsModel = 1,
         
-        [JsonProperty("ExternalWindowsModel")]
+        [System.Runtime.Serialization.EnumMember(Value="ExternalWindowsModel")]
         ExternalWindowsModel = 2,
     }
     
     [Description("Describes one state for a complex glazing system These input objects are typicall" +
         "y generated by using WINDOW software and export to IDF syntax")]
-    [JsonObject("Construction:ComplexFenestrationState")]
     public class Construction_ComplexFenestrationState : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("basis_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Construction_ComplexFenestrationState_BasisType BasisType { get; set; } = (Construction_ComplexFenestrationState_BasisType)Enum.Parse(typeof(Construction_ComplexFenestrationState_BasisType), "LBNLWINDOW");
         
 
 [JsonProperty("basis_symmetry_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Construction_ComplexFenestrationState_BasisSymmetryType BasisSymmetryType { get; set; } = (Construction_ComplexFenestrationState_BasisSymmetryType)Enum.Parse(typeof(Construction_ComplexFenestrationState_BasisSymmetryType), "None");
         
 
@@ -3967,33 +3951,32 @@ public string Layer5DirectionalBackAbsoptanceMatrixName { get; set; } = "";
     public enum Construction_ComplexFenestrationState_BasisType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LBNLWINDOW")]
+        [System.Runtime.Serialization.EnumMember(Value="LBNLWINDOW")]
         LBNLWINDOW = 1,
         
-        [JsonProperty("UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefined")]
         UserDefined = 2,
     }
     
     public enum Construction_ComplexFenestrationState_BasisSymmetryType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Axisymmetric")]
+        [System.Runtime.Serialization.EnumMember(Value="Axisymmetric")]
         Axisymmetric = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
     }
     
     [Description("Start with outside layer and work your way to the inside Layer Up to 11 layers to" +
         "tal. Up to six solid layers and up to five gaps. Enter the material name for eac" +
         "h layer")]
-    [JsonObject("Construction:WindowEquivalentLayer")]
     public class Construction_WindowEquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
@@ -4043,7 +4026,6 @@ public string Layer11 { get; set; } = "";
     }
     
     [Description("Initiates search of the Window data file for a window called Name.")]
-    [JsonObject("Construction:WindowDataFile")]
     public class Construction_WindowDataFile : BHoMObject, IEnergyPlusClass
     {
         

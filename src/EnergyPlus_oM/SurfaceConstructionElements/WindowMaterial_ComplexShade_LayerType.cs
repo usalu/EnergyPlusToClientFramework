@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum WindowMaterial_ComplexShade_LayerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BSDF")]
+        [System.Runtime.Serialization.EnumMember(Value="BSDF")]
         BSDF = 1,
         
-        [JsonProperty("OtherShadingType")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherShadingType")]
         OtherShadingType = 2,
         
-        [JsonProperty("Perforated")]
+        [System.Runtime.Serialization.EnumMember(Value="Perforated")]
         Perforated = 3,
         
-        [JsonProperty("VenetianHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="VenetianHorizontal")]
         VenetianHorizontal = 4,
         
-        [JsonProperty("VenetianVertical")]
+        [System.Runtime.Serialization.EnumMember(Value="VenetianVertical")]
         VenetianVertical = 5,
         
-        [JsonProperty("Woven")]
+        [System.Runtime.Serialization.EnumMember(Value="Woven")]
         Woven = 6,
     }
 }

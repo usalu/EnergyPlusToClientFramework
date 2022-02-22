@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("This object is used to override internal sky temperature calculations.")]
-    [JsonObject("WeatherProperty:SkyTemperature")]
     public class WeatherProperty_SkyTemperature : BHoMObject, IEnergyPlusClass
     {
         
@@ -14,6 +13,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         [Description("The field indicates that the sky temperature will be imported from external sched" +
                      "ules or calculated by alternative methods other than default.")]
         [JsonProperty("calculation_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WeatherProperty_SkyTemperature_CalculationType CalculationType { get; set; } = (WeatherProperty_SkyTemperature_CalculationType)Enum.Parse(typeof(WeatherProperty_SkyTemperature_CalculationType), "ClarkAllen");
         
 
@@ -24,6 +24,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 
         [Description(@"If yes or blank, use Horizontal IR values from weather file when present, otherwise use the specified sky model. If no, always use the specified sky model and ignore the horizontal IR values from the weather file. For Calculation Type = ScheduleValue, DifferenceScheduleDryBulbValue or DifferenceScheduleDewPointValue, this field is ignored and the scheduled values are used.")]
         [JsonProperty("use_weather_file_horizontal_ir")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes UseWeatherFileHorizontalIr { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
     }
 }

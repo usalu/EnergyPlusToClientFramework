@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
     [Description("Constant volume fan that is intended to cycle on and off based on cooling/heating" +
                  " load or other control signals. This fan can also operate continuously like Fan:" +
                  "ConstantVolume.")]
-    [JsonObject("Fan:OnOff")]
     public class Fan_OnOff : BHoMObject, IEnergyPlusClass
     {
         

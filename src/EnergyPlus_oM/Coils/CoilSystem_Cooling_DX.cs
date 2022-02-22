@@ -10,7 +10,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  " controls. This control object supports several different types of DX cooling co" +
                  "ils and may be placed directly in an air loop branch or outdoor air equipment li" +
                  "st.")]
-    [JsonObject("CoilSystem:Cooling:DX")]
     public class CoilSystem_Cooling_DX : BHoMObject, IEnergyPlusClass
     {
         
@@ -34,6 +33,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("cooling_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CoilSystem_Cooling_DX_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (CoilSystem_Cooling_DX_CoolingCoilObjectType)Enum.Parse(typeof(CoilSystem_Cooling_DX_CoolingCoilObjectType), "CoilCoolingDXSingleSpeed");
         
 
@@ -43,6 +43,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 
         [Description(@"None = meet sensible load only Multimode = activate enhanced dehumidification mode as needed and meet sensible load. If no sensible load exists, and Run on Latent Load = Yes, and a latent load exists, the unit will operate to meet the latent load. Valid only with Coil:Cooling:DX:TwoStageWithHumidityControlMode or CoilSystem:Cooling:DX:HeatExchangerAssisted. CoolReheat = cool beyond the dry-bulb setpoint. as required to meet the humidity setpoint. Valid for all coil types. For all dehumidification controls, the max humidity setpoint on the Sensor Node is used. SetpointManager:SingleZone:Humidity:Maximum, SetpointManager:MultiZone:Humidity:Maximum, or SetpointManager:MultiZone:MaximumHumidity:Average, and SetpointManager:OutdoorAirPretreat (optional) objects.")]
         [JsonProperty("dehumidification_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CoilSystem_Cooling_DX_DehumidificationControlType DehumidificationControlType { get; set; } = (CoilSystem_Cooling_DX_DehumidificationControlType)Enum.Parse(typeof(CoilSystem_Cooling_DX_DehumidificationControlType), "None");
         
 
@@ -50,6 +51,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                      "ere is only a sensible load. Dehumidification controls will be active if specifi" +
                      "ed.")]
         [JsonProperty("run_on_sensible_load")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes RunOnSensibleLoad { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
@@ -57,11 +59,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                      "d. If No, unit will not run only if there is a latent load. Dehumidification con" +
                      "trols will be active if specified.")]
         [JsonProperty("run_on_latent_load")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes RunOnLatentLoad { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
         [Description(@"This input field is designed for use with DX cooling coils with low air flow to capacity ratio range (100 - 300 cfm/ton). Typical application is 100% dedicated outdoor air system (DOAS). Other air loop or zone HVAC systems with low flow to capacity ratio range may also use this input field. If Yes, the DX cooling coil runs as 100% DOAS DX coil or low flow to capacity ratio range. If No, the DX cooling coil runs as a regular DX coil. If left blank the default is regular DX coil.")]
         [JsonProperty("use_outdoor_air_dx_cooling_coil")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes UseOutdoorAirDxCoolingCoil { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 

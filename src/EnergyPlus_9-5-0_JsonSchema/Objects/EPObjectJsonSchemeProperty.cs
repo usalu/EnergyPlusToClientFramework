@@ -7,7 +7,7 @@ namespace EnergyPlus_9_5_0_JsonSchema.Objects
     public class EPObjectJsonSchemeProperty : JsonSchemaProperty
     {
         [JsonProperty("patternProperties")]
-        public EPPatternProperties EPPatternProperties { get; set; }
+        public EPPatternProperties PatternProperties { get; set; }
 
         [JsonProperty("group")]
         public string EPGroup { get; set; }
@@ -19,7 +19,7 @@ namespace EnergyPlus_9_5_0_JsonSchema.Objects
         public string Type { get; set; }
 
         [JsonProperty("maxProperties", NullValueHandling = NullValueHandling.Ignore)]
-        public long? EPMaxProperties { get; set; }
+        public int MaxProperties { get; set; }
 
         [JsonProperty("memo", NullValueHandling = NullValueHandling.Ignore)]
         public string EPMemo { get; set; }
@@ -28,13 +28,13 @@ namespace EnergyPlus_9_5_0_JsonSchema.Objects
         public EPFormat? EPFormat { get; set; }
 
         [JsonProperty("min_fields", NullValueHandling = NullValueHandling.Ignore)]
-        public double? EPMinFields { get; set; }
+        public double? MinFields { get; set; }
 
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public EPName EPName { get; set; }
 
         [JsonProperty("minProperties", NullValueHandling = NullValueHandling.Ignore)]
-        public long? EPMinProperties { get; set; }
+        public long? MinProperties { get; set; }
 
         [JsonProperty("extensible_size", NullValueHandling = NullValueHandling.Ignore)]
         public double? EPExtensibleSize { get; set; }

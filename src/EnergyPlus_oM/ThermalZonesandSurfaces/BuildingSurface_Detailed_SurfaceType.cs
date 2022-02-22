@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum BuildingSurface_Detailed_SurfaceType
     {
         
-        [JsonProperty("Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="Ceiling")]
         Ceiling = 0,
         
-        [JsonProperty("Floor")]
+        [System.Runtime.Serialization.EnumMember(Value="Floor")]
         Floor = 1,
         
-        [JsonProperty("Roof")]
+        [System.Runtime.Serialization.EnumMember(Value="Roof")]
         Roof = 2,
         
-        [JsonProperty("Wall")]
+        [System.Runtime.Serialization.EnumMember(Value="Wall")]
         Wall = 3,
     }
 }

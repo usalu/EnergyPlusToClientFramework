@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     public enum Coil_Heating_DX_VariableSpeed_DefrostStrategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Resistive")]
+        [System.Runtime.Serialization.EnumMember(Value="Resistive")]
         Resistive = 1,
         
-        [JsonProperty("ReverseCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="ReverseCycle")]
         ReverseCycle = 2,
     }
 }

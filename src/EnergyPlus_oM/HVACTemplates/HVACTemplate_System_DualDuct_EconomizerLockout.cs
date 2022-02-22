@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_DualDuct_EconomizerLockout
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NoLockout")]
+        [System.Runtime.Serialization.EnumMember(Value="NoLockout")]
         NoLockout = 1,
     }
 }

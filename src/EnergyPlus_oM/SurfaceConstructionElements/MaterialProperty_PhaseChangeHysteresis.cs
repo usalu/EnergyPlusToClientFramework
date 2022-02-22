@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description(@"Additional properties for temperature dependent thermal conductivity and enthalpy for Phase Change Materials (PCM) with separate melting and freezing curves. HeatBalanceAlgorithm = CondFD (ConductionFiniteDifference) solution algorithm only. Constructions with this should use the detailed CondFD process. Has no effect with other HeatBalanceAlgorithm solution algorithms.")]
-    [JsonObject("MaterialProperty:PhaseChangeHysteresis")]
     public class MaterialProperty_PhaseChangeHysteresis : BHoMObject, IEnergyPlusClass
     {
         

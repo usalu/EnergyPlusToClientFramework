@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum Site_SpectrumData_SpectrumDataType
     {
         
-        [JsonProperty("Solar")]
+        [System.Runtime.Serialization.EnumMember(Value="Solar")]
         Solar = 0,
         
-        [JsonProperty("Visible")]
+        [System.Runtime.Serialization.EnumMember(Value="Visible")]
         Visible = 1,
     }
 }

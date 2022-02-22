@@ -66,16 +66,17 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
     
     
     [Description(@"Produces a list summarizing the output variables and meters that are available for reporting for the model being simulated (rdd output file). The list varies depending on the types of objects present in the idf file. For example, variables related to lights will only appear if a Lights object is present. The IDF option generates complete Output:Variable objects to simplify adding the desired output to the idf file.")]
-    [JsonObject("Output:VariableDictionary")]
     public class Output_VariableDictionary : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("key_field")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_VariableDictionary_KeyField KeyField { get; set; } = (Output_VariableDictionary_KeyField)Enum.Parse(typeof(Output_VariableDictionary_KeyField), "Empty");
         
 
 [JsonProperty("sort_option")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_VariableDictionary_SortOption SortOption { get; set; } = (Output_VariableDictionary_SortOption)Enum.Parse(typeof(Output_VariableDictionary_SortOption), "Name");
     }
 }

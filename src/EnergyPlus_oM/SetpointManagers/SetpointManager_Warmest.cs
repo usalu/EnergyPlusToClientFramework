@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     [Description("This SetpointManager resets the cooling supply air temperature of a central force" +
                  "d air HVAC system according to the cooling demand of the warmest zone.")]
-    [JsonObject("SetpointManager:Warmest")]
     public class SetpointManager_Warmest : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SetpointManager_Warmest_ControlVariable ControlVariable { get; set; } = (SetpointManager_Warmest_ControlVariable)Enum.Parse(typeof(SetpointManager_Warmest_ControlVariable), "Temperature");
         
 
@@ -31,6 +31,7 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
         
 
         [JsonProperty("strategy")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SetpointManager_Warmest_Strategy Strategy { get; set; } = (SetpointManager_Warmest_Strategy)Enum.Parse(typeof(SetpointManager_Warmest_Strategy), "MaximumTemperature");
         
 

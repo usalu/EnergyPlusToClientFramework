@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum Material_RoofVegetation_MoistureDiffusionCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Advanced")]
+        [System.Runtime.Serialization.EnumMember(Value="Advanced")]
         Advanced = 1,
         
-        [JsonProperty("Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="Simple")]
         Simple = 2,
     }
 }

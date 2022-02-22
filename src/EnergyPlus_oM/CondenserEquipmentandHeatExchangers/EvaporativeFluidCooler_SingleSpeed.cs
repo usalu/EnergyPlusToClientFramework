@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     [Description("This model is based on Merkel\'s theory, which is also the basis for the cooling t" +
                  "ower model in EnergyPlus. The Evaporative fluid cooler is modeled as a counter f" +
                  "low heat exchanger.")]
-    [JsonObject("EvaporativeFluidCooler:SingleSpeed")]
     public class EvaporativeFluidCooler_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -41,6 +40,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
                      "A and the Design Water Flow Rate, or by specifying the fluid cooler Standard Des" +
                      "ign Capacity or by specifying Design Capacity for Non standard conditions.")]
         [JsonProperty("performance_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EvaporativeFluidCooler_SingleSpeed_PerformanceInputMethod PerformanceInputMethod { get; set; } = (EvaporativeFluidCooler_SingleSpeed_PerformanceInputMethod)Enum.Parse(typeof(EvaporativeFluidCooler_SingleSpeed_PerformanceInputMethod), "StandardDesignCapacity");
         
 
@@ -98,6 +98,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("capacity_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EvaporativeFluidCooler_SingleSpeed_CapacityControl CapacityControl { get; set; } = (EvaporativeFluidCooler_SingleSpeed_CapacityControl)Enum.Parse(typeof(EvaporativeFluidCooler_SingleSpeed_CapacityControl), "FanCycling");
         
 
@@ -107,6 +108,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("evaporation_loss_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EvaporativeFluidCooler_SingleSpeed_EvaporationLossMode EvaporationLossMode { get; set; } = (EvaporativeFluidCooler_SingleSpeed_EvaporationLossMode)Enum.Parse(typeof(EvaporativeFluidCooler_SingleSpeed_EvaporationLossMode), "SaturatedExit");
         
 
@@ -125,6 +127,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("blowdown_calculation_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EvaporativeFluidCooler_SingleSpeed_BlowdownCalculationMode BlowdownCalculationMode { get; set; } = (EvaporativeFluidCooler_SingleSpeed_BlowdownCalculationMode)Enum.Parse(typeof(EvaporativeFluidCooler_SingleSpeed_BlowdownCalculationMode), "ConcentrationRatio");
         
 

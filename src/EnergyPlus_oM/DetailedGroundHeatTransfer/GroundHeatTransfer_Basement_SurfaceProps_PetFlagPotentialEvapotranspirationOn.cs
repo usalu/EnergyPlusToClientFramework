@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     public enum GroundHeatTransfer_Basement_SurfaceProps_PetFlagPotentialEvapotranspirationOn
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FALSE")]
+        [System.Runtime.Serialization.EnumMember(Value="FALSE")]
         FALSE = 1,
         
-        [JsonProperty("TRUE")]
+        [System.Runtime.Serialization.EnumMember(Value="TRUE")]
         TRUE = 2,
     }
 }

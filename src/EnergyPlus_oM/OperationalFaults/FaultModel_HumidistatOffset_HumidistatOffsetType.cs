@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     public enum FaultModel_HumidistatOffset_HumidistatOffsetType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ThermostatOffsetDependent")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatOffsetDependent")]
         ThermostatOffsetDependent = 1,
         
-        [JsonProperty("ThermostatOffsetIndependent")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatOffsetIndependent")]
         ThermostatOffsetIndependent = 2,
     }
 }

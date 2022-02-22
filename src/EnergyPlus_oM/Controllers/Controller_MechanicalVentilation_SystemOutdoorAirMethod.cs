@@ -1,35 +1,33 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Controllers
 {
     public enum Controller_MechanicalVentilation_SystemOutdoorAirMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("IndoorAirQualityProcedure")]
+        [System.Runtime.Serialization.EnumMember(Value="IndoorAirQualityProcedure")]
         IndoorAirQualityProcedure = 1,
         
-        [JsonProperty("IndoorAirQualityProcedureCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="IndoorAirQualityProcedureCombined")]
         IndoorAirQualityProcedureCombined = 2,
         
-        [JsonProperty("IndoorAirQualityProcedureGenericContaminant")]
+        [System.Runtime.Serialization.EnumMember(Value="IndoorAirQualityProcedureGenericContaminant")]
         IndoorAirQualityProcedureGenericContaminant = 3,
         
-        [JsonProperty("ProportionalControlBasedOnDesignOARate")]
+        [System.Runtime.Serialization.EnumMember(Value="ProportionalControlBasedOnDesignOARate")]
         ProportionalControlBasedOnDesignOARate = 4,
         
-        [JsonProperty("ProportionalControlBasedOnDesignOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="ProportionalControlBasedOnDesignOccupancy")]
         ProportionalControlBasedOnDesignOccupancy = 5,
         
-        [JsonProperty("ProportionalControlBasedOnOccupancySchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="ProportionalControlBasedOnOccupancySchedule")]
         ProportionalControlBasedOnOccupancySchedule = 6,
         
-        [JsonProperty("VentilationRateProcedure")]
+        [System.Runtime.Serialization.EnumMember(Value="VentilationRateProcedure")]
         VentilationRateProcedure = 7,
         
-        [JsonProperty("ZoneSum")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneSum")]
         ZoneSum = 8,
     }
 }

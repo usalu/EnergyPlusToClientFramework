@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     public enum Coil_Heating_Water_PerformanceInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NominalCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="NominalCapacity")]
         NominalCapacity = 1,
         
-        [JsonProperty("UFactorTimesAreaAndDesignWaterFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="UFactorTimesAreaAndDesignWaterFlowRate")]
         UFactorTimesAreaAndDesignWaterFlowRate = 2,
     }
 }

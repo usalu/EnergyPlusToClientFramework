@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     [Description(@"This open wet tower model is based on purely empirical algorithms derived from manufacturer's performance data or field measurements. The user can select from two existing algorithms (CoolTools or YorkCalc), or they can enter their own correlation for approach temperature by using a variable speed tower model coefficient object. For a multi-cell tower, the capacity and air/water flow rate inputs are for the entire tower.")]
-    [JsonObject("CoolingTower:VariableSpeed")]
     public class CoolingTower_VariableSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -25,6 +24,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         [Description("Determines the coefficients and form of the equation for calculating approach tem" +
                      "perature")]
         [JsonProperty("model_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CoolingTower_VariableSpeed_ModelType ModelType { get; set; } = (CoolingTower_VariableSpeed_ModelType)Enum.Parse(typeof(CoolingTower_VariableSpeed_ModelType), "YorkCalc");
         
 
@@ -106,6 +106,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("evaporation_loss_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CoolingTower_VariableSpeed_EvaporationLossMode EvaporationLossMode { get; set; } = (CoolingTower_VariableSpeed_EvaporationLossMode)Enum.Parse(typeof(CoolingTower_VariableSpeed_EvaporationLossMode), "LossFactor");
         
 
@@ -121,6 +122,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("blowdown_calculation_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CoolingTower_VariableSpeed_BlowdownCalculationMode BlowdownCalculationMode { get; set; } = (CoolingTower_VariableSpeed_BlowdownCalculationMode)Enum.Parse(typeof(CoolingTower_VariableSpeed_BlowdownCalculationMode), "ConcentrationRatio");
         
 
@@ -148,6 +150,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
         
 
         [JsonProperty("cell_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CoolingTower_VariableSpeed_CellControl CellControl { get; set; } = (CoolingTower_VariableSpeed_CellControl)Enum.Parse(typeof(CoolingTower_VariableSpeed_CellControl), "MinimalCell");
         
 

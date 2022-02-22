@@ -67,12 +67,12 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserLoops
     
     
     [Description("Defines a central plant loop.")]
-    [JsonObject("PlantLoop")]
     public class PlantLoop : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("fluid_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_FluidType FluidType { get; set; } = (PlantLoop_FluidType)Enum.Parse(typeof(PlantLoop_FluidType), "Water");
         
 
@@ -142,6 +142,7 @@ public string DemandSideConnectorListName { get; set; } = "";
         
 
 [JsonProperty("load_distribution_scheme")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_LoadDistributionScheme LoadDistributionScheme { get; set; } = (PlantLoop_LoadDistributionScheme)Enum.Parse(typeof(PlantLoop_LoadDistributionScheme), "SequentialLoad");
         
 
@@ -150,15 +151,18 @@ public string AvailabilityManagerListName { get; set; } = "";
         
 
 [JsonProperty("plant_loop_demand_calculation_scheme")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_PlantLoopDemandCalculationScheme PlantLoopDemandCalculationScheme { get; set; } = (PlantLoop_PlantLoopDemandCalculationScheme)Enum.Parse(typeof(PlantLoop_PlantLoopDemandCalculationScheme), "SingleSetpoint");
         
 
 [Description(@"Specifies a primary-secondary loop configuration. The plant side is the primary loop, and the demand side is the secondary loop. A secondary supply pump is required on the demand side. None = Primary-only, no secondary simulation CommonPipe = Primary-secondary with no temperature control at primary-secondary interface TwoWayCommonPipe = Primary-secondary with control of secondary supply temperature or primary return temperature (requires a setpoint be placed on the plant side or demand side inlet node).")]
 [JsonProperty("common_pipe_simulation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_CommonPipeSimulation CommonPipeSimulation { get; set; } = (PlantLoop_CommonPipeSimulation)Enum.Parse(typeof(PlantLoop_CommonPipeSimulation), "None");
         
 
 [JsonProperty("pressure_simulation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_PressureSimulationType PressureSimulationType { get; set; } = (PlantLoop_PressureSimulationType)Enum.Parse(typeof(PlantLoop_PressureSimulationType), "None");
         
 
@@ -171,95 +175,95 @@ public System.Nullable<float> LoopCirculationTime { get; set; } = (System.Nullab
     public enum PlantLoop_FluidType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 1,
         
-        [JsonProperty("UserDefinedFluidType")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefinedFluidType")]
         UserDefinedFluidType = 2,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 3,
     }
     
     public enum PlantLoop_LoadDistributionScheme
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Optimal")]
+        [System.Runtime.Serialization.EnumMember(Value="Optimal")]
         Optimal = 1,
         
-        [JsonProperty("SequentialLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="SequentialLoad")]
         SequentialLoad = 2,
         
-        [JsonProperty("SequentialUniformPLR")]
+        [System.Runtime.Serialization.EnumMember(Value="SequentialUniformPLR")]
         SequentialUniformPLR = 3,
         
-        [JsonProperty("UniformLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="UniformLoad")]
         UniformLoad = 4,
         
-        [JsonProperty("UniformPLR")]
+        [System.Runtime.Serialization.EnumMember(Value="UniformPLR")]
         UniformPLR = 5,
     }
     
     public enum PlantLoop_PlantLoopDemandCalculationScheme
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DualSetpointDeadband")]
+        [System.Runtime.Serialization.EnumMember(Value="DualSetpointDeadband")]
         DualSetpointDeadband = 1,
         
-        [JsonProperty("SingleSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="SingleSetpoint")]
         SingleSetpoint = 2,
     }
     
     public enum PlantLoop_CommonPipeSimulation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CommonPipe")]
+        [System.Runtime.Serialization.EnumMember(Value="CommonPipe")]
         CommonPipe = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("TwoWayCommonPipe")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoWayCommonPipe")]
         TwoWayCommonPipe = 3,
     }
     
     public enum PlantLoop_PressureSimulationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LoopFlowCorrection")]
+        [System.Runtime.Serialization.EnumMember(Value="LoopFlowCorrection")]
         LoopFlowCorrection = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("PumpPowerCorrection")]
+        [System.Runtime.Serialization.EnumMember(Value="PumpPowerCorrection")]
         PumpPowerCorrection = 3,
     }
     
     [Description("Defines a central plant condenser loop. CondenserLoop and PlantLoop are nearly id" +
         "entical except some components and operation schemes are applicable to only one " +
         "loop type or the other.")]
-    [JsonObject("CondenserLoop")]
     public class CondenserLoop : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("fluid_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserLoop_FluidType FluidType { get; set; } = (CondenserLoop_FluidType)Enum.Parse(typeof(CondenserLoop_FluidType), "Water");
         
 
@@ -329,10 +333,12 @@ public string CondenserDemandSideConnectorListName { get; set; } = "";
         
 
 [JsonProperty("load_distribution_scheme")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserLoop_LoadDistributionScheme LoadDistributionScheme { get; set; } = (CondenserLoop_LoadDistributionScheme)Enum.Parse(typeof(CondenserLoop_LoadDistributionScheme), "SequentialLoad");
         
 
 [JsonProperty("pressure_simulation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserLoop_PressureSimulationType PressureSimulationType { get; set; } = (CondenserLoop_PressureSimulationType)Enum.Parse(typeof(CondenserLoop_PressureSimulationType), "None");
         
 
@@ -345,51 +351,51 @@ public System.Nullable<float> LoopCirculationTime { get; set; } = (System.Nullab
     public enum CondenserLoop_FluidType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("UserDefinedFluidType")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefinedFluidType")]
         UserDefinedFluidType = 1,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 2,
     }
     
     public enum CondenserLoop_LoadDistributionScheme
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Optimal")]
+        [System.Runtime.Serialization.EnumMember(Value="Optimal")]
         Optimal = 1,
         
-        [JsonProperty("SequentialLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="SequentialLoad")]
         SequentialLoad = 2,
         
-        [JsonProperty("SequentialUniformPLR")]
+        [System.Runtime.Serialization.EnumMember(Value="SequentialUniformPLR")]
         SequentialUniformPLR = 3,
         
-        [JsonProperty("UniformLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="UniformLoad")]
         UniformLoad = 4,
         
-        [JsonProperty("UniformPLR")]
+        [System.Runtime.Serialization.EnumMember(Value="UniformPLR")]
         UniformPLR = 5,
     }
     
     public enum CondenserLoop_PressureSimulationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LoopFlowCorrection")]
+        [System.Runtime.Serialization.EnumMember(Value="LoopFlowCorrection")]
         LoopFlowCorrection = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("PumpPowerCorrection")]
+        [System.Runtime.Serialization.EnumMember(Value="PumpPowerCorrection")]
         PumpPowerCorrection = 3,
     }
 }

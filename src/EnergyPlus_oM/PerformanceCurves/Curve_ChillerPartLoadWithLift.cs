@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"This chiller part-load performance curve has three independent variables. Input consists of the curve name, the twelve coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x + C3*x**2 + C4*y + C5*y**2 + C6*x*y + C7*x**3 + C8*y**3 + C9*x**2*y + C10*x*y**2 + C11*x**2*y**2 + C12*z*y**3 x = dT* = normalized fractional Lift = dT / dTref y = PLR = part load ratio (cooling load/steady state capacity) z = Tdev* = normalized Tdev = Tdev / dTref Where: dT = Lift = Leaving Condenser Water Temperature - Leaving Chilled Water Temperature dTref = dT at the reference condition Tdev = Leaving Chilled Water Temperature - Reference Chilled Water Temperature")]
-    [JsonObject("Curve:ChillerPartLoadWithLift")]
     public class Curve_ChillerPartLoadWithLift : BHoMObject, IEnergyPlusClass
     {
         
@@ -94,18 +93,22 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
         
 
         [JsonProperty("input_unit_type_for_x")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_ChillerPartLoadWithLift_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_ChillerPartLoadWithLift_InputUnitTypeForX)Enum.Parse(typeof(Curve_ChillerPartLoadWithLift_InputUnitTypeForX), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_y")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_ChillerPartLoadWithLift_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_ChillerPartLoadWithLift_InputUnitTypeForY)Enum.Parse(typeof(Curve_ChillerPartLoadWithLift_InputUnitTypeForY), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_z")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_ChillerPartLoadWithLift_InputUnitTypeForZ InputUnitTypeForZ { get; set; } = (Curve_ChillerPartLoadWithLift_InputUnitTypeForZ)Enum.Parse(typeof(Curve_ChillerPartLoadWithLift_InputUnitTypeForZ), "Dimensionless");
         
 
         [JsonProperty("output_unit_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_ChillerPartLoadWithLift_OutputUnitType OutputUnitType { get; set; } = (Curve_ChillerPartLoadWithLift_OutputUnitType)Enum.Parse(typeof(Curve_ChillerPartLoadWithLift_OutputUnitType), "Dimensionless");
     }
 }

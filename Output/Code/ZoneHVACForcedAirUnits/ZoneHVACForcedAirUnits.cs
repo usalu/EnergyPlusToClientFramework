@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     
     
     [Description(@"Ideal system used to calculate loads without modeling a full HVAC system. All that is required for the ideal system are zone controls, zone equipment configurations, and the ideal loads system component. This component can be thought of as an ideal unit that mixes zone air with the specified amount of outdoor air and then adds or removes heat and moisture at 100% efficiency in order to meet the specified controls. Energy use is reported as DistrictHeating and DistrictCooling.")]
-    [JsonObject("ZoneHVAC:IdealLoadsAirSystem")]
     public class ZoneHVAC_IdealLoadsAirSystem : BHoMObject, IEnergyPlusClass
     {
         
@@ -111,6 +110,7 @@ public System.Nullable<float> MinimumCoolingSupplyAirHumidityRatio { get; set; }
         
 
 [JsonProperty("heating_limit")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_HeatingLimit HeatingLimit { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_HeatingLimit)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_HeatingLimit), "NoLimit");
         
 
@@ -127,6 +127,7 @@ public string MaximumSensibleHeatingCapacity { get; set; } = "";
         
 
 [JsonProperty("cooling_limit")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_CoolingLimit CoolingLimit { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_CoolingLimit)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_CoolingLimit), "NoLimit");
         
 
@@ -153,6 +154,7 @@ public string CoolingAvailabilityScheduleName { get; set; } = "";
 
 [Description(@"ConstantSensibleHeatRatio means that the ideal loads system will be controlled to meet the sensible cooling load, and the latent cooling rate will be computed using a constant sensible heat ratio (SHR) Humidistat means that there is a ZoneControl:Humidistat for this zone and the ideal loads system will attempt to satisfy the humidistat. None means that there is no dehumidification. ConstantSupplyHumidityRatio means that during cooling the supply air will always be at the Minimum Cooling Supply Humidity Ratio.")]
 [JsonProperty("dehumidification_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_DehumidificationControlType DehumidificationControlType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_DehumidificationControlType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_DehumidificationControlType), "ConstantSensibleHeatRatio");
         
 
@@ -164,6 +166,7 @@ public System.Nullable<float> CoolingSensibleHeatRatio { get; set; } = (System.N
 
 [Description(@"None means that there is no humidification. Humidistat means that there is a ZoneControl:Humidistat for this zone and the ideal loads system will attempt to satisfy the humidistat. ConstantSupplyHumidityRatio means that during heating the supply air will always be at the Maximum Heating Supply Humidity Ratio.")]
 [JsonProperty("humidification_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_HumidificationControlType HumidificationControlType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_HumidificationControlType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_HumidificationControlType), "None");
         
 
@@ -181,6 +184,7 @@ public string OutdoorAirInletNodeName { get; set; } = "";
 
 [Description(@"This field controls how the minimum outdoor air flow rate is calculated. None means that design occupancy will be used to compute the minimum outdoor air flow rate OccupancySchedule means that current occupancy level will be used. CO2Setpoint means that the design occupancy will be used to compute the minimum outdoor air flow rate and the outdoor air flow rate may be increased if necessary to maintain the indoor air carbon dioxide setpoint defined in a ZoneControl:ContaminantController object.")]
 [JsonProperty("demand_controlled_ventilation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_DemandControlledVentilationType DemandControlledVentilationType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_DemandControlledVentilationType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_DemandControlledVentilationType), "None");
         
 
@@ -188,10 +192,12 @@ public ZoneHVAC_IdealLoadsAirSystem_DemandControlledVentilationType DemandContro
     "ate when there is a cooling load and the outdoor air temperature or enthalpy is " +
     "below the zone exhaust air temperature or enthalpy.")]
 [JsonProperty("outdoor_air_economizer_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_OutdoorAirEconomizerType OutdoorAirEconomizerType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_OutdoorAirEconomizerType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_OutdoorAirEconomizerType), "NoEconomizer");
         
 
 [JsonProperty("heat_recovery_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_IdealLoadsAirSystem_HeatRecoveryType HeatRecoveryType { get; set; } = (ZoneHVAC_IdealLoadsAirSystem_HeatRecoveryType)Enum.Parse(typeof(ZoneHVAC_IdealLoadsAirSystem_HeatRecoveryType), "None");
         
 
@@ -212,128 +218,127 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     public enum ZoneHVAC_IdealLoadsAirSystem_HeatingLimit
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LimitCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="LimitCapacity")]
         LimitCapacity = 1,
         
-        [JsonProperty("LimitFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="LimitFlowRate")]
         LimitFlowRate = 2,
         
-        [JsonProperty("LimitFlowRateAndCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="LimitFlowRateAndCapacity")]
         LimitFlowRateAndCapacity = 3,
         
-        [JsonProperty("NoLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="NoLimit")]
         NoLimit = 4,
     }
     
     public enum ZoneHVAC_IdealLoadsAirSystem_CoolingLimit
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LimitCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="LimitCapacity")]
         LimitCapacity = 1,
         
-        [JsonProperty("LimitFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="LimitFlowRate")]
         LimitFlowRate = 2,
         
-        [JsonProperty("LimitFlowRateAndCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="LimitFlowRateAndCapacity")]
         LimitFlowRateAndCapacity = 3,
         
-        [JsonProperty("NoLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="NoLimit")]
         NoLimit = 4,
     }
     
     public enum ZoneHVAC_IdealLoadsAirSystem_DehumidificationControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantSensibleHeatRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantSensibleHeatRatio")]
         ConstantSensibleHeatRatio = 1,
         
-        [JsonProperty("ConstantSupplyHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantSupplyHumidityRatio")]
         ConstantSupplyHumidityRatio = 2,
         
-        [JsonProperty("Humidistat")]
+        [System.Runtime.Serialization.EnumMember(Value="Humidistat")]
         Humidistat = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
     
     public enum ZoneHVAC_IdealLoadsAirSystem_HumidificationControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantSupplyHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantSupplyHumidityRatio")]
         ConstantSupplyHumidityRatio = 1,
         
-        [JsonProperty("Humidistat")]
+        [System.Runtime.Serialization.EnumMember(Value="Humidistat")]
         Humidistat = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
     }
     
     public enum ZoneHVAC_IdealLoadsAirSystem_DemandControlledVentilationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CO2Setpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="CO2Setpoint")]
         CO2Setpoint = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("OccupancySchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="OccupancySchedule")]
         OccupancySchedule = 3,
     }
     
     public enum ZoneHVAC_IdealLoadsAirSystem_OutdoorAirEconomizerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DifferentialDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferentialDryBulb")]
         DifferentialDryBulb = 1,
         
-        [JsonProperty("DifferentialEnthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferentialEnthalpy")]
         DifferentialEnthalpy = 2,
         
-        [JsonProperty("NoEconomizer")]
+        [System.Runtime.Serialization.EnumMember(Value="NoEconomizer")]
         NoEconomizer = 3,
     }
     
     public enum ZoneHVAC_IdealLoadsAirSystem_HeatRecoveryType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Enthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="Enthalpy")]
         Enthalpy = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("Sensible")]
+        [System.Runtime.Serialization.EnumMember(Value="Sensible")]
         Sensible = 3,
     }
     
     [Description("Four pipe fan coil system. Forced-convection hydronic heating-cooling unit with s" +
         "upply fan, hot water heating coil, chilled water cooling coil, and fixed-positio" +
         "n outdoor air mixer.")]
-    [JsonObject("ZoneHVAC:FourPipeFanCoil")]
     public class ZoneHVAC_FourPipeFanCoil : BHoMObject, IEnergyPlusClass
     {
         
@@ -345,6 +350,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("capacity_control_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_FourPipeFanCoil_CapacityControlMethod CapacityControlMethod { get; set; } = (ZoneHVAC_FourPipeFanCoil_CapacityControlMethod)Enum.Parse(typeof(ZoneHVAC_FourPipeFanCoil_CapacityControlMethod), "ASHRAE90VariableFan");
         
 
@@ -383,6 +389,7 @@ public string AirOutletNodeName { get; set; } = "";
     "e left blank if the FanCoil is connected to central dedicated outdoor air throug" +
     "h an AirTerminal:SingleDuct:Mixer object.")]
 [JsonProperty("outdoor_air_mixer_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_FourPipeFanCoil_OutdoorAirMixerObjectType OutdoorAirMixerObjectType { get; set; } = (ZoneHVAC_FourPipeFanCoil_OutdoorAirMixerObjectType)Enum.Parse(typeof(ZoneHVAC_FourPipeFanCoil_OutdoorAirMixerObjectType), "OutdoorAirMixer");
         
 
@@ -393,6 +400,7 @@ public string OutdoorAirMixerName { get; set; } = "";
 
 [Description(@"Fan type must be according to capacity control method (see I/O) For ConstantFanVariableFlow a Fan:OnOff or Fan:ConstantVolume is valid. For CyclingFan a Fan:OnOff is valid. For VariableFanVariableFlow or VariableFanConstantFlow a Fan:VariableVolume is valid. For ASHRAE90.1 a Fan:OnOff or Fan:VariableVolume is valid. Fan:SystemModel is valid for all capacity control methods. The fan's inlet node should be the same as the outdoor air mixer's mixed air node.")]
 [JsonProperty("supply_air_fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_FourPipeFanCoil_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_FourPipeFanCoil_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_FourPipeFanCoil_SupplyAirFanObjectType), "FanConstantVolume");
         
 
@@ -401,6 +409,7 @@ public string SupplyAirFanName { get; set; } = "";
         
 
 [JsonProperty("cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_FourPipeFanCoil_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_FourPipeFanCoil_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_FourPipeFanCoil_CoolingCoilObjectType), "CoilCoolingWater");
         
 
@@ -421,6 +430,7 @@ public System.Nullable<float> CoolingConvergenceTolerance { get; set; } = (Syste
         
 
 [JsonProperty("heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_FourPipeFanCoil_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_FourPipeFanCoil_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_FourPipeFanCoil_HeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -472,74 +482,73 @@ public string MaximumSupplyAirTemperatureInHeatingMode { get; set; } = (System.S
     public enum ZoneHVAC_FourPipeFanCoil_CapacityControlMethod
     {
         
-        [JsonProperty("ASHRAE90VariableFan")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAE90VariableFan")]
         ASHRAE90VariableFan = 0,
         
-        [JsonProperty("ConstantFanVariableFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantFanVariableFlow")]
         ConstantFanVariableFlow = 1,
         
-        [JsonProperty("CyclingFan")]
+        [System.Runtime.Serialization.EnumMember(Value="CyclingFan")]
         CyclingFan = 2,
         
-        [JsonProperty("MultiSpeedFan")]
+        [System.Runtime.Serialization.EnumMember(Value="MultiSpeedFan")]
         MultiSpeedFan = 3,
         
-        [JsonProperty("VariableFanConstantFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableFanConstantFlow")]
         VariableFanConstantFlow = 4,
         
-        [JsonProperty("VariableFanVariableFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableFanVariableFlow")]
         VariableFanVariableFlow = 5,
     }
     
     public enum ZoneHVAC_FourPipeFanCoil_OutdoorAirMixerObjectType
     {
         
-        [JsonProperty("OutdoorAir:Mixer")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir:Mixer")]
         OutdoorAirMixer = 0,
     }
     
     public enum ZoneHVAC_FourPipeFanCoil_SupplyAirFanObjectType
     {
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 0,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 1,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 2,
         
-        [JsonProperty("Fan:VariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:VariableVolume")]
         FanVariableVolume = 3,
     }
     
     public enum ZoneHVAC_FourPipeFanCoil_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 0,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 1,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatExchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatExchangerAssisted")]
         CoilSystemCoolingWaterHeatExchangerAssisted = 2,
     }
     
     public enum ZoneHVAC_FourPipeFanCoil_HeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 1,
     }
     
     [Description("Window air conditioner. Forced-convection cooling-only unit with supply fan, dire" +
         "ct expansion (DX) cooling coil, and fixed-position outdoor air mixer.")]
-    [JsonObject("ZoneHVAC:WindowAirConditioner")]
     public class ZoneHVAC_WindowAirConditioner : BHoMObject, IEnergyPlusClass
     {
         
@@ -568,6 +577,7 @@ public string AirOutletNodeName { get; set; } = "";
 
 [Description("currently only one OutdoorAir:Mixer object type is available.")]
 [JsonProperty("outdoor_air_mixer_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_WindowAirConditioner_OutdoorAirMixerObjectType OutdoorAirMixerObjectType { get; set; } = (ZoneHVAC_WindowAirConditioner_OutdoorAirMixerObjectType)Enum.Parse(typeof(ZoneHVAC_WindowAirConditioner_OutdoorAirMixerObjectType), "OutdoorAirMixer");
         
 
@@ -577,6 +587,7 @@ public string OutdoorAirMixerName { get; set; } = "";
 
 [Description(@"Fan:ConstantVolume only works when continuous fan operation is used the entire simulation (all supply air fan operating mode schedule values are greater than 0). If any fan operating mode schedule values are 0 a Fan:SystemModel or Fan:OnOff object must be used.")]
 [JsonProperty("supply_air_fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_WindowAirConditioner_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_WindowAirConditioner_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_WindowAirConditioner_SupplyAirFanObjectType), "FanConstantVolume");
         
 
@@ -587,6 +598,7 @@ public string SupplyAirFanName { get; set; } = "";
         
 
 [JsonProperty("cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_WindowAirConditioner_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_WindowAirConditioner_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_WindowAirConditioner_CoolingCoilObjectType), "CoilCoolingDXSingleSpeed");
         
 
@@ -600,6 +612,7 @@ public string SupplyAirFanOperatingModeScheduleName { get; set; } = "";
         
 
 [JsonProperty("fan_placement")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_WindowAirConditioner_FanPlacement FanPlacement { get; set; } = (ZoneHVAC_WindowAirConditioner_FanPlacement)Enum.Parse(typeof(ZoneHVAC_WindowAirConditioner_FanPlacement), "BlowThrough");
         
 
@@ -620,50 +633,49 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     public enum ZoneHVAC_WindowAirConditioner_OutdoorAirMixerObjectType
     {
         
-        [JsonProperty("OutdoorAir:Mixer")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir:Mixer")]
         OutdoorAirMixer = 0,
     }
     
     public enum ZoneHVAC_WindowAirConditioner_SupplyAirFanObjectType
     {
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 0,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 1,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 2,
     }
     
     public enum ZoneHVAC_WindowAirConditioner_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 0,
         
-        [JsonProperty("Coil:Cooling:DX:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:VariableSpeed")]
         CoilCoolingDXVariableSpeed = 1,
         
-        [JsonProperty("CoilSystem:Cooling:DX:HeatExchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX:HeatExchangerAssisted")]
         CoilSystemCoolingDXHeatExchangerAssisted = 2,
     }
     
     public enum ZoneHVAC_WindowAirConditioner_FanPlacement
     {
         
-        [JsonProperty("BlowThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="BlowThrough")]
         BlowThrough = 0,
         
-        [JsonProperty("DrawThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="DrawThrough")]
         DrawThrough = 1,
     }
     
     [Description("Packaged terminal air conditioner (PTAC). Forced-convection heating-cooling unit " +
         "with supply fan, direct expansion (DX) cooling coil, heating coil (gas, electric" +
         ", hot water, or steam) and fixed-position outdoor air mixer.")]
-    [JsonObject("ZoneHVAC:PackagedTerminalAirConditioner")]
     public class ZoneHVAC_PackagedTerminalAirConditioner : BHoMObject, IEnergyPlusClass
     {
         
@@ -689,6 +701,7 @@ public string AirOutletNodeName { get; set; } = "";
     "e left blank if the PTAC is connected to central dedicated outdoor air through a" +
     "n AirTerminal:SingleDuct:Mixer object.")]
 [JsonProperty("outdoor_air_mixer_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalAirConditioner_OutdoorAirMixerObjectType OutdoorAirMixerObjectType { get; set; } = (ZoneHVAC_PackagedTerminalAirConditioner_OutdoorAirMixerObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalAirConditioner_OutdoorAirMixerObjectType), "OutdoorAirMixer");
         
 
@@ -733,6 +746,7 @@ public string NoLoadOutdoorAirFlowRate { get; set; } = "";
 
 [Description(@"Fan:ConstantVolume only works when continuous fan operation is used the entire simulation (all supply air fan operating mode schedule values are greater than 0). If any fan operating mode schedule values are 0 a Fan:SystemModel or Fan:OnOff object must be used.")]
 [JsonProperty("supply_air_fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalAirConditioner_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_PackagedTerminalAirConditioner_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalAirConditioner_SupplyAirFanObjectType), "FanConstantVolume");
         
 
@@ -743,6 +757,7 @@ public string SupplyAirFanName { get; set; } = "";
 
 [Description("Select the type of heating coil.")]
 [JsonProperty("heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalAirConditioner_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_PackagedTerminalAirConditioner_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalAirConditioner_HeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -754,6 +769,7 @@ public string HeatingCoilName { get; set; } = "";
 [Description("Select the type of Cooling Coil. Only works with Coil:Cooling:DX:SingleSpeed or C" +
     "oilSystem:Cooling:DX:HeatExchangerAssisted or Coil:Cooling:DX:VariableSpeed.")]
 [JsonProperty("cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalAirConditioner_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_PackagedTerminalAirConditioner_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalAirConditioner_CoolingCoilObjectType), "CoilCoolingDXSingleSpeed");
         
 
@@ -764,6 +780,7 @@ public string CoolingCoilName { get; set; } = "";
 
 [Description("Select fan placement as either blow through or draw through.")]
 [JsonProperty("fan_placement")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalAirConditioner_FanPlacement FanPlacement { get; set; } = (ZoneHVAC_PackagedTerminalAirConditioner_FanPlacement)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalAirConditioner_FanPlacement), "DrawThrough");
         
 
@@ -783,6 +800,7 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
         
 
 [JsonProperty("capacity_control_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalAirConditioner_CapacityControlMethod CapacityControlMethod { get; set; } = (ZoneHVAC_PackagedTerminalAirConditioner_CapacityControlMethod)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalAirConditioner_CapacityControlMethod), "None");
         
 
@@ -801,80 +819,79 @@ public string MaximumSupplyAirTemperatureInHeatingMode { get; set; } = (System.S
     public enum ZoneHVAC_PackagedTerminalAirConditioner_OutdoorAirMixerObjectType
     {
         
-        [JsonProperty("OutdoorAir:Mixer")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir:Mixer")]
         OutdoorAirMixer = 0,
     }
     
     public enum ZoneHVAC_PackagedTerminalAirConditioner_SupplyAirFanObjectType
     {
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 0,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 1,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 2,
     }
     
     public enum ZoneHVAC_PackagedTerminalAirConditioner_HeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     public enum ZoneHVAC_PackagedTerminalAirConditioner_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 0,
         
-        [JsonProperty("Coil:Cooling:DX:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:VariableSpeed")]
         CoilCoolingDXVariableSpeed = 1,
         
-        [JsonProperty("CoilSystem:Cooling:DX:HeatExchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX:HeatExchangerAssisted")]
         CoilSystemCoolingDXHeatExchangerAssisted = 2,
     }
     
     public enum ZoneHVAC_PackagedTerminalAirConditioner_FanPlacement
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlowThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="BlowThrough")]
         BlowThrough = 1,
         
-        [JsonProperty("DrawThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="DrawThrough")]
         DrawThrough = 2,
     }
     
     public enum ZoneHVAC_PackagedTerminalAirConditioner_CapacityControlMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 1,
         
-        [JsonProperty("SingleZoneVAV")]
+        [System.Runtime.Serialization.EnumMember(Value="SingleZoneVAV")]
         SingleZoneVAV = 2,
     }
     
     [Description(@"Packaged terminal heat pump (PTHP). Forced-convection heating-cooling unit with supply fan, direct expansion (DX) cooling coil, DX heating coil (air-to-air heat pump), supplemental heating coil (gas, electric, hot water, or steam), and fixed-position outdoor air mixer.")]
-    [JsonObject("ZoneHVAC:PackagedTerminalHeatPump")]
     public class ZoneHVAC_PackagedTerminalHeatPump : BHoMObject, IEnergyPlusClass
     {
         
@@ -900,6 +917,7 @@ public string AirOutletNodeName { get; set; } = "";
     "e left blank if the PTHP is connected to central dedicated outdoor air through a" +
     "n AirTerminal:SingleDuct:Mixer object.")]
 [JsonProperty("outdoor_air_mixer_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalHeatPump_OutdoorAirMixerObjectType OutdoorAirMixerObjectType { get; set; } = (ZoneHVAC_PackagedTerminalHeatPump_OutdoorAirMixerObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalHeatPump_OutdoorAirMixerObjectType), "OutdoorAirMixer");
         
 
@@ -944,6 +962,7 @@ public string NoLoadOutdoorAirFlowRate { get; set; } = "";
 
 [Description("Fan:ConstantVolume only works with fan operating mode is continuous.")]
 [JsonProperty("supply_air_fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalHeatPump_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_PackagedTerminalHeatPump_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalHeatPump_SupplyAirFanObjectType), "FanConstantVolume");
         
 
@@ -954,6 +973,7 @@ public string SupplyAirFanName { get; set; } = "";
 
 [Description("Only works with Coil:Heating:DX:SingleSpeed or Coil:Heating:DX:VariableSpeed.")]
 [JsonProperty("heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalHeatPump_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_PackagedTerminalHeatPump_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalHeatPump_HeatingCoilObjectType), "CoilHeatingDXSingleSpeed");
         
 
@@ -970,6 +990,7 @@ public System.Nullable<float> HeatingConvergenceTolerance { get; set; } = (Syste
 [Description("Only works with Coil:Cooling:DX:SingleSpeed or CoilSystem:Cooling:DX:HeatExchange" +
     "rAssisted or Coil:Cooling:DX:VariableSpeed.")]
 [JsonProperty("cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalHeatPump_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_PackagedTerminalHeatPump_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalHeatPump_CoolingCoilObjectType), "CoilCoolingDXSingleSpeed");
         
 
@@ -986,6 +1007,7 @@ public System.Nullable<float> CoolingConvergenceTolerance { get; set; } = (Syste
 
 [Description("works with gas, electric, hot water and steam heating coil.")]
 [JsonProperty("supplemental_heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalHeatPump_SupplementalHeatingCoilObjectType SupplementalHeatingCoilObjectType { get; set; } = (ZoneHVAC_PackagedTerminalHeatPump_SupplementalHeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalHeatPump_SupplementalHeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -1007,6 +1029,7 @@ public System.Nullable<float> MaximumOutdoorDryBulbTemperatureForSupplementalHea
 
 [Description("Select fan placement as either blow through or draw through.")]
 [JsonProperty("fan_placement")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalHeatPump_FanPlacement FanPlacement { get; set; } = (ZoneHVAC_PackagedTerminalHeatPump_FanPlacement)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalHeatPump_FanPlacement), "DrawThrough");
         
 
@@ -1026,6 +1049,7 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
         
 
 [JsonProperty("capacity_control_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_PackagedTerminalHeatPump_CapacityControlMethod CapacityControlMethod { get; set; } = (ZoneHVAC_PackagedTerminalHeatPump_CapacityControlMethod)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalHeatPump_CapacityControlMethod), "None");
         
 
@@ -1044,92 +1068,91 @@ public string MaximumSupplyAirTemperatureInHeatingMode { get; set; } = (System.S
     public enum ZoneHVAC_PackagedTerminalHeatPump_OutdoorAirMixerObjectType
     {
         
-        [JsonProperty("OutdoorAir:Mixer")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir:Mixer")]
         OutdoorAirMixer = 0,
     }
     
     public enum ZoneHVAC_PackagedTerminalHeatPump_SupplyAirFanObjectType
     {
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 0,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 1,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 2,
     }
     
     public enum ZoneHVAC_PackagedTerminalHeatPump_HeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:DX:SingleSpeed")]
         CoilHeatingDXSingleSpeed = 0,
         
-        [JsonProperty("Coil:Heating:DX:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:DX:VariableSpeed")]
         CoilHeatingDXVariableSpeed = 1,
     }
     
     public enum ZoneHVAC_PackagedTerminalHeatPump_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 0,
         
-        [JsonProperty("Coil:Cooling:DX:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:VariableSpeed")]
         CoilCoolingDXVariableSpeed = 1,
         
-        [JsonProperty("CoilSystem:Cooling:DX:HeatExchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX:HeatExchangerAssisted")]
         CoilSystemCoolingDXHeatExchangerAssisted = 2,
     }
     
     public enum ZoneHVAC_PackagedTerminalHeatPump_SupplementalHeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     public enum ZoneHVAC_PackagedTerminalHeatPump_FanPlacement
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlowThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="BlowThrough")]
         BlowThrough = 1,
         
-        [JsonProperty("DrawThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="DrawThrough")]
         DrawThrough = 2,
     }
     
     public enum ZoneHVAC_PackagedTerminalHeatPump_CapacityControlMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 1,
         
-        [JsonProperty("SingleZoneVAV")]
+        [System.Runtime.Serialization.EnumMember(Value="SingleZoneVAV")]
         SingleZoneVAV = 2,
     }
     
     [Description("Water-to-air heat pump. Forced-convection heating-cooling unit with supply fan, w" +
         "ater-to-air cooling and heating coils, supplemental heating coil (gas, electric," +
         " hot water, or steam), and fixed-position outdoor air mixer.")]
-    [JsonObject("ZoneHVAC:WaterToAirHeatPump")]
     public class ZoneHVAC_WaterToAirHeatPump : BHoMObject, IEnergyPlusClass
     {
         
@@ -1152,6 +1175,7 @@ public string AirOutletNodeName { get; set; } = "";
     "e left blank if the WSHP is connected to central dedicated outdoor air through a" +
     "n AirTerminal:SingleDuct:Mixer object.")]
 [JsonProperty("outdoor_air_mixer_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_WaterToAirHeatPump_OutdoorAirMixerObjectType OutdoorAirMixerObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_OutdoorAirMixerObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_OutdoorAirMixerObjectType), "OutdoorAirMixer");
         
 
@@ -1195,6 +1219,7 @@ public string NoLoadOutdoorAirFlowRate { get; set; } = "";
         
 
 [JsonProperty("supply_air_fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_WaterToAirHeatPump_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_SupplyAirFanObjectType), "FanOnOff");
         
 
@@ -1204,6 +1229,7 @@ public string SupplyAirFanName { get; set; } = "";
         
 
 [JsonProperty("heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_WaterToAirHeatPump_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_HeatingCoilObjectType), "CoilHeatingWaterToAirHeatPumpEquationFit");
         
 
@@ -1213,6 +1239,7 @@ public string HeatingCoilName { get; set; } = "";
         
 
 [JsonProperty("cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_WaterToAirHeatPump_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_CoolingCoilObjectType), "CoilCoolingWaterToAirHeatPumpEquationFit");
         
 
@@ -1249,6 +1276,7 @@ public System.Nullable<float> HeatPumpFanDelayTime { get; set; } = (System.Nulla
 
 [Description("works with gas, electric, hot water and steam heating coils")]
 [JsonProperty("supplemental_heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_WaterToAirHeatPump_SupplementalHeatingCoilObjectType SupplementalHeatingCoilObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_SupplementalHeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_SupplementalHeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -1271,6 +1299,7 @@ public string OutdoorDryBulbTemperatureSensorNodeName { get; set; } = "";
         
 
 [JsonProperty("fan_placement")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_WaterToAirHeatPump_FanPlacement FanPlacement { get; set; } = (ZoneHVAC_WaterToAirHeatPump_FanPlacement)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_FanPlacement), "BlowThrough");
         
 
@@ -1286,6 +1315,7 @@ public string AvailabilityManagerListName { get; set; } = "";
 
 [Description(@"used only when the heat pump coils are of the type WaterToAirHeatPump:EquationFit Constant results in 100% water flow regardless of compressor PLR Cycling results in water flow that matches compressor PLR ConstantOnDemand results in 100% water flow whenever the coil is on, but is 0% whenever the coil has no load")]
 [JsonProperty("heat_pump_coil_water_flow_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_WaterToAirHeatPump_HeatPumpCoilWaterFlowMode HeatPumpCoilWaterFlowMode { get; set; } = (ZoneHVAC_WaterToAirHeatPump_HeatPumpCoilWaterFlowMode)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_HeatPumpCoilWaterFlowMode), "Cycling");
         
 
@@ -1297,87 +1327,86 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     public enum ZoneHVAC_WaterToAirHeatPump_OutdoorAirMixerObjectType
     {
         
-        [JsonProperty("OutdoorAir:Mixer")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir:Mixer")]
         OutdoorAirMixer = 0,
     }
     
     public enum ZoneHVAC_WaterToAirHeatPump_SupplyAirFanObjectType
     {
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 0,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 1,
     }
     
     public enum ZoneHVAC_WaterToAirHeatPump_HeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:WaterToAirHeatPump:EquationFit")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:WaterToAirHeatPump:EquationFit")]
         CoilHeatingWaterToAirHeatPumpEquationFit = 0,
         
-        [JsonProperty("Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit")]
         CoilHeatingWaterToAirHeatPumpVariableSpeedEquationFit = 1,
     }
     
     public enum ZoneHVAC_WaterToAirHeatPump_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:WaterToAirHeatPump:EquationFit")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:WaterToAirHeatPump:EquationFit")]
         CoilCoolingWaterToAirHeatPumpEquationFit = 0,
         
-        [JsonProperty("Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit")]
         CoilCoolingWaterToAirHeatPumpVariableSpeedEquationFit = 1,
     }
     
     public enum ZoneHVAC_WaterToAirHeatPump_SupplementalHeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     public enum ZoneHVAC_WaterToAirHeatPump_FanPlacement
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlowThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="BlowThrough")]
         BlowThrough = 1,
         
-        [JsonProperty("DrawThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="DrawThrough")]
         DrawThrough = 2,
     }
     
     public enum ZoneHVAC_WaterToAirHeatPump_HeatPumpCoilWaterFlowMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 1,
         
-        [JsonProperty("ConstantOnDemand")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantOnDemand")]
         ConstantOnDemand = 2,
         
-        [JsonProperty("Cycling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cycling")]
         Cycling = 3,
     }
     
     [Description(@"This object calculates the performance of zone (room) air dehumidifiers. Meant to model conventional direct expansion (DX) cooling-based room air dehumidifiers (reject 100% of condenser heat to the zone air), but this object might be able to be used to model other room air dehumidifier types.")]
-    [JsonObject("ZoneHVAC:Dehumidifier:DX")]
     public class ZoneHVAC_Dehumidifier_DX : BHoMObject, IEnergyPlusClass
     {
         
@@ -1453,7 +1482,6 @@ public string CondensateCollectionWaterStorageTankName { get; set; } = "";
     }
     
     [Description(@"This compound component models a stand-alone energy recovery ventilator (ERV) that conditions outdoor ventilation air and supplies that air directly to a zone. The ERV unit is modeled as a collection of components: air-to-air heat exchanger, supply air fan, exhaust air fan and an optional controller to avoid overheating of the supply air (economizer or free cooling operation).")]
-    [JsonObject("ZoneHVAC:EnergyRecoveryVentilator")]
     public class ZoneHVAC_EnergyRecoveryVentilator : BHoMObject, IEnergyPlusClass
     {
         
@@ -1513,7 +1541,6 @@ public string AvailabilityManagerListName { get; set; } = "";
     
     [Description("This controller is used exclusively by the ZoneHVAC:EnergyRecoveryVentilator obje" +
         "ct to allow economizer (free cooling) operation when possible.")]
-    [JsonObject("ZoneHVAC:EnergyRecoveryVentilator:Controller")]
     public class ZoneHVAC_EnergyRecoveryVentilator_Controller : BHoMObject, IEnergyPlusClass
     {
         
@@ -1550,10 +1577,12 @@ public string ElectronicEnthalpyLimitCurveName { get; set; } = "";
         
 
 [JsonProperty("exhaust_air_temperature_limit")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirTemperatureLimit ExhaustAirTemperatureLimit { get; set; } = (ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirTemperatureLimit)Enum.Parse(typeof(ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirTemperatureLimit), "NoExhaustAirTemperatureLimit");
         
 
 [JsonProperty("exhaust_air_enthalpy_limit")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirEnthalpyLimit ExhaustAirEnthalpyLimit { get; set; } = (ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirEnthalpyLimit)Enum.Parse(typeof(ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirEnthalpyLimit), "NoExhaustAirEnthalpyLimit");
         
 
@@ -1567,6 +1596,7 @@ public string TimeOfDayEconomizerFlowControlScheduleName { get; set; } = "";
 [Description("Select Yes to modify air flow rates based on a zone humidistat. Select No to disa" +
     "ble this feature.")]
 [JsonProperty("high_humidity_control_flag")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes HighHumidityControlFlag { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -1583,39 +1613,39 @@ public System.Nullable<float> HighHumidityOutdoorAirFlowRatio { get; set; } = (S
 
 [Description(@"If NO is selected, the air flow rate is modified any time indoor relative humidity is above humidistat setpoint. If YES is selected, outdoor air flow rate is modified any time indoor relative humidity is above the humidistat setpoint AND the outdoor humidity ratio is less than the indoor humidity ratio.")]
 [JsonProperty("control_high_indoor_humidity_based_on_outdoor_humidity_ratio")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ControlHighIndoorHumidityBasedOnOutdoorHumidityRatio { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
     }
     
     public enum ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirTemperatureLimit
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ExhaustAirTemperatureLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="ExhaustAirTemperatureLimit")]
         ExhaustAirTemperatureLimit = 1,
         
-        [JsonProperty("NoExhaustAirTemperatureLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="NoExhaustAirTemperatureLimit")]
         NoExhaustAirTemperatureLimit = 2,
     }
     
     public enum ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirEnthalpyLimit
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ExhaustAirEnthalpyLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="ExhaustAirEnthalpyLimit")]
         ExhaustAirEnthalpyLimit = 1,
         
-        [JsonProperty("NoExhaustAirEnthalpyLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="NoExhaustAirEnthalpyLimit")]
         NoExhaustAirEnthalpyLimit = 2,
     }
     
     [Description("Unit ventilator. Forced-convection ventilation unit with supply fan (constant-vol" +
         "ume or variable-volume), optional chilled water cooling coil, optional heating c" +
         "oil (gas, electric, hot water, or steam) and controllable outdoor air mixer.")]
-    [JsonObject("ZoneHVAC:UnitVentilator")]
     public class ZoneHVAC_UnitVentilator : BHoMObject, IEnergyPlusClass
     {
         
@@ -1631,6 +1661,7 @@ public string MaximumSupplyAirFlowRate { get; set; } = "";
         
 
 [JsonProperty("outdoor_air_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_UnitVentilator_OutdoorAirControlType OutdoorAirControlType { get; set; } = (ZoneHVAC_UnitVentilator_OutdoorAirControlType)Enum.Parse(typeof(ZoneHVAC_UnitVentilator_OutdoorAirControlType), "FixedAmount");
         
 
@@ -1689,6 +1720,7 @@ public string MixedAirNodeName { get; set; } = "";
 [Description("Allowable fan types are Fan:ConstantVolume, Fan:OnOff, Fan:VariableVolume, and Fa" +
     "n:SystemModel")]
 [JsonProperty("supply_air_fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_UnitVentilator_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_UnitVentilator_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_UnitVentilator_SupplyAirFanObjectType), "FanConstantVolume");
         
 
@@ -1697,6 +1729,7 @@ public string SupplyAirFanName { get; set; } = "";
         
 
 [JsonProperty("coil_option")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_UnitVentilator_CoilOption CoilOption { get; set; } = (ZoneHVAC_UnitVentilator_CoilOption)Enum.Parse(typeof(ZoneHVAC_UnitVentilator_CoilOption), "Cooling");
         
 
@@ -1706,6 +1739,7 @@ public string SupplyAirFanOperatingModeScheduleName { get; set; } = "";
         
 
 [JsonProperty("heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_UnitVentilator_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_UnitVentilator_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_UnitVentilator_HeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -1718,6 +1752,7 @@ public System.Nullable<float> HeatingConvergenceTolerance { get; set; } = (Syste
         
 
 [JsonProperty("cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_UnitVentilator_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_UnitVentilator_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_UnitVentilator_CoolingCoilObjectType), "CoilCoolingWater");
         
 
@@ -1742,80 +1777,79 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     public enum ZoneHVAC_UnitVentilator_OutdoorAirControlType
     {
         
-        [JsonProperty("FixedAmount")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedAmount")]
         FixedAmount = 0,
         
-        [JsonProperty("FixedTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedTemperature")]
         FixedTemperature = 1,
         
-        [JsonProperty("VariablePercent")]
+        [System.Runtime.Serialization.EnumMember(Value="VariablePercent")]
         VariablePercent = 2,
     }
     
     public enum ZoneHVAC_UnitVentilator_SupplyAirFanObjectType
     {
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 0,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 1,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 2,
         
-        [JsonProperty("Fan:VariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:VariableVolume")]
         FanVariableVolume = 3,
     }
     
     public enum ZoneHVAC_UnitVentilator_CoilOption
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 1,
         
-        [JsonProperty("HeatingAndCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingAndCooling")]
         HeatingAndCooling = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
     }
     
     public enum ZoneHVAC_UnitVentilator_HeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     public enum ZoneHVAC_UnitVentilator_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 0,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 1,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatExchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatExchangerAssisted")]
         CoilSystemCoolingWaterHeatExchangerAssisted = 2,
     }
     
     [Description("Unit heater. Forced-convection heating-only unit with supply fan, heating coil (g" +
         "as, electric, hot water, or steam) and fixed-position outdoor air mixer.")]
-    [JsonObject("ZoneHVAC:UnitHeater")]
     public class ZoneHVAC_UnitHeater : BHoMObject, IEnergyPlusClass
     {
         
@@ -1837,6 +1871,7 @@ public string AirOutletNodeName { get; set; } = "";
 [Description("Allowable fan types are Fan:ConstantVolume, Fan:OnOff, Fan:VariableVolume and Fan" +
     ":SystemModel")]
 [JsonProperty("supply_air_fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_UnitHeater_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_UnitHeater_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_UnitHeater_SupplyAirFanObjectType), "FanConstantVolume");
         
 
@@ -1849,6 +1884,7 @@ public string MaximumSupplyAirFlowRate { get; set; } = "";
         
 
 [JsonProperty("heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_UnitHeater_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_UnitHeater_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_UnitHeater_HeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -1863,6 +1899,7 @@ public string SupplyAirFanOperatingModeScheduleName { get; set; } = "";
 
 [Description(@"This choice field allows the user to define how the unit heater will operate under ""no heating load"" or cooling conditions. If the ""No"" is selected, then the fan will not run unless there is a heating load. If the fan does not run, this effectively shuts the unit heater system off when there is no heating load. If the ""Yes"" is selected, the unit heater is available and has a ConstantVolume fan, or has an OnOff fan with ""Supply Air Fan Operating Mode Schedule"" value greater than zero, then the fan will always run regardless of the zone load.")]
 [JsonProperty("supply_air_fan_operation_during_no_heating")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_UnitHeater_SupplyAirFanOperationDuringNoHeating SupplyAirFanOperationDuringNoHeating { get; set; } = (ZoneHVAC_UnitHeater_SupplyAirFanOperationDuringNoHeating)Enum.Parse(typeof(ZoneHVAC_UnitHeater_SupplyAirFanOperationDuringNoHeating), "No");
         
 
@@ -1893,48 +1930,47 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     public enum ZoneHVAC_UnitHeater_SupplyAirFanObjectType
     {
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 0,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 1,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 2,
         
-        [JsonProperty("Fan:VariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:VariableVolume")]
         FanVariableVolume = 3,
     }
     
     public enum ZoneHVAC_UnitHeater_HeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     public enum ZoneHVAC_UnitHeater_SupplyAirFanOperationDuringNoHeating
     {
         
-        [JsonProperty("No")]
+        [System.Runtime.Serialization.EnumMember(Value="No")]
         No = 0,
         
-        [JsonProperty("Yes")]
+        [System.Runtime.Serialization.EnumMember(Value="Yes")]
         Yes = 1,
     }
     
     [Description("Zone evaporative cooler. Forced-convection cooling-only unit with supply fan, 100" +
         "% outdoor air supply. Optional relief exhaust node")]
-    [JsonObject("ZoneHVAC:EvaporativeCoolerUnit")]
     public class ZoneHVAC_EvaporativeCoolerUnit : BHoMObject, IEnergyPlusClass
     {
         
@@ -1966,6 +2002,7 @@ public string ZoneReliefAirNodeName { get; set; } = "";
         
 
 [JsonProperty("supply_air_fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_EvaporativeCoolerUnit_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_EvaporativeCoolerUnit_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_EvaporativeCoolerUnit_SupplyAirFanObjectType), "FanComponentModel");
         
 
@@ -1978,10 +2015,12 @@ public string DesignSupplyAirFlowRate { get; set; } = "";
         
 
 [JsonProperty("fan_placement")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_EvaporativeCoolerUnit_FanPlacement FanPlacement { get; set; } = (ZoneHVAC_EvaporativeCoolerUnit_FanPlacement)Enum.Parse(typeof(ZoneHVAC_EvaporativeCoolerUnit_FanPlacement), "BlowThrough");
         
 
 [JsonProperty("cooler_unit_control_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_EvaporativeCoolerUnit_CoolerUnitControlMethod CoolerUnitControlMethod { get; set; } = (ZoneHVAC_EvaporativeCoolerUnit_CoolerUnitControlMethod)Enum.Parse(typeof(ZoneHVAC_EvaporativeCoolerUnit_CoolerUnitControlMethod), "ZoneCoolingLoadOnOffCycling");
         
 
@@ -1997,6 +2036,7 @@ public System.Nullable<float> CoolingLoadControlThresholdHeatTransferRate { get;
         
 
 [JsonProperty("first_evaporative_cooler_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_EvaporativeCoolerUnit_FirstEvaporativeCoolerObjectType FirstEvaporativeCoolerObjectType { get; set; } = (ZoneHVAC_EvaporativeCoolerUnit_FirstEvaporativeCoolerObjectType)Enum.Parse(typeof(ZoneHVAC_EvaporativeCoolerUnit_FirstEvaporativeCoolerObjectType), "EvaporativeCoolerDirectCelDekPad");
         
 
@@ -2007,6 +2047,7 @@ public string FirstEvaporativeCoolerObjectName { get; set; } = "";
 [Description("optional, used for direct/indirect configurations second cooler must be immediate" +
     "ly downstream of first cooler, if present")]
 [JsonProperty("second_evaporative_cooler_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_EvaporativeCoolerUnit_SecondEvaporativeCoolerObjectType SecondEvaporativeCoolerObjectType { get; set; } = (ZoneHVAC_EvaporativeCoolerUnit_SecondEvaporativeCoolerObjectType)Enum.Parse(typeof(ZoneHVAC_EvaporativeCoolerUnit_SecondEvaporativeCoolerObjectType), "EvaporativeCoolerDirectCelDekPad");
         
 
@@ -2023,85 +2064,84 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     public enum ZoneHVAC_EvaporativeCoolerUnit_SupplyAirFanObjectType
     {
         
-        [JsonProperty("Fan:ComponentModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ComponentModel")]
         FanComponentModel = 0,
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 1,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 2,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 3,
         
-        [JsonProperty("Fan:VariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:VariableVolume")]
         FanVariableVolume = 4,
     }
     
     public enum ZoneHVAC_EvaporativeCoolerUnit_FanPlacement
     {
         
-        [JsonProperty("BlowThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="BlowThrough")]
         BlowThrough = 0,
         
-        [JsonProperty("DrawThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="DrawThrough")]
         DrawThrough = 1,
     }
     
     public enum ZoneHVAC_EvaporativeCoolerUnit_CoolerUnitControlMethod
     {
         
-        [JsonProperty("ZoneCoolingLoadOnOffCycling")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneCoolingLoadOnOffCycling")]
         ZoneCoolingLoadOnOffCycling = 0,
         
-        [JsonProperty("ZoneCoolingLoadVariableSpeedFan")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneCoolingLoadVariableSpeedFan")]
         ZoneCoolingLoadVariableSpeedFan = 1,
         
-        [JsonProperty("ZoneTemperatureDeadbandOnOffCycling")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneTemperatureDeadbandOnOffCycling")]
         ZoneTemperatureDeadbandOnOffCycling = 2,
     }
     
     public enum ZoneHVAC_EvaporativeCoolerUnit_FirstEvaporativeCoolerObjectType
     {
         
-        [JsonProperty("EvaporativeCooler:Direct:CelDekPad")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Direct:CelDekPad")]
         EvaporativeCoolerDirectCelDekPad = 0,
         
-        [JsonProperty("EvaporativeCooler:Direct:ResearchSpecial")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Direct:ResearchSpecial")]
         EvaporativeCoolerDirectResearchSpecial = 1,
         
-        [JsonProperty("EvaporativeCooler:Indirect:CelDekPad")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Indirect:CelDekPad")]
         EvaporativeCoolerIndirectCelDekPad = 2,
         
-        [JsonProperty("EvaporativeCooler:Indirect:ResearchSpecial")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Indirect:ResearchSpecial")]
         EvaporativeCoolerIndirectResearchSpecial = 3,
         
-        [JsonProperty("EvaporativeCooler:Indirect:WetCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Indirect:WetCoil")]
         EvaporativeCoolerIndirectWetCoil = 4,
     }
     
     public enum ZoneHVAC_EvaporativeCoolerUnit_SecondEvaporativeCoolerObjectType
     {
         
-        [JsonProperty("EvaporativeCooler:Direct:CelDekPad")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Direct:CelDekPad")]
         EvaporativeCoolerDirectCelDekPad = 0,
         
-        [JsonProperty("EvaporativeCooler:Direct:ResearchSpecial")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Direct:ResearchSpecial")]
         EvaporativeCoolerDirectResearchSpecial = 1,
         
-        [JsonProperty("EvaporativeCooler:Indirect:CelDekPad")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Indirect:CelDekPad")]
         EvaporativeCoolerIndirectCelDekPad = 2,
         
-        [JsonProperty("EvaporativeCooler:Indirect:ResearchSpecial")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Indirect:ResearchSpecial")]
         EvaporativeCoolerIndirectResearchSpecial = 3,
         
-        [JsonProperty("EvaporativeCooler:Indirect:WetCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Indirect:WetCoil")]
         EvaporativeCoolerIndirectWetCoil = 4,
     }
     
     [Description(@"Hybrid Unitary HVAC. A black box model for multi-mode packaged forced air equipment. Independent variables include outdoor air conditions and indoor air conditions. Controlled inputs include operating mode, supply air flow rate, and outdoor air faction. Emperical lookup tables are required to map supply air temperature supply air humidity, electricity use, fuel uses, water use, fan electricity use, and external static pressure as a function of each indpednent varaible and each controlled input. In each timestep the model will choose one or more combinations of settings for mode, supply air flow rate, outdoor air faction, and part runtime fraction so as to satisfy zone requests for sensible cooling, heating, ventilation, and/or dehumidification with the least resource consumption. Equipment in this class may consume electricity, water, and up to two additional fuel types.")]
-    [JsonObject("ZoneHVAC:HybridUnitaryHVAC")]
     public class ZoneHVAC_HybridUnitaryHVAC : BHoMObject, IEnergyPlusClass
     {
         
@@ -2147,6 +2187,7 @@ public string MaximumSupplyAirHumidityRatioScheduleName { get; set; } = "";
 
 [Description(@"Select the method that will be used to choose operating mode(s), supply air flow rate(s), outdoor air fraction(s) and part runtime fraction(s) in each time step. ""Automatic"" = chooses controlled inputs and part runtime fraction(s) to minimize resource use within each time step while best satisfying requested sensible cooling, dehumidification and ventilation, and subject to constraints. ""User Defined"" = EMS will be used to choose controlled inputs and part runtime fraction(s) in each time step. If this field is blank, default to ""Automatic"".")]
 [JsonProperty("method_to_choose_controlled_inputs_and_part_runtime_fraction")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_HybridUnitaryHVAC_MethodToChooseControlledInputsAndPartRuntimeFraction MethodToChooseControlledInputsAndPartRuntimeFraction { get; set; } = (ZoneHVAC_HybridUnitaryHVAC_MethodToChooseControlledInputsAndPartRuntimeFraction)Enum.Parse(typeof(ZoneHVAC_HybridUnitaryHVAC_MethodToChooseControlledInputsAndPartRuntimeFraction), "Automatic");
         
 
@@ -2183,11 +2224,13 @@ public System.Nullable<float> ExternalStaticPressureAtSystemMaximumSupplyAirFlow
 
 [Description("This field specifies if the fan heat is accounted for in the lookup tables.")]
 [JsonProperty("fan_heat_included_in_lookup_tables")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes FanHeatIncludedInLookupTables { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("This field specifies where to add the fan heat in the air stream.")]
 [JsonProperty("fan_heat_gain_location")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_HybridUnitaryHVAC_FanHeatGainLocation FanHeatGainLocation { get; set; } = (ZoneHVAC_HybridUnitaryHVAC_FanHeatGainLocation)Enum.Parse(typeof(ZoneHVAC_HybridUnitaryHVAC_FanHeatGainLocation), "SupplyAirStream");
         
 
@@ -2212,18 +2255,21 @@ public System.Nullable<float> MinimumTimeBetweenModeChange { get; set; } = (Syst
 [Description("Select the fuel type associated with field: \"System Electric Power Lookup Table\" " +
     "in each mode. If this field is blank, default first fuel type = Electricity.")]
 [JsonProperty("first_fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_HybridUnitaryHVAC_FirstFuelType FirstFuelType { get; set; } = (ZoneHVAC_HybridUnitaryHVAC_FirstFuelType)Enum.Parse(typeof(ZoneHVAC_HybridUnitaryHVAC_FirstFuelType), "Electricity");
         
 
 [Description("Select the fuel type associated with field: \"System Second Fuel Consumption Looku" +
     "p Table\" in each mode. If this field is blank, default second fuel type = None.")]
 [JsonProperty("second_fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_HybridUnitaryHVAC_SecondFuelType SecondFuelType { get; set; } = (ZoneHVAC_HybridUnitaryHVAC_SecondFuelType)Enum.Parse(typeof(ZoneHVAC_HybridUnitaryHVAC_SecondFuelType), "None");
         
 
 [Description("Select the fuel type associated with field: \"System Third Fuel Consumption Lookup" +
     " Table\" in each mode. If this field is blank, default third fuel type = None.")]
 [JsonProperty("third_fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_HybridUnitaryHVAC_ThirdFuelType ThirdFuelType { get; set; } = (ZoneHVAC_HybridUnitaryHVAC_ThirdFuelType)Enum.Parse(typeof(ZoneHVAC_HybridUnitaryHVAC_ThirdFuelType), "None");
         
 
@@ -2231,6 +2277,7 @@ public ZoneHVAC_HybridUnitaryHVAC_ThirdFuelType ThirdFuelType { get; set; } = (Z
     "in this field, subject to constraints. If this field is blank, the objective fun" +
     "ction will minimize electricity use.")]
 [JsonProperty("objective_function_to_minimize")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_HybridUnitaryHVAC_ObjectiveFunctionToMinimize ObjectiveFunctionToMinimize { get; set; } = (ZoneHVAC_HybridUnitaryHVAC_ObjectiveFunctionToMinimize)Enum.Parse(typeof(ZoneHVAC_HybridUnitaryHVAC_ObjectiveFunctionToMinimize), "Empty");
         
 
@@ -2314,199 +2361,198 @@ public string Modes { get; set; } = "";
     public enum ZoneHVAC_HybridUnitaryHVAC_MethodToChooseControlledInputsAndPartRuntimeFraction
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Automatic")]
+        [System.Runtime.Serialization.EnumMember(Value="Automatic")]
         Automatic = 1,
         
-        [JsonProperty("User Defined")]
+        [System.Runtime.Serialization.EnumMember(Value="User Defined")]
         UserDefined = 2,
     }
     
     public enum ZoneHVAC_HybridUnitaryHVAC_FanHeatGainLocation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MixedAirStream")]
+        [System.Runtime.Serialization.EnumMember(Value="MixedAirStream")]
         MixedAirStream = 1,
         
-        [JsonProperty("SupplyAirStream")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplyAirStream")]
         SupplyAirStream = 2,
     }
     
     public enum ZoneHVAC_HybridUnitaryHVAC_FirstFuelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 1,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 2,
         
-        [JsonProperty("DistrictCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictCooling")]
         DistrictCooling = 3,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 4,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 5,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 6,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 7,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 8,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 9,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 10,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 11,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 12,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 13,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 14,
     }
     
     public enum ZoneHVAC_HybridUnitaryHVAC_SecondFuelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 1,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 2,
         
-        [JsonProperty("DistrictCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictCooling")]
         DistrictCooling = 3,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 4,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 5,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 6,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 7,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 8,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 9,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 10,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 11,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 12,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 13,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 14,
     }
     
     public enum ZoneHVAC_HybridUnitaryHVAC_ThirdFuelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 1,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 2,
         
-        [JsonProperty("DistrictCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictCooling")]
         DistrictCooling = 3,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 4,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 5,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 6,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 7,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 8,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 9,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 10,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 11,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 12,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 13,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 14,
     }
     
     public enum ZoneHVAC_HybridUnitaryHVAC_ObjectiveFunctionToMinimize
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Electricity Use")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity Use")]
         ElectricityUse = 1,
         
-        [JsonProperty("Second Fuel Use")]
+        [System.Runtime.Serialization.EnumMember(Value="Second Fuel Use")]
         SecondFuelUse = 2,
         
-        [JsonProperty("Third Fuel Use")]
+        [System.Runtime.Serialization.EnumMember(Value="Third Fuel Use")]
         ThirdFuelUse = 3,
         
-        [JsonProperty("Water Use")]
+        [System.Runtime.Serialization.EnumMember(Value="Water Use")]
         WaterUse = 4,
     }
     
     [Description("The zone outdoor air unit models a single-zone dedicated outdoor air system (DOAS" +
         "). Forced-convection 100% outdoor air unit with supply fan and optional equipmen" +
         "t including exhaust fan, heating coil, cooling coil, and heat recovery.")]
-    [JsonObject("ZoneHVAC:OutdoorAirUnit")]
     public class ZoneHVAC_OutdoorAirUnit : BHoMObject, IEnergyPlusClass
     {
         
@@ -2537,6 +2583,7 @@ public string SupplyFanName { get; set; } = "";
         
 
 [JsonProperty("supply_fan_placement")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_OutdoorAirUnit_SupplyFanPlacement SupplyFanPlacement { get; set; } = (ZoneHVAC_OutdoorAirUnit_SupplyFanPlacement)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_SupplyFanPlacement), "DrawThrough");
         
 
@@ -2555,6 +2602,7 @@ public string ExhaustAirScheduleName { get; set; } = "";
         
 
 [JsonProperty("unit_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_OutdoorAirUnit_UnitControlType UnitControlType { get; set; } = (ZoneHVAC_OutdoorAirUnit_UnitControlType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_UnitControlType), "NeutralControl");
         
 
@@ -2598,37 +2646,37 @@ public string AvailabilityManagerListName { get; set; } = "";
     public enum ZoneHVAC_OutdoorAirUnit_SupplyFanPlacement
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlowThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="BlowThrough")]
         BlowThrough = 1,
         
-        [JsonProperty("DrawThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="DrawThrough")]
         DrawThrough = 2,
     }
     
     public enum ZoneHVAC_OutdoorAirUnit_UnitControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NeutralControl")]
+        [System.Runtime.Serialization.EnumMember(Value="NeutralControl")]
         NeutralControl = 1,
         
-        [JsonProperty("TemperatureControl")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureControl")]
         TemperatureControl = 2,
     }
     
     [Description("Equipment list for components in a ZoneHVAC:OutdoorAirUnit. Components are simula" +
         "ted sequentially in the order given in the equipment list.")]
-    [JsonObject("ZoneHVAC:OutdoorAirUnit:EquipmentList")]
     public class ZoneHVAC_OutdoorAirUnit_EquipmentList : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("component_1_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component1ObjectType Component1ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component1ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component1ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -2637,6 +2685,7 @@ public string Component1Name { get; set; } = "";
         
 
 [JsonProperty("component_2_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component2ObjectType Component2ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component2ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component2ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -2645,6 +2694,7 @@ public string Component2Name { get; set; } = "";
         
 
 [JsonProperty("component_3_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component3ObjectType Component3ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component3ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component3ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -2653,6 +2703,7 @@ public string Component3Name { get; set; } = "";
         
 
 [JsonProperty("component_4_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component4ObjectType Component4ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component4ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component4ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -2661,6 +2712,7 @@ public string Component4Name { get; set; } = "";
         
 
 [JsonProperty("component_5_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component5ObjectType Component5ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component5ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component5ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -2669,6 +2721,7 @@ public string Component5Name { get; set; } = "";
         
 
 [JsonProperty("component_6_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component6ObjectType Component6ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component6ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component6ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -2677,6 +2730,7 @@ public string Component6Name { get; set; } = "";
         
 
 [JsonProperty("component_7_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component7ObjectType Component7ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component7ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component7ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -2685,6 +2739,7 @@ public string Component7Name { get; set; } = "";
         
 
 [JsonProperty("component_8_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component8ObjectType Component8ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component8ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component8ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -2695,349 +2750,348 @@ public string Component8Name { get; set; } = "";
     public enum ZoneHVAC_OutdoorAirUnit_EquipmentList_Component1ObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 1,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 2,
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 3,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 4,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 5,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 6,
         
-        [JsonProperty("CoilSystem:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX")]
         CoilSystemCoolingDX = 7,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatexchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatexchangerAssisted")]
         CoilSystemCoolingWaterHeatexchangerAssisted = 8,
         
-        [JsonProperty("CoilSystem:Heating:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Heating:DX")]
         CoilSystemHeatingDX = 9,
         
-        [JsonProperty("Dehumidifier:Desiccant:NoFans")]
+        [System.Runtime.Serialization.EnumMember(Value="Dehumidifier:Desiccant:NoFans")]
         DehumidifierDesiccantNoFans = 10,
         
-        [JsonProperty("HeatExchanger:AirToAir:FlatPlate")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:FlatPlate")]
         HeatExchangerAirToAirFlatPlate = 11,
         
-        [JsonProperty("HeatExchanger:AirToAir:SensibleAndLatent")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:SensibleAndLatent")]
         HeatExchangerAirToAirSensibleAndLatent = 12,
     }
     
     public enum ZoneHVAC_OutdoorAirUnit_EquipmentList_Component2ObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 1,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 2,
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 3,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 4,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 5,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 6,
         
-        [JsonProperty("CoilSystem:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX")]
         CoilSystemCoolingDX = 7,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatexchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatexchangerAssisted")]
         CoilSystemCoolingWaterHeatexchangerAssisted = 8,
         
-        [JsonProperty("CoilSystem:Heating:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Heating:DX")]
         CoilSystemHeatingDX = 9,
         
-        [JsonProperty("Dehumidifier:Desiccant:NoFans")]
+        [System.Runtime.Serialization.EnumMember(Value="Dehumidifier:Desiccant:NoFans")]
         DehumidifierDesiccantNoFans = 10,
         
-        [JsonProperty("HeatExchanger:AirToAir:FlatPlate")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:FlatPlate")]
         HeatExchangerAirToAirFlatPlate = 11,
         
-        [JsonProperty("HeatExchanger:AirToAir:SensibleAndLatent")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:SensibleAndLatent")]
         HeatExchangerAirToAirSensibleAndLatent = 12,
     }
     
     public enum ZoneHVAC_OutdoorAirUnit_EquipmentList_Component3ObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 1,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 2,
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 3,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 4,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 5,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 6,
         
-        [JsonProperty("CoilSystem:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX")]
         CoilSystemCoolingDX = 7,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatexchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatexchangerAssisted")]
         CoilSystemCoolingWaterHeatexchangerAssisted = 8,
         
-        [JsonProperty("CoilSystem:Heating:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Heating:DX")]
         CoilSystemHeatingDX = 9,
         
-        [JsonProperty("Dehumidifier:Desiccant:NoFans")]
+        [System.Runtime.Serialization.EnumMember(Value="Dehumidifier:Desiccant:NoFans")]
         DehumidifierDesiccantNoFans = 10,
         
-        [JsonProperty("HeatExchanger:AirToAir:FlatPlate")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:FlatPlate")]
         HeatExchangerAirToAirFlatPlate = 11,
         
-        [JsonProperty("HeatExchanger:AirToAir:SensibleAndLatent")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:SensibleAndLatent")]
         HeatExchangerAirToAirSensibleAndLatent = 12,
     }
     
     public enum ZoneHVAC_OutdoorAirUnit_EquipmentList_Component4ObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 1,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 2,
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 3,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 4,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 5,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 6,
         
-        [JsonProperty("CoilSystem:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX")]
         CoilSystemCoolingDX = 7,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatexchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatexchangerAssisted")]
         CoilSystemCoolingWaterHeatexchangerAssisted = 8,
         
-        [JsonProperty("CoilSystem:Heating:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Heating:DX")]
         CoilSystemHeatingDX = 9,
         
-        [JsonProperty("Dehumidifier:Desiccant:NoFans")]
+        [System.Runtime.Serialization.EnumMember(Value="Dehumidifier:Desiccant:NoFans")]
         DehumidifierDesiccantNoFans = 10,
         
-        [JsonProperty("HeatExchanger:AirToAir:FlatPlate")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:FlatPlate")]
         HeatExchangerAirToAirFlatPlate = 11,
         
-        [JsonProperty("HeatExchanger:AirToAir:SensibleAndLatent")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:SensibleAndLatent")]
         HeatExchangerAirToAirSensibleAndLatent = 12,
     }
     
     public enum ZoneHVAC_OutdoorAirUnit_EquipmentList_Component5ObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 1,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 2,
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 3,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 4,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 5,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 6,
         
-        [JsonProperty("CoilSystem:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX")]
         CoilSystemCoolingDX = 7,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatexchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatexchangerAssisted")]
         CoilSystemCoolingWaterHeatexchangerAssisted = 8,
         
-        [JsonProperty("CoilSystem:Heating:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Heating:DX")]
         CoilSystemHeatingDX = 9,
         
-        [JsonProperty("Dehumidifier:Desiccant:NoFans")]
+        [System.Runtime.Serialization.EnumMember(Value="Dehumidifier:Desiccant:NoFans")]
         DehumidifierDesiccantNoFans = 10,
         
-        [JsonProperty("HeatExchanger:AirToAir:FlatPlate")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:FlatPlate")]
         HeatExchangerAirToAirFlatPlate = 11,
         
-        [JsonProperty("HeatExchanger:AirToAir:SensibleAndLatent")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:SensibleAndLatent")]
         HeatExchangerAirToAirSensibleAndLatent = 12,
     }
     
     public enum ZoneHVAC_OutdoorAirUnit_EquipmentList_Component6ObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 1,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 2,
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 3,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 4,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 5,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 6,
         
-        [JsonProperty("CoilSystem:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX")]
         CoilSystemCoolingDX = 7,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatexchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatexchangerAssisted")]
         CoilSystemCoolingWaterHeatexchangerAssisted = 8,
         
-        [JsonProperty("CoilSystem:Heating:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Heating:DX")]
         CoilSystemHeatingDX = 9,
         
-        [JsonProperty("Dehumidifier:Desiccant:NoFans")]
+        [System.Runtime.Serialization.EnumMember(Value="Dehumidifier:Desiccant:NoFans")]
         DehumidifierDesiccantNoFans = 10,
         
-        [JsonProperty("HeatExchanger:AirToAir:FlatPlate")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:FlatPlate")]
         HeatExchangerAirToAirFlatPlate = 11,
         
-        [JsonProperty("HeatExchanger:AirToAir:SensibleAndLatent")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:SensibleAndLatent")]
         HeatExchangerAirToAirSensibleAndLatent = 12,
     }
     
     public enum ZoneHVAC_OutdoorAirUnit_EquipmentList_Component7ObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 1,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 2,
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 3,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 4,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 5,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 6,
         
-        [JsonProperty("CoilSystem:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX")]
         CoilSystemCoolingDX = 7,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatexchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatexchangerAssisted")]
         CoilSystemCoolingWaterHeatexchangerAssisted = 8,
         
-        [JsonProperty("CoilSystem:Heating:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Heating:DX")]
         CoilSystemHeatingDX = 9,
         
-        [JsonProperty("Dehumidifier:Desiccant:NoFans")]
+        [System.Runtime.Serialization.EnumMember(Value="Dehumidifier:Desiccant:NoFans")]
         DehumidifierDesiccantNoFans = 10,
         
-        [JsonProperty("HeatExchanger:AirToAir:FlatPlate")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:FlatPlate")]
         HeatExchangerAirToAirFlatPlate = 11,
         
-        [JsonProperty("HeatExchanger:AirToAir:SensibleAndLatent")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:SensibleAndLatent")]
         HeatExchangerAirToAirSensibleAndLatent = 12,
     }
     
     public enum ZoneHVAC_OutdoorAirUnit_EquipmentList_Component8ObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 1,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 2,
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 3,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 4,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 5,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 6,
         
-        [JsonProperty("CoilSystem:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX")]
         CoilSystemCoolingDX = 7,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatexchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatexchangerAssisted")]
         CoilSystemCoolingWaterHeatexchangerAssisted = 8,
         
-        [JsonProperty("CoilSystem:Heating:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Heating:DX")]
         CoilSystemHeatingDX = 9,
         
-        [JsonProperty("Dehumidifier:Desiccant:NoFans")]
+        [System.Runtime.Serialization.EnumMember(Value="Dehumidifier:Desiccant:NoFans")]
         DehumidifierDesiccantNoFans = 10,
         
-        [JsonProperty("HeatExchanger:AirToAir:FlatPlate")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:FlatPlate")]
         HeatExchangerAirToAirFlatPlate = 11,
         
-        [JsonProperty("HeatExchanger:AirToAir:SensibleAndLatent")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:SensibleAndLatent")]
         HeatExchangerAirToAirSensibleAndLatent = 12,
     }
     
     [Description(@"A terminal unit with variable refrigerant flow (VRF) DX cooling and heating coils (air-to-air heat pump). The VRF terminal units are served by an AirConditioner:VariableRefrigerantFlow or AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:* system. Terminal units can be configured as zone, air loop or outside air system equipment.")]
-    [JsonObject("ZoneHVAC:TerminalUnit:VariableRefrigerantFlow")]
     public class ZoneHVAC_TerminalUnit_VariableRefrigerantFlow : BHoMObject, IEnergyPlusClass
     {
         
@@ -3098,11 +3152,13 @@ public string SupplyAirFanOperatingModeScheduleName { get; set; } = "";
 
 [Description(@"Select fan placement as either blow through or draw through. Required for zone equipment. This field is ignored if the VRF terminal unit is used in AirLoopHVAC:OutdoorAirSystem:EquipmentList. This field is also ignored if VRF terminal unit is used on main AirloopHVAC branch and terminal unit has no fan.")]
 [JsonProperty("supply_air_fan_placement")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_SupplyAirFanPlacement SupplyAirFanPlacement { get; set; } = (ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_SupplyAirFanPlacement)Enum.Parse(typeof(ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_SupplyAirFanPlacement), "BlowThrough");
         
 
 [Description(@"Supply Air Fan Object Type must be Fan:SystemModel, Fan:OnOff, or Fan:ConstantVolume if AirConditioner:VariableRefrigerantFlow is used to model VRF outdoor unit Supply Air Fan Object Type must be Fan:SystemModel or Fan:VariableVolume if AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl or AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR is used to model VRF outdoor unit Required for zone equipment. Leave blank if terminal unit is used in AirLoopHVAC:OutdoorAirSystem:EquipmentList. Also leave blank if terminal unit is used on main AirloopHVAC branch and terminal unit has no fan.")]
 [JsonProperty("supply_air_fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_SupplyAirFanObjectType), "Empty");
         
 
@@ -3112,6 +3168,7 @@ public string SupplyAirFanObjectName { get; set; } = "";
 
 [Description(@"Currently only one type OutdoorAir:Mixer object is available. If this field is blank, and outside air mixer is not used. This field should be left blank if the VRF terminal unit is connected to central dedicated outdoor air through an AirTerminal:SingleDuct:Mixer object. This field may also be left blank when the VRF terminal is used in the air loop or outdoor air system.")]
 [JsonProperty("outside_air_mixer_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_OutsideAirMixerObjectType OutsideAirMixerObjectType { get; set; } = (ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_OutsideAirMixerObjectType)Enum.Parse(typeof(ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_OutsideAirMixerObjectType), "OutdoorAirMixer");
         
 
@@ -3122,6 +3179,7 @@ public string OutsideAirMixerObjectName { get; set; } = "";
 
 [Description(@"Cooling Coil Type must be Coil:Cooling:DX:VariableRefrigerantFlow if AirConditioner:VariableRefrigerantFlow is used to model VRF outdoor unit Cooling Coil Type must be Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl if AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl or if AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR is used to model VRF outdoor unit This field may be left blank if heating-only mode is used")]
 [JsonProperty("cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_CoolingCoilObjectType), "CoilCoolingDXVariableRefrigerantFlow");
         
 
@@ -3133,6 +3191,7 @@ public string CoolingCoilObjectName { get; set; } = "";
 
 [Description(@"Heating Coil Type must be Coil:Heating:DX:VariableRefrigerantFlow if AirConditioner:VariableRefrigerantFlow is used to model VRF outdoor unit Heating Coil Type must be Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl if AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl or if AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR is used to model VRF outdoor unit This field may be left blank if cooling-only mode is used")]
 [JsonProperty("heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_HeatingCoilObjectType), "CoilHeatingDXVariableRefrigerantFlow");
         
 
@@ -3167,6 +3226,7 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
 
 [Description("works with gas, electric, hot water and steam heating coil.")]
 [JsonProperty("supplemental_heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_SupplementalHeatingCoilObjectType SupplementalHeatingCoilObjectType { get; set; } = (ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_SupplementalHeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_SupplementalHeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -3194,75 +3254,75 @@ public string ControllingZoneOrThermostatLocation { get; set; } = "";
     public enum ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_SupplyAirFanPlacement
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlowThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="BlowThrough")]
         BlowThrough = 1,
         
-        [JsonProperty("DrawThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="DrawThrough")]
         DrawThrough = 2,
     }
     
     public enum ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_SupplyAirFanObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 1,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 2,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 3,
         
-        [JsonProperty("Fan:VariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:VariableVolume")]
         FanVariableVolume = 4,
     }
     
     public enum ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_OutsideAirMixerObjectType
     {
         
-        [JsonProperty("OutdoorAir:Mixer")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir:Mixer")]
         OutdoorAirMixer = 0,
     }
     
     public enum ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:DX:VariableRefrigerantFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:VariableRefrigerantFlow")]
         CoilCoolingDXVariableRefrigerantFlow = 0,
         
-        [JsonProperty("Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl")]
         CoilCoolingDXVariableRefrigerantFlowFluidTemperatureControl = 1,
     }
     
     public enum ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_HeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:DX:VariableRefrigerantFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:DX:VariableRefrigerantFlow")]
         CoilHeatingDXVariableRefrigerantFlow = 0,
         
-        [JsonProperty("Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl")]
         CoilHeatingDXVariableRefrigerantFlowFluidTemperatureControl = 1,
     }
     
     public enum ZoneHVAC_TerminalUnit_VariableRefrigerantFlow_SupplementalHeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
 }

@@ -6,12 +6,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     [Description("Define an air node for some types of nodal room air models")]
-    [JsonObject("RoomAir:Node")]
     public class RoomAir_Node : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("node_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public RoomAir_Node_NodeType NodeType { get; set; } = (RoomAir_Node_NodeType)Enum.Parse(typeof(RoomAir_Node_NodeType), "Ceiling");
         
 

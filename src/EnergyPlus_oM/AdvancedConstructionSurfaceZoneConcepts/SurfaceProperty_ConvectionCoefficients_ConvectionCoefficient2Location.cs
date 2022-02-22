@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient2Location
     {
         
-        [JsonProperty("Inside")]
+        [System.Runtime.Serialization.EnumMember(Value="Inside")]
         Inside = 0,
         
-        [JsonProperty("Outside")]
+        [System.Runtime.Serialization.EnumMember(Value="Outside")]
         Outside = 1,
     }
 }

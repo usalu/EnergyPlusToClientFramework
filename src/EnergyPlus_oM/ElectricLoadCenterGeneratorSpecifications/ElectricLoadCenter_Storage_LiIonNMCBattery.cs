@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description(@"Uses Lithium Ion NMC model to simulate rechargeable battery banks in an electrical load center. The battery bank is a collection of one or more individual battery modules. Given the surplus or deficit power from the electrical system and the state of charge from the previous time step, this object can model the voltage, current, and energy losses with charging and discharging during each time step. The cumulative battery damage can be also modeled and reported at the end of each simulation run.")]
-    [JsonObject("ElectricLoadCenter:Storage:LiIonNMCBattery")]
     public class ElectricLoadCenter_Storage_LiIonNMCBattery : BHoMObject, IEnergyPlusClass
     {
         
@@ -29,6 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("lifetime_model")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ElectricLoadCenter_Storage_LiIonNMCBattery_LifetimeModel LifetimeModel { get; set; } = (ElectricLoadCenter_Storage_LiIonNMCBattery_LifetimeModel)Enum.Parse(typeof(ElectricLoadCenter_Storage_LiIonNMCBattery_LifetimeModel), "KandlerSmith");
         
 

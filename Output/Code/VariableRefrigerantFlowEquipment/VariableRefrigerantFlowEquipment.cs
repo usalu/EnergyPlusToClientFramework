@@ -70,7 +70,6 @@ namespace BH.oM.Adapters.EnergyPlus.VariableRefrigerantFlowEquipment
         "e or more electric compressors and outdoor fan). Serves one or more VRF zone ter" +
         "minal units. See ZoneHVAC:TerminalUnit:VariableRefrigerantFlow and ZoneTerminalU" +
         "nitList.")]
-    [JsonObject("AirConditioner:VariableRefrigerantFlow")]
     public class AirConditioner_VariableRefrigerantFlow : BHoMObject, IEnergyPlusClass
     {
         
@@ -224,6 +223,7 @@ public string HeatingEnergyInputRatioModifierFunctionOfHighTemperatureCurveName 
     ". This input determines whether the outdoor air dry-bulb or wet-bulb temperature" +
     " is used to evaluate these curves.")]
 [JsonProperty("heating_performance_curve_outdoor_temperature_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirConditioner_VariableRefrigerantFlow_HeatingPerformanceCurveOutdoorTemperatureType HeatingPerformanceCurveOutdoorTemperatureType { get; set; } = (AirConditioner_VariableRefrigerantFlow_HeatingPerformanceCurveOutdoorTemperatureType)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_HeatingPerformanceCurveOutdoorTemperatureType), "WetBulbTemperature");
         
 
@@ -267,6 +267,7 @@ public string ZoneNameForMasterThermostatLocation { get; set; } = "";
     "zone temperature within a reasonable limit, consider using multiple VRF systems." +
     " This field is not used when all terminal units are set point controlled.")]
 [JsonProperty("master_thermostat_priority_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirConditioner_VariableRefrigerantFlow_MasterThermostatPriorityControlType MasterThermostatPriorityControlType { get; set; } = (AirConditioner_VariableRefrigerantFlow_MasterThermostatPriorityControlType)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_MasterThermostatPriorityControlType), "MasterThermostatPriority");
         
 
@@ -285,6 +286,7 @@ public string ZoneTerminalUnitListName { get; set; } = "";
 
 [Description("This field enables heat recovery operation within this VRF outdoor unit.")]
 [JsonProperty("heat_pump_waste_heat_recovery")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes HeatPumpWasteHeatRecovery { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -360,12 +362,14 @@ public System.Nullable<float> MaximumOutdoorDryBulbTemperatureForCrankcaseHeater
     " to cooling to melt frost formation on the condenser coil. The resistive strateg" +
     "y uses a resistive heater to melt the frost.")]
 [JsonProperty("defrost_strategy")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirConditioner_VariableRefrigerantFlow_DefrostStrategy DefrostStrategy { get; set; } = (AirConditioner_VariableRefrigerantFlow_DefrostStrategy)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_DefrostStrategy), "Resistive");
         
 
 [Description("Choose a defrost control type. Either use a fixed Timed defrost period or select " +
     "OnDemand to defrost only when necessary.")]
 [JsonProperty("defrost_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirConditioner_VariableRefrigerantFlow_DefrostControl DefrostControl { get; set; } = (AirConditioner_VariableRefrigerantFlow_DefrostControl)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_DefrostControl), "Timed");
         
 
@@ -394,6 +398,7 @@ public System.Nullable<float> MaximumOutdoorDryBulbTemperatureForDefrostOperatio
 
 [Description("Select either an air-cooled, evaporatively-cooled or water-cooled condenser.")]
 [JsonProperty("condenser_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirConditioner_VariableRefrigerantFlow_CondenserType CondenserType { get; set; } = (AirConditioner_VariableRefrigerantFlow_CondenserType)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_CondenserType), "AirCooled");
         
 
@@ -455,6 +460,7 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [JsonProperty("fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirConditioner_VariableRefrigerantFlow_FuelType FuelType { get; set; } = (AirConditioner_VariableRefrigerantFlow_FuelType)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_FuelType), "Electricity");
         
 
@@ -549,116 +555,115 @@ public System.Nullable<float> HeatRecoveryHeatingEnergyTimeConstant { get; set; 
     public enum AirConditioner_VariableRefrigerantFlow_HeatingPerformanceCurveOutdoorTemperatureType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="DryBulbTemperature")]
         DryBulbTemperature = 1,
         
-        [JsonProperty("WetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbTemperature")]
         WetBulbTemperature = 2,
     }
     
     public enum AirConditioner_VariableRefrigerantFlow_MasterThermostatPriorityControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LoadPriority")]
+        [System.Runtime.Serialization.EnumMember(Value="LoadPriority")]
         LoadPriority = 1,
         
-        [JsonProperty("MasterThermostatPriority")]
+        [System.Runtime.Serialization.EnumMember(Value="MasterThermostatPriority")]
         MasterThermostatPriority = 2,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 3,
         
-        [JsonProperty("ThermostatOffsetPriority")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatOffsetPriority")]
         ThermostatOffsetPriority = 4,
         
-        [JsonProperty("ZonePriority")]
+        [System.Runtime.Serialization.EnumMember(Value="ZonePriority")]
         ZonePriority = 5,
     }
     
     public enum AirConditioner_VariableRefrigerantFlow_DefrostStrategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Resistive")]
+        [System.Runtime.Serialization.EnumMember(Value="Resistive")]
         Resistive = 1,
         
-        [JsonProperty("ReverseCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="ReverseCycle")]
         ReverseCycle = 2,
     }
     
     public enum AirConditioner_VariableRefrigerantFlow_DefrostControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("OnDemand")]
+        [System.Runtime.Serialization.EnumMember(Value="OnDemand")]
         OnDemand = 1,
         
-        [JsonProperty("Timed")]
+        [System.Runtime.Serialization.EnumMember(Value="Timed")]
         Timed = 2,
     }
     
     public enum AirConditioner_VariableRefrigerantFlow_CondenserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
         AirCooled = 1,
         
-        [JsonProperty("EvaporativelyCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativelyCooled")]
         EvaporativelyCooled = 2,
         
-        [JsonProperty("WaterCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterCooled")]
         WaterCooled = 3,
     }
     
     public enum AirConditioner_VariableRefrigerantFlow_FuelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 2,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 3,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 4,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 5,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 6,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 7,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 8,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 9,
     }
     
     [Description(@"This is a key object in the new physics based VRF model applicable for Fluid Temperature Control It describes the Variable Refrigerant Flow system excluding the performance of indoor units Indoor units are modeled separately, see ZoneHVAC:TerminalUnit:VariableRefrigerantFlow")]
-    [JsonObject("AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl")]
     public class AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject, IEnergyPlusClass
     {
         
@@ -728,6 +733,7 @@ public System.Nullable<float> ReferenceOutdoorUnitSubcooling { get; set; } = (Sy
         
 
 [JsonProperty("refrigerant_temperature_control_algorithm_for_indoor_unit")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_RefrigerantTemperatureControlAlgorithmForIndoorUnit RefrigerantTemperatureControlAlgorithmForIndoorUnit { get; set; } = (AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_RefrigerantTemperatureControlAlgorithmForIndoorUnit)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_RefrigerantTemperatureControlAlgorithmForIndoorUnit), "VariableTemp");
         
 
@@ -845,12 +851,14 @@ public System.Nullable<float> MaximumOutdoorDryBulbTemperatureForCrankcaseHeater
     " to cooling to melt frost formation on the condenser coil The resistive strategy" +
     " uses a resistive heater to melt the frost.")]
 [JsonProperty("defrost_strategy")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostStrategy DefrostStrategy { get; set; } = (AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostStrategy)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostStrategy), "Resistive");
         
 
 [Description("Choose a defrost control type Either use a fixed Timed defrost period or select O" +
     "nDemand to defrost only when necessary")]
 [JsonProperty("defrost_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostControl DefrostControl { get; set; } = (AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostControl)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostControl), "Timed");
         
 
@@ -895,44 +903,43 @@ public string LoadingIndices { get; set; } = "";
     public enum AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_RefrigerantTemperatureControlAlgorithmForIndoorUnit
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantTemp")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantTemp")]
         ConstantTemp = 1,
         
-        [JsonProperty("VariableTemp")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableTemp")]
         VariableTemp = 2,
     }
     
     public enum AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostStrategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Resistive")]
+        [System.Runtime.Serialization.EnumMember(Value="Resistive")]
         Resistive = 1,
         
-        [JsonProperty("ReverseCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="ReverseCycle")]
         ReverseCycle = 2,
     }
     
     public enum AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("OnDemand")]
+        [System.Runtime.Serialization.EnumMember(Value="OnDemand")]
         OnDemand = 1,
         
-        [JsonProperty("Timed")]
+        [System.Runtime.Serialization.EnumMember(Value="Timed")]
         Timed = 2,
     }
     
     [Description(@"This is a key object in the new physics based VRF Heat Recovery (HR) model applicable for Fluid Temperature Control. It describes the VRF HR system excluding the performance of indoor units. Indoor units are modeled separately in the ZoneHVAC:TerminalUnit:VariableRefrigerantFlow object")]
-    [JsonObject("AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR")]
     public class AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR : BHoMObject, IEnergyPlusClass
     {
         
@@ -999,6 +1006,7 @@ public System.Nullable<float> MaximumOutdoorTemperatureInHeatRecoveryMode { get;
         
 
 [JsonProperty("refrigerant_temperature_control_algorithm_for_indoor_unit")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_RefrigerantTemperatureControlAlgorithmForIndoorUnit RefrigerantTemperatureControlAlgorithmForIndoorUnit { get; set; } = (AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_RefrigerantTemperatureControlAlgorithmForIndoorUnit)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_RefrigerantTemperatureControlAlgorithmForIndoorUnit), "VariableTemp");
         
 
@@ -1148,12 +1156,14 @@ public System.Nullable<float> MaximumOutdoorDryBulbTemperatureForCrankcaseHeater
     " to cooling to melt frost formation on the condenser coil The resistive strategy" +
     " uses a resistive heater to melt the frost.")]
 [JsonProperty("defrost_strategy")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_DefrostStrategy DefrostStrategy { get; set; } = (AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_DefrostStrategy)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_DefrostStrategy), "Resistive");
         
 
 [Description("Choose a defrost control type Either use a fixed Timed defrost period or select O" +
     "nDemand to defrost only when necessary")]
 [JsonProperty("defrost_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_DefrostControl DefrostControl { get; set; } = (AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_DefrostControl)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_DefrostControl), "Timed");
         
 
@@ -1258,46 +1268,45 @@ public string LoadingIndices { get; set; } = "";
     public enum AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_RefrigerantTemperatureControlAlgorithmForIndoorUnit
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantTemp")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantTemp")]
         ConstantTemp = 1,
         
-        [JsonProperty("VariableTemp")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableTemp")]
         VariableTemp = 2,
     }
     
     public enum AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_DefrostStrategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Resistive")]
+        [System.Runtime.Serialization.EnumMember(Value="Resistive")]
         Resistive = 1,
         
-        [JsonProperty("ReverseCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="ReverseCycle")]
         ReverseCycle = 2,
     }
     
     public enum AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_DefrostControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("OnDemand")]
+        [System.Runtime.Serialization.EnumMember(Value="OnDemand")]
         OnDemand = 1,
         
-        [JsonProperty("Timed")]
+        [System.Runtime.Serialization.EnumMember(Value="Timed")]
         Timed = 2,
     }
     
     [Description("List of variable refrigerant flow (VRF) terminal units served by a given VRF cond" +
         "ensing unit. See ZoneHVAC:TerminalUnit:VariableRefrigerantFlow and AirConditione" +
         "r:VariableRefrigerantFlow.")]
-    [JsonObject("ZoneTerminalUnitList")]
     public class ZoneTerminalUnitList : BHoMObject, IEnergyPlusClass
     {
         

@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
     [Description("Plant equipment operation scheme for component setpoint operation. Specifies one " +
                  "or pieces of equipment which are controlled to meet the temperature setpoint at " +
                  "the component outlet node.")]
-    [JsonObject("PlantEquipmentOperation:ComponentSetpoint")]
     public class PlantEquipmentOperation_ComponentSetpoint : BHoMObject, IEnergyPlusClass
     {
         
@@ -34,6 +33,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("operation_1_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PlantEquipmentOperation_ComponentSetpoint_Operation1Type Operation1Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation1Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation1Type), "Cooling");
         
 
@@ -58,6 +58,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("operation_2_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PlantEquipmentOperation_ComponentSetpoint_Operation2Type Operation2Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation2Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation2Type), "Cooling");
         
 
@@ -82,6 +83,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("operation_3_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PlantEquipmentOperation_ComponentSetpoint_Operation3Type Operation3Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation3Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation3Type), "Cooling");
         
 
@@ -106,6 +108,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("operation_4_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PlantEquipmentOperation_ComponentSetpoint_Operation4Type Operation4Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation4Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation4Type), "Cooling");
         
 
@@ -130,6 +133,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("operation_5_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PlantEquipmentOperation_ComponentSetpoint_Operation5Type Operation5Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation5Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation5Type), "Cooling");
         
 
@@ -154,6 +158,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("operation_6_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PlantEquipmentOperation_ComponentSetpoint_Operation6Type Operation6Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation6Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation6Type), "Cooling");
         
 
@@ -178,6 +183,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("operation_7_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PlantEquipmentOperation_ComponentSetpoint_Operation7Type Operation7Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation7Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation7Type), "Cooling");
         
 
@@ -202,6 +208,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("operation_8_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PlantEquipmentOperation_ComponentSetpoint_Operation8Type Operation8Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation8Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation8Type), "Cooling");
         
 
@@ -226,6 +233,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("operation_9_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PlantEquipmentOperation_ComponentSetpoint_Operation9Type Operation9Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation9Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation9Type), "Cooling");
         
 
@@ -250,6 +258,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
         [JsonProperty("operation_10_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PlantEquipmentOperation_ComponentSetpoint_Operation10Type Operation10Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation10Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation10Type), "Cooling");
     }
 }

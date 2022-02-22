@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     [Description("This object sets the other side conditions for a surface in a variety of ways.")]
-    [JsonObject("SurfaceProperty:OtherSideCoefficients")]
     public class SurfaceProperty_OtherSideCoefficients : BHoMObject, IEnergyPlusClass
     {
         
@@ -54,6 +53,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 
         [Description("Optionally used to vary Constant Temperature Coefficient with unitary sine wave")]
         [JsonProperty("sinusoidal_variation_of_constant_temperature_coefficient")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes SinusoidalVariationOfConstantTemperatureCoefficient { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 

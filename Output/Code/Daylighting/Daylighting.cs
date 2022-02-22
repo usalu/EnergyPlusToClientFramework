@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
     
     [Description("Dimming of overhead electric lighting is determined from each reference point. Gl" +
         "are from daylighting is also calculated.")]
-    [JsonObject("Daylighting:Controls")]
     public class Daylighting_Controls : BHoMObject, IEnergyPlusClass
     {
         
@@ -78,6 +77,7 @@ public string ZoneName { get; set; } = "";
         
 
 [JsonProperty("daylighting_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Daylighting_Controls_DaylightingMethod DaylightingMethod { get; set; } = (Daylighting_Controls_DaylightingMethod)Enum.Parse(typeof(Daylighting_Controls_DaylightingMethod), "SplitFlux");
         
 
@@ -86,6 +86,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("lighting_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Daylighting_Controls_LightingControlType LightingControlType { get; set; } = (Daylighting_Controls_LightingControlType)Enum.Parse(typeof(Daylighting_Controls_LightingControlType), "Continuous");
         
 
@@ -133,36 +134,35 @@ public string ControlData { get; set; } = "";
     public enum Daylighting_Controls_DaylightingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DElight")]
+        [System.Runtime.Serialization.EnumMember(Value="DElight")]
         DElight = 1,
         
-        [JsonProperty("SplitFlux")]
+        [System.Runtime.Serialization.EnumMember(Value="SplitFlux")]
         SplitFlux = 2,
     }
     
     public enum Daylighting_Controls_LightingControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Continuous")]
+        [System.Runtime.Serialization.EnumMember(Value="Continuous")]
         Continuous = 1,
         
-        [JsonProperty("ContinuousOff")]
+        [System.Runtime.Serialization.EnumMember(Value="ContinuousOff")]
         ContinuousOff = 2,
         
-        [JsonProperty("Stepped")]
+        [System.Runtime.Serialization.EnumMember(Value="Stepped")]
         Stepped = 3,
     }
     
     [Description("Used by Daylighting:Controls to identify the reference point coordinates for each" +
         " sensor. Reference points are given in coordinates specified in the GlobalGeomet" +
         "ryRules object Daylighting Reference Point CoordinateSystem field")]
-    [JsonObject("Daylighting:ReferencePoint")]
     public class Daylighting_ReferencePoint : BHoMObject, IEnergyPlusClass
     {
         
@@ -184,7 +184,6 @@ public System.Nullable<float> ZCoordinateOfReferencePoint { get; set; } = (Syste
     }
     
     [Description("Used for DElight Complex Fenestration of all types")]
-    [JsonObject("Daylighting:DELight:ComplexFenestration")]
     public class Daylighting_DELight_ComplexFenestration : BHoMObject, IEnergyPlusClass
     {
         
@@ -216,7 +215,6 @@ public System.Nullable<float> FenestrationRotation { get; set; } = (System.Nulla
     [Description("Defines a tubular daylighting device (TDD) consisting of three components: a dome" +
         ", a pipe, and a diffuser. The dome and diffuser are defined separately using the" +
         " FenestrationSurface:Detailed object.")]
-    [JsonObject("DaylightingDevice:Tubular")]
     public class DaylightingDevice_Tubular : BHoMObject, IEnergyPlusClass
     {
         
@@ -258,7 +256,6 @@ public string TransitionLengths { get; set; } = "";
     [Description("Defines a daylighting which can have an inside shelf, an outside shelf, or both. " +
         "The inside shelf is defined as a building surface and the outside shelf is defin" +
         "ed as a shading surface.")]
-    [JsonObject("DaylightingDevice:Shelf")]
     public class DaylightingDevice_Shelf : BHoMObject, IEnergyPlusClass
     {
         
@@ -290,7 +287,6 @@ public System.Nullable<float> ViewFactorToOutsideShelf { get; set; } = null;
     [Description("Applies only to exterior windows in daylighting-controlled zones or in zones that" +
         " share an interior window with a daylighting-controlled  zone. Generally used wi" +
         "th skylights.")]
-    [JsonObject("DaylightingDevice:LightWell")]
     public class DaylightingDevice_LightWell : BHoMObject, IEnergyPlusClass
     {
         
@@ -318,28 +314,27 @@ public System.Nullable<float> VisibleReflectanceOfWellWalls { get; set; } = null
     
     [Description("Reports hourly daylight factors for each exterior window for four sky types (clea" +
         "r, turbid clear, intermediate, and overcast).")]
-    [JsonObject("Output:DaylightFactors")]
     public class Output_DaylightFactors : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("reporting_days")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_DaylightFactors_ReportingDays ReportingDays { get; set; } = (Output_DaylightFactors_ReportingDays)Enum.Parse(typeof(Output_DaylightFactors_ReportingDays), "AllShadowCalculationDays");
     }
     
     public enum Output_DaylightFactors_ReportingDays
     {
         
-        [JsonProperty("AllShadowCalculationDays")]
+        [System.Runtime.Serialization.EnumMember(Value="AllShadowCalculationDays")]
         AllShadowCalculationDays = 0,
         
-        [JsonProperty("SizingDays")]
+        [System.Runtime.Serialization.EnumMember(Value="SizingDays")]
         SizingDays = 1,
     }
     
     [Description("reference points are given in coordinates specified in the GlobalGeometryRules ob" +
         "ject Daylighting Reference Point CoordinateSystem field")]
-    [JsonObject("Output:IlluminanceMap")]
     public class Output_IlluminanceMap : BHoMObject, IEnergyPlusClass
     {
         
@@ -379,28 +374,28 @@ public System.Nullable<float> NumberOfYGridPoints { get; set; } = (System.Nullab
     }
     
     [Description(@"default style for the Daylighting Illuminance Map is comma -- this works well for importing into spreadsheet programs such as Excel(tm) but not so well for word processing programs -- there tab may be a better choice. fixed puts spaces between the ""columns""")]
-    [JsonObject("OutputControl:IlluminanceMap:Style")]
     public class OutputControl_IlluminanceMap_Style : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("column_separator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_IlluminanceMap_Style_ColumnSeparator ColumnSeparator { get; set; } = (OutputControl_IlluminanceMap_Style_ColumnSeparator)Enum.Parse(typeof(OutputControl_IlluminanceMap_Style_ColumnSeparator), "Comma");
     }
     
     public enum OutputControl_IlluminanceMap_Style_ColumnSeparator
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Comma")]
+        [System.Runtime.Serialization.EnumMember(Value="Comma")]
         Comma = 1,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 2,
         
-        [JsonProperty("Tab")]
+        [System.Runtime.Serialization.EnumMember(Value="Tab")]
         Tab = 3,
     }
 }

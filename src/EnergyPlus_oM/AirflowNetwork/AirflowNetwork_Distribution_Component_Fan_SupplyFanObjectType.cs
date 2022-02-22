@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     public enum AirflowNetwork_Distribution_Component_Fan_SupplyFanObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 1,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 2,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 3,
         
-        [JsonProperty("Fan:VariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:VariableVolume")]
         FanVariableVolume = 4,
     }
 }

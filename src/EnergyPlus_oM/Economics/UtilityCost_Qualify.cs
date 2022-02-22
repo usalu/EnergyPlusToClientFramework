@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     [Description(@"The qualify object allows only tariffs to be selected based on limits which may apply such as maximum or minimum demand requirements. If the results of the simulation fall outside of the range of qualifications, that tariff is still calculated but the ""Qualified"" entry will say ""No"" and the UtilityCost:Qualify that caused its exclusion is shown. Multiple UtilityCost:Qualify objects can appear for the same tariff and they can be based on any variable.")]
-    [JsonObject("UtilityCost:Qualify")]
     public class UtilityCost_Qualify : BHoMObject, IEnergyPlusClass
     {
         
@@ -29,6 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
         
 
         [JsonProperty("qualify_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UtilityCost_Qualify_QualifyType QualifyType { get; set; } = (UtilityCost_Qualify_QualifyType)Enum.Parse(typeof(UtilityCost_Qualify_QualifyType), "Maximum");
         
 
@@ -40,11 +40,13 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
         [Description("If the UtilityCost:Qualify only applies to a season enter the season name. If thi" +
                      "s field is left blank it defaults to Annual.")]
         [JsonProperty("season")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UtilityCost_Qualify_Season Season { get; set; } = (UtilityCost_Qualify_Season)Enum.Parse(typeof(UtilityCost_Qualify_Season), "Annual");
         
 
         [Description(@"Uses the number in Number of Months in one of two different ways depending on the Threshold  Test. If the Threshold Test is set to Count then the qualification is based on the count of the total number of months per year. If the Threshold Test is set to consecutive then the qualification is based on a consecutive number of months.")]
         [JsonProperty("threshold_test")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UtilityCost_Qualify_ThresholdTest ThresholdTest { get; set; } = (UtilityCost_Qualify_ThresholdTest)Enum.Parse(typeof(UtilityCost_Qualify_ThresholdTest), "Consecutive");
         
 

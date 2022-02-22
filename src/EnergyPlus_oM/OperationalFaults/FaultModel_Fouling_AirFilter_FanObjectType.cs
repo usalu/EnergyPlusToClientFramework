@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     public enum FaultModel_Fouling_AirFilter_FanObjectType
     {
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 0,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 1,
         
-        [JsonProperty("Fan:VariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:VariableVolume")]
         FanVariableVolume = 2,
     }
 }

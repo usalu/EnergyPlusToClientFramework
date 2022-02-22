@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     
     [Description("Specifies the geometric rules used to describe the input of surface vertices and " +
         "daylighting reference points.")]
-    [JsonObject("GlobalGeometryRules")]
     public class GlobalGeometryRules : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,103 +76,108 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     "ed from outside the surface Shading surfaces as viewed from behind. (towards wha" +
     "t they are shading)")]
 [JsonProperty("starting_vertex_position")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GlobalGeometryRules_StartingVertexPosition StartingVertexPosition { get; set; } = (GlobalGeometryRules_StartingVertexPosition)Enum.Parse(typeof(GlobalGeometryRules_StartingVertexPosition), "LowerLeftCorner");
         
 
 [JsonProperty("vertex_entry_direction")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GlobalGeometryRules_VertexEntryDirection VertexEntryDirection { get; set; } = (GlobalGeometryRules_VertexEntryDirection)Enum.Parse(typeof(GlobalGeometryRules_VertexEntryDirection), "Clockwise");
         
 
 [Description("Relative -- coordinates are entered relative to zone origin World -- all coordina" +
     "tes entered are \"absolute\" for this facility")]
 [JsonProperty("coordinate_system")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GlobalGeometryRules_CoordinateSystem CoordinateSystem { get; set; } = (GlobalGeometryRules_CoordinateSystem)Enum.Parse(typeof(GlobalGeometryRules_CoordinateSystem), "Relative");
         
 
 [Description("Relative -- coordinates are entered relative to zone origin World -- all coordina" +
     "tes entered are \"absolute\" for this facility")]
 [JsonProperty("daylighting_reference_point_coordinate_system")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GlobalGeometryRules_DaylightingReferencePointCoordinateSystem DaylightingReferencePointCoordinateSystem { get; set; } = (GlobalGeometryRules_DaylightingReferencePointCoordinateSystem)Enum.Parse(typeof(GlobalGeometryRules_DaylightingReferencePointCoordinateSystem), "Relative");
         
 
 [Description("Relative -- Starting corner is entered relative to zone origin World -- Starting " +
     "corner is entered in \"absolute\"")]
 [JsonProperty("rectangular_surface_coordinate_system")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GlobalGeometryRules_RectangularSurfaceCoordinateSystem RectangularSurfaceCoordinateSystem { get; set; } = (GlobalGeometryRules_RectangularSurfaceCoordinateSystem)Enum.Parse(typeof(GlobalGeometryRules_RectangularSurfaceCoordinateSystem), "Relative");
     }
     
     public enum GlobalGeometryRules_StartingVertexPosition
     {
         
-        [JsonProperty("LowerLeftCorner")]
+        [System.Runtime.Serialization.EnumMember(Value="LowerLeftCorner")]
         LowerLeftCorner = 0,
         
-        [JsonProperty("LowerRightCorner")]
+        [System.Runtime.Serialization.EnumMember(Value="LowerRightCorner")]
         LowerRightCorner = 1,
         
-        [JsonProperty("UpperLeftCorner")]
+        [System.Runtime.Serialization.EnumMember(Value="UpperLeftCorner")]
         UpperLeftCorner = 2,
         
-        [JsonProperty("UpperRightCorner")]
+        [System.Runtime.Serialization.EnumMember(Value="UpperRightCorner")]
         UpperRightCorner = 3,
     }
     
     public enum GlobalGeometryRules_VertexEntryDirection
     {
         
-        [JsonProperty("Clockwise")]
+        [System.Runtime.Serialization.EnumMember(Value="Clockwise")]
         Clockwise = 0,
         
-        [JsonProperty("Counterclockwise")]
+        [System.Runtime.Serialization.EnumMember(Value="Counterclockwise")]
         Counterclockwise = 1,
     }
     
     public enum GlobalGeometryRules_CoordinateSystem
     {
         
-        [JsonProperty("Relative")]
+        [System.Runtime.Serialization.EnumMember(Value="Relative")]
         Relative = 0,
         
-        [JsonProperty("World")]
+        [System.Runtime.Serialization.EnumMember(Value="World")]
         World = 1,
     }
     
     public enum GlobalGeometryRules_DaylightingReferencePointCoordinateSystem
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Relative")]
+        [System.Runtime.Serialization.EnumMember(Value="Relative")]
         Relative = 1,
         
-        [JsonProperty("World")]
+        [System.Runtime.Serialization.EnumMember(Value="World")]
         World = 2,
     }
     
     public enum GlobalGeometryRules_RectangularSurfaceCoordinateSystem
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Relative")]
+        [System.Runtime.Serialization.EnumMember(Value="Relative")]
         Relative = 1,
         
-        [JsonProperty("World")]
+        [System.Runtime.Serialization.EnumMember(Value="World")]
         World = 2,
     }
     
     [Description("Provides a simple method of altering the footprint geometry of a model. The inten" +
         "t is to provide a single parameter that can be used to reshape the building desc" +
         "ription contained in the rest of the input file.")]
-    [JsonObject("GeometryTransform")]
     public class GeometryTransform : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description("only current allowed value is \"XY\"")]
 [JsonProperty("plane_of_transform")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GeometryTransform_PlaneOfTransform PlaneOfTransform { get; set; } = (GeometryTransform_PlaneOfTransform)Enum.Parse(typeof(GeometryTransform_PlaneOfTransform), "XY");
         
 
@@ -190,15 +194,14 @@ public System.Nullable<float> NewAspectRatio { get; set; } = null;
     public enum GeometryTransform_PlaneOfTransform
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("XY")]
+        [System.Runtime.Serialization.EnumMember(Value="XY")]
         XY = 1,
     }
     
     [Description("Defines a thermal zone of the building.")]
-    [JsonObject("Zone")]
     public class Zone : BHoMObject, IEnergyPlusClass
     {
         
@@ -248,67 +251,69 @@ public string FloorArea { get; set; } = (System.String)"Autocalculate";
 
 [Description(@"Will default to same value as SurfaceConvectionAlgorithm:Inside object setting this field overrides the default SurfaceConvectionAlgorithm:Inside for this zone Simple = constant natural convection (ASHRAE) TARP = variable natural convection based on temperature difference (ASHRAE) CeilingDiffuser = ACH based forced and mixed convection correlations for ceiling diffuser configuration with simple natural convection limit AdaptiveConvectionAlgorithm = dynamic selection of convection models based on conditions TrombeWall = variable natural convection in an enclosed rectangular cavity ASTMC1340 = mixed convection correlations specified for attic zone")]
 [JsonProperty("zone_inside_convection_algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Zone_ZoneInsideConvectionAlgorithm ZoneInsideConvectionAlgorithm { get; set; } = (Zone_ZoneInsideConvectionAlgorithm)Enum.Parse(typeof(Zone_ZoneInsideConvectionAlgorithm), "Empty");
         
 
 [Description(@"Will default to same value as SurfaceConvectionAlgorithm:Outside object setting this field overrides the default SurfaceConvectionAlgorithm:Outside for this zone SimpleCombined = Combined radiation and convection coefficient using simple ASHRAE model TARP = correlation from models developed by ASHRAE, Walton, and Sparrow et. al. MoWiTT = correlation from measurements by Klems and Yazdanian for smooth surfaces DOE-2 = correlation from measurements by Klems and Yazdanian for rough surfaces AdaptiveConvectionAlgorithm = dynamic selection of correlations based on conditions")]
 [JsonProperty("zone_outside_convection_algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Zone_ZoneOutsideConvectionAlgorithm ZoneOutsideConvectionAlgorithm { get; set; } = (Zone_ZoneOutsideConvectionAlgorithm)Enum.Parse(typeof(Zone_ZoneOutsideConvectionAlgorithm), "Empty");
         
 
 [JsonProperty("part_of_total_floor_area")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes PartOfTotalFloorArea { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
     }
     
     public enum Zone_ZoneInsideConvectionAlgorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASTMC1340")]
+        [System.Runtime.Serialization.EnumMember(Value="ASTMC1340")]
         ASTMC1340 = 1,
         
-        [JsonProperty("AdaptiveConvectionAlgorithm")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveConvectionAlgorithm")]
         AdaptiveConvectionAlgorithm = 2,
         
-        [JsonProperty("CeilingDiffuser")]
+        [System.Runtime.Serialization.EnumMember(Value="CeilingDiffuser")]
         CeilingDiffuser = 3,
         
-        [JsonProperty("Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="Simple")]
         Simple = 4,
         
-        [JsonProperty("TARP")]
+        [System.Runtime.Serialization.EnumMember(Value="TARP")]
         TARP = 5,
         
-        [JsonProperty("TrombeWall")]
+        [System.Runtime.Serialization.EnumMember(Value="TrombeWall")]
         TrombeWall = 6,
     }
     
     public enum Zone_ZoneOutsideConvectionAlgorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AdaptiveConvectionAlgorithm")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveConvectionAlgorithm")]
         AdaptiveConvectionAlgorithm = 1,
         
-        [JsonProperty("DOE-2")]
+        [System.Runtime.Serialization.EnumMember(Value="DOE-2")]
         DOE2 = 2,
         
-        [JsonProperty("MoWiTT")]
+        [System.Runtime.Serialization.EnumMember(Value="MoWiTT")]
         MoWiTT = 3,
         
-        [JsonProperty("SimpleCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleCombined")]
         SimpleCombined = 4,
         
-        [JsonProperty("TARP")]
+        [System.Runtime.Serialization.EnumMember(Value="TARP")]
         TARP = 5,
     }
     
     [Description(@"Defines a list of thermal zones which can be referenced as a group. The ZoneList name may be used elsewhere in the input to apply a parameter to all zones in the list. ZoneLists can be used effectively with the following objects: People, Lights, ElectricEquipment, GasEquipment, HotWaterEquipment, ZoneInfiltration:DesignFlowRate, ZoneVentilation:DesignFlowRate, Sizing:Zone, ZoneControl:Thermostat, and others.")]
-    [JsonObject("ZoneList")]
     public class ZoneList : BHoMObject, IEnergyPlusClass
     {
         
@@ -320,7 +325,6 @@ public string Zones { get; set; } = "";
     [Description("Adds a multiplier to a ZoneList. This can be used to reduce the amount of input n" +
         "ecessary for simulating repetitive structures, such as the identical floors of a" +
         " multi-story building.")]
-    [JsonObject("ZoneGroup")]
     public class ZoneGroup : BHoMObject, IEnergyPlusClass
     {
         
@@ -335,12 +339,12 @@ public System.Nullable<float> ZoneListMultiplier { get; set; } = (System.Nullabl
     
     [Description("Allows for detailed entry of building heat transfer surfaces. Does not include su" +
         "bsurfaces such as windows or doors.")]
-    [JsonObject("BuildingSurface:Detailed")]
     public class BuildingSurface_Detailed : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("surface_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public BuildingSurface_Detailed_SurfaceType SurfaceType { get; set; } = (BuildingSurface_Detailed_SurfaceType)Enum.Parse(typeof(BuildingSurface_Detailed_SurfaceType), "Ceiling");
         
 
@@ -355,6 +359,7 @@ public string ZoneName { get; set; } = "";
         
 
 [JsonProperty("outside_boundary_condition")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public BuildingSurface_Detailed_OutsideBoundaryCondition OutsideBoundaryCondition { get; set; } = (BuildingSurface_Detailed_OutsideBoundaryCondition)Enum.Parse(typeof(BuildingSurface_Detailed_OutsideBoundaryCondition), "Adiabatic");
         
 
@@ -364,10 +369,12 @@ public string OutsideBoundaryConditionObject { get; set; } = "";
         
 
 [JsonProperty("sun_exposure")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public BuildingSurface_Detailed_SunExposure SunExposure { get; set; } = (BuildingSurface_Detailed_SunExposure)Enum.Parse(typeof(BuildingSurface_Detailed_SunExposure), "SunExposed");
         
 
 [JsonProperty("wind_exposure")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public BuildingSurface_Detailed_WindExposure WindExposure { get; set; } = (BuildingSurface_Detailed_WindExposure)Enum.Parse(typeof(BuildingSurface_Detailed_WindExposure), "WindExposed");
         
 
@@ -388,99 +395,98 @@ public string Vertices { get; set; } = "";
     public enum BuildingSurface_Detailed_SurfaceType
     {
         
-        [JsonProperty("Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="Ceiling")]
         Ceiling = 0,
         
-        [JsonProperty("Floor")]
+        [System.Runtime.Serialization.EnumMember(Value="Floor")]
         Floor = 1,
         
-        [JsonProperty("Roof")]
+        [System.Runtime.Serialization.EnumMember(Value="Roof")]
         Roof = 2,
         
-        [JsonProperty("Wall")]
+        [System.Runtime.Serialization.EnumMember(Value="Wall")]
         Wall = 3,
     }
     
     public enum BuildingSurface_Detailed_OutsideBoundaryCondition
     {
         
-        [JsonProperty("Adiabatic")]
+        [System.Runtime.Serialization.EnumMember(Value="Adiabatic")]
         Adiabatic = 0,
         
-        [JsonProperty("Foundation")]
+        [System.Runtime.Serialization.EnumMember(Value="Foundation")]
         Foundation = 1,
         
-        [JsonProperty("Ground")]
+        [System.Runtime.Serialization.EnumMember(Value="Ground")]
         Ground = 2,
         
-        [JsonProperty("GroundBasementPreprocessorAverageFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorAverageFloor")]
         GroundBasementPreprocessorAverageFloor = 3,
         
-        [JsonProperty("GroundBasementPreprocessorAverageWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorAverageWall")]
         GroundBasementPreprocessorAverageWall = 4,
         
-        [JsonProperty("GroundBasementPreprocessorLowerWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorLowerWall")]
         GroundBasementPreprocessorLowerWall = 5,
         
-        [JsonProperty("GroundBasementPreprocessorUpperWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorUpperWall")]
         GroundBasementPreprocessorUpperWall = 6,
         
-        [JsonProperty("GroundFCfactorMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundFCfactorMethod")]
         GroundFCfactorMethod = 7,
         
-        [JsonProperty("GroundSlabPreprocessorAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorAverage")]
         GroundSlabPreprocessorAverage = 8,
         
-        [JsonProperty("GroundSlabPreprocessorCore")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorCore")]
         GroundSlabPreprocessorCore = 9,
         
-        [JsonProperty("GroundSlabPreprocessorPerimeter")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorPerimeter")]
         GroundSlabPreprocessorPerimeter = 10,
         
-        [JsonProperty("OtherSideCoefficients")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideCoefficients")]
         OtherSideCoefficients = 11,
         
-        [JsonProperty("OtherSideConditionsModel")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideConditionsModel")]
         OtherSideConditionsModel = 12,
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 13,
         
-        [JsonProperty("Surface")]
+        [System.Runtime.Serialization.EnumMember(Value="Surface")]
         Surface = 14,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 15,
     }
     
     public enum BuildingSurface_Detailed_SunExposure
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NoSun")]
+        [System.Runtime.Serialization.EnumMember(Value="NoSun")]
         NoSun = 1,
         
-        [JsonProperty("SunExposed")]
+        [System.Runtime.Serialization.EnumMember(Value="SunExposed")]
         SunExposed = 2,
     }
     
     public enum BuildingSurface_Detailed_WindExposure
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NoWind")]
+        [System.Runtime.Serialization.EnumMember(Value="NoWind")]
         NoWind = 1,
         
-        [JsonProperty("WindExposed")]
+        [System.Runtime.Serialization.EnumMember(Value="WindExposed")]
         WindExposed = 2,
     }
     
     [Description("Allows for detailed entry of wall heat transfer surfaces.")]
-    [JsonObject("Wall:Detailed")]
     public class Wall_Detailed : BHoMObject, IEnergyPlusClass
     {
         
@@ -496,6 +502,7 @@ public string ZoneName { get; set; } = "";
         
 
 [JsonProperty("outside_boundary_condition")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Wall_Detailed_OutsideBoundaryCondition OutsideBoundaryCondition { get; set; } = (Wall_Detailed_OutsideBoundaryCondition)Enum.Parse(typeof(Wall_Detailed_OutsideBoundaryCondition), "Adiabatic");
         
 
@@ -505,10 +512,12 @@ public string OutsideBoundaryConditionObject { get; set; } = "";
         
 
 [JsonProperty("sun_exposure")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Wall_Detailed_SunExposure SunExposure { get; set; } = (Wall_Detailed_SunExposure)Enum.Parse(typeof(Wall_Detailed_SunExposure), "SunExposed");
         
 
 [JsonProperty("wind_exposure")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Wall_Detailed_WindExposure WindExposure { get; set; } = (Wall_Detailed_WindExposure)Enum.Parse(typeof(Wall_Detailed_WindExposure), "WindExposed");
         
 
@@ -529,83 +538,82 @@ public string Vertices { get; set; } = "";
     public enum Wall_Detailed_OutsideBoundaryCondition
     {
         
-        [JsonProperty("Adiabatic")]
+        [System.Runtime.Serialization.EnumMember(Value="Adiabatic")]
         Adiabatic = 0,
         
-        [JsonProperty("Foundation")]
+        [System.Runtime.Serialization.EnumMember(Value="Foundation")]
         Foundation = 1,
         
-        [JsonProperty("Ground")]
+        [System.Runtime.Serialization.EnumMember(Value="Ground")]
         Ground = 2,
         
-        [JsonProperty("GroundBasementPreprocessorAverageFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorAverageFloor")]
         GroundBasementPreprocessorAverageFloor = 3,
         
-        [JsonProperty("GroundBasementPreprocessorAverageWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorAverageWall")]
         GroundBasementPreprocessorAverageWall = 4,
         
-        [JsonProperty("GroundBasementPreprocessorLowerWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorLowerWall")]
         GroundBasementPreprocessorLowerWall = 5,
         
-        [JsonProperty("GroundBasementPreprocessorUpperWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorUpperWall")]
         GroundBasementPreprocessorUpperWall = 6,
         
-        [JsonProperty("GroundFCfactorMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundFCfactorMethod")]
         GroundFCfactorMethod = 7,
         
-        [JsonProperty("GroundSlabPreprocessorAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorAverage")]
         GroundSlabPreprocessorAverage = 8,
         
-        [JsonProperty("GroundSlabPreprocessorCore")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorCore")]
         GroundSlabPreprocessorCore = 9,
         
-        [JsonProperty("GroundSlabPreprocessorPerimeter")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorPerimeter")]
         GroundSlabPreprocessorPerimeter = 10,
         
-        [JsonProperty("OtherSideCoefficients")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideCoefficients")]
         OtherSideCoefficients = 11,
         
-        [JsonProperty("OtherSideConditionsModel")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideConditionsModel")]
         OtherSideConditionsModel = 12,
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 13,
         
-        [JsonProperty("Surface")]
+        [System.Runtime.Serialization.EnumMember(Value="Surface")]
         Surface = 14,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 15,
     }
     
     public enum Wall_Detailed_SunExposure
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NoSun")]
+        [System.Runtime.Serialization.EnumMember(Value="NoSun")]
         NoSun = 1,
         
-        [JsonProperty("SunExposed")]
+        [System.Runtime.Serialization.EnumMember(Value="SunExposed")]
         SunExposed = 2,
     }
     
     public enum Wall_Detailed_WindExposure
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NoWind")]
+        [System.Runtime.Serialization.EnumMember(Value="NoWind")]
         NoWind = 1,
         
-        [JsonProperty("WindExposed")]
+        [System.Runtime.Serialization.EnumMember(Value="WindExposed")]
         WindExposed = 2,
     }
     
     [Description("Allows for detailed entry of roof/ceiling heat transfer surfaces.")]
-    [JsonObject("RoofCeiling:Detailed")]
     public class RoofCeiling_Detailed : BHoMObject, IEnergyPlusClass
     {
         
@@ -621,6 +629,7 @@ public string ZoneName { get; set; } = "";
         
 
 [JsonProperty("outside_boundary_condition")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RoofCeiling_Detailed_OutsideBoundaryCondition OutsideBoundaryCondition { get; set; } = (RoofCeiling_Detailed_OutsideBoundaryCondition)Enum.Parse(typeof(RoofCeiling_Detailed_OutsideBoundaryCondition), "Adiabatic");
         
 
@@ -630,10 +639,12 @@ public string OutsideBoundaryConditionObject { get; set; } = "";
         
 
 [JsonProperty("sun_exposure")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RoofCeiling_Detailed_SunExposure SunExposure { get; set; } = (RoofCeiling_Detailed_SunExposure)Enum.Parse(typeof(RoofCeiling_Detailed_SunExposure), "SunExposed");
         
 
 [JsonProperty("wind_exposure")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RoofCeiling_Detailed_WindExposure WindExposure { get; set; } = (RoofCeiling_Detailed_WindExposure)Enum.Parse(typeof(RoofCeiling_Detailed_WindExposure), "WindExposed");
         
 
@@ -654,77 +665,76 @@ public string Vertices { get; set; } = "";
     public enum RoofCeiling_Detailed_OutsideBoundaryCondition
     {
         
-        [JsonProperty("Adiabatic")]
+        [System.Runtime.Serialization.EnumMember(Value="Adiabatic")]
         Adiabatic = 0,
         
-        [JsonProperty("Ground")]
+        [System.Runtime.Serialization.EnumMember(Value="Ground")]
         Ground = 1,
         
-        [JsonProperty("GroundBasementPreprocessorAverageFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorAverageFloor")]
         GroundBasementPreprocessorAverageFloor = 2,
         
-        [JsonProperty("GroundBasementPreprocessorAverageWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorAverageWall")]
         GroundBasementPreprocessorAverageWall = 3,
         
-        [JsonProperty("GroundBasementPreprocessorLowerWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorLowerWall")]
         GroundBasementPreprocessorLowerWall = 4,
         
-        [JsonProperty("GroundBasementPreprocessorUpperWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorUpperWall")]
         GroundBasementPreprocessorUpperWall = 5,
         
-        [JsonProperty("GroundSlabPreprocessorAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorAverage")]
         GroundSlabPreprocessorAverage = 6,
         
-        [JsonProperty("GroundSlabPreprocessorCore")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorCore")]
         GroundSlabPreprocessorCore = 7,
         
-        [JsonProperty("GroundSlabPreprocessorPerimeter")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorPerimeter")]
         GroundSlabPreprocessorPerimeter = 8,
         
-        [JsonProperty("OtherSideCoefficients")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideCoefficients")]
         OtherSideCoefficients = 9,
         
-        [JsonProperty("OtherSideConditionsModel")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideConditionsModel")]
         OtherSideConditionsModel = 10,
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 11,
         
-        [JsonProperty("Surface")]
+        [System.Runtime.Serialization.EnumMember(Value="Surface")]
         Surface = 12,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 13,
     }
     
     public enum RoofCeiling_Detailed_SunExposure
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NoSun")]
+        [System.Runtime.Serialization.EnumMember(Value="NoSun")]
         NoSun = 1,
         
-        [JsonProperty("SunExposed")]
+        [System.Runtime.Serialization.EnumMember(Value="SunExposed")]
         SunExposed = 2,
     }
     
     public enum RoofCeiling_Detailed_WindExposure
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NoWind")]
+        [System.Runtime.Serialization.EnumMember(Value="NoWind")]
         NoWind = 1,
         
-        [JsonProperty("WindExposed")]
+        [System.Runtime.Serialization.EnumMember(Value="WindExposed")]
         WindExposed = 2,
     }
     
     [Description("Allows for detailed entry of floor heat transfer surfaces.")]
-    [JsonObject("Floor:Detailed")]
     public class Floor_Detailed : BHoMObject, IEnergyPlusClass
     {
         
@@ -740,6 +750,7 @@ public string ZoneName { get; set; } = "";
         
 
 [JsonProperty("outside_boundary_condition")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Floor_Detailed_OutsideBoundaryCondition OutsideBoundaryCondition { get; set; } = (Floor_Detailed_OutsideBoundaryCondition)Enum.Parse(typeof(Floor_Detailed_OutsideBoundaryCondition), "Adiabatic");
         
 
@@ -749,10 +760,12 @@ public string OutsideBoundaryConditionObject { get; set; } = "";
         
 
 [JsonProperty("sun_exposure")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Floor_Detailed_SunExposure SunExposure { get; set; } = (Floor_Detailed_SunExposure)Enum.Parse(typeof(Floor_Detailed_SunExposure), "SunExposed");
         
 
 [JsonProperty("wind_exposure")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Floor_Detailed_WindExposure WindExposure { get; set; } = (Floor_Detailed_WindExposure)Enum.Parse(typeof(Floor_Detailed_WindExposure), "WindExposed");
         
 
@@ -773,84 +786,83 @@ public string Vertices { get; set; } = "";
     public enum Floor_Detailed_OutsideBoundaryCondition
     {
         
-        [JsonProperty("Adiabatic")]
+        [System.Runtime.Serialization.EnumMember(Value="Adiabatic")]
         Adiabatic = 0,
         
-        [JsonProperty("Foundation")]
+        [System.Runtime.Serialization.EnumMember(Value="Foundation")]
         Foundation = 1,
         
-        [JsonProperty("Ground")]
+        [System.Runtime.Serialization.EnumMember(Value="Ground")]
         Ground = 2,
         
-        [JsonProperty("GroundBasementPreprocessorAverageFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorAverageFloor")]
         GroundBasementPreprocessorAverageFloor = 3,
         
-        [JsonProperty("GroundBasementPreprocessorAverageWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorAverageWall")]
         GroundBasementPreprocessorAverageWall = 4,
         
-        [JsonProperty("GroundBasementPreprocessorLowerWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorLowerWall")]
         GroundBasementPreprocessorLowerWall = 5,
         
-        [JsonProperty("GroundBasementPreprocessorUpperWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorUpperWall")]
         GroundBasementPreprocessorUpperWall = 6,
         
-        [JsonProperty("GroundFCfactorMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundFCfactorMethod")]
         GroundFCfactorMethod = 7,
         
-        [JsonProperty("GroundSlabPreprocessorAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorAverage")]
         GroundSlabPreprocessorAverage = 8,
         
-        [JsonProperty("GroundSlabPreprocessorCore")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorCore")]
         GroundSlabPreprocessorCore = 9,
         
-        [JsonProperty("GroundSlabPreprocessorPerimeter")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorPerimeter")]
         GroundSlabPreprocessorPerimeter = 10,
         
-        [JsonProperty("OtherSideCoefficients")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideCoefficients")]
         OtherSideCoefficients = 11,
         
-        [JsonProperty("OtherSideConditionsModel")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideConditionsModel")]
         OtherSideConditionsModel = 12,
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 13,
         
-        [JsonProperty("Surface")]
+        [System.Runtime.Serialization.EnumMember(Value="Surface")]
         Surface = 14,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 15,
     }
     
     public enum Floor_Detailed_SunExposure
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NoSun")]
+        [System.Runtime.Serialization.EnumMember(Value="NoSun")]
         NoSun = 1,
         
-        [JsonProperty("SunExposed")]
+        [System.Runtime.Serialization.EnumMember(Value="SunExposed")]
         SunExposed = 2,
     }
     
     public enum Floor_Detailed_WindExposure
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NoWind")]
+        [System.Runtime.Serialization.EnumMember(Value="NoWind")]
         NoWind = 1,
         
-        [JsonProperty("WindExposed")]
+        [System.Runtime.Serialization.EnumMember(Value="WindExposed")]
         WindExposed = 2,
     }
     
     [Description("Allows for simplified entry of exterior walls. View Factor to Ground is automatic" +
         "ally calculated.")]
-    [JsonObject("Wall:Exterior")]
     public class Wall_Exterior : BHoMObject, IEnergyPlusClass
     {
         
@@ -897,7 +909,6 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of interior walls.")]
-    [JsonObject("Wall:Adiabatic")]
     public class Wall_Adiabatic : BHoMObject, IEnergyPlusClass
     {
         
@@ -944,7 +955,6 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of underground walls.")]
-    [JsonObject("Wall:Underground")]
     public class Wall_Underground : BHoMObject, IEnergyPlusClass
     {
         
@@ -993,7 +1003,6 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of interzone walls (walls between zones).")]
-    [JsonObject("Wall:Interzone")]
     public class Wall_Interzone : BHoMObject, IEnergyPlusClass
     {
         
@@ -1048,7 +1057,6 @@ public System.Nullable<float> Height { get; set; } = null;
     
     [Description("Allows for simplified entry of roofs (exterior). View Factor to Ground is automat" +
         "ically calculated.")]
-    [JsonObject("Roof")]
     public class Roof : BHoMObject, IEnergyPlusClass
     {
         
@@ -1097,7 +1105,6 @@ public System.Nullable<float> Width { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of interior ceilings.")]
-    [JsonObject("Ceiling:Adiabatic")]
     public class Ceiling_Adiabatic : BHoMObject, IEnergyPlusClass
     {
         
@@ -1147,7 +1154,6 @@ public System.Nullable<float> Width { get; set; } = null;
     
     [Description("Allows for simplified entry of ceilings using adjacent zone (interzone) heat tran" +
         "sfer - adjacent surface should be a floor")]
-    [JsonObject("Ceiling:Interzone")]
     public class Ceiling_Interzone : BHoMObject, IEnergyPlusClass
     {
         
@@ -1204,7 +1210,6 @@ public System.Nullable<float> Width { get; set; } = null;
     
     [Description("Allows for simplified entry of exterior floors with ground contact. View Factors " +
         "to Ground is automatically calculated.")]
-    [JsonObject("Floor:GroundContact")]
     public class Floor_GroundContact : BHoMObject, IEnergyPlusClass
     {
         
@@ -1254,7 +1259,6 @@ public System.Nullable<float> Width { get; set; } = null;
     
     [Description("Allows for simplified entry of exterior floors ignoring ground contact or interio" +
         "r floors. View Factor to Ground is automatically calculated.")]
-    [JsonObject("Floor:Adiabatic")]
     public class Floor_Adiabatic : BHoMObject, IEnergyPlusClass
     {
         
@@ -1303,7 +1307,6 @@ public System.Nullable<float> Width { get; set; } = null;
     
     [Description("Allows for simplified entry of floors using adjacent zone (interzone) heat transf" +
         "er - adjacent surface should be a ceiling.")]
-    [JsonObject("Floor:Interzone")]
     public class Floor_Interzone : BHoMObject, IEnergyPlusClass
     {
         
@@ -1359,12 +1362,12 @@ public System.Nullable<float> Width { get; set; } = null;
     
     [Description("Allows for detailed entry of subsurfaces (windows, doors, glass doors, tubular da" +
         "ylighting devices).")]
-    [JsonObject("FenestrationSurface:Detailed")]
     public class FenestrationSurface_Detailed : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("surface_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FenestrationSurface_Detailed_SurfaceType SurfaceType { get; set; } = (FenestrationSurface_Detailed_SurfaceType)Enum.Parse(typeof(FenestrationSurface_Detailed_SurfaceType), "Door");
         
 
@@ -1457,24 +1460,23 @@ public System.Nullable<float> Vertex4ZCoordinate { get; set; } = null;
     public enum FenestrationSurface_Detailed_SurfaceType
     {
         
-        [JsonProperty("Door")]
+        [System.Runtime.Serialization.EnumMember(Value="Door")]
         Door = 0,
         
-        [JsonProperty("GlassDoor")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoor")]
         GlassDoor = 1,
         
-        [JsonProperty("TubularDaylightDiffuser")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffuser")]
         TubularDaylightDiffuser = 2,
         
-        [JsonProperty("TubularDaylightDome")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDome")]
         TubularDaylightDome = 3,
         
-        [JsonProperty("Window")]
+        [System.Runtime.Serialization.EnumMember(Value="Window")]
         Window = 4,
     }
     
     [Description("Allows for simplified entry of Windows.")]
-    [JsonObject("Window")]
     public class Window : BHoMObject, IEnergyPlusClass
     {
         
@@ -1520,7 +1522,6 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of opaque Doors.")]
-    [JsonObject("Door")]
     public class Door : BHoMObject, IEnergyPlusClass
     {
         
@@ -1561,7 +1562,6 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of glass Doors.")]
-    [JsonObject("GlazedDoor")]
     public class GlazedDoor : BHoMObject, IEnergyPlusClass
     {
         
@@ -1607,7 +1607,6 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of interzone windows (adjacent to other zones).")]
-    [JsonObject("Window:Interzone")]
     public class Window_Interzone : BHoMObject, IEnergyPlusClass
     {
         
@@ -1654,7 +1653,6 @@ public System.Nullable<float> Height { get; set; } = null;
     
     [Description("Allows for simplified entry of interzone (opaque interior) doors (adjacent to oth" +
         "er zones).")]
-    [JsonObject("Door:Interzone")]
     public class Door_Interzone : BHoMObject, IEnergyPlusClass
     {
         
@@ -1701,7 +1699,6 @@ public System.Nullable<float> Height { get; set; } = null;
     
     [Description("Allows for simplified entry of interzone (glass interior) doors (adjacent to othe" +
         "r zones).")]
-    [JsonObject("GlazedDoor:Interzone")]
     public class GlazedDoor_Interzone : BHoMObject, IEnergyPlusClass
     {
         
@@ -1749,7 +1746,6 @@ public System.Nullable<float> Height { get; set; } = null;
     [Description("Specifies the type, location, and controls for window shades, window blinds, and " +
         "switchable glazing. Referencing the surface objects for exterior windows and gla" +
         "ss doors (ref: FenestrationSurface:Detailed, Window, and GlazedDoor).")]
-    [JsonObject("WindowShadingControl")]
     public class WindowShadingControl : BHoMObject, IEnergyPlusClass
     {
         
@@ -1764,6 +1760,7 @@ public System.Nullable<float> ShadingControlSequenceNumber { get; set; } = (Syst
         
 
 [JsonProperty("shading_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowShadingControl_ShadingType ShadingType { get; set; } = (WindowShadingControl_ShadingType)Enum.Parse(typeof(WindowShadingControl_ShadingType), "BetweenGlassBlind");
         
 
@@ -1774,6 +1771,7 @@ public string ConstructionWithShadingName { get; set; } = "";
 
 [Description(@"OnIfScheduleAllows requires that Schedule Name be specified and Shading Control Is Scheduled = Yes. AlwaysOn, AlwaysOff and OnIfScheduleAllows are the only valid control types for ExteriorScreen. The following six control types are used primarily to reduce zone cooling load due to window solar gain Following entry should be used only if Shading Type = SwitchableGlazing and window is in a daylit zone The following three control types are used to reduce zone Heating load. They can be used with any Shading Type but are most appropriate for opaque interior or exterior shades with high insulating value (""opaque movable insulation"") The following two control types are used to reduce zone heating and cooling load. They can be used with any Shading Type but are most appropriate for translucent interior or exterior shades with high insulating value (""translucent movable insulation"") The following two control types are used to reduce zone Cooling load. They can be used with any Shading Type but are most appropriate for interior or exterior blinds,interior or exterior shades with low insulating value, or switchable glazing The following four control types require that both Setpoint and Setpoint2 be specified Setpoint will correspond to outdoor air temp or zone air temp (deg C) Setpoint2 will correspond to solar on window or horizontal solar (W/m2)")]
 [JsonProperty("shading_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowShadingControl_ShadingControlType ShadingControlType { get; set; } = (WindowShadingControl_ShadingControlType)Enum.Parse(typeof(WindowShadingControl_ShadingControlType), "AlwaysOff");
         
 
@@ -1793,11 +1791,13 @@ public System.Nullable<float> Setpoint { get; set; } = null;
     "rol Is Scheduled = Yes is required if Shading Control Type = OnIfScheduleAllows." +
     "")]
 [JsonProperty("shading_control_is_scheduled")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ShadingControlIsScheduled { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description(@"If Yes and window is in a daylit zone, shading is on if zone's discomfort glare index exceeds the maximum discomfort glare index specified in the Daylighting object referenced by the zone. The glare test is OR'ed with the test specified by Shading Control Type. Glare Control Is Active = Yes is required if Shading Control Type = OnIfHighGlare.")]
 [JsonProperty("glare_control_is_active")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes GlareControlIsActive { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -1809,6 +1809,7 @@ public string ShadingDeviceMaterialName { get; set; } = "";
 [Description("Used only if Shading Type = InteriorBlind, ExteriorBlind or BetweenGlassBlind. If" +
     " choice is ScheduledSlatAngle then Slat Angle Schedule Name is required.")]
 [JsonProperty("type_of_slat_angle_control_for_blinds")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowShadingControl_TypeOfSlatAngleControlForBlinds TypeOfSlatAngleControlForBlinds { get; set; } = (WindowShadingControl_TypeOfSlatAngleControlForBlinds)Enum.Parse(typeof(WindowShadingControl_TypeOfSlatAngleControlForBlinds), "FixedSlatAngle");
         
 
@@ -1832,6 +1833,7 @@ public string DaylightingControlObjectName { get; set; } = "";
 
 [Description(@"When Sequential is used the list of fenestration surfaces are controlled individually in the order specified When Group is used the entire list is controlled simultaneously and if glare control is needed the entire group of window shades are deployed together a the same time")]
 [JsonProperty("multiple_surface_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowShadingControl_MultipleSurfaceControlType MultipleSurfaceControlType { get; set; } = (WindowShadingControl_MultipleSurfaceControlType)Enum.Parse(typeof(WindowShadingControl_MultipleSurfaceControlType), "Sequential");
         
 
@@ -1842,131 +1844,130 @@ public string FenestrationSurfaces { get; set; } = "";
     public enum WindowShadingControl_ShadingType
     {
         
-        [JsonProperty("BetweenGlassBlind")]
+        [System.Runtime.Serialization.EnumMember(Value="BetweenGlassBlind")]
         BetweenGlassBlind = 0,
         
-        [JsonProperty("BetweenGlassShade")]
+        [System.Runtime.Serialization.EnumMember(Value="BetweenGlassShade")]
         BetweenGlassShade = 1,
         
-        [JsonProperty("ExteriorBlind")]
+        [System.Runtime.Serialization.EnumMember(Value="ExteriorBlind")]
         ExteriorBlind = 2,
         
-        [JsonProperty("ExteriorScreen")]
+        [System.Runtime.Serialization.EnumMember(Value="ExteriorScreen")]
         ExteriorScreen = 3,
         
-        [JsonProperty("ExteriorShade")]
+        [System.Runtime.Serialization.EnumMember(Value="ExteriorShade")]
         ExteriorShade = 4,
         
-        [JsonProperty("InteriorBlind")]
+        [System.Runtime.Serialization.EnumMember(Value="InteriorBlind")]
         InteriorBlind = 5,
         
-        [JsonProperty("InteriorShade")]
+        [System.Runtime.Serialization.EnumMember(Value="InteriorShade")]
         InteriorShade = 6,
         
-        [JsonProperty("SwitchableGlazing")]
+        [System.Runtime.Serialization.EnumMember(Value="SwitchableGlazing")]
         SwitchableGlazing = 7,
     }
     
     public enum WindowShadingControl_ShadingControlType
     {
         
-        [JsonProperty("AlwaysOff")]
+        [System.Runtime.Serialization.EnumMember(Value="AlwaysOff")]
         AlwaysOff = 0,
         
-        [JsonProperty("AlwaysOn")]
+        [System.Runtime.Serialization.EnumMember(Value="AlwaysOn")]
         AlwaysOn = 1,
         
-        [JsonProperty("MeetDaylightIlluminanceSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetDaylightIlluminanceSetpoint")]
         MeetDaylightIlluminanceSetpoint = 2,
         
-        [JsonProperty("OffNightAndOnDayIfCoolingAndHighSolarOnWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="OffNightAndOnDayIfCoolingAndHighSolarOnWindow")]
         OffNightAndOnDayIfCoolingAndHighSolarOnWindow = 3,
         
-        [JsonProperty("OnIfHighGlare")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighGlare")]
         OnIfHighGlare = 4,
         
-        [JsonProperty("OnIfHighHorizontalSolar")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighHorizontalSolar")]
         OnIfHighHorizontalSolar = 5,
         
-        [JsonProperty("OnIfHighOutdoorAirTempAndHighHorizontalSolar")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighOutdoorAirTempAndHighHorizontalSolar")]
         OnIfHighOutdoorAirTempAndHighHorizontalSolar = 6,
         
-        [JsonProperty("OnIfHighOutdoorAirTempAndHighSolarOnWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighOutdoorAirTempAndHighSolarOnWindow")]
         OnIfHighOutdoorAirTempAndHighSolarOnWindow = 7,
         
-        [JsonProperty("OnIfHighOutdoorAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighOutdoorAirTemperature")]
         OnIfHighOutdoorAirTemperature = 8,
         
-        [JsonProperty("OnIfHighSolarOnWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighSolarOnWindow")]
         OnIfHighSolarOnWindow = 9,
         
-        [JsonProperty("OnIfHighZoneAirTempAndHighHorizontalSolar")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighZoneAirTempAndHighHorizontalSolar")]
         OnIfHighZoneAirTempAndHighHorizontalSolar = 10,
         
-        [JsonProperty("OnIfHighZoneAirTempAndHighSolarOnWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighZoneAirTempAndHighSolarOnWindow")]
         OnIfHighZoneAirTempAndHighSolarOnWindow = 11,
         
-        [JsonProperty("OnIfHighZoneAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighZoneAirTemperature")]
         OnIfHighZoneAirTemperature = 12,
         
-        [JsonProperty("OnIfHighZoneCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfHighZoneCooling")]
         OnIfHighZoneCooling = 13,
         
-        [JsonProperty("OnIfScheduleAllows")]
+        [System.Runtime.Serialization.EnumMember(Value="OnIfScheduleAllows")]
         OnIfScheduleAllows = 14,
         
-        [JsonProperty("OnNightAndOnDayIfCoolingAndHighSolarOnWindow")]
+        [System.Runtime.Serialization.EnumMember(Value="OnNightAndOnDayIfCoolingAndHighSolarOnWindow")]
         OnNightAndOnDayIfCoolingAndHighSolarOnWindow = 15,
         
-        [JsonProperty("OnNightIfHeatingAndOffDay")]
+        [System.Runtime.Serialization.EnumMember(Value="OnNightIfHeatingAndOffDay")]
         OnNightIfHeatingAndOffDay = 16,
         
-        [JsonProperty("OnNightIfHeatingAndOnDayIfCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="OnNightIfHeatingAndOnDayIfCooling")]
         OnNightIfHeatingAndOnDayIfCooling = 17,
         
-        [JsonProperty("OnNightIfLowInsideTempAndOffDay")]
+        [System.Runtime.Serialization.EnumMember(Value="OnNightIfLowInsideTempAndOffDay")]
         OnNightIfLowInsideTempAndOffDay = 18,
         
-        [JsonProperty("OnNightIfLowOutdoorTempAndOffDay")]
+        [System.Runtime.Serialization.EnumMember(Value="OnNightIfLowOutdoorTempAndOffDay")]
         OnNightIfLowOutdoorTempAndOffDay = 19,
         
-        [JsonProperty("OnNightIfLowOutdoorTempAndOnDayIfCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="OnNightIfLowOutdoorTempAndOnDayIfCooling")]
         OnNightIfLowOutdoorTempAndOnDayIfCooling = 20,
     }
     
     public enum WindowShadingControl_TypeOfSlatAngleControlForBlinds
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlockBeamSolar")]
+        [System.Runtime.Serialization.EnumMember(Value="BlockBeamSolar")]
         BlockBeamSolar = 1,
         
-        [JsonProperty("FixedSlatAngle")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedSlatAngle")]
         FixedSlatAngle = 2,
         
-        [JsonProperty("ScheduledSlatAngle")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledSlatAngle")]
         ScheduledSlatAngle = 3,
     }
     
     public enum WindowShadingControl_MultipleSurfaceControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Group")]
+        [System.Runtime.Serialization.EnumMember(Value="Group")]
         Group = 1,
         
-        [JsonProperty("Sequential")]
+        [System.Runtime.Serialization.EnumMember(Value="Sequential")]
         Sequential = 2,
     }
     
     [Description("Specifies the dimensions of a window frame, dividers, and inside reveal surfaces." +
         " Referenced by the surface objects for exterior windows and glass doors (ref: Fe" +
         "nestrationSurface:Detailed, Window, and GlazedDoor).")]
-    [JsonObject("WindowProperty:FrameAndDivider")]
     public class WindowProperty_FrameAndDivider : BHoMObject, IEnergyPlusClass
     {
         
@@ -2015,6 +2016,7 @@ public System.Nullable<float> FrameThermalHemisphericalEmissivity { get; set; } 
         
 
 [JsonProperty("divider_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowProperty_FrameAndDivider_DividerType DividerType { get; set; } = (WindowProperty_FrameAndDivider_DividerType)Enum.Parse(typeof(WindowProperty_FrameAndDivider_DividerType), "DividedLite");
         
 
@@ -2095,29 +2097,30 @@ public System.Nullable<float> InsideRevealSolarAbsorptance { get; set; } = (Syst
     public enum WindowProperty_FrameAndDivider_DividerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DividedLite")]
+        [System.Runtime.Serialization.EnumMember(Value="DividedLite")]
         DividedLite = 1,
         
-        [JsonProperty("Suspended")]
+        [System.Runtime.Serialization.EnumMember(Value="Suspended")]
         Suspended = 2,
     }
     
     [Description("Used to control forced airflow through a gap between glass layers")]
-    [JsonObject("WindowProperty:AirflowControl")]
     public class WindowProperty_AirflowControl : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("airflow_source")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowProperty_AirflowControl_AirflowSource AirflowSource { get; set; } = (WindowProperty_AirflowControl_AirflowSource)Enum.Parse(typeof(WindowProperty_AirflowControl_AirflowSource), "IndoorAir");
         
 
 [Description("If ReturnAir is selected, the name of the Return Air Node may be specified below." +
     "")]
 [JsonProperty("airflow_destination")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowProperty_AirflowControl_AirflowDestination AirflowDestination { get; set; } = (WindowProperty_AirflowControl_AirflowDestination)Enum.Parse(typeof(WindowProperty_AirflowControl_AirflowDestination), "OutdoorAir");
         
 
@@ -2129,11 +2132,13 @@ public System.Nullable<float> MaximumFlowRate { get; set; } = (System.Nullable<f
 [Description("ScheduledOnly requires that Airflow Has Multiplier Schedule Name = Yes and that A" +
     "irflow Multiplier Schedule Name is specified.")]
 [JsonProperty("airflow_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowProperty_AirflowControl_AirflowControlType AirflowControlType { get; set; } = (WindowProperty_AirflowControl_AirflowControlType)Enum.Parse(typeof(WindowProperty_AirflowControl_AirflowControlType), "AlwaysOnAtMaximumFlow");
         
 
 [Description("If Yes, then Airflow Multiplier Schedule Name must be specified")]
 [JsonProperty("airflow_is_scheduled")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes AirflowIsScheduled { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -2153,51 +2158,50 @@ public string AirflowReturnAirNodeName { get; set; } = "";
     public enum WindowProperty_AirflowControl_AirflowSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("IndoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="IndoorAir")]
         IndoorAir = 1,
         
-        [JsonProperty("OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir")]
         OutdoorAir = 2,
     }
     
     public enum WindowProperty_AirflowControl_AirflowDestination
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("IndoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="IndoorAir")]
         IndoorAir = 1,
         
-        [JsonProperty("OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir")]
         OutdoorAir = 2,
         
-        [JsonProperty("ReturnAir")]
+        [System.Runtime.Serialization.EnumMember(Value="ReturnAir")]
         ReturnAir = 3,
     }
     
     public enum WindowProperty_AirflowControl_AirflowControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlwaysOff")]
+        [System.Runtime.Serialization.EnumMember(Value="AlwaysOff")]
         AlwaysOff = 1,
         
-        [JsonProperty("AlwaysOnAtMaximumFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="AlwaysOnAtMaximumFlow")]
         AlwaysOnAtMaximumFlow = 2,
         
-        [JsonProperty("ScheduledOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledOnly")]
         ScheduledOnly = 3,
     }
     
     [Description("This is a movable exterior glass layer that is usually applied in the winter and " +
         "removed in the summer.")]
-    [JsonObject("WindowProperty:StormWindow")]
     public class WindowProperty_StormWindow : BHoMObject, IEnergyPlusClass
     {
         
@@ -2237,7 +2241,6 @@ public System.Nullable<float> DayOfMonthThatStormGlassLayerIsTakenOff { get; set
     }
     
     [Description(@"Used to describe internal zone surface area that does not need to be part of geometric representation. This should be the total surface area exposed to the zone air. If you use a ZoneList in the Zone or ZoneList name field then this definition applies to all the zones in the ZoneList.")]
-    [JsonObject("InternalMass")]
     public class InternalMass : BHoMObject, IEnergyPlusClass
     {
         
@@ -2258,7 +2261,6 @@ public System.Nullable<float> SurfaceArea { get; set; } = null;
     
     [Description("used for shading elements such as trees these items are fixed in space and would " +
         "not move with relative geometry")]
-    [JsonObject("Shading:Site")]
     public class Shading_Site : BHoMObject, IEnergyPlusClass
     {
         
@@ -2296,7 +2298,6 @@ public System.Nullable<float> Height { get; set; } = null;
     [Description("used for shading elements such as trees, other buildings, parts of this building " +
         "not being modeled these items are relative to the current building and would mov" +
         "e with relative geometry")]
-    [JsonObject("Shading:Building")]
     public class Shading_Building : BHoMObject, IEnergyPlusClass
     {
         
@@ -2333,7 +2334,6 @@ public System.Nullable<float> Height { get; set; } = null;
     
     [Description("used for shading elements such as trees these items are fixed in space and would " +
         "not move with relative geometry")]
-    [JsonObject("Shading:Site:Detailed")]
     public class Shading_Site_Detailed : BHoMObject, IEnergyPlusClass
     {
         
@@ -2357,7 +2357,6 @@ public string Vertices { get; set; } = "";
     [Description("used for shading elements such as trees, other buildings, parts of this building " +
         "not being modeled these items are relative to the current building and would mov" +
         "e with relative geometry")]
-    [JsonObject("Shading:Building:Detailed")]
     public class Shading_Building_Detailed : BHoMObject, IEnergyPlusClass
     {
         
@@ -2380,7 +2379,6 @@ public string Vertices { get; set; } = "";
     }
     
     [Description("Overhangs are usually flat shading surfaces that reference a window or door.")]
-    [JsonObject("Shading:Overhang")]
     public class Shading_Overhang : BHoMObject, IEnergyPlusClass
     {
         
@@ -2411,7 +2409,6 @@ public System.Nullable<float> Depth { get; set; } = null;
     }
     
     [Description("Overhangs are typically flat shading surfaces that reference a window or door.")]
-    [JsonObject("Shading:Overhang:Projection")]
     public class Shading_Overhang_Projection : BHoMObject, IEnergyPlusClass
     {
         
@@ -2442,7 +2439,6 @@ public System.Nullable<float> DepthAsFractionOfWindowDoorHeight { get; set; } = 
     }
     
     [Description("Fins are usually shading surfaces that are perpendicular to a window or door.")]
-    [JsonObject("Shading:Fin")]
     public class Shading_Fin : BHoMObject, IEnergyPlusClass
     {
         
@@ -2494,7 +2490,6 @@ public System.Nullable<float> RightDepth { get; set; } = null;
     }
     
     [Description("Fins are usually shading surfaces that are perpendicular to a window or door.")]
-    [JsonObject("Shading:Fin:Projection")]
     public class Shading_Fin_Projection : BHoMObject, IEnergyPlusClass
     {
         
@@ -2547,7 +2542,6 @@ public System.Nullable<float> RightDepthAsFractionOfWindowDoorWidth { get; set; 
     
     [Description("used For fins, overhangs, elements that shade the building, are attached to the b" +
         "uilding but are not part of the heat transfer calculations")]
-    [JsonObject("Shading:Zone:Detailed")]
     public class Shading_Zone_Detailed : BHoMObject, IEnergyPlusClass
     {
         
@@ -2572,7 +2566,6 @@ public string Vertices { get; set; } = "";
     
     [Description("If this object is not defined for a shading surface the default values listed in " +
         "following fields will be used in the solar reflection calculation.")]
-    [JsonObject("ShadingProperty:Reflectance")]
     public class ShadingProperty_Reflectance : BHoMObject, IEnergyPlusClass
     {
         

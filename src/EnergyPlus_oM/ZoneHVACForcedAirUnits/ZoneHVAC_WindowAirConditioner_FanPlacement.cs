@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_WindowAirConditioner_FanPlacement
     {
         
-        [JsonProperty("BlowThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="BlowThrough")]
         BlowThrough = 0,
         
-        [JsonProperty("DrawThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="DrawThrough")]
         DrawThrough = 1,
     }
 }

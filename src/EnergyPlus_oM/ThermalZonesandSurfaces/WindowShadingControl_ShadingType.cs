@@ -1,32 +1,30 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum WindowShadingControl_ShadingType
     {
         
-        [JsonProperty("BetweenGlassBlind")]
+        [System.Runtime.Serialization.EnumMember(Value="BetweenGlassBlind")]
         BetweenGlassBlind = 0,
         
-        [JsonProperty("BetweenGlassShade")]
+        [System.Runtime.Serialization.EnumMember(Value="BetweenGlassShade")]
         BetweenGlassShade = 1,
         
-        [JsonProperty("ExteriorBlind")]
+        [System.Runtime.Serialization.EnumMember(Value="ExteriorBlind")]
         ExteriorBlind = 2,
         
-        [JsonProperty("ExteriorScreen")]
+        [System.Runtime.Serialization.EnumMember(Value="ExteriorScreen")]
         ExteriorScreen = 3,
         
-        [JsonProperty("ExteriorShade")]
+        [System.Runtime.Serialization.EnumMember(Value="ExteriorShade")]
         ExteriorShade = 4,
         
-        [JsonProperty("InteriorBlind")]
+        [System.Runtime.Serialization.EnumMember(Value="InteriorBlind")]
         InteriorBlind = 5,
         
-        [JsonProperty("InteriorShade")]
+        [System.Runtime.Serialization.EnumMember(Value="InteriorShade")]
         InteriorShade = 6,
         
-        [JsonProperty("SwitchableGlazing")]
+        [System.Runtime.Serialization.EnumMember(Value="SwitchableGlazing")]
         SwitchableGlazing = 7,
     }
 }

@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description("Chilled water cooling coil, detailed flat fin coil model for continuous plate fin" +
                  "s, with inputs for detailed coil geometry specifications.")]
-    [JsonObject("Coil:Cooling:Water:DetailedGeometry")]
     public class Coil_Cooling_Water_DetailedGeometry : BHoMObject, IEnergyPlusClass
     {
         

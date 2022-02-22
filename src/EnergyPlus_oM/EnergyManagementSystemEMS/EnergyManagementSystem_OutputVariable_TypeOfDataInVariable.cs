@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     public enum EnergyManagementSystem_OutputVariable_TypeOfDataInVariable
     {
         
-        [JsonProperty("Averaged")]
+        [System.Runtime.Serialization.EnumMember(Value="Averaged")]
         Averaged = 0,
         
-        [JsonProperty("Summed")]
+        [System.Runtime.Serialization.EnumMember(Value="Summed")]
         Summed = 1,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum EvaporativeFluidCooler_SingleSpeed_BlowdownCalculationMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConcentrationRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConcentrationRatio")]
         ConcentrationRatio = 1,
         
-        [JsonProperty("ScheduledRate")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledRate")]
         ScheduledRate = 2,
     }
 }

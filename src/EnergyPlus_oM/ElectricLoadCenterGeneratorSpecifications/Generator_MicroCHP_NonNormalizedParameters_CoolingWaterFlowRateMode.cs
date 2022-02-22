@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_MicroCHP_NonNormalizedParameters_CoolingWaterFlowRateMode
     {
         
-        [JsonProperty("InternalControl")]
+        [System.Runtime.Serialization.EnumMember(Value="InternalControl")]
         InternalControl = 0,
         
-        [JsonProperty("PlantControl")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantControl")]
         PlantControl = 1,
     }
 }

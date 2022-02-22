@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Pumps
 {
     public enum Pump_ConstantSpeed_DesignPowerSizingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("PowerPerFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlow")]
         PowerPerFlow = 1,
         
-        [JsonProperty("PowerPerFlowPerPressure")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlowPerPressure")]
         PowerPerFlowPerPressure = 2,
     }
 }

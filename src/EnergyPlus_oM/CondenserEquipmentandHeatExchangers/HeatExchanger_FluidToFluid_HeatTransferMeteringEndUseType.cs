@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum HeatExchanger_FluidToFluid_HeatTransferMeteringEndUseType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FreeCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="FreeCooling")]
         FreeCooling = 1,
         
-        [JsonProperty("HeatRecovery")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecovery")]
         HeatRecovery = 2,
         
-        [JsonProperty("HeatRecoveryForCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecoveryForCooling")]
         HeatRecoveryForCooling = 3,
         
-        [JsonProperty("HeatRecoveryForHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecoveryForHeating")]
         HeatRecoveryForHeating = 4,
         
-        [JsonProperty("HeatRejection")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRejection")]
         HeatRejection = 5,
         
-        [JsonProperty("LoopToLoop")]
+        [System.Runtime.Serialization.EnumMember(Value="LoopToLoop")]
         LoopToLoop = 6,
     }
 }

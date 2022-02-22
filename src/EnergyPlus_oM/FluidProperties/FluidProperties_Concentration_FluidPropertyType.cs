@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     public enum FluidProperties_Concentration_FluidPropertyType
     {
         
-        [JsonProperty("Conductivity")]
+        [System.Runtime.Serialization.EnumMember(Value="Conductivity")]
         Conductivity = 0,
         
-        [JsonProperty("Density")]
+        [System.Runtime.Serialization.EnumMember(Value="Density")]
         Density = 1,
         
-        [JsonProperty("SpecificHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="SpecificHeat")]
         SpecificHeat = 2,
         
-        [JsonProperty("Viscosity")]
+        [System.Runtime.Serialization.EnumMember(Value="Viscosity")]
         Viscosity = 3,
     }
 }

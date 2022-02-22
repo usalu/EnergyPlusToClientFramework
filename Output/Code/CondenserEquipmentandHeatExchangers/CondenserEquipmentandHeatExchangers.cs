@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     
     
     [Description(@"This tower model is based on Merkel's theory, which is also the basis for the tower model in ASHRAE's HVAC1 Toolkit. The open wet cooling tower is modeled as a counter flow heat exchanger with a single-speed fan drawing air through the tower (induced-draft configuration). Added fluid bypass as an additional capacity control. 8/2008. For a multi-cell tower, the capacity and air/water flow rate inputs are for the entire tower.")]
-    [JsonObject("CoolingTower:SingleSpeed")]
     public class CoolingTower_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -124,6 +123,7 @@ public System.Nullable<float> FreeConvectionUFactorTimesAreaValueSizingFactor { 
     "Air Flow Rate and the Design Water Flow Rate, or by specifying the tower nominal" +
     " capacity")]
 [JsonProperty("performance_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_SingleSpeed_PerformanceInputMethod PerformanceInputMethod { get; set; } = (CoolingTower_SingleSpeed_PerformanceInputMethod)Enum.Parse(typeof(CoolingTower_SingleSpeed_PerformanceInputMethod), "UFactorTimesAreaAndDesignWaterFlowRate");
         
 
@@ -189,6 +189,7 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [JsonProperty("evaporation_loss_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_SingleSpeed_EvaporationLossMode EvaporationLossMode { get; set; } = (CoolingTower_SingleSpeed_EvaporationLossMode)Enum.Parse(typeof(CoolingTower_SingleSpeed_EvaporationLossMode), "LossFactor");
         
 
@@ -204,6 +205,7 @@ public System.Nullable<float> DriftLossPercent { get; set; } = (System.Nullable<
         
 
 [JsonProperty("blowdown_calculation_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_SingleSpeed_BlowdownCalculationMode BlowdownCalculationMode { get; set; } = (CoolingTower_SingleSpeed_BlowdownCalculationMode)Enum.Parse(typeof(CoolingTower_SingleSpeed_BlowdownCalculationMode), "ConcentrationRatio");
         
 
@@ -227,6 +229,7 @@ public string OutdoorAirInletNodeName { get; set; } = "";
         
 
 [JsonProperty("capacity_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_SingleSpeed_CapacityControl CapacityControl { get; set; } = (CoolingTower_SingleSpeed_CapacityControl)Enum.Parse(typeof(CoolingTower_SingleSpeed_CapacityControl), "FanCycling");
         
 
@@ -235,6 +238,7 @@ public System.Nullable<float> NumberOfCells { get; set; } = (System.Nullable<flo
         
 
 [JsonProperty("cell_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_SingleSpeed_CellControl CellControl { get; set; } = (CoolingTower_SingleSpeed_CellControl)Enum.Parse(typeof(CoolingTower_SingleSpeed_CellControl), "MinimalCell");
         
 
@@ -262,64 +266,63 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum CoolingTower_SingleSpeed_PerformanceInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NominalCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="NominalCapacity")]
         NominalCapacity = 1,
         
-        [JsonProperty("UFactorTimesAreaAndDesignWaterFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="UFactorTimesAreaAndDesignWaterFlowRate")]
         UFactorTimesAreaAndDesignWaterFlowRate = 2,
     }
     
     public enum CoolingTower_SingleSpeed_EvaporationLossMode
     {
         
-        [JsonProperty("LossFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="LossFactor")]
         LossFactor = 0,
         
-        [JsonProperty("SaturatedExit")]
+        [System.Runtime.Serialization.EnumMember(Value="SaturatedExit")]
         SaturatedExit = 1,
     }
     
     public enum CoolingTower_SingleSpeed_BlowdownCalculationMode
     {
         
-        [JsonProperty("ConcentrationRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConcentrationRatio")]
         ConcentrationRatio = 0,
         
-        [JsonProperty("ScheduledRate")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledRate")]
         ScheduledRate = 1,
     }
     
     public enum CoolingTower_SingleSpeed_CapacityControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FanCycling")]
+        [System.Runtime.Serialization.EnumMember(Value="FanCycling")]
         FanCycling = 1,
         
-        [JsonProperty("FluidBypass")]
+        [System.Runtime.Serialization.EnumMember(Value="FluidBypass")]
         FluidBypass = 2,
     }
     
     public enum CoolingTower_SingleSpeed_CellControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MaximalCell")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximalCell")]
         MaximalCell = 1,
         
-        [JsonProperty("MinimalCell")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimalCell")]
         MinimalCell = 2,
     }
     
     [Description(@"This tower model is based on Merkel's theory, which is also the basis for the tower model in ASHRAE's HVAC1 Toolkit. The open wet cooling tower is modeled as a counter flow heat exchanger with a two-speed fan drawing air through the tower (induced-draft configuration). For a multi-cell tower, the capacity and air/water flow rate inputs are for the entire tower.")]
-    [JsonObject("CoolingTower:TwoSpeed")]
     public class CoolingTower_TwoSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -411,6 +414,7 @@ public System.Nullable<float> FreeConvectionUFactorTimesAreaValueSizingFactor { 
     "Air Flow Rate and the Design Water Flow Rate, or by specifying the tower nominal" +
     " capacity")]
 [JsonProperty("performance_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_TwoSpeed_PerformanceInputMethod PerformanceInputMethod { get; set; } = (CoolingTower_TwoSpeed_PerformanceInputMethod)Enum.Parse(typeof(CoolingTower_TwoSpeed_PerformanceInputMethod), "UFactorTimesAreaAndDesignWaterFlowRate");
         
 
@@ -486,6 +490,7 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [JsonProperty("evaporation_loss_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_TwoSpeed_EvaporationLossMode EvaporationLossMode { get; set; } = (CoolingTower_TwoSpeed_EvaporationLossMode)Enum.Parse(typeof(CoolingTower_TwoSpeed_EvaporationLossMode), "LossFactor");
         
 
@@ -501,6 +506,7 @@ public System.Nullable<float> DriftLossPercent { get; set; } = (System.Nullable<
         
 
 [JsonProperty("blowdown_calculation_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_TwoSpeed_BlowdownCalculationMode BlowdownCalculationMode { get; set; } = (CoolingTower_TwoSpeed_BlowdownCalculationMode)Enum.Parse(typeof(CoolingTower_TwoSpeed_BlowdownCalculationMode), "ConcentrationRatio");
         
 
@@ -528,6 +534,7 @@ public System.Nullable<float> NumberOfCells { get; set; } = (System.Nullable<flo
         
 
 [JsonProperty("cell_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_TwoSpeed_CellControl CellControl { get; set; } = (CoolingTower_TwoSpeed_CellControl)Enum.Parse(typeof(CoolingTower_TwoSpeed_CellControl), "MinimalCell");
         
 
@@ -555,51 +562,50 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum CoolingTower_TwoSpeed_PerformanceInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NominalCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="NominalCapacity")]
         NominalCapacity = 1,
         
-        [JsonProperty("UFactorTimesAreaAndDesignWaterFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="UFactorTimesAreaAndDesignWaterFlowRate")]
         UFactorTimesAreaAndDesignWaterFlowRate = 2,
     }
     
     public enum CoolingTower_TwoSpeed_EvaporationLossMode
     {
         
-        [JsonProperty("LossFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="LossFactor")]
         LossFactor = 0,
         
-        [JsonProperty("SaturatedExit")]
+        [System.Runtime.Serialization.EnumMember(Value="SaturatedExit")]
         SaturatedExit = 1,
     }
     
     public enum CoolingTower_TwoSpeed_BlowdownCalculationMode
     {
         
-        [JsonProperty("ConcentrationRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConcentrationRatio")]
         ConcentrationRatio = 0,
         
-        [JsonProperty("ScheduledRate")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledRate")]
         ScheduledRate = 1,
     }
     
     public enum CoolingTower_TwoSpeed_CellControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MaximalCell")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximalCell")]
         MaximalCell = 1,
         
-        [JsonProperty("MinimalCell")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimalCell")]
         MinimalCell = 2,
     }
     
     [Description(@"This tower model is based on Merkel's theory, which is also the basis for the tower model in ASHRAE's HVAC1 Toolkit. The open wet cooling tower is modeled as a counter flow heat exchanger with a variable-speed fan drawing air through the tower (induced-draft configuration). For a multi-cell tower, the capacity and air/water flow rate inputs are for the entire tower.")]
-    [JsonObject("CoolingTower:VariableSpeed:Merkel")]
     public class CoolingTower_VariableSpeed_Merkel : BHoMObject, IEnergyPlusClass
     {
         
@@ -618,6 +624,7 @@ public string WaterOutletNodeName { get; set; } = "";
     "Air Flow Rate and the Design Water Flow Rate, or by specifying the tower nominal" +
     " capacity")]
 [JsonProperty("performance_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_VariableSpeed_Merkel_PerformanceInputMethod PerformanceInputMethod { get; set; } = (CoolingTower_VariableSpeed_Merkel_PerformanceInputMethod)Enum.Parse(typeof(CoolingTower_VariableSpeed_Merkel_PerformanceInputMethod), "NominalCapacity");
         
 
@@ -772,6 +779,7 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [JsonProperty("evaporation_loss_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_VariableSpeed_Merkel_EvaporationLossMode EvaporationLossMode { get; set; } = (CoolingTower_VariableSpeed_Merkel_EvaporationLossMode)Enum.Parse(typeof(CoolingTower_VariableSpeed_Merkel_EvaporationLossMode), "LossFactor");
         
 
@@ -787,6 +795,7 @@ public System.Nullable<float> DriftLossPercent { get; set; } = (System.Nullable<
         
 
 [JsonProperty("blowdown_calculation_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_VariableSpeed_Merkel_BlowdownCalculationMode BlowdownCalculationMode { get; set; } = (CoolingTower_VariableSpeed_Merkel_BlowdownCalculationMode)Enum.Parse(typeof(CoolingTower_VariableSpeed_Merkel_BlowdownCalculationMode), "ConcentrationRatio");
         
 
@@ -814,6 +823,7 @@ public System.Nullable<float> NumberOfCells { get; set; } = (System.Nullable<flo
         
 
 [JsonProperty("cell_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_VariableSpeed_Merkel_CellControl CellControl { get; set; } = (CoolingTower_VariableSpeed_Merkel_CellControl)Enum.Parse(typeof(CoolingTower_VariableSpeed_Merkel_CellControl), "MinimalCell");
         
 
@@ -841,51 +851,50 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum CoolingTower_VariableSpeed_Merkel_PerformanceInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NominalCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="NominalCapacity")]
         NominalCapacity = 1,
         
-        [JsonProperty("UFactorTimesAreaAndDesignWaterFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="UFactorTimesAreaAndDesignWaterFlowRate")]
         UFactorTimesAreaAndDesignWaterFlowRate = 2,
     }
     
     public enum CoolingTower_VariableSpeed_Merkel_EvaporationLossMode
     {
         
-        [JsonProperty("LossFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="LossFactor")]
         LossFactor = 0,
         
-        [JsonProperty("SaturatedExit")]
+        [System.Runtime.Serialization.EnumMember(Value="SaturatedExit")]
         SaturatedExit = 1,
     }
     
     public enum CoolingTower_VariableSpeed_Merkel_BlowdownCalculationMode
     {
         
-        [JsonProperty("ConcentrationRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConcentrationRatio")]
         ConcentrationRatio = 0,
         
-        [JsonProperty("ScheduledRate")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledRate")]
         ScheduledRate = 1,
     }
     
     public enum CoolingTower_VariableSpeed_Merkel_CellControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MaximalCell")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximalCell")]
         MaximalCell = 1,
         
-        [JsonProperty("MinimalCell")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimalCell")]
         MinimalCell = 2,
     }
     
     [Description(@"This open wet tower model is based on purely empirical algorithms derived from manufacturer's performance data or field measurements. The user can select from two existing algorithms (CoolTools or YorkCalc), or they can enter their own correlation for approach temperature by using a variable speed tower model coefficient object. For a multi-cell tower, the capacity and air/water flow rate inputs are for the entire tower.")]
-    [JsonObject("CoolingTower:VariableSpeed")]
     public class CoolingTower_VariableSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -903,6 +912,7 @@ public string WaterOutletNodeName { get; set; } = "";
 [Description("Determines the coefficients and form of the equation for calculating approach tem" +
     "perature")]
 [JsonProperty("model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_VariableSpeed_ModelType ModelType { get; set; } = (CoolingTower_VariableSpeed_ModelType)Enum.Parse(typeof(CoolingTower_VariableSpeed_ModelType), "YorkCalc");
         
 
@@ -984,6 +994,7 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [JsonProperty("evaporation_loss_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_VariableSpeed_EvaporationLossMode EvaporationLossMode { get; set; } = (CoolingTower_VariableSpeed_EvaporationLossMode)Enum.Parse(typeof(CoolingTower_VariableSpeed_EvaporationLossMode), "LossFactor");
         
 
@@ -999,6 +1010,7 @@ public System.Nullable<float> DriftLossPercent { get; set; } = null;
         
 
 [JsonProperty("blowdown_calculation_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_VariableSpeed_BlowdownCalculationMode BlowdownCalculationMode { get; set; } = (CoolingTower_VariableSpeed_BlowdownCalculationMode)Enum.Parse(typeof(CoolingTower_VariableSpeed_BlowdownCalculationMode), "ConcentrationRatio");
         
 
@@ -1026,6 +1038,7 @@ public System.Nullable<float> NumberOfCells { get; set; } = (System.Nullable<flo
         
 
 [JsonProperty("cell_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_VariableSpeed_CellControl CellControl { get; set; } = (CoolingTower_VariableSpeed_CellControl)Enum.Parse(typeof(CoolingTower_VariableSpeed_CellControl), "MinimalCell");
         
 
@@ -1053,59 +1066,58 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum CoolingTower_VariableSpeed_ModelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CoolToolsCrossFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolToolsCrossFlow")]
         CoolToolsCrossFlow = 1,
         
-        [JsonProperty("CoolToolsUserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolToolsUserDefined")]
         CoolToolsUserDefined = 2,
         
-        [JsonProperty("YorkCalc")]
+        [System.Runtime.Serialization.EnumMember(Value="YorkCalc")]
         YorkCalc = 3,
         
-        [JsonProperty("YorkCalcUserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="YorkCalcUserDefined")]
         YorkCalcUserDefined = 4,
     }
     
     public enum CoolingTower_VariableSpeed_EvaporationLossMode
     {
         
-        [JsonProperty("LossFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="LossFactor")]
         LossFactor = 0,
         
-        [JsonProperty("SaturatedExit")]
+        [System.Runtime.Serialization.EnumMember(Value="SaturatedExit")]
         SaturatedExit = 1,
     }
     
     public enum CoolingTower_VariableSpeed_BlowdownCalculationMode
     {
         
-        [JsonProperty("ConcentrationRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConcentrationRatio")]
         ConcentrationRatio = 0,
         
-        [JsonProperty("ScheduledRate")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledRate")]
         ScheduledRate = 1,
     }
     
     public enum CoolingTower_VariableSpeed_CellControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MaximalCell")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximalCell")]
         MaximalCell = 1,
         
-        [JsonProperty("MinimalCell")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimalCell")]
         MinimalCell = 2,
     }
     
     [Description("This object is used to define coefficients for the approach temperature correlati" +
         "on for a variable speed cooling tower when tower Model Type is specified as Cool" +
         "ToolsUserDefined in the object CoolingTower:VariableSpeed.")]
-    [JsonObject("CoolingTowerPerformance:CoolTools")]
     public class CoolingTowerPerformance_CoolTools : BHoMObject, IEnergyPlusClass
     {
         
@@ -1295,7 +1307,6 @@ public System.Nullable<float> Coefficient35 { get; set; } = null;
     [Description("This object is used to define coefficients for the approach temperature correlati" +
         "on for a variable speed cooling tower when tower Model Type is specified as York" +
         "CalcUserDefined in the object CoolingTower:VariableSpeed.")]
-    [JsonObject("CoolingTowerPerformance:YorkCalc")]
     public class CoolingTowerPerformance_YorkCalc : BHoMObject, IEnergyPlusClass
     {
         
@@ -1459,7 +1470,6 @@ public System.Nullable<float> Coefficient27 { get; set; } = null;
     [Description("This model is based on Merkel\'s theory, which is also the basis for the cooling t" +
         "ower model in EnergyPlus. The Evaporative fluid cooler is modeled as a counter f" +
         "low heat exchanger.")]
-    [JsonObject("EvaporativeFluidCooler:SingleSpeed")]
     public class EvaporativeFluidCooler_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -1491,6 +1501,7 @@ public System.Nullable<float> DesignSprayWaterFlowRate { get; set; } = null;
     "A and the Design Water Flow Rate, or by specifying the fluid cooler Standard Des" +
     "ign Capacity or by specifying Design Capacity for Non standard conditions.")]
 [JsonProperty("performance_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EvaporativeFluidCooler_SingleSpeed_PerformanceInputMethod PerformanceInputMethod { get; set; } = (EvaporativeFluidCooler_SingleSpeed_PerformanceInputMethod)Enum.Parse(typeof(EvaporativeFluidCooler_SingleSpeed_PerformanceInputMethod), "StandardDesignCapacity");
         
 
@@ -1548,6 +1559,7 @@ public System.Nullable<float> DesignEnteringAirWetBulbTemperature { get; set; } 
         
 
 [JsonProperty("capacity_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EvaporativeFluidCooler_SingleSpeed_CapacityControl CapacityControl { get; set; } = (EvaporativeFluidCooler_SingleSpeed_CapacityControl)Enum.Parse(typeof(EvaporativeFluidCooler_SingleSpeed_CapacityControl), "FanCycling");
         
 
@@ -1557,6 +1569,7 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
         
 
 [JsonProperty("evaporation_loss_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EvaporativeFluidCooler_SingleSpeed_EvaporationLossMode EvaporationLossMode { get; set; } = (EvaporativeFluidCooler_SingleSpeed_EvaporationLossMode)Enum.Parse(typeof(EvaporativeFluidCooler_SingleSpeed_EvaporationLossMode), "SaturatedExit");
         
 
@@ -1575,6 +1588,7 @@ public System.Nullable<float> DriftLossPercent { get; set; } = (System.Nullable<
         
 
 [JsonProperty("blowdown_calculation_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EvaporativeFluidCooler_SingleSpeed_BlowdownCalculationMode BlowdownCalculationMode { get; set; } = (EvaporativeFluidCooler_SingleSpeed_BlowdownCalculationMode)Enum.Parse(typeof(EvaporativeFluidCooler_SingleSpeed_BlowdownCalculationMode), "ConcentrationRatio");
         
 
@@ -1595,59 +1609,58 @@ public string SupplyWaterStorageTankName { get; set; } = "";
     public enum EvaporativeFluidCooler_SingleSpeed_PerformanceInputMethod
     {
         
-        [JsonProperty("StandardDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="StandardDesignCapacity")]
         StandardDesignCapacity = 0,
         
-        [JsonProperty("UFactorTimesAreaAndDesignWaterFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="UFactorTimesAreaAndDesignWaterFlowRate")]
         UFactorTimesAreaAndDesignWaterFlowRate = 1,
         
-        [JsonProperty("UserSpecifiedDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="UserSpecifiedDesignCapacity")]
         UserSpecifiedDesignCapacity = 2,
     }
     
     public enum EvaporativeFluidCooler_SingleSpeed_CapacityControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FanCycling")]
+        [System.Runtime.Serialization.EnumMember(Value="FanCycling")]
         FanCycling = 1,
         
-        [JsonProperty("FluidBypass")]
+        [System.Runtime.Serialization.EnumMember(Value="FluidBypass")]
         FluidBypass = 2,
     }
     
     public enum EvaporativeFluidCooler_SingleSpeed_EvaporationLossMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LossFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="LossFactor")]
         LossFactor = 1,
         
-        [JsonProperty("SaturatedExit")]
+        [System.Runtime.Serialization.EnumMember(Value="SaturatedExit")]
         SaturatedExit = 2,
     }
     
     public enum EvaporativeFluidCooler_SingleSpeed_BlowdownCalculationMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConcentrationRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConcentrationRatio")]
         ConcentrationRatio = 1,
         
-        [JsonProperty("ScheduledRate")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledRate")]
         ScheduledRate = 2,
     }
     
     [Description("This model is based on Merkel\'s theory, which is also the basis for the cooling t" +
         "ower model in EnergyPlus. The Evaporative fluid cooler is modeled as a counter f" +
         "low heat exchanger.")]
-    [JsonObject("EvaporativeFluidCooler:TwoSpeed")]
     public class EvaporativeFluidCooler_TwoSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -1699,6 +1712,7 @@ public System.Nullable<float> DesignSprayWaterFlowRate { get; set; } = null;
     "A and the Design Water Flow Rate, or by specifying the fluid cooler Standard Des" +
     "ign Capacity or by specifying Design Capacity for Non standard conditions.")]
 [JsonProperty("performance_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EvaporativeFluidCooler_TwoSpeed_PerformanceInputMethod PerformanceInputMethod { get; set; } = (EvaporativeFluidCooler_TwoSpeed_PerformanceInputMethod)Enum.Parse(typeof(EvaporativeFluidCooler_TwoSpeed_PerformanceInputMethod), "StandardDesignCapacity");
         
 
@@ -1795,6 +1809,7 @@ public System.Nullable<float> HighSpeedSizingFactor { get; set; } = (System.Null
         
 
 [JsonProperty("evaporation_loss_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EvaporativeFluidCooler_TwoSpeed_EvaporationLossMode EvaporationLossMode { get; set; } = (EvaporativeFluidCooler_TwoSpeed_EvaporationLossMode)Enum.Parse(typeof(EvaporativeFluidCooler_TwoSpeed_EvaporationLossMode), "SaturatedExit");
         
 
@@ -1812,6 +1827,7 @@ public System.Nullable<float> DriftLossPercent { get; set; } = (System.Nullable<
         
 
 [JsonProperty("blowdown_calculation_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EvaporativeFluidCooler_TwoSpeed_BlowdownCalculationMode BlowdownCalculationMode { get; set; } = (EvaporativeFluidCooler_TwoSpeed_BlowdownCalculationMode)Enum.Parse(typeof(EvaporativeFluidCooler_TwoSpeed_BlowdownCalculationMode), "ConcentrationRatio");
         
 
@@ -1832,45 +1848,44 @@ public string SupplyWaterStorageTankName { get; set; } = "";
     public enum EvaporativeFluidCooler_TwoSpeed_PerformanceInputMethod
     {
         
-        [JsonProperty("StandardDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="StandardDesignCapacity")]
         StandardDesignCapacity = 0,
         
-        [JsonProperty("UFactorTimesAreaAndDesignWaterFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="UFactorTimesAreaAndDesignWaterFlowRate")]
         UFactorTimesAreaAndDesignWaterFlowRate = 1,
         
-        [JsonProperty("UserSpecifiedDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="UserSpecifiedDesignCapacity")]
         UserSpecifiedDesignCapacity = 2,
     }
     
     public enum EvaporativeFluidCooler_TwoSpeed_EvaporationLossMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LossFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="LossFactor")]
         LossFactor = 1,
         
-        [JsonProperty("SaturatedExit")]
+        [System.Runtime.Serialization.EnumMember(Value="SaturatedExit")]
         SaturatedExit = 2,
     }
     
     public enum EvaporativeFluidCooler_TwoSpeed_BlowdownCalculationMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConcentrationRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConcentrationRatio")]
         ConcentrationRatio = 1,
         
-        [JsonProperty("ScheduledRate")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledRate")]
         ScheduledRate = 2,
     }
     
     [Description("The fluid cooler is modeled as a cross flow heat exchanger (both streams unmixed)" +
         " with single-speed fans (induced draft configuration).")]
-    [JsonObject("FluidCooler:SingleSpeed")]
     public class FluidCooler_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -1889,6 +1904,7 @@ public string WaterOutletNodeName { get; set; } = "";
     "A and the Design Water Flow Rate, or by specifying the fluid cooler nominal capa" +
     "city")]
 [JsonProperty("performance_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidCooler_SingleSpeed_PerformanceInputMethod PerformanceInputMethod { get; set; } = (FluidCooler_SingleSpeed_PerformanceInputMethod)Enum.Parse(typeof(FluidCooler_SingleSpeed_PerformanceInputMethod), "NominalCapacity");
         
 
@@ -1943,19 +1959,18 @@ public string OutdoorAirInletNodeName { get; set; } = "";
     public enum FluidCooler_SingleSpeed_PerformanceInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NominalCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="NominalCapacity")]
         NominalCapacity = 1,
         
-        [JsonProperty("UFactorTimesAreaAndDesignWaterFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="UFactorTimesAreaAndDesignWaterFlowRate")]
         UFactorTimesAreaAndDesignWaterFlowRate = 2,
     }
     
     [Description("The fluid cooler is modeled as a cross flow heat exchanger (both streams unmixed)" +
         " with two-speed fans (induced draft configuration).")]
-    [JsonObject("FluidCooler:TwoSpeed")]
     public class FluidCooler_TwoSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -1974,6 +1989,7 @@ public string WaterOutletNodeName { get; set; } = "";
     "A and the Design Water Flow Rate, or by specifying the fluid cooler nominal capa" +
     "city")]
 [JsonProperty("performance_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidCooler_TwoSpeed_PerformanceInputMethod PerformanceInputMethod { get; set; } = (FluidCooler_TwoSpeed_PerformanceInputMethod)Enum.Parse(typeof(FluidCooler_TwoSpeed_PerformanceInputMethod), "NominalCapacity");
         
 
@@ -2073,20 +2089,19 @@ public string OutdoorAirInletNodeName { get; set; } = "";
     public enum FluidCooler_TwoSpeed_PerformanceInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NominalCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="NominalCapacity")]
         NominalCapacity = 1,
         
-        [JsonProperty("UFactorTimesAreaAndDesignWaterFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="UFactorTimesAreaAndDesignWaterFlowRate")]
         UFactorTimesAreaAndDesignWaterFlowRate = 2,
     }
     
     [Description("Models vertical ground heat exchangers systems using the response factor approach" +
         " developed by Eskilson. Response factors are calculated using a finite line sour" +
         "ce model assuming uniform heat flux at the borehole wall.")]
-    [JsonObject("GroundHeatExchanger:System")]
     public class GroundHeatExchanger_System : BHoMObject, IEnergyPlusClass
     {
         
@@ -2104,6 +2119,7 @@ public System.Nullable<float> DesignFlowRate { get; set; } = null;
         
 
 [JsonProperty("undisturbed_ground_temperature_model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatExchanger_System_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (GroundHeatExchanger_System_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(GroundHeatExchanger_System_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
@@ -2134,18 +2150,17 @@ public string VerticalWellLocations { get; set; } = "";
     public enum GroundHeatExchanger_System_UndisturbedGroundTemperatureModelType
     {
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:FiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:FiniteDifference")]
         SiteGroundTemperatureUndisturbedFiniteDifference = 0,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
         SiteGroundTemperatureUndisturbedKusudaAchenbach = 1,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:Xing")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:Xing")]
         SiteGroundTemperatureUndisturbedXing = 2,
     }
     
     [Description("Properties for vertical ground heat exchanger systems")]
-    [JsonObject("GroundHeatExchanger:Vertical:Properties")]
     public class GroundHeatExchanger_Vertical_Properties : BHoMObject, IEnergyPlusClass
     {
         
@@ -2191,7 +2206,6 @@ public System.Nullable<float> UTubeDistance { get; set; } = null;
     }
     
     [Description(null)]
-    [JsonObject("GroundHeatExchanger:Vertical:Array")]
     public class GroundHeatExchanger_Vertical_Array : BHoMObject, IEnergyPlusClass
     {
         
@@ -2213,7 +2227,6 @@ public System.Nullable<float> BoreholeSpacing { get; set; } = null;
     }
     
     [Description(null)]
-    [JsonObject("GroundHeatExchanger:Vertical:Single")]
     public class GroundHeatExchanger_Vertical_Single : BHoMObject, IEnergyPlusClass
     {
         
@@ -2232,7 +2245,6 @@ public System.Nullable<float> YLocation { get; set; } = null;
     
     [Description("Response factor definitions from third-party tool, commonly referred to a \"g-func" +
         "tions\"")]
-    [JsonObject("GroundHeatExchanger:ResponseFactors")]
     public class GroundHeatExchanger_ResponseFactors : BHoMObject, IEnergyPlusClass
     {
         
@@ -2256,7 +2268,6 @@ public string GFunctions { get; set; } = "";
     [Description("A model of a shallow pond with immersed pipe loops. Typically used in hybrid geot" +
         "hermal systems and included in the condenser loop. This component may also be us" +
         "ed as a simple solar collector.")]
-    [JsonObject("GroundHeatExchanger:Pond")]
     public class GroundHeatExchanger_Pond : BHoMObject, IEnergyPlusClass
     {
         
@@ -2302,7 +2313,6 @@ public System.Nullable<float> LengthOfEachTubingCircuit { get; set; } = null;
     }
     
     [Description(@"A hydronic surface/panel consisting of a multi-layer construction with embedded rows of tubes. Typically used in hybrid geothermal systems and included in the condenser loop. This component may also be used as a simple solar collector. The bottom surface may be defined as ground-coupled or exposed to wind (eg. bridge deck).")]
-    [JsonObject("GroundHeatExchanger:Surface")]
     public class GroundHeatExchanger_Surface : BHoMObject, IEnergyPlusClass
     {
         
@@ -2340,26 +2350,26 @@ public System.Nullable<float> SurfaceWidth { get; set; } = null;
         
 
 [JsonProperty("lower_surface_environment")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatExchanger_Surface_LowerSurfaceEnvironment LowerSurfaceEnvironment { get; set; } = (GroundHeatExchanger_Surface_LowerSurfaceEnvironment)Enum.Parse(typeof(GroundHeatExchanger_Surface_LowerSurfaceEnvironment), "Ground");
     }
     
     public enum GroundHeatExchanger_Surface_LowerSurfaceEnvironment
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Exposed")]
+        [System.Runtime.Serialization.EnumMember(Value="Exposed")]
         Exposed = 1,
         
-        [JsonProperty("Ground")]
+        [System.Runtime.Serialization.EnumMember(Value="Ground")]
         Ground = 2,
     }
     
     [Description("This models a horizontal heat exchanger placed in a series of trenches The model " +
         "uses the PipingSystem:Underground underlying algorithms, but provides a more usa" +
         "ble input interface.")]
-    [JsonObject("GroundHeatExchanger:HorizontalTrench")]
     public class GroundHeatExchanger_HorizontalTrench : BHoMObject, IEnergyPlusClass
     {
         
@@ -2441,6 +2451,7 @@ public System.Nullable<float> SoilMoistureContentPercentAtSaturation { get; set;
         
 
 [JsonProperty("undisturbed_ground_temperature_model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatExchanger_HorizontalTrench_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (GroundHeatExchanger_HorizontalTrench_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(GroundHeatExchanger_HorizontalTrench_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
@@ -2456,18 +2467,17 @@ public System.Nullable<float> EvapotranspirationGroundCoverParameter { get; set;
     public enum GroundHeatExchanger_HorizontalTrench_UndisturbedGroundTemperatureModelType
     {
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:FiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:FiniteDifference")]
         SiteGroundTemperatureUndisturbedFiniteDifference = 0,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
         SiteGroundTemperatureUndisturbedKusudaAchenbach = 1,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:Xing")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:Xing")]
         SiteGroundTemperatureUndisturbedXing = 2,
     }
     
     [Description(@"This models a slinky horizontal heat exchanger placed in a series of trenches The model uses the model developed by: Xiong, Z., D.E. Fisher, and J.D. Spitler. 2015. Development and Validation of a Slinky Ground Heat Exchanger Model. Applied Energy 141: 57-69.")]
-    [JsonObject("GroundHeatExchanger:Slinky")]
     public class GroundHeatExchanger_Slinky : BHoMObject, IEnergyPlusClass
     {
         
@@ -2518,6 +2528,7 @@ public System.Nullable<float> PipeThickness { get; set; } = (System.Nullable<flo
 
 [Description("This is the orientation of the heat exchanger")]
 [JsonProperty("heat_exchanger_configuration")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatExchanger_Slinky_HeatExchangerConfiguration HeatExchangerConfiguration { get; set; } = (GroundHeatExchanger_Slinky_HeatExchangerConfiguration)Enum.Parse(typeof(GroundHeatExchanger_Slinky_HeatExchangerConfiguration), "Horizontal");
         
 
@@ -2555,6 +2566,7 @@ public System.Nullable<float> HorizontalSpacingBetweenPipes { get; set; } = (Sys
         
 
 [JsonProperty("undisturbed_ground_temperature_model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatExchanger_Slinky_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (GroundHeatExchanger_Slinky_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(GroundHeatExchanger_Slinky_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
@@ -2569,30 +2581,29 @@ public System.Nullable<float> MaximumLengthOfSimulation { get; set; } = null;
     public enum GroundHeatExchanger_Slinky_HeatExchangerConfiguration
     {
         
-        [JsonProperty("Horizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="Horizontal")]
         Horizontal = 0,
         
-        [JsonProperty("Vertical")]
+        [System.Runtime.Serialization.EnumMember(Value="Vertical")]
         Vertical = 1,
     }
     
     public enum GroundHeatExchanger_Slinky_UndisturbedGroundTemperatureModelType
     {
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:FiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:FiniteDifference")]
         SiteGroundTemperatureUndisturbedFiniteDifference = 0,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
         SiteGroundTemperatureUndisturbedKusudaAchenbach = 1,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:Xing")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:Xing")]
         SiteGroundTemperatureUndisturbedXing = 2,
     }
     
     [Description("A fluid/fluid heat exchanger designed to couple the supply side of one loop to th" +
         "e demand side of another loop Loops can be either plant or condenser loops but n" +
         "o air side connections are allowed")]
-    [JsonObject("HeatExchanger:FluidToFluid")]
     public class HeatExchanger_FluidToFluid : BHoMObject, IEnergyPlusClass
     {
         
@@ -2632,6 +2643,7 @@ public string LoopSupplySideDesignFlowRate { get; set; } = "";
         
 
 [JsonProperty("heat_exchange_model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_FluidToFluid_HeatExchangeModelType HeatExchangeModelType { get; set; } = (HeatExchanger_FluidToFluid_HeatExchangeModelType)Enum.Parse(typeof(HeatExchanger_FluidToFluid_HeatExchangeModelType), "Ideal");
         
 
@@ -2640,6 +2652,7 @@ public string HeatExchangerUFactorTimesAreaValue { get; set; } = "";
         
 
 [JsonProperty("control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_FluidToFluid_ControlType ControlType { get; set; } = (HeatExchanger_FluidToFluid_ControlType)Enum.Parse(typeof(HeatExchanger_FluidToFluid_ControlType), "UncontrolledOn");
         
 
@@ -2656,6 +2669,7 @@ public System.Nullable<float> MinimumTemperatureDifferenceToActivateHeatExchange
 
 [Description("This field controls end use reporting for heat transfer meters")]
 [JsonProperty("heat_transfer_metering_end_use_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_FluidToFluid_HeatTransferMeteringEndUseType HeatTransferMeteringEndUseType { get; set; } = (HeatExchanger_FluidToFluid_HeatTransferMeteringEndUseType)Enum.Parse(typeof(HeatExchanger_FluidToFluid_HeatTransferMeteringEndUseType), "LoopToLoop");
         
 
@@ -2674,6 +2688,7 @@ public string ComponentOverrideLoopDemandSideInletNodeName { get; set; } = "";
 [Description("This field is only used if Control Type is set to CoolingSetpointOnOffWithCompone" +
     "ntOverride")]
 [JsonProperty("component_override_cooling_control_temperature_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_FluidToFluid_ComponentOverrideCoolingControlTemperatureMode ComponentOverrideCoolingControlTemperatureMode { get; set; } = (HeatExchanger_FluidToFluid_ComponentOverrideCoolingControlTemperatureMode)Enum.Parse(typeof(HeatExchanger_FluidToFluid_ComponentOverrideCoolingControlTemperatureMode), "Loop");
         
 
@@ -2697,109 +2712,109 @@ public System.Nullable<float> OperationMaximumTemperatureLimit { get; set; } = n
     public enum HeatExchanger_FluidToFluid_HeatExchangeModelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CounterFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="CounterFlow")]
         CounterFlow = 1,
         
-        [JsonProperty("CrossFlowBothMixed")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlowBothMixed")]
         CrossFlowBothMixed = 2,
         
-        [JsonProperty("CrossFlowBothUnMixed")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlowBothUnMixed")]
         CrossFlowBothUnMixed = 3,
         
-        [JsonProperty("CrossFlowSupplyMixedDemandUnMixed")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlowSupplyMixedDemandUnMixed")]
         CrossFlowSupplyMixedDemandUnMixed = 4,
         
-        [JsonProperty("CrossFlowSupplyUnMixedDemandMixed")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlowSupplyUnMixedDemandMixed")]
         CrossFlowSupplyUnMixedDemandMixed = 5,
         
-        [JsonProperty("Ideal")]
+        [System.Runtime.Serialization.EnumMember(Value="Ideal")]
         Ideal = 6,
         
-        [JsonProperty("ParallelFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ParallelFlow")]
         ParallelFlow = 7,
     }
     
     public enum HeatExchanger_FluidToFluid_ControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CoolingDifferentialOnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingDifferentialOnOff")]
         CoolingDifferentialOnOff = 1,
         
-        [JsonProperty("CoolingSetpointModulated")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingSetpointModulated")]
         CoolingSetpointModulated = 2,
         
-        [JsonProperty("CoolingSetpointOnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingSetpointOnOff")]
         CoolingSetpointOnOff = 3,
         
-        [JsonProperty("CoolingSetpointOnOffWithComponentOverride")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingSetpointOnOffWithComponentOverride")]
         CoolingSetpointOnOffWithComponentOverride = 4,
         
-        [JsonProperty("DualDeadbandSetpointModulated")]
+        [System.Runtime.Serialization.EnumMember(Value="DualDeadbandSetpointModulated")]
         DualDeadbandSetpointModulated = 5,
         
-        [JsonProperty("DualDeadbandSetpointOnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="DualDeadbandSetpointOnOff")]
         DualDeadbandSetpointOnOff = 6,
         
-        [JsonProperty("HeatingSetpointModulated")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingSetpointModulated")]
         HeatingSetpointModulated = 7,
         
-        [JsonProperty("HeatingSetpointOnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingSetpointOnOff")]
         HeatingSetpointOnOff = 8,
         
-        [JsonProperty("OperationSchemeModulated")]
+        [System.Runtime.Serialization.EnumMember(Value="OperationSchemeModulated")]
         OperationSchemeModulated = 9,
         
-        [JsonProperty("OperationSchemeOnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="OperationSchemeOnOff")]
         OperationSchemeOnOff = 10,
         
-        [JsonProperty("UncontrolledOn")]
+        [System.Runtime.Serialization.EnumMember(Value="UncontrolledOn")]
         UncontrolledOn = 11,
     }
     
     public enum HeatExchanger_FluidToFluid_HeatTransferMeteringEndUseType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FreeCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="FreeCooling")]
         FreeCooling = 1,
         
-        [JsonProperty("HeatRecovery")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecovery")]
         HeatRecovery = 2,
         
-        [JsonProperty("HeatRecoveryForCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecoveryForCooling")]
         HeatRecoveryForCooling = 3,
         
-        [JsonProperty("HeatRecoveryForHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecoveryForHeating")]
         HeatRecoveryForHeating = 4,
         
-        [JsonProperty("HeatRejection")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRejection")]
         HeatRejection = 5,
         
-        [JsonProperty("LoopToLoop")]
+        [System.Runtime.Serialization.EnumMember(Value="LoopToLoop")]
         LoopToLoop = 6,
     }
     
     public enum HeatExchanger_FluidToFluid_ComponentOverrideCoolingControlTemperatureMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="DryBulbTemperature")]
         DryBulbTemperature = 1,
         
-        [JsonProperty("Loop")]
+        [System.Runtime.Serialization.EnumMember(Value="Loop")]
         Loop = 2,
         
-        [JsonProperty("WetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbTemperature")]
         WetBulbTemperature = 3,
     }
 }

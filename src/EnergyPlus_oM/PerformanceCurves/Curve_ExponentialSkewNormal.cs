@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"Exponential-modified skew normal curve with one independent variable. Input consists of the curve name, the four coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = see Input Output Reference")]
-    [JsonObject("Curve:ExponentialSkewNormal")]
     public class Curve_ExponentialSkewNormal : BHoMObject, IEnergyPlusClass
     {
         
@@ -46,10 +45,12 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
         
 
         [JsonProperty("input_unit_type_for_x")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_ExponentialSkewNormal_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_ExponentialSkewNormal_InputUnitTypeForX)Enum.Parse(typeof(Curve_ExponentialSkewNormal_InputUnitTypeForX), "Dimensionless");
         
 
         [JsonProperty("output_unit_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_ExponentialSkewNormal_OutputUnitType OutputUnitType { get; set; } = (Curve_ExponentialSkewNormal_OutputUnitType)Enum.Parse(typeof(Curve_ExponentialSkewNormal_OutputUnitType), "Dimensionless");
     }
 }

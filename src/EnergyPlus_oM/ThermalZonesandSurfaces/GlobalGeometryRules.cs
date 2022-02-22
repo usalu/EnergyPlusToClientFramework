@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     
     [Description("Specifies the geometric rules used to describe the input of surface vertices and " +
         "daylighting reference points.")]
-    [JsonObject("GlobalGeometryRules")]
     public class GlobalGeometryRules : BHoMObject, IEnergyPlusClass
     {
         
@@ -76,28 +75,33 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     "ed from outside the surface Shading surfaces as viewed from behind. (towards wha" +
     "t they are shading)")]
 [JsonProperty("starting_vertex_position")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GlobalGeometryRules_StartingVertexPosition StartingVertexPosition { get; set; } = (GlobalGeometryRules_StartingVertexPosition)Enum.Parse(typeof(GlobalGeometryRules_StartingVertexPosition), "LowerLeftCorner");
         
 
 [JsonProperty("vertex_entry_direction")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GlobalGeometryRules_VertexEntryDirection VertexEntryDirection { get; set; } = (GlobalGeometryRules_VertexEntryDirection)Enum.Parse(typeof(GlobalGeometryRules_VertexEntryDirection), "Clockwise");
         
 
 [Description("Relative -- coordinates are entered relative to zone origin World -- all coordina" +
     "tes entered are \"absolute\" for this facility")]
 [JsonProperty("coordinate_system")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GlobalGeometryRules_CoordinateSystem CoordinateSystem { get; set; } = (GlobalGeometryRules_CoordinateSystem)Enum.Parse(typeof(GlobalGeometryRules_CoordinateSystem), "Relative");
         
 
 [Description("Relative -- coordinates are entered relative to zone origin World -- all coordina" +
     "tes entered are \"absolute\" for this facility")]
 [JsonProperty("daylighting_reference_point_coordinate_system")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GlobalGeometryRules_DaylightingReferencePointCoordinateSystem DaylightingReferencePointCoordinateSystem { get; set; } = (GlobalGeometryRules_DaylightingReferencePointCoordinateSystem)Enum.Parse(typeof(GlobalGeometryRules_DaylightingReferencePointCoordinateSystem), "Relative");
         
 
 [Description("Relative -- Starting corner is entered relative to zone origin World -- Starting " +
     "corner is entered in \"absolute\"")]
 [JsonProperty("rectangular_surface_coordinate_system")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GlobalGeometryRules_RectangularSurfaceCoordinateSystem RectangularSurfaceCoordinateSystem { get; set; } = (GlobalGeometryRules_RectangularSurfaceCoordinateSystem)Enum.Parse(typeof(GlobalGeometryRules_RectangularSurfaceCoordinateSystem), "Relative");
     }
 }

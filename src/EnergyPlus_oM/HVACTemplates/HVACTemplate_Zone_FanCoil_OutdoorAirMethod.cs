@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Zone_FanCoil_OutdoorAirMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DetailedSpecification")]
+        [System.Runtime.Serialization.EnumMember(Value="DetailedSpecification")]
         DetailedSpecification = 1,
         
-        [JsonProperty("Flow/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Area")]
         FlowArea = 2,
         
-        [JsonProperty("Flow/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Person")]
         FlowPerson = 3,
         
-        [JsonProperty("Flow/Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Zone")]
         FlowZone = 4,
         
-        [JsonProperty("Maximum")]
+        [System.Runtime.Serialization.EnumMember(Value="Maximum")]
         Maximum = 5,
         
-        [JsonProperty("Sum")]
+        [System.Runtime.Serialization.EnumMember(Value="Sum")]
         Sum = 6,
     }
 }

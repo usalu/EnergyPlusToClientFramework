@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_WaterToAirHeatPump_SupplyAirFanObjectType
     {
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 0,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 1,
     }
 }

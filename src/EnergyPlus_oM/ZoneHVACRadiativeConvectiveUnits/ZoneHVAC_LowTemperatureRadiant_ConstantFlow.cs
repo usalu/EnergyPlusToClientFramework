@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
     [Description("Low temperature hydronic radiant heating and/or cooling system embedded in a buil" +
                  "ding surface (wall, ceiling, or floor). Controlled by varying the hot or chilled" +
                  " water temperature circulating through the unit.")]
-    [JsonObject("ZoneHVAC:LowTemperatureRadiant:ConstantFlow")]
     public class ZoneHVAC_LowTemperatureRadiant_ConstantFlow : BHoMObject, IEnergyPlusClass
     {
         
@@ -111,6 +110,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
         
 
         [JsonProperty("number_of_circuits")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits NumberOfCircuits { get; set; } = (ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits), "OnePerSurface");
         
 

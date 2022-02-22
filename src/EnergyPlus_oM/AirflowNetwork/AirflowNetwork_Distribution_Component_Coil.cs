@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines the name of a coil used in an air loop.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:Coil")]
     public class AirflowNetwork_Distribution_Component_Coil : BHoMObject, IEnergyPlusClass
     {
         
@@ -18,6 +17,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 
         [Description("Select the type of coil corresponding to the name entered in the field above.")]
         [JsonProperty("coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirflowNetwork_Distribution_Component_Coil_CoilObjectType CoilObjectType { get; set; } = (AirflowNetwork_Distribution_Component_Coil_CoilObjectType)Enum.Parse(typeof(AirflowNetwork_Distribution_Component_Coil_CoilObjectType), "CoilCoolingDX");
         
 

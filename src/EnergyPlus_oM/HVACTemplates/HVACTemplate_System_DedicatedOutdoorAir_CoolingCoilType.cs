@@ -1,35 +1,33 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_DedicatedOutdoorAir_CoolingCoilType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ChilledWater")]
+        [System.Runtime.Serialization.EnumMember(Value="ChilledWater")]
         ChilledWater = 1,
         
-        [JsonProperty("ChilledWaterDetailedFlatModel")]
+        [System.Runtime.Serialization.EnumMember(Value="ChilledWaterDetailedFlatModel")]
         ChilledWaterDetailedFlatModel = 2,
         
-        [JsonProperty("HeatExchangerAssistedChilledWater")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchangerAssistedChilledWater")]
         HeatExchangerAssistedChilledWater = 3,
         
-        [JsonProperty("HeatExchangerAssistedDX")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchangerAssistedDX")]
         HeatExchangerAssistedDX = 4,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 5,
         
-        [JsonProperty("TwoSpeedDX")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoSpeedDX")]
         TwoSpeedDX = 6,
         
-        [JsonProperty("TwoStageDX")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoStageDX")]
         TwoStageDX = 7,
         
-        [JsonProperty("TwoStageHumidityControlDX")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoStageHumidityControlDX")]
         TwoStageHumidityControlDX = 8,
     }
 }

@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Fans
 {
     public enum Fan_SystemModel_DesignPowerSizingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("PowerPerFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlow")]
         PowerPerFlow = 1,
         
-        [JsonProperty("PowerPerFlowPerPressure")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlowPerPressure")]
         PowerPerFlowPerPressure = 2,
         
-        [JsonProperty("TotalEfficiencyAndPressure")]
+        [System.Runtime.Serialization.EnumMember(Value="TotalEfficiencyAndPressure")]
         TotalEfficiencyAndPressure = 3,
     }
 }

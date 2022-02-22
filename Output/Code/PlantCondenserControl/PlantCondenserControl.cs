@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
     
     
     [Description(@"List plant equipment in order of operating priority, 1st in list will be used 1st, etc Use only plant equipment in this list. If no equipment object types and equipment names are specified, then the corresponding PlantEquipmentOperation:* object will assume all available plant equipment for the loop should be OFF (not operate) within the specified lower/upper limit.")]
-    [JsonObject("PlantEquipmentList")]
     public class PlantEquipmentList : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,7 +76,6 @@ public string Equipment { get; set; } = "";
     }
     
     [Description(@"List condenser equipment in order of operating priority, 1st in list will be used 1st, etc Use only condenser equipment in this list. If no equipment object types and equipment names are specified, then the corresponding PlantEquipmentOperation:* object will assume all available condenser equipment for the loop should be OFF (not operate) within the specified lower/upper limit.")]
-    [JsonObject("CondenserEquipmentList")]
     public class CondenserEquipmentList : BHoMObject, IEnergyPlusClass
     {
         
@@ -89,7 +87,6 @@ public string Equipment { get; set; } = "";
     [Description("Plant equipment operation scheme for uncontrolled operation. Specifies a group of" +
         " equipment that runs if the loop is active, unless turned off by the loop flow r" +
         "esolver to maintain continuity in the fluid loop.")]
-    [JsonObject("PlantEquipmentOperation:Uncontrolled")]
     public class PlantEquipmentOperation_Uncontrolled : BHoMObject, IEnergyPlusClass
     {
         
@@ -101,7 +98,6 @@ public string EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for cooling load range operation. Specifies one " +
         "or more groups of equipment which are available to operate for successive coolin" +
         "g load ranges.")]
-    [JsonObject("PlantEquipmentOperation:CoolingLoad")]
     public class PlantEquipmentOperation_CoolingLoad : BHoMObject, IEnergyPlusClass
     {
         
@@ -229,7 +225,6 @@ public string Range10EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for heating load range operation. Specifies one " +
         "or more groups of equipment which are available to operate for successive heatin" +
         "g load ranges.")]
-    [JsonObject("PlantEquipmentOperation:HeatingLoad")]
     public class PlantEquipmentOperation_HeatingLoad : BHoMObject, IEnergyPlusClass
     {
         
@@ -357,7 +352,6 @@ public string Range10EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for outdoor dry-bulb temperature range operation" +
         ". Specifies one or more groups of equipment which are available to operate for s" +
         "uccessive outdoor dry-bulb temperature ranges.")]
-    [JsonObject("PlantEquipmentOperation:OutdoorDryBulb")]
     public class PlantEquipmentOperation_OutdoorDryBulb : BHoMObject, IEnergyPlusClass
     {
         
@@ -485,7 +479,6 @@ public string Range10EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for outdoor wet-bulb temperature range operation" +
         ". Specifies one or more groups of equipment which are available to operate for s" +
         "uccessive outdoor wet-bulb temperature ranges.")]
-    [JsonObject("PlantEquipmentOperation:OutdoorWetBulb")]
     public class PlantEquipmentOperation_OutdoorWetBulb : BHoMObject, IEnergyPlusClass
     {
         
@@ -613,7 +606,6 @@ public string Range10EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for outdoor relative humidity range operation. S" +
         "pecifies one or more groups of equipment which are available to operate for succ" +
         "essive outdoor relative humidity ranges.")]
-    [JsonObject("PlantEquipmentOperation:OutdoorRelativeHumidity")]
     public class PlantEquipmentOperation_OutdoorRelativeHumidity : BHoMObject, IEnergyPlusClass
     {
         
@@ -741,7 +733,6 @@ public string Range10EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for outdoor dewpoint temperature range operation" +
         ". Specifies one or more groups of equipment which are available to operate for s" +
         "uccessive outdoor dewpoint temperature ranges.")]
-    [JsonObject("PlantEquipmentOperation:OutdoorDewpoint")]
     public class PlantEquipmentOperation_OutdoorDewpoint : BHoMObject, IEnergyPlusClass
     {
         
@@ -869,7 +860,6 @@ public string Range10EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for component setpoint operation. Specifies one " +
         "or pieces of equipment which are controlled to meet the temperature setpoint at " +
         "the component outlet node.")]
-    [JsonObject("PlantEquipmentOperation:ComponentSetpoint")]
     public class PlantEquipmentOperation_ComponentSetpoint : BHoMObject, IEnergyPlusClass
     {
         
@@ -895,6 +885,7 @@ public string Component1FlowRate { get; set; } = "";
         
 
 [JsonProperty("operation_1_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation1Type Operation1Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation1Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation1Type), "Cooling");
         
 
@@ -919,6 +910,7 @@ public string Component2FlowRate { get; set; } = "";
         
 
 [JsonProperty("operation_2_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation2Type Operation2Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation2Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation2Type), "Cooling");
         
 
@@ -943,6 +935,7 @@ public string Component3FlowRate { get; set; } = "";
         
 
 [JsonProperty("operation_3_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation3Type Operation3Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation3Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation3Type), "Cooling");
         
 
@@ -967,6 +960,7 @@ public string Component4FlowRate { get; set; } = "";
         
 
 [JsonProperty("operation_4_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation4Type Operation4Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation4Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation4Type), "Cooling");
         
 
@@ -991,6 +985,7 @@ public string Component5FlowRate { get; set; } = "";
         
 
 [JsonProperty("operation_5_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation5Type Operation5Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation5Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation5Type), "Cooling");
         
 
@@ -1015,6 +1010,7 @@ public string Component6FlowRate { get; set; } = "";
         
 
 [JsonProperty("operation_6_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation6Type Operation6Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation6Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation6Type), "Cooling");
         
 
@@ -1039,6 +1035,7 @@ public string Component7FlowRate { get; set; } = "";
         
 
 [JsonProperty("operation_7_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation7Type Operation7Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation7Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation7Type), "Cooling");
         
 
@@ -1063,6 +1060,7 @@ public string Component8FlowRate { get; set; } = "";
         
 
 [JsonProperty("operation_8_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation8Type Operation8Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation8Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation8Type), "Cooling");
         
 
@@ -1087,6 +1085,7 @@ public string Component9FlowRate { get; set; } = "";
         
 
 [JsonProperty("operation_9_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation9Type Operation9Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation9Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation9Type), "Cooling");
         
 
@@ -1111,143 +1110,143 @@ public string Component10FlowRate { get; set; } = "";
         
 
 [JsonProperty("operation_10_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation10Type Operation10Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation10Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation10Type), "Cooling");
     }
     
     public enum PlantEquipmentOperation_ComponentSetpoint_Operation1Type
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ComponentSetpoint_Operation2Type
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ComponentSetpoint_Operation3Type
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ComponentSetpoint_Operation4Type
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ComponentSetpoint_Operation5Type
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ComponentSetpoint_Operation6Type
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ComponentSetpoint_Operation7Type
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ComponentSetpoint_Operation8Type
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ComponentSetpoint_Operation9Type
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ComponentSetpoint_Operation10Type
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     [Description("Plant equipment operation scheme for simpler input to control thermal (ice) energ" +
         "y storage systems. It replaces a host of setpoint managers with simple, single i" +
         "nput values. For more complex controls, use the ComponentSetpoint scheme.")]
-    [JsonObject("PlantEquipmentOperation:ThermalEnergyStorage")]
     public class PlantEquipmentOperation_ThermalEnergyStorage : BHoMObject, IEnergyPlusClass
     {
         
@@ -1275,6 +1274,7 @@ public System.Nullable<float> ChargingChilledWaterTemperature { get; set; } = nu
 [Description("This field is the type of object and should either be a chiller or some ice stora" +
     "ge equipment.")]
 [JsonProperty("component_1_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component1ObjectType Component1ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component1ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component1ObjectType), "ChillerAbsorption");
         
 
@@ -1304,10 +1304,12 @@ public string Component1FlowRate { get; set; } = "";
     "quipment operation scheme, \"Cooling\" should be selected for chiller equipment wh" +
     "ile ice storage equipment should be defined as \"Dual\".")]
 [JsonProperty("component_1_operation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component1OperationType Component1OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component1OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component1OperationType), "Cooling");
         
 
 [JsonProperty("component_2_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component2ObjectType Component2ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component2ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component2ObjectType), "ChillerAbsorption");
         
 
@@ -1328,10 +1330,12 @@ public string Component2FlowRate { get; set; } = "";
         
 
 [JsonProperty("component_2_operation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component2OperationType Component2OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component2OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component2OperationType), "Cooling");
         
 
 [JsonProperty("component_3_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component3ObjectType Component3ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component3ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component3ObjectType), "ChillerAbsorption");
         
 
@@ -1352,10 +1356,12 @@ public string Component3FlowRate { get; set; } = "";
         
 
 [JsonProperty("component_3_operation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component3OperationType Component3OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component3OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component3OperationType), "Cooling");
         
 
 [JsonProperty("component_4_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component4ObjectType Component4ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component4ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component4ObjectType), "ChillerAbsorption");
         
 
@@ -1376,10 +1382,12 @@ public string Component4FlowRate { get; set; } = "";
         
 
 [JsonProperty("component_4_operation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component4OperationType Component4OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component4OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component4OperationType), "Cooling");
         
 
 [JsonProperty("component_5_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component5ObjectType Component5ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component5ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component5ObjectType), "ChillerAbsorption");
         
 
@@ -1400,10 +1408,12 @@ public string Component5FlowRate { get; set; } = "";
         
 
 [JsonProperty("component_5_operation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component5OperationType Component5OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component5OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component5OperationType), "Cooling");
         
 
 [JsonProperty("component_6_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component6ObjectType Component6ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component6ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component6ObjectType), "ChillerAbsorption");
         
 
@@ -1424,10 +1434,12 @@ public string Component6FlowRate { get; set; } = "";
         
 
 [JsonProperty("component_6_operation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component6OperationType Component6OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component6OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component6OperationType), "Cooling");
         
 
 [JsonProperty("component_7_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component7ObjectType Component7ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component7ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component7ObjectType), "ChillerAbsorption");
         
 
@@ -1448,10 +1460,12 @@ public string Component7FlowRate { get; set; } = "";
         
 
 [JsonProperty("component_7_operation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component7OperationType Component7OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component7OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component7OperationType), "Cooling");
         
 
 [JsonProperty("component_8_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component8ObjectType Component8ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component8ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component8ObjectType), "ChillerAbsorption");
         
 
@@ -1472,10 +1486,12 @@ public string Component8FlowRate { get; set; } = "";
         
 
 [JsonProperty("component_8_operation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component8OperationType Component8OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component8OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component8OperationType), "Cooling");
         
 
 [JsonProperty("component_9_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component9ObjectType Component9ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component9ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component9ObjectType), "ChillerAbsorption");
         
 
@@ -1496,10 +1512,12 @@ public string Component9FlowRate { get; set; } = "";
         
 
 [JsonProperty("component_9_operation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component9OperationType Component9OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component9OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component9OperationType), "Cooling");
         
 
 [JsonProperty("component_10_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component10ObjectType Component10ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component10ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component10ObjectType), "ChillerAbsorption");
         
 
@@ -1520,481 +1538,481 @@ public string Component10FlowRate { get; set; } = "";
         
 
 [JsonProperty("component_10_operation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType Component10OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType), "Cooling");
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component1ObjectType
     {
         
-        [JsonProperty("Chiller:Absorption")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption")]
         ChillerAbsorption = 0,
         
-        [JsonProperty("Chiller:Absorption:Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption:Indirect")]
         ChillerAbsorptionIndirect = 1,
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 2,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 3,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 4,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 5,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 6,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 7,
         
-        [JsonProperty("ThermalStorage:Ice:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Detailed")]
         ThermalStorageIceDetailed = 8,
         
-        [JsonProperty("ThermalStorage:Ice:Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Simple")]
         ThermalStorageIceSimple = 9,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component1OperationType
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component2ObjectType
     {
         
-        [JsonProperty("Chiller:Absorption")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption")]
         ChillerAbsorption = 0,
         
-        [JsonProperty("Chiller:Absorption:Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption:Indirect")]
         ChillerAbsorptionIndirect = 1,
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 2,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 3,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 4,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 5,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 6,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 7,
         
-        [JsonProperty("ThermalStorage:Ice:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Detailed")]
         ThermalStorageIceDetailed = 8,
         
-        [JsonProperty("ThermalStorage:Ice:Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Simple")]
         ThermalStorageIceSimple = 9,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component2OperationType
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component3ObjectType
     {
         
-        [JsonProperty("Chiller:Absorption")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption")]
         ChillerAbsorption = 0,
         
-        [JsonProperty("Chiller:Absorption:Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption:Indirect")]
         ChillerAbsorptionIndirect = 1,
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 2,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 3,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 4,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 5,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 6,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 7,
         
-        [JsonProperty("ThermalStorage:Ice:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Detailed")]
         ThermalStorageIceDetailed = 8,
         
-        [JsonProperty("ThermalStorage:Ice:Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Simple")]
         ThermalStorageIceSimple = 9,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component3OperationType
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component4ObjectType
     {
         
-        [JsonProperty("Chiller:Absorption")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption")]
         ChillerAbsorption = 0,
         
-        [JsonProperty("Chiller:Absorption:Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption:Indirect")]
         ChillerAbsorptionIndirect = 1,
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 2,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 3,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 4,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 5,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 6,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 7,
         
-        [JsonProperty("ThermalStorage:Ice:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Detailed")]
         ThermalStorageIceDetailed = 8,
         
-        [JsonProperty("ThermalStorage:Ice:Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Simple")]
         ThermalStorageIceSimple = 9,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component4OperationType
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component5ObjectType
     {
         
-        [JsonProperty("Chiller:Absorption")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption")]
         ChillerAbsorption = 0,
         
-        [JsonProperty("Chiller:Absorption:Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption:Indirect")]
         ChillerAbsorptionIndirect = 1,
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 2,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 3,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 4,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 5,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 6,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 7,
         
-        [JsonProperty("ThermalStorage:Ice:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Detailed")]
         ThermalStorageIceDetailed = 8,
         
-        [JsonProperty("ThermalStorage:Ice:Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Simple")]
         ThermalStorageIceSimple = 9,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component5OperationType
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component6ObjectType
     {
         
-        [JsonProperty("Chiller:Absorption")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption")]
         ChillerAbsorption = 0,
         
-        [JsonProperty("Chiller:Absorption:Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption:Indirect")]
         ChillerAbsorptionIndirect = 1,
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 2,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 3,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 4,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 5,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 6,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 7,
         
-        [JsonProperty("ThermalStorage:Ice:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Detailed")]
         ThermalStorageIceDetailed = 8,
         
-        [JsonProperty("ThermalStorage:Ice:Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Simple")]
         ThermalStorageIceSimple = 9,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component6OperationType
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component7ObjectType
     {
         
-        [JsonProperty("Chiller:Absorption")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption")]
         ChillerAbsorption = 0,
         
-        [JsonProperty("Chiller:Absorption:Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption:Indirect")]
         ChillerAbsorptionIndirect = 1,
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 2,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 3,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 4,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 5,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 6,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 7,
         
-        [JsonProperty("ThermalStorage:Ice:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Detailed")]
         ThermalStorageIceDetailed = 8,
         
-        [JsonProperty("ThermalStorage:Ice:Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Simple")]
         ThermalStorageIceSimple = 9,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component7OperationType
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component8ObjectType
     {
         
-        [JsonProperty("Chiller:Absorption")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption")]
         ChillerAbsorption = 0,
         
-        [JsonProperty("Chiller:Absorption:Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption:Indirect")]
         ChillerAbsorptionIndirect = 1,
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 2,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 3,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 4,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 5,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 6,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 7,
         
-        [JsonProperty("ThermalStorage:Ice:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Detailed")]
         ThermalStorageIceDetailed = 8,
         
-        [JsonProperty("ThermalStorage:Ice:Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Simple")]
         ThermalStorageIceSimple = 9,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component8OperationType
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component9ObjectType
     {
         
-        [JsonProperty("Chiller:Absorption")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption")]
         ChillerAbsorption = 0,
         
-        [JsonProperty("Chiller:Absorption:Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption:Indirect")]
         ChillerAbsorptionIndirect = 1,
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 2,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 3,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 4,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 5,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 6,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 7,
         
-        [JsonProperty("ThermalStorage:Ice:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Detailed")]
         ThermalStorageIceDetailed = 8,
         
-        [JsonProperty("ThermalStorage:Ice:Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Simple")]
         ThermalStorageIceSimple = 9,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component9OperationType
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component10ObjectType
     {
         
-        [JsonProperty("Chiller:Absorption")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption")]
         ChillerAbsorption = 0,
         
-        [JsonProperty("Chiller:Absorption:Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption:Indirect")]
         ChillerAbsorptionIndirect = 1,
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 2,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 3,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 4,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 5,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 6,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 7,
         
-        [JsonProperty("ThermalStorage:Ice:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Detailed")]
         ThermalStorageIceDetailed = 8,
         
-        [JsonProperty("ThermalStorage:Ice:Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Simple")]
         ThermalStorageIceSimple = 9,
     }
     
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Dual")]
+        [System.Runtime.Serialization.EnumMember(Value="Dual")]
         Dual = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
     }
     
     [Description(@"Plant equipment operation scheme for outdoor dry-bulb temperature difference operation. Specifies one or more groups of equipment which are available to operate for successive ranges based the difference between a reference node temperature and the outdoor dry-bulb temperature.")]
-    [JsonObject("PlantEquipmentOperation:OutdoorDryBulbDifference")]
     public class PlantEquipmentOperation_OutdoorDryBulbDifference : BHoMObject, IEnergyPlusClass
     {
         
@@ -2124,7 +2142,6 @@ public string Range10EquipmentListName { get; set; } = "";
     }
     
     [Description(@"Plant equipment operation scheme for outdoor wet-bulb temperature difference operation. Specifies one or more groups of equipment which are available to operate for successive ranges based the difference between a reference node temperature and the outdoor wet-bulb temperature.")]
-    [JsonObject("PlantEquipmentOperation:OutdoorWetBulbDifference")]
     public class PlantEquipmentOperation_OutdoorWetBulbDifference : BHoMObject, IEnergyPlusClass
     {
         
@@ -2254,7 +2271,6 @@ public string Range10EquipmentListName { get; set; } = "";
     }
     
     [Description(@"Plant equipment operation scheme for outdoor dewpoint temperature difference operation. Specifies one or more groups of equipment which are available to operate for successive ranges based the difference between a reference node temperature and the outdoor dewpoint temperature.")]
-    [JsonObject("PlantEquipmentOperation:OutdoorDewpointDifference")]
     public class PlantEquipmentOperation_OutdoorDewpointDifference : BHoMObject, IEnergyPlusClass
     {
         
@@ -2384,12 +2400,12 @@ public string Range10EquipmentListName { get; set; } = "";
     }
     
     [Description(@"Operation schemes are listed in ""priority"" order. Note that each scheme must address the entire load and/or condition ranges for the simulation. The actual one selected for use will be the first that is ""Scheduled"" on. That is, if control scheme 1 is not ""on"" and control scheme 2 is -- then control scheme 2 is selected. Only plant equipment should be listed on a Control Scheme for this item.")]
-    [JsonObject("PlantEquipmentOperationSchemes")]
     public class PlantEquipmentOperationSchemes : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_scheme_1_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme1ObjectType ControlScheme1ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme1ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme1ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
@@ -2402,6 +2418,7 @@ public string ControlScheme1ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_2_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme2ObjectType ControlScheme2ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme2ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme2ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
@@ -2414,6 +2431,7 @@ public string ControlScheme2ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_3_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme3ObjectType ControlScheme3ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme3ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme3ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
@@ -2426,6 +2444,7 @@ public string ControlScheme3ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_4_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme4ObjectType ControlScheme4ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme4ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme4ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
@@ -2438,6 +2457,7 @@ public string ControlScheme4ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_5_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme5ObjectType ControlScheme5ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme5ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme5ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
@@ -2450,6 +2470,7 @@ public string ControlScheme5ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_6_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme6ObjectType ControlScheme6ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme6ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme6ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
@@ -2462,6 +2483,7 @@ public string ControlScheme6ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_7_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme7ObjectType ControlScheme7ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme7ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme7ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
@@ -2474,6 +2496,7 @@ public string ControlScheme7ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_8_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme8ObjectType ControlScheme8ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme8ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme8ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
@@ -2488,354 +2511,354 @@ public string ControlScheme8ScheduleName { get; set; } = "";
     public enum PlantEquipmentOperationSchemes_ControlScheme1ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:ComponentSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ComponentSetpoint")]
         PlantEquipmentOperationComponentSetpoint = 0,
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 8,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 9,
         
-        [JsonProperty("PlantEquipmentOperation:ThermalEnergyStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ThermalEnergyStorage")]
         PlantEquipmentOperationThermalEnergyStorage = 10,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 11,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 12,
     }
     
     public enum PlantEquipmentOperationSchemes_ControlScheme2ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:ComponentSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ComponentSetpoint")]
         PlantEquipmentOperationComponentSetpoint = 0,
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 8,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 9,
         
-        [JsonProperty("PlantEquipmentOperation:ThermalEnergyStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ThermalEnergyStorage")]
         PlantEquipmentOperationThermalEnergyStorage = 10,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 11,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 12,
     }
     
     public enum PlantEquipmentOperationSchemes_ControlScheme3ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:ComponentSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ComponentSetpoint")]
         PlantEquipmentOperationComponentSetpoint = 0,
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 8,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 9,
         
-        [JsonProperty("PlantEquipmentOperation:ThermalEnergyStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ThermalEnergyStorage")]
         PlantEquipmentOperationThermalEnergyStorage = 10,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 11,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 12,
     }
     
     public enum PlantEquipmentOperationSchemes_ControlScheme4ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:ComponentSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ComponentSetpoint")]
         PlantEquipmentOperationComponentSetpoint = 0,
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 8,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 9,
         
-        [JsonProperty("PlantEquipmentOperation:ThermalEnergyStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ThermalEnergyStorage")]
         PlantEquipmentOperationThermalEnergyStorage = 10,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 11,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 12,
     }
     
     public enum PlantEquipmentOperationSchemes_ControlScheme5ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:ComponentSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ComponentSetpoint")]
         PlantEquipmentOperationComponentSetpoint = 0,
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 8,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 9,
         
-        [JsonProperty("PlantEquipmentOperation:ThermalEnergyStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ThermalEnergyStorage")]
         PlantEquipmentOperationThermalEnergyStorage = 10,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 11,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 12,
     }
     
     public enum PlantEquipmentOperationSchemes_ControlScheme6ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:ComponentSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ComponentSetpoint")]
         PlantEquipmentOperationComponentSetpoint = 0,
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 8,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 9,
         
-        [JsonProperty("PlantEquipmentOperation:ThermalEnergyStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ThermalEnergyStorage")]
         PlantEquipmentOperationThermalEnergyStorage = 10,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 11,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 12,
     }
     
     public enum PlantEquipmentOperationSchemes_ControlScheme7ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:ComponentSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ComponentSetpoint")]
         PlantEquipmentOperationComponentSetpoint = 0,
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 8,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 9,
         
-        [JsonProperty("PlantEquipmentOperation:ThermalEnergyStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ThermalEnergyStorage")]
         PlantEquipmentOperationThermalEnergyStorage = 10,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 11,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 12,
     }
     
     public enum PlantEquipmentOperationSchemes_ControlScheme8ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:ComponentSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ComponentSetpoint")]
         PlantEquipmentOperationComponentSetpoint = 0,
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 8,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 9,
         
-        [JsonProperty("PlantEquipmentOperation:ThermalEnergyStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:ThermalEnergyStorage")]
         PlantEquipmentOperationThermalEnergyStorage = 10,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 11,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 12,
     }
     
     [Description(@"Operation schemes are listed in ""priority"" order. Note that each scheme must address the entire load and/or condition ranges for the simulation. The actual one selected for use will be the first that is ""Scheduled"" on. That is, if control scheme 1 is not ""on"" and control scheme 2 is -- then control scheme 2 is selected. Only condenser equipment should be listed on a Control Scheme for this item.")]
-    [JsonObject("CondenserEquipmentOperationSchemes")]
     public class CondenserEquipmentOperationSchemes : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_scheme_1_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme1ObjectType ControlScheme1ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme1ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme1ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
@@ -2848,6 +2871,7 @@ public string ControlScheme1ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_2_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme2ObjectType ControlScheme2ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme2ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme2ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
@@ -2860,6 +2884,7 @@ public string ControlScheme2ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_3_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme3ObjectType ControlScheme3ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme3ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme3ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
@@ -2872,6 +2897,7 @@ public string ControlScheme3ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_4_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme4ObjectType ControlScheme4ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme4ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme4ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
@@ -2884,6 +2910,7 @@ public string ControlScheme4ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_5_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme5ObjectType ControlScheme5ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme5ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme5ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
@@ -2896,6 +2923,7 @@ public string ControlScheme5ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_6_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme6ObjectType ControlScheme6ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme6ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme6ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
@@ -2908,6 +2936,7 @@ public string ControlScheme6ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_7_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme7ObjectType ControlScheme7ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme7ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme7ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
@@ -2920,6 +2949,7 @@ public string ControlScheme7ScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_8_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme8ObjectType ControlScheme8ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme8ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme8ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
@@ -2934,296 +2964,296 @@ public string ControlScheme8ScheduleName { get; set; } = "";
     public enum CondenserEquipmentOperationSchemes_ControlScheme1ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 0,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 8,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 9,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 10,
     }
     
     public enum CondenserEquipmentOperationSchemes_ControlScheme2ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 0,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 8,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 9,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 10,
     }
     
     public enum CondenserEquipmentOperationSchemes_ControlScheme3ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 0,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 8,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 9,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 10,
     }
     
     public enum CondenserEquipmentOperationSchemes_ControlScheme4ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 0,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 8,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 9,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 10,
     }
     
     public enum CondenserEquipmentOperationSchemes_ControlScheme5ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 0,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 8,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 9,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 10,
     }
     
     public enum CondenserEquipmentOperationSchemes_ControlScheme6ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 0,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 8,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 9,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 10,
     }
     
     public enum CondenserEquipmentOperationSchemes_ControlScheme7ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 0,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 8,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 9,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 10,
     }
     
     public enum CondenserEquipmentOperationSchemes_ControlScheme8ObjectType
     {
         
-        [JsonProperty("PlantEquipmentOperation:CoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:CoolingLoad")]
         PlantEquipmentOperationCoolingLoad = 0,
         
-        [JsonProperty("PlantEquipmentOperation:HeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:HeatingLoad")]
         PlantEquipmentOperationHeatingLoad = 1,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpoint")]
         PlantEquipmentOperationOutdoorDewpoint = 2,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDewpointDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDewpointDifference")]
         PlantEquipmentOperationOutdoorDewpointDifference = 3,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulb")]
         PlantEquipmentOperationOutdoorDryBulb = 4,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorDryBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorDryBulbDifference")]
         PlantEquipmentOperationOutdoorDryBulbDifference = 5,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorRelativeHumidity")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorRelativeHumidity")]
         PlantEquipmentOperationOutdoorRelativeHumidity = 6,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulb")]
         PlantEquipmentOperationOutdoorWetBulb = 7,
         
-        [JsonProperty("PlantEquipmentOperation:OutdoorWetBulbDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:OutdoorWetBulbDifference")]
         PlantEquipmentOperationOutdoorWetBulbDifference = 8,
         
-        [JsonProperty("PlantEquipmentOperation:Uncontrolled")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:Uncontrolled")]
         PlantEquipmentOperationUncontrolled = 9,
         
-        [JsonProperty("PlantEquipmentOperation:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantEquipmentOperation:UserDefined")]
         PlantEquipmentOperationUserDefined = 10,
     }
 }

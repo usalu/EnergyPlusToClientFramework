@@ -1,47 +1,45 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum LifeCycleCost_Parameters_ServiceDateMonth
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("April")]
+        [System.Runtime.Serialization.EnumMember(Value="April")]
         April = 1,
         
-        [JsonProperty("August")]
+        [System.Runtime.Serialization.EnumMember(Value="August")]
         August = 2,
         
-        [JsonProperty("December")]
+        [System.Runtime.Serialization.EnumMember(Value="December")]
         December = 3,
         
-        [JsonProperty("February")]
+        [System.Runtime.Serialization.EnumMember(Value="February")]
         February = 4,
         
-        [JsonProperty("January")]
+        [System.Runtime.Serialization.EnumMember(Value="January")]
         January = 5,
         
-        [JsonProperty("July")]
+        [System.Runtime.Serialization.EnumMember(Value="July")]
         July = 6,
         
-        [JsonProperty("June")]
+        [System.Runtime.Serialization.EnumMember(Value="June")]
         June = 7,
         
-        [JsonProperty("March")]
+        [System.Runtime.Serialization.EnumMember(Value="March")]
         March = 8,
         
-        [JsonProperty("May")]
+        [System.Runtime.Serialization.EnumMember(Value="May")]
         May = 9,
         
-        [JsonProperty("November")]
+        [System.Runtime.Serialization.EnumMember(Value="November")]
         November = 10,
         
-        [JsonProperty("October")]
+        [System.Runtime.Serialization.EnumMember(Value="October")]
         October = 11,
         
-        [JsonProperty("September")]
+        [System.Runtime.Serialization.EnumMember(Value="September")]
         September = 12,
     }
 }

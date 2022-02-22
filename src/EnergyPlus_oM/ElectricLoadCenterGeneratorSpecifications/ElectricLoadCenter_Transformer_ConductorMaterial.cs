@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum ElectricLoadCenter_Transformer_ConductorMaterial
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Aluminum")]
+        [System.Runtime.Serialization.EnumMember(Value="Aluminum")]
         Aluminum = 1,
         
-        [JsonProperty("Copper")]
+        [System.Runtime.Serialization.EnumMember(Value="Copper")]
         Copper = 2,
     }
 }

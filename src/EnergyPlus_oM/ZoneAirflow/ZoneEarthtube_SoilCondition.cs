@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 {
     public enum ZoneEarthtube_SoilCondition
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HeavyAndDamp")]
+        [System.Runtime.Serialization.EnumMember(Value="HeavyAndDamp")]
         HeavyAndDamp = 1,
         
-        [JsonProperty("HeavyAndDry")]
+        [System.Runtime.Serialization.EnumMember(Value="HeavyAndDry")]
         HeavyAndDry = 2,
         
-        [JsonProperty("HeavyAndSaturated")]
+        [System.Runtime.Serialization.EnumMember(Value="HeavyAndSaturated")]
         HeavyAndSaturated = 3,
         
-        [JsonProperty("LightAndDry")]
+        [System.Runtime.Serialization.EnumMember(Value="LightAndDry")]
         LightAndDry = 4,
     }
 }

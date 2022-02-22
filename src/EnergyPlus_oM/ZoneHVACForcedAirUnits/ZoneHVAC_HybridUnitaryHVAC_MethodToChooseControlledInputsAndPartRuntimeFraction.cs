@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_HybridUnitaryHVAC_MethodToChooseControlledInputsAndPartRuntimeFraction
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Automatic")]
+        [System.Runtime.Serialization.EnumMember(Value="Automatic")]
         Automatic = 1,
         
-        [JsonProperty("User Defined")]
+        [System.Runtime.Serialization.EnumMember(Value="User Defined")]
         UserDefined = 2,
     }
 }

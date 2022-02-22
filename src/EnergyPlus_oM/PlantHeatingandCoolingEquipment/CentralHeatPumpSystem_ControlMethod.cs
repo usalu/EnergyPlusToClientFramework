@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     public enum CentralHeatPumpSystem_ControlMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("SmartMixing")]
+        [System.Runtime.Serialization.EnumMember(Value="SmartMixing")]
         SmartMixing = 1,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum LifeCycleCost_RecurringCosts_StartOfCosts
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BasePeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="BasePeriod")]
         BasePeriod = 1,
         
-        [JsonProperty("ServicePeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="ServicePeriod")]
         ServicePeriod = 2,
     }
 }

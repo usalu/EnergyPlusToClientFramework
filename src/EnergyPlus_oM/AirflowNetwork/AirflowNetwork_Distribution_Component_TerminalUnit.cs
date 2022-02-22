@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines the name of a terminal unit in an air loop.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:TerminalUnit")]
     public class AirflowNetwork_Distribution_Component_TerminalUnit : BHoMObject, IEnergyPlusClass
     {
         
@@ -19,6 +18,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
         [Description("Select the type of terminal unit corresponding to the name entered in the field a" +
                      "bove.")]
         [JsonProperty("terminal_unit_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirflowNetwork_Distribution_Component_TerminalUnit_TerminalUnitObjectType TerminalUnitObjectType { get; set; } = (AirflowNetwork_Distribution_Component_TerminalUnit_TerminalUnitObjectType)Enum.Parse(typeof(AirflowNetwork_Distribution_Component_TerminalUnit_TerminalUnitObjectType), "AirTerminalSingleDuctConstantVolumeReheat");
         
 

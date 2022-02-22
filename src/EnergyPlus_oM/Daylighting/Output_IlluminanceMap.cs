@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
 {
     [Description("reference points are given in coordinates specified in the GlobalGeometryRules ob" +
                  "ject Daylighting Reference Point CoordinateSystem field")]
-    [JsonObject("Output:IlluminanceMap")]
     public class Output_IlluminanceMap : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,11 +1,9 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
 {
     public enum AirLoopHVAC_UnitarySystem_DesignSpecificationMultispeedObjectType
     {
         
-        [JsonProperty("UnitarySystemPerformance:Multispeed")]
+        [System.Runtime.Serialization.EnumMember(Value="UnitarySystemPerformance:Multispeed")]
         UnitarySystemPerformanceMultispeed = 0,
     }
 }

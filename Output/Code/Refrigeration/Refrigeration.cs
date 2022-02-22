@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
     
     
     [Description(@"The Refrigeration Case object works in conjunction with a compressor rack, a refrigeration system, or a secondary loop to simulate the performance of a refrigerated case system. The object calculates the energy use for lights, fans and anti-sweat heaters and accounts for the sensible and latent heat exchange with the surrounding environment (termed ""case credits"") which impacts the temperature and humidity in the zone where the case is located.")]
-    [JsonObject("Refrigeration:Case")]
     public class Refrigeration_Case : BHoMObject, IEnergyPlusClass
     {
         
@@ -113,6 +112,7 @@ public System.Nullable<float> CaseOperatingTemperature { get; set; } = (System.N
         
 
 [JsonProperty("latent_case_credit_curve_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_Case_LatentCaseCreditCurveType LatentCaseCreditCurveType { get; set; } = (Refrigeration_Case_LatentCaseCreditCurveType)Enum.Parse(typeof(Refrigeration_Case_LatentCaseCreditCurveType), "CaseTemperatureMethod");
         
 
@@ -156,6 +156,7 @@ public System.Nullable<float> MinimumAntiSweatHeaterPowerPerUnitLength { get; se
         
 
 [JsonProperty("anti_sweat_heater_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_Case_AntiSweatHeaterControlType AntiSweatHeaterControlType { get; set; } = (Refrigeration_Case_AntiSweatHeaterControlType)Enum.Parse(typeof(Refrigeration_Case_AntiSweatHeaterControlType), "None");
         
 
@@ -181,6 +182,7 @@ public System.Nullable<float> CaseDefrostPowerPerUnitLength { get; set; } = (Sys
         
 
 [JsonProperty("case_defrost_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_Case_CaseDefrostType CaseDefrostType { get; set; } = (Refrigeration_Case_CaseDefrostType)Enum.Parse(typeof(Refrigeration_Case_CaseDefrostType), "OffCycle");
         
 
@@ -197,6 +199,7 @@ public string CaseDefrostDripDownScheduleName { get; set; } = "";
 [Description("Case Temperature, Relative Humidity, and Dewpoint Method are applicable to case d" +
     "efrost types with temperature termination only.")]
 [JsonProperty("defrost_energy_correction_curve_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_Case_DefrostEnergyCorrectionCurveType DefrostEnergyCorrectionCurveType { get; set; } = (Refrigeration_Case_DefrostEnergyCorrectionCurveType)Enum.Parse(typeof(Refrigeration_Case_DefrostEnergyCorrectionCurveType), "None");
         
 
@@ -240,98 +243,98 @@ public string UnderCaseHvacReturnAirNodeName { get; set; } = "";
     public enum Refrigeration_Case_LatentCaseCreditCurveType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CaseTemperatureMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="CaseTemperatureMethod")]
         CaseTemperatureMethod = 1,
         
-        [JsonProperty("DewpointMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="DewpointMethod")]
         DewpointMethod = 2,
         
-        [JsonProperty("RelativeHumidityMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="RelativeHumidityMethod")]
         RelativeHumidityMethod = 3,
     }
     
     public enum Refrigeration_Case_AntiSweatHeaterControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 1,
         
-        [JsonProperty("DewpointMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="DewpointMethod")]
         DewpointMethod = 2,
         
-        [JsonProperty("HeatBalanceMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatBalanceMethod")]
         HeatBalanceMethod = 3,
         
-        [JsonProperty("Linear")]
+        [System.Runtime.Serialization.EnumMember(Value="Linear")]
         Linear = 4,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 5,
     }
     
     public enum Refrigeration_Case_CaseDefrostType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Electric")]
         Electric = 1,
         
-        [JsonProperty("ElectricWithTemperatureTermination")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricWithTemperatureTermination")]
         ElectricWithTemperatureTermination = 2,
         
-        [JsonProperty("HotFluid")]
+        [System.Runtime.Serialization.EnumMember(Value="HotFluid")]
         HotFluid = 3,
         
-        [JsonProperty("HotFluidWithTemperatureTermination")]
+        [System.Runtime.Serialization.EnumMember(Value="HotFluidWithTemperatureTermination")]
         HotFluidWithTemperatureTermination = 4,
         
-        [JsonProperty("HotGas")]
+        [System.Runtime.Serialization.EnumMember(Value="HotGas")]
         HotGas = 5,
         
-        [JsonProperty("HotGasWithTemperatureTermination")]
+        [System.Runtime.Serialization.EnumMember(Value="HotGasWithTemperatureTermination")]
         HotGasWithTemperatureTermination = 6,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 7,
         
-        [JsonProperty("OffCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="OffCycle")]
         OffCycle = 8,
     }
     
     public enum Refrigeration_Case_DefrostEnergyCorrectionCurveType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CaseTemperatureMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="CaseTemperatureMethod")]
         CaseTemperatureMethod = 1,
         
-        [JsonProperty("DewpointMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="DewpointMethod")]
         DewpointMethod = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
         
-        [JsonProperty("RelativeHumidityMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="RelativeHumidityMethod")]
         RelativeHumidityMethod = 4,
     }
     
     [Description(@"Works in conjunction with the refrigeration case and walk-in objects to simulate the performance of a refrigerated case system. This object models the electric consumption of the rack compressors and the condenser fans. Heat can be rejected either outdoors or to a zone. Compressor rack waste heat can also be reclaimed for use by an optional air- or water-heating coil (Coil:Heating:Desuperheater and Coil:WaterHeating:Desuperheater).")]
-    [JsonObject("Refrigeration:CompressorRack")]
     public class Refrigeration_CompressorRack : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("heat_rejection_location")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_CompressorRack_HeatRejectionLocation HeatRejectionLocation { get; set; } = (Refrigeration_CompressorRack_HeatRejectionLocation)Enum.Parse(typeof(Refrigeration_CompressorRack_HeatRejectionLocation), "Outdoors");
         
 
@@ -358,6 +361,7 @@ public string CondenserFanPowerFunctionOfTemperatureCurveName { get; set; } = ""
 
 [Description("Applicable only when Heat Rejection Location is Outdoors.")]
 [JsonProperty("condenser_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_CompressorRack_CondenserType CondenserType { get; set; } = (Refrigeration_CompressorRack_CondenserType)Enum.Parse(typeof(Refrigeration_CompressorRack_CondenserType), "AirCooled");
         
 
@@ -371,6 +375,7 @@ public string WaterCooledCondenserOutletNodeName { get; set; } = "";
 
 [Description("Applicable only when Condenser Type is WaterCooled.")]
 [JsonProperty("water_cooled_loop_flow_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_CompressorRack_WaterCooledLoopFlowType WaterCooledLoopFlowType { get; set; } = (Refrigeration_CompressorRack_WaterCooledLoopFlowType)Enum.Parse(typeof(Refrigeration_CompressorRack_WaterCooledLoopFlowType), "VariableFlow");
         
 
@@ -461,47 +466,46 @@ public string HeatRejectionZoneName { get; set; } = "";
     public enum Refrigeration_CompressorRack_HeatRejectionLocation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 1,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 2,
     }
     
     public enum Refrigeration_CompressorRack_CondenserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
         AirCooled = 1,
         
-        [JsonProperty("EvaporativelyCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativelyCooled")]
         EvaporativelyCooled = 2,
         
-        [JsonProperty("WaterCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterCooled")]
         WaterCooled = 3,
     }
     
     public enum Refrigeration_CompressorRack_WaterCooledLoopFlowType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
         ConstantFlow = 1,
         
-        [JsonProperty("VariableFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableFlow")]
         VariableFlow = 2,
     }
     
     [Description(@"Provides a list of all the refrigerated cases, walk in coolers, or air chillers cooled by a single refrigeration system. Note that the names of all cases, walk-ins ,air chillers, and CaseAndWalkInLists must be unique. That is, you cannot give a list the same name as one of list items. This list may contain a combination of case and walk-in names OR a list of air chiller names. Air chillers may not be included in any list that also includes cases or walk-ins.")]
-    [JsonObject("Refrigeration:CaseAndWalkInList")]
     public class Refrigeration_CaseAndWalkInList : BHoMObject, IEnergyPlusClass
     {
         
@@ -511,7 +515,6 @@ public string CasesAndWalkins { get; set; } = "";
     }
     
     [Description("Air cooled condenser for a refrigeration system (Refrigeration:System).")]
-    [JsonObject("Refrigeration:Condenser:AirCooled")]
     public class Refrigeration_Condenser_AirCooled : BHoMObject, IEnergyPlusClass
     {
         
@@ -529,6 +532,7 @@ public System.Nullable<float> RatedSubcoolingTemperatureDifference { get; set; }
         
 
 [JsonProperty("condenser_fan_speed_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_Condenser_AirCooled_CondenserFanSpeedControlType CondenserFanSpeedControlType { get; set; } = (Refrigeration_Condenser_AirCooled_CondenserFanSpeedControlType)Enum.Parse(typeof(Refrigeration_Condenser_AirCooled_CondenserFanSpeedControlType), "Fixed");
         
 
@@ -571,24 +575,23 @@ public System.Nullable<float> CondensatePipingRefrigerantInventory { get; set; }
     public enum Refrigeration_Condenser_AirCooled_CondenserFanSpeedControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 1,
         
-        [JsonProperty("FixedLinear")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedLinear")]
         FixedLinear = 2,
         
-        [JsonProperty("TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoSpeed")]
         TwoSpeed = 3,
         
-        [JsonProperty("VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableSpeed")]
         VariableSpeed = 4,
     }
     
     [Description("Evaporative-cooled condenser for a refrigeration system (Refrigeration:System).")]
-    [JsonObject("Refrigeration:Condenser:EvaporativeCooled")]
     public class Refrigeration_Condenser_EvaporativeCooled : BHoMObject, IEnergyPlusClass
     {
         
@@ -604,6 +607,7 @@ public System.Nullable<float> RatedSubcoolingTemperatureDifference { get; set; }
         
 
 [JsonProperty("fan_speed_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_Condenser_EvaporativeCooled_FanSpeedControlType FanSpeedControlType { get; set; } = (Refrigeration_Condenser_EvaporativeCooled_FanSpeedControlType)Enum.Parse(typeof(Refrigeration_Condenser_EvaporativeCooled_FanSpeedControlType), "Fixed");
         
 
@@ -708,24 +712,23 @@ public System.Nullable<float> CondensatePipingRefrigerantInventory { get; set; }
     public enum Refrigeration_Condenser_EvaporativeCooled_FanSpeedControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 1,
         
-        [JsonProperty("FixedLinear")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedLinear")]
         FixedLinear = 2,
         
-        [JsonProperty("TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoSpeed")]
         TwoSpeed = 3,
         
-        [JsonProperty("VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableSpeed")]
         VariableSpeed = 4,
     }
     
     [Description("Water cooled condenser for a refrigeration system (Refrigeration:System).")]
-    [JsonObject("Refrigeration:Condenser:WaterCooled")]
     public class Refrigeration_Condenser_WaterCooled : BHoMObject, IEnergyPlusClass
     {
         
@@ -760,6 +763,7 @@ public string WaterOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("water_cooled_loop_flow_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_Condenser_WaterCooled_WaterCooledLoopFlowType WaterCooledLoopFlowType { get; set; } = (Refrigeration_Condenser_WaterCooled_WaterCooledLoopFlowType)Enum.Parse(typeof(Refrigeration_Condenser_WaterCooled_WaterCooledLoopFlowType), "VariableFlow");
         
 
@@ -811,18 +815,17 @@ public System.Nullable<float> CondensatePipingRefrigerantInventory { get; set; }
     public enum Refrigeration_Condenser_WaterCooled_WaterCooledLoopFlowType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
         ConstantFlow = 1,
         
-        [JsonProperty("VariableFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableFlow")]
         VariableFlow = 2,
     }
     
     [Description(@"Cascade condenser for a refrigeration system (Refrigeration:System). The cascade condenser is unlike the other condenser options because it rejects heat to another, higher-temperature, refrigeration system. That is, the cascade condenser acts as a heat rejection object for one system, but acts as a refrigeration load for another system.")]
-    [JsonObject("Refrigeration:Condenser:Cascade")]
     public class Refrigeration_Condenser_Cascade : BHoMObject, IEnergyPlusClass
     {
         
@@ -845,6 +848,7 @@ public System.Nullable<float> RatedEffectiveTotalHeatRejectionRate { get; set; }
 [Description("Fixed keeps condensing temperature constant Float sets the condensing temperature" +
     " according to the other loads on the higher temperature system")]
 [JsonProperty("condensing_temperature_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_Condenser_Cascade_CondensingTemperatureControlType CondensingTemperatureControlType { get; set; } = (Refrigeration_Condenser_Cascade_CondensingTemperatureControlType)Enum.Parse(typeof(Refrigeration_Condenser_Cascade_CondensingTemperatureControlType), "Fixed");
         
 
@@ -866,19 +870,18 @@ public System.Nullable<float> CondensatePipingRefrigerantInventory { get; set; }
     public enum Refrigeration_Condenser_Cascade_CondensingTemperatureControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 1,
         
-        [JsonProperty("Float")]
+        [System.Runtime.Serialization.EnumMember(Value="Float")]
         Float = 2,
     }
     
     [Description("The transcritical refrigeration system requires a single gas cooler to reject the" +
         " system heat.")]
-    [JsonObject("Refrigeration:GasCooler:AirCooled")]
     public class Refrigeration_GasCooler_AirCooled : BHoMObject, IEnergyPlusClass
     {
         
@@ -891,6 +894,7 @@ public string RatedTotalHeatRejectionRateCurveName { get; set; } = "";
         
 
 [JsonProperty("gas_cooler_fan_speed_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_GasCooler_AirCooled_GasCoolerFanSpeedControlType GasCoolerFanSpeedControlType { get; set; } = (Refrigeration_GasCooler_AirCooled_GasCoolerFanSpeedControlType)Enum.Parse(typeof(Refrigeration_GasCooler_AirCooled_GasCoolerFanSpeedControlType), "Fixed");
         
 
@@ -958,24 +962,23 @@ public System.Nullable<float> GasCoolerOutletPipingRefrigerantInventory { get; s
     public enum Refrigeration_GasCooler_AirCooled_GasCoolerFanSpeedControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 1,
         
-        [JsonProperty("FixedLinear")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedLinear")]
         FixedLinear = 2,
         
-        [JsonProperty("TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoSpeed")]
         TwoSpeed = 3,
         
-        [JsonProperty("VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableSpeed")]
         VariableSpeed = 4,
     }
     
     [Description(@"A refrigeration system may provide cooling to other, secondary, systems through either a secondary loop or a cascade condenser. If multiple transfer loads are served by a single primary system, use this list to group them together for reference by the primary system (see the field ""Refrigeration Transfer Load or TransferLoad List Name"" in the Refrigeration:System object).")]
-    [JsonObject("Refrigeration:TransferLoadList")]
     public class Refrigeration_TransferLoadList : BHoMObject, IEnergyPlusClass
     {
         
@@ -985,13 +988,13 @@ public string TransferLoads { get; set; } = "";
     }
     
     [Description(@"Two types of subcoolers are modeled by the detailed refrigeration system. The liquid suction heat exchanger uses cool suction gas to subcool the hot condensate after it leaves the condenser and before it reaches the thermal expansion valve. A mechanical subcooler is used to transfer cooling capacity from one refrigeration system to another.")]
-    [JsonObject("Refrigeration:Subcooler")]
     public class Refrigeration_Subcooler : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description("plan to add ambient subcoolers at future time")]
 [JsonProperty("subcooler_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_Subcooler_SubcoolerType SubcoolerType { get; set; } = (Refrigeration_Subcooler_SubcoolerType)Enum.Parse(typeof(Refrigeration_Subcooler_SubcoolerType), "LiquidSuction");
         
 
@@ -1029,19 +1032,18 @@ public System.Nullable<float> OutletControlTemperature { get; set; } = null;
     public enum Refrigeration_Subcooler_SubcoolerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LiquidSuction")]
+        [System.Runtime.Serialization.EnumMember(Value="LiquidSuction")]
         LiquidSuction = 1,
         
-        [JsonProperty("Mechanical")]
+        [System.Runtime.Serialization.EnumMember(Value="Mechanical")]
         Mechanical = 2,
     }
     
     [Description("Refrigeration system compressor. Data is available for many compressors in the Re" +
         "frigerationCompressor.idf dataset")]
-    [JsonObject("Refrigeration:Compressor")]
     public class Refrigeration_Compressor : BHoMObject, IEnergyPlusClass
     {
         
@@ -1087,6 +1089,7 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
         
 
 [JsonProperty("mode_of_operation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_Compressor_ModeOfOperation ModeOfOperation { get; set; } = (Refrigeration_Compressor_ModeOfOperation)Enum.Parse(typeof(Refrigeration_Compressor_ModeOfOperation), "Subcritical");
         
 
@@ -1101,18 +1104,17 @@ public string TranscriticalCompressorCapacityCurveName { get; set; } = "";
     public enum Refrigeration_Compressor_ModeOfOperation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Subcritical")]
+        [System.Runtime.Serialization.EnumMember(Value="Subcritical")]
         Subcritical = 1,
         
-        [JsonProperty("Transcritical")]
+        [System.Runtime.Serialization.EnumMember(Value="Transcritical")]
         Transcritical = 2,
     }
     
     [Description(@"List of all the compressors included within a single refrigeration system (Refrigeration:System). Each list must contain at least one compressor. The order in which the individual compressors are listed here will be the order in which the compressors are dispatched to meet the system load. IMPORTANT: List compressor names in the order in which the compressors will be loaded Data is available for many compressors in the RefrigerationCompressor.idf dataset")]
-    [JsonObject("Refrigeration:CompressorList")]
     public class Refrigeration_CompressorList : BHoMObject, IEnergyPlusClass
     {
         
@@ -1124,7 +1126,6 @@ public string Compressors { get; set; } = "";
     [Description("Simulates the performance of a supermarket refrigeration system when used along w" +
         "ith other objects to define the refrigeration load(s), the compressor(s), and th" +
         "e condenser.")]
-    [JsonObject("Refrigeration:System")]
     public class Refrigeration_System : BHoMObject, IEnergyPlusClass
     {
         
@@ -1158,6 +1159,7 @@ public string RefrigerationSystemWorkingFluidType { get; set; } = "";
         
 
 [JsonProperty("suction_temperature_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_System_SuctionTemperatureControlType SuctionTemperatureControlType { get; set; } = (Refrigeration_System_SuctionTemperatureControlType)Enum.Parse(typeof(Refrigeration_System_SuctionTemperatureControlType), "ConstantSuctionTemperature");
         
 
@@ -1195,6 +1197,7 @@ public string NumberOfCompressorStages { get; set; } = (System.String)"1";
         
 
 [JsonProperty("intercooler_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_System_IntercoolerType IntercoolerType { get; set; } = (Refrigeration_System_IntercoolerType)Enum.Parse(typeof(Refrigeration_System_IntercoolerType), "None");
         
 
@@ -1209,29 +1212,29 @@ public string HighStageCompressorOrCompressorlistName { get; set; } = "";
     public enum Refrigeration_System_SuctionTemperatureControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantSuctionTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantSuctionTemperature")]
         ConstantSuctionTemperature = 1,
         
-        [JsonProperty("FloatSuctionTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="FloatSuctionTemperature")]
         FloatSuctionTemperature = 2,
     }
     
     public enum Refrigeration_System_IntercoolerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Flash Intercooler")]
+        [System.Runtime.Serialization.EnumMember(Value="Flash Intercooler")]
         FlashIntercooler = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("Shell-and-Coil Intercooler")]
+        [System.Runtime.Serialization.EnumMember(Value="Shell-and-Coil Intercooler")]
         ShellandCoilIntercooler = 3,
     }
     
@@ -1239,12 +1242,12 @@ public string HighStageCompressorOrCompressorlistName { get; set; } = "";
         " supermarkets. The object allows for modeling either a single stage system with " +
         "medium-temperature loads or a two stage system with both medium- and low-tempera" +
         "ture loads.")]
-    [JsonObject("Refrigeration:TranscriticalSystem")]
     public class Refrigeration_TranscriticalSystem : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("system_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_TranscriticalSystem_SystemType SystemType { get; set; } = (Refrigeration_TranscriticalSystem_SystemType)Enum.Parse(typeof(Refrigeration_TranscriticalSystem_SystemType), "SingleStage");
         
 
@@ -1316,15 +1319,14 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Refrigeration_TranscriticalSystem_SystemType
     {
         
-        [JsonProperty("SingleStage")]
+        [System.Runtime.Serialization.EnumMember(Value="SingleStage")]
         SingleStage = 0,
         
-        [JsonProperty("TwoStage")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoStage")]
         TwoStage = 1,
     }
     
     [Description(@"Works in conjunction with refrigerated cases and walkins to simulate the performance of a secondary loop supermarket refrigeration system. Heat from the refrigeration loads served by the secondary loop is absorbed by a primary refrigeration system (Refrigeration:System). The SecondarySystem object simulates a heat exchanger that is an evaporator, or refrigeration load, on the primary refrigeration system.")]
-    [JsonObject("Refrigeration:SecondarySystem")]
     public class Refrigeration_SecondarySystem : BHoMObject, IEnergyPlusClass
     {
         
@@ -1338,6 +1340,7 @@ public string RefrigeratedCaseOrWalkinOrCaseandwalkinlistName { get; set; } = ""
 
 [Description(@"If ""FluidAlwaysLiquid"" is selected, the fluid properties must be input using the objects: FluidProperties:Name, FluidProperties:GlycolConcentration, and, if user defined fluid type, FluidProperties:Temperatures and FluidProperties:Concentration. Many sets of fluid properties can be found in GlycolPropertiesRefData.idf. If ""FluidPhaseChange"" is selected, the refrigerant properties must be input using the objects: (if user defined fluid type): FluidProperties:Name, FluidProperties:Temperatures, FluidProperties:Saturated, and FluidProperties:Superheated. Many sets of refrigerant data can be found in FluidPropertiesRefData.idf.")]
 [JsonProperty("circulating_fluid_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_SecondarySystem_CirculatingFluidType CirculatingFluidType { get; set; } = (Refrigeration_SecondarySystem_CirculatingFluidType)Enum.Parse(typeof(Refrigeration_SecondarySystem_CirculatingFluidType), "FluidAlwaysLiquid");
         
 
@@ -1403,6 +1406,7 @@ public System.Nullable<float> PhasechangeCirculatingRate { get; set; } = (System
         
 
 [JsonProperty("pump_drive_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_SecondarySystem_PumpDriveType PumpDriveType { get; set; } = (Refrigeration_SecondarySystem_PumpDriveType)Enum.Parse(typeof(Refrigeration_SecondarySystem_PumpDriveType), "Constant");
         
 
@@ -1460,28 +1464,27 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Refrigeration_SecondarySystem_CirculatingFluidType
     {
         
-        [JsonProperty("FluidAlwaysLiquid")]
+        [System.Runtime.Serialization.EnumMember(Value="FluidAlwaysLiquid")]
         FluidAlwaysLiquid = 0,
         
-        [JsonProperty("FluidPhaseChange")]
+        [System.Runtime.Serialization.EnumMember(Value="FluidPhaseChange")]
         FluidPhaseChange = 1,
     }
     
     public enum Refrigeration_SecondarySystem_PumpDriveType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 1,
         
-        [JsonProperty("Variable")]
+        [System.Runtime.Serialization.EnumMember(Value="Variable")]
         Variable = 2,
     }
     
     [Description(@"Works in conjunction with a compressor rack, a refrigeration system, or a refrigeration secondary system to simulate the performance of a walk-in cooler. The walk-in cooler model uses information at rated conditions along with input descriptions for heat transfer surfaces facing multiple zones to determine performance.")]
-    [JsonObject("Refrigeration:WalkIn")]
     public class Refrigeration_WalkIn : BHoMObject, IEnergyPlusClass
     {
         
@@ -1543,10 +1546,12 @@ public string LightingScheduleName { get; set; } = "";
 [Description("HotFluid includes either hot gas defrost for a DX system or Hot Brine defrost if " +
     "this walk in is cooled by brine from a secondary chiller")]
 [JsonProperty("defrost_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_WalkIn_DefrostType DefrostType { get; set; } = (Refrigeration_WalkIn_DefrostType)Enum.Parse(typeof(Refrigeration_WalkIn_DefrostType), "Electric");
         
 
 [JsonProperty("defrost_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_WalkIn_DefrostControlType DefrostControlType { get; set; } = (Refrigeration_WalkIn_DefrostControlType)Enum.Parse(typeof(Refrigeration_WalkIn_DefrostControlType), "TimeSchedule");
         
 
@@ -1602,37 +1607,36 @@ public string ZoneData { get; set; } = "";
     public enum Refrigeration_WalkIn_DefrostType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Electric")]
         Electric = 1,
         
-        [JsonProperty("HotFluid")]
+        [System.Runtime.Serialization.EnumMember(Value="HotFluid")]
         HotFluid = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
         
-        [JsonProperty("OffCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="OffCycle")]
         OffCycle = 4,
     }
     
     public enum Refrigeration_WalkIn_DefrostControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("TemperatureTermination")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureTermination")]
         TemperatureTermination = 1,
         
-        [JsonProperty("TimeSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="TimeSchedule")]
         TimeSchedule = 2,
     }
     
     [Description(@"Works in conjunction with a refrigeration chiller set, compressor rack, a refrigeration system, or a refrigeration secondary system to simulate the performance of an air chiller, similar to one found in a refrigerated warehouse. Energy use for fans and heaters is modeled based on inputs for nominal power, schedules, and control type. The air chiller model accounts for the sensible and latent heat exchange with the surrounding environment.")]
-    [JsonObject("Refrigeration:AirChiller")]
     public class Refrigeration_AirChiller : BHoMObject, IEnergyPlusClass
     {
         
@@ -1645,6 +1649,7 @@ public string AvailabilityScheduleName { get; set; } = "";
 
 [Description(@"In each case, select the rating option that corresponds to the expected service conditions. For example, U.S. manufacturers quote a separate Unit Load Factor for wet or frosted coils. If the evaporating temperature is less than 0C, input the frosted coil value. Within the European convention, select SC1, 2, 3, 4, or 5 depending upon the expected evaporating temperature.")]
 [JsonProperty("capacity_rating_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_AirChiller_CapacityRatingType CapacityRatingType { get; set; } = (Refrigeration_AirChiller_CapacityRatingType)Enum.Parse(typeof(Refrigeration_AirChiller_CapacityRatingType), "CapacityTotalSpecificConditions");
         
 
@@ -1701,6 +1706,7 @@ public System.Nullable<float> RefrigerantCorrectionFactor { get; set; } = (Syste
     "e. default LinearSHR60 unless Capacity Rating Type = CapacityTotalSpecificCondit" +
     "ions")]
 [JsonProperty("capacity_correction_curve_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_AirChiller_CapacityCorrectionCurveType CapacityCorrectionCurveType { get; set; } = (Refrigeration_AirChiller_CapacityCorrectionCurveType)Enum.Parse(typeof(Refrigeration_AirChiller_CapacityCorrectionCurveType), "European");
         
 
@@ -1726,6 +1732,7 @@ public string HeatingPowerScheduleName { get; set; } = "";
         
 
 [JsonProperty("fan_speed_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_AirChiller_FanSpeedControlType FanSpeedControlType { get; set; } = (Refrigeration_AirChiller_FanSpeedControlType)Enum.Parse(typeof(Refrigeration_AirChiller_FanSpeedControlType), "Fixed");
         
 
@@ -1745,10 +1752,12 @@ public System.Nullable<float> MinimumFanAirFlowRatio { get; set; } = (System.Nul
 [Description("HotFluid includes either hot gas defrost for a DX system or Hot Brine defrost if " +
     "this walk in is cooled by brine from a secondary chiller")]
 [JsonProperty("defrost_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_AirChiller_DefrostType DefrostType { get; set; } = (Refrigeration_AirChiller_DefrostType)Enum.Parse(typeof(Refrigeration_AirChiller_DefrostType), "Electric");
         
 
 [JsonProperty("defrost_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_AirChiller_DefrostControlType DefrostControlType { get; set; } = (Refrigeration_AirChiller_DefrostControlType)Enum.Parse(typeof(Refrigeration_AirChiller_DefrostControlType), "TimeSchedule");
         
 
@@ -1775,6 +1784,7 @@ public System.Nullable<float> TemperatureTerminationDefrostFractionToIce { get; 
         
 
 [JsonProperty("vertical_location")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Refrigeration_AirChiller_VerticalLocation VerticalLocation { get; set; } = (Refrigeration_AirChiller_VerticalLocation)Enum.Parse(typeof(Refrigeration_AirChiller_VerticalLocation), "Middle");
         
 
@@ -1786,131 +1796,130 @@ public System.Nullable<float> AverageRefrigerantChargeInventory { get; set; } = 
     public enum Refrigeration_AirChiller_CapacityRatingType
     {
         
-        [JsonProperty("CapacityTotalSpecificConditions")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityTotalSpecificConditions")]
         CapacityTotalSpecificConditions = 0,
         
-        [JsonProperty("EuropeanSC1NominalWet")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC1NominalWet")]
         EuropeanSC1NominalWet = 1,
         
-        [JsonProperty("EuropeanSC1Standard")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC1Standard")]
         EuropeanSC1Standard = 2,
         
-        [JsonProperty("EuropeanSC2NominalWet")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC2NominalWet")]
         EuropeanSC2NominalWet = 3,
         
-        [JsonProperty("EuropeanSC2Standard")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC2Standard")]
         EuropeanSC2Standard = 4,
         
-        [JsonProperty("EuropeanSC3NominalWet")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC3NominalWet")]
         EuropeanSC3NominalWet = 5,
         
-        [JsonProperty("EuropeanSC3Standard")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC3Standard")]
         EuropeanSC3Standard = 6,
         
-        [JsonProperty("EuropeanSC4NominalWet")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC4NominalWet")]
         EuropeanSC4NominalWet = 7,
         
-        [JsonProperty("EuropeanSC4Standard")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC4Standard")]
         EuropeanSC4Standard = 8,
         
-        [JsonProperty("EuropeanSC5NominalWet")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC5NominalWet")]
         EuropeanSC5NominalWet = 9,
         
-        [JsonProperty("EuropeanSC5Standard")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC5Standard")]
         EuropeanSC5Standard = 10,
         
-        [JsonProperty("FixedLinear")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedLinear")]
         FixedLinear = 11,
         
-        [JsonProperty("UnitLoadFactorSensibleOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="UnitLoadFactorSensibleOnly")]
         UnitLoadFactorSensibleOnly = 12,
     }
     
     public enum Refrigeration_AirChiller_CapacityCorrectionCurveType
     {
         
-        [JsonProperty("European")]
+        [System.Runtime.Serialization.EnumMember(Value="European")]
         European = 0,
         
-        [JsonProperty("LinearSHR60")]
+        [System.Runtime.Serialization.EnumMember(Value="LinearSHR60")]
         LinearSHR60 = 1,
         
-        [JsonProperty("QuadraticSHR")]
+        [System.Runtime.Serialization.EnumMember(Value="QuadraticSHR")]
         QuadraticSHR = 2,
         
-        [JsonProperty("TabularRHxDT1xTRoom")]
+        [System.Runtime.Serialization.EnumMember(Value="TabularRHxDT1xTRoom")]
         TabularRHxDT1xTRoom = 3,
     }
     
     public enum Refrigeration_AirChiller_FanSpeedControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 1,
         
-        [JsonProperty("FixedLinear")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedLinear")]
         FixedLinear = 2,
         
-        [JsonProperty("TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoSpeed")]
         TwoSpeed = 3,
         
-        [JsonProperty("VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableSpeed")]
         VariableSpeed = 4,
     }
     
     public enum Refrigeration_AirChiller_DefrostType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Electric")]
         Electric = 1,
         
-        [JsonProperty("HotFluid")]
+        [System.Runtime.Serialization.EnumMember(Value="HotFluid")]
         HotFluid = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
         
-        [JsonProperty("OffCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="OffCycle")]
         OffCycle = 4,
     }
     
     public enum Refrigeration_AirChiller_DefrostControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("TemperatureTermination")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureTermination")]
         TemperatureTermination = 1,
         
-        [JsonProperty("TimeSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="TimeSchedule")]
         TimeSchedule = 2,
     }
     
     public enum Refrigeration_AirChiller_VerticalLocation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="Ceiling")]
         Ceiling = 1,
         
-        [JsonProperty("Floor")]
+        [System.Runtime.Serialization.EnumMember(Value="Floor")]
         Floor = 2,
         
-        [JsonProperty("Middle")]
+        [System.Runtime.Serialization.EnumMember(Value="Middle")]
         Middle = 3,
     }
     
     [Description(@"Works in conjunction with one or multiple air chillers, compressor racks, refrigeration systems, or refrigeration secondary system objects to simulate the performance of a group of air chillers cooling a single zone. The chiller set model passes information about the zone conditions to determine the performance of individual chiller coils within the set, thus providing the sensible and latent heat exchange with the zone environment.")]
-    [JsonObject("ZoneHVAC:RefrigerationChillerSet")]
     public class ZoneHVAC_RefrigerationChillerSet : BHoMObject, IEnergyPlusClass
     {
         

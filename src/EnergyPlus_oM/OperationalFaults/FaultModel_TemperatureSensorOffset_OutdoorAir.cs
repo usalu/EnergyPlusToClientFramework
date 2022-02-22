@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
     
     
     [Description("This object describes outdoor air temperature sensor offset")]
-    [JsonObject("FaultModel:TemperatureSensorOffset:OutdoorAir")]
     public class FaultModel_TemperatureSensorOffset_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -81,6 +80,7 @@ public string SeverityScheduleName { get; set; } = "";
         
 
 [JsonProperty("controller_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_TemperatureSensorOffset_OutdoorAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_OutdoorAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_OutdoorAir_ControllerObjectType), "ControllerOutdoorAir");
         
 

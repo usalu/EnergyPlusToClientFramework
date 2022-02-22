@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_EvaporativeCoolerUnit_CoolerUnitControlMethod
     {
         
-        [JsonProperty("ZoneCoolingLoadOnOffCycling")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneCoolingLoadOnOffCycling")]
         ZoneCoolingLoadOnOffCycling = 0,
         
-        [JsonProperty("ZoneCoolingLoadVariableSpeedFan")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneCoolingLoadVariableSpeedFan")]
         ZoneCoolingLoadVariableSpeedFan = 1,
         
-        [JsonProperty("ZoneTemperatureDeadbandOnOffCycling")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneTemperatureDeadbandOnOffCycling")]
         ZoneTemperatureDeadbandOnOffCycling = 2,
     }
 }

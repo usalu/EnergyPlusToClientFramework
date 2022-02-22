@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for simplified entry of roofs (exterior). View Factor to Ground is automat" +
                  "ically calculated.")]
-    [JsonObject("Roof")]
     public class Roof : BHoMObject, IEnergyPlusClass
     {
         

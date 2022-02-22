@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Plant_ChilledWaterLoop_CondenserWaterTemperatureControlType
     {
         
-        [JsonProperty("OutdoorWetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorWetBulbTemperature")]
         OutdoorWetBulbTemperature = 0,
         
-        [JsonProperty("SpecifiedSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="SpecifiedSetpoint")]
         SpecifiedSetpoint = 1,
     }
 }

@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_SQLite_UnitConversionForTabularData
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("InchPound")]
+        [System.Runtime.Serialization.EnumMember(Value="InchPound")]
         InchPound = 1,
         
-        [JsonProperty("JtoGJ")]
+        [System.Runtime.Serialization.EnumMember(Value="JtoGJ")]
         JtoGJ = 2,
         
-        [JsonProperty("JtoKWH")]
+        [System.Runtime.Serialization.EnumMember(Value="JtoKWH")]
         JtoKWH = 3,
         
-        [JsonProperty("JtoMJ")]
+        [System.Runtime.Serialization.EnumMember(Value="JtoMJ")]
         JtoMJ = 4,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 5,
         
-        [JsonProperty("UseOutputControlTableStyle")]
+        [System.Runtime.Serialization.EnumMember(Value="UseOutputControlTableStyle")]
         UseOutputControlTableStyle = 6,
     }
 }

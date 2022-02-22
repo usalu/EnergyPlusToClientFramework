@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     [Description("Central air system terminal unit, single duct, variable volume, parallel powered " +
                  "induction unit (PIU), with reheat coil (hot water, electric, gas, or steam).")]
-    [JsonObject("AirTerminal:SingleDuct:ParallelPIU:Reheat")]
     public class AirTerminal_SingleDuct_ParallelPIU_Reheat : BHoMObject, IEnergyPlusClass
     {
         
@@ -63,6 +62,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
         
 
         [JsonProperty("reheat_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirTerminal_SingleDuct_ParallelPIU_Reheat_ReheatCoilObjectType ReheatCoilObjectType { get; set; } = (AirTerminal_SingleDuct_ParallelPIU_Reheat_ReheatCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_ParallelPIU_Reheat_ReheatCoilObjectType), "CoilHeatingElectric");
         
 

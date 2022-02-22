@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum UtilityCost_Charge_Block_Season
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 1,
         
-        [JsonProperty("Fall")]
+        [System.Runtime.Serialization.EnumMember(Value="Fall")]
         Fall = 2,
         
-        [JsonProperty("Spring")]
+        [System.Runtime.Serialization.EnumMember(Value="Spring")]
         Spring = 3,
         
-        [JsonProperty("Summer")]
+        [System.Runtime.Serialization.EnumMember(Value="Summer")]
         Summer = 4,
         
-        [JsonProperty("Winter")]
+        [System.Runtime.Serialization.EnumMember(Value="Winter")]
         Winter = 5,
     }
 }

@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for simplified entry of interzone walls (walls between zones).")]
-    [JsonObject("Wall:Interzone")]
     public class Wall_Interzone : BHoMObject, IEnergyPlusClass
     {
         

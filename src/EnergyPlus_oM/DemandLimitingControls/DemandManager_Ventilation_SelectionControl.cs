@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
 {
     public enum DemandManager_Ventilation_SelectionControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("All")]
+        [System.Runtime.Serialization.EnumMember(Value="All")]
         All = 1,
         
-        [JsonProperty("RotateMany")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateMany")]
         RotateMany = 2,
         
-        [JsonProperty("RotateOne")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateOne")]
         RotateOne = 3,
     }
 }

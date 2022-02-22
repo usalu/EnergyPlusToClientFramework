@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_Compressor_ModeOfOperation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Subcritical")]
+        [System.Runtime.Serialization.EnumMember(Value="Subcritical")]
         Subcritical = 1,
         
-        [JsonProperty("Transcritical")]
+        [System.Runtime.Serialization.EnumMember(Value="Transcritical")]
         Transcritical = 2,
     }
 }

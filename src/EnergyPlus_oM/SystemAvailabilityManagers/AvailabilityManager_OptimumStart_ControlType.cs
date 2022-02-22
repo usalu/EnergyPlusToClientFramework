@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     public enum AvailabilityManager_OptimumStart_ControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ControlZone")]
+        [System.Runtime.Serialization.EnumMember(Value="ControlZone")]
         ControlZone = 1,
         
-        [JsonProperty("MaximumofZoneList")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumofZoneList")]
         MaximumofZoneList = 2,
         
-        [JsonProperty("StayOff")]
+        [System.Runtime.Serialization.EnumMember(Value="StayOff")]
         StayOff = 3,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HumidifiersandDehumidifiers
 {
     public enum Humidifier_Steam_Gas_InletWaterTemperatureOption
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FixedInletWaterTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedInletWaterTemperature")]
         FixedInletWaterTemperature = 1,
         
-        [JsonProperty("VariableInletWaterTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableInletWaterTemperature")]
         VariableInletWaterTemperature = 2,
     }
 }

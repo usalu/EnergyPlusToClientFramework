@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Undisturbed ground temperature object using a detailed finite difference 1-D mode" +
                  "l")]
-    [JsonObject("Site:GroundTemperature:Undisturbed:FiniteDifference")]
     public class Site_GroundTemperature_Undisturbed_FiniteDifference : BHoMObject, IEnergyPlusClass
     {
         

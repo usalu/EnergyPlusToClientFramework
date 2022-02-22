@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     public enum SteamEquipment_DesignLevelCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("EquipmentLevel")]
+        [System.Runtime.Serialization.EnumMember(Value="EquipmentLevel")]
         EquipmentLevel = 1,
         
-        [JsonProperty("Power/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Power/Area")]
         PowerArea = 2,
         
-        [JsonProperty("Power/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Power/Person")]
         PowerPerson = 3,
         
-        [JsonProperty("Watts/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Area")]
         WattsArea = 4,
         
-        [JsonProperty("Watts/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Person")]
         WattsPerson = 5,
     }
 }

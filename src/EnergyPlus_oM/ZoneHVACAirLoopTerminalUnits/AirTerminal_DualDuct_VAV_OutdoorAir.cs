@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
     [Description("Central air system terminal unit, dual duct, variable volume with special control" +
                  "s. One VAV duct is controlled to supply ventilation air and the other VAV duct i" +
                  "s controlled to meet the zone cooling load.")]
-    [JsonObject("AirTerminal:DualDuct:VAV:OutdoorAir")]
     public class AirTerminal_DualDuct_VAV_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -47,6 +46,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
                      " people DesignOccupancy uses the total Number of People in the zone and is const" +
                      "ant")]
         [JsonProperty("per_person_ventilation_rate_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirTerminal_DualDuct_VAV_OutdoorAir_PerPersonVentilationRateMode PerPersonVentilationRateMode { get; set; } = (AirTerminal_DualDuct_VAV_OutdoorAir_PerPersonVentilationRateMode)Enum.Parse(typeof(AirTerminal_DualDuct_VAV_OutdoorAir_PerPersonVentilationRateMode), "CurrentOccupancy");
     }
 }

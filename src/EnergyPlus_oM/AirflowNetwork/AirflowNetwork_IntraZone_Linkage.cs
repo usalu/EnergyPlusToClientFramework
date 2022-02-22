@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines the connection between two nodes and a component used in the " +
                  "combination of RoomAir and AirflowNetwork model.")]
-    [JsonObject("AirflowNetwork:IntraZone:Linkage")]
     public class AirflowNetwork_IntraZone_Linkage : BHoMObject, IEnergyPlusClass
     {
         

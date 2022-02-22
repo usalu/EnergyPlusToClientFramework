@@ -1,53 +1,51 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
 {
     public enum AirLoopHVAC_UnitarySystem_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX")]
         CoilCoolingDX = 0,
         
-        [JsonProperty("Coil:Cooling:DX:MultiSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:MultiSpeed")]
         CoilCoolingDXMultiSpeed = 1,
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 2,
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed:ThermalStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed:ThermalStorage")]
         CoilCoolingDXSingleSpeedThermalStorage = 3,
         
-        [JsonProperty("Coil:Cooling:DX:TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoSpeed")]
         CoilCoolingDXTwoSpeed = 4,
         
-        [JsonProperty("Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
         CoilCoolingDXTwoStageWithHumidityControlMode = 5,
         
-        [JsonProperty("Coil:Cooling:DX:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:VariableSpeed")]
         CoilCoolingDXVariableSpeed = 6,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 7,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 8,
         
-        [JsonProperty("Coil:Cooling:WaterToAirHeatPump:EquationFit")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:WaterToAirHeatPump:EquationFit")]
         CoilCoolingWaterToAirHeatPumpEquationFit = 9,
         
-        [JsonProperty("Coil:Cooling:WaterToAirHeatPump:ParameterEstimation")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:WaterToAirHeatPump:ParameterEstimation")]
         CoilCoolingWaterToAirHeatPumpParameterEstimation = 10,
         
-        [JsonProperty("Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit")]
         CoilCoolingWaterToAirHeatPumpVariableSpeedEquationFit = 11,
         
-        [JsonProperty("Coil:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:UserDefined")]
         CoilUserDefined = 12,
         
-        [JsonProperty("CoilSystem:Cooling:DX:HeatExchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX:HeatExchangerAssisted")]
         CoilSystemCoolingDXHeatExchangerAssisted = 13,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatExchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatExchangerAssisted")]
         CoilSystemCoolingWaterHeatExchangerAssisted = 14,
     }
 }

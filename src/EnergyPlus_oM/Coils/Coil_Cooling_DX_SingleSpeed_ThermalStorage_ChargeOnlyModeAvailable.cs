@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     public enum Coil_Cooling_DX_SingleSpeed_ThermalStorage_ChargeOnlyModeAvailable
     {
         
-        [JsonProperty("No")]
+        [System.Runtime.Serialization.EnumMember(Value="No")]
         No = 0,
         
-        [JsonProperty("Yes")]
+        [System.Runtime.Serialization.EnumMember(Value="Yes")]
         Yes = 1,
     }
 }

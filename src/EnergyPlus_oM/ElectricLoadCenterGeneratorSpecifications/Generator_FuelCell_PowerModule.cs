@@ -6,12 +6,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description(@"Describe the core power module subsystem of a fuel cell power generator. This includes the fuel cell stack, fuel reformer, and whatever ancillary devices are included inside. If the model has multiple FC generators that are of the exact same type, then only one of these objects is needed and all the Generator:FuelCell objects can reference it.")]
-    [JsonObject("Generator:FuelCell:PowerModule")]
     public class Generator_FuelCell_PowerModule : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("efficiency_curve_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelCell_PowerModule_EfficiencyCurveMode EfficiencyCurveMode { get; set; } = (Generator_FuelCell_PowerModule_EfficiencyCurveMode)Enum.Parse(typeof(Generator_FuelCell_PowerModule_EfficiencyCurveMode), "Annex42");
         
 
@@ -101,6 +101,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("skin_loss_calculation_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelCell_PowerModule_SkinLossCalculationMode SkinLossCalculationMode { get; set; } = (Generator_FuelCell_PowerModule_SkinLossCalculationMode)Enum.Parse(typeof(Generator_FuelCell_PowerModule_SkinLossCalculationMode), "ConstantRate");
         
 

@@ -1,47 +1,45 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_AirChiller_CapacityRatingType
     {
         
-        [JsonProperty("CapacityTotalSpecificConditions")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityTotalSpecificConditions")]
         CapacityTotalSpecificConditions = 0,
         
-        [JsonProperty("EuropeanSC1NominalWet")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC1NominalWet")]
         EuropeanSC1NominalWet = 1,
         
-        [JsonProperty("EuropeanSC1Standard")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC1Standard")]
         EuropeanSC1Standard = 2,
         
-        [JsonProperty("EuropeanSC2NominalWet")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC2NominalWet")]
         EuropeanSC2NominalWet = 3,
         
-        [JsonProperty("EuropeanSC2Standard")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC2Standard")]
         EuropeanSC2Standard = 4,
         
-        [JsonProperty("EuropeanSC3NominalWet")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC3NominalWet")]
         EuropeanSC3NominalWet = 5,
         
-        [JsonProperty("EuropeanSC3Standard")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC3Standard")]
         EuropeanSC3Standard = 6,
         
-        [JsonProperty("EuropeanSC4NominalWet")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC4NominalWet")]
         EuropeanSC4NominalWet = 7,
         
-        [JsonProperty("EuropeanSC4Standard")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC4Standard")]
         EuropeanSC4Standard = 8,
         
-        [JsonProperty("EuropeanSC5NominalWet")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC5NominalWet")]
         EuropeanSC5NominalWet = 9,
         
-        [JsonProperty("EuropeanSC5Standard")]
+        [System.Runtime.Serialization.EnumMember(Value="EuropeanSC5Standard")]
         EuropeanSC5Standard = 10,
         
-        [JsonProperty("FixedLinear")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedLinear")]
         FixedLinear = 11,
         
-        [JsonProperty("UnitLoadFactorSensibleOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="UnitLoadFactorSensibleOnly")]
         UnitLoadFactorSensibleOnly = 12,
     }
 }

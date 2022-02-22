@@ -7,12 +7,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Complex window shading layer thermal properties")]
-    [JsonObject("WindowMaterial:ComplexShade")]
     public class WindowMaterial_ComplexShade : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("layer_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WindowMaterial_ComplexShade_LayerType LayerType { get; set; } = (WindowMaterial_ComplexShade_LayerType)Enum.Parse(typeof(WindowMaterial_ComplexShade_LayerType), "OtherShadingType");
         
 

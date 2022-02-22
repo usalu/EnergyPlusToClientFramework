@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     public enum FluidProperties_Superheated_FluidPropertyType
     {
         
-        [JsonProperty("Density")]
+        [System.Runtime.Serialization.EnumMember(Value="Density")]
         Density = 0,
         
-        [JsonProperty("Enthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="Enthalpy")]
         Enthalpy = 1,
     }
 }

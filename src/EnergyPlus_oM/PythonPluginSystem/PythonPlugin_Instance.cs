@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
     [Description("A single plugin to be executed during the simulation, which can contain multiple " +
                  "calling points for the same class instance by overriding multiple calling point " +
                  "methods.")]
-    [JsonObject("PythonPlugin:Instance")]
     public class PythonPlugin_Instance : BHoMObject, IEnergyPlusClass
     {
         
@@ -17,6 +16,7 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
                      "se it will only be executed once warmup is completed and the actual run period b" +
                      "egins")]
         [JsonProperty("run_during_warmup_days")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes RunDuringWarmupDays { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 

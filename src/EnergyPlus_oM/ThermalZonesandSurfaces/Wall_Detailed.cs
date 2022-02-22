@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for detailed entry of wall heat transfer surfaces.")]
-    [JsonObject("Wall:Detailed")]
     public class Wall_Detailed : BHoMObject, IEnergyPlusClass
     {
         
@@ -22,6 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
         
 
         [JsonProperty("outside_boundary_condition")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Wall_Detailed_OutsideBoundaryCondition OutsideBoundaryCondition { get; set; } = (Wall_Detailed_OutsideBoundaryCondition)Enum.Parse(typeof(Wall_Detailed_OutsideBoundaryCondition), "Adiabatic");
         
 
@@ -31,10 +31,12 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
         
 
         [JsonProperty("sun_exposure")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Wall_Detailed_SunExposure SunExposure { get; set; } = (Wall_Detailed_SunExposure)Enum.Parse(typeof(Wall_Detailed_SunExposure), "SunExposed");
         
 
         [JsonProperty("wind_exposure")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Wall_Detailed_WindExposure WindExposure { get; set; } = (Wall_Detailed_WindExposure)Enum.Parse(typeof(Wall_Detailed_WindExposure), "WindExposed");
         
 

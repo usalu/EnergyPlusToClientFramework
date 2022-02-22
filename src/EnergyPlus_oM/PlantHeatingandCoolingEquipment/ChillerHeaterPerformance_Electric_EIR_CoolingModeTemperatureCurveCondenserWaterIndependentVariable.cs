@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     public enum ChillerHeaterPerformance_Electric_EIR_CoolingModeTemperatureCurveCondenserWaterIndependentVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("EnteringCondenser")]
+        [System.Runtime.Serialization.EnumMember(Value="EnteringCondenser")]
         EnteringCondenser = 1,
         
-        [JsonProperty("LeavingCondenser")]
+        [System.Runtime.Serialization.EnumMember(Value="LeavingCondenser")]
         LeavingCondenser = 2,
     }
 }

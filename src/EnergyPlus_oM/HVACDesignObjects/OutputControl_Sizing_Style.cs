@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
                  "ng into spreadsheet programs such as Excel(tm) but not so well for word processi" +
                  "ng programs -- there tab may be a better choice. Fixed puts spaces between the \"" +
                  "columns\"")]
-    [JsonObject("OutputControl:Sizing:Style")]
     public class OutputControl_Sizing_Style : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("column_separator")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OutputControl_Sizing_Style_ColumnSeparator ColumnSeparator { get; set; } = (OutputControl_Sizing_Style_ColumnSeparator)Enum.Parse(typeof(OutputControl_Sizing_Style_ColumnSeparator), "Comma");
     }
 }

@@ -6,13 +6,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Determines which contaminant concentration will be simulates.")]
-    [JsonObject("ZoneAirContaminantBalance")]
     public class ZoneAirContaminantBalance : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("If Yes, CO2 simulation will be performed.")]
         [JsonProperty("carbon_dioxide_concentration")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes CarbonDioxideConcentration { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -23,6 +23,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 
         [Description("If Yes, generic contaminant simulation will be performed.")]
         [JsonProperty("generic_contaminant_concentration")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes GenericContaminantConcentration { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 

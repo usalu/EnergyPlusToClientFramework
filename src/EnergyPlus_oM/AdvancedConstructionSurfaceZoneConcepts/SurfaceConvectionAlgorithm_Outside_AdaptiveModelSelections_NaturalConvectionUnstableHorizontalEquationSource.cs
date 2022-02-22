@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections_NaturalConvectionUnstableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 3,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 4,
     }
 }

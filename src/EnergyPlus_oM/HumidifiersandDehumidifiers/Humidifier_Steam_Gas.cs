@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.HumidifiersandDehumidifiers
 {
     [Description("Natural gas fired steam humidifier with optional blower fan.")]
-    [JsonObject("Humidifier:Steam:Gas")]
     public class Humidifier_Steam_Gas : BHoMObject, IEnergyPlusClass
     {
         
@@ -67,6 +66,7 @@ namespace BH.oM.Adapters.EnergyPlus.HumidifiersandDehumidifiers
 
         [Description(@"The inlet water temperature can be fixed at 20C as it is done for electric steam humidifier or it can be allowed to vary with temperature of the water source. Currently allowed water sources are main water or water storage tank in water use objects. if FixedInletWaterTemperature is specified, then a fixed 20C water temperature will be used, or else if VariableInletWaterTemperature is specified, then inlet water will vary depending the source water temperature. If this input field is left blank, then fixed inlet water temperature of 20C will be assumed.")]
         [JsonProperty("inlet_water_temperature_option")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Humidifier_Steam_Gas_InletWaterTemperatureOption InletWaterTemperatureOption { get; set; } = (Humidifier_Steam_Gas_InletWaterTemperatureOption)Enum.Parse(typeof(Humidifier_Steam_Gas_InletWaterTemperatureOption), "FixedInletWaterTemperature");
     }
 }

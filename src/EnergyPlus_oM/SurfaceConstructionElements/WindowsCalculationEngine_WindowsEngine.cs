@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum WindowsCalculationEngine_WindowsEngine
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BuiltInWindowsModel")]
+        [System.Runtime.Serialization.EnumMember(Value="BuiltInWindowsModel")]
         BuiltInWindowsModel = 1,
         
-        [JsonProperty("ExternalWindowsModel")]
+        [System.Runtime.Serialization.EnumMember(Value="ExternalWindowsModel")]
         ExternalWindowsModel = 2,
     }
 }

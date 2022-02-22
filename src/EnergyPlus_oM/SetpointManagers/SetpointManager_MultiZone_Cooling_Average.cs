@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
     [Description("This setpoint manager sets the average supply air temperature based on the coolin" +
                  "g load requirements of all controlled zones in an air loop served by a central a" +
                  "ir-conditioner.")]
-    [JsonObject("SetpointManager:MultiZone:Cooling:Average")]
     public class SetpointManager_MultiZone_Cooling_Average : BHoMObject, IEnergyPlusClass
     {
         

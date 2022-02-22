@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines the name of the supply Air Fan used in an Air loop.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:Fan")]
     public class AirflowNetwork_Distribution_Component_Fan : BHoMObject, IEnergyPlusClass
     {
         
@@ -17,6 +16,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
         
 
         [JsonProperty("supply_fan_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirflowNetwork_Distribution_Component_Fan_SupplyFanObjectType SupplyFanObjectType { get; set; } = (AirflowNetwork_Distribution_Component_Fan_SupplyFanObjectType)Enum.Parse(typeof(AirflowNetwork_Distribution_Component_Fan_SupplyFanObjectType), "Empty");
     }
 }

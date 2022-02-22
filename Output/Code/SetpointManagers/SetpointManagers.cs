@@ -68,12 +68,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
     
     [Description("The simplest Setpoint Manager simply uses a schedule to determine one or more set" +
         "points. Values of the nodes are not used as input.")]
-    [JsonObject("SetpointManager:Scheduled")]
     public class SetpointManager_Scheduled : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_Scheduled_ControlVariable ControlVariable { get; set; } = (SetpointManager_Scheduled_ControlVariable)Enum.Parse(typeof(SetpointManager_Scheduled_ControlVariable), "HumidityRatio");
         
 
@@ -89,41 +89,41 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_Scheduled_ControlVariable
     {
         
-        [JsonProperty("HumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="HumidityRatio")]
         HumidityRatio = 0,
         
-        [JsonProperty("MassFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="MassFlowRate")]
         MassFlowRate = 1,
         
-        [JsonProperty("MaximumHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumHumidityRatio")]
         MaximumHumidityRatio = 2,
         
-        [JsonProperty("MaximumMassFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumMassFlowRate")]
         MaximumMassFlowRate = 3,
         
-        [JsonProperty("MaximumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumTemperature")]
         MaximumTemperature = 4,
         
-        [JsonProperty("MinimumHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumHumidityRatio")]
         MinimumHumidityRatio = 5,
         
-        [JsonProperty("MinimumMassFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumMassFlowRate")]
         MinimumMassFlowRate = 6,
         
-        [JsonProperty("MinimumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumTemperature")]
         MinimumTemperature = 7,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 8,
     }
     
     [Description("This setpoint manager places a high and low schedule value on one or more nodes.")]
-    [JsonObject("SetpointManager:Scheduled:DualSetpoint")]
     public class SetpointManager_Scheduled_DualSetpoint : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_Scheduled_DualSetpoint_ControlVariable ControlVariable { get; set; } = (SetpointManager_Scheduled_DualSetpoint_ControlVariable)Enum.Parse(typeof(SetpointManager_Scheduled_DualSetpoint_ControlVariable), "Temperature");
         
 
@@ -143,22 +143,22 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_Scheduled_DualSetpoint_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 1,
     }
     
     [Description("This Setpoint Manager is used to place a setpoint temperature on system node acco" +
         "rding to the outdoor air temperature using a reset rule. The outdoor air tempera" +
         "ture is obtained from the weather information during the simulation.")]
-    [JsonObject("SetpointManager:OutdoorAirReset")]
     public class SetpointManager_OutdoorAirReset : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_OutdoorAirReset_ControlVariable ControlVariable { get; set; } = (SetpointManager_OutdoorAirReset_ControlVariable)Enum.Parse(typeof(SetpointManager_OutdoorAirReset_ControlVariable), "Temperature");
         
 
@@ -213,26 +213,26 @@ public System.Nullable<float> OutdoorHighTemperature2 { get; set; } = null;
     public enum SetpointManager_OutdoorAirReset_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MaximumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumTemperature")]
         MaximumTemperature = 1,
         
-        [JsonProperty("MinimumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumTemperature")]
         MinimumTemperature = 2,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 3,
     }
     
     [Description(@"This setpoint manager detects the control zone load, zone inlet node flow rate, and zone node temperature and calculates a setpoint temperature for the supply air that will satisfy the zone load (heating or cooling) for the control zone. This setpoint manager is not limited to reheat applications.")]
-    [JsonObject("SetpointManager:SingleZone:Reheat")]
     public class SetpointManager_SingleZone_Reheat : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_SingleZone_Reheat_ControlVariable ControlVariable { get; set; } = (SetpointManager_SingleZone_Reheat_ControlVariable)Enum.Parse(typeof(SetpointManager_SingleZone_Reheat_ControlVariable), "Temperature");
         
 
@@ -264,20 +264,20 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_SingleZone_Reheat_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 1,
     }
     
     [Description(@"This setpoint manager detects the control zone load to meet the current heating setpoint, zone inlet node flow rate, and zone node temperature, and calculates a setpoint temperature for the supply air that will satisfy the zone heating load for the control zone.")]
-    [JsonObject("SetpointManager:SingleZone:Heating")]
     public class SetpointManager_SingleZone_Heating : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_SingleZone_Heating_ControlVariable ControlVariable { get; set; } = (SetpointManager_SingleZone_Heating_ControlVariable)Enum.Parse(typeof(SetpointManager_SingleZone_Heating_ControlVariable), "Temperature");
         
 
@@ -309,20 +309,20 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_SingleZone_Heating_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 1,
     }
     
     [Description(@"This setpoint manager detects the control zone load to meet the current cooling setpoint, zone inlet node flow rate, and zone node temperature, and calculates a setpoint temperature for the supply air that will satisfy the zone cooling load for the control zone.")]
-    [JsonObject("SetpointManager:SingleZone:Cooling")]
     public class SetpointManager_SingleZone_Cooling : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_SingleZone_Cooling_ControlVariable ControlVariable { get; set; } = (SetpointManager_SingleZone_Cooling_ControlVariable)Enum.Parse(typeof(SetpointManager_SingleZone_Cooling_ControlVariable), "Temperature");
         
 
@@ -354,17 +354,16 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_SingleZone_Cooling_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 1,
     }
     
     [Description("The Single Zone Minimum Humidity Setpoint Manager allows the control of a single " +
         "zone minimum humidity level. This setpoint manager can be used in conjunction wi" +
         "th object ZoneControl:Humidistat to detect humidity levels.")]
-    [JsonObject("SetpointManager:SingleZone:Humidity:Minimum")]
     public class SetpointManager_SingleZone_Humidity_Minimum : BHoMObject, IEnergyPlusClass
     {
         
@@ -382,7 +381,6 @@ public string ControlZoneAirNodeName { get; set; } = "";
     [Description("The Single Zone Maximum Humidity Setpoint Manager allows the control of a single " +
         "zone maximum humidity level. This setpoint manager can be used in conjunction wi" +
         "th object ZoneControl:Humidistat to detect humidity levels.")]
-    [JsonObject("SetpointManager:SingleZone:Humidity:Maximum")]
     public class SetpointManager_SingleZone_Humidity_Maximum : BHoMObject, IEnergyPlusClass
     {
         
@@ -400,12 +398,12 @@ public string ControlZoneAirNodeName { get; set; } = "";
     [Description("The Mixed Air Setpoint Manager is meant to be used in conjunction with a Controll" +
         "er:OutdoorAir object. This setpoint manager is used to establish a temperature s" +
         "etpoint at the mixed air node.")]
-    [JsonObject("SetpointManager:MixedAir")]
     public class SetpointManager_MixedAir : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_MixedAir_ControlVariable ControlVariable { get; set; } = (SetpointManager_MixedAir_ControlVariable)Enum.Parse(typeof(SetpointManager_MixedAir_ControlVariable), "Temperature");
         
 
@@ -447,22 +445,22 @@ public System.Nullable<float> MinimumTemperatureAtCoolingCoilOutletNode { get; s
     public enum SetpointManager_MixedAir_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 1,
     }
     
     [Description("This setpoint manager determines the required conditions at the outdoor air strea" +
         "m node which will produce the reference setpoint condition at the mixed air node" +
         " when mixed with the return air stream")]
-    [JsonObject("SetpointManager:OutdoorAirPretreat")]
     public class SetpointManager_OutdoorAirPretreat : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_OutdoorAirPretreat_ControlVariable ControlVariable { get; set; } = (SetpointManager_OutdoorAirPretreat_ControlVariable)Enum.Parse(typeof(SetpointManager_OutdoorAirPretreat_ControlVariable), "HumidityRatio");
         
 
@@ -518,27 +516,27 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_OutdoorAirPretreat_ControlVariable
     {
         
-        [JsonProperty("HumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="HumidityRatio")]
         HumidityRatio = 0,
         
-        [JsonProperty("MaximumHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumHumidityRatio")]
         MaximumHumidityRatio = 1,
         
-        [JsonProperty("MinimumHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumHumidityRatio")]
         MinimumHumidityRatio = 2,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 3,
     }
     
     [Description("This SetpointManager resets the cooling supply air temperature of a central force" +
         "d air HVAC system according to the cooling demand of the warmest zone.")]
-    [JsonObject("SetpointManager:Warmest")]
     public class SetpointManager_Warmest : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_Warmest_ControlVariable ControlVariable { get; set; } = (SetpointManager_Warmest_ControlVariable)Enum.Parse(typeof(SetpointManager_Warmest_ControlVariable), "Temperature");
         
 
@@ -556,6 +554,7 @@ public System.Nullable<float> MaximumSetpointTemperature { get; set; } = (System
         
 
 [JsonProperty("strategy")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_Warmest_Strategy Strategy { get; set; } = (SetpointManager_Warmest_Strategy)Enum.Parse(typeof(SetpointManager_Warmest_Strategy), "MaximumTemperature");
         
 
@@ -567,20 +566,20 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_Warmest_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 1,
     }
     
     public enum SetpointManager_Warmest_Strategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MaximumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumTemperature")]
         MaximumTemperature = 1,
     }
     
@@ -588,12 +587,12 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
         "re of the air in the heating supply duct. Usually it is used in conjunction with" +
         " a SetpointManager:Warmest resetting the temperature of the air in the cooling s" +
         "upply duct.")]
-    [JsonObject("SetpointManager:Coldest")]
     public class SetpointManager_Coldest : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_Coldest_ControlVariable ControlVariable { get; set; } = (SetpointManager_Coldest_ControlVariable)Enum.Parse(typeof(SetpointManager_Coldest_ControlVariable), "Temperature");
         
 
@@ -611,6 +610,7 @@ public System.Nullable<float> MaximumSetpointTemperature { get; set; } = (System
         
 
 [JsonProperty("strategy")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_Coldest_Strategy Strategy { get; set; } = (SetpointManager_Coldest_Strategy)Enum.Parse(typeof(SetpointManager_Coldest_Strategy), "MinimumTemperature");
         
 
@@ -622,31 +622,31 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_Coldest_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 1,
     }
     
     public enum SetpointManager_Coldest_Strategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MinimumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumTemperature")]
         MinimumTemperature = 1,
     }
     
     [Description("This setpoint manager determines the required mass flow rate through a return air" +
         " bypass duct to meet the specified temperature setpoint")]
-    [JsonObject("SetpointManager:ReturnAirBypassFlow")]
     public class SetpointManager_ReturnAirBypassFlow : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_ReturnAirBypassFlow_ControlVariable ControlVariable { get; set; } = (SetpointManager_ReturnAirBypassFlow_ControlVariable)Enum.Parse(typeof(SetpointManager_ReturnAirBypassFlow_ControlVariable), "Flow");
         
 
@@ -662,21 +662,21 @@ public string TemperatureSetpointScheduleName { get; set; } = "";
     public enum SetpointManager_ReturnAirBypassFlow_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Flow")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow")]
         Flow = 1,
     }
     
     [Description("This setpoint manager sets both the supply air temperature and the supply air flo" +
         "w rate.")]
-    [JsonObject("SetpointManager:WarmestTemperatureFlow")]
     public class SetpointManager_WarmestTemperatureFlow : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_WarmestTemperatureFlow_ControlVariable ControlVariable { get; set; } = (SetpointManager_WarmestTemperatureFlow_ControlVariable)Enum.Parse(typeof(SetpointManager_WarmestTemperatureFlow_ControlVariable), "Temperature");
         
 
@@ -695,6 +695,7 @@ public System.Nullable<float> MaximumSetpointTemperature { get; set; } = (System
 
 [Description(@"For TemperatureFirst the manager tries to find the highest setpoint temperature that will satisfy all the zone cooling loads at minimum supply air flow rate. If this setpoint temperature is less than the minimum, the setpoint temperature is set to the minimum, and the supply air flow rate is increased to meet the loads. For FlowFirst the manager tries to find the lowest supply air flow rate that will satisfy all the zone cooling loads at the maximum setpoint temperature. If this flow is greater than the maximum, the flow is set to the maximum and the setpoint temperature is reduced to satisfy the cooling loads.")]
 [JsonProperty("strategy")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_WarmestTemperatureFlow_Strategy Strategy { get; set; } = (SetpointManager_WarmestTemperatureFlow_Strategy)Enum.Parse(typeof(SetpointManager_WarmestTemperatureFlow_Strategy), "TemperatureFirst");
         
 
@@ -712,27 +713,26 @@ public System.Nullable<float> MinimumTurndownRatio { get; set; } = (System.Nulla
     public enum SetpointManager_WarmestTemperatureFlow_ControlVariable
     {
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 0,
     }
     
     public enum SetpointManager_WarmestTemperatureFlow_Strategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FlowFirst")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowFirst")]
         FlowFirst = 1,
         
-        [JsonProperty("TemperatureFirst")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureFirst")]
         TemperatureFirst = 2,
     }
     
     [Description("This setpoint manager sets the average supply air temperature based on the heatin" +
         "g load requirements of all controlled zones in an air loop served by a central a" +
         "ir-conditioner.")]
-    [JsonObject("SetpointManager:MultiZone:Heating:Average")]
     public class SetpointManager_MultiZone_Heating_Average : BHoMObject, IEnergyPlusClass
     {
         
@@ -758,7 +758,6 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     [Description("This setpoint manager sets the average supply air temperature based on the coolin" +
         "g load requirements of all controlled zones in an air loop served by a central a" +
         "ir-conditioner.")]
-    [JsonObject("SetpointManager:MultiZone:Cooling:Average")]
     public class SetpointManager_MultiZone_Cooling_Average : BHoMObject, IEnergyPlusClass
     {
         
@@ -784,7 +783,6 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     [Description("This setpoint manager sets the average supply air minimum humidity ratio based on" +
         " moisture load requirements of all controlled zones in an air loop served by a c" +
         "entral air-conditioner.")]
-    [JsonObject("SetpointManager:MultiZone:MinimumHumidity:Average")]
     public class SetpointManager_MultiZone_MinimumHumidity_Average : BHoMObject, IEnergyPlusClass
     {
         
@@ -810,7 +808,6 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     [Description("This setpoint manager sets the average supply air maximum humidity ratio based on" +
         " moisture load requirements of all controlled zones in an air loop served by a c" +
         "entral air-conditioner.")]
-    [JsonObject("SetpointManager:MultiZone:MaximumHumidity:Average")]
     public class SetpointManager_MultiZone_MaximumHumidity_Average : BHoMObject, IEnergyPlusClass
     {
         
@@ -834,7 +831,6 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This setpoint manager sets the minimum supply air humidity ratio based on humidification requirements of a controlled zone with critical humidity ratio setpoint (i.e., a zone with the highest humidity ratio setpoint) in an air loop served by a central air-conditioner.")]
-    [JsonObject("SetpointManager:MultiZone:Humidity:Minimum")]
     public class SetpointManager_MultiZone_Humidity_Minimum : BHoMObject, IEnergyPlusClass
     {
         
@@ -858,7 +854,6 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This setpoint manager sets the maximum supply air humidity ratio based on dehumidification requirements of a controlled zone with critical humidity ratio setpoint (i.e., a zone with the lowest humidity ratio setpoint) in an air loop served by a central air-conditioner.")]
-    [JsonObject("SetpointManager:MultiZone:Humidity:Maximum")]
     public class SetpointManager_MultiZone_Humidity_Maximum : BHoMObject, IEnergyPlusClass
     {
         
@@ -885,16 +880,17 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
         "at is derived from the current outdoor air environmental conditions. The outdoor" +
         " air conditions are obtained from the weather information during the simulation." +
         "")]
-    [JsonObject("SetpointManager:FollowOutdoorAirTemperature")]
     public class SetpointManager_FollowOutdoorAirTemperature : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_FollowOutdoorAirTemperature_ControlVariable ControlVariable { get; set; } = (SetpointManager_FollowOutdoorAirTemperature_ControlVariable)Enum.Parse(typeof(SetpointManager_FollowOutdoorAirTemperature_ControlVariable), "Temperature");
         
 
 [JsonProperty("reference_temperature_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_FollowOutdoorAirTemperature_ReferenceTemperatureType ReferenceTemperatureType { get; set; } = (SetpointManager_FollowOutdoorAirTemperature_ReferenceTemperatureType)Enum.Parse(typeof(SetpointManager_FollowOutdoorAirTemperature_ReferenceTemperatureType), "OutdoorAirWetBulb");
         
 
@@ -918,39 +914,39 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_FollowOutdoorAirTemperature_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MaximumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumTemperature")]
         MaximumTemperature = 1,
         
-        [JsonProperty("MinimumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumTemperature")]
         MinimumTemperature = 2,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 3,
     }
     
     public enum SetpointManager_FollowOutdoorAirTemperature_ReferenceTemperatureType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("OutdoorAirDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAirDryBulb")]
         OutdoorAirDryBulb = 1,
         
-        [JsonProperty("OutdoorAirWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAirWetBulb")]
         OutdoorAirWetBulb = 2,
     }
     
     [Description(@"This setpoint manager is used to place a temperature setpoint on a system node that is derived from the current temperatures at a separate system node. The current value of the temperature at a reference node is obtained and used to generate setpoint on a second system node. If the reference node is also designated to be an outdoor air (intake) node, then this setpoint manager can be used to follow outdoor air conditions that are adjusted for altitude.")]
-    [JsonObject("SetpointManager:FollowSystemNodeTemperature")]
     public class SetpointManager_FollowSystemNodeTemperature : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_FollowSystemNodeTemperature_ControlVariable ControlVariable { get; set; } = (SetpointManager_FollowSystemNodeTemperature_ControlVariable)Enum.Parse(typeof(SetpointManager_FollowSystemNodeTemperature_ControlVariable), "Temperature");
         
 
@@ -959,6 +955,7 @@ public string ReferenceNodeName { get; set; } = "";
         
 
 [JsonProperty("reference_temperature_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_FollowSystemNodeTemperature_ReferenceTemperatureType ReferenceTemperatureType { get; set; } = (SetpointManager_FollowSystemNodeTemperature_ReferenceTemperatureType)Enum.Parse(typeof(SetpointManager_FollowSystemNodeTemperature_ReferenceTemperatureType), "NodeDryBulb");
         
 
@@ -982,43 +979,44 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_FollowSystemNodeTemperature_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MaximumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumTemperature")]
         MaximumTemperature = 1,
         
-        [JsonProperty("MinimumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumTemperature")]
         MinimumTemperature = 2,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 3,
     }
     
     public enum SetpointManager_FollowSystemNodeTemperature_ReferenceTemperatureType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NodeDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="NodeDryBulb")]
         NodeDryBulb = 1,
         
-        [JsonProperty("NodeWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="NodeWetBulb")]
         NodeWetBulb = 2,
     }
     
     [Description(@"This setpoint manager is used to place a temperature setpoint on a system node that is derived from a current ground temperature. The ground temperatures are specified in different Site:GroundTemperature:* objects and used during the simulation. This setpoint manager is primarily intended for condenser or plant loops using some type of ground heat exchanger.")]
-    [JsonObject("SetpointManager:FollowGroundTemperature")]
     public class SetpointManager_FollowGroundTemperature : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_FollowGroundTemperature_ControlVariable ControlVariable { get; set; } = (SetpointManager_FollowGroundTemperature_ControlVariable)Enum.Parse(typeof(SetpointManager_FollowGroundTemperature_ControlVariable), "Temperature");
         
 
 [JsonProperty("reference_ground_temperature_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_FollowGroundTemperature_ReferenceGroundTemperatureObjectType ReferenceGroundTemperatureObjectType { get; set; } = (SetpointManager_FollowGroundTemperature_ReferenceGroundTemperatureObjectType)Enum.Parse(typeof(SetpointManager_FollowGroundTemperature_ReferenceGroundTemperatureObjectType), "SiteGroundTemperatureBuildingSurface");
         
 
@@ -1042,44 +1040,44 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_FollowGroundTemperature_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MaximumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumTemperature")]
         MaximumTemperature = 1,
         
-        [JsonProperty("MinimumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumTemperature")]
         MinimumTemperature = 2,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 3,
     }
     
     public enum SetpointManager_FollowGroundTemperature_ReferenceGroundTemperatureObjectType
     {
         
-        [JsonProperty("Site:GroundTemperature:BuildingSurface")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:BuildingSurface")]
         SiteGroundTemperatureBuildingSurface = 0,
         
-        [JsonProperty("Site:GroundTemperature:Deep")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Deep")]
         SiteGroundTemperatureDeep = 1,
         
-        [JsonProperty("Site:GroundTemperature:FCfactorMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:FCfactorMethod")]
         SiteGroundTemperatureFCfactorMethod = 2,
         
-        [JsonProperty("Site:GroundTemperature:Shallow")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Shallow")]
         SiteGroundTemperatureShallow = 3,
     }
     
     [Description("This setpoint manager uses one curve to determine the optimum condenser entering " +
         "water temperature for a given timestep and two other curves to place boundary co" +
         "nditions on the setpoint value.")]
-    [JsonObject("SetpointManager:CondenserEnteringReset")]
     public class SetpointManager_CondenserEnteringReset : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_CondenserEnteringReset_ControlVariable ControlVariable { get; set; } = (SetpointManager_CondenserEnteringReset_ControlVariable)Enum.Parse(typeof(SetpointManager_CondenserEnteringReset_ControlVariable), "Temperature");
         
 
@@ -1122,21 +1120,21 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_CondenserEnteringReset_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 1,
     }
     
     [Description("This setpoint manager determine the ideal optimum condenser entering water temper" +
         "ature setpoint for a given timestep.")]
-    [JsonObject("SetpointManager:CondenserEnteringReset:Ideal")]
     public class SetpointManager_CondenserEnteringReset_Ideal : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_CondenserEnteringReset_Ideal_ControlVariable ControlVariable { get; set; } = (SetpointManager_CondenserEnteringReset_Ideal_ControlVariable)Enum.Parse(typeof(SetpointManager_CondenserEnteringReset_Ideal_ControlVariable), "Temperature");
         
 
@@ -1156,15 +1154,14 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     public enum SetpointManager_CondenserEnteringReset_Ideal_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 1,
     }
     
     [Description(@"This object can be used with CoilSystem:Cooling:DX to model on/off cycling control of single stage air systems. Setpoints are modulated to run coil full on or full off depending on zone conditions. Intended for use with ZoneControl:Thermostat:StagedDualSetpoint")]
-    [JsonObject("SetpointManager:SingleZone:OneStageCooling")]
     public class SetpointManager_SingleZone_OneStageCooling : BHoMObject, IEnergyPlusClass
     {
         
@@ -1189,7 +1186,6 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This object can be used with CoilSystem:Heating:DX, Coil:Heating:Fuel, Coil:Heating:Electric to model on/off cycling control of single stage air systems. Setpoints are modulated to run coil full on or full off depending on zone conditions. Intended for use with ZoneControl:Thermostat:StagedDualSetpoint.")]
-    [JsonObject("SetpointManager:SingleZone:OneStageHeating")]
     public class SetpointManager_SingleZone_OneStageHeating : BHoMObject, IEnergyPlusClass
     {
         
@@ -1214,7 +1210,6 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This setpoint manager is used to place a temperature setpoint on a plant supply outlet node based on a target return water setpoint. The setpoint manager attempts to achieve the desired return water temperature by adjusting the supply temperature setpoint based on the plant conditions at each system time step.")]
-    [JsonObject("SetpointManager:ReturnTemperature:ChilledWater")]
     public class SetpointManager_ReturnTemperature_ChilledWater : BHoMObject, IEnergyPlusClass
     {
         
@@ -1246,6 +1241,7 @@ public System.Nullable<float> MaximumSupplyTemperatureSetpoint { get; set; } = (
 [Description("This defines whether the chilled water return temperature target is constant, sch" +
     "eduled, or specified on the supply inlet node by a separate setpoint manager.")]
 [JsonProperty("return_temperature_setpoint_input_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_ReturnTemperature_ChilledWater_ReturnTemperatureSetpointInputType ReturnTemperatureSetpointInputType { get; set; } = (SetpointManager_ReturnTemperature_ChilledWater_ReturnTemperatureSetpointInputType)Enum.Parse(typeof(SetpointManager_ReturnTemperature_ChilledWater_ReturnTemperatureSetpointInputType), "Constant");
         
 
@@ -1264,18 +1260,17 @@ public string ReturnTemperatureSetpointScheduleName { get; set; } = "";
     public enum SetpointManager_ReturnTemperature_ChilledWater_ReturnTemperatureSetpointInputType
     {
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 0,
         
-        [JsonProperty("ReturnTemperatureSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="ReturnTemperatureSetpoint")]
         ReturnTemperatureSetpoint = 1,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 2,
     }
     
     [Description(@"This setpoint manager is used to place a temperature setpoint on a plant supply outlet node based on a target return water setpoint. The setpoint manager attempts to achieve the desired return water temperature by adjusting the supply temperature setpoint based on the plant conditions at each system time step.")]
-    [JsonObject("SetpointManager:ReturnTemperature:HotWater")]
     public class SetpointManager_ReturnTemperature_HotWater : BHoMObject, IEnergyPlusClass
     {
         
@@ -1307,6 +1302,7 @@ public System.Nullable<float> MaximumSupplyTemperatureSetpoint { get; set; } = (
 [Description("This defines whether the hot water return temperature target is constant, schedul" +
     "ed, or specified on the supply inlet node by a separate setpoint manager.")]
 [JsonProperty("return_temperature_setpoint_input_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_ReturnTemperature_HotWater_ReturnTemperatureSetpointInputType ReturnTemperatureSetpointInputType { get; set; } = (SetpointManager_ReturnTemperature_HotWater_ReturnTemperatureSetpointInputType)Enum.Parse(typeof(SetpointManager_ReturnTemperature_HotWater_ReturnTemperatureSetpointInputType), "Constant");
         
 
@@ -1325,13 +1321,13 @@ public string ReturnTemperatureSetpointScheduleName { get; set; } = "";
     public enum SetpointManager_ReturnTemperature_HotWater_ReturnTemperatureSetpointInputType
     {
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 0,
         
-        [JsonProperty("ReturnTemperatureSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="ReturnTemperatureSetpoint")]
         ReturnTemperatureSetpoint = 1,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 2,
     }
 }

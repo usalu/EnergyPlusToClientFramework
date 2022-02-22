@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum HeatExchanger_FluidToFluid_ComponentOverrideCoolingControlTemperatureMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="DryBulbTemperature")]
         DryBulbTemperature = 1,
         
-        [JsonProperty("Loop")]
+        [System.Runtime.Serialization.EnumMember(Value="Loop")]
         Loop = 2,
         
-        [JsonProperty("WetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbTemperature")]
         WetBulbTemperature = 3,
     }
 }

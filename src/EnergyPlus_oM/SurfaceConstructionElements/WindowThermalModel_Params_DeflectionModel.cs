@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum WindowThermalModel_Params_DeflectionModel
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MeasuredDeflection")]
+        [System.Runtime.Serialization.EnumMember(Value="MeasuredDeflection")]
         MeasuredDeflection = 1,
         
-        [JsonProperty("NoDeflection")]
+        [System.Runtime.Serialization.EnumMember(Value="NoDeflection")]
         NoDeflection = 2,
         
-        [JsonProperty("TemperatureAndPressureInput")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureAndPressureInput")]
         TemperatureAndPressureInput = 3,
     }
 }

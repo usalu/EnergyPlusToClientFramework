@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     public enum Boiler_HotWater_EfficiencyCurveTemperatureEvaluationVariable
     {
         
-        [JsonProperty("EnteringBoiler")]
+        [System.Runtime.Serialization.EnumMember(Value="EnteringBoiler")]
         EnteringBoiler = 0,
         
-        [JsonProperty("LeavingBoiler")]
+        [System.Runtime.Serialization.EnumMember(Value="LeavingBoiler")]
         LeavingBoiler = 1,
     }
 }

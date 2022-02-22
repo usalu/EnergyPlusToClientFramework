@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
     [Description("Plant equipment operation scheme for cooling load range operation. Specifies one " +
                  "or more groups of equipment which are available to operate for successive coolin" +
                  "g load ranges.")]
-    [JsonObject("PlantEquipmentOperation:CoolingLoad")]
     public class PlantEquipmentOperation_CoolingLoad : BHoMObject, IEnergyPlusClass
     {
         

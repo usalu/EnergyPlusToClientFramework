@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_MicroTurbine_HeatRecoveryWaterFlowOperatingMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("InternalControl")]
+        [System.Runtime.Serialization.EnumMember(Value="InternalControl")]
         InternalControl = 1,
         
-        [JsonProperty("PlantControl")]
+        [System.Runtime.Serialization.EnumMember(Value="PlantControl")]
         PlantControl = 2,
     }
 }

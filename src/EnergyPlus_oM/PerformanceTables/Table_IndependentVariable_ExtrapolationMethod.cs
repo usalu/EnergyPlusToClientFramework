@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
 {
     public enum Table_IndependentVariable_ExtrapolationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 1,
         
-        [JsonProperty("Linear")]
+        [System.Runtime.Serialization.EnumMember(Value="Linear")]
         Linear = 2,
     }
 }

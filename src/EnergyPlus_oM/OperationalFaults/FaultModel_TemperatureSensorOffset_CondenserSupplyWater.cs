@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes fault of condenser supply water temperature sensor offset")]
-    [JsonObject("FaultModel:TemperatureSensorOffset:CondenserSupplyWater")]
     public class FaultModel_TemperatureSensorOffset_CondenserSupplyWater : BHoMObject, IEnergyPlusClass
     {
         
@@ -22,6 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 
         [Description("Enter the type of the cooling tower affected")]
         [JsonProperty("cooling_tower_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FaultModel_TemperatureSensorOffset_CondenserSupplyWater_CoolingTowerObjectType CoolingTowerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_CondenserSupplyWater_CoolingTowerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_CondenserSupplyWater_CoolingTowerObjectType), "CoolingTowerSingleSpeed");
         
 

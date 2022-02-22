@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 {
     public enum ZoneCoolTower_Shower_FlowControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("WaterFlowSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterFlowSchedule")]
         WaterFlowSchedule = 1,
         
-        [JsonProperty("WindDrivenFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="WindDrivenFlow")]
         WindDrivenFlow = 2,
     }
 }

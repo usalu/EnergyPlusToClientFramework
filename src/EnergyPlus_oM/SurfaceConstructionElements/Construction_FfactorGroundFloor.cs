@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Alternate method of describing slab-on-grade or underground floor constructions")]
-    [JsonObject("Construction:FfactorGroundFloor")]
     public class Construction_FfactorGroundFloor : BHoMObject, IEnergyPlusClass
     {
         

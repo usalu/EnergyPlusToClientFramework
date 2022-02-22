@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum WindowMaterial_Glazing_EquivalentLayer_OpticalDataType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Spectral")]
+        [System.Runtime.Serialization.EnumMember(Value="Spectral")]
         Spectral = 1,
         
-        [JsonProperty("SpectralAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="SpectralAverage")]
         SpectralAverage = 2,
     }
 }

@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     [Description("This object specifies the properties of a surface linkage through which air flows" +
                  ". Airflow Report: Node 1 as an inside face zone; Node 2 as an outside face zone " +
                  "or external node.")]
-    [JsonObject("AirflowNetwork:MultiZone:Surface")]
     public class AirflowNetwork_MultiZone_Surface : BHoMObject, IEnergyPlusClass
     {
         
@@ -37,6 +36,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 
         [Description(@"When Ventilation Control Mode = Temperature or Enthalpy, the following fields are used to modulate the Ventilation Open Factor for a window or door opening according to the parent zone's indoor-outdoor temperature or enthalpy difference. When Ventilation Control Mode = AdjacentTemperature or AdjacentEnthalpy, the following fields are used to modulate the Ventilation Open Factor for an interior window or door opening according to temperature or enthalpy difference between the parent zone and the adjacent zone. Constant: controlled by field Venting Schedule Name. NoVent: control will not open window or door during simulation (Ventilation Open Factor = 0). ZoneLevel: control will be controlled by AirflowNetwork:MultiZone:Zone Mode.")]
         [JsonProperty("ventilation_control_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirflowNetwork_MultiZone_Surface_VentilationControlMode VentilationControlMode { get; set; } = (AirflowNetwork_MultiZone_Surface_VentilationControlMode)Enum.Parse(typeof(AirflowNetwork_MultiZone_Surface_VentilationControlMode), "ZoneLevel");
         
 
@@ -90,6 +90,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
         [Description("This field is applied to a non-rectangular window or door. The equivalent shape h" +
                      "as the same area as a polygonal window or door.")]
         [JsonProperty("equivalent_rectangle_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirflowNetwork_MultiZone_Surface_EquivalentRectangleMethod EquivalentRectangleMethod { get; set; } = (AirflowNetwork_MultiZone_Surface_EquivalentRectangleMethod)Enum.Parse(typeof(AirflowNetwork_MultiZone_Surface_EquivalentRectangleMethod), "PolygonHeight");
         
 

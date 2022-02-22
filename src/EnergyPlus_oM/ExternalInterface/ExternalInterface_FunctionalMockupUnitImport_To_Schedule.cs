@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
 {
     [Description("This objects contains only one value, which is used during the first call of Ener" +
                  "gyPlus")]
-    [JsonObject("ExternalInterface:FunctionalMockupUnitImport:To:Schedule")]
     public class ExternalInterface_FunctionalMockupUnitImport_To_Schedule : BHoMObject, IEnergyPlusClass
     {
         

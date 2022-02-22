@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum UtilityCost_Tariff_DemandWindowLength
     {
         
-        [JsonProperty("Day")]
+        [System.Runtime.Serialization.EnumMember(Value="Day")]
         Day = 0,
         
-        [JsonProperty("FullHour")]
+        [System.Runtime.Serialization.EnumMember(Value="FullHour")]
         FullHour = 1,
         
-        [JsonProperty("HalfHour")]
+        [System.Runtime.Serialization.EnumMember(Value="HalfHour")]
         HalfHour = 2,
         
-        [JsonProperty("QuarterHour")]
+        [System.Runtime.Serialization.EnumMember(Value="QuarterHour")]
         QuarterHour = 3,
         
-        [JsonProperty("Week")]
+        [System.Runtime.Serialization.EnumMember(Value="Week")]
         Week = 4,
     }
 }

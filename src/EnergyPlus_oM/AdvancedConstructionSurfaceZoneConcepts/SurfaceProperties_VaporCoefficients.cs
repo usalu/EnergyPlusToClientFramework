@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     [Description(@"The interior and external vapor transfer coefficients. Normally these value are calculated using the heat convection coefficient values. Use this object to used fixed constant values. Units are kg/Pa.s.m2 This will only work with the CombinedHeatAndMoistureFiniteElement algorithm for surfaces. Other algorithms will ignore these coefficients")]
-    [JsonObject("SurfaceProperties:VaporCoefficients")]
     public class SurfaceProperties_VaporCoefficients : BHoMObject, IEnergyPlusClass
     {
         
@@ -17,6 +16,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
         
 
         [JsonProperty("constant_external_vapor_transfer_coefficient")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes ConstantExternalVaporTransferCoefficient { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -25,6 +25,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
         
 
         [JsonProperty("constant_internal_vapor_transfer_coefficient")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes ConstantInternalVaporTransferCoefficient { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 

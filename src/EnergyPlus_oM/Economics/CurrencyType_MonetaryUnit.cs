@@ -1,341 +1,339 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum CurrencyType_MonetaryUnit
     {
         
-        [JsonProperty("AFN")]
+        [System.Runtime.Serialization.EnumMember(Value="AFN")]
         AFN = 0,
         
-        [JsonProperty("ALL")]
+        [System.Runtime.Serialization.EnumMember(Value="ALL")]
         ALL = 1,
         
-        [JsonProperty("ANG")]
+        [System.Runtime.Serialization.EnumMember(Value="ANG")]
         ANG = 2,
         
-        [JsonProperty("ARS")]
+        [System.Runtime.Serialization.EnumMember(Value="ARS")]
         ARS = 3,
         
-        [JsonProperty("AUD")]
+        [System.Runtime.Serialization.EnumMember(Value="AUD")]
         AUD = 4,
         
-        [JsonProperty("AWG")]
+        [System.Runtime.Serialization.EnumMember(Value="AWG")]
         AWG = 5,
         
-        [JsonProperty("AZN")]
+        [System.Runtime.Serialization.EnumMember(Value="AZN")]
         AZN = 6,
         
-        [JsonProperty("BAM")]
+        [System.Runtime.Serialization.EnumMember(Value="BAM")]
         BAM = 7,
         
-        [JsonProperty("BBD")]
+        [System.Runtime.Serialization.EnumMember(Value="BBD")]
         BBD = 8,
         
-        [JsonProperty("BGN")]
+        [System.Runtime.Serialization.EnumMember(Value="BGN")]
         BGN = 9,
         
-        [JsonProperty("BMD")]
+        [System.Runtime.Serialization.EnumMember(Value="BMD")]
         BMD = 10,
         
-        [JsonProperty("BND")]
+        [System.Runtime.Serialization.EnumMember(Value="BND")]
         BND = 11,
         
-        [JsonProperty("BOB")]
+        [System.Runtime.Serialization.EnumMember(Value="BOB")]
         BOB = 12,
         
-        [JsonProperty("BRL")]
+        [System.Runtime.Serialization.EnumMember(Value="BRL")]
         BRL = 13,
         
-        [JsonProperty("BSD")]
+        [System.Runtime.Serialization.EnumMember(Value="BSD")]
         BSD = 14,
         
-        [JsonProperty("BWP")]
+        [System.Runtime.Serialization.EnumMember(Value="BWP")]
         BWP = 15,
         
-        [JsonProperty("BYR")]
+        [System.Runtime.Serialization.EnumMember(Value="BYR")]
         BYR = 16,
         
-        [JsonProperty("BZD")]
+        [System.Runtime.Serialization.EnumMember(Value="BZD")]
         BZD = 17,
         
-        [JsonProperty("CAD")]
+        [System.Runtime.Serialization.EnumMember(Value="CAD")]
         CAD = 18,
         
-        [JsonProperty("CHF")]
+        [System.Runtime.Serialization.EnumMember(Value="CHF")]
         CHF = 19,
         
-        [JsonProperty("CLP")]
+        [System.Runtime.Serialization.EnumMember(Value="CLP")]
         CLP = 20,
         
-        [JsonProperty("CNY")]
+        [System.Runtime.Serialization.EnumMember(Value="CNY")]
         CNY = 21,
         
-        [JsonProperty("COP")]
+        [System.Runtime.Serialization.EnumMember(Value="COP")]
         COP = 22,
         
-        [JsonProperty("CRC")]
+        [System.Runtime.Serialization.EnumMember(Value="CRC")]
         CRC = 23,
         
-        [JsonProperty("CUP")]
+        [System.Runtime.Serialization.EnumMember(Value="CUP")]
         CUP = 24,
         
-        [JsonProperty("CZK")]
+        [System.Runtime.Serialization.EnumMember(Value="CZK")]
         CZK = 25,
         
-        [JsonProperty("DKK")]
+        [System.Runtime.Serialization.EnumMember(Value="DKK")]
         DKK = 26,
         
-        [JsonProperty("DOP")]
+        [System.Runtime.Serialization.EnumMember(Value="DOP")]
         DOP = 27,
         
-        [JsonProperty("EEK")]
+        [System.Runtime.Serialization.EnumMember(Value="EEK")]
         EEK = 28,
         
-        [JsonProperty("EGP")]
+        [System.Runtime.Serialization.EnumMember(Value="EGP")]
         EGP = 29,
         
-        [JsonProperty("EUR")]
+        [System.Runtime.Serialization.EnumMember(Value="EUR")]
         EUR = 30,
         
-        [JsonProperty("FJD")]
+        [System.Runtime.Serialization.EnumMember(Value="FJD")]
         FJD = 31,
         
-        [JsonProperty("GBP")]
+        [System.Runtime.Serialization.EnumMember(Value="GBP")]
         GBP = 32,
         
-        [JsonProperty("GHC")]
+        [System.Runtime.Serialization.EnumMember(Value="GHC")]
         GHC = 33,
         
-        [JsonProperty("GIP")]
+        [System.Runtime.Serialization.EnumMember(Value="GIP")]
         GIP = 34,
         
-        [JsonProperty("GTQ")]
+        [System.Runtime.Serialization.EnumMember(Value="GTQ")]
         GTQ = 35,
         
-        [JsonProperty("GYD")]
+        [System.Runtime.Serialization.EnumMember(Value="GYD")]
         GYD = 36,
         
-        [JsonProperty("HKD")]
+        [System.Runtime.Serialization.EnumMember(Value="HKD")]
         HKD = 37,
         
-        [JsonProperty("HNL")]
+        [System.Runtime.Serialization.EnumMember(Value="HNL")]
         HNL = 38,
         
-        [JsonProperty("HRK")]
+        [System.Runtime.Serialization.EnumMember(Value="HRK")]
         HRK = 39,
         
-        [JsonProperty("HUF")]
+        [System.Runtime.Serialization.EnumMember(Value="HUF")]
         HUF = 40,
         
-        [JsonProperty("IDR")]
+        [System.Runtime.Serialization.EnumMember(Value="IDR")]
         IDR = 41,
         
-        [JsonProperty("ILS")]
+        [System.Runtime.Serialization.EnumMember(Value="ILS")]
         ILS = 42,
         
-        [JsonProperty("IMP")]
+        [System.Runtime.Serialization.EnumMember(Value="IMP")]
         IMP = 43,
         
-        [JsonProperty("INR")]
+        [System.Runtime.Serialization.EnumMember(Value="INR")]
         INR = 44,
         
-        [JsonProperty("IRR")]
+        [System.Runtime.Serialization.EnumMember(Value="IRR")]
         IRR = 45,
         
-        [JsonProperty("ISK")]
+        [System.Runtime.Serialization.EnumMember(Value="ISK")]
         ISK = 46,
         
-        [JsonProperty("JEP")]
+        [System.Runtime.Serialization.EnumMember(Value="JEP")]
         JEP = 47,
         
-        [JsonProperty("JMD")]
+        [System.Runtime.Serialization.EnumMember(Value="JMD")]
         JMD = 48,
         
-        [JsonProperty("JPY")]
+        [System.Runtime.Serialization.EnumMember(Value="JPY")]
         JPY = 49,
         
-        [JsonProperty("KGS")]
+        [System.Runtime.Serialization.EnumMember(Value="KGS")]
         KGS = 50,
         
-        [JsonProperty("KHR")]
+        [System.Runtime.Serialization.EnumMember(Value="KHR")]
         KHR = 51,
         
-        [JsonProperty("KPW")]
+        [System.Runtime.Serialization.EnumMember(Value="KPW")]
         KPW = 52,
         
-        [JsonProperty("KRW")]
+        [System.Runtime.Serialization.EnumMember(Value="KRW")]
         KRW = 53,
         
-        [JsonProperty("KYD")]
+        [System.Runtime.Serialization.EnumMember(Value="KYD")]
         KYD = 54,
         
-        [JsonProperty("KZT")]
+        [System.Runtime.Serialization.EnumMember(Value="KZT")]
         KZT = 55,
         
-        [JsonProperty("LAK")]
+        [System.Runtime.Serialization.EnumMember(Value="LAK")]
         LAK = 56,
         
-        [JsonProperty("LBP")]
+        [System.Runtime.Serialization.EnumMember(Value="LBP")]
         LBP = 57,
         
-        [JsonProperty("LKR")]
+        [System.Runtime.Serialization.EnumMember(Value="LKR")]
         LKR = 58,
         
-        [JsonProperty("LRD")]
+        [System.Runtime.Serialization.EnumMember(Value="LRD")]
         LRD = 59,
         
-        [JsonProperty("LTL")]
+        [System.Runtime.Serialization.EnumMember(Value="LTL")]
         LTL = 60,
         
-        [JsonProperty("LVL")]
+        [System.Runtime.Serialization.EnumMember(Value="LVL")]
         LVL = 61,
         
-        [JsonProperty("MKD")]
+        [System.Runtime.Serialization.EnumMember(Value="MKD")]
         MKD = 62,
         
-        [JsonProperty("MNT")]
+        [System.Runtime.Serialization.EnumMember(Value="MNT")]
         MNT = 63,
         
-        [JsonProperty("MUR")]
+        [System.Runtime.Serialization.EnumMember(Value="MUR")]
         MUR = 64,
         
-        [JsonProperty("MXN")]
+        [System.Runtime.Serialization.EnumMember(Value="MXN")]
         MXN = 65,
         
-        [JsonProperty("MYR")]
+        [System.Runtime.Serialization.EnumMember(Value="MYR")]
         MYR = 66,
         
-        [JsonProperty("MZN")]
+        [System.Runtime.Serialization.EnumMember(Value="MZN")]
         MZN = 67,
         
-        [JsonProperty("NAD")]
+        [System.Runtime.Serialization.EnumMember(Value="NAD")]
         NAD = 68,
         
-        [JsonProperty("NGN")]
+        [System.Runtime.Serialization.EnumMember(Value="NGN")]
         NGN = 69,
         
-        [JsonProperty("NIO")]
+        [System.Runtime.Serialization.EnumMember(Value="NIO")]
         NIO = 70,
         
-        [JsonProperty("NOK")]
+        [System.Runtime.Serialization.EnumMember(Value="NOK")]
         NOK = 71,
         
-        [JsonProperty("NPR")]
+        [System.Runtime.Serialization.EnumMember(Value="NPR")]
         NPR = 72,
         
-        [JsonProperty("NZD")]
+        [System.Runtime.Serialization.EnumMember(Value="NZD")]
         NZD = 73,
         
-        [JsonProperty("OMR")]
+        [System.Runtime.Serialization.EnumMember(Value="OMR")]
         OMR = 74,
         
-        [JsonProperty("PAB")]
+        [System.Runtime.Serialization.EnumMember(Value="PAB")]
         PAB = 75,
         
-        [JsonProperty("PEN")]
+        [System.Runtime.Serialization.EnumMember(Value="PEN")]
         PEN = 76,
         
-        [JsonProperty("PHP")]
+        [System.Runtime.Serialization.EnumMember(Value="PHP")]
         PHP = 77,
         
-        [JsonProperty("PKR")]
+        [System.Runtime.Serialization.EnumMember(Value="PKR")]
         PKR = 78,
         
-        [JsonProperty("PLN")]
+        [System.Runtime.Serialization.EnumMember(Value="PLN")]
         PLN = 79,
         
-        [JsonProperty("PYG")]
+        [System.Runtime.Serialization.EnumMember(Value="PYG")]
         PYG = 80,
         
-        [JsonProperty("QAR")]
+        [System.Runtime.Serialization.EnumMember(Value="QAR")]
         QAR = 81,
         
-        [JsonProperty("RON")]
+        [System.Runtime.Serialization.EnumMember(Value="RON")]
         RON = 82,
         
-        [JsonProperty("RSD")]
+        [System.Runtime.Serialization.EnumMember(Value="RSD")]
         RSD = 83,
         
-        [JsonProperty("RUB")]
+        [System.Runtime.Serialization.EnumMember(Value="RUB")]
         RUB = 84,
         
-        [JsonProperty("SAR")]
+        [System.Runtime.Serialization.EnumMember(Value="SAR")]
         SAR = 85,
         
-        [JsonProperty("SBD")]
+        [System.Runtime.Serialization.EnumMember(Value="SBD")]
         SBD = 86,
         
-        [JsonProperty("SCR")]
+        [System.Runtime.Serialization.EnumMember(Value="SCR")]
         SCR = 87,
         
-        [JsonProperty("SEK")]
+        [System.Runtime.Serialization.EnumMember(Value="SEK")]
         SEK = 88,
         
-        [JsonProperty("SGD")]
+        [System.Runtime.Serialization.EnumMember(Value="SGD")]
         SGD = 89,
         
-        [JsonProperty("SHP")]
+        [System.Runtime.Serialization.EnumMember(Value="SHP")]
         SHP = 90,
         
-        [JsonProperty("SOS")]
+        [System.Runtime.Serialization.EnumMember(Value="SOS")]
         SOS = 91,
         
-        [JsonProperty("SRD")]
+        [System.Runtime.Serialization.EnumMember(Value="SRD")]
         SRD = 92,
         
-        [JsonProperty("SVC")]
+        [System.Runtime.Serialization.EnumMember(Value="SVC")]
         SVC = 93,
         
-        [JsonProperty("SYP")]
+        [System.Runtime.Serialization.EnumMember(Value="SYP")]
         SYP = 94,
         
-        [JsonProperty("THB")]
+        [System.Runtime.Serialization.EnumMember(Value="THB")]
         THB = 95,
         
-        [JsonProperty("TRL")]
+        [System.Runtime.Serialization.EnumMember(Value="TRL")]
         TRL = 96,
         
-        [JsonProperty("TRY")]
+        [System.Runtime.Serialization.EnumMember(Value="TRY")]
         TRY = 97,
         
-        [JsonProperty("TTD")]
+        [System.Runtime.Serialization.EnumMember(Value="TTD")]
         TTD = 98,
         
-        [JsonProperty("TVD")]
+        [System.Runtime.Serialization.EnumMember(Value="TVD")]
         TVD = 99,
         
-        [JsonProperty("TWD")]
+        [System.Runtime.Serialization.EnumMember(Value="TWD")]
         TWD = 100,
         
-        [JsonProperty("UAH")]
+        [System.Runtime.Serialization.EnumMember(Value="UAH")]
         UAH = 101,
         
-        [JsonProperty("USD")]
+        [System.Runtime.Serialization.EnumMember(Value="USD")]
         USD = 102,
         
-        [JsonProperty("UYU")]
+        [System.Runtime.Serialization.EnumMember(Value="UYU")]
         UYU = 103,
         
-        [JsonProperty("UZS")]
+        [System.Runtime.Serialization.EnumMember(Value="UZS")]
         UZS = 104,
         
-        [JsonProperty("VEF")]
+        [System.Runtime.Serialization.EnumMember(Value="VEF")]
         VEF = 105,
         
-        [JsonProperty("VND")]
+        [System.Runtime.Serialization.EnumMember(Value="VND")]
         VND = 106,
         
-        [JsonProperty("XCD")]
+        [System.Runtime.Serialization.EnumMember(Value="XCD")]
         XCD = 107,
         
-        [JsonProperty("YER")]
+        [System.Runtime.Serialization.EnumMember(Value="YER")]
         YER = 108,
         
-        [JsonProperty("ZAR")]
+        [System.Runtime.Serialization.EnumMember(Value="ZAR")]
         ZAR = 109,
         
-        [JsonProperty("ZWD")]
+        [System.Runtime.Serialization.EnumMember(Value="ZWD")]
         ZWD = 110,
     }
 }

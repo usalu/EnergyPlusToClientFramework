@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelCell_ExhaustGasToWaterHeatExchanger_HeatExchangerCalculationMethod
     {
         
-        [JsonProperty("Condensing")]
+        [System.Runtime.Serialization.EnumMember(Value="Condensing")]
         Condensing = 0,
         
-        [JsonProperty("EmpiricalUAeff")]
+        [System.Runtime.Serialization.EnumMember(Value="EmpiricalUAeff")]
         EmpiricalUAeff = 1,
         
-        [JsonProperty("FixedEffectiveness")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedEffectiveness")]
         FixedEffectiveness = 2,
         
-        [JsonProperty("FundementalUAeff")]
+        [System.Runtime.Serialization.EnumMember(Value="FundementalUAeff")]
         FundementalUAeff = 3,
     }
 }

@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description(@"Specifies the properties of equivalent layer drape fabric materials. Shades are considered to be perfect diffusers (all transmitted and reflected radiation is hemispherically-diffuse) independent of angle of incidence. unpleated drape fabric is treated as thin and flat layer.")]
-    [JsonObject("WindowMaterial:Drape:EquivalentLayer")]
     public class WindowMaterial_Drape_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         

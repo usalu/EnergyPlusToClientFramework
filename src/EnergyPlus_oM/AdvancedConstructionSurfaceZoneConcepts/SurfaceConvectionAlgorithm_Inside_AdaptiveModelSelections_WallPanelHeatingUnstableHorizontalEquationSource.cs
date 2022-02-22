@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_WallPanelHeatingUnstableHorizontalEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondUnstableHorizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondUnstableHorizontal")]
         AlamdariHammondUnstableHorizontal = 2,
         
-        [JsonProperty("KaradagChilledCeiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KaradagChilledCeiling")]
         KaradagChilledCeiling = 3,
         
-        [JsonProperty("KhalifaEq7Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq7Ceiling")]
         KhalifaEq7Ceiling = 4,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 5,
         
-        [JsonProperty("WaltonUnstableHorizontalOrTilt")]
+        [System.Runtime.Serialization.EnumMember(Value="WaltonUnstableHorizontalOrTilt")]
         WaltonUnstableHorizontalOrTilt = 6,
     }
 }

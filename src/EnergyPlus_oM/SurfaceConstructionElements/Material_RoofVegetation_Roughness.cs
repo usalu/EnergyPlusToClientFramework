@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum Material_RoofVegetation_Roughness
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MediumRough")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumRough")]
         MediumRough = 1,
         
-        [JsonProperty("MediumSmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumSmooth")]
         MediumSmooth = 2,
         
-        [JsonProperty("Rough")]
+        [System.Runtime.Serialization.EnumMember(Value="Rough")]
         Rough = 3,
         
-        [JsonProperty("Smooth")]
+        [System.Runtime.Serialization.EnumMember(Value="Smooth")]
         Smooth = 4,
         
-        [JsonProperty("VeryRough")]
+        [System.Runtime.Serialization.EnumMember(Value="VeryRough")]
         VeryRough = 5,
         
-        [JsonProperty("VerySmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="VerySmooth")]
         VerySmooth = 6,
     }
 }

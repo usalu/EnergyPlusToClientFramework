@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Fans
 {
     public enum Fan_ComponentModel_VfdEfficiencyType
     {
         
-        [JsonProperty("Power")]
+        [System.Runtime.Serialization.EnumMember(Value="Power")]
         Power = 0,
         
-        [JsonProperty("Speed")]
+        [System.Runtime.Serialization.EnumMember(Value="Speed")]
         Speed = 1,
     }
 }

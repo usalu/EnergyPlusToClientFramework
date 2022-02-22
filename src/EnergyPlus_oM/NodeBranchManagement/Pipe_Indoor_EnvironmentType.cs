@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     public enum Pipe_Indoor_EnvironmentType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 1,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 2,
     }
 }

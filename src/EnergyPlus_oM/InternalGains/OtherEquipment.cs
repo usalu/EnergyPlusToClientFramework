@@ -7,12 +7,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("Sets internal gains or losses for \"other\" equipment in the zone.")]
-    [JsonObject("OtherEquipment")]
     public class OtherEquipment : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("fuel_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OtherEquipment_FuelType FuelType { get; set; } = (OtherEquipment_FuelType)Enum.Parse(typeof(OtherEquipment_FuelType), "None");
         
 
@@ -28,6 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 
         [Description(@"The entered calculation method is used to create the maximum amount of other equipment. to set a loss, use a negative value in the following fields. for this set of attributes Choices: EquipmentLevel => Design Level -- simply enter power input of equipment Watts/Area or Power/Area => Power per Zone Floor Area -- enter the number to apply. Value * Floor Area = Equipment Level Watts/Person or Power/Person => Power per Person -- enter the number to apply. Value * Occupants = Equipment Level")]
         [JsonProperty("design_level_calculation_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OtherEquipment_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (OtherEquipment_DesignLevelCalculationMethod)Enum.Parse(typeof(OtherEquipment_DesignLevelCalculationMethod), "EquipmentLevel");
         
 

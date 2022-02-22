@@ -68,21 +68,21 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
     
     [Description("Object determines if the Slab and Basement preprocessors are going to be executed" +
         ".")]
-    [JsonObject("GroundHeatTransfer:Control")]
     public class GroundHeatTransfer_Control : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("run_basement_preprocessor")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RunBasementPreprocessor { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("run_slab_preprocessor")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RunSlabPreprocessor { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
     
     [Description("Object gives an overall description of the slab ground heat transfer model.")]
-    [JsonObject("GroundHeatTransfer:Slab:Materials")]
     public class GroundHeatTransfer_Slab_Materials : BHoMObject, IEnergyPlusClass
     {
         
@@ -137,7 +137,6 @@ public System.Nullable<float> HinIndoorHconvUpward { get; set; } = (System.Nulla
     
     [Description("This object contains the material properties for the materials used in the model." +
         " The fields are mostly self explanatory.")]
-    [JsonObject("GroundHeatTransfer:Slab:MatlProps")]
     public class GroundHeatTransfer_Slab_MatlProps : BHoMObject, IEnergyPlusClass
     {
         
@@ -174,13 +173,13 @@ public System.Nullable<float> TconSoilK { get; set; } = (System.Nullable<float>)
     
     [Description("Supplies some of the boundary conditions used in the ground heat transfer calcula" +
         "tions.")]
-    [JsonObject("GroundHeatTransfer:Slab:BoundConds")]
     public class GroundHeatTransfer_Slab_BoundConds : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"This field specifies whether or not to use the evapotransporation model. The inclusion of evapotransporation in the calculation has the greatest effect in warm dry climates, primarily on the ground surface temperature. This field can be used to turn the evapotransporation off and on to check sensitivity to it.")]
 [JsonProperty("evtr_is_surface_evapotranspiration_modeled")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Slab_BoundConds_EvtrIsSurfaceEvapotranspirationModeled EvtrIsSurfaceEvapotranspirationModeled { get; set; } = (GroundHeatTransfer_Slab_BoundConds_EvtrIsSurfaceEvapotranspirationModeled)Enum.Parse(typeof(GroundHeatTransfer_Slab_BoundConds_EvtrIsSurfaceEvapotranspirationModeled), "FALSE");
         
 
@@ -188,6 +187,7 @@ public GroundHeatTransfer_Slab_BoundConds_EvtrIsSurfaceEvapotranspirationModeled
     "stead of a zero heat flux condition. This change normally has a very small effec" +
     "t on the results. FALSE selects the zero flux lower boundary condition")]
 [JsonProperty("fixbc_is_the_lower_boundary_at_a_fixed_temperature")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Slab_BoundConds_FixbcIsTheLowerBoundaryAtAFixedTemperature FixbcIsTheLowerBoundaryAtAFixedTemperature { get; set; } = (GroundHeatTransfer_Slab_BoundConds_FixbcIsTheLowerBoundaryAtAFixedTemperature)Enum.Parse(typeof(GroundHeatTransfer_Slab_BoundConds_FixbcIsTheLowerBoundaryAtAFixedTemperature), "FALSE");
         
 
@@ -199,6 +199,7 @@ public System.Nullable<float> Tdeepin { get; set; } = null;
 
 [Description(@"This field flags the use of a user specified heat transfer coefficient on the ground surface. This condition is used primarily for testing. For normal runs (USPHflag is FALSE) and the program calculates the heat transfer coefficient using the weather conditions.")]
 [JsonProperty("usrhflag_is_the_ground_surface_h_specified_by_the_user_")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Slab_BoundConds_UsrhflagIsTheGroundSurfaceHSpecifiedByTheUser UsrhflagIsTheGroundSurfaceHSpecifiedByTheUser { get; set; } = (GroundHeatTransfer_Slab_BoundConds_UsrhflagIsTheGroundSurfaceHSpecifiedByTheUser)Enum.Parse(typeof(GroundHeatTransfer_Slab_BoundConds_UsrhflagIsTheGroundSurfaceHSpecifiedByTheUser), "FALSE");
         
 
@@ -211,35 +212,34 @@ public System.Nullable<float> UserhUserSpecifiedGroundSurfaceHeatTransferCoeffic
     public enum GroundHeatTransfer_Slab_BoundConds_EvtrIsSurfaceEvapotranspirationModeled
     {
         
-        [JsonProperty("FALSE")]
+        [System.Runtime.Serialization.EnumMember(Value="FALSE")]
         FALSE = 0,
         
-        [JsonProperty("TRUE")]
+        [System.Runtime.Serialization.EnumMember(Value="TRUE")]
         TRUE = 1,
     }
     
     public enum GroundHeatTransfer_Slab_BoundConds_FixbcIsTheLowerBoundaryAtAFixedTemperature
     {
         
-        [JsonProperty("FALSE")]
+        [System.Runtime.Serialization.EnumMember(Value="FALSE")]
         FALSE = 0,
         
-        [JsonProperty("TRUE")]
+        [System.Runtime.Serialization.EnumMember(Value="TRUE")]
         TRUE = 1,
     }
     
     public enum GroundHeatTransfer_Slab_BoundConds_UsrhflagIsTheGroundSurfaceHSpecifiedByTheUser
     {
         
-        [JsonProperty("FALSE")]
+        [System.Runtime.Serialization.EnumMember(Value="FALSE")]
         FALSE = 0,
         
-        [JsonProperty("TRUE")]
+        [System.Runtime.Serialization.EnumMember(Value="TRUE")]
         TRUE = 1,
     }
     
     [Description(@"Object provides information about the building and its operating conditions Monthly Average Temperature SetPoint fields specify the average indoor building set point temperatures for each month of the year. These fields are useful for simulating a building that is not temperature controlled for some of the year. In such a case, the average indoor set point temperatures can be obtained by first running the model in EnergyPlus with an insulated floor boundary condition, and then using the resulting monthly average zone temperatures in these fields.")]
-    [JsonObject("GroundHeatTransfer:Slab:BldgProps")]
     public class GroundHeatTransfer_Slab_BldgProps : BHoMObject, IEnergyPlusClass
     {
         
@@ -337,7 +337,6 @@ public System.Nullable<float> ConvtolConvergenceTolerance { get; set; } = (Syste
     [Description("This object supplies the information about insulation used around the slab. There" +
         " are two possible configurations: under the slab or vertical insulation around t" +
         "he slab.")]
-    [JsonObject("GroundHeatTransfer:Slab:Insulation")]
     public class GroundHeatTransfer_Slab_Insulation : BHoMObject, IEnergyPlusClass
     {
         
@@ -377,7 +376,6 @@ public string IvinsFlagIsThereVerticalInsulation { get; set; } = (System.String)
     [Description("Using an equivalent slab allows non-rectangular shapes to be modeled accurately. " +
         "Object uses the area - perimeter (area/perimeter) ratio to determine the size of" +
         " an equivalent rectangular slab. EnergyPlus users normally use this option.")]
-    [JsonObject("GroundHeatTransfer:Slab:EquivalentSlab")]
     public class GroundHeatTransfer_Slab_EquivalentSlab : BHoMObject, IEnergyPlusClass
     {
         
@@ -409,7 +407,6 @@ public System.Nullable<float> ZclearanceDistanceFromBottomOfSlabToDomainBottom {
     [Description("AutoGrid only necessary when EquivalentSlab option not chosen. Not normally neede" +
         "d by EnergyPlus users. This object permits user selection of rectangular slab di" +
         "mensions. NO SLAB DIMENSIONS LESS THAN 6 m.")]
-    [JsonObject("GroundHeatTransfer:Slab:AutoGrid")]
     public class GroundHeatTransfer_Slab_AutoGrid : BHoMObject, IEnergyPlusClass
     {
         
@@ -439,7 +436,6 @@ public System.Nullable<float> ZclearanceDistanceFromBottomOfSlabToDomainBottom {
     [Description("Manual Grid only necessary when using manual gridding (not recommended) Used only" +
         " in special cases when previous two objects are not used. User must input comple" +
         "te gridding information.")]
-    [JsonObject("GroundHeatTransfer:Slab:ManualGrid")]
     public class GroundHeatTransfer_Slab_ManualGrid : BHoMObject, IEnergyPlusClass
     {
         
@@ -468,28 +464,24 @@ public System.Nullable<float> JboxYDirectionCellIndicatorOfSlabEdge { get; set; 
     
     [Description("This is only needed when using manual gridding (not recommended) XFACE: X Directi" +
         "on cell face coordinates: m")]
-    [JsonObject("GroundHeatTransfer:Slab:XFACE")]
     public class GroundHeatTransfer_Slab_XFACE : BHoMObject, IEnergyPlusClass
     {
     }
     
     [Description("This is only needed when using manual gridding (not recommended) YFACE: Y Directi" +
         "on cell face coordinates: m,")]
-    [JsonObject("GroundHeatTransfer:Slab:YFACE")]
     public class GroundHeatTransfer_Slab_YFACE : BHoMObject, IEnergyPlusClass
     {
     }
     
     [Description("This is only needed when using manual gridding (not recommended) ZFACE: Z Directi" +
         "on cell face coordinates: m")]
-    [JsonObject("GroundHeatTransfer:Slab:ZFACE")]
     public class GroundHeatTransfer_Slab_ZFACE : BHoMObject, IEnergyPlusClass
     {
     }
     
     [Description("Specifies certain parameters that control the Basement preprocessor ground heat t" +
         "ransfer simulation.")]
-    [JsonObject("GroundHeatTransfer:Basement:SimParameters")]
     public class GroundHeatTransfer_Basement_SimParameters : BHoMObject, IEnergyPlusClass
     {
         
@@ -507,7 +499,6 @@ public System.Nullable<float> IyrsMaximumNumberOfYearlyIterations { get; set; } 
     [Description("Specifies the material properties for the Basement preprocessor ground heat trans" +
         "fer simulation. Only the Foundation Wall, Floor Slab, Soil, and Gravel propertie" +
         "s are currently used.")]
-    [JsonObject("GroundHeatTransfer:Basement:MatlProps")]
     public class GroundHeatTransfer_Basement_MatlProps : BHoMObject, IEnergyPlusClass
     {
         
@@ -590,7 +581,6 @@ public System.Nullable<float> ThermalConductivityForWood { get; set; } = (System
     
     [Description("Describes the insulation used on an exterior basement wall for the Basement prepr" +
         "ocessor ground heat transfer simulation.")]
-    [JsonObject("GroundHeatTransfer:Basement:Insulation")]
     public class GroundHeatTransfer_Basement_Insulation : BHoMObject, IEnergyPlusClass
     {
         
@@ -602,22 +592,22 @@ public System.Nullable<float> RextRValueOfAnyExteriorInsulation { get; set; } = 
 [Description("True for full insulation False for insulation half way down side wall from grade " +
     "line")]
 [JsonProperty("insfull_flag_is_the_wall_fully_insulated_")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Basement_Insulation_InsfullFlagIsTheWallFullyInsulated InsfullFlagIsTheWallFullyInsulated { get; set; } = (GroundHeatTransfer_Basement_Insulation_InsfullFlagIsTheWallFullyInsulated)Enum.Parse(typeof(GroundHeatTransfer_Basement_Insulation_InsfullFlagIsTheWallFullyInsulated), "FALSE");
     }
     
     public enum GroundHeatTransfer_Basement_Insulation_InsfullFlagIsTheWallFullyInsulated
     {
         
-        [JsonProperty("FALSE")]
+        [System.Runtime.Serialization.EnumMember(Value="FALSE")]
         FALSE = 0,
         
-        [JsonProperty("TRUE")]
+        [System.Runtime.Serialization.EnumMember(Value="TRUE")]
         TRUE = 1,
     }
     
     [Description("Specifies the soil surface properties for the Basement preprocessor ground heat t" +
         "ransfer simulation.")]
-    [JsonObject("GroundHeatTransfer:Basement:SurfaceProps")]
     public class GroundHeatTransfer_Basement_SurfaceProps : BHoMObject, IEnergyPlusClass
     {
         
@@ -648,25 +638,25 @@ public System.Nullable<float> VeghtSurfaceRoughnessSnowConditions { get; set; } 
 
 [Description("Typically, PET is False")]
 [JsonProperty("pet_flag_potential_evapotranspiration_on_")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Basement_SurfaceProps_PetFlagPotentialEvapotranspirationOn PetFlagPotentialEvapotranspirationOn { get; set; } = (GroundHeatTransfer_Basement_SurfaceProps_PetFlagPotentialEvapotranspirationOn)Enum.Parse(typeof(GroundHeatTransfer_Basement_SurfaceProps_PetFlagPotentialEvapotranspirationOn), "FALSE");
     }
     
     public enum GroundHeatTransfer_Basement_SurfaceProps_PetFlagPotentialEvapotranspirationOn
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FALSE")]
+        [System.Runtime.Serialization.EnumMember(Value="FALSE")]
         FALSE = 1,
         
-        [JsonProperty("TRUE")]
+        [System.Runtime.Serialization.EnumMember(Value="TRUE")]
         TRUE = 2,
     }
     
     [Description("Specifies the surface and gravel thicknesses used for the Basement preprocessor g" +
         "round heat transfer simulation.")]
-    [JsonObject("GroundHeatTransfer:Basement:BldgData")]
     public class GroundHeatTransfer_Basement_BldgData : BHoMObject, IEnergyPlusClass
     {
         
@@ -693,13 +683,13 @@ public System.Nullable<float> DgravzpGravelDepthBelowTheFloorSlab { get; set; } 
     
     [Description("Provides the information needed to simulate the inside boundary conditions for th" +
         "e Basement preprocessor ground heat transfer simulation.")]
-    [JsonObject("GroundHeatTransfer:Basement:Interior")]
     public class GroundHeatTransfer_Basement_Interior : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description("for EnergyPlus this should be TRUE")]
 [JsonProperty("cond_flag_is_the_basement_conditioned_")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Basement_Interior_CondFlagIsTheBasementConditioned CondFlagIsTheBasementConditioned { get; set; } = (GroundHeatTransfer_Basement_Interior_CondFlagIsTheBasementConditioned)Enum.Parse(typeof(GroundHeatTransfer_Basement_Interior_CondFlagIsTheBasementConditioned), "TRUE");
         
 
@@ -730,19 +720,18 @@ public System.Nullable<float> HinHorizontalCombinedConvectionAndRadiationHeatTra
     public enum GroundHeatTransfer_Basement_Interior_CondFlagIsTheBasementConditioned
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FALSE")]
+        [System.Runtime.Serialization.EnumMember(Value="FALSE")]
         FALSE = 1,
         
-        [JsonProperty("TRUE")]
+        [System.Runtime.Serialization.EnumMember(Value="TRUE")]
         TRUE = 2,
     }
     
     [Description("ComBldg contains the monthly average temperatures (C) and possibility of daily va" +
         "riation amplitude")]
-    [JsonObject("GroundHeatTransfer:Basement:ComBldg")]
     public class GroundHeatTransfer_Basement_ComBldg : BHoMObject, IEnergyPlusClass
     {
         
@@ -802,7 +791,6 @@ public System.Nullable<float> DailyVariationSineWaveAmplitude { get; set; } = (S
     
     [Description("Using an equivalent slab allows non-rectangular shapes to be modeled accurately. " +
         "The simulation default should be EquivSizing=True")]
-    [JsonObject("GroundHeatTransfer:Basement:EquivSlab")]
     public class GroundHeatTransfer_Basement_EquivSlab : BHoMObject, IEnergyPlusClass
     {
         
@@ -815,21 +803,21 @@ public System.Nullable<float> ApratioTheAreaToPerimeterRatioForThisSlab { get; s
     "ions be input directly? (FALSE)] Only advanced special simulations should use FA" +
     "LSE.")]
 [JsonProperty("equivsizing_flag")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Basement_EquivSlab_EquivsizingFlag EquivsizingFlag { get; set; } = (GroundHeatTransfer_Basement_EquivSlab_EquivsizingFlag)Enum.Parse(typeof(GroundHeatTransfer_Basement_EquivSlab_EquivsizingFlag), "FALSE");
     }
     
     public enum GroundHeatTransfer_Basement_EquivSlab_EquivsizingFlag
     {
         
-        [JsonProperty("FALSE")]
+        [System.Runtime.Serialization.EnumMember(Value="FALSE")]
         FALSE = 0,
         
-        [JsonProperty("TRUE")]
+        [System.Runtime.Serialization.EnumMember(Value="TRUE")]
         TRUE = 1,
     }
     
     [Description("EquivAutoGrid necessary when EquivSizing=TRUE, TRUE is is the normal case.")]
-    [JsonObject("GroundHeatTransfer:Basement:EquivAutoGrid")]
     public class GroundHeatTransfer_Basement_EquivAutoGrid : BHoMObject, IEnergyPlusClass
     {
         
@@ -848,7 +836,6 @@ public System.Nullable<float> BasedepthDepthOfTheBasementWallBelowGrade { get; s
     
     [Description("AutoGrid only necessary when EquivSizing is false If the modeled building is not " +
         "a rectangle or square, Equivalent sizing MUST be used to get accurate results")]
-    [JsonObject("GroundHeatTransfer:Basement:AutoGrid")]
     public class GroundHeatTransfer_Basement_AutoGrid : BHoMObject, IEnergyPlusClass
     {
         
@@ -878,7 +865,6 @@ public System.Nullable<float> BasedepthDepthOfTheBasementWallBelowGrade { get; s
     }
     
     [Description("Manual Grid only necessary using manual gridding (not recommended)")]
-    [JsonObject("GroundHeatTransfer:Basement:ManualGrid")]
     public class GroundHeatTransfer_Basement_ManualGrid : BHoMObject, IEnergyPlusClass
     {
         
@@ -913,21 +899,18 @@ public System.Nullable<float> KbaseZDirectionCellIndicatorOfTheTopOfTheFloorSlab
     
     [Description("This is only needed when using manual gridding (not recommended) XFACE: X Directi" +
         "on cell face coordinates: m")]
-    [JsonObject("GroundHeatTransfer:Basement:XFACE")]
     public class GroundHeatTransfer_Basement_XFACE : BHoMObject, IEnergyPlusClass
     {
     }
     
     [Description("This is only needed when using manual gridding (not recommended) YFACE: Y Directi" +
         "on cell face coordinates: m")]
-    [JsonObject("GroundHeatTransfer:Basement:YFACE")]
     public class GroundHeatTransfer_Basement_YFACE : BHoMObject, IEnergyPlusClass
     {
     }
     
     [Description("This is only needed when using manual gridding (not recommended) ZFACE: Z Directi" +
         "on cell face coordinates: m")]
-    [JsonObject("GroundHeatTransfer:Basement:ZFACE")]
     public class GroundHeatTransfer_Basement_ZFACE : BHoMObject, IEnergyPlusClass
     {
     }

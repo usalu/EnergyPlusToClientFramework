@@ -10,7 +10,6 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
                  "re necessary correlations between the entries for this object and some entries i" +
                  "n the Site:WeatherStation and Site:HeightVariation objects, specifically the Ter" +
                  "rain field.")]
-    [JsonObject("Building")]
     public class Building : BHoMObject, IEnergyPlusClass
     {
         
@@ -23,6 +22,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
         [Description("Country=FlatOpenCountry | Suburbs=CountryTownsSuburbs | City=CityCenter | Ocean=b" +
                      "ody of water (5km) | Urban=Urban-Industrial-Forest")]
         [JsonProperty("terrain")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Building_Terrain Terrain { get; set; } = (Building_Terrain)Enum.Parse(typeof(Building_Terrain), "Suburbs");
         
 
@@ -39,6 +39,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
         [Description("MinimalShadowing | FullExterior | FullInteriorAndExterior | FullExteriorWithRefle" +
                      "ctions | FullInteriorAndExteriorWithReflections")]
         [JsonProperty("solar_distribution")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Building_SolarDistribution SolarDistribution { get; set; } = (Building_SolarDistribution)Enum.Parse(typeof(Building_SolarDistribution), "FullExterior");
         
 

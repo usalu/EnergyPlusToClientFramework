@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("This generator model is the FC model from IEA Annex 42")]
-    [JsonObject("Generator:FuelCell")]
     public class Generator_FuelCell : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,35 +1,33 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     public enum SetpointManager_Scheduled_ControlVariable
     {
         
-        [JsonProperty("HumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="HumidityRatio")]
         HumidityRatio = 0,
         
-        [JsonProperty("MassFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="MassFlowRate")]
         MassFlowRate = 1,
         
-        [JsonProperty("MaximumHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumHumidityRatio")]
         MaximumHumidityRatio = 2,
         
-        [JsonProperty("MaximumMassFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumMassFlowRate")]
         MaximumMassFlowRate = 3,
         
-        [JsonProperty("MaximumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumTemperature")]
         MaximumTemperature = 4,
         
-        [JsonProperty("MinimumHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumHumidityRatio")]
         MinimumHumidityRatio = 5,
         
-        [JsonProperty("MinimumMassFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumMassFlowRate")]
         MinimumMassFlowRate = 6,
         
-        [JsonProperty("MinimumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumTemperature")]
         MinimumTemperature = 7,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 8,
     }
 }

@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.WaterSystems
     [Description("Used for harvesting rainwater falling on building surfaces. The rainwater is sent" +
                  " to a WaterUse:Storage object. In order to use this object it is necessary to al" +
                  "so include a Site:Precipitation object to describe the rates of rainfall.")]
-    [JsonObject("WaterUse:RainCollector")]
     public class WaterUse_RainCollector : BHoMObject, IEnergyPlusClass
     {
         
@@ -18,6 +17,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterSystems
         
 
         [JsonProperty("loss_factor_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterUse_RainCollector_LossFactorMode LossFactorMode { get; set; } = (WaterUse_RainCollector_LossFactorMode)Enum.Parse(typeof(WaterUse_RainCollector_LossFactorMode), "Constant");
         
 

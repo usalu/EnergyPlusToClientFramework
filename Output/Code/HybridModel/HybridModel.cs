@@ -69,7 +69,6 @@ namespace BH.oM.Adapters.EnergyPlus.HybridModel
     [Description("Zones with measured air temperature data and a range of dates. If the range of te" +
         "mperature measurement dates includes a leap day, the weather data should include" +
         " a leap day.")]
-    [JsonObject("HybridModel:Zone")]
     public class HybridModel_Zone : BHoMObject, IEnergyPlusClass
     {
         
@@ -83,11 +82,13 @@ public string ZoneName { get; set; } = "";
     "hermal mass. If set to No, the inverse calculation of thermal mass will not be a" +
     "ctivated.")]
 [JsonProperty("calculate_zone_internal_thermal_mass")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes CalculateZoneInternalThermalMass { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description(@"Use measured temperature data (temperature, humidity ratio, or CO2 concentration) to calculate zone air infiltration air flow rate. Only one of field Calculate Zone Internal Thermal Mass, Calculate Zone Air Infiltration Rate, and Calculate Zone People Count can be set to YES at a time. By default, this field is set to NO. When set to NO, the inverse calculation of the zone air infiltration rate will not be activated. If this field is set to YES, one of the following fields (combinations) should be provided: 1. Measurements were conducted when HVAC is free-floating: 1.1 Zone Measured Air Temperature Schedule Name 1.2 Zone Measured Air Humidity Ratio Schedule Name 1.3 Zone Measured Air CO2 Concentration Schedule Name 2. Measurements were conducted when HVAC is on: 2.1 Zone Measured Air Temperature Schedule Name, Zone Input Supply Air Temperature Schedule Name, and Zone Input Supply Air Mass Flow Rate Schedule Name 2.2 Zone Measured Air Humidity Ratio Schedule Name, Zone Input Supply Air Temperature Schedule Name, Zone Input Supply Air Mass Flow Rate Schedule Name, and Zone Input Supply Air Humidity Ratio Schedule Name 2.3 Zone Measured Air CO2 Concentration Schedule Name, Zone Input Supply Air Mass Flow Rate Schedule Name, and Zone Input Supply Air CO2 Concentration Schedule Name")]
 [JsonProperty("calculate_zone_air_infiltration_rate")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes CalculateZoneAirInfiltrationRate { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -114,6 +115,7 @@ public EmptyNoYes CalculateZoneAirInfiltrationRate { get; set; } = (EmptyNoYes)E
     "at generation (52W) rate, and CO2 generation rate (0.0000000382 [m3/(s*W)]) will" +
     " be overwritten correspondingly.")]
 [JsonProperty("calculate_zone_people_count")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes CalculateZonePeopleCount { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 

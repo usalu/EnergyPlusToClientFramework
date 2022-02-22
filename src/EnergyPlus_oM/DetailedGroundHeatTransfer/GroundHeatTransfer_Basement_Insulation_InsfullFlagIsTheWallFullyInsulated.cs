@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     public enum GroundHeatTransfer_Basement_Insulation_InsfullFlagIsTheWallFullyInsulated
     {
         
-        [JsonProperty("FALSE")]
+        [System.Runtime.Serialization.EnumMember(Value="FALSE")]
         FALSE = 0,
         
-        [JsonProperty("TRUE")]
+        [System.Runtime.Serialization.EnumMember(Value="TRUE")]
         TRUE = 1,
     }
 }

@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     public enum Sizing_Plant_LoopType
     {
         
-        [JsonProperty("Condenser")]
+        [System.Runtime.Serialization.EnumMember(Value="Condenser")]
         Condenser = 0,
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 3,
     }
 }

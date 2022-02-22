@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Controllers
 {
     public enum AirLoopHVAC_ControllerList_Controller5ObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
         
-        [JsonProperty("Controller:WaterCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:WaterCoil")]
         ControllerWaterCoil = 1,
     }
 }

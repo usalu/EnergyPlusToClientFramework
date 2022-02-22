@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_AirChiller_DefrostControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("TemperatureTermination")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureTermination")]
         TemperatureTermination = 1,
         
-        [JsonProperty("TimeSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="TimeSchedule")]
         TimeSchedule = 2,
     }
 }

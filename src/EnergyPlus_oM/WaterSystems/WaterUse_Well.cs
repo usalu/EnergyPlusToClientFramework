@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.WaterSystems
 {
     [Description(@"Simulates on-site water supply from a well. Well water is pumped out of the ground into a WaterUse:Storage. The operation of the ground water well is controlled by the associated WaterUse:Storage which is assumed to be operated as a vented cistern with no pressure tank.")]
-    [JsonObject("WaterUse:Well")]
     public class WaterUse_Well : BHoMObject, IEnergyPlusClass
     {
         
@@ -44,6 +43,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterSystems
         
 
         [JsonProperty("water_table_depth_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterUse_Well_WaterTableDepthMode WaterTableDepthMode { get; set; } = (WaterUse_Well_WaterTableDepthMode)Enum.Parse(typeof(WaterUse_Well_WaterTableDepthMode), "Constant");
         
 

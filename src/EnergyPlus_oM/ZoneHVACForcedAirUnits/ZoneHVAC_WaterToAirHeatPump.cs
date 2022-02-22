@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     [Description("Water-to-air heat pump. Forced-convection heating-cooling unit with supply fan, w" +
                  "ater-to-air cooling and heating coils, supplemental heating coil (gas, electric," +
                  " hot water, or steam), and fixed-position outdoor air mixer.")]
-    [JsonObject("ZoneHVAC:WaterToAirHeatPump")]
     public class ZoneHVAC_WaterToAirHeatPump : BHoMObject, IEnergyPlusClass
     {
         
@@ -32,6 +31,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
                      "e left blank if the WSHP is connected to central dedicated outdoor air through a" +
                      "n AirTerminal:SingleDuct:Mixer object.")]
         [JsonProperty("outdoor_air_mixer_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_WaterToAirHeatPump_OutdoorAirMixerObjectType OutdoorAirMixerObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_OutdoorAirMixerObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_OutdoorAirMixerObjectType), "OutdoorAirMixer");
         
 
@@ -75,6 +75,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("supply_air_fan_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_WaterToAirHeatPump_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_SupplyAirFanObjectType), "FanOnOff");
         
 
@@ -84,6 +85,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("heating_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_WaterToAirHeatPump_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_HeatingCoilObjectType), "CoilHeatingWaterToAirHeatPumpEquationFit");
         
 
@@ -93,6 +95,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("cooling_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_WaterToAirHeatPump_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_CoolingCoilObjectType), "CoilCoolingWaterToAirHeatPumpEquationFit");
         
 
@@ -129,6 +132,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description("works with gas, electric, hot water and steam heating coils")]
         [JsonProperty("supplemental_heating_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_WaterToAirHeatPump_SupplementalHeatingCoilObjectType SupplementalHeatingCoilObjectType { get; set; } = (ZoneHVAC_WaterToAirHeatPump_SupplementalHeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_SupplementalHeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -151,6 +155,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("fan_placement")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_WaterToAirHeatPump_FanPlacement FanPlacement { get; set; } = (ZoneHVAC_WaterToAirHeatPump_FanPlacement)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_FanPlacement), "BlowThrough");
         
 
@@ -166,6 +171,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description(@"used only when the heat pump coils are of the type WaterToAirHeatPump:EquationFit Constant results in 100% water flow regardless of compressor PLR Cycling results in water flow that matches compressor PLR ConstantOnDemand results in 100% water flow whenever the coil is on, but is 0% whenever the coil has no load")]
         [JsonProperty("heat_pump_coil_water_flow_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_WaterToAirHeatPump_HeatPumpCoilWaterFlowMode HeatPumpCoilWaterFlowMode { get; set; } = (ZoneHVAC_WaterToAirHeatPump_HeatPumpCoilWaterFlowMode)Enum.Parse(typeof(ZoneHVAC_WaterToAirHeatPump_HeatPumpCoilWaterFlowMode), "Cycling");
         
 

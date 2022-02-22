@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
 {
     [Description("used for demand limiting Controller:OutdoorAir objects.")]
-    [JsonObject("DemandManager:Ventilation")]
     public class DemandManager_Ventilation : BHoMObject, IEnergyPlusClass
     {
         
@@ -19,6 +18,7 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
         
 
         [JsonProperty("limit_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public DemandManager_Ventilation_LimitControl LimitControl { get; set; } = (DemandManager_Ventilation_LimitControl)Enum.Parse(typeof(DemandManager_Ventilation_LimitControl), "FixedRate");
         
 
@@ -43,6 +43,7 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
         
 
         [JsonProperty("selection_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public DemandManager_Ventilation_SelectionControl SelectionControl { get; set; } = (DemandManager_Ventilation_SelectionControl)Enum.Parse(typeof(DemandManager_Ventilation_SelectionControl), "All");
         
 

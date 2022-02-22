@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Plant_ChilledWaterLoop_ChilledWaterPumpConfiguration
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantPrimaryNoSecondary")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantPrimaryNoSecondary")]
         ConstantPrimaryNoSecondary = 1,
         
-        [JsonProperty("ConstantPrimaryVariableSecondary")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantPrimaryVariableSecondary")]
         ConstantPrimaryVariableSecondary = 2,
         
-        [JsonProperty("VariablePrimaryNoSecondary")]
+        [System.Runtime.Serialization.EnumMember(Value="VariablePrimaryNoSecondary")]
         VariablePrimaryNoSecondary = 3,
     }
 }

@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
     [Description("Unitary system, heating-only with constant volume supply fan (continuous or cycli" +
                  "ng) and heating coil (gas, electric, hot water, or steam). Identical to AirLoopH" +
                  "VAC:Unitary:Furnace:HeatOnly.")]
-    [JsonObject("AirLoopHVAC:UnitaryHeatOnly")]
     public class AirLoopHVAC_UnitaryHeatOnly : BHoMObject, IEnergyPlusClass
     {
         
@@ -48,6 +47,7 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
         [Description("Fan:ConstantVolume only works with continuous fan operating mode (i.e. fan operat" +
                      "ing mode schedule values are greater than 0).")]
         [JsonProperty("supply_fan_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirLoopHVAC_UnitaryHeatOnly_SupplyFanObjectType SupplyFanObjectType { get; set; } = (AirLoopHVAC_UnitaryHeatOnly_SupplyFanObjectType)Enum.Parse(typeof(AirLoopHVAC_UnitaryHeatOnly_SupplyFanObjectType), "FanConstantVolume");
         
 
@@ -56,11 +56,13 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
         
 
         [JsonProperty("fan_placement")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirLoopHVAC_UnitaryHeatOnly_FanPlacement FanPlacement { get; set; } = (AirLoopHVAC_UnitaryHeatOnly_FanPlacement)Enum.Parse(typeof(AirLoopHVAC_UnitaryHeatOnly_FanPlacement), "BlowThrough");
         
 
         [Description("works with gas, electric, hot water and steam heating coils")]
         [JsonProperty("heating_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirLoopHVAC_UnitaryHeatOnly_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (AirLoopHVAC_UnitaryHeatOnly_HeatingCoilObjectType)Enum.Parse(typeof(AirLoopHVAC_UnitaryHeatOnly_HeatingCoilObjectType), "CoilHeatingElectric");
         
 

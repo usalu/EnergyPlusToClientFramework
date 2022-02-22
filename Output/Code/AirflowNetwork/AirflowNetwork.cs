@@ -67,29 +67,32 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     
     
     [Description("This object defines the global parameters used in an Airflow Network simulation.")]
-    [JsonObject("AirflowNetwork:SimulationControl")]
     public class AirflowNetwork_SimulationControl : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"NoMultizoneOrDistribution: Only perform Simple calculations (objects ZoneInfiltration:*, ZoneVentilation:*, ZoneMixing, ZoneCrossMixing, ZoneRefrigerationDoorMixing, ZoneAirBalance:OutdoorAir, ZoneEarthtube, ZoneThermalChimney, and ZoneCoolTower:Shower); MultizoneWithoutDistribution: Use AirflowNetwork objects to simulate multizone Airflows driven by wind during simulation time, and objects of ZoneInfiltration:*, ZoneVentilation:*, ZoneMixing, ZoneCrossMixing ZoneRefrigerationDoorMixing, ZoneAirBalance:OutdoorAir, ZoneEarthtube, ZoneThermalChimney, and ZoneCoolTower:Shower are ignored; MultizoneWithDistributionOnlyDuringFanOperation: Perform distribution system calculations during system fan on time and Simple calculations during system Fan off time; MultizoneWithDistribution: Perform distribution system calculations during system fan on time and multizone Airflow driven by wind during system fan off time.")]
 [JsonProperty("airflownetwork_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_SimulationControl_AirflownetworkControl AirflownetworkControl { get; set; } = (AirflowNetwork_SimulationControl_AirflownetworkControl)Enum.Parse(typeof(AirflowNetwork_SimulationControl_AirflownetworkControl), "NoMultizoneOrDistribution");
         
 
 [Description(@"Input: User must enter AirflowNetwork:MultiZone:WindPressureCoefficientArray, AirflowNetwork:MultiZone:ExternalNode, and AirflowNetwork:MultiZone:WindPressureCoefficientValues objects. SurfaceAverageCalculation: used only for rectangular buildings. If SurfaceAverageCalculation is selected, AirflowNetwork:MultiZone:WindPressureCoefficientArray, AirflowNetwork:MultiZone:ExternalNode, and AirflowNetwork:MultiZone:WindPressureCoefficientValues objects are not used.")]
 [JsonProperty("wind_pressure_coefficient_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_SimulationControl_WindPressureCoefficientType WindPressureCoefficientType { get; set; } = (AirflowNetwork_SimulationControl_WindPressureCoefficientType)Enum.Parse(typeof(AirflowNetwork_SimulationControl_WindPressureCoefficientType), "SurfaceAverageCalculation");
         
 
 [Description(@"If ExternalNode is selected, the height given in the AirflowNetwork:MultiZone:ExternalNode object will be used. If OpeningHeight is selected, the surface opening height (centroid) will be used to calculate local wind pressure This field is ignored when the choice of the Wind Pressure Coefficient Type field is SurfaceAverageCalculation.")]
 [JsonProperty("height_selection_for_local_wind_pressure_calculation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_SimulationControl_HeightSelectionForLocalWindPressureCalculation HeightSelectionForLocalWindPressureCalculation { get; set; } = (AirflowNetwork_SimulationControl_HeightSelectionForLocalWindPressureCalculation)Enum.Parse(typeof(AirflowNetwork_SimulationControl_HeightSelectionForLocalWindPressureCalculation), "OpeningHeight");
         
 
 [Description("Used only if Wind Pressure Coefficient Type = SurfaceAverageCalculation, otherwis" +
     "e this field may be left blank.")]
 [JsonProperty("building_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_SimulationControl_BuildingType BuildingType { get; set; } = (AirflowNetwork_SimulationControl_BuildingType)Enum.Parse(typeof(AirflowNetwork_SimulationControl_BuildingType), "LowRise");
         
 
@@ -100,6 +103,7 @@ public System.Nullable<float> MaximumNumberOfIterations { get; set; } = (System.
         
 
 [JsonProperty("initialization_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_SimulationControl_InitializationType InitializationType { get; set; } = (AirflowNetwork_SimulationControl_InitializationType)Enum.Parse(typeof(AirflowNetwork_SimulationControl_InitializationType), "ZeroNodePressures");
         
 
@@ -132,106 +136,108 @@ public System.Nullable<float> RatioOfBuildingWidthAlongShortAxisToWidthAlongLong
 [Description("If Yes, external node temperature is height dependent. If No, external node tempe" +
     "rature is based on zero height.")]
 [JsonProperty("height_dependence_of_external_node_temperature")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes HeightDependenceOfExternalNodeTemperature { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("Select the solver to use for the pressure network solution")]
 [JsonProperty("solver")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_SimulationControl_Solver Solver { get; set; } = (AirflowNetwork_SimulationControl_Solver)Enum.Parse(typeof(AirflowNetwork_SimulationControl_Solver), "SkylineLU");
         
 
 [Description(@"Set this input to Yes to have zone equipment that are currently unsupported in the AirflowNetwork model allowed in the simulation if present. Setting this field to Yes, allows the following equipments to be modeled along an AirflowNetwork model: ZoneHVAC:Dehumidifier, ZoneHVAC:EnergyRecoveryVentilator, WaterHeater:HeatPump:*.")]
 [JsonProperty("allow_unsupported_zone_equipment")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes AllowUnsupportedZoneEquipment { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
     
     public enum AirflowNetwork_SimulationControl_AirflownetworkControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MultizoneWithDistribution")]
+        [System.Runtime.Serialization.EnumMember(Value="MultizoneWithDistribution")]
         MultizoneWithDistribution = 1,
         
-        [JsonProperty("MultizoneWithDistributionOnlyDuringFanOperation")]
+        [System.Runtime.Serialization.EnumMember(Value="MultizoneWithDistributionOnlyDuringFanOperation")]
         MultizoneWithDistributionOnlyDuringFanOperation = 2,
         
-        [JsonProperty("MultizoneWithoutDistribution")]
+        [System.Runtime.Serialization.EnumMember(Value="MultizoneWithoutDistribution")]
         MultizoneWithoutDistribution = 3,
         
-        [JsonProperty("NoMultizoneOrDistribution")]
+        [System.Runtime.Serialization.EnumMember(Value="NoMultizoneOrDistribution")]
         NoMultizoneOrDistribution = 4,
     }
     
     public enum AirflowNetwork_SimulationControl_WindPressureCoefficientType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Input")]
+        [System.Runtime.Serialization.EnumMember(Value="Input")]
         Input = 1,
         
-        [JsonProperty("SurfaceAverageCalculation")]
+        [System.Runtime.Serialization.EnumMember(Value="SurfaceAverageCalculation")]
         SurfaceAverageCalculation = 2,
     }
     
     public enum AirflowNetwork_SimulationControl_HeightSelectionForLocalWindPressureCalculation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ExternalNode")]
+        [System.Runtime.Serialization.EnumMember(Value="ExternalNode")]
         ExternalNode = 1,
         
-        [JsonProperty("OpeningHeight")]
+        [System.Runtime.Serialization.EnumMember(Value="OpeningHeight")]
         OpeningHeight = 2,
     }
     
     public enum AirflowNetwork_SimulationControl_BuildingType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HighRise")]
+        [System.Runtime.Serialization.EnumMember(Value="HighRise")]
         HighRise = 1,
         
-        [JsonProperty("LowRise")]
+        [System.Runtime.Serialization.EnumMember(Value="LowRise")]
         LowRise = 2,
     }
     
     public enum AirflowNetwork_SimulationControl_InitializationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LinearInitializationMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="LinearInitializationMethod")]
         LinearInitializationMethod = 1,
         
-        [JsonProperty("ZeroNodePressures")]
+        [System.Runtime.Serialization.EnumMember(Value="ZeroNodePressures")]
         ZeroNodePressures = 2,
     }
     
     public enum AirflowNetwork_SimulationControl_Solver
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConjugateGradient")]
+        [System.Runtime.Serialization.EnumMember(Value="ConjugateGradient")]
         ConjugateGradient = 1,
         
-        [JsonProperty("SkylineLU")]
+        [System.Runtime.Serialization.EnumMember(Value="SkylineLU")]
         SkylineLU = 2,
     }
     
     [Description("This object is used to simultaneously control a thermal zone\'s window and door op" +
         "enings, both exterior and interior.")]
-    [JsonObject("AirflowNetwork:MultiZone:Zone")]
     public class AirflowNetwork_MultiZone_Zone : BHoMObject, IEnergyPlusClass
     {
         
@@ -243,6 +249,7 @@ public string ZoneName { get; set; } = "";
 
 [Description(@"When Ventilation Control Mode = Temperature or Enthalpy, the following fields are used to modulate the Ventilation Open Factor for all window and door openings in the zone according to the zone's indoor-outdoor temperature or enthalpy difference. Constant: controlled by field Venting Schedule Name. NoVent: control will not open window or door during simulation (Ventilation Open Factor = 0).")]
 [JsonProperty("ventilation_control_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_MultiZone_Zone_VentilationControlMode VentilationControlMode { get; set; } = (AirflowNetwork_MultiZone_Zone_VentilationControlMode)Enum.Parse(typeof(AirflowNetwork_MultiZone_Zone_VentilationControlMode), "NoVent");
         
 
@@ -291,6 +298,7 @@ public string VentingAvailabilityScheduleName { get; set; } = "";
 
 [Description(@"Selecting Advanced results in EnergyPlus calculating modified Wind Pressure Coefficients to account for wind direction and turbulence effects on single sided ventilation rates. Model is only valid for zones with 2 openings, both of which are on a single facade.")]
 [JsonProperty("single_sided_wind_pressure_coefficient_algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_MultiZone_Zone_SingleSidedWindPressureCoefficientAlgorithm SingleSidedWindPressureCoefficientAlgorithm { get; set; } = (AirflowNetwork_MultiZone_Zone_SingleSidedWindPressureCoefficientAlgorithm)Enum.Parse(typeof(AirflowNetwork_MultiZone_Zone_SingleSidedWindPressureCoefficientAlgorithm), "Standard");
         
 
@@ -307,45 +315,44 @@ public string OccupantVentilationControlName { get; set; } = "";
     public enum AirflowNetwork_MultiZone_Zone_VentilationControlMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAE55Adaptive")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAE55Adaptive")]
         ASHRAE55Adaptive = 1,
         
-        [JsonProperty("CEN15251Adaptive")]
+        [System.Runtime.Serialization.EnumMember(Value="CEN15251Adaptive")]
         CEN15251Adaptive = 2,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 3,
         
-        [JsonProperty("Enthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="Enthalpy")]
         Enthalpy = 4,
         
-        [JsonProperty("NoVent")]
+        [System.Runtime.Serialization.EnumMember(Value="NoVent")]
         NoVent = 5,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 6,
     }
     
     public enum AirflowNetwork_MultiZone_Zone_SingleSidedWindPressureCoefficientAlgorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Advanced")]
+        [System.Runtime.Serialization.EnumMember(Value="Advanced")]
         Advanced = 1,
         
-        [JsonProperty("Standard")]
+        [System.Runtime.Serialization.EnumMember(Value="Standard")]
         Standard = 2,
     }
     
     [Description("This object specifies the properties of a surface linkage through which air flows" +
         ". Airflow Report: Node 1 as an inside face zone; Node 2 as an outside face zone " +
         "or external node.")]
-    [JsonObject("AirflowNetwork:MultiZone:Surface")]
     public class AirflowNetwork_MultiZone_Surface : BHoMObject, IEnergyPlusClass
     {
         
@@ -373,6 +380,7 @@ public System.Nullable<float> WindowDoorOpeningFactorOrCrackFactor { get; set; }
 
 [Description(@"When Ventilation Control Mode = Temperature or Enthalpy, the following fields are used to modulate the Ventilation Open Factor for a window or door opening according to the parent zone's indoor-outdoor temperature or enthalpy difference. When Ventilation Control Mode = AdjacentTemperature or AdjacentEnthalpy, the following fields are used to modulate the Ventilation Open Factor for an interior window or door opening according to temperature or enthalpy difference between the parent zone and the adjacent zone. Constant: controlled by field Venting Schedule Name. NoVent: control will not open window or door during simulation (Ventilation Open Factor = 0). ZoneLevel: control will be controlled by AirflowNetwork:MultiZone:Zone Mode.")]
 [JsonProperty("ventilation_control_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_MultiZone_Surface_VentilationControlMode VentilationControlMode { get; set; } = (AirflowNetwork_MultiZone_Surface_VentilationControlMode)Enum.Parse(typeof(AirflowNetwork_MultiZone_Surface_VentilationControlMode), "ZoneLevel");
         
 
@@ -426,6 +434,7 @@ public string OccupantVentilationControlName { get; set; } = "";
 [Description("This field is applied to a non-rectangular window or door. The equivalent shape h" +
     "as the same area as a polygonal window or door.")]
 [JsonProperty("equivalent_rectangle_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_MultiZone_Surface_EquivalentRectangleMethod EquivalentRectangleMethod { get; set; } = (AirflowNetwork_MultiZone_Surface_EquivalentRectangleMethod)Enum.Parse(typeof(AirflowNetwork_MultiZone_Surface_EquivalentRectangleMethod), "PolygonHeight");
         
 
@@ -438,56 +447,55 @@ public System.Nullable<float> EquivalentRectangleAspectRatio { get; set; } = (Sy
     public enum AirflowNetwork_MultiZone_Surface_VentilationControlMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAE55Adaptive")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAE55Adaptive")]
         ASHRAE55Adaptive = 1,
         
-        [JsonProperty("AdjacentEnthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjacentEnthalpy")]
         AdjacentEnthalpy = 2,
         
-        [JsonProperty("AdjacentTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjacentTemperature")]
         AdjacentTemperature = 3,
         
-        [JsonProperty("CEN15251Adaptive")]
+        [System.Runtime.Serialization.EnumMember(Value="CEN15251Adaptive")]
         CEN15251Adaptive = 4,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 5,
         
-        [JsonProperty("Enthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="Enthalpy")]
         Enthalpy = 6,
         
-        [JsonProperty("NoVent")]
+        [System.Runtime.Serialization.EnumMember(Value="NoVent")]
         NoVent = 7,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 8,
         
-        [JsonProperty("ZoneLevel")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneLevel")]
         ZoneLevel = 9,
     }
     
     public enum AirflowNetwork_MultiZone_Surface_EquivalentRectangleMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BaseSurfaceAspectRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="BaseSurfaceAspectRatio")]
         BaseSurfaceAspectRatio = 1,
         
-        [JsonProperty("PolygonHeight")]
+        [System.Runtime.Serialization.EnumMember(Value="PolygonHeight")]
         PolygonHeight = 2,
         
-        [JsonProperty("UserDefinedAspectRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefinedAspectRatio")]
         UserDefinedAspectRatio = 3,
     }
     
     [Description("This object specifies the conditions under which the air mass flow coefficient wa" +
         "s measured.")]
-    [JsonObject("AirflowNetwork:MultiZone:ReferenceCrackConditions")]
     public class AirflowNetwork_MultiZone_ReferenceCrackConditions : BHoMObject, IEnergyPlusClass
     {
         
@@ -511,7 +519,6 @@ public System.Nullable<float> ReferenceHumidityRatio { get; set; } = (System.Nul
     }
     
     [Description("This object specifies the properties of airflow through a crack.")]
-    [JsonObject("AirflowNetwork:MultiZone:Surface:Crack")]
     public class AirflowNetwork_MultiZone_Surface_Crack : BHoMObject, IEnergyPlusClass
     {
         
@@ -534,7 +541,6 @@ public string ReferenceCrackConditions { get; set; } = "";
     }
     
     [Description("This object is used to define surface air leakage.")]
-    [JsonObject("AirflowNetwork:MultiZone:Surface:EffectiveLeakageArea")]
     public class AirflowNetwork_MultiZone_Surface_EffectiveLeakageArea : BHoMObject, IEnergyPlusClass
     {
         
@@ -562,7 +568,6 @@ public System.Nullable<float> AirMassFlowExponent { get; set; } = (System.Nullab
     
     [Description("This object specifies the properties of airflow through windows and doors (window" +
         ", door and glass door heat transfer subsurfaces) when they are closed or open.")]
-    [JsonObject("AirflowNetwork:MultiZone:Component:DetailedOpening")]
     public class AirflowNetwork_MultiZone_Component_DetailedOpening : BHoMObject, IEnergyPlusClass
     {
         
@@ -584,6 +589,7 @@ public System.Nullable<float> AirMassFlowExponentWhenOpeningIsClosed { get; set;
 [Description("Select the type of vertical opening: Non-pivoted opening or Horizontally pivoted " +
     "opening.")]
 [JsonProperty("type_of_rectangular_large_vertical_opening_lvo_")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLargeVerticalOpeningLvo TypeOfRectangularLargeVerticalOpeningLvo { get; set; } = (AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLargeVerticalOpeningLvo)Enum.Parse(typeof(AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLargeVerticalOpeningLvo), "NonPivoted");
         
 
@@ -707,19 +713,18 @@ public System.Nullable<float> StartHeightFactorForOpeningFactor4 { get; set; } =
     public enum AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLargeVerticalOpeningLvo
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HorizontallyPivoted")]
+        [System.Runtime.Serialization.EnumMember(Value="HorizontallyPivoted")]
         HorizontallyPivoted = 1,
         
-        [JsonProperty("NonPivoted")]
+        [System.Runtime.Serialization.EnumMember(Value="NonPivoted")]
         NonPivoted = 2,
     }
     
     [Description("This object specifies the properties of air flow through windows and doors (windo" +
         "w, door and glass door heat transfer subsurfaces) when they are closed or open.")]
-    [JsonObject("AirflowNetwork:MultiZone:Component:SimpleOpening")]
     public class AirflowNetwork_MultiZone_Component_SimpleOpening : BHoMObject, IEnergyPlusClass
     {
         
@@ -751,7 +756,6 @@ public System.Nullable<float> DischargeCoefficient { get; set; } = null;
     }
     
     [Description("This object specifies the properties of air flow through a horizontal opening")]
-    [JsonObject("AirflowNetwork:MultiZone:Component:HorizontalOpening")]
     public class AirflowNetwork_MultiZone_Component_HorizontalOpening : BHoMObject, IEnergyPlusClass
     {
         
@@ -782,7 +786,6 @@ public System.Nullable<float> DischargeCoefficient { get; set; } = null;
     
     [Description("This object specifies the additional properties for a zone exhaust fan to perform" +
         " multizone airflow calculations.")]
-    [JsonObject("AirflowNetwork:MultiZone:Component:ZoneExhaustFan")]
     public class AirflowNetwork_MultiZone_Component_ZoneExhaustFan : BHoMObject, IEnergyPlusClass
     {
         
@@ -806,7 +809,6 @@ public string ReferenceCrackConditions { get; set; } = "";
     }
     
     [Description("This object defines outdoor environmental conditions outside of the building.")]
-    [JsonObject("AirflowNetwork:MultiZone:ExternalNode")]
     public class AirflowNetwork_MultiZone_ExternalNode : BHoMObject, IEnergyPlusClass
     {
         
@@ -826,6 +828,7 @@ public string WindPressureCoefficientCurveName { get; set; } = "";
     "at should be evaluated from 0 to 180 degrees Specify No for curves that should b" +
     "e evaluated from 0 to 360 degrees")]
 [JsonProperty("symmetric_wind_pressure_coefficient_curve")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes SymmetricWindPressureCoefficientCurve { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -834,24 +837,24 @@ public EmptyNoYes SymmetricWindPressureCoefficientCurve { get; set; } = (EmptyNo
     "and the surface azimuth Specify Absolute to use the wind direction angle directl" +
     "y")]
 [JsonProperty("wind_angle_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_MultiZone_ExternalNode_WindAngleType WindAngleType { get; set; } = (AirflowNetwork_MultiZone_ExternalNode_WindAngleType)Enum.Parse(typeof(AirflowNetwork_MultiZone_ExternalNode_WindAngleType), "Absolute");
     }
     
     public enum AirflowNetwork_MultiZone_ExternalNode_WindAngleType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Absolute")]
+        [System.Runtime.Serialization.EnumMember(Value="Absolute")]
         Absolute = 1,
         
-        [JsonProperty("Relative")]
+        [System.Runtime.Serialization.EnumMember(Value="Relative")]
         Relative = 2,
     }
     
     [Description(@"Used only if Wind Pressure Coefficient (WPC) Type = Input in the AirflowNetwork:SimulationControl object. Number of WPC Values in the corresponding AirflowNetwork:MultiZone:WindPressureCoefficientValues object must be the same as the number of wind directions specified for this AirflowNetwork:MultiZone:WindPressureCoefficientArray object.")]
-    [JsonObject("AirflowNetwork:MultiZone:WindPressureCoefficientArray")]
     public class AirflowNetwork_MultiZone_WindPressureCoefficientArray : BHoMObject, IEnergyPlusClass
     {
         
@@ -1037,7 +1040,6 @@ public System.Nullable<float> WindDirection36 { get; set; } = null;
     }
     
     [Description(@"Used only if Wind Pressure Coefficient (WPC) Type = INPUT in the AirflowNetwork:SimulationControl object. The number of WPC numeric inputs must correspond to the number of wind direction inputs in the AirflowNetwork:Multizone:WindPressureCoefficientArray object.")]
-    [JsonObject("AirflowNetwork:MultiZone:WindPressureCoefficientValues")]
     public class AirflowNetwork_MultiZone_WindPressureCoefficientValues : BHoMObject, IEnergyPlusClass
     {
         
@@ -1232,7 +1234,6 @@ public System.Nullable<float> WindPressureCoefficientValue36 { get; set; } = nul
         "rflowNetwork model. The specified pressure setpoint is used to control the zone " +
         "exhaust fan flow rate in a controlled zone or the relief air flow rate in an air" +
         " loop.")]
-    [JsonObject("AirflowNetwork:ZoneControl:PressureController")]
     public class AirflowNetwork_ZoneControl_PressureController : BHoMObject, IEnergyPlusClass
     {
         
@@ -1244,6 +1245,7 @@ public string ControlZoneName { get; set; } = "";
 [Description("The current selection is AirflowNetwork:MultiZone:Component:ZoneExhaustFan or Air" +
     "flowNetwork:Distribution:Component:ReliefAirFlow.")]
 [JsonProperty("control_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_ZoneControl_PressureController_ControlObjectType ControlObjectType { get; set; } = (AirflowNetwork_ZoneControl_PressureController_ControlObjectType)Enum.Parse(typeof(AirflowNetwork_ZoneControl_PressureController_ControlObjectType), "AirflowNetworkDistributionComponentReliefAirFlow");
         
 
@@ -1266,15 +1268,14 @@ public string PressureSetpointScheduleName { get; set; } = "";
     public enum AirflowNetwork_ZoneControl_PressureController_ControlObjectType
     {
         
-        [JsonProperty("AirflowNetwork:Distribution:Component:ReliefAirFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="AirflowNetwork:Distribution:Component:ReliefAirFlow")]
         AirflowNetworkDistributionComponentReliefAirFlow = 0,
         
-        [JsonProperty("AirflowNetwork:MultiZone:Component:ZoneExhaustFan")]
+        [System.Runtime.Serialization.EnumMember(Value="AirflowNetwork:MultiZone:Component:ZoneExhaustFan")]
         AirflowNetworkMultiZoneComponentZoneExhaustFan = 1,
     }
     
     [Description("This object represents an air distribution node in the AirflowNetwork model.")]
-    [JsonObject("AirflowNetwork:Distribution:Node")]
     public class AirflowNetwork_Distribution_Node : BHoMObject, IEnergyPlusClass
     {
         
@@ -1286,6 +1287,7 @@ public string ComponentNameOrNodeName { get; set; } = "";
 
 [Description(@"Designates Node type for the Node or Component Name defined in the field above. AirLoopHVAC:ZoneMixer -- Represents a AirLoopHVAC:ZoneMixer object. AirLoopHVAC:ZoneSplitter -- Represents a AirLoopHVAC:ZoneSplitter object. AirLoopHVAC:OutdoorAirSystem -- Represents an AirLoopHVAC:OutdoorAirSystem object. OAMixerOutdoorAirStreamNode -- Represents an external node used in the OutdoorAir:Mixer OutdoorAir:NodeList -- Represents an external node when a heat exchanger is used before the OutdoorAir:Mixer OutdoorAir:Node -- Represents an external node when a heat exchanger is used before the OutdoorAir:Mixer Other -- none of the above, the Node name already defined in the previous field is part of an air loop.")]
 [JsonProperty("component_object_type_or_node_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_Distribution_Node_ComponentObjectTypeOrNodeType ComponentObjectTypeOrNodeType { get; set; } = (AirflowNetwork_Distribution_Node_ComponentObjectTypeOrNodeType)Enum.Parse(typeof(AirflowNetwork_Distribution_Node_ComponentObjectTypeOrNodeType), "Other");
         
 
@@ -1297,33 +1299,32 @@ public System.Nullable<float> NodeHeight { get; set; } = (System.Nullable<float>
     public enum AirflowNetwork_Distribution_Node_ComponentObjectTypeOrNodeType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirLoopHVAC:OutdoorAirSystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:OutdoorAirSystem")]
         AirLoopHVACOutdoorAirSystem = 1,
         
-        [JsonProperty("AirLoopHVAC:ZoneMixer")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:ZoneMixer")]
         AirLoopHVACZoneMixer = 2,
         
-        [JsonProperty("AirLoopHVAC:ZoneSplitter")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:ZoneSplitter")]
         AirLoopHVACZoneSplitter = 3,
         
-        [JsonProperty("OAMixerOutdoorAirStreamNode")]
+        [System.Runtime.Serialization.EnumMember(Value="OAMixerOutdoorAirStreamNode")]
         OAMixerOutdoorAirStreamNode = 4,
         
-        [JsonProperty("Other")]
+        [System.Runtime.Serialization.EnumMember(Value="Other")]
         Other = 5,
         
-        [JsonProperty("OutdoorAir:Node")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir:Node")]
         OutdoorAirNode = 6,
         
-        [JsonProperty("OutdoorAir:NodeList")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir:NodeList")]
         OutdoorAirNodeList = 7,
     }
     
     [Description("This object defines the characteristics of a supply or return air leak.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:Leak")]
     public class AirflowNetwork_Distribution_Component_Leak : BHoMObject, IEnergyPlusClass
     {
         
@@ -1343,7 +1344,6 @@ public System.Nullable<float> AirMassFlowExponent { get; set; } = (System.Nullab
     
     [Description("This object is used to define supply and return air leaks with respect to the fan" +
         "\'s maximum air flow rate.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:LeakageRatio")]
     public class AirflowNetwork_Distribution_Component_LeakageRatio : BHoMObject, IEnergyPlusClass
     {
         
@@ -1370,7 +1370,6 @@ public System.Nullable<float> AirMassFlowExponent { get; set; } = (System.Nullab
     
     [Description("This object defines the relationship between pressure and air flow through the du" +
         "ct.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:Duct")]
     public class AirflowNetwork_Distribution_Component_Duct : BHoMObject, IEnergyPlusClass
     {
         
@@ -1425,7 +1424,6 @@ public System.Nullable<float> InsideConvectionCoefficient { get; set; } = null;
     }
     
     [Description("This object defines the name of the supply Air Fan used in an Air loop.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:Fan")]
     public class AirflowNetwork_Distribution_Component_Fan : BHoMObject, IEnergyPlusClass
     {
         
@@ -1436,30 +1434,30 @@ public string FanName { get; set; } = "";
         
 
 [JsonProperty("supply_fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_Distribution_Component_Fan_SupplyFanObjectType SupplyFanObjectType { get; set; } = (AirflowNetwork_Distribution_Component_Fan_SupplyFanObjectType)Enum.Parse(typeof(AirflowNetwork_Distribution_Component_Fan_SupplyFanObjectType), "Empty");
     }
     
     public enum AirflowNetwork_Distribution_Component_Fan_SupplyFanObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 1,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 2,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 3,
         
-        [JsonProperty("Fan:VariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:VariableVolume")]
         FanVariableVolume = 4,
     }
     
     [Description("This object defines the name of a coil used in an air loop.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:Coil")]
     public class AirflowNetwork_Distribution_Component_Coil : BHoMObject, IEnergyPlusClass
     {
         
@@ -1471,6 +1469,7 @@ public string CoilName { get; set; } = "";
 
 [Description("Select the type of coil corresponding to the name entered in the field above.")]
 [JsonProperty("coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_Distribution_Component_Coil_CoilObjectType CoilObjectType { get; set; } = (AirflowNetwork_Distribution_Component_Coil_CoilObjectType)Enum.Parse(typeof(AirflowNetwork_Distribution_Component_Coil_CoilObjectType), "CoilCoolingDX");
         
 
@@ -1488,49 +1487,48 @@ public System.Nullable<float> AirPathHydraulicDiameter { get; set; } = null;
     public enum AirflowNetwork_Distribution_Component_Coil_CoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX")]
         CoilCoolingDX = 0,
         
-        [JsonProperty("Coil:Cooling:DX:MultiSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:MultiSpeed")]
         CoilCoolingDXMultiSpeed = 1,
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 2,
         
-        [JsonProperty("Coil:Cooling:DX:TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoSpeed")]
         CoilCoolingDXTwoSpeed = 3,
         
-        [JsonProperty("Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
         CoilCoolingDXTwoStageWithHumidityControlMode = 4,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 5,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 6,
         
-        [JsonProperty("Coil:Heating:DX:MultiSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:DX:MultiSpeed")]
         CoilHeatingDXMultiSpeed = 7,
         
-        [JsonProperty("Coil:Heating:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:DX:SingleSpeed")]
         CoilHeatingDXSingleSpeed = 8,
         
-        [JsonProperty("Coil:Heating:Desuperheater")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Desuperheater")]
         CoilHeatingDesuperheater = 9,
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 10,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 11,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 12,
     }
     
     [Description("This object defines the name of an air-to-air heat exchanger used in an air loop." +
         "")]
-    [JsonObject("AirflowNetwork:Distribution:Component:HeatExchanger")]
     public class AirflowNetwork_Distribution_Component_HeatExchanger : BHoMObject, IEnergyPlusClass
     {
         
@@ -1543,6 +1541,7 @@ public string HeatexchangerName { get; set; } = "";
 [Description("Select the type of heat exchanger corresponding to the name entered in the field " +
     "above.")]
 [JsonProperty("heatexchanger_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_Distribution_Component_HeatExchanger_HeatexchangerObjectType HeatexchangerObjectType { get; set; } = (AirflowNetwork_Distribution_Component_HeatExchanger_HeatexchangerObjectType)Enum.Parse(typeof(AirflowNetwork_Distribution_Component_HeatExchanger_HeatexchangerObjectType), "HeatExchangerAirToAirFlatPlate");
         
 
@@ -1560,18 +1559,17 @@ public System.Nullable<float> AirPathHydraulicDiameter { get; set; } = null;
     public enum AirflowNetwork_Distribution_Component_HeatExchanger_HeatexchangerObjectType
     {
         
-        [JsonProperty("HeatExchanger:AirToAir:FlatPlate")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:FlatPlate")]
         HeatExchangerAirToAirFlatPlate = 0,
         
-        [JsonProperty("HeatExchanger:AirToAir:SensibleAndLatent")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:SensibleAndLatent")]
         HeatExchangerAirToAirSensibleAndLatent = 1,
         
-        [JsonProperty("HeatExchanger:Desiccant:BalancedFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:Desiccant:BalancedFlow")]
         HeatExchangerDesiccantBalancedFlow = 2,
     }
     
     [Description("This object defines the name of a terminal unit in an air loop.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:TerminalUnit")]
     public class AirflowNetwork_Distribution_Component_TerminalUnit : BHoMObject, IEnergyPlusClass
     {
         
@@ -1584,6 +1582,7 @@ public string TerminalUnitName { get; set; } = "";
 [Description("Select the type of terminal unit corresponding to the name entered in the field a" +
     "bove.")]
 [JsonProperty("terminal_unit_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirflowNetwork_Distribution_Component_TerminalUnit_TerminalUnitObjectType TerminalUnitObjectType { get; set; } = (AirflowNetwork_Distribution_Component_TerminalUnit_TerminalUnitObjectType)Enum.Parse(typeof(AirflowNetwork_Distribution_Component_TerminalUnit_TerminalUnitObjectType), "AirTerminalSingleDuctConstantVolumeReheat");
         
 
@@ -1601,15 +1600,14 @@ public System.Nullable<float> AirPathHydraulicDiameter { get; set; } = null;
     public enum AirflowNetwork_Distribution_Component_TerminalUnit_TerminalUnitObjectType
     {
         
-        [JsonProperty("AirTerminal:SingleDuct:ConstantVolume:Reheat")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:ConstantVolume:Reheat")]
         AirTerminalSingleDuctConstantVolumeReheat = 0,
         
-        [JsonProperty("AirTerminal:SingleDuct:VAV:Reheat")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:VAV:Reheat")]
         AirTerminalSingleDuctVAVReheat = 1,
     }
     
     [Description(@"This object defines the characteristics of a constant pressure drop component (e.g. filter). Each node connected to this object can not be a node of mixer, splitter, a node of air primary loop, or zone equipment loop. It is recommended to connect to a duct component at both ends.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:ConstantPressureDrop")]
     public class AirflowNetwork_Distribution_Component_ConstantPressureDrop : BHoMObject, IEnergyPlusClass
     {
         
@@ -1621,7 +1619,6 @@ public System.Nullable<float> PressureDifferenceAcrossTheComponent { get; set; }
     
     [Description("This object includes the outdoor air flow rate set by the Controller:OutdoorAir o" +
         "bject in the airflow network.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:OutdoorAirFlow")]
     public class AirflowNetwork_Distribution_Component_OutdoorAirFlow : BHoMObject, IEnergyPlusClass
     {
         
@@ -1649,7 +1646,6 @@ public string ReferenceCrackConditions { get; set; } = "";
     }
     
     [Description("This object allows variation of air flow rate to perform pressure.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:ReliefAirFlow")]
     public class AirflowNetwork_Distribution_Component_ReliefAirFlow : BHoMObject, IEnergyPlusClass
     {
         
@@ -1677,7 +1673,6 @@ public string ReferenceCrackConditions { get; set; } = "";
     }
     
     [Description("This object defines the connection between two nodes and a component.")]
-    [JsonObject("AirflowNetwork:Distribution:Linkage")]
     public class AirflowNetwork_Distribution_Linkage : BHoMObject, IEnergyPlusClass
     {
         
@@ -1708,7 +1703,6 @@ public string ThermalZoneName { get; set; } = "";
     
     [Description("This object is used to allow user-defined view factors to be used for duct-surfac" +
         "e radiation calculations.")]
-    [JsonObject("AirflowNetwork:Distribution:DuctViewFactors")]
     public class AirflowNetwork_Distribution_DuctViewFactors : BHoMObject, IEnergyPlusClass
     {
         
@@ -1731,7 +1725,6 @@ public string Surfaces { get; set; } = "";
     
     [Description("This object is used to provide advanced thermal comfort control of window opening" +
         " and closing for both exterior and interior windows.")]
-    [JsonObject("AirflowNetwork:OccupantVentilationControl")]
     public class AirflowNetwork_OccupantVentilationControl : BHoMObject, IEnergyPlusClass
     {
         
@@ -1767,6 +1760,7 @@ public System.Nullable<float> MaximumThresholdForPersonsDissatisfiedPpd { get; s
 [Description("If Yes, occupancy check will be performed as part of the opening probability chec" +
     "k.")]
 [JsonProperty("occupancy_check")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OccupancyCheck { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -1784,7 +1778,6 @@ public string ClosingProbabilityScheduleName { get; set; } = "";
     
     [Description("This object represents a node in a zone in the combination of RoomAir and Airflow" +
         "Network model.")]
-    [JsonObject("AirflowNetwork:IntraZone:Node")]
     public class AirflowNetwork_IntraZone_Node : BHoMObject, IEnergyPlusClass
     {
         
@@ -1808,7 +1801,6 @@ public System.Nullable<float> NodeHeight { get; set; } = (System.Nullable<float>
     
     [Description("This object defines the connection between two nodes and a component used in the " +
         "combination of RoomAir and AirflowNetwork model.")]
-    [JsonObject("AirflowNetwork:IntraZone:Linkage")]
     public class AirflowNetwork_IntraZone_Linkage : BHoMObject, IEnergyPlusClass
     {
         

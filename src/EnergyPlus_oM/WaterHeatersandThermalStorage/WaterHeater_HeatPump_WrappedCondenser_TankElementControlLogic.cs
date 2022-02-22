@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     public enum WaterHeater_HeatPump_WrappedCondenser_TankElementControlLogic
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MutuallyExclusive")]
+        [System.Runtime.Serialization.EnumMember(Value="MutuallyExclusive")]
         MutuallyExclusive = 1,
         
-        [JsonProperty("Simultaneous")]
+        [System.Runtime.Serialization.EnumMember(Value="Simultaneous")]
         Simultaneous = 2,
     }
 }

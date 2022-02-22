@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 {
     [Description("ZoneCrossMixing exchanges an equal amount of air between two zones. Note that thi" +
                  "s statement affects the energy balance of both zones.")]
-    [JsonObject("ZoneCrossMixing")]
     public class ZoneCrossMixing : BHoMObject, IEnergyPlusClass
     {
         
@@ -23,6 +22,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 
         [Description(@"The entered calculation method is used to create the maximum amount of ventilation for this set of attributes Choices: Flow/Zone => Design Flow Rate -- simply enter Design Flow Rate Flow/Area => Flow Rate per Zone Floor Area - Value * Floor Area (zone) = Design Flow Rate Flow/Person => Flow Rate per Person - Value * #people = Design Flow Rate AirChanges/Hour => Air Changes per Hour - Value * Floor Volume (zone) adjusted for m3/s = Design Volume Flow Rate ""Vdesign"" in Equation is the result.")]
         [JsonProperty("design_flow_rate_calculation_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneCrossMixing_DesignFlowRateCalculationMethod DesignFlowRateCalculationMethod { get; set; } = (ZoneCrossMixing_DesignFlowRateCalculationMethod)Enum.Parse(typeof(ZoneCrossMixing_DesignFlowRateCalculationMethod), "Empty");
         
 

@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
 {
     [Description("This object declares an FMU input variable")]
-    [JsonObject("ExternalInterface:FunctionalMockupUnitImport:From:Variable")]
     public class ExternalInterface_FunctionalMockupUnitImport_From_Variable : BHoMObject, IEnergyPlusClass
     {
         

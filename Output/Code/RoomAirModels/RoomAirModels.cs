@@ -69,7 +69,6 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
     [Description("Selects the type of room air model to be used in a given zone. If no RoomAirModel" +
         "Type object is specified then the default Mixing model (all zone air at the same" +
         " temperature) will be used.")]
-    [JsonObject("RoomAirModelType")]
     public class RoomAirModelType : BHoMObject, IEnergyPlusClass
     {
         
@@ -80,61 +79,62 @@ public string ZoneName { get; set; } = "";
 
 [Description(@"Mixing = Complete mixing air model UserDefined = UserDefined Room Air Temperature Patterns needs RoomAir:TemperaturePattern:UserDefined object referencing this Zone OneNodeDisplacementVentilation = Mundt roomair model for displacement ventilation with single floor air node needs RoomAirSettings:OneNodeDisplacementVentilation object referencing this Zone ThreeNodeDisplacementVentilation = RoomAir modeling using UCSD three-node displacement ventilation model needs RoomAirSettings:ThreeNodeDisplacementVentilation object referencing this Zone CrossVentilation = RoomAir modeling using UCSD two-zone cross ventilation model needs RoomAirSettings:CrossVentilation object referencing this Zone UnderFloorAirDistributionInterior = 2-Node UFAD model for interior zones needs RoomAirSettings:UnderFloorAirDistributionInterior object referencing this Zone UnderFloorAirDistributionExterior = RoomAir modeling using 2-Node UFAD model for exterior zones needs RoomAirSettings:UnderFloorAirDistributionExterior object referencing this Zone AirflowNetwork = RoomAir modeling using AirflowNetwork needs RoomAirSettings:AirflowNetwork object referencing this Zone")]
 [JsonProperty("room_air_modeling_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RoomAirModelType_RoomAirModelingType RoomAirModelingType { get; set; } = (RoomAirModelType_RoomAirModelingType)Enum.Parse(typeof(RoomAirModelType_RoomAirModelingType), "Mixing");
         
 
 [JsonProperty("air_temperature_coupling_strategy")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RoomAirModelType_AirTemperatureCouplingStrategy AirTemperatureCouplingStrategy { get; set; } = (RoomAirModelType_AirTemperatureCouplingStrategy)Enum.Parse(typeof(RoomAirModelType_AirTemperatureCouplingStrategy), "Direct");
     }
     
     public enum RoomAirModelType_RoomAirModelingType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirflowNetwork")]
+        [System.Runtime.Serialization.EnumMember(Value="AirflowNetwork")]
         AirflowNetwork = 1,
         
-        [JsonProperty("CrossVentilation")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossVentilation")]
         CrossVentilation = 2,
         
-        [JsonProperty("Mixing")]
+        [System.Runtime.Serialization.EnumMember(Value="Mixing")]
         Mixing = 3,
         
-        [JsonProperty("OneNodeDisplacementVentilation")]
+        [System.Runtime.Serialization.EnumMember(Value="OneNodeDisplacementVentilation")]
         OneNodeDisplacementVentilation = 4,
         
-        [JsonProperty("ThreeNodeDisplacementVentilation")]
+        [System.Runtime.Serialization.EnumMember(Value="ThreeNodeDisplacementVentilation")]
         ThreeNodeDisplacementVentilation = 5,
         
-        [JsonProperty("UnderFloorAirDistributionExterior")]
+        [System.Runtime.Serialization.EnumMember(Value="UnderFloorAirDistributionExterior")]
         UnderFloorAirDistributionExterior = 6,
         
-        [JsonProperty("UnderFloorAirDistributionInterior")]
+        [System.Runtime.Serialization.EnumMember(Value="UnderFloorAirDistributionInterior")]
         UnderFloorAirDistributionInterior = 7,
         
-        [JsonProperty("UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefined")]
         UserDefined = 8,
     }
     
     public enum RoomAirModelType_AirTemperatureCouplingStrategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Direct")]
+        [System.Runtime.Serialization.EnumMember(Value="Direct")]
         Direct = 1,
         
-        [JsonProperty("Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Indirect")]
         Indirect = 2,
     }
     
     [Description("Used to explicitly define temperature patterns that are to be applied to the mean" +
         " air temperature within a thermal zone. Used with RoomAirModelType = UserDefined" +
         ".")]
-    [JsonObject("RoomAir:TemperaturePattern:UserDefined")]
     public class RoomAir_TemperaturePattern_UserDefined : BHoMObject, IEnergyPlusClass
     {
         
@@ -159,7 +159,6 @@ public string PatternControlScheduleName { get; set; } = "";
     
     [Description("Used to model room air with a fixed temperature gradient in the vertical directio" +
         "n. Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
-    [JsonObject("RoomAir:TemperaturePattern:ConstantGradient")]
     public class RoomAir_TemperaturePattern_ConstantGradient : BHoMObject, IEnergyPlusClass
     {
         
@@ -195,7 +194,6 @@ public System.Nullable<float> TemperatureGradient { get; set; } = null;
     
     [Description("Used to model room air with two temperature gradients in the vertical direction. " +
         "Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
-    [JsonObject("RoomAir:TemperaturePattern:TwoGradient")]
     public class RoomAir_TemperaturePattern_TwoGradient : BHoMObject, IEnergyPlusClass
     {
         
@@ -235,6 +233,7 @@ public System.Nullable<float> TemperatureGradientUpperBound { get; set; } = null
         
 
 [JsonProperty("gradient_interpolation_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RoomAir_TemperaturePattern_TwoGradient_GradientInterpolationMode GradientInterpolationMode { get; set; } = (RoomAir_TemperaturePattern_TwoGradient_GradientInterpolationMode)Enum.Parse(typeof(RoomAir_TemperaturePattern_TwoGradient_GradientInterpolationMode), "OutdoorDryBulbTemperature");
         
 
@@ -257,24 +256,23 @@ public System.Nullable<float> LowerHeatRateBound { get; set; } = null;
     public enum RoomAir_TemperaturePattern_TwoGradient_GradientInterpolationMode
     {
         
-        [JsonProperty("OutdoorDryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorDryBulbTemperature")]
         OutdoorDryBulbTemperature = 0,
         
-        [JsonProperty("SensibleCoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="SensibleCoolingLoad")]
         SensibleCoolingLoad = 1,
         
-        [JsonProperty("SensibleHeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="SensibleHeatingLoad")]
         SensibleHeatingLoad = 2,
         
-        [JsonProperty("ZoneAndOutdoorTemperatureDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAndOutdoorTemperatureDifference")]
         ZoneAndOutdoorTemperatureDifference = 3,
         
-        [JsonProperty("ZoneDryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneDryBulbTemperature")]
         ZoneDryBulbTemperature = 4,
     }
     
     [Description(@"Defines a distribution pattern for air temperatures relative to the current mean air temperature as a function of height. The height, referred to as Zeta, is nondimensional by normalizing with the zone ceiling height. Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
-    [JsonObject("RoomAir:TemperaturePattern:NondimensionalHeight")]
     public class RoomAir_TemperaturePattern_NondimensionalHeight : BHoMObject, IEnergyPlusClass
     {
         
@@ -304,7 +302,6 @@ public string Pairs { get; set; } = "";
     }
     
     [Description(@"Defines a distribution pattern for the air temperatures adjacent to individual surfaces. This allows controlling the adjacent air temperature on a surface-by-surface basis rather than by height. This allows modeling different adjacent air temperatures on the opposite sides of the zone. Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
-    [JsonObject("RoomAir:TemperaturePattern:SurfaceMapping")]
     public class RoomAir_TemperaturePattern_SurfaceMapping : BHoMObject, IEnergyPlusClass
     {
         
@@ -334,12 +331,12 @@ public string SurfaceDeltas { get; set; } = "";
     }
     
     [Description("Define an air node for some types of nodal room air models")]
-    [JsonObject("RoomAir:Node")]
     public class RoomAir_Node : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("node_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RoomAir_Node_NodeType NodeType { get; set; } = (RoomAir_Node_NodeType)Enum.Parse(typeof(RoomAir_Node_NodeType), "Ceiling");
         
 
@@ -438,27 +435,26 @@ public string Surface21Name { get; set; } = "";
     public enum RoomAir_Node_NodeType
     {
         
-        [JsonProperty("Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="Ceiling")]
         Ceiling = 0,
         
-        [JsonProperty("Control")]
+        [System.Runtime.Serialization.EnumMember(Value="Control")]
         Control = 1,
         
-        [JsonProperty("Floor")]
+        [System.Runtime.Serialization.EnumMember(Value="Floor")]
         Floor = 2,
         
-        [JsonProperty("Inlet")]
+        [System.Runtime.Serialization.EnumMember(Value="Inlet")]
         Inlet = 3,
         
-        [JsonProperty("MundtRoom")]
+        [System.Runtime.Serialization.EnumMember(Value="MundtRoom")]
         MundtRoom = 4,
         
-        [JsonProperty("Return")]
+        [System.Runtime.Serialization.EnumMember(Value="Return")]
         Return = 5,
     }
     
     [Description("The Mundt model for displacement ventilation")]
-    [JsonObject("RoomAirSettings:OneNodeDisplacementVentilation")]
     public class RoomAirSettings_OneNodeDisplacementVentilation : BHoMObject, IEnergyPlusClass
     {
         
@@ -476,7 +472,6 @@ public System.Nullable<float> FractionOfInfiltrationInternalLoadsAddedToFloorAir
     }
     
     [Description("The UCSD model for Displacement Ventilation")]
-    [JsonObject("RoomAirSettings:ThreeNodeDisplacementVentilation")]
     public class RoomAirSettings_ThreeNodeDisplacementVentilation : BHoMObject, IEnergyPlusClass
     {
         
@@ -516,7 +511,6 @@ public System.Nullable<float> TemperatureDifferenceThresholdForReporting { get; 
     }
     
     [Description(@"This UCSD Cross Ventilation Room Air Model provides a simple model for heat transfer and vertical temperature profile prediction in cross ventilated rooms. The model distinguishes two regions in the room, the main jet region and the recirculations, and predicts characteristic airflow velocities and average air temperatures. Used with RoomAirModelType = CrossVentilation.")]
-    [JsonObject("RoomAirSettings:CrossVentilation")]
     public class RoomAirSettings_CrossVentilation : BHoMObject, IEnergyPlusClass
     {
         
@@ -537,21 +531,21 @@ public string GainDistributionScheduleName { get; set; } = "";
     "Airflow velocity that will be used in the Fanger model conditions must refer to " +
     "one of the two regions: jet or recirculation")]
 [JsonProperty("airflow_region_used_for_thermal_comfort_evaluation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RoomAirSettings_CrossVentilation_AirflowRegionUsedForThermalComfortEvaluation AirflowRegionUsedForThermalComfortEvaluation { get; set; } = (RoomAirSettings_CrossVentilation_AirflowRegionUsedForThermalComfortEvaluation)Enum.Parse(typeof(RoomAirSettings_CrossVentilation_AirflowRegionUsedForThermalComfortEvaluation), "Jet");
     }
     
     public enum RoomAirSettings_CrossVentilation_AirflowRegionUsedForThermalComfortEvaluation
     {
         
-        [JsonProperty("Jet")]
+        [System.Runtime.Serialization.EnumMember(Value="Jet")]
         Jet = 0,
         
-        [JsonProperty("Recirculation")]
+        [System.Runtime.Serialization.EnumMember(Value="Recirculation")]
         Recirculation = 1,
     }
     
     [Description(@"This Room Air Model is applicable to interior spaces that are served by an underfloor air distribution system. The dominant sources of heat gain should be from people, equipment, and other localized sources located in the occupied part of the room. The model should be used with caution in zones which have large heat gains or losses through exterior walls or windows or which have considerable direct solar gain. Used with RoomAirModelType = UnderFloorAirDistributionInterior.")]
-    [JsonObject("RoomAirSettings:UnderFloorAirDistributionInterior")]
     public class RoomAirSettings_UnderFloorAirDistributionInterior : BHoMObject, IEnergyPlusClass
     {
         
@@ -594,6 +588,7 @@ public System.Nullable<float> TemperatureDifferenceThresholdForReporting { get; 
         
 
 [JsonProperty("floor_diffuser_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RoomAirSettings_UnderFloorAirDistributionInterior_FloorDiffuserType FloorDiffuserType { get; set; } = (RoomAirSettings_UnderFloorAirDistributionInterior_FloorDiffuserType)Enum.Parse(typeof(RoomAirSettings_UnderFloorAirDistributionInterior_FloorDiffuserType), "Swirl");
         
 
@@ -636,27 +631,26 @@ public string CoefficientE { get; set; } = (System.String)"Autocalculate";
     public enum RoomAirSettings_UnderFloorAirDistributionInterior_FloorDiffuserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Custom")]
+        [System.Runtime.Serialization.EnumMember(Value="Custom")]
         Custom = 1,
         
-        [JsonProperty("HorizontalSwirl")]
+        [System.Runtime.Serialization.EnumMember(Value="HorizontalSwirl")]
         HorizontalSwirl = 2,
         
-        [JsonProperty("LinearBarGrille")]
+        [System.Runtime.Serialization.EnumMember(Value="LinearBarGrille")]
         LinearBarGrille = 3,
         
-        [JsonProperty("Swirl")]
+        [System.Runtime.Serialization.EnumMember(Value="Swirl")]
         Swirl = 4,
         
-        [JsonProperty("VariableArea")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableArea")]
         VariableArea = 5,
     }
     
     [Description(@"Applicable to exterior spaces that are served by an underfloor air distribution system. The dominant sources of heat gain should be from people, equipment, and other localized sources located in the occupied part of the room, as well as convective gain coming from a warm window. Used with RoomAirModelType = CrossVentilation.")]
-    [JsonObject("RoomAirSettings:UnderFloorAirDistributionExterior")]
     public class RoomAirSettings_UnderFloorAirDistributionExterior : BHoMObject, IEnergyPlusClass
     {
         
@@ -698,6 +692,7 @@ public System.Nullable<float> TemperatureDifferenceThresholdForReporting { get; 
         
 
 [JsonProperty("floor_diffuser_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RoomAirSettings_UnderFloorAirDistributionExterior_FloorDiffuserType FloorDiffuserType { get; set; } = (RoomAirSettings_UnderFloorAirDistributionExterior_FloorDiffuserType)Enum.Parse(typeof(RoomAirSettings_UnderFloorAirDistributionExterior_FloorDiffuserType), "Swirl");
         
 
@@ -735,27 +730,26 @@ public string CoefficientEInFormulaKcAGammaBCDGammaEGamma2 { get; set; } = (Syst
     public enum RoomAirSettings_UnderFloorAirDistributionExterior_FloorDiffuserType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Custom")]
+        [System.Runtime.Serialization.EnumMember(Value="Custom")]
         Custom = 1,
         
-        [JsonProperty("HorizontalSwirl")]
+        [System.Runtime.Serialization.EnumMember(Value="HorizontalSwirl")]
         HorizontalSwirl = 2,
         
-        [JsonProperty("LinearBarGrille")]
+        [System.Runtime.Serialization.EnumMember(Value="LinearBarGrille")]
         LinearBarGrille = 3,
         
-        [JsonProperty("Swirl")]
+        [System.Runtime.Serialization.EnumMember(Value="Swirl")]
         Swirl = 4,
         
-        [JsonProperty("VariableArea")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableArea")]
         VariableArea = 5,
     }
     
     [Description("define an air node for some types of nodal air models")]
-    [JsonObject("RoomAir:Node:AirflowNetwork")]
     public class RoomAir_Node_AirflowNetwork : BHoMObject, IEnergyPlusClass
     {
         
@@ -781,7 +775,6 @@ public string RoomairNodeAirflownetworkHvacequipmentName { get; set; } = "";
     }
     
     [Description(null)]
-    [JsonObject("RoomAir:Node:AirflowNetwork:AdjacentSurfaceList")]
     public class RoomAir_Node_AirflowNetwork_AdjacentSurfaceList : BHoMObject, IEnergyPlusClass
     {
         
@@ -791,7 +784,6 @@ public string Surfaces { get; set; } = "";
     }
     
     [Description("define the internal gains that are associated with one particular RoomAir:Node")]
-    [JsonObject("RoomAir:Node:AirflowNetwork:InternalGains")]
     public class RoomAir_Node_AirflowNetwork_InternalGains : BHoMObject, IEnergyPlusClass
     {
         
@@ -801,7 +793,6 @@ public string Gains { get; set; } = "";
     }
     
     [Description("define the zone equipment associated with one particular RoomAir:Node")]
-    [JsonObject("RoomAir:Node:AirflowNetwork:HVACEquipment")]
     public class RoomAir_Node_AirflowNetwork_HVACEquipment : BHoMObject, IEnergyPlusClass
     {
         
@@ -811,7 +802,6 @@ public string EquipmentFractions { get; set; } = "";
     }
     
     [Description("RoomAir modeling using Airflow pressure network solver")]
-    [JsonObject("RoomAirSettings:AirflowNetwork")]
     public class RoomAirSettings_AirflowNetwork : BHoMObject, IEnergyPlusClass
     {
         

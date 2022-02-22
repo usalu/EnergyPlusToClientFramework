@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum Zone_ZoneInsideConvectionAlgorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASTMC1340")]
+        [System.Runtime.Serialization.EnumMember(Value="ASTMC1340")]
         ASTMC1340 = 1,
         
-        [JsonProperty("AdaptiveConvectionAlgorithm")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveConvectionAlgorithm")]
         AdaptiveConvectionAlgorithm = 2,
         
-        [JsonProperty("CeilingDiffuser")]
+        [System.Runtime.Serialization.EnumMember(Value="CeilingDiffuser")]
         CeilingDiffuser = 3,
         
-        [JsonProperty("Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="Simple")]
         Simple = 4,
         
-        [JsonProperty("TARP")]
+        [System.Runtime.Serialization.EnumMember(Value="TARP")]
         TARP = 5,
         
-        [JsonProperty("TrombeWall")]
+        [System.Runtime.Serialization.EnumMember(Value="TrombeWall")]
         TrombeWall = 6,
     }
 }

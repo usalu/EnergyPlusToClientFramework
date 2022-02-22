@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_Case_AntiSweatHeaterControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 1,
         
-        [JsonProperty("DewpointMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="DewpointMethod")]
         DewpointMethod = 2,
         
-        [JsonProperty("HeatBalanceMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatBalanceMethod")]
         HeatBalanceMethod = 3,
         
-        [JsonProperty("Linear")]
+        [System.Runtime.Serialization.EnumMember(Value="Linear")]
         Linear = 4,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 5,
     }
 }

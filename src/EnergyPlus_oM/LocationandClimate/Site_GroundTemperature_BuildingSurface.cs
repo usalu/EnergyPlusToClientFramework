@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description(@"These temperatures are specifically for those surfaces that have the outside environment of ""Ground"". Documentation about what values these should be is located in the Auxiliary programs document (Ground Heat Transfer) as well as the InputOutput Reference. CAUTION - Do not use the ""undisturbed"" ground temperatures from the weather data. These values are too extreme for the soil under a conditioned building. For best results, use the Slab or Basement program to calculate custom monthly average ground temperatures (see Auxiliary Programs). For typical commercial buildings in the USA, a reasonable default value is 2C less than the average indoor space temperature.")]
-    [JsonObject("Site:GroundTemperature:BuildingSurface")]
     public class Site_GroundTemperature_BuildingSurface : BHoMObject, IEnergyPlusClass
     {
         

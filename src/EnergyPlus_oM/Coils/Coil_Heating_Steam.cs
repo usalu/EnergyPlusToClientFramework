@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description("Steam heating coil. Condenses and sub-cools steam at loop pressure and discharges" +
                  " condensate through steam traps to low pressure condensate line.")]
-    [JsonObject("Coil:Heating:Steam")]
     public class Coil_Heating_Steam : BHoMObject, IEnergyPlusClass
     {
         
@@ -52,6 +51,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                      "ntControl if the coil is located directly in an air loop branch or outdoor air e" +
                      "quipment list.")]
         [JsonProperty("coil_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Heating_Steam_CoilControlType CoilControlType { get; set; } = (Coil_Heating_Steam_CoilControlType)Enum.Parse(typeof(Coil_Heating_Steam_CoilControlType), "TemperatureSetpointControl");
         
 

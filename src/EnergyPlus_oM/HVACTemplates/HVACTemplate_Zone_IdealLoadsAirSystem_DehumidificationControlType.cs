@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Zone_IdealLoadsAirSystem_DehumidificationControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantSensibleHeatRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantSensibleHeatRatio")]
         ConstantSensibleHeatRatio = 1,
         
-        [JsonProperty("ConstantSupplyHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantSupplyHumidityRatio")]
         ConstantSupplyHumidityRatio = 2,
         
-        [JsonProperty("Humidistat")]
+        [System.Runtime.Serialization.EnumMember(Value="Humidistat")]
         Humidistat = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
 }

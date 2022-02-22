@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     public enum Chiller_Electric_EIR_ChillerFlowMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
         ConstantFlow = 1,
         
-        [JsonProperty("LeavingSetpointModulated")]
+        [System.Runtime.Serialization.EnumMember(Value="LeavingSetpointModulated")]
         LeavingSetpointModulated = 2,
         
-        [JsonProperty("NotModulated")]
+        [System.Runtime.Serialization.EnumMember(Value="NotModulated")]
         NotModulated = 3,
     }
 }

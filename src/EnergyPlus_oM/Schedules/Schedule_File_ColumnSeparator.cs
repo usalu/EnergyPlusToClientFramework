@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     public enum Schedule_File_ColumnSeparator
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Comma")]
+        [System.Runtime.Serialization.EnumMember(Value="Comma")]
         Comma = 1,
         
-        [JsonProperty("Semicolon")]
+        [System.Runtime.Serialization.EnumMember(Value="Semicolon")]
         Semicolon = 2,
         
-        [JsonProperty("Space")]
+        [System.Runtime.Serialization.EnumMember(Value="Space")]
         Space = 3,
         
-        [JsonProperty("Tab")]
+        [System.Runtime.Serialization.EnumMember(Value="Tab")]
         Tab = 4,
     }
 }

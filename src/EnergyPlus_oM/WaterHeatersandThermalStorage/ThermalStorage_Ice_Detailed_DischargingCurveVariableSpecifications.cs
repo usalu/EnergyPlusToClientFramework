@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     public enum ThermalStorage_Ice_Detailed_DischargingCurveVariableSpecifications
     {
         
-        [JsonProperty("FractionChargedLMTD")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionChargedLMTD")]
         FractionChargedLMTD = 0,
         
-        [JsonProperty("FractionDischargedLMTD")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionDischargedLMTD")]
         FractionDischargedLMTD = 1,
         
-        [JsonProperty("LMTDFractionCharged")]
+        [System.Runtime.Serialization.EnumMember(Value="LMTDFractionCharged")]
         LMTDFractionCharged = 2,
         
-        [JsonProperty("LMTDMassFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="LMTDMassFlow")]
         LMTDMassFlow = 3,
     }
 }

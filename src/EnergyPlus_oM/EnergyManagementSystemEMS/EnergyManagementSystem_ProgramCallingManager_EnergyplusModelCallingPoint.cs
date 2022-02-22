@@ -1,62 +1,60 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     public enum EnergyManagementSystem_ProgramCallingManager_EnergyplusModelCallingPoint
     {
         
-        [JsonProperty("AfterComponentInputReadIn")]
+        [System.Runtime.Serialization.EnumMember(Value="AfterComponentInputReadIn")]
         AfterComponentInputReadIn = 0,
         
-        [JsonProperty("AfterNewEnvironmentWarmUpIsComplete")]
+        [System.Runtime.Serialization.EnumMember(Value="AfterNewEnvironmentWarmUpIsComplete")]
         AfterNewEnvironmentWarmUpIsComplete = 1,
         
-        [JsonProperty("AfterPredictorAfterHVACManagers")]
+        [System.Runtime.Serialization.EnumMember(Value="AfterPredictorAfterHVACManagers")]
         AfterPredictorAfterHVACManagers = 2,
         
-        [JsonProperty("AfterPredictorBeforeHVACManagers")]
+        [System.Runtime.Serialization.EnumMember(Value="AfterPredictorBeforeHVACManagers")]
         AfterPredictorBeforeHVACManagers = 3,
         
-        [JsonProperty("BeginNewEnvironment")]
+        [System.Runtime.Serialization.EnumMember(Value="BeginNewEnvironment")]
         BeginNewEnvironment = 4,
         
-        [JsonProperty("BeginTimestepBeforePredictor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeginTimestepBeforePredictor")]
         BeginTimestepBeforePredictor = 5,
         
-        [JsonProperty("BeginZoneTimestepAfterInitHeatBalance")]
+        [System.Runtime.Serialization.EnumMember(Value="BeginZoneTimestepAfterInitHeatBalance")]
         BeginZoneTimestepAfterInitHeatBalance = 6,
         
-        [JsonProperty("BeginZoneTimestepBeforeInitHeatBalance")]
+        [System.Runtime.Serialization.EnumMember(Value="BeginZoneTimestepBeforeInitHeatBalance")]
         BeginZoneTimestepBeforeInitHeatBalance = 7,
         
-        [JsonProperty("BeginZoneTimestepBeforeSetCurrentWeather")]
+        [System.Runtime.Serialization.EnumMember(Value="BeginZoneTimestepBeforeSetCurrentWeather")]
         BeginZoneTimestepBeforeSetCurrentWeather = 8,
         
-        [JsonProperty("EndOfSystemSizing")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfSystemSizing")]
         EndOfSystemSizing = 9,
         
-        [JsonProperty("EndOfSystemTimestepAfterHVACReporting")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfSystemTimestepAfterHVACReporting")]
         EndOfSystemTimestepAfterHVACReporting = 10,
         
-        [JsonProperty("EndOfSystemTimestepBeforeHVACReporting")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfSystemTimestepBeforeHVACReporting")]
         EndOfSystemTimestepBeforeHVACReporting = 11,
         
-        [JsonProperty("EndOfZoneSizing")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfZoneSizing")]
         EndOfZoneSizing = 12,
         
-        [JsonProperty("EndOfZoneTimestepAfterZoneReporting")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfZoneTimestepAfterZoneReporting")]
         EndOfZoneTimestepAfterZoneReporting = 13,
         
-        [JsonProperty("EndOfZoneTimestepBeforeZoneReporting")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfZoneTimestepBeforeZoneReporting")]
         EndOfZoneTimestepBeforeZoneReporting = 14,
         
-        [JsonProperty("InsideHVACSystemIterationLoop")]
+        [System.Runtime.Serialization.EnumMember(Value="InsideHVACSystemIterationLoop")]
         InsideHVACSystemIterationLoop = 15,
         
-        [JsonProperty("UnitarySystemSizing")]
+        [System.Runtime.Serialization.EnumMember(Value="UnitarySystemSizing")]
         UnitarySystemSizing = 16,
         
-        [JsonProperty("UserDefinedComponentModel")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefinedComponentModel")]
         UserDefinedComponentModel = 17,
     }
 }

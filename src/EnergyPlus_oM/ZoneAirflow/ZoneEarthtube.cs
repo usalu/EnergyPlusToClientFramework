@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
     [Description("Earth Tube is specified as a design level which is modified by a Schedule fractio" +
                  "n, temperature difference and wind speed: Earthtube=Edesign * Fschedule * (A + B" +
                  "*|(Tzone-Todb)| + C*WindSpd + D * WindSpd**2)")]
-    [JsonObject("ZoneEarthtube")]
     public class ZoneEarthtube : BHoMObject, IEnergyPlusClass
     {
         
@@ -44,6 +43,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
         
 
         [JsonProperty("earthtube_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneEarthtube_EarthtubeType EarthtubeType { get; set; } = (ZoneEarthtube_EarthtubeType)Enum.Parse(typeof(ZoneEarthtube_EarthtubeType), "Natural");
         
 
@@ -77,6 +77,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
         
 
         [JsonProperty("soil_condition")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneEarthtube_SoilCondition SoilCondition { get; set; } = (ZoneEarthtube_SoilCondition)Enum.Parse(typeof(ZoneEarthtube_SoilCondition), "HeavyAndDamp");
         
 

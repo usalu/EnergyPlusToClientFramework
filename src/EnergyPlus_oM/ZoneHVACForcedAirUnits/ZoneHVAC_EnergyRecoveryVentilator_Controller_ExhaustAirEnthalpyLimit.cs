@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirEnthalpyLimit
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ExhaustAirEnthalpyLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="ExhaustAirEnthalpyLimit")]
         ExhaustAirEnthalpyLimit = 1,
         
-        [JsonProperty("NoExhaustAirEnthalpyLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="NoExhaustAirEnthalpyLimit")]
         NoExhaustAirEnthalpyLimit = 2,
     }
 }

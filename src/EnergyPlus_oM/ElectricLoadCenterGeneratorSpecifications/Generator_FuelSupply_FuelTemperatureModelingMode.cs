@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelSupply_FuelTemperatureModelingMode
     {
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 0,
         
-        [JsonProperty("TemperatureFromAirNode")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureFromAirNode")]
         TemperatureFromAirNode = 1,
     }
 }

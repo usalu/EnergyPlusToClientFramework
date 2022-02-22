@@ -1,35 +1,33 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
 {
     public enum ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AdaptiveASH5580PercentUpperLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH5580PercentUpperLine")]
         AdaptiveASH5580PercentUpperLine = 1,
         
-        [JsonProperty("AdaptiveASH5590PercentUpperLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH5590PercentUpperLine")]
         AdaptiveASH5590PercentUpperLine = 2,
         
-        [JsonProperty("AdaptiveASH55CentralLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH55CentralLine")]
         AdaptiveASH55CentralLine = 3,
         
-        [JsonProperty("AdaptiveCEN15251CategoryIIIUpperLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251CategoryIIIUpperLine")]
         AdaptiveCEN15251CategoryIIIUpperLine = 4,
         
-        [JsonProperty("AdaptiveCEN15251CategoryIIUpperLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251CategoryIIUpperLine")]
         AdaptiveCEN15251CategoryIIUpperLine = 5,
         
-        [JsonProperty("AdaptiveCEN15251CategoryIUpperLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251CategoryIUpperLine")]
         AdaptiveCEN15251CategoryIUpperLine = 6,
         
-        [JsonProperty("AdaptiveCEN15251CentralLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251CentralLine")]
         AdaptiveCEN15251CentralLine = 7,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 8,
     }
 }

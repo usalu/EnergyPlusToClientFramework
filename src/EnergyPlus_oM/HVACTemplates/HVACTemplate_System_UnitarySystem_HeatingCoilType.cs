@@ -1,38 +1,36 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_UnitarySystem_HeatingCoilType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Electric")]
         Electric = 1,
         
-        [JsonProperty("Gas")]
+        [System.Runtime.Serialization.EnumMember(Value="Gas")]
         Gas = 2,
         
-        [JsonProperty("HotWater")]
+        [System.Runtime.Serialization.EnumMember(Value="HotWater")]
         HotWater = 3,
         
-        [JsonProperty("MultiSpeedDXHeatPumpAirSource")]
+        [System.Runtime.Serialization.EnumMember(Value="MultiSpeedDXHeatPumpAirSource")]
         MultiSpeedDXHeatPumpAirSource = 4,
         
-        [JsonProperty("MultiStageElectric")]
+        [System.Runtime.Serialization.EnumMember(Value="MultiStageElectric")]
         MultiStageElectric = 5,
         
-        [JsonProperty("MultiStageGas")]
+        [System.Runtime.Serialization.EnumMember(Value="MultiStageGas")]
         MultiStageGas = 6,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 7,
         
-        [JsonProperty("SingleSpeedDXHeatPumpAirSource")]
+        [System.Runtime.Serialization.EnumMember(Value="SingleSpeedDXHeatPumpAirSource")]
         SingleSpeedDXHeatPumpAirSource = 8,
         
-        [JsonProperty("SingleSpeedDXHeatPumpWaterSource")]
+        [System.Runtime.Serialization.EnumMember(Value="SingleSpeedDXHeatPumpWaterSource")]
         SingleSpeedDXHeatPumpWaterSource = 9,
     }
 }

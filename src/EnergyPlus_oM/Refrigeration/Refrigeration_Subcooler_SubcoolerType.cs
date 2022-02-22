@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_Subcooler_SubcoolerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LiquidSuction")]
+        [System.Runtime.Serialization.EnumMember(Value="LiquidSuction")]
         LiquidSuction = 1,
         
-        [JsonProperty("Mechanical")]
+        [System.Runtime.Serialization.EnumMember(Value="Mechanical")]
         Mechanical = 2,
     }
 }

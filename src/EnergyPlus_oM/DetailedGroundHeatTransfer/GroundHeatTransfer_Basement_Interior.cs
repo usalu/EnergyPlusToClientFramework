@@ -8,13 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("Provides the information needed to simulate the inside boundary conditions for th" +
                  "e Basement preprocessor ground heat transfer simulation.")]
-    [JsonObject("GroundHeatTransfer:Basement:Interior")]
     public class GroundHeatTransfer_Basement_Interior : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("for EnergyPlus this should be TRUE")]
         [JsonProperty("cond_flag_is_the_basement_conditioned_")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public GroundHeatTransfer_Basement_Interior_CondFlagIsTheBasementConditioned CondFlagIsTheBasementConditioned { get; set; } = (GroundHeatTransfer_Basement_Interior_CondFlagIsTheBasementConditioned)Enum.Parse(typeof(GroundHeatTransfer_Basement_Interior_CondFlagIsTheBasementConditioned), "TRUE");
         
 

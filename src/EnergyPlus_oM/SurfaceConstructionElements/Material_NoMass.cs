@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Regular materials properties described whose principal description is R (Thermal " +
                  "Resistance)")]
-    [JsonObject("Material:NoMass")]
     public class Material_NoMass : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("roughness")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Material_NoMass_Roughness Roughness { get; set; } = (Material_NoMass_Roughness)Enum.Parse(typeof(Material_NoMass_Roughness), "MediumRough");
         
 

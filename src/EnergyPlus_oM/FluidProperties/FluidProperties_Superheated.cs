@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     [Description("fluid properties for the superheated region")]
-    [JsonObject("FluidProperties:Superheated")]
     public class FluidProperties_Superheated : BHoMObject, IEnergyPlusClass
     {
         
@@ -17,6 +16,7 @@ namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 
         [Description("Enthalpy Units are J/kg Density Units are kg/m3")]
         [JsonProperty("fluid_property_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FluidProperties_Superheated_FluidPropertyType FluidPropertyType { get; set; } = (FluidProperties_Superheated_FluidPropertyType)Enum.Parse(typeof(FluidProperties_Superheated_FluidPropertyType), "Density");
         
 

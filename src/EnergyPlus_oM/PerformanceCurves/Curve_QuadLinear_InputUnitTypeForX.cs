@@ -1,32 +1,30 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     public enum Curve_QuadLinear_InputUnitTypeForX
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Dimensionless")]
+        [System.Runtime.Serialization.EnumMember(Value="Dimensionless")]
         Dimensionless = 1,
         
-        [JsonProperty("Distance")]
+        [System.Runtime.Serialization.EnumMember(Value="Distance")]
         Distance = 2,
         
-        [JsonProperty("MassFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="MassFlow")]
         MassFlow = 3,
         
-        [JsonProperty("Power")]
+        [System.Runtime.Serialization.EnumMember(Value="Power")]
         Power = 4,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 5,
         
-        [JsonProperty("VolumetricFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="VolumetricFlow")]
         VolumetricFlow = 6,
         
-        [JsonProperty("VolumetricFlowPerPower")]
+        [System.Runtime.Serialization.EnumMember(Value="VolumetricFlowPerPower")]
         VolumetricFlowPerPower = 7,
     }
 }

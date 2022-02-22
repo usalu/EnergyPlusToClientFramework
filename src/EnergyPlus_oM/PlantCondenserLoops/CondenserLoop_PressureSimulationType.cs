@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantCondenserLoops
 {
     public enum CondenserLoop_PressureSimulationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LoopFlowCorrection")]
+        [System.Runtime.Serialization.EnumMember(Value="LoopFlowCorrection")]
         LoopFlowCorrection = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("PumpPowerCorrection")]
+        [System.Runtime.Serialization.EnumMember(Value="PumpPowerCorrection")]
         PumpPowerCorrection = 3,
     }
 }

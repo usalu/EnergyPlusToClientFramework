@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum GlobalGeometryRules_StartingVertexPosition
     {
         
-        [JsonProperty("LowerLeftCorner")]
+        [System.Runtime.Serialization.EnumMember(Value="LowerLeftCorner")]
         LowerLeftCorner = 0,
         
-        [JsonProperty("LowerRightCorner")]
+        [System.Runtime.Serialization.EnumMember(Value="LowerRightCorner")]
         LowerRightCorner = 1,
         
-        [JsonProperty("UpperLeftCorner")]
+        [System.Runtime.Serialization.EnumMember(Value="UpperLeftCorner")]
         UpperLeftCorner = 2,
         
-        [JsonProperty("UpperRightCorner")]
+        [System.Runtime.Serialization.EnumMember(Value="UpperRightCorner")]
         UpperRightCorner = 3,
     }
 }

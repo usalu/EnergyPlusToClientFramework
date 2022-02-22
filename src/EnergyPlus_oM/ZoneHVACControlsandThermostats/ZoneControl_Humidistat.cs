@@ -66,7 +66,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     
     [Description("Specifies zone relative humidity setpoint schedules for humidifying and dehumidif" +
         "ying.")]
-    [JsonObject("ZoneControl:Humidistat")]
     public class ZoneControl_Humidistat : BHoMObject, IEnergyPlusClass
     {
         

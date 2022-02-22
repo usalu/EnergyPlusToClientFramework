@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
     [Description("Provides Fuel Factors for Emissions as well as Source=>Site conversions. OtherFue" +
                  "l1, OtherFuel2 provide options for users who want to create and use fuels that m" +
                  "ay not be mainstream (biomass, wood, pellets).")]
-    [JsonObject("FuelFactors")]
     public class FuelFactors : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("existing_fuel_resource_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FuelFactors_ExistingFuelResourceName ExistingFuelResourceName { get; set; } = (FuelFactors_ExistingFuelResourceName)Enum.Parse(typeof(FuelFactors_ExistingFuelResourceName), "Coal");
         
 

@@ -1,53 +1,51 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum OutputControl_SurfaceColorScheme_DrawingElement6Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
 }

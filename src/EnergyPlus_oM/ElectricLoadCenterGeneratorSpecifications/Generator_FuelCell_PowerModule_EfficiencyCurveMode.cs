@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelCell_PowerModule_EfficiencyCurveMode
     {
         
-        [JsonProperty("Annex42")]
+        [System.Runtime.Serialization.EnumMember(Value="Annex42")]
         Annex42 = 0,
         
-        [JsonProperty("Normalized")]
+        [System.Runtime.Serialization.EnumMember(Value="Normalized")]
         Normalized = 1,
     }
 }

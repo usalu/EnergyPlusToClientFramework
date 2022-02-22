@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
                  "rflowNetwork model. The specified pressure setpoint is used to control the zone " +
                  "exhaust fan flow rate in a controlled zone or the relief air flow rate in an air" +
                  " loop.")]
-    [JsonObject("AirflowNetwork:ZoneControl:PressureController")]
     public class AirflowNetwork_ZoneControl_PressureController : BHoMObject, IEnergyPlusClass
     {
         
@@ -21,6 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
         [Description("The current selection is AirflowNetwork:MultiZone:Component:ZoneExhaustFan or Air" +
                      "flowNetwork:Distribution:Component:ReliefAirFlow.")]
         [JsonProperty("control_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirflowNetwork_ZoneControl_PressureController_ControlObjectType ControlObjectType { get; set; } = (AirflowNetwork_ZoneControl_PressureController_ControlObjectType)Enum.Parse(typeof(AirflowNetwork_ZoneControl_PressureController_ControlObjectType), "AirflowNetworkDistributionComponentReliefAirFlow");
         
 

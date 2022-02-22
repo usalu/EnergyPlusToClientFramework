@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     public enum Sizing_System_TypeOfLoadToSizeOn
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Sensible")]
+        [System.Runtime.Serialization.EnumMember(Value="Sensible")]
         Sensible = 1,
         
-        [JsonProperty("Total")]
+        [System.Runtime.Serialization.EnumMember(Value="Total")]
         Total = 2,
         
-        [JsonProperty("VentilationRequirement")]
+        [System.Runtime.Serialization.EnumMember(Value="VentilationRequirement")]
         VentilationRequirement = 3,
     }
 }

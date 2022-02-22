@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("Used to define details of the air supply subsystem for a fuel cell power generato" +
                  "r.")]
-    [JsonObject("Generator:FuelCell:AirSupply")]
     public class Generator_FuelCell_AirSupply : BHoMObject, IEnergyPlusClass
     {
         
@@ -25,6 +24,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("air_supply_rate_calculation_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelCell_AirSupply_AirSupplyRateCalculationMode AirSupplyRateCalculationMode { get; set; } = (Generator_FuelCell_AirSupply_AirSupplyRateCalculationMode)Enum.Parse(typeof(Generator_FuelCell_AirSupply_AirSupplyRateCalculationMode), "AirRatiobyStoics");
         
 
@@ -47,10 +47,12 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("air_intake_heat_recovery_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelCell_AirSupply_AirIntakeHeatRecoveryMode AirIntakeHeatRecoveryMode { get; set; } = (Generator_FuelCell_AirSupply_AirIntakeHeatRecoveryMode)Enum.Parse(typeof(Generator_FuelCell_AirSupply_AirIntakeHeatRecoveryMode), "NoRecovery");
         
 
         [JsonProperty("air_supply_constituent_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelCell_AirSupply_AirSupplyConstituentMode AirSupplyConstituentMode { get; set; } = (Generator_FuelCell_AirSupply_AirSupplyConstituentMode)Enum.Parse(typeof(Generator_FuelCell_AirSupply_AirSupplyConstituentMode), "AmbientAir");
         
 

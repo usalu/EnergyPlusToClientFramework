@@ -69,7 +69,6 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     [Description("Sets internal gains and contaminant rates for occupants in the zone. If you use a" +
         " ZoneList in the Zone or ZoneList name field then this definition applies to all" +
         " the zones in the ZoneList.")]
-    [JsonObject("People")]
     public class People : BHoMObject, IEnergyPlusClass
     {
         
@@ -85,6 +84,7 @@ public string NumberOfPeopleScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum number of people for this set of attributes (i.e. sensible fraction, schedule, etc) Choices: People -- simply enter number of occupants. People per Zone Floor Area -- enter the number to apply. Value * Floor Area = Number of people Zone Floor Area per Person -- enter the number to apply. Floor Area / Value = Number of people")]
 [JsonProperty("number_of_people_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_NumberOfPeopleCalculationMethod NumberOfPeopleCalculationMethod { get; set; } = (People_NumberOfPeopleCalculationMethod)Enum.Parse(typeof(People_NumberOfPeopleCalculationMethod), "People");
         
 
@@ -126,11 +126,13 @@ public System.Nullable<float> CarbonDioxideGenerationRate { get; set; } = (Syste
         
 
 [JsonProperty("enable_ashrae_55_comfort_warnings")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes EnableAshrae55ComfortWarnings { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("optional (only required for thermal comfort runs)")]
 [JsonProperty("mean_radiant_temperature_calculation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_MeanRadiantTemperatureCalculationType MeanRadiantTemperatureCalculationType { get; set; } = (People_MeanRadiantTemperatureCalculationType)Enum.Parse(typeof(People_MeanRadiantTemperatureCalculationType), "ZoneAveraged");
         
 
@@ -147,6 +149,7 @@ public string WorkEfficiencyScheduleName { get; set; } = "";
         
 
 [JsonProperty("clothing_insulation_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ClothingInsulationCalculationMethod ClothingInsulationCalculationMethod { get; set; } = (People_ClothingInsulationCalculationMethod)Enum.Parse(typeof(People_ClothingInsulationCalculationMethod), "ClothingInsulationSchedule");
         
 
@@ -171,36 +174,43 @@ public string AirVelocityScheduleName { get; set; } = "";
 
 [Description("optional (only needed for people thermal comfort results reporting)")]
 [JsonProperty("thermal_comfort_model_1_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel1Type ThermalComfortModel1Type { get; set; } = (People_ThermalComfortModel1Type)Enum.Parse(typeof(People_ThermalComfortModel1Type), "AdaptiveASH55");
         
 
 [Description("optional (second type of thermal comfort model and results reporting)")]
 [JsonProperty("thermal_comfort_model_2_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel2Type ThermalComfortModel2Type { get; set; } = (People_ThermalComfortModel2Type)Enum.Parse(typeof(People_ThermalComfortModel2Type), "AdaptiveASH55");
         
 
 [Description("optional (third thermal comfort model and report type)")]
 [JsonProperty("thermal_comfort_model_3_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel3Type ThermalComfortModel3Type { get; set; } = (People_ThermalComfortModel3Type)Enum.Parse(typeof(People_ThermalComfortModel3Type), "AdaptiveASH55");
         
 
 [Description("optional (fourth thermal comfort model and report type)")]
 [JsonProperty("thermal_comfort_model_4_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel4Type ThermalComfortModel4Type { get; set; } = (People_ThermalComfortModel4Type)Enum.Parse(typeof(People_ThermalComfortModel4Type), "AdaptiveASH55");
         
 
 [Description("optional (fifth thermal comfort model and report type)")]
 [JsonProperty("thermal_comfort_model_5_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel5Type ThermalComfortModel5Type { get; set; } = (People_ThermalComfortModel5Type)Enum.Parse(typeof(People_ThermalComfortModel5Type), "AdaptiveASH55");
         
 
 [Description("optional (sixth thermal comfort model and report type)")]
 [JsonProperty("thermal_comfort_model_6_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel6Type ThermalComfortModel6Type { get; set; } = (People_ThermalComfortModel6Type)Enum.Parse(typeof(People_ThermalComfortModel6Type), "AdaptiveASH55");
         
 
 [Description("optional (seventh thermal comfort model and report type)")]
 [JsonProperty("thermal_comfort_model_7_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel7Type ThermalComfortModel7Type { get; set; } = (People_ThermalComfortModel7Type)Enum.Parse(typeof(People_ThermalComfortModel7Type), "AdaptiveASH55");
         
 

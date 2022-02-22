@@ -1,38 +1,36 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     public enum FaultModel_TemperatureSensorOffset_CoilSupplyAir_CoilObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 1,
         
-        [JsonProperty("Coil:Cooling:Water:Detailedgeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:Detailedgeometry")]
         CoilCoolingWaterDetailedgeometry = 2,
         
-        [JsonProperty("Coil:Heating:Desuperheater")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Desuperheater")]
         CoilHeatingDesuperheater = 3,
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 4,
         
-        [JsonProperty("Coil:Heating:Gas")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Gas")]
         CoilHeatingGas = 5,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 6,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 7,
         
-        [JsonProperty("CoilSystem:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX")]
         CoilSystemCoolingDX = 8,
         
-        [JsonProperty("CoilSystem:Heating:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Heating:DX")]
         CoilSystemHeatingDX = 9,
     }
 }

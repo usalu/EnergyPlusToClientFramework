@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
     [Description("Models hybrid photovoltaic-thermal (PVT) solar collectors that convert incident s" +
                  "olar energy into both electricity and useful thermal energy by heating air or wa" +
                  "ter.")]
-    [JsonObject("SolarCollector:FlatPlate:PhotovoltaicThermal")]
     public class SolarCollector_FlatPlate_PhotovoltaicThermal : BHoMObject, IEnergyPlusClass
     {
         
@@ -27,6 +26,7 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
         
 
         [JsonProperty("thermal_working_fluid_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SolarCollector_FlatPlate_PhotovoltaicThermal_ThermalWorkingFluidType ThermalWorkingFluidType { get; set; } = (SolarCollector_FlatPlate_PhotovoltaicThermal_ThermalWorkingFluidType)Enum.Parse(typeof(SolarCollector_FlatPlate_PhotovoltaicThermal_ThermalWorkingFluidType), "Air");
         
 

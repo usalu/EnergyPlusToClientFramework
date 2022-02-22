@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("These temperatures are specifically for underground walls and ground floors defin" +
                  "ed with the C-factor and F-factor methods, and should be close to the monthly av" +
                  "erage outdoor air temperature delayed by 3 months for the location.")]
-    [JsonObject("Site:GroundTemperature:FCfactorMethod")]
     public class Site_GroundTemperature_FCfactorMethod : BHoMObject, IEnergyPlusClass
     {
         

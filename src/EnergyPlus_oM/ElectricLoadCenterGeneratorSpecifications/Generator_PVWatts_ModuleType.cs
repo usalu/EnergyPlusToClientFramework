@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_PVWatts_ModuleType
     {
         
-        [JsonProperty("Premium")]
+        [System.Runtime.Serialization.EnumMember(Value="Premium")]
         Premium = 0,
         
-        [JsonProperty("Standard")]
+        [System.Runtime.Serialization.EnumMember(Value="Standard")]
         Standard = 1,
         
-        [JsonProperty("ThinFilm")]
+        [System.Runtime.Serialization.EnumMember(Value="ThinFilm")]
         ThinFilm = 2,
     }
 }

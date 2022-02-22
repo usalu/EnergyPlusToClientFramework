@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Zone_WaterToAirHeatPump_HeatPumpCoilWaterFlowMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 1,
         
-        [JsonProperty("ConstantOnDemand")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantOnDemand")]
         ConstantOnDemand = 2,
         
-        [JsonProperty("Cycling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cycling")]
         Cycling = 3,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_WindTurbine_RotorType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HorizontalAxisWindTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="HorizontalAxisWindTurbine")]
         HorizontalAxisWindTurbine = 1,
         
-        [JsonProperty("VerticalAxisWindTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="VerticalAxisWindTurbine")]
         VerticalAxisWindTurbine = 2,
     }
 }

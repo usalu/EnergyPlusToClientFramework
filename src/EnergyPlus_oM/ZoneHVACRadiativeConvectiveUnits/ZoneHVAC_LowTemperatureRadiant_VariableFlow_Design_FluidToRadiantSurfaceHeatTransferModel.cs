@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 {
     public enum ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_FluidToRadiantSurfaceHeatTransferModel
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConvectionOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ConvectionOnly")]
         ConvectionOnly = 1,
         
-        [JsonProperty("ISOStandard")]
+        [System.Runtime.Serialization.EnumMember(Value="ISOStandard")]
         ISOStandard = 2,
     }
 }

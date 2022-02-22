@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum LifeCycleCost_Parameters_InflationApproach
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantDollar")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantDollar")]
         ConstantDollar = 1,
         
-        [JsonProperty("CurrentDollar")]
+        [System.Runtime.Serialization.EnumMember(Value="CurrentDollar")]
         CurrentDollar = 2,
     }
 }

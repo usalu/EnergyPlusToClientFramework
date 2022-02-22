@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_MicroCHP_NonNormalizedParameters_WarmUpMode
     {
         
-        [JsonProperty("NominalEngineTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="NominalEngineTemperature")]
         NominalEngineTemperature = 0,
         
-        [JsonProperty("TimeDelay")]
+        [System.Runtime.Serialization.EnumMember(Value="TimeDelay")]
         TimeDelay = 1,
     }
 }

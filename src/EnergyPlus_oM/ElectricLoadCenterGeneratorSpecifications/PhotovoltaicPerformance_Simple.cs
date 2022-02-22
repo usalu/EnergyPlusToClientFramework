@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description(@"Describes a simple model of photovoltaics that may be useful for early phase design analysis. In this model the user has direct access to the efficiency with which surfaces convert incident solar radiation to electricity and need not specify arrays of specific modules.")]
-    [JsonObject("PhotovoltaicPerformance:Simple")]
     public class PhotovoltaicPerformance_Simple : BHoMObject, IEnergyPlusClass
     {
         
@@ -16,6 +15,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("conversion_efficiency_input_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PhotovoltaicPerformance_Simple_ConversionEfficiencyInputMode ConversionEfficiencyInputMode { get; set; } = (PhotovoltaicPerformance_Simple_ConversionEfficiencyInputMode)Enum.Parse(typeof(PhotovoltaicPerformance_Simple_ConversionEfficiencyInputMode), "Fixed");
         
 

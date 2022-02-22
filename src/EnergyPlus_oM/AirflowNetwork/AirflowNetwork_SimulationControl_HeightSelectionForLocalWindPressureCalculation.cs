@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     public enum AirflowNetwork_SimulationControl_HeightSelectionForLocalWindPressureCalculation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ExternalNode")]
+        [System.Runtime.Serialization.EnumMember(Value="ExternalNode")]
         ExternalNode = 1,
         
-        [JsonProperty("OpeningHeight")]
+        [System.Runtime.Serialization.EnumMember(Value="OpeningHeight")]
         OpeningHeight = 2,
     }
 }

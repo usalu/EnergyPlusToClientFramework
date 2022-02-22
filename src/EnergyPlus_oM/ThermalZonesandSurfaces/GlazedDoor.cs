@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for simplified entry of glass Doors.")]
-    [JsonObject("GlazedDoor")]
     public class GlazedDoor : BHoMObject, IEnergyPlusClass
     {
         

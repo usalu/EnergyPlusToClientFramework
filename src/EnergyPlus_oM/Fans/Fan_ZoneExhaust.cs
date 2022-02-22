@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Fans
 {
     [Description("Models a fan that exhausts air from a zone.")]
-    [JsonObject("Fan:ZoneExhaust")]
     public class Fan_ZoneExhaust : BHoMObject, IEnergyPlusClass
     {
         
@@ -53,6 +52,7 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
         [Description("Control if fan is to be interlocked with HVAC system Availability Managers or not" +
                      ".")]
         [JsonProperty("system_availability_manager_coupling_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Fan_ZoneExhaust_SystemAvailabilityManagerCouplingMode SystemAvailabilityManagerCouplingMode { get; set; } = (Fan_ZoneExhaust_SystemAvailabilityManagerCouplingMode)Enum.Parse(typeof(Fan_ZoneExhaust_SystemAvailabilityManagerCouplingMode), "Coupled");
         
 

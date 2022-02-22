@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for simplified entry of exterior floors with ground contact. View Factors " +
                  "to Ground is automatically calculated.")]
-    [JsonObject("Floor:GroundContact")]
     public class Floor_GroundContact : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceConvectionAlgorithm_Inside_UserCurve_ReferenceTemperatureForConvectionHeatTransfer
     {
         
-        [JsonProperty("AdjacentAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjacentAirTemperature")]
         AdjacentAirTemperature = 0,
         
-        [JsonProperty("MeanAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanAirTemperature")]
         MeanAirTemperature = 1,
         
-        [JsonProperty("SupplyAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplyAirTemperature")]
         SupplyAirTemperature = 2,
     }
 }

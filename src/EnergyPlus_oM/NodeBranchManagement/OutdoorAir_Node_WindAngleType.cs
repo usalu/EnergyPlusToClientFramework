@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     public enum OutdoorAir_Node_WindAngleType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Absolute")]
+        [System.Runtime.Serialization.EnumMember(Value="Absolute")]
         Absolute = 1,
         
-        [JsonProperty("Relative")]
+        [System.Runtime.Serialization.EnumMember(Value="Relative")]
         Relative = 2,
     }
 }

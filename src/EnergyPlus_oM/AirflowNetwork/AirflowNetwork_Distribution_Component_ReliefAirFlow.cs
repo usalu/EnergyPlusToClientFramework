@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object allows variation of air flow rate to perform pressure.")]
-    [JsonObject("AirflowNetwork:Distribution:Component:ReliefAirFlow")]
     public class AirflowNetwork_Distribution_Component_ReliefAirFlow : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum UtilityCost_Ratchet_SeasonTo
     {
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 0,
         
-        [JsonProperty("Fall")]
+        [System.Runtime.Serialization.EnumMember(Value="Fall")]
         Fall = 1,
         
-        [JsonProperty("Spring")]
+        [System.Runtime.Serialization.EnumMember(Value="Spring")]
         Spring = 2,
         
-        [JsonProperty("Summer")]
+        [System.Runtime.Serialization.EnumMember(Value="Summer")]
         Summer = 3,
         
-        [JsonProperty("Winter")]
+        [System.Runtime.Serialization.EnumMember(Value="Winter")]
         Winter = 4,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
 {
     public enum HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Plate")]
+        [System.Runtime.Serialization.EnumMember(Value="Plate")]
         Plate = 1,
         
-        [JsonProperty("Rotary")]
+        [System.Runtime.Serialization.EnumMember(Value="Rotary")]
         Rotary = 2,
     }
 }

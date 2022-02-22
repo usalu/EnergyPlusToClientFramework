@@ -68,13 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
     
     [Description("This object is used to describe general outdoor air requirements which are refere" +
         "nced by other objects.")]
-    [JsonObject("DesignSpecification:OutdoorAir")]
     public class DesignSpecification_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"Flow/Person => Outdoor Air Flow per Person * Occupancy = Design Flow Rate, Flow/Area => Outdoor Air Flow per Zone Floor Area * Zone Floor Area = Design Flow Rate, Flow/Zone => Outdoor Air Flow per Zone = Design Flow Rate, AirChanges/Hour => Outdoor Air Flow Air Changes per Hour * Zone Volume adjusted for m3/s = Design Flow Rate")]
 [JsonProperty("outdoor_air_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DesignSpecification_OutdoorAir_OutdoorAirMethod OutdoorAirMethod { get; set; } = (DesignSpecification_OutdoorAir_OutdoorAirMethod)Enum.Parse(typeof(DesignSpecification_OutdoorAir_OutdoorAirMethod), "Empty");
         
 

@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     public enum AirTerminal_SingleDuct_Mixer_ZonehvacUnitObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("ZoneHVAC:FourPipeFanCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneHVAC:FourPipeFanCoil")]
         ZoneHVACFourPipeFanCoil = 1,
         
-        [JsonProperty("ZoneHVAC:PackagedTerminalAirConditioner")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneHVAC:PackagedTerminalAirConditioner")]
         ZoneHVACPackagedTerminalAirConditioner = 2,
         
-        [JsonProperty("ZoneHVAC:PackagedTerminalHeatPump")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneHVAC:PackagedTerminalHeatPump")]
         ZoneHVACPackagedTerminalHeatPump = 3,
         
-        [JsonProperty("ZoneHVAC:TerminalUnit:VariableRefrigerantFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneHVAC:TerminalUnit:VariableRefrigerantFlow")]
         ZoneHVACTerminalUnitVariableRefrigerantFlow = 4,
         
-        [JsonProperty("ZoneHVAC:UnitVentilator")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneHVAC:UnitVentilator")]
         ZoneHVACUnitVentilator = 5,
         
-        [JsonProperty("ZoneHVAC:WaterToAirHeatPump")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneHVAC:WaterToAirHeatPump")]
         ZoneHVACWaterToAirHeatPump = 6,
     }
 }

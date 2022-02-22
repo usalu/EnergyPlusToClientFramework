@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     public enum FluidProperties_Saturated_FluidPhase
     {
         
-        [JsonProperty("Fluid")]
+        [System.Runtime.Serialization.EnumMember(Value="Fluid")]
         Fluid = 0,
         
-        [JsonProperty("FluidGas")]
+        [System.Runtime.Serialization.EnumMember(Value="FluidGas")]
         FluidGas = 1,
     }
 }

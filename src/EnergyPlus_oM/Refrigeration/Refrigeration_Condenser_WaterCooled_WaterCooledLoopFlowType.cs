@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_Condenser_WaterCooled_WaterCooledLoopFlowType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
         ConstantFlow = 1,
         
-        [JsonProperty("VariableFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableFlow")]
         VariableFlow = 2,
     }
 }

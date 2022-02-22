@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Unitary furnace with electric air-to-air heat pump")]
-    [JsonObject("HVACTemplate:System:UnitaryHeatPump:AirToAir")]
     public class HVACTemplate_System_UnitaryHeatPump_AirToAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -46,6 +45,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("supply_fan_placement")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_UnitaryHeatPump_AirToAir_SupplyFanPlacement SupplyFanPlacement { get; set; } = (HVACTemplate_System_UnitaryHeatPump_AirToAir_SupplyFanPlacement)Enum.Parse(typeof(HVACTemplate_System_UnitaryHeatPump_AirToAir_SupplyFanPlacement), "BlowThrough");
         
 
@@ -66,6 +66,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("cooling_coil_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_UnitaryHeatPump_AirToAir_CoolingCoilType CoolingCoilType { get; set; } = (HVACTemplate_System_UnitaryHeatPump_AirToAir_CoolingCoilType)Enum.Parse(typeof(HVACTemplate_System_UnitaryHeatPump_AirToAir_CoolingCoilType), "SingleSpeedDX");
         
 
@@ -99,6 +100,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_pump_heating_coil_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatPumpHeatingCoilType HeatPumpHeatingCoilType { get; set; } = (HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatPumpHeatingCoilType)Enum.Parse(typeof(HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatPumpHeatingCoilType), "SingleSpeedDXHeatPump");
         
 
@@ -133,10 +135,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_pump_defrost_strategy")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatPumpDefrostStrategy HeatPumpDefrostStrategy { get; set; } = (HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatPumpDefrostStrategy)Enum.Parse(typeof(HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatPumpDefrostStrategy), "ReverseCycle");
         
 
         [JsonProperty("heat_pump_defrost_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatPumpDefrostControl HeatPumpDefrostControl { get; set; } = (HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatPumpDefrostControl)Enum.Parse(typeof(HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatPumpDefrostControl), "Timed");
         
 
@@ -147,6 +151,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("supplemental_heating_coil_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_UnitaryHeatPump_AirToAir_SupplementalHeatingCoilType SupplementalHeatingCoilType { get; set; } = (HVACTemplate_System_UnitaryHeatPump_AirToAir_SupplementalHeatingCoilType)Enum.Parse(typeof(HVACTemplate_System_UnitaryHeatPump_AirToAir_SupplementalHeatingCoilType), "Electric");
         
 
@@ -190,10 +195,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("economizer_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_UnitaryHeatPump_AirToAir_EconomizerType EconomizerType { get; set; } = (HVACTemplate_System_UnitaryHeatPump_AirToAir_EconomizerType)Enum.Parse(typeof(HVACTemplate_System_UnitaryHeatPump_AirToAir_EconomizerType), "NoEconomizer");
         
 
         [JsonProperty("economizer_lockout")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_UnitaryHeatPump_AirToAir_EconomizerLockout EconomizerLockout { get; set; } = (HVACTemplate_System_UnitaryHeatPump_AirToAir_EconomizerLockout)Enum.Parse(typeof(HVACTemplate_System_UnitaryHeatPump_AirToAir_EconomizerLockout), "NoLockout");
         
 
@@ -236,6 +243,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("night_cycle_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_UnitaryHeatPump_AirToAir_NightCycleControl NightCycleControl { get; set; } = (HVACTemplate_System_UnitaryHeatPump_AirToAir_NightCycleControl)Enum.Parse(typeof(HVACTemplate_System_UnitaryHeatPump_AirToAir_NightCycleControl), "StayOff");
         
 
@@ -245,6 +253,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("heat_recovery_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatRecoveryType HeatRecoveryType { get; set; } = (HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatRecoveryType)Enum.Parse(typeof(HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatRecoveryType), "None");
         
 
@@ -258,6 +267,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("humidifier_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_System_UnitaryHeatPump_AirToAir_HumidifierType HumidifierType { get; set; } = (HVACTemplate_System_UnitaryHeatPump_AirToAir_HumidifierType)Enum.Parse(typeof(HVACTemplate_System_UnitaryHeatPump_AirToAir_HumidifierType), "None");
         
 
@@ -290,6 +300,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description("Specifies if the system has a return fan.")]
         [JsonProperty("return_fan")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes ReturnFan { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 

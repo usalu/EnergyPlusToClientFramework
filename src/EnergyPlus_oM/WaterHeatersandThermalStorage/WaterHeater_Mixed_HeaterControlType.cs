@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     public enum WaterHeater_Mixed_HeaterControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Cycle")]
+        [System.Runtime.Serialization.EnumMember(Value="Cycle")]
         Cycle = 1,
         
-        [JsonProperty("Modulate")]
+        [System.Runtime.Serialization.EnumMember(Value="Modulate")]
         Modulate = 2,
     }
 }

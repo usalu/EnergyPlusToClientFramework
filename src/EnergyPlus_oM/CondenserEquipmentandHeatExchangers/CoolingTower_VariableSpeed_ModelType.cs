@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum CoolingTower_VariableSpeed_ModelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CoolToolsCrossFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolToolsCrossFlow")]
         CoolToolsCrossFlow = 1,
         
-        [JsonProperty("CoolToolsUserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolToolsUserDefined")]
         CoolToolsUserDefined = 2,
         
-        [JsonProperty("YorkCalc")]
+        [System.Runtime.Serialization.EnumMember(Value="YorkCalc")]
         YorkCalc = 3,
         
-        [JsonProperty("YorkCalcUserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="YorkCalcUserDefined")]
         YorkCalcUserDefined = 4,
     }
 }

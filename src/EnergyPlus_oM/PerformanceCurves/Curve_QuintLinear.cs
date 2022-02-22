@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"Linear curve with five independent variables. Input for the linear curve consists of a curve name, the two coefficients, and the maximum and minimum valid independent variable values. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*v + C3*w + C4*x + C5*y + C6*z")]
-    [JsonObject("Curve:QuintLinear")]
     public class Curve_QuintLinear : BHoMObject, IEnergyPlusClass
     {
         
@@ -86,22 +85,27 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
         
 
         [JsonProperty("input_unit_type_for_v")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_QuintLinear_InputUnitTypeForV InputUnitTypeForV { get; set; } = (Curve_QuintLinear_InputUnitTypeForV)Enum.Parse(typeof(Curve_QuintLinear_InputUnitTypeForV), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_w")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_QuintLinear_InputUnitTypeForW InputUnitTypeForW { get; set; } = (Curve_QuintLinear_InputUnitTypeForW)Enum.Parse(typeof(Curve_QuintLinear_InputUnitTypeForW), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_x")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_QuintLinear_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_QuintLinear_InputUnitTypeForX)Enum.Parse(typeof(Curve_QuintLinear_InputUnitTypeForX), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_y")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_QuintLinear_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_QuintLinear_InputUnitTypeForY)Enum.Parse(typeof(Curve_QuintLinear_InputUnitTypeForY), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_z")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_QuintLinear_InputUnitTypeForZ InputUnitTypeForZ { get; set; } = (Curve_QuintLinear_InputUnitTypeForZ)Enum.Parse(typeof(Curve_QuintLinear_InputUnitTypeForZ), "Dimensionless");
     }
 }

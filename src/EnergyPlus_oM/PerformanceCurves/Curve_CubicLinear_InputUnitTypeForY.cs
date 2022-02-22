@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     public enum Curve_CubicLinear_InputUnitTypeForY
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Dimensionless")]
+        [System.Runtime.Serialization.EnumMember(Value="Dimensionless")]
         Dimensionless = 1,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 2,
     }
 }

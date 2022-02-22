@@ -1,77 +1,75 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
 {
     public enum PythonPlugin_OutputVariable_ResourceType
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("CondensateWaterCollected")]
+        [System.Runtime.Serialization.EnumMember(Value="CondensateWaterCollected")]
         CondensateWaterCollected = 1,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 2,
         
-        [JsonProperty("DistrictCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictCooling")]
         DistrictCooling = 3,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 4,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 5,
         
-        [JsonProperty("ElectricityProducedOnSite")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricityProducedOnSite")]
         ElectricityProducedOnSite = 6,
         
-        [JsonProperty("EnergyTransfer")]
+        [System.Runtime.Serialization.EnumMember(Value="EnergyTransfer")]
         EnergyTransfer = 7,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 8,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 9,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 10,
         
-        [JsonProperty("MainsWaterSupply")]
+        [System.Runtime.Serialization.EnumMember(Value="MainsWaterSupply")]
         MainsWaterSupply = 11,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 12,
         
-        [JsonProperty("OnSiteWaterProduced")]
+        [System.Runtime.Serialization.EnumMember(Value="OnSiteWaterProduced")]
         OnSiteWaterProduced = 13,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 14,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 15,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 16,
         
-        [JsonProperty("RainWaterCollected")]
+        [System.Runtime.Serialization.EnumMember(Value="RainWaterCollected")]
         RainWaterCollected = 17,
         
-        [JsonProperty("SolarAirHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="SolarAirHeating")]
         SolarAirHeating = 18,
         
-        [JsonProperty("SolarWaterHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="SolarWaterHeating")]
         SolarWaterHeating = 19,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 20,
         
-        [JsonProperty("WaterUse")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterUse")]
         WaterUse = 21,
         
-        [JsonProperty("WellWaterDrawn")]
+        [System.Runtime.Serialization.EnumMember(Value="WellWaterDrawn")]
         WellWaterDrawn = 22,
     }
 }

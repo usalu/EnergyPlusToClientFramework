@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Daylighting
 {
     public enum Daylighting_Controls_DaylightingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DElight")]
+        [System.Runtime.Serialization.EnumMember(Value="DElight")]
         DElight = 1,
         
-        [JsonProperty("SplitFlux")]
+        [System.Runtime.Serialization.EnumMember(Value="SplitFlux")]
         SplitFlux = 2,
     }
 }

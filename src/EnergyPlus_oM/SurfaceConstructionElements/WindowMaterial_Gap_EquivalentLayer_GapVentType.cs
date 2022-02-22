@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum WindowMaterial_Gap_EquivalentLayer_GapVentType
     {
         
-        [JsonProperty("Sealed")]
+        [System.Runtime.Serialization.EnumMember(Value="Sealed")]
         Sealed = 0,
         
-        [JsonProperty("VentedIndoor")]
+        [System.Runtime.Serialization.EnumMember(Value="VentedIndoor")]
         VentedIndoor = 1,
         
-        [JsonProperty("VentedOutdoor")]
+        [System.Runtime.Serialization.EnumMember(Value="VentedOutdoor")]
         VentedOutdoor = 2,
     }
 }

@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum UtilityCost_Variable_VariableType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Currency")]
+        [System.Runtime.Serialization.EnumMember(Value="Currency")]
         Currency = 1,
         
-        [JsonProperty("Demand")]
+        [System.Runtime.Serialization.EnumMember(Value="Demand")]
         Demand = 2,
         
-        [JsonProperty("Dimensionless")]
+        [System.Runtime.Serialization.EnumMember(Value="Dimensionless")]
         Dimensionless = 3,
         
-        [JsonProperty("Energy")]
+        [System.Runtime.Serialization.EnumMember(Value="Energy")]
         Energy = 4,
     }
 }

@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_SQLite_OptionType
     {
         
-        [JsonProperty("Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="Simple")]
         Simple = 0,
         
-        [JsonProperty("SimpleAndTabular")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleAndTabular")]
         SimpleAndTabular = 1,
     }
 }

@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
     
     [Description("Central air system terminal unit, single duct, constant volume, with reheat coil " +
         "(hot water, electric, gas, or steam).")]
-    [JsonObject("AirTerminal:SingleDuct:ConstantVolume:Reheat")]
     public class AirTerminal_SingleDuct_ConstantVolume_Reheat : BHoMObject, IEnergyPlusClass
     {
         
@@ -92,6 +91,7 @@ public string MaximumAirFlowRate { get; set; } = "";
         
 
 [JsonProperty("reheat_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_ConstantVolume_Reheat_ReheatCoilObjectType ReheatCoilObjectType { get; set; } = (AirTerminal_SingleDuct_ConstantVolume_Reheat_ReheatCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_ConstantVolume_Reheat_ReheatCoilObjectType), "CoilHeatingElectric");
         
 
@@ -123,22 +123,21 @@ public System.Nullable<float> MaximumReheatAirTemperature { get; set; } = null;
     public enum AirTerminal_SingleDuct_ConstantVolume_Reheat_ReheatCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     [Description("Central air system terminal unit, single duct, constant volume, without reheat co" +
         "il")]
-    [JsonObject("AirTerminal:SingleDuct:ConstantVolume:NoReheat")]
     public class AirTerminal_SingleDuct_ConstantVolume_NoReheat : BHoMObject, IEnergyPlusClass
     {
         
@@ -174,25 +173,25 @@ public string DesignSpecificationOutdoorAirObjectName { get; set; } = "";
 [Description("CurrentOccupancy uses current number of people in the zone which may vary DesignO" +
     "ccupancy uses the total number of people in the zone and is constant")]
 [JsonProperty("per_person_ventilation_rate_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_ConstantVolume_NoReheat_PerPersonVentilationRateMode PerPersonVentilationRateMode { get; set; } = (AirTerminal_SingleDuct_ConstantVolume_NoReheat_PerPersonVentilationRateMode)Enum.Parse(typeof(AirTerminal_SingleDuct_ConstantVolume_NoReheat_PerPersonVentilationRateMode), "CurrentOccupancy");
     }
     
     public enum AirTerminal_SingleDuct_ConstantVolume_NoReheat_PerPersonVentilationRateMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CurrentOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="CurrentOccupancy")]
         CurrentOccupancy = 1,
         
-        [JsonProperty("DesignOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignOccupancy")]
         DesignOccupancy = 2,
     }
     
     [Description("Central air system terminal unit, single duct, variable volume, with no reheat co" +
         "il.")]
-    [JsonObject("AirTerminal:SingleDuct:VAV:NoReheat")]
     public class AirTerminal_SingleDuct_VAV_NoReheat : BHoMObject, IEnergyPlusClass
     {
         
@@ -220,6 +219,7 @@ public string MaximumAirFlowRate { get; set; } = "";
     "rate) Scheduled = Scheduled Minimum Air Flow Fraction (a fraction of Maximum Air" +
     " Flow")]
 [JsonProperty("zone_minimum_air_flow_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_VAV_NoReheat_ZoneMinimumAirFlowInputMethod ZoneMinimumAirFlowInputMethod { get; set; } = (AirTerminal_SingleDuct_VAV_NoReheat_ZoneMinimumAirFlowInputMethod)Enum.Parse(typeof(AirTerminal_SingleDuct_VAV_NoReheat_ZoneMinimumAirFlowInputMethod), "Constant");
         
 
@@ -251,22 +251,21 @@ public string MinimumAirFlowTurndownScheduleName { get; set; } = "";
     public enum AirTerminal_SingleDuct_VAV_NoReheat_ZoneMinimumAirFlowInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 1,
         
-        [JsonProperty("FixedFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedFlowRate")]
         FixedFlowRate = 2,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 3,
     }
     
     [Description("Central air system terminal unit, single duct, variable volume, with reheat coil " +
         "(hot water, electric, gas, or steam).")]
-    [JsonObject("AirTerminal:SingleDuct:VAV:Reheat")]
     public class AirTerminal_SingleDuct_VAV_Reheat : BHoMObject, IEnergyPlusClass
     {
         
@@ -297,6 +296,7 @@ public string MaximumAirFlowRate { get; set; } = "";
     "rate) Scheduled = Scheduled Minimum Air Flow Fraction (a fraction of Maximum Air" +
     " Flow")]
 [JsonProperty("zone_minimum_air_flow_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_VAV_Reheat_ZoneMinimumAirFlowInputMethod ZoneMinimumAirFlowInputMethod { get; set; } = (AirTerminal_SingleDuct_VAV_Reheat_ZoneMinimumAirFlowInputMethod)Enum.Parse(typeof(AirTerminal_SingleDuct_VAV_Reheat_ZoneMinimumAirFlowInputMethod), "Constant");
         
 
@@ -316,6 +316,7 @@ public string MinimumAirFlowFractionScheduleName { get; set; } = "";
         
 
 [JsonProperty("reheat_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_VAV_Reheat_ReheatCoilObjectType ReheatCoilObjectType { get; set; } = (AirTerminal_SingleDuct_VAV_Reheat_ReheatCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_VAV_Reheat_ReheatCoilObjectType), "CoilHeatingElectric");
         
 
@@ -347,6 +348,7 @@ public System.Nullable<float> ConvergenceTolerance { get; set; } = (System.Nulla
     "means the damper can open fully during reheat ReverseWithLimits means the damper" +
     " will open partially during reheat as specified in the following 2 fields")]
 [JsonProperty("damper_heating_action")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_VAV_Reheat_DamperHeatingAction DamperHeatingAction { get; set; } = (AirTerminal_SingleDuct_VAV_Reheat_DamperHeatingAction)Enum.Parse(typeof(AirTerminal_SingleDuct_VAV_Reheat_DamperHeatingAction), "ReverseWithLimits");
         
 
@@ -380,53 +382,52 @@ public string MinimumAirFlowTurndownScheduleName { get; set; } = "";
     public enum AirTerminal_SingleDuct_VAV_Reheat_ZoneMinimumAirFlowInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 1,
         
-        [JsonProperty("FixedFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedFlowRate")]
         FixedFlowRate = 2,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 3,
     }
     
     public enum AirTerminal_SingleDuct_VAV_Reheat_ReheatCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     public enum AirTerminal_SingleDuct_VAV_Reheat_DamperHeatingAction
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Normal")]
+        [System.Runtime.Serialization.EnumMember(Value="Normal")]
         Normal = 1,
         
-        [JsonProperty("Reverse")]
+        [System.Runtime.Serialization.EnumMember(Value="Reverse")]
         Reverse = 2,
         
-        [JsonProperty("ReverseWithLimits")]
+        [System.Runtime.Serialization.EnumMember(Value="ReverseWithLimits")]
         ReverseWithLimits = 3,
     }
     
     [Description(@"Central air system terminal unit, single duct, variable volume, with reheat coil (hot water, electric, gas, or steam) and variable-speed fan. These units are usually employed in underfloor air distribution (UFAD) systems where the air is supplied at low static pressure through an underfloor plenum. The fan is used to control the flow of conditioned air that enters the space.")]
-    [JsonObject("AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan")]
     public class AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan : BHoMObject, IEnergyPlusClass
     {
         
@@ -464,6 +465,7 @@ public string AirOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_FanObjectType FanObjectType { get; set; } = (AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_FanObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_FanObjectType), "FanSystemModel");
         
 
@@ -472,6 +474,7 @@ public string FanName { get; set; } = "";
         
 
 [JsonProperty("heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_HeatingCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_HeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -501,32 +504,31 @@ public string MinimumAirFlowTurndownScheduleName { get; set; } = "";
     public enum AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_FanObjectType
     {
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 0,
         
-        [JsonProperty("Fan:VariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:VariableVolume")]
         FanVariableVolume = 1,
     }
     
     public enum AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan_HeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     [Description("Central air system terminal unit, single duct, variable volume for both cooling a" +
         "nd heating, with no reheat coil.")]
-    [JsonObject("AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat")]
     public class AirTerminal_SingleDuct_VAV_HeatAndCool_NoReheat : BHoMObject, IEnergyPlusClass
     {
         
@@ -562,7 +564,6 @@ public string MinimumAirFlowTurndownScheduleName { get; set; } = "";
     
     [Description("Central air system terminal unit, single duct, variable volume for both cooling a" +
         "nd heating, with reheat coil (hot water, electric, gas, or steam).")]
-    [JsonObject("AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat")]
     public class AirTerminal_SingleDuct_VAV_HeatAndCool_Reheat : BHoMObject, IEnergyPlusClass
     {
         
@@ -594,6 +595,7 @@ public System.Nullable<float> ZoneMinimumAirFlowFraction { get; set; } = null;
         
 
 [JsonProperty("reheat_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_VAV_HeatAndCool_Reheat_ReheatCoilObjectType ReheatCoilObjectType { get; set; } = (AirTerminal_SingleDuct_VAV_HeatAndCool_Reheat_ReheatCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_VAV_HeatAndCool_Reheat_ReheatCoilObjectType), "CoilHeatingElectric");
         
 
@@ -636,22 +638,21 @@ public string MinimumAirFlowTurndownScheduleName { get; set; } = "";
     public enum AirTerminal_SingleDuct_VAV_HeatAndCool_Reheat_ReheatCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     [Description("Central air system terminal unit, single duct, variable volume, series powered in" +
         "duction unit (PIU), with reheat coil (hot water, electric, gas, or steam).")]
-    [JsonObject("AirTerminal:SingleDuct:SeriesPIU:Reheat")]
     public class AirTerminal_SingleDuct_SeriesPIU_Reheat : BHoMObject, IEnergyPlusClass
     {
         
@@ -700,6 +701,7 @@ public string FanName { get; set; } = "";
         
 
 [JsonProperty("reheat_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_SeriesPIU_Reheat_ReheatCoilObjectType ReheatCoilObjectType { get; set; } = (AirTerminal_SingleDuct_SeriesPIU_Reheat_ReheatCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_SeriesPIU_Reheat_ReheatCoilObjectType), "CoilHeatingElectric");
         
 
@@ -724,22 +726,21 @@ public System.Nullable<float> ConvergenceTolerance { get; set; } = (System.Nulla
     public enum AirTerminal_SingleDuct_SeriesPIU_Reheat_ReheatCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     [Description("Central air system terminal unit, single duct, variable volume, parallel powered " +
         "induction unit (PIU), with reheat coil (hot water, electric, gas, or steam).")]
-    [JsonObject("AirTerminal:SingleDuct:ParallelPIU:Reheat")]
     public class AirTerminal_SingleDuct_ParallelPIU_Reheat : BHoMObject, IEnergyPlusClass
     {
         
@@ -794,6 +795,7 @@ public string FanName { get; set; } = "";
         
 
 [JsonProperty("reheat_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_ParallelPIU_Reheat_ReheatCoilObjectType ReheatCoilObjectType { get; set; } = (AirTerminal_SingleDuct_ParallelPIU_Reheat_ReheatCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_ParallelPIU_Reheat_ReheatCoilObjectType), "CoilHeatingElectric");
         
 
@@ -818,22 +820,21 @@ public System.Nullable<float> ConvergenceTolerance { get; set; } = (System.Nulla
     public enum AirTerminal_SingleDuct_ParallelPIU_Reheat_ReheatCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     [Description("Central air system terminal unit, single duct, variable volume, induction unit wi" +
         "th hot water reheat coil and chilled water recool coil.")]
-    [JsonObject("AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction")]
     public class AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction : BHoMObject, IEnergyPlusClass
     {
         
@@ -868,6 +869,7 @@ public string AirOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_HeatingCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_HeatingCoilObjectType), "CoilHeatingWater");
         
 
@@ -890,6 +892,7 @@ public System.Nullable<float> HeatingConvergenceTolerance { get; set; } = (Syste
         
 
 [JsonProperty("cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_CoolingCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_CoolingCoilObjectType), "CoilCoolingWater");
         
 
@@ -916,24 +919,23 @@ public string ZoneMixerName { get; set; } = "";
     public enum AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_HeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 0,
     }
     
     public enum AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 0,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 1,
     }
     
     [Description("Central air system terminal unit, single duct, constant volume, with heating and/" +
         "or cooling. Operates as two-pipe unit if heating or cooling water is omitted. He" +
         "ating and/or cooling can be scheduled off for dedicated ventilation.")]
-    [JsonObject("AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam")]
     public class AirTerminal_SingleDuct_ConstantVolume_FourPipeBeam : BHoMObject, IEnergyPlusClass
     {
         
@@ -1081,7 +1083,6 @@ public string BeamHeatingCapacityHotWaterFlowModificationFactorCurveName { get; 
     
     [Description("Central air system terminal unit, single duct, constant volume, with cooled beam " +
         "(active or passive).")]
-    [JsonObject("AirTerminal:SingleDuct:ConstantVolume:CooledBeam")]
     public class AirTerminal_SingleDuct_ConstantVolume_CooledBeam : BHoMObject, IEnergyPlusClass
     {
         
@@ -1093,6 +1094,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("cooled_beam_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_ConstantVolume_CooledBeam_CooledBeamType CooledBeamType { get; set; } = (AirTerminal_SingleDuct_ConstantVolume_CooledBeam_CooledBeamType)Enum.Parse(typeof(AirTerminal_SingleDuct_ConstantVolume_CooledBeam_CooledBeamType), "Active");
         
 
@@ -1182,21 +1184,21 @@ public System.Nullable<float> LeavingPipeInsideDiameter { get; set; } = (System.
     public enum AirTerminal_SingleDuct_ConstantVolume_CooledBeam_CooledBeamType
     {
         
-        [JsonProperty("Active")]
+        [System.Runtime.Serialization.EnumMember(Value="Active")]
         Active = 0,
         
-        [JsonProperty("Passive")]
+        [System.Runtime.Serialization.EnumMember(Value="Passive")]
         Passive = 1,
     }
     
     [Description(@"The mixer air terminal unit provides a means of supplying central system air to the air inlet or outlet side of a zoneHVAC equipment such as a four pipe fan coil unit. Normally the central air would be ventilation air from a dedicated outdoor air system (DOAS).")]
-    [JsonObject("AirTerminal:SingleDuct:Mixer")]
     public class AirTerminal_SingleDuct_Mixer : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description("The type of ZoneHVAC equipment to which this terminal mixer will be connected.")]
 [JsonProperty("zonehvac_unit_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_Mixer_ZonehvacUnitObjectType ZonehvacUnitObjectType { get; set; } = (AirTerminal_SingleDuct_Mixer_ZonehvacUnitObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_Mixer_ZonehvacUnitObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -1224,6 +1226,7 @@ public string MixerSecondaryAirInletNodeName { get; set; } = "";
 
 [Description(@"This input field allows user to specify the mixer connection type. Valid choices are InletSide or SupplySide. This is a required input field. If the mixer connection type selected is InletSide, then the mixer is connected on the inlet side of the ZoneHVAC equipment, or else if the mixer connection type selected is SupplySide, then the mixer is connected at the outlet side of the ZoneHVAC equipment.")]
 [JsonProperty("mixer_connection_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_Mixer_MixerConnectionType MixerConnectionType { get; set; } = (AirTerminal_SingleDuct_Mixer_MixerConnectionType)Enum.Parse(typeof(AirTerminal_SingleDuct_Mixer_MixerConnectionType), "InletSide");
         
 
@@ -1236,59 +1239,59 @@ public string DesignSpecificationOutdoorAirObjectName { get; set; } = "";
     " people DesignOccupancy uses the total Number of People in the zone and is const" +
     "ant")]
 [JsonProperty("per_person_ventilation_rate_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_Mixer_PerPersonVentilationRateMode PerPersonVentilationRateMode { get; set; } = (AirTerminal_SingleDuct_Mixer_PerPersonVentilationRateMode)Enum.Parse(typeof(AirTerminal_SingleDuct_Mixer_PerPersonVentilationRateMode), "CurrentOccupancy");
     }
     
     public enum AirTerminal_SingleDuct_Mixer_ZonehvacUnitObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("ZoneHVAC:FourPipeFanCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneHVAC:FourPipeFanCoil")]
         ZoneHVACFourPipeFanCoil = 1,
         
-        [JsonProperty("ZoneHVAC:PackagedTerminalAirConditioner")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneHVAC:PackagedTerminalAirConditioner")]
         ZoneHVACPackagedTerminalAirConditioner = 2,
         
-        [JsonProperty("ZoneHVAC:PackagedTerminalHeatPump")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneHVAC:PackagedTerminalHeatPump")]
         ZoneHVACPackagedTerminalHeatPump = 3,
         
-        [JsonProperty("ZoneHVAC:TerminalUnit:VariableRefrigerantFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneHVAC:TerminalUnit:VariableRefrigerantFlow")]
         ZoneHVACTerminalUnitVariableRefrigerantFlow = 4,
         
-        [JsonProperty("ZoneHVAC:UnitVentilator")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneHVAC:UnitVentilator")]
         ZoneHVACUnitVentilator = 5,
         
-        [JsonProperty("ZoneHVAC:WaterToAirHeatPump")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneHVAC:WaterToAirHeatPump")]
         ZoneHVACWaterToAirHeatPump = 6,
     }
     
     public enum AirTerminal_SingleDuct_Mixer_MixerConnectionType
     {
         
-        [JsonProperty("InletSide")]
+        [System.Runtime.Serialization.EnumMember(Value="InletSide")]
         InletSide = 0,
         
-        [JsonProperty("SupplySide")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplySide")]
         SupplySide = 1,
     }
     
     public enum AirTerminal_SingleDuct_Mixer_PerPersonVentilationRateMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CurrentOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="CurrentOccupancy")]
         CurrentOccupancy = 1,
         
-        [JsonProperty("DesignOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignOccupancy")]
         DesignOccupancy = 2,
     }
     
     [Description("Central air system terminal unit, dual duct, constant volume.")]
-    [JsonObject("AirTerminal:DualDuct:ConstantVolume")]
     public class AirTerminal_DualDuct_ConstantVolume : BHoMObject, IEnergyPlusClass
     {
         
@@ -1317,7 +1320,6 @@ public string MaximumAirFlowRate { get; set; } = "";
     }
     
     [Description("Central air system terminal unit, dual duct, variable volume.")]
-    [JsonObject("AirTerminal:DualDuct:VAV")]
     public class AirTerminal_DualDuct_VAV : BHoMObject, IEnergyPlusClass
     {
         
@@ -1363,7 +1365,6 @@ public string MinimumAirFlowTurndownScheduleName { get; set; } = "";
     [Description("Central air system terminal unit, dual duct, variable volume with special control" +
         "s. One VAV duct is controlled to supply ventilation air and the other VAV duct i" +
         "s controlled to meet the zone cooling load.")]
-    [JsonObject("AirTerminal:DualDuct:VAV:OutdoorAir")]
     public class AirTerminal_DualDuct_VAV_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -1402,22 +1403,22 @@ public string DesignSpecificationOutdoorAirObjectName { get; set; } = "";
     " people DesignOccupancy uses the total Number of People in the zone and is const" +
     "ant")]
 [JsonProperty("per_person_ventilation_rate_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_DualDuct_VAV_OutdoorAir_PerPersonVentilationRateMode PerPersonVentilationRateMode { get; set; } = (AirTerminal_DualDuct_VAV_OutdoorAir_PerPersonVentilationRateMode)Enum.Parse(typeof(AirTerminal_DualDuct_VAV_OutdoorAir_PerPersonVentilationRateMode), "CurrentOccupancy");
     }
     
     public enum AirTerminal_DualDuct_VAV_OutdoorAir_PerPersonVentilationRateMode
     {
         
-        [JsonProperty("CurrentOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="CurrentOccupancy")]
         CurrentOccupancy = 0,
         
-        [JsonProperty("DesignOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignOccupancy")]
         DesignOccupancy = 1,
     }
     
     [Description("Central air system air distribution unit, serves as a wrapper for a specific type" +
         " of air terminal unit. This object is referenced in a ZoneHVAC:EquipmentList.")]
-    [JsonObject("ZoneHVAC:AirDistributionUnit")]
     public class ZoneHVAC_AirDistributionUnit : BHoMObject, IEnergyPlusClass
     {
         
@@ -1427,6 +1428,7 @@ public string AirDistributionUnitOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("air_terminal_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_AirDistributionUnit_AirTerminalObjectType AirTerminalObjectType { get; set; } = (ZoneHVAC_AirDistributionUnit_AirTerminalObjectType)Enum.Parse(typeof(ZoneHVAC_AirDistributionUnit_AirTerminalObjectType), "AirTerminalDualDuctConstantVolume");
         
 
@@ -1453,55 +1455,55 @@ public string DesignSpecificationAirTerminalSizingObjectName { get; set; } = "";
     public enum ZoneHVAC_AirDistributionUnit_AirTerminalObjectType
     {
         
-        [JsonProperty("AirTerminal:DualDuct:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:DualDuct:ConstantVolume")]
         AirTerminalDualDuctConstantVolume = 0,
         
-        [JsonProperty("AirTerminal:DualDuct:VAV")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:DualDuct:VAV")]
         AirTerminalDualDuctVAV = 1,
         
-        [JsonProperty("AirTerminal:DualDuct:VAV:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:DualDuct:VAV:OutdoorAir")]
         AirTerminalDualDuctVAVOutdoorAir = 2,
         
-        [JsonProperty("AirTerminal:SingleDuct:ConstantVolume:CooledBeam")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:ConstantVolume:CooledBeam")]
         AirTerminalSingleDuctConstantVolumeCooledBeam = 3,
         
-        [JsonProperty("AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam")]
         AirTerminalSingleDuctConstantVolumeFourPipeBeam = 4,
         
-        [JsonProperty("AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction")]
         AirTerminalSingleDuctConstantVolumeFourPipeInduction = 5,
         
-        [JsonProperty("AirTerminal:SingleDuct:ConstantVolume:NoReheat")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:ConstantVolume:NoReheat")]
         AirTerminalSingleDuctConstantVolumeNoReheat = 6,
         
-        [JsonProperty("AirTerminal:SingleDuct:ConstantVolume:Reheat")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:ConstantVolume:Reheat")]
         AirTerminalSingleDuctConstantVolumeReheat = 7,
         
-        [JsonProperty("AirTerminal:SingleDuct:Mixer")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:Mixer")]
         AirTerminalSingleDuctMixer = 8,
         
-        [JsonProperty("AirTerminal:SingleDuct:ParallelPIU:Reheat")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:ParallelPIU:Reheat")]
         AirTerminalSingleDuctParallelPIUReheat = 9,
         
-        [JsonProperty("AirTerminal:SingleDuct:SeriesPIU:Reheat")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:SeriesPIU:Reheat")]
         AirTerminalSingleDuctSeriesPIUReheat = 10,
         
-        [JsonProperty("AirTerminal:SingleDuct:UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:UserDefined")]
         AirTerminalSingleDuctUserDefined = 11,
         
-        [JsonProperty("AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat")]
         AirTerminalSingleDuctVAVHeatAndCoolNoReheat = 12,
         
-        [JsonProperty("AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat")]
         AirTerminalSingleDuctVAVHeatAndCoolReheat = 13,
         
-        [JsonProperty("AirTerminal:SingleDuct:VAV:NoReheat")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:VAV:NoReheat")]
         AirTerminalSingleDuctVAVNoReheat = 14,
         
-        [JsonProperty("AirTerminal:SingleDuct:VAV:Reheat")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:VAV:Reheat")]
         AirTerminalSingleDuctVAVReheat = 15,
         
-        [JsonProperty("AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan")]
+        [System.Runtime.Serialization.EnumMember(Value="AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan")]
         AirTerminalSingleDuctVAVReheatVariableSpeedFan = 16,
     }
 }

@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AirDistribution
 {
     [Description(@"Outdoor air subsystem for an AirLoopHVAC. Includes an outdoor air mixing box and optional outdoor air conditioning equipment such as heat recovery, preheat, and precool coils. From the perspective of the primary air loop the outdoor air system is treated as a single component.")]
-    [JsonObject("AirLoopHVAC:OutdoorAirSystem")]
     public class AirLoopHVAC_OutdoorAirSystem : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Controllers
 {
     public enum Controller_OutdoorAir_HeatRecoveryBypassControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BypassWhenOAFlowGreaterThanMinimum")]
+        [System.Runtime.Serialization.EnumMember(Value="BypassWhenOAFlowGreaterThanMinimum")]
         BypassWhenOAFlowGreaterThanMinimum = 1,
         
-        [JsonProperty("BypassWhenWithinEconomizerLimits")]
+        [System.Runtime.Serialization.EnumMember(Value="BypassWhenWithinEconomizerLimits")]
         BypassWhenWithinEconomizerLimits = 2,
     }
 }

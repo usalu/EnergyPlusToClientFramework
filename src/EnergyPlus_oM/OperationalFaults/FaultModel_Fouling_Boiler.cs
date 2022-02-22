@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes the fouling fault of boilers with water-based heat exchange" +
                  "rs")]
-    [JsonObject("FaultModel:Fouling:Boiler")]
     public class FaultModel_Fouling_Boiler : BHoMObject, IEnergyPlusClass
     {
         
@@ -23,6 +22,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 
         [Description("Enter the type of a boiler object The fault applies to the hot-water boilers")]
         [JsonProperty("boiler_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FaultModel_Fouling_Boiler_BoilerObjectType BoilerObjectType { get; set; } = (FaultModel_Fouling_Boiler_BoilerObjectType)Enum.Parse(typeof(FaultModel_Fouling_Boiler_BoilerObjectType), "BoilerHotWater");
         
 

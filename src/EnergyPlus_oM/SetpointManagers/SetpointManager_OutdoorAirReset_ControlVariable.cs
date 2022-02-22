@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     public enum SetpointManager_OutdoorAirReset_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MaximumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumTemperature")]
         MaximumTemperature = 1,
         
-        [JsonProperty("MinimumTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumTemperature")]
         MinimumTemperature = 2,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 3,
     }
 }

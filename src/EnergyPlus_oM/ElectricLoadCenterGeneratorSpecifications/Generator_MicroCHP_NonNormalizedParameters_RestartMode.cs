@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_MicroCHP_NonNormalizedParameters_RestartMode
     {
         
-        [JsonProperty("MandatoryCoolDown")]
+        [System.Runtime.Serialization.EnumMember(Value="MandatoryCoolDown")]
         MandatoryCoolDown = 0,
         
-        [JsonProperty("OptionalCoolDown")]
+        [System.Runtime.Serialization.EnumMember(Value="OptionalCoolDown")]
         OptionalCoolDown = 1,
     }
 }

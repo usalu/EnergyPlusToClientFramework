@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum WindowThermalModel_Params_ThermalModel
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConvectiveScalarModel_NoSDThickness")]
+        [System.Runtime.Serialization.EnumMember(Value="ConvectiveScalarModel_NoSDThickness")]
         ConvectiveScalarModelNoSDThickness = 1,
         
-        [JsonProperty("ConvectiveScalarModel_withSDThickness")]
+        [System.Runtime.Serialization.EnumMember(Value="ConvectiveScalarModel_withSDThickness")]
         ConvectiveScalarModelWithSDThickness = 2,
         
-        [JsonProperty("ISO15099")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099")]
         ISO15099 = 3,
         
-        [JsonProperty("ScaledCavityWidth")]
+        [System.Runtime.Serialization.EnumMember(Value="ScaledCavityWidth")]
         ScaledCavityWidth = 4,
     }
 }

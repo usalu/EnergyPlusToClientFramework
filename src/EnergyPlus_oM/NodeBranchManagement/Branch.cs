@@ -66,7 +66,6 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
     
     [Description("List components on the branch in simulation and connection order Note: this shoul" +
         "d NOT include splitters or mixers which define endpoints of branches")]
-    [JsonObject("Branch")]
     public class Branch : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum ShadowCalculation_ShadingCalculationUpdateFrequencyMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Periodic")]
+        [System.Runtime.Serialization.EnumMember(Value="Periodic")]
         Periodic = 1,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 2,
     }
 }

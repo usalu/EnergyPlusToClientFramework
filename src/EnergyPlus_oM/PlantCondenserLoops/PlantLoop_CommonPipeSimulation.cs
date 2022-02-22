@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantCondenserLoops
 {
     public enum PlantLoop_CommonPipeSimulation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CommonPipe")]
+        [System.Runtime.Serialization.EnumMember(Value="CommonPipe")]
         CommonPipe = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("TwoWayCommonPipe")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoWayCommonPipe")]
         TwoWayCommonPipe = 3,
     }
 }

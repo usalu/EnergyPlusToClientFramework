@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 {
     public enum ZoneHVAC_VentilatedSlab_SystemConfigurationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("SeriesSlabs")]
+        [System.Runtime.Serialization.EnumMember(Value="SeriesSlabs")]
         SeriesSlabs = 1,
         
-        [JsonProperty("SlabAndZone")]
+        [System.Runtime.Serialization.EnumMember(Value="SlabAndZone")]
         SlabAndZone = 2,
         
-        [JsonProperty("SlabOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="SlabOnly")]
         SlabOnly = 3,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     public enum SetpointManager_WarmestTemperatureFlow_Strategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FlowFirst")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowFirst")]
         FlowFirst = 1,
         
-        [JsonProperty("TemperatureFirst")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureFirst")]
         TemperatureFirst = 2,
     }
 }

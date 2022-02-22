@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 {
     public enum ZoneHVAC_LowTemperatureRadiant_Electric_SetpointControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HalfFlowPower")]
+        [System.Runtime.Serialization.EnumMember(Value="HalfFlowPower")]
         HalfFlowPower = 1,
         
-        [JsonProperty("ZeroFlowPower")]
+        [System.Runtime.Serialization.EnumMember(Value="ZeroFlowPower")]
         ZeroFlowPower = 2,
     }
 }

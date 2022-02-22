@@ -67,16 +67,17 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
     
     [Description("An independent variable representing a single dimension of a Table:Lookup object." +
         "")]
-    [JsonObject("Table:IndependentVariable")]
     public class Table_IndependentVariable : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("interpolation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_IndependentVariable_InterpolationMethod InterpolationMethod { get; set; } = (Table_IndependentVariable_InterpolationMethod)Enum.Parse(typeof(Table_IndependentVariable_InterpolationMethod), "Linear");
         
 
 [JsonProperty("extrapolation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_IndependentVariable_ExtrapolationMethod ExtrapolationMethod { get; set; } = (Table_IndependentVariable_ExtrapolationMethod)Enum.Parse(typeof(Table_IndependentVariable_ExtrapolationMethod), "Constant");
         
 
@@ -93,6 +94,7 @@ public System.Nullable<float> NormalizationReferenceValue { get; set; } = null;
         
 
 [JsonProperty("unit_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_IndependentVariable_UnitType UnitType { get; set; } = (Table_IndependentVariable_UnitType)Enum.Parse(typeof(Table_IndependentVariable_UnitType), "Dimensionless");
         
 

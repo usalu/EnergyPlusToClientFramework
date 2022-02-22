@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
     
     
     [Description(@"Versatile simple fan that can be used in variable air volume, constant volume, on-off cycling, two-speed or multi-speed applications. Performance at different flow rates, or speed levels, is determined using separate performance curve or table or prescribed power fractions at discrete speed levels for two-speed or multi-speed fans.")]
-    [JsonObject("Fan:SystemModel")]
     public class Fan_SystemModel : BHoMObject, IEnergyPlusClass
     {
         
@@ -91,6 +90,7 @@ public string DesignMaximumAirFlowRate { get; set; } = "";
         
 
 [JsonProperty("speed_control_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Fan_SystemModel_SpeedControlMethod SpeedControlMethod { get; set; } = (Fan_SystemModel_SpeedControlMethod)Enum.Parse(typeof(Fan_SystemModel_SpeedControlMethod), "Discrete");
         
 
@@ -118,6 +118,7 @@ public string DesignElectricPowerConsumption { get; set; } = (System.String)"Aut
         
 
 [JsonProperty("design_power_sizing_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Fan_SystemModel_DesignPowerSizingMethod DesignPowerSizingMethod { get; set; } = (Fan_SystemModel_DesignPowerSizingMethod)Enum.Parse(typeof(Fan_SystemModel_DesignPowerSizingMethod), "PowerPerFlowPerPressure");
         
 

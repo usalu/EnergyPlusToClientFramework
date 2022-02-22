@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     
     [Description("Chilled water cooling coil, NTU-effectiveness model, with inputs for design enter" +
         "ing and leaving conditions.")]
-    [JsonObject("Coil:Cooling:Water")]
     public class Coil_Cooling_Water : BHoMObject, IEnergyPlusClass
     {
         
@@ -123,10 +122,12 @@ public string AirOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("type_of_analysis")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_Water_TypeOfAnalysis TypeOfAnalysis { get; set; } = (Coil_Cooling_Water_TypeOfAnalysis)Enum.Parse(typeof(Coil_Cooling_Water_TypeOfAnalysis), "SimpleAnalysis");
         
 
 [JsonProperty("heat_exchanger_configuration")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_Cooling_Water_HeatExchangerConfiguration HeatExchangerConfiguration { get; set; } = (Coil_Cooling_Water_HeatExchangerConfiguration)Enum.Parse(typeof(Coil_Cooling_Water_HeatExchangerConfiguration), "CounterFlow");
         
 

@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
     
     [Description("a list of meters that can be reported are available after a run on the meter dict" +
         "ionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    [JsonObject("DemandManagerAssignmentList")]
     public class DemandManagerAssignmentList : BHoMObject, IEnergyPlusClass
     {
         
@@ -103,6 +102,7 @@ public System.Nullable<float> DemandWindowLength { get; set; } = null;
         
 
 [JsonProperty("demand_manager_priority")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManagerAssignmentList_DemandManagerPriority DemandManagerPriority { get; set; } = (DemandManagerAssignmentList_DemandManagerPriority)Enum.Parse(typeof(DemandManagerAssignmentList_DemandManagerPriority), "All");
         
 
@@ -113,15 +113,14 @@ public string ManagerData { get; set; } = "";
     public enum DemandManagerAssignmentList_DemandManagerPriority
     {
         
-        [JsonProperty("All")]
+        [System.Runtime.Serialization.EnumMember(Value="All")]
         All = 0,
         
-        [JsonProperty("Sequential")]
+        [System.Runtime.Serialization.EnumMember(Value="Sequential")]
         Sequential = 1,
     }
     
     [Description("used for demand limiting Exterior:Lights objects.")]
-    [JsonObject("DemandManager:ExteriorLights")]
     public class DemandManager_ExteriorLights : BHoMObject, IEnergyPlusClass
     {
         
@@ -133,6 +132,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("limit_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_ExteriorLights_LimitControl LimitControl { get; set; } = (DemandManager_ExteriorLights_LimitControl)Enum.Parse(typeof(DemandManager_ExteriorLights_LimitControl), "Fixed");
         
 
@@ -151,6 +151,7 @@ public System.Nullable<float> LimitStepChange { get; set; } = null;
         
 
 [JsonProperty("selection_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_ExteriorLights_SelectionControl SelectionControl { get; set; } = (DemandManager_ExteriorLights_SelectionControl)Enum.Parse(typeof(DemandManager_ExteriorLights_SelectionControl), "All");
         
 
@@ -166,28 +167,27 @@ public string Lights { get; set; } = "";
     public enum DemandManager_ExteriorLights_LimitControl
     {
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 0,
         
-        [JsonProperty("Off")]
+        [System.Runtime.Serialization.EnumMember(Value="Off")]
         Off = 1,
     }
     
     public enum DemandManager_ExteriorLights_SelectionControl
     {
         
-        [JsonProperty("All")]
+        [System.Runtime.Serialization.EnumMember(Value="All")]
         All = 0,
         
-        [JsonProperty("RotateMany")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateMany")]
         RotateMany = 1,
         
-        [JsonProperty("RotateOne")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateOne")]
         RotateOne = 2,
     }
     
     [Description("used for demand limiting Lights objects.")]
-    [JsonObject("DemandManager:Lights")]
     public class DemandManager_Lights : BHoMObject, IEnergyPlusClass
     {
         
@@ -199,6 +199,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("limit_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_Lights_LimitControl LimitControl { get; set; } = (DemandManager_Lights_LimitControl)Enum.Parse(typeof(DemandManager_Lights_LimitControl), "Fixed");
         
 
@@ -217,6 +218,7 @@ public System.Nullable<float> LimitStepChange { get; set; } = null;
         
 
 [JsonProperty("selection_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_Lights_SelectionControl SelectionControl { get; set; } = (DemandManager_Lights_SelectionControl)Enum.Parse(typeof(DemandManager_Lights_SelectionControl), "All");
         
 
@@ -232,28 +234,27 @@ public string Lights { get; set; } = "";
     public enum DemandManager_Lights_LimitControl
     {
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 0,
         
-        [JsonProperty("Off")]
+        [System.Runtime.Serialization.EnumMember(Value="Off")]
         Off = 1,
     }
     
     public enum DemandManager_Lights_SelectionControl
     {
         
-        [JsonProperty("All")]
+        [System.Runtime.Serialization.EnumMember(Value="All")]
         All = 0,
         
-        [JsonProperty("RotateMany")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateMany")]
         RotateMany = 1,
         
-        [JsonProperty("RotateOne")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateOne")]
         RotateOne = 2,
     }
     
     [Description("used for demand limiting ElectricEquipment objects.")]
-    [JsonObject("DemandManager:ElectricEquipment")]
     public class DemandManager_ElectricEquipment : BHoMObject, IEnergyPlusClass
     {
         
@@ -265,6 +266,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("limit_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_ElectricEquipment_LimitControl LimitControl { get; set; } = (DemandManager_ElectricEquipment_LimitControl)Enum.Parse(typeof(DemandManager_ElectricEquipment_LimitControl), "Fixed");
         
 
@@ -283,6 +285,7 @@ public System.Nullable<float> LimitStepChange { get; set; } = null;
         
 
 [JsonProperty("selection_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_ElectricEquipment_SelectionControl SelectionControl { get; set; } = (DemandManager_ElectricEquipment_SelectionControl)Enum.Parse(typeof(DemandManager_ElectricEquipment_SelectionControl), "All");
         
 
@@ -298,28 +301,27 @@ public string Equipment { get; set; } = "";
     public enum DemandManager_ElectricEquipment_LimitControl
     {
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 0,
         
-        [JsonProperty("Off")]
+        [System.Runtime.Serialization.EnumMember(Value="Off")]
         Off = 1,
     }
     
     public enum DemandManager_ElectricEquipment_SelectionControl
     {
         
-        [JsonProperty("All")]
+        [System.Runtime.Serialization.EnumMember(Value="All")]
         All = 0,
         
-        [JsonProperty("RotateMany")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateMany")]
         RotateMany = 1,
         
-        [JsonProperty("RotateOne")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateOne")]
         RotateOne = 2,
     }
     
     [Description("used for demand limiting ZoneControl:Thermostat objects.")]
-    [JsonObject("DemandManager:Thermostats")]
     public class DemandManager_Thermostats : BHoMObject, IEnergyPlusClass
     {
         
@@ -331,6 +333,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("reset_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_Thermostats_ResetControl ResetControl { get; set; } = (DemandManager_Thermostats_ResetControl)Enum.Parse(typeof(DemandManager_Thermostats_ResetControl), "Fixed");
         
 
@@ -353,6 +356,7 @@ public System.Nullable<float> ResetStepChange { get; set; } = null;
         
 
 [JsonProperty("selection_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_Thermostats_SelectionControl SelectionControl { get; set; } = (DemandManager_Thermostats_SelectionControl)Enum.Parse(typeof(DemandManager_Thermostats_SelectionControl), "All");
         
 
@@ -368,28 +372,27 @@ public string Thermostats { get; set; } = "";
     public enum DemandManager_Thermostats_ResetControl
     {
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 0,
         
-        [JsonProperty("Off")]
+        [System.Runtime.Serialization.EnumMember(Value="Off")]
         Off = 1,
     }
     
     public enum DemandManager_Thermostats_SelectionControl
     {
         
-        [JsonProperty("All")]
+        [System.Runtime.Serialization.EnumMember(Value="All")]
         All = 0,
         
-        [JsonProperty("RotateMany")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateMany")]
         RotateMany = 1,
         
-        [JsonProperty("RotateOne")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateOne")]
         RotateOne = 2,
     }
     
     [Description("used for demand limiting Controller:OutdoorAir objects.")]
-    [JsonObject("DemandManager:Ventilation")]
     public class DemandManager_Ventilation : BHoMObject, IEnergyPlusClass
     {
         
@@ -402,6 +405,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("limit_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_Ventilation_LimitControl LimitControl { get; set; } = (DemandManager_Ventilation_LimitControl)Enum.Parse(typeof(DemandManager_Ventilation_LimitControl), "FixedRate");
         
 
@@ -426,6 +430,7 @@ public System.Nullable<float> LimitStepChange { get; set; } = null;
         
 
 [JsonProperty("selection_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_Ventilation_SelectionControl SelectionControl { get; set; } = (DemandManager_Ventilation_SelectionControl)Enum.Parse(typeof(DemandManager_Ventilation_SelectionControl), "All");
         
 
@@ -441,29 +446,29 @@ public string Controllers { get; set; } = "";
     public enum DemandManager_Ventilation_LimitControl
     {
         
-        [JsonProperty("FixedRate")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedRate")]
         FixedRate = 0,
         
-        [JsonProperty("Off")]
+        [System.Runtime.Serialization.EnumMember(Value="Off")]
         Off = 1,
         
-        [JsonProperty("ReductionRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ReductionRatio")]
         ReductionRatio = 2,
     }
     
     public enum DemandManager_Ventilation_SelectionControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("All")]
+        [System.Runtime.Serialization.EnumMember(Value="All")]
         All = 1,
         
-        [JsonProperty("RotateMany")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateMany")]
         RotateMany = 2,
         
-        [JsonProperty("RotateOne")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateOne")]
         RotateOne = 3,
     }
 }

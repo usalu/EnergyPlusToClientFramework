@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     [Description("Used to model room air with a fixed temperature gradient in the vertical directio" +
                  "n. Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
-    [JsonObject("RoomAir:TemperaturePattern:ConstantGradient")]
     public class RoomAir_TemperaturePattern_ConstantGradient : BHoMObject, IEnergyPlusClass
     {
         

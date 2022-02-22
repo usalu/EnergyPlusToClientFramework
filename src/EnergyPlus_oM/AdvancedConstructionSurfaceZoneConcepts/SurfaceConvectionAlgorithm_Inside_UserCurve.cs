@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("Used to describe a custom model equation for surface convection heat transfer coe" +
                  "fficient If more than one curve is referenced they are all used and added togeth" +
                  "er.")]
-    [JsonObject("SurfaceConvectionAlgorithm:Inside:UserCurve")]
     public class SurfaceConvectionAlgorithm_Inside_UserCurve : BHoMObject, IEnergyPlusClass
     {
         
@@ -16,6 +15,7 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
         [Description("Controls which temperature is differenced from surface temperature when using the" +
                      " Hc value")]
         [JsonProperty("reference_temperature_for_convection_heat_transfer")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SurfaceConvectionAlgorithm_Inside_UserCurve_ReferenceTemperatureForConvectionHeatTransfer ReferenceTemperatureForConvectionHeatTransfer { get; set; } = (SurfaceConvectionAlgorithm_Inside_UserCurve_ReferenceTemperatureForConvectionHeatTransfer)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_UserCurve_ReferenceTemperatureForConvectionHeatTransfer), "AdjacentAirTemperature");
         
 

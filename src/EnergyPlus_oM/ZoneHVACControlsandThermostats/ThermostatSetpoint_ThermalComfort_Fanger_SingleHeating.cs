@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     [Description("Used for heating only thermal comfort control. The PMV setpoint can be scheduled " +
                  "and varied throughout the simulation but only heating is allowed with this contr" +
                  "ol type.")]
-    [JsonObject("ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating")]
     public class ThermostatSetpoint_ThermalComfort_Fanger_SingleHeating : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Zone_PTHP_HeatPumpDefrostStrategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Resistive")]
+        [System.Runtime.Serialization.EnumMember(Value="Resistive")]
         Resistive = 1,
         
-        [JsonProperty("ReverseCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="ReverseCycle")]
         ReverseCycle = 2,
     }
 }

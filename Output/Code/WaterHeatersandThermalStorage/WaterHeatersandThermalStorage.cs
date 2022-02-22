@@ -69,7 +69,6 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
     [Description("Water heater with well-mixed, single-node water tank. May be used to model a tank" +
         "less water heater (small tank volume), a hot water storage tank (zero heater cap" +
         "acity), or a heat pump water heater (see WaterHeater:HeatPump:PumpedCondenser.)")]
-    [JsonObject("WaterHeater:Mixed")]
     public class WaterHeater_Mixed : BHoMObject, IEnergyPlusClass
     {
         
@@ -91,6 +90,7 @@ public System.Nullable<float> MaximumTemperatureLimit { get; set; } = null;
         
 
 [JsonProperty("heater_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Mixed_HeaterControlType HeaterControlType { get; set; } = (WaterHeater_Mixed_HeaterControlType)Enum.Parse(typeof(WaterHeater_Mixed_HeaterControlType), "Cycle");
         
 
@@ -114,6 +114,7 @@ public System.Nullable<float> HeaterIgnitionDelay { get; set; } = (System.Nullab
         
 
 [JsonProperty("heater_fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Mixed_HeaterFuelType HeaterFuelType { get; set; } = (WaterHeater_Mixed_HeaterFuelType)Enum.Parse(typeof(WaterHeater_Mixed_HeaterFuelType), "Coal");
         
 
@@ -130,6 +131,7 @@ public System.Nullable<float> OffCycleParasiticFuelConsumptionRate { get; set; }
         
 
 [JsonProperty("off_cycle_parasitic_fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Mixed_OffCycleParasiticFuelType OffCycleParasiticFuelType { get; set; } = (WaterHeater_Mixed_OffCycleParasiticFuelType)Enum.Parse(typeof(WaterHeater_Mixed_OffCycleParasiticFuelType), "Coal");
         
 
@@ -142,6 +144,7 @@ public System.Nullable<float> OnCycleParasiticFuelConsumptionRate { get; set; } 
         
 
 [JsonProperty("on_cycle_parasitic_fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Mixed_OnCycleParasiticFuelType OnCycleParasiticFuelType { get; set; } = (WaterHeater_Mixed_OnCycleParasiticFuelType)Enum.Parse(typeof(WaterHeater_Mixed_OnCycleParasiticFuelType), "Coal");
         
 
@@ -150,6 +153,7 @@ public System.Nullable<float> OnCycleParasiticHeatFractionToTank { get; set; } =
         
 
 [JsonProperty("ambient_temperature_indicator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Mixed_AmbientTemperatureIndicator AmbientTemperatureIndicator { get; set; } = (WaterHeater_Mixed_AmbientTemperatureIndicator)Enum.Parse(typeof(WaterHeater_Mixed_AmbientTemperatureIndicator), "Outdoors");
         
 
@@ -238,6 +242,7 @@ public System.Nullable<float> IndirectWaterHeatingRecoveryTime { get; set; } = (
 
 [Description(@"StorageTank mode always requests flow unless tank is at its Maximum Temperature Limit IndirectHeatPrimarySetpoint mode requests flow whenever primary setpoint calls for heat IndirectHeatAlternateSetpoint mode requests flow whenever alternate indirect setpoint calls for heat")]
 [JsonProperty("source_side_flow_control_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Mixed_SourceSideFlowControlMode SourceSideFlowControlMode { get; set; } = (WaterHeater_Mixed_SourceSideFlowControlMode)Enum.Parse(typeof(WaterHeater_Mixed_SourceSideFlowControlMode), "IndirectHeatPrimarySetpoint");
         
 
@@ -255,169 +260,168 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum WaterHeater_Mixed_HeaterControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Cycle")]
+        [System.Runtime.Serialization.EnumMember(Value="Cycle")]
         Cycle = 1,
         
-        [JsonProperty("Modulate")]
+        [System.Runtime.Serialization.EnumMember(Value="Modulate")]
         Modulate = 2,
     }
     
     public enum WaterHeater_Mixed_HeaterFuelType
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 2,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 3,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 4,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 5,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 6,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 7,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 8,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 9,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 10,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 11,
     }
     
     public enum WaterHeater_Mixed_OffCycleParasiticFuelType
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 2,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 3,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 4,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 5,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 6,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 7,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 8,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 9,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 10,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 11,
     }
     
     public enum WaterHeater_Mixed_OnCycleParasiticFuelType
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 2,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 3,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 4,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 5,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 6,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 7,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 8,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 9,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 10,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 11,
     }
     
     public enum WaterHeater_Mixed_AmbientTemperatureIndicator
     {
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 0,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 1,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 2,
     }
     
     public enum WaterHeater_Mixed_SourceSideFlowControlMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("IndirectHeatAlternateSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="IndirectHeatAlternateSetpoint")]
         IndirectHeatAlternateSetpoint = 1,
         
-        [JsonProperty("IndirectHeatPrimarySetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="IndirectHeatPrimarySetpoint")]
         IndirectHeatPrimarySetpoint = 2,
         
-        [JsonProperty("StorageTank")]
+        [System.Runtime.Serialization.EnumMember(Value="StorageTank")]
         StorageTank = 3,
     }
     
     [Description("Water heater with stratified, multi-node water tank. May be used to model a tankl" +
         "ess water heater (small tank volume), a hot water storage tank (zero heater capa" +
         "city), or a heat pump water heater (see WaterHeater:HeatPump:*.)")]
-    [JsonObject("WaterHeater:Stratified")]
     public class WaterHeater_Stratified : BHoMObject, IEnergyPlusClass
     {
         
@@ -438,6 +442,7 @@ public string TankHeight { get; set; } = "";
         
 
 [JsonProperty("tank_shape")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Stratified_TankShape TankShape { get; set; } = (WaterHeater_Stratified_TankShape)Enum.Parse(typeof(WaterHeater_Stratified_TankShape), "VerticalCylinder");
         
 
@@ -451,6 +456,7 @@ public System.Nullable<float> MaximumTemperatureLimit { get; set; } = null;
         
 
 [JsonProperty("heater_priority_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Stratified_HeaterPriorityControl HeaterPriorityControl { get; set; } = (WaterHeater_Stratified_HeaterPriorityControl)Enum.Parse(typeof(WaterHeater_Stratified_HeaterPriorityControl), "MasterSlave");
         
 
@@ -487,6 +493,7 @@ public System.Nullable<float> Heater2Height { get; set; } = null;
         
 
 [JsonProperty("heater_fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Stratified_HeaterFuelType HeaterFuelType { get; set; } = (WaterHeater_Stratified_HeaterFuelType)Enum.Parse(typeof(WaterHeater_Stratified_HeaterFuelType), "Coal");
         
 
@@ -499,6 +506,7 @@ public System.Nullable<float> OffCycleParasiticFuelConsumptionRate { get; set; }
         
 
 [JsonProperty("off_cycle_parasitic_fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Stratified_OffCycleParasiticFuelType OffCycleParasiticFuelType { get; set; } = (WaterHeater_Stratified_OffCycleParasiticFuelType)Enum.Parse(typeof(WaterHeater_Stratified_OffCycleParasiticFuelType), "Coal");
         
 
@@ -515,6 +523,7 @@ public System.Nullable<float> OnCycleParasiticFuelConsumptionRate { get; set; } 
         
 
 [JsonProperty("on_cycle_parasitic_fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Stratified_OnCycleParasiticFuelType OnCycleParasiticFuelType { get; set; } = (WaterHeater_Stratified_OnCycleParasiticFuelType)Enum.Parse(typeof(WaterHeater_Stratified_OnCycleParasiticFuelType), "Coal");
         
 
@@ -527,6 +536,7 @@ public System.Nullable<float> OnCycleParasiticHeight { get; set; } = (System.Nul
         
 
 [JsonProperty("ambient_temperature_indicator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Stratified_AmbientTemperatureIndicator AmbientTemperatureIndicator { get; set; } = (WaterHeater_Stratified_AmbientTemperatureIndicator)Enum.Parse(typeof(WaterHeater_Stratified_AmbientTemperatureIndicator), "Outdoors");
         
 
@@ -623,6 +633,7 @@ public System.Nullable<float> SourceSideOutletHeight { get; set; } = (System.Nul
         
 
 [JsonProperty("inlet_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Stratified_InletMode InletMode { get; set; } = (WaterHeater_Stratified_InletMode)Enum.Parse(typeof(WaterHeater_Stratified_InletMode), "Fixed");
         
 
@@ -698,6 +709,7 @@ public System.Nullable<float> Node12AdditionalLossCoefficient { get; set; } = (S
 
 [Description(@"StorageTank mode always requests flow unless tank is at its Maximum Temperature Limit IndirectHeatPrimarySetpoint mode requests flow whenever primary setpoint for heater 1 calls for heat IndirectHeatAlternateSetpoint mode requests flow whenever alternate indirect setpoint calls for heat")]
 [JsonProperty("source_side_flow_control_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Stratified_SourceSideFlowControlMode SourceSideFlowControlMode { get; set; } = (WaterHeater_Stratified_SourceSideFlowControlMode)Enum.Parse(typeof(WaterHeater_Stratified_SourceSideFlowControlMode), "IndirectHeatPrimarySetpoint");
         
 
@@ -709,198 +721,197 @@ public string IndirectAlternateSetpointTemperatureScheduleName { get; set; } = "
     public enum WaterHeater_Stratified_TankShape
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HorizontalCylinder")]
+        [System.Runtime.Serialization.EnumMember(Value="HorizontalCylinder")]
         HorizontalCylinder = 1,
         
-        [JsonProperty("Other")]
+        [System.Runtime.Serialization.EnumMember(Value="Other")]
         Other = 2,
         
-        [JsonProperty("VerticalCylinder")]
+        [System.Runtime.Serialization.EnumMember(Value="VerticalCylinder")]
         VerticalCylinder = 3,
     }
     
     public enum WaterHeater_Stratified_HeaterPriorityControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MasterSlave")]
+        [System.Runtime.Serialization.EnumMember(Value="MasterSlave")]
         MasterSlave = 1,
         
-        [JsonProperty("Simultaneous")]
+        [System.Runtime.Serialization.EnumMember(Value="Simultaneous")]
         Simultaneous = 2,
     }
     
     public enum WaterHeater_Stratified_HeaterFuelType
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 2,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 3,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 4,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 5,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 6,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 7,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 8,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 9,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 10,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 11,
     }
     
     public enum WaterHeater_Stratified_OffCycleParasiticFuelType
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 2,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 3,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 4,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 5,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 6,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 7,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 8,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 9,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 10,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 11,
     }
     
     public enum WaterHeater_Stratified_OnCycleParasiticFuelType
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 2,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 3,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 4,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 5,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 6,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 7,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 8,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 9,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 10,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 11,
     }
     
     public enum WaterHeater_Stratified_AmbientTemperatureIndicator
     {
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 0,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 1,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 2,
     }
     
     public enum WaterHeater_Stratified_InletMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 1,
         
-        [JsonProperty("Seeking")]
+        [System.Runtime.Serialization.EnumMember(Value="Seeking")]
         Seeking = 2,
     }
     
     public enum WaterHeater_Stratified_SourceSideFlowControlMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("IndirectHeatAlternateSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="IndirectHeatAlternateSetpoint")]
         IndirectHeatAlternateSetpoint = 1,
         
-        [JsonProperty("IndirectHeatPrimarySetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="IndirectHeatPrimarySetpoint")]
         IndirectHeatPrimarySetpoint = 2,
         
-        [JsonProperty("StorageTank")]
+        [System.Runtime.Serialization.EnumMember(Value="StorageTank")]
         StorageTank = 3,
     }
     
     [Description("This input object is used with WaterHeater:Mixed or with WaterHeater:Stratified t" +
         "o autosize tank volume and heater capacity This object is not needed if water he" +
         "aters are not autosized.")]
-    [JsonObject("WaterHeater:Sizing")]
     public class WaterHeater_Sizing : BHoMObject, IEnergyPlusClass
     {
         
@@ -910,6 +921,7 @@ public string WaterheaterName { get; set; } = "";
         
 
 [JsonProperty("design_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_Sizing_DesignMode DesignMode { get; set; } = (WaterHeater_Sizing_DesignMode)Enum.Parse(typeof(WaterHeater_Sizing_DesignMode), "PeakDraw");
         
 
@@ -987,27 +999,26 @@ public System.Nullable<float> HeightAspectRatio { get; set; } = null;
     public enum WaterHeater_Sizing_DesignMode
     {
         
-        [JsonProperty("PeakDraw")]
+        [System.Runtime.Serialization.EnumMember(Value="PeakDraw")]
         PeakDraw = 0,
         
-        [JsonProperty("PerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="PerFloorArea")]
         PerFloorArea = 1,
         
-        [JsonProperty("PerPerson")]
+        [System.Runtime.Serialization.EnumMember(Value="PerPerson")]
         PerPerson = 2,
         
-        [JsonProperty("PerSolarCollectorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="PerSolarCollectorArea")]
         PerSolarCollectorArea = 3,
         
-        [JsonProperty("PerUnit")]
+        [System.Runtime.Serialization.EnumMember(Value="PerUnit")]
         PerUnit = 4,
         
-        [JsonProperty("ResidentialHUD-FHAMinimum")]
+        [System.Runtime.Serialization.EnumMember(Value="ResidentialHUD-FHAMinimum")]
         ResidentialHUDFHAMinimum = 5,
     }
     
     [Description(@"This object models an air-source heat pump for water heating where the water is pumped out of the tank, through a heating coil and returned to the tank. For wrapped condenser HPWHs, see WaterHeater:HeatPump:WrappedCondenser. WaterHeater:HeatPump:PumpedCondenser is a compound object that references other component objects - Coil:WaterHeating:AirToWaterHeatPump:*, Fan:OnOff, WaterHeater:Mixed or WaterHeater:Stratified")]
-    [JsonObject("WaterHeater:HeatPump:PumpedCondenser")]
     public class WaterHeater_HeatPump_PumpedCondenser : BHoMObject, IEnergyPlusClass
     {
         
@@ -1060,6 +1071,7 @@ public string EvaporatorAirFlowRate { get; set; } = "";
 [Description("Defines the configuration of the airflow path through the air coil and fan sectio" +
     "n.")]
 [JsonProperty("inlet_air_configuration")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_PumpedCondenser_InletAirConfiguration InletAirConfiguration { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_InletAirConfiguration)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_InletAirConfiguration), "OutdoorAirOnly");
         
 
@@ -1109,6 +1121,7 @@ public string InletAirZoneName { get; set; } = "";
 
 [Description("Specify the type of water heater tank used by this heat pump water heater.")]
 [JsonProperty("tank_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_PumpedCondenser_TankObjectType TankObjectType { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_TankObjectType)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_TankObjectType), "Empty");
         
 
@@ -1135,6 +1148,7 @@ public string TankUseSideOutletNodeName { get; set; } = "";
     "hoice is Coil:WaterHeating:AirToWaterHeatPump:Pumped and Coil:WaterHeating:AirTo" +
     "WaterHeatPump:VariableSpeed, and CoilSystem:IntegratedHeatPump:AirSource")]
 [JsonProperty("dx_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_PumpedCondenser_DxCoilObjectType DxCoilObjectType { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_DxCoilObjectType)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_DxCoilObjectType), "Empty");
         
 
@@ -1160,6 +1174,7 @@ public System.Nullable<float> MaximumInletAirTemperatureForCompressorOperation {
     "rAir. If Schedule is selected, then you must provide a Compressor Ambient Temper" +
     "ature Schedule Name below.")]
 [JsonProperty("compressor_location")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_PumpedCondenser_CompressorLocation CompressorLocation { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_CompressorLocation)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_CompressorLocation), "Outdoors");
         
 
@@ -1171,6 +1186,7 @@ public string CompressorAmbientTemperatureScheduleName { get; set; } = "";
 [Description("Specify the type of fan used by this heat pump water heater. The only valid choic" +
     "es are Fan:SystemModel or Fan:OnOff.")]
 [JsonProperty("fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_PumpedCondenser_FanObjectType FanObjectType { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_FanObjectType)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_FanObjectType), "Empty");
         
 
@@ -1183,6 +1199,7 @@ public string FanName { get; set; } = "";
 [Description("BlowThrough means the fan is located before the air coil (upstream). DrawThrough " +
     "means the fan is located after the air coil (downstream).")]
 [JsonProperty("fan_placement")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_PumpedCondenser_FanPlacement FanPlacement { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_FanPlacement)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_FanPlacement), "DrawThrough");
         
 
@@ -1203,6 +1220,7 @@ public System.Nullable<float> OffCycleParasiticElectricLoad { get; set; } = (Sys
     "lance. If Zone is selected, Inlet Air Configuration must be ZoneAirOnly or ZoneA" +
     "ndOutdoorAir.")]
 [JsonProperty("parasitic_heat_rejection_location")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_PumpedCondenser_ParasiticHeatRejectionLocation ParasiticHeatRejectionLocation { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_ParasiticHeatRejectionLocation)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_ParasiticHeatRejectionLocation), "Outdoors");
         
 
@@ -1225,6 +1243,7 @@ public string InletAirMixerScheduleName { get; set; } = "";
 
 [Description(@"MutuallyExclusive means that once the tank heating element is active the heat pump is shut down until setpoint is reached. Simultaneous (default) means that both the tank heating element and heat pump are used at the same time recover the tank temperature.")]
 [JsonProperty("tank_element_control_logic")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_PumpedCondenser_TankElementControlLogic TankElementControlLogic { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_TankElementControlLogic)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_TankElementControlLogic), "Simultaneous");
         
 
@@ -1249,115 +1268,114 @@ public System.Nullable<float> ControlSensor2HeightInStratifiedTank { get; set; }
     public enum WaterHeater_HeatPump_PumpedCondenser_InletAirConfiguration
     {
         
-        [JsonProperty("OutdoorAirOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAirOnly")]
         OutdoorAirOnly = 0,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 1,
         
-        [JsonProperty("ZoneAirOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAirOnly")]
         ZoneAirOnly = 2,
         
-        [JsonProperty("ZoneAndOutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAndOutdoorAir")]
         ZoneAndOutdoorAir = 3,
     }
     
     public enum WaterHeater_HeatPump_PumpedCondenser_TankObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("WaterHeater:Mixed")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterHeater:Mixed")]
         WaterHeaterMixed = 1,
         
-        [JsonProperty("WaterHeater:Stratified")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterHeater:Stratified")]
         WaterHeaterStratified = 2,
     }
     
     public enum WaterHeater_HeatPump_PumpedCondenser_DxCoilObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coil:WaterHeating:AirToWaterHeatPump:Pumped")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:WaterHeating:AirToWaterHeatPump:Pumped")]
         CoilWaterHeatingAirToWaterHeatPumpPumped = 1,
         
-        [JsonProperty("Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed")]
         CoilWaterHeatingAirToWaterHeatPumpVariableSpeed = 2,
         
-        [JsonProperty("CoilSystem:IntegratedHeatPump:AirSource")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:IntegratedHeatPump:AirSource")]
         CoilSystemIntegratedHeatPumpAirSource = 3,
     }
     
     public enum WaterHeater_HeatPump_PumpedCondenser_CompressorLocation
     {
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 0,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 1,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 2,
     }
     
     public enum WaterHeater_HeatPump_PumpedCondenser_FanObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 1,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 2,
     }
     
     public enum WaterHeater_HeatPump_PumpedCondenser_FanPlacement
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlowThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="BlowThrough")]
         BlowThrough = 1,
         
-        [JsonProperty("DrawThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="DrawThrough")]
         DrawThrough = 2,
     }
     
     public enum WaterHeater_HeatPump_PumpedCondenser_ParasiticHeatRejectionLocation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 1,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 2,
     }
     
     public enum WaterHeater_HeatPump_PumpedCondenser_TankElementControlLogic
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MutuallyExclusive")]
+        [System.Runtime.Serialization.EnumMember(Value="MutuallyExclusive")]
         MutuallyExclusive = 1,
         
-        [JsonProperty("Simultaneous")]
+        [System.Runtime.Serialization.EnumMember(Value="Simultaneous")]
         Simultaneous = 2,
     }
     
     [Description(@"This object models an air-source heat pump for water heating where the heating coil is wrapped around the tank, which is typical of residential HPWHs. For pumped condenser HPWHs, see WaterHeater:HeatPump:PumpedCondenser. WaterHeater:HeatPump:WrappedCondenser is a compound object that references other component objects - Coil:WaterHeating:AirToWaterHeatPump:Pumped, Fan:OnOff, WaterHeater:Mixed")]
-    [JsonObject("WaterHeater:HeatPump:WrappedCondenser")]
     public class WaterHeater_HeatPump_WrappedCondenser : BHoMObject, IEnergyPlusClass
     {
         
@@ -1399,6 +1417,7 @@ public string EvaporatorAirFlowRate { get; set; } = "";
 [Description("Defines the configuration of the airflow path through the air coil and fan sectio" +
     "n.")]
 [JsonProperty("inlet_air_configuration")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_WrappedCondenser_InletAirConfiguration InletAirConfiguration { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_InletAirConfiguration)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_InletAirConfiguration), "OutdoorAirOnly");
         
 
@@ -1448,6 +1467,7 @@ public string InletAirZoneName { get; set; } = "";
 
 [Description("Specify the type of water heater tank used by this heat pump water heater.")]
 [JsonProperty("tank_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_WrappedCondenser_TankObjectType TankObjectType { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_TankObjectType)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_TankObjectType), "Empty");
         
 
@@ -1474,6 +1494,7 @@ public string TankUseSideOutletNodeName { get; set; } = "";
 [Description("Specify the type of DX coil used by this heat pump water heater. The only valid c" +
     "hoice is Coil:WaterHeating:AirToWaterHeatPump:Wrapped")]
 [JsonProperty("dx_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_WrappedCondenser_DxCoilObjectType DxCoilObjectType { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_DxCoilObjectType)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_DxCoilObjectType), "Empty");
         
 
@@ -1499,6 +1520,7 @@ public System.Nullable<float> MaximumInletAirTemperatureForCompressorOperation {
     "rAir. If Schedule is selected, then you must provide a Compressor Ambient Temper" +
     "ature Schedule Name below.")]
 [JsonProperty("compressor_location")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_WrappedCondenser_CompressorLocation CompressorLocation { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_CompressorLocation)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_CompressorLocation), "Outdoors");
         
 
@@ -1510,6 +1532,7 @@ public string CompressorAmbientTemperatureScheduleName { get; set; } = "";
 [Description("Specify the type of fan used by this heat pump water heater. The only valid choic" +
     "es are Fan:SystemModel or Fan:OnOff.")]
 [JsonProperty("fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_WrappedCondenser_FanObjectType FanObjectType { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_FanObjectType)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_FanObjectType), "Empty");
         
 
@@ -1522,6 +1545,7 @@ public string FanName { get; set; } = "";
 [Description("BlowThrough means the fan is located before the air coil (upstream). DrawThrough " +
     "means the fan is located after the air coil (downstream).")]
 [JsonProperty("fan_placement")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_WrappedCondenser_FanPlacement FanPlacement { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_FanPlacement)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_FanPlacement), "DrawThrough");
         
 
@@ -1542,6 +1566,7 @@ public System.Nullable<float> OffCycleParasiticElectricLoad { get; set; } = (Sys
     "lance. If Zone is selected, Inlet Air Configuration must be ZoneAirOnly or ZoneA" +
     "ndOutdoorAir.")]
 [JsonProperty("parasitic_heat_rejection_location")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_WrappedCondenser_ParasiticHeatRejectionLocation ParasiticHeatRejectionLocation { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_ParasiticHeatRejectionLocation)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_ParasiticHeatRejectionLocation), "Outdoors");
         
 
@@ -1564,6 +1589,7 @@ public string InletAirMixerScheduleName { get; set; } = "";
 
 [Description(@"MutuallyExclusive means that once the tank heating element is active the heat pump is shut down until setpoint is reached. Simultaneous (default) means that both the tank heating element and heat pump are used at the same time recover the tank temperature.")]
 [JsonProperty("tank_element_control_logic")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterHeater_HeatPump_WrappedCondenser_TankElementControlLogic TankElementControlLogic { get; set; } = (WaterHeater_HeatPump_WrappedCondenser_TankElementControlLogic)Enum.Parse(typeof(WaterHeater_HeatPump_WrappedCondenser_TankElementControlLogic), "Simultaneous");
         
 
@@ -1588,106 +1614,105 @@ public System.Nullable<float> ControlSensor2HeightInStratifiedTank { get; set; }
     public enum WaterHeater_HeatPump_WrappedCondenser_InletAirConfiguration
     {
         
-        [JsonProperty("OutdoorAirOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAirOnly")]
         OutdoorAirOnly = 0,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 1,
         
-        [JsonProperty("ZoneAirOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAirOnly")]
         ZoneAirOnly = 2,
         
-        [JsonProperty("ZoneAndOutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAndOutdoorAir")]
         ZoneAndOutdoorAir = 3,
     }
     
     public enum WaterHeater_HeatPump_WrappedCondenser_TankObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("WaterHeater:Stratified")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterHeater:Stratified")]
         WaterHeaterStratified = 1,
     }
     
     public enum WaterHeater_HeatPump_WrappedCondenser_DxCoilObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coil:WaterHeating:AirToWaterHeatPump:Wrapped")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:WaterHeating:AirToWaterHeatPump:Wrapped")]
         CoilWaterHeatingAirToWaterHeatPumpWrapped = 1,
     }
     
     public enum WaterHeater_HeatPump_WrappedCondenser_CompressorLocation
     {
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 0,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 1,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 2,
     }
     
     public enum WaterHeater_HeatPump_WrappedCondenser_FanObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 1,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 2,
     }
     
     public enum WaterHeater_HeatPump_WrappedCondenser_FanPlacement
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlowThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="BlowThrough")]
         BlowThrough = 1,
         
-        [JsonProperty("DrawThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="DrawThrough")]
         DrawThrough = 2,
     }
     
     public enum WaterHeater_HeatPump_WrappedCondenser_ParasiticHeatRejectionLocation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 1,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 2,
     }
     
     public enum WaterHeater_HeatPump_WrappedCondenser_TankElementControlLogic
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MutuallyExclusive")]
+        [System.Runtime.Serialization.EnumMember(Value="MutuallyExclusive")]
         MutuallyExclusive = 1,
         
-        [JsonProperty("Simultaneous")]
+        [System.Runtime.Serialization.EnumMember(Value="Simultaneous")]
         Simultaneous = 2,
     }
     
     [Description(@"This ice storage model is a simplified model It requires a setpoint placed on the Chilled Water Side Outlet Node It should be placed in the chilled water supply side outlet branch followed by a pipe. Use the PlantEquipmentOperation:ComponentSetpoint plant operation scheme.")]
-    [JsonObject("ThermalStorage:Ice:Simple")]
     public class ThermalStorage_Ice_Simple : BHoMObject, IEnergyPlusClass
     {
         
@@ -1695,6 +1720,7 @@ public System.Nullable<float> ControlSensor2HeightInStratifiedTank { get; set; }
 [Description("IceOnCoilInternal = Ice-on-Coil, internal melt IceOnCoilExternal = Ice-on-Coil, e" +
     "xternal melt")]
 [JsonProperty("ice_storage_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ThermalStorage_Ice_Simple_IceStorageType IceStorageType { get; set; } = (ThermalStorage_Ice_Simple_IceStorageType)Enum.Parse(typeof(ThermalStorage_Ice_Simple_IceStorageType), "IceOnCoilExternal");
         
 
@@ -1713,10 +1739,10 @@ public string OutletNodeName { get; set; } = "";
     public enum ThermalStorage_Ice_Simple_IceStorageType
     {
         
-        [JsonProperty("IceOnCoilExternal")]
+        [System.Runtime.Serialization.EnumMember(Value="IceOnCoilExternal")]
         IceOnCoilExternal = 0,
         
-        [JsonProperty("IceOnCoilInternal")]
+        [System.Runtime.Serialization.EnumMember(Value="IceOnCoilInternal")]
         IceOnCoilInternal = 1,
     }
     
@@ -1724,7 +1750,6 @@ public string OutletNodeName { get; set; } = "";
         "smaller containers filled with water that are placed in a larger tank or series " +
         "of tanks. The model uses polynomial equations to describe the system performance" +
         ".")]
-    [JsonObject("ThermalStorage:Ice:Detailed")]
     public class ThermalStorage_Ice_Detailed : BHoMObject, IEnergyPlusClass
     {
         
@@ -1749,6 +1774,7 @@ public string OutletNodeName { get; set; } = "";
         
 
 [JsonProperty("discharging_curve_variable_specifications")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ThermalStorage_Ice_Detailed_DischargingCurveVariableSpecifications DischargingCurveVariableSpecifications { get; set; } = (ThermalStorage_Ice_Detailed_DischargingCurveVariableSpecifications)Enum.Parse(typeof(ThermalStorage_Ice_Detailed_DischargingCurveVariableSpecifications), "FractionChargedLMTD");
         
 
@@ -1757,6 +1783,7 @@ public string DischargingCurveName { get; set; } = "";
         
 
 [JsonProperty("charging_curve_variable_specifications")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ThermalStorage_Ice_Detailed_ChargingCurveVariableSpecifications ChargingCurveVariableSpecifications { get; set; } = (ThermalStorage_Ice_Detailed_ChargingCurveVariableSpecifications)Enum.Parse(typeof(ThermalStorage_Ice_Detailed_ChargingCurveVariableSpecifications), "FractionChargedLMTD");
         
 
@@ -1791,58 +1818,58 @@ public System.Nullable<float> FreezingTemperatureOfStorageMedium { get; set; } =
 [Description("This field determines whether the system uses internal or external melt during di" +
     "scharging. This will then have an impact on charging performance.")]
 [JsonProperty("thaw_process_indicator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ThermalStorage_Ice_Detailed_ThawProcessIndicator ThawProcessIndicator { get; set; } = (ThermalStorage_Ice_Detailed_ThawProcessIndicator)Enum.Parse(typeof(ThermalStorage_Ice_Detailed_ThawProcessIndicator), "OutsideMelt");
     }
     
     public enum ThermalStorage_Ice_Detailed_DischargingCurveVariableSpecifications
     {
         
-        [JsonProperty("FractionChargedLMTD")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionChargedLMTD")]
         FractionChargedLMTD = 0,
         
-        [JsonProperty("FractionDischargedLMTD")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionDischargedLMTD")]
         FractionDischargedLMTD = 1,
         
-        [JsonProperty("LMTDFractionCharged")]
+        [System.Runtime.Serialization.EnumMember(Value="LMTDFractionCharged")]
         LMTDFractionCharged = 2,
         
-        [JsonProperty("LMTDMassFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="LMTDMassFlow")]
         LMTDMassFlow = 3,
     }
     
     public enum ThermalStorage_Ice_Detailed_ChargingCurveVariableSpecifications
     {
         
-        [JsonProperty("FractionChargedLMTD")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionChargedLMTD")]
         FractionChargedLMTD = 0,
         
-        [JsonProperty("FractionDischargedLMTD")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionDischargedLMTD")]
         FractionDischargedLMTD = 1,
         
-        [JsonProperty("LMTDFractionCharged")]
+        [System.Runtime.Serialization.EnumMember(Value="LMTDFractionCharged")]
         LMTDFractionCharged = 2,
         
-        [JsonProperty("LMTDMassFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="LMTDMassFlow")]
         LMTDMassFlow = 3,
     }
     
     public enum ThermalStorage_Ice_Detailed_ThawProcessIndicator
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("InsideMelt")]
+        [System.Runtime.Serialization.EnumMember(Value="InsideMelt")]
         InsideMelt = 1,
         
-        [JsonProperty("OutsideMelt")]
+        [System.Runtime.Serialization.EnumMember(Value="OutsideMelt")]
         OutsideMelt = 2,
     }
     
     [Description("Chilled water storage with a well-mixed, single-node tank. The chilled water is \"" +
         "used\" by drawing from the \"Use Side\" of the water tank. The tank is indirectly c" +
         "harged by circulating cold water through the \"Source Side\" of the water tank.")]
-    [JsonObject("ThermalStorage:ChilledWater:Mixed")]
     public class ThermalStorage_ChilledWater_Mixed : BHoMObject, IEnergyPlusClass
     {
         
@@ -1868,6 +1895,7 @@ public System.Nullable<float> NominalCoolingCapacity { get; set; } = null;
         
 
 [JsonProperty("ambient_temperature_indicator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ThermalStorage_ChilledWater_Mixed_AmbientTemperatureIndicator AmbientTemperatureIndicator { get; set; } = (ThermalStorage_ChilledWater_Mixed_AmbientTemperatureIndicator)Enum.Parse(typeof(ThermalStorage_ChilledWater_Mixed_AmbientTemperatureIndicator), "Outdoors");
         
 
@@ -1941,20 +1969,19 @@ public System.Nullable<float> TankRecoveryTime { get; set; } = (System.Nullable<
     public enum ThermalStorage_ChilledWater_Mixed_AmbientTemperatureIndicator
     {
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 0,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 1,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 2,
     }
     
     [Description("Chilled water storage with a stratified, multi-node tank. The chilled water is \"u" +
         "sed\" by drawing from the \"Use Side\" of the water tank. The tank is indirectly ch" +
         "arged by circulating cold water through the \"Source Side\" of the water tank.")]
-    [JsonObject("ThermalStorage:ChilledWater:Stratified")]
     public class ThermalStorage_ChilledWater_Stratified : BHoMObject, IEnergyPlusClass
     {
         
@@ -1969,6 +1996,7 @@ public System.Nullable<float> TankHeight { get; set; } = null;
         
 
 [JsonProperty("tank_shape")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ThermalStorage_ChilledWater_Stratified_TankShape TankShape { get; set; } = (ThermalStorage_ChilledWater_Stratified_TankShape)Enum.Parse(typeof(ThermalStorage_ChilledWater_Stratified_TankShape), "VerticalCylinder");
         
 
@@ -1998,6 +2026,7 @@ public System.Nullable<float> NominalCoolingCapacity { get; set; } = null;
         
 
 [JsonProperty("ambient_temperature_indicator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ThermalStorage_ChilledWater_Stratified_AmbientTemperatureIndicator AmbientTemperatureIndicator { get; set; } = (ThermalStorage_ChilledWater_Stratified_AmbientTemperatureIndicator)Enum.Parse(typeof(ThermalStorage_ChilledWater_Stratified_AmbientTemperatureIndicator), "Outdoors");
         
 
@@ -2091,6 +2120,7 @@ public System.Nullable<float> TankRecoveryTime { get; set; } = (System.Nullable<
         
 
 [JsonProperty("inlet_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ThermalStorage_ChilledWater_Stratified_InletMode InletMode { get; set; } = (ThermalStorage_ChilledWater_Stratified_InletMode)Enum.Parse(typeof(ThermalStorage_ChilledWater_Stratified_InletMode), "Fixed");
         
 
@@ -2145,42 +2175,42 @@ public System.Nullable<float> Node10AdditionalLossCoefficient { get; set; } = (S
     public enum ThermalStorage_ChilledWater_Stratified_TankShape
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HorizontalCylinder")]
+        [System.Runtime.Serialization.EnumMember(Value="HorizontalCylinder")]
         HorizontalCylinder = 1,
         
-        [JsonProperty("Other")]
+        [System.Runtime.Serialization.EnumMember(Value="Other")]
         Other = 2,
         
-        [JsonProperty("VerticalCylinder")]
+        [System.Runtime.Serialization.EnumMember(Value="VerticalCylinder")]
         VerticalCylinder = 3,
     }
     
     public enum ThermalStorage_ChilledWater_Stratified_AmbientTemperatureIndicator
     {
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 0,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 1,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 2,
     }
     
     public enum ThermalStorage_ChilledWater_Stratified_InletMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 1,
         
-        [JsonProperty("Seeking")]
+        [System.Runtime.Serialization.EnumMember(Value="Seeking")]
         Seeking = 2,
     }
 }

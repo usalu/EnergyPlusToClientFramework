@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "s associated controls. This control object supports two different types of DX he" +
                  "ating coils and may be placed directly in an air loop branch or outdoor air equi" +
                  "pment list.")]
-    [JsonObject("CoilSystem:Heating:DX")]
     public class CoilSystem_Heating_DX : BHoMObject, IEnergyPlusClass
     {
         
@@ -21,6 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("heating_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CoilSystem_Heating_DX_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (CoilSystem_Heating_DX_HeatingCoilObjectType)Enum.Parse(typeof(CoilSystem_Heating_DX_HeatingCoilObjectType), "CoilHeatingDXSingleSpeed");
         
 

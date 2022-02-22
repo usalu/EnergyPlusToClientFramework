@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     [Description("Sets internal gains and contaminant rates for gas equipment in the zone. If you u" +
                  "se a ZoneList in the Zone name field then this definition applies to all those z" +
                  "ones.")]
-    [JsonObject("GasEquipment")]
     public class GasEquipment : BHoMObject, IEnergyPlusClass
     {
         
@@ -26,6 +25,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 
         [Description(@"The entered calculation method is used to create the maximum amount of gas equipment for this set of attributes Choices: EquipmentLevel => Design Level -- simply enter power input of equipment Watts/Area or Power/Area => Power per Zone Floor Area -- enter the number to apply. Value * Floor Area = Equipment Level Watts/Person or Power/Person => Power per Person -- enter the number to apply. Value * Occupants = Equipment Level")]
         [JsonProperty("design_level_calculation_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public GasEquipment_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (GasEquipment_DesignLevelCalculationMethod)Enum.Parse(typeof(GasEquipment_DesignLevelCalculationMethod), "EquipmentLevel");
         
 

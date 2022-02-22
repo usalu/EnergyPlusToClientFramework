@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description("An EIR formulated water to water heat pump model, cooling operation.")]
-    [JsonObject("HeatPump:PlantLoop:EIR:Cooling")]
     public class HeatPump_PlantLoop_EIR_Cooling : BHoMObject, IEnergyPlusClass
     {
         
@@ -21,6 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("condenser_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HeatPump_PlantLoop_EIR_Cooling_CondenserType CondenserType { get; set; } = (HeatPump_PlantLoop_EIR_Cooling_CondenserType)Enum.Parse(typeof(HeatPump_PlantLoop_EIR_Cooling_CondenserType), "WaterSource");
         
 

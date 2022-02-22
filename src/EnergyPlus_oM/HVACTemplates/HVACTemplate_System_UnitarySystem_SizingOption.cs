@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_UnitarySystem_SizingOption
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coincident")]
+        [System.Runtime.Serialization.EnumMember(Value="Coincident")]
         Coincident = 1,
         
-        [JsonProperty("NonCoincident")]
+        [System.Runtime.Serialization.EnumMember(Value="NonCoincident")]
         NonCoincident = 2,
     }
 }

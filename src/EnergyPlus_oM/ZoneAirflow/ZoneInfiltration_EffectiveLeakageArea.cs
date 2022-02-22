@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
                  "tack and wind coefficients, and is a function of temperature difference and wind" +
                  " speed: Infiltration=FSchedule * (AL /1000) SQRT(Cs*|(Tzone-Todb)| +  Cw*WindSpd" +
                  "**2 )")]
-    [JsonObject("ZoneInfiltration:EffectiveLeakageArea")]
     public class ZoneInfiltration_EffectiveLeakageArea : BHoMObject, IEnergyPlusClass
     {
         

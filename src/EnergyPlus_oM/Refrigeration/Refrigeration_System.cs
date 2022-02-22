@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
     [Description("Simulates the performance of a supermarket refrigeration system when used along w" +
                  "ith other objects to define the refrigeration load(s), the compressor(s), and th" +
                  "e condenser.")]
-    [JsonObject("Refrigeration:System")]
     public class Refrigeration_System : BHoMObject, IEnergyPlusClass
     {
         
@@ -43,6 +42,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         
 
         [JsonProperty("suction_temperature_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Refrigeration_System_SuctionTemperatureControlType SuctionTemperatureControlType { get; set; } = (Refrigeration_System_SuctionTemperatureControlType)Enum.Parse(typeof(Refrigeration_System_SuctionTemperatureControlType), "ConstantSuctionTemperature");
         
 
@@ -80,6 +80,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         
 
         [JsonProperty("intercooler_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Refrigeration_System_IntercoolerType IntercoolerType { get; set; } = (Refrigeration_System_IntercoolerType)Enum.Parse(typeof(Refrigeration_System_IntercoolerType), "None");
         
 

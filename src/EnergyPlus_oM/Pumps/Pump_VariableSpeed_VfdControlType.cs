@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Pumps
 {
     public enum Pump_VariableSpeed_VfdControlType
     {
         
-        [JsonProperty("ManualControl")]
+        [System.Runtime.Serialization.EnumMember(Value="ManualControl")]
         ManualControl = 0,
         
-        [JsonProperty("PressureSetpointControl")]
+        [System.Runtime.Serialization.EnumMember(Value="PressureSetpointControl")]
         PressureSetpointControl = 1,
     }
 }

@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes fouling water heating or cooling coils")]
-    [JsonObject("FaultModel:Fouling:Coil")]
     public class FaultModel_Fouling_Coil : BHoMObject, IEnergyPlusClass
     {
         
@@ -25,6 +24,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
         
 
         [JsonProperty("fouling_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FaultModel_Fouling_Coil_FoulingInputMethod FoulingInputMethod { get; set; } = (FaultModel_Fouling_Coil_FoulingInputMethod)Enum.Parse(typeof(FaultModel_Fouling_Coil_FoulingInputMethod), "FouledUARated");
         
 

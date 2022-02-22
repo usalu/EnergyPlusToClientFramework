@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     public enum AvailabilityManager_OptimumStart_ControlAlgorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AdaptiveASHRAE")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASHRAE")]
         AdaptiveASHRAE = 1,
         
-        [JsonProperty("AdaptiveTemperatureGradient")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveTemperatureGradient")]
         AdaptiveTemperatureGradient = 2,
         
-        [JsonProperty("ConstantStartTime")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantStartTime")]
         ConstantStartTime = 3,
         
-        [JsonProperty("ConstantTemperatureGradient")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantTemperatureGradient")]
         ConstantTemperatureGradient = 4,
     }
 }

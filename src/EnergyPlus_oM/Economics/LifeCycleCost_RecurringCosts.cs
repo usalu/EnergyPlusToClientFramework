@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     [Description("Recurring costs are costs that repeat over time on a regular schedule during the " +
                  "study period. If costs associated with equipment do repeat but not on a regular " +
                  "schedule, use LifeCycleCost:NonrecurringCost objects instead.")]
-    [JsonObject("LifeCycleCost:RecurringCosts")]
     public class LifeCycleCost_RecurringCosts : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("category")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleCost_RecurringCosts_Category Category { get; set; } = (LifeCycleCost_RecurringCosts_Category)Enum.Parse(typeof(LifeCycleCost_RecurringCosts_Category), "Maintenance");
         
 
@@ -29,6 +29,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                      "s past the Start of Costs. For most maintenance costs the Start of Costs should " +
                      "be Service Period.")]
         [JsonProperty("start_of_costs")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleCost_RecurringCosts_StartOfCosts StartOfCosts { get; set; } = (LifeCycleCost_RecurringCosts_StartOfCosts)Enum.Parse(typeof(LifeCycleCost_RecurringCosts_StartOfCosts), "ServicePeriod");
         
 

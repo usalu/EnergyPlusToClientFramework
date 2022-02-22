@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 {
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
                  "roups to the end of the list")]
-    [JsonObject("ZoneHVAC:HighTemperatureRadiant")]
     public class ZoneHVAC_HighTemperatureRadiant : BHoMObject, IEnergyPlusClass
     {
         
@@ -26,6 +25,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 
         [Description(@"Enter the method used to determine the maximum heating power input capacity. HeatingDesignCapacity = > selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea = > selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity = > is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
         [JsonProperty("heating_design_capacity_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_HighTemperatureRadiant_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (ZoneHVAC_HighTemperatureRadiant_HeatingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_HighTemperatureRadiant_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
@@ -50,6 +50,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 
         [Description("Natural gas or electricity")]
         [JsonProperty("fuel_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_HighTemperatureRadiant_FuelType FuelType { get; set; } = (ZoneHVAC_HighTemperatureRadiant_FuelType)Enum.Parse(typeof(ZoneHVAC_HighTemperatureRadiant_FuelType), "Electricity");
         
 
@@ -75,6 +76,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 
         [Description("Temperature type used to control unit")]
         [JsonProperty("temperature_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_HighTemperatureRadiant_TemperatureControlType TemperatureControlType { get; set; } = (ZoneHVAC_HighTemperatureRadiant_TemperatureControlType)Enum.Parse(typeof(ZoneHVAC_HighTemperatureRadiant_TemperatureControlType), "OperativeTemperature");
         
 

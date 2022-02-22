@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelCell_WaterSupply_WaterTemperatureModelingMode
     {
         
-        [JsonProperty("MainsWaterTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MainsWaterTemperature")]
         MainsWaterTemperature = 0,
         
-        [JsonProperty("TemperatureFromAirNode")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureFromAirNode")]
         TemperatureFromAirNode = 1,
         
-        [JsonProperty("TemperatureFromSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureFromSchedule")]
         TemperatureFromSchedule = 2,
         
-        [JsonProperty("TemperatureFromWaterNode")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureFromWaterNode")]
         TemperatureFromWaterNode = 3,
     }
 }

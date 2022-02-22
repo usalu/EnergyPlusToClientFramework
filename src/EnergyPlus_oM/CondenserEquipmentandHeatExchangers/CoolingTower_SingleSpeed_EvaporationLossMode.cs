@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum CoolingTower_SingleSpeed_EvaporationLossMode
     {
         
-        [JsonProperty("LossFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="LossFactor")]
         LossFactor = 0,
         
-        [JsonProperty("SaturatedExit")]
+        [System.Runtime.Serialization.EnumMember(Value="SaturatedExit")]
         SaturatedExit = 1,
     }
 }

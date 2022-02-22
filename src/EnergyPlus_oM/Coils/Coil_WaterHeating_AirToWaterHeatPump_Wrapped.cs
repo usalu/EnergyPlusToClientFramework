@@ -10,7 +10,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "stem which includes a water heating coil, evaporator air coil, evaporator fan, e" +
                  "lectric compressor, and water pump. Part of a WaterHeater:HeatPump:WrappedConden" +
                  "ser system.")]
-    [JsonObject("Coil:WaterHeating:AirToWaterHeatPump:Wrapped")]
     public class Coil_WaterHeating_AirToWaterHeatPump_Wrapped : BHoMObject, IEnergyPlusClass
     {
         
@@ -63,6 +62,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         [Description("Select Yes if the evaporator fan power is included in the rated COP. This choice " +
                      "field impacts the calculation of compressor electric power.")]
         [JsonProperty("evaporator_fan_power_included_in_rated_cop")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes EvaporatorFanPowerIncludedInRatedCop { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
@@ -90,6 +90,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                      "his input determines whether the inlet air dry-bulb or wet-bulb temperature is u" +
                      "sed to evaluate these curves.")]
         [JsonProperty("evaporator_air_temperature_type_for_curve_objects")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_WaterHeating_AirToWaterHeatPump_Wrapped_EvaporatorAirTemperatureTypeForCurveObjects EvaporatorAirTemperatureTypeForCurveObjects { get; set; } = (Coil_WaterHeating_AirToWaterHeatPump_Wrapped_EvaporatorAirTemperatureTypeForCurveObjects)Enum.Parse(typeof(Coil_WaterHeating_AirToWaterHeatPump_Wrapped_EvaporatorAirTemperatureTypeForCurveObjects), "WetBulbTemperature");
         
 

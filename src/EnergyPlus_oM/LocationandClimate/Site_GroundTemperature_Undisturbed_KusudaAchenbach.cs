@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Undisturbed ground temperature object using the Kusuda-Achenbach 1965 correlation" +
                  ".")]
-    [JsonObject("Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
     public class Site_GroundTemperature_Undisturbed_KusudaAchenbach : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     public enum ElectricEquipment_ITE_AirCooled_DesignPowerInputCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Watts/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Area")]
         WattsArea = 1,
         
-        [JsonProperty("Watts/Unit")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Unit")]
         WattsUnit = 2,
     }
 }

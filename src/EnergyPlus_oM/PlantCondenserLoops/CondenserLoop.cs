@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserLoops
     [Description("Defines a central plant condenser loop. CondenserLoop and PlantLoop are nearly id" +
                  "entical except some components and operation schemes are applicable to only one " +
                  "loop type or the other.")]
-    [JsonObject("CondenserLoop")]
     public class CondenserLoop : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("fluid_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CondenserLoop_FluidType FluidType { get; set; } = (CondenserLoop_FluidType)Enum.Parse(typeof(CondenserLoop_FluidType), "Water");
         
 
@@ -84,10 +84,12 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserLoops
         
 
         [JsonProperty("load_distribution_scheme")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CondenserLoop_LoadDistributionScheme LoadDistributionScheme { get; set; } = (CondenserLoop_LoadDistributionScheme)Enum.Parse(typeof(CondenserLoop_LoadDistributionScheme), "SequentialLoad");
         
 
         [JsonProperty("pressure_simulation_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CondenserLoop_PressureSimulationType PressureSimulationType { get; set; } = (CondenserLoop_PressureSimulationType)Enum.Parse(typeof(CondenserLoop_PressureSimulationType), "None");
         
 

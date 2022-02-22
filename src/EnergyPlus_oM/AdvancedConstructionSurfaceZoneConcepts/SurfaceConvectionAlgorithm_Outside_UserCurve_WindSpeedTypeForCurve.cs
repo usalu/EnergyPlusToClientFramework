@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceConvectionAlgorithm_Outside_UserCurve_WindSpeedTypeForCurve
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HeightAdjust")]
+        [System.Runtime.Serialization.EnumMember(Value="HeightAdjust")]
         HeightAdjust = 1,
         
-        [JsonProperty("ParallelComponent")]
+        [System.Runtime.Serialization.EnumMember(Value="ParallelComponent")]
         ParallelComponent = 2,
         
-        [JsonProperty("ParallelComponentHeightAdjust")]
+        [System.Runtime.Serialization.EnumMember(Value="ParallelComponentHeightAdjust")]
         ParallelComponentHeightAdjust = 3,
         
-        [JsonProperty("WeatherFile")]
+        [System.Runtime.Serialization.EnumMember(Value="WeatherFile")]
         WeatherFile = 4,
     }
 }

@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("Used to enter data describing deflection state of the gap. It is referenced from " +
                  "WindowMaterial:Gap object only and it is used only when deflection model is set " +
                  "to MeasuredDeflection, otherwise it is ignored.")]
-    [JsonObject("WindowGap:DeflectionState")]
     public class WindowGap_DeflectionState : BHoMObject, IEnergyPlusClass
     {
         

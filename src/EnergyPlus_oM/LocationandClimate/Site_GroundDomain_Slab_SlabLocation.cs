@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum Site_GroundDomain_Slab_SlabLocation
     {
         
-        [JsonProperty("InGrade")]
+        [System.Runtime.Serialization.EnumMember(Value="InGrade")]
         InGrade = 0,
         
-        [JsonProperty("OnGrade")]
+        [System.Runtime.Serialization.EnumMember(Value="OnGrade")]
         OnGrade = 1,
     }
 }

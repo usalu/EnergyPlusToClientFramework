@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     [Description(@"This setpoint manager sets the minimum supply air humidity ratio based on humidification requirements of a controlled zone with critical humidity ratio setpoint (i.e., a zone with the highest humidity ratio setpoint) in an air loop served by a central air-conditioner.")]
-    [JsonObject("SetpointManager:MultiZone:Humidity:Minimum")]
     public class SetpointManager_MultiZone_Humidity_Minimum : BHoMObject, IEnergyPlusClass
     {
         

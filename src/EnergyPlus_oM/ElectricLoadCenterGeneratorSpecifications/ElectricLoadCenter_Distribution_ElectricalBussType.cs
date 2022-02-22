@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum ElectricLoadCenter_Distribution_ElectricalBussType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AlternatingCurrent")]
+        [System.Runtime.Serialization.EnumMember(Value="AlternatingCurrent")]
         AlternatingCurrent = 1,
         
-        [JsonProperty("AlternatingCurrentWithStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="AlternatingCurrentWithStorage")]
         AlternatingCurrentWithStorage = 2,
         
-        [JsonProperty("DirectCurrentWithInverter")]
+        [System.Runtime.Serialization.EnumMember(Value="DirectCurrentWithInverter")]
         DirectCurrentWithInverter = 3,
         
-        [JsonProperty("DirectCurrentWithInverterACStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="DirectCurrentWithInverterACStorage")]
         DirectCurrentWithInverterACStorage = 4,
         
-        [JsonProperty("DirectCurrentWithInverterDCStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="DirectCurrentWithInverterDCStorage")]
         DirectCurrentWithInverterDCStorage = 5,
     }
 }

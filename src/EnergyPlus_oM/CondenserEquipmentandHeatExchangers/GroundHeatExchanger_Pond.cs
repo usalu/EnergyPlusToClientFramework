@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     [Description("A model of a shallow pond with immersed pipe loops. Typically used in hybrid geot" +
                  "hermal systems and included in the condenser loop. This component may also be us" +
                  "ed as a simple solar collector.")]
-    [JsonObject("GroundHeatExchanger:Pond")]
     public class GroundHeatExchanger_Pond : BHoMObject, IEnergyPlusClass
     {
         

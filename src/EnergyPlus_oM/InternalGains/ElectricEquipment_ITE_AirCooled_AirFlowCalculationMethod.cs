@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     public enum ElectricEquipment_ITE_AirCooled_AirFlowCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FlowControlWithApproachTemperatures")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowControlWithApproachTemperatures")]
         FlowControlWithApproachTemperatures = 1,
         
-        [JsonProperty("FlowFromSystem")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowFromSystem")]
         FlowFromSystem = 2,
     }
 }

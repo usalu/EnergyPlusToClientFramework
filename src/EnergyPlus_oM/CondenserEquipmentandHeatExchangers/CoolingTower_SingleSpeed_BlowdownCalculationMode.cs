@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum CoolingTower_SingleSpeed_BlowdownCalculationMode
     {
         
-        [JsonProperty("ConcentrationRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ConcentrationRatio")]
         ConcentrationRatio = 0,
         
-        [JsonProperty("ScheduledRate")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledRate")]
         ScheduledRate = 1,
     }
 }

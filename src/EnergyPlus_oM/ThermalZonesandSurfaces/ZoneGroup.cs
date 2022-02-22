@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     [Description("Adds a multiplier to a ZoneList. This can be used to reduce the amount of input n" +
                  "ecessary for simulating repetitive structures, such as the identical floors of a" +
                  " multi-story building.")]
-    [JsonObject("ZoneGroup")]
     public class ZoneGroup : BHoMObject, IEnergyPlusClass
     {
         

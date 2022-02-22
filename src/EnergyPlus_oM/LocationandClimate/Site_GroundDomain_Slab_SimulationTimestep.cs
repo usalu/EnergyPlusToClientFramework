@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum Site_GroundDomain_Slab_SimulationTimestep
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 1,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 2,
     }
 }

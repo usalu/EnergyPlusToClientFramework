@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelCell_PowerModule_SkinLossCalculationMode
     {
         
-        [JsonProperty("ConstantRate")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantRate")]
         ConstantRate = 0,
         
-        [JsonProperty("QuadraticFunctionOfFuelRate")]
+        [System.Runtime.Serialization.EnumMember(Value="QuadraticFunctionOfFuelRate")]
         QuadraticFunctionOfFuelRate = 1,
         
-        [JsonProperty("UAForProcessGasTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="UAForProcessGasTemperature")]
         UAForProcessGasTemperature = 2,
     }
 }

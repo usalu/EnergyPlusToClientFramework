@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
     
     [Description("Flat plate air-to-air heat exchanger, typically used for exhaust or relief air he" +
         "at recovery.")]
-    [JsonObject("HeatExchanger:AirToAir:FlatPlate")]
     public class HeatExchanger_AirToAir_FlatPlate : BHoMObject, IEnergyPlusClass
     {
         
@@ -80,12 +79,14 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("flow_arrangement_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_AirToAir_FlatPlate_FlowArrangementType FlowArrangementType { get; set; } = (HeatExchanger_AirToAir_FlatPlate_FlowArrangementType)Enum.Parse(typeof(HeatExchanger_AirToAir_FlatPlate_FlowArrangementType), "CounterFlow");
         
 
 [Description("Yes means that the heat exchanger will be locked out (off) when the economizer is" +
     " operating or high humidity control is active")]
 [JsonProperty("economizer_lockout")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
@@ -137,20 +138,19 @@ public string SecondaryAirOutletNodeName { get; set; } = "";
     public enum HeatExchanger_AirToAir_FlatPlate_FlowArrangementType
     {
         
-        [JsonProperty("CounterFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="CounterFlow")]
         CounterFlow = 0,
         
-        [JsonProperty("CrossFlowBothUnmixed")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlowBothUnmixed")]
         CrossFlowBothUnmixed = 1,
         
-        [JsonProperty("ParallelFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ParallelFlow")]
         ParallelFlow = 2,
     }
     
     [Description("This object models an air-to-air heat exchanger using effectiveness relationships" +
         ". The heat exchanger can transfer sensible energy, latent energy, or both betwee" +
         "n the supply (primary) and exhaust (secondary) air streams.")]
-    [JsonObject("HeatExchanger:AirToAir:SensibleAndLatent")]
     public class HeatExchanger_AirToAir_SensibleAndLatent : BHoMObject, IEnergyPlusClass
     {
         
@@ -218,14 +218,17 @@ public System.Nullable<float> NominalElectricPower { get; set; } = (System.Nulla
         
 
 [JsonProperty("supply_air_outlet_temperature_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes SupplyAirOutletTemperatureControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("heat_exchanger_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType HeatExchangerType { get; set; } = (HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType)Enum.Parse(typeof(HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType), "Plate");
         
 
 [JsonProperty("frost_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType FrostControlType { get; set; } = (HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType)Enum.Parse(typeof(HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType), "None");
         
 
@@ -253,43 +256,43 @@ public System.Nullable<float> RateOfDefrostTimeFractionIncrease { get; set; } = 
 [Description("Yes means that the heat exchanger will be locked out (off) when the economizer is" +
     " operating or high humidity control is active")]
 [JsonProperty("economizer_lockout")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
     }
     
     public enum HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Plate")]
+        [System.Runtime.Serialization.EnumMember(Value="Plate")]
         Plate = 1,
         
-        [JsonProperty("Rotary")]
+        [System.Runtime.Serialization.EnumMember(Value="Rotary")]
         Rotary = 2,
     }
     
     public enum HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ExhaustAirRecirculation")]
+        [System.Runtime.Serialization.EnumMember(Value="ExhaustAirRecirculation")]
         ExhaustAirRecirculation = 1,
         
-        [JsonProperty("ExhaustOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ExhaustOnly")]
         ExhaustOnly = 2,
         
-        [JsonProperty("MinimumExhaustTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumExhaustTemperature")]
         MinimumExhaustTemperature = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
     
     [Description(@"This object models a balanced desiccant heat exchanger. The heat exchanger transfers both sensible and latent energy between the process and regeneration air streams. The air flow rate and face velocity are assumed to be the same on both the process and regeneration sides of the heat exchanger.")]
-    [JsonObject("HeatExchanger:Desiccant:BalancedFlow")]
     public class HeatExchanger_Desiccant_BalancedFlow : BHoMObject, IEnergyPlusClass
     {
         
@@ -317,6 +320,7 @@ public string ProcessAirOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("heat_exchanger_performance_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_Desiccant_BalancedFlow_HeatExchangerPerformanceObjectType HeatExchangerPerformanceObjectType { get; set; } = (HeatExchanger_Desiccant_BalancedFlow_HeatExchangerPerformanceObjectType)Enum.Parse(typeof(HeatExchanger_Desiccant_BalancedFlow_HeatExchangerPerformanceObjectType), "Empty");
         
 
@@ -327,21 +331,21 @@ public string HeatExchangerPerformanceName { get; set; } = "";
 [Description("Yes means that the heat exchanger will be locked out (off) when the economizer is" +
     " operating or high humidity control is active")]
 [JsonProperty("economizer_lockout")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
     
     public enum HeatExchanger_Desiccant_BalancedFlow_HeatExchangerPerformanceObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1")]
         HeatExchangerDesiccantBalancedFlowPerformanceDataType1 = 1,
     }
     
     [Description(@"RTO = B1 + B2*RWI + B3*RTI + B4*(RWI/RTI) + B5*PWI + B6*PTI + B7*(PWI/PTI) + B8*RFV RWO = C1 + C2*RWI + C3*RTI + C4*(RWI/RTI) + C5*PWI + C6*PTI + C7*(PWI/PTI) + C8*RFV where, RTO = Dry-bulb temperature of the regeneration outlet air (C) RWO = Humidity ratio of the regeneration outlet air (kgWater/kgDryAir) RWI = Humidity ratio of the regeneration inlet air (kgWater/kgDryAir) RTI = Dry-bulb temperature of the regeneration inlet air (C) PWI = Humidity ratio of the process inlet air (kgWater/kgDryAir) PTI = Dry-bulb temperature of the process inlet air (C) RFV = Regeneration Face Velocity (m/s)")]
-    [JsonObject("HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1")]
     public class HeatExchanger_Desiccant_BalancedFlow_PerformanceDataType1 : BHoMObject, IEnergyPlusClass
     {
         

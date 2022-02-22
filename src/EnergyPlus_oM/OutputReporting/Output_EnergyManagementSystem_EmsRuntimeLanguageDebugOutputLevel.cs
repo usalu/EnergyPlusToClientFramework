@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_EnergyManagementSystem_EmsRuntimeLanguageDebugOutputLevel
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ErrorsOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ErrorsOnly")]
         ErrorsOnly = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("Verbose")]
+        [System.Runtime.Serialization.EnumMember(Value="Verbose")]
         Verbose = 3,
     }
 }

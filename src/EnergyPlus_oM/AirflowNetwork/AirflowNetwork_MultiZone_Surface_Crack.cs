@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object specifies the properties of airflow through a crack.")]
-    [JsonObject("AirflowNetwork:MultiZone:Surface:Crack")]
     public class AirflowNetwork_MultiZone_Surface_Crack : BHoMObject, IEnergyPlusClass
     {
         

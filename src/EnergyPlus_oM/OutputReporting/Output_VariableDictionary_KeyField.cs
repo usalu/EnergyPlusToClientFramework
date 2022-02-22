@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_VariableDictionary_KeyField
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("IDF")]
+        [System.Runtime.Serialization.EnumMember(Value="IDF")]
         IDF = 1,
         
-        [JsonProperty("regular")]
+        [System.Runtime.Serialization.EnumMember(Value="regular")]
         Regular = 2,
     }
 }

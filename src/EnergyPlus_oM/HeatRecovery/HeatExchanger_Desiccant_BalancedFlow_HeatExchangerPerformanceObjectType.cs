@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
 {
     public enum HeatExchanger_Desiccant_BalancedFlow_HeatExchangerPerformanceObjectType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1")]
         HeatExchangerDesiccantBalancedFlowPerformanceDataType1 = 1,
     }
 }

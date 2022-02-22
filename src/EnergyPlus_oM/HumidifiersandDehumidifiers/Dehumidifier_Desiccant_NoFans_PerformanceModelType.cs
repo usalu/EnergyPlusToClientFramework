@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HumidifiersandDehumidifiers
 {
     public enum Dehumidifier_Desiccant_NoFans_PerformanceModelType
     {
         
-        [JsonProperty("Default")]
+        [System.Runtime.Serialization.EnumMember(Value="Default")]
         Default = 0,
         
-        [JsonProperty("UserCurves")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurves")]
         UserCurves = 1,
     }
 }

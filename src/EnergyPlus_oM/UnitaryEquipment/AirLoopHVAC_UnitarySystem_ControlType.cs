@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
 {
     public enum AirLoopHVAC_UnitarySystem_ControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Load")]
+        [System.Runtime.Serialization.EnumMember(Value="Load")]
         Load = 1,
         
-        [JsonProperty("SetPoint")]
+        [System.Runtime.Serialization.EnumMember(Value="SetPoint")]
         SetPoint = 2,
         
-        [JsonProperty("SingleZoneVAV")]
+        [System.Runtime.Serialization.EnumMember(Value="SingleZoneVAV")]
         SingleZoneVAV = 3,
     }
 }

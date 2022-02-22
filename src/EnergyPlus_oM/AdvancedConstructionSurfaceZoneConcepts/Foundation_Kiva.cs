@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("Refined definition of the foundation surface construction used to inform two-dime" +
                  "nsional heat transfer calculated using the Kiva ground heat transfer methodology" +
                  ".")]
-    [JsonObject("Foundation:Kiva")]
     public class Foundation_Kiva : BHoMObject, IEnergyPlusClass
     {
         

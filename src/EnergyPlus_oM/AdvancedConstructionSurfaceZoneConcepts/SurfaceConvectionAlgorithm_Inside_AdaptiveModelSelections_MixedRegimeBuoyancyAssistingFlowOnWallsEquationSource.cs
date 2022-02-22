@@ -1,32 +1,30 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_MixedRegimeBuoyancyAssistingFlowOnWallsEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("BeausoleilMorrisonMixedAssistedWall")]
+        [System.Runtime.Serialization.EnumMember(Value="BeausoleilMorrisonMixedAssistedWall")]
         BeausoleilMorrisonMixedAssistedWall = 3,
         
-        [JsonProperty("FisherPedersenCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="FisherPedersenCeilingDiffuserWalls")]
         FisherPedersenCeilingDiffuserWalls = 4,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 5,
         
-        [JsonProperty("GoldsteinNovoselacCeilingDiffuserWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="GoldsteinNovoselacCeilingDiffuserWalls")]
         GoldsteinNovoselacCeilingDiffuserWalls = 6,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 7,
     }
 }

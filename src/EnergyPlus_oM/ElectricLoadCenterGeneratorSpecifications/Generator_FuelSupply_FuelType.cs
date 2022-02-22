@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelSupply_FuelType
     {
         
-        [JsonProperty("GaseousConstituents")]
+        [System.Runtime.Serialization.EnumMember(Value="GaseousConstituents")]
         GaseousConstituents = 0,
         
-        [JsonProperty("LiquidGeneric")]
+        [System.Runtime.Serialization.EnumMember(Value="LiquidGeneric")]
         LiquidGeneric = 1,
     }
 }

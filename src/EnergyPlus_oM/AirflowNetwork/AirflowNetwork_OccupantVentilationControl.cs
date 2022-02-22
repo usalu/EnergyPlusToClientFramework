@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object is used to provide advanced thermal comfort control of window opening" +
                  " and closing for both exterior and interior windows.")]
-    [JsonObject("AirflowNetwork:OccupantVentilationControl")]
     public class AirflowNetwork_OccupantVentilationControl : BHoMObject, IEnergyPlusClass
     {
         
@@ -44,6 +43,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
         [Description("If Yes, occupancy check will be performed as part of the opening probability chec" +
                      "k.")]
         [JsonProperty("occupancy_check")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes OccupancyCheck { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 

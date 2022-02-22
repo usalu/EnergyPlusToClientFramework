@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Daylighting
 {
     [Description("Used for DElight Complex Fenestration of all types")]
-    [JsonObject("Daylighting:DELight:ComplexFenestration")]
     public class Daylighting_DELight_ComplexFenestration : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     public enum SetpointManager_FollowSystemNodeTemperature_ReferenceTemperatureType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NodeDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="NodeDryBulb")]
         NodeDryBulb = 1,
         
-        [JsonProperty("NodeWetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="NodeWetBulb")]
         NodeWetBulb = 2,
     }
 }

@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 {
     public enum ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_CoolingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("CoolingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingDesignCapacity")]
         CoolingDesignCapacity = 2,
         
-        [JsonProperty("FractionOfAutosizedCoolingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedCoolingCapacity")]
         FractionOfAutosizedCoolingCapacity = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
 }

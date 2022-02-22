@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
 {
     public enum PythonPlugin_OutputVariable_TypeOfDataInVariable
     {
         
-        [JsonProperty("Averaged")]
+        [System.Runtime.Serialization.EnumMember(Value="Averaged")]
         Averaged = 0,
         
-        [JsonProperty("Metered")]
+        [System.Runtime.Serialization.EnumMember(Value="Metered")]
         Metered = 1,
         
-        [JsonProperty("Summed")]
+        [System.Runtime.Serialization.EnumMember(Value="Summed")]
         Summed = 2,
     }
 }

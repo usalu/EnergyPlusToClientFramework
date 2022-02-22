@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_DualDuct_SystemConfigurationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DualFanConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="DualFanConstantVolume")]
         DualFanConstantVolume = 1,
         
-        [JsonProperty("DualFanVariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="DualFanVariableVolume")]
         DualFanVariableVolume = 2,
         
-        [JsonProperty("SingleFanConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="SingleFanConstantVolume")]
         SingleFanConstantVolume = 3,
         
-        [JsonProperty("SingleFanVariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="SingleFanVariableVolume")]
         SingleFanVariableVolume = 4,
     }
 }

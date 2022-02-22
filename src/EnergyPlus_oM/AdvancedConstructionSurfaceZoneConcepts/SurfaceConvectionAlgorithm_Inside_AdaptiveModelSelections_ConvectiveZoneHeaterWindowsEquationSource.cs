@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections_ConvectiveZoneHeaterWindowsEquationSource
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEVerticalWall")]
         ASHRAEVerticalWall = 1,
         
-        [JsonProperty("AlamdariHammondVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="AlamdariHammondVerticalWall")]
         AlamdariHammondVerticalWall = 2,
         
-        [JsonProperty("FohannoPolidoriVerticalWall")]
+        [System.Runtime.Serialization.EnumMember(Value="FohannoPolidoriVerticalWall")]
         FohannoPolidoriVerticalWall = 3,
         
-        [JsonProperty("ISO15099Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="ISO15099Windows")]
         ISO15099Windows = 4,
         
-        [JsonProperty("KhalifaEq3WallAwayFromHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="KhalifaEq3WallAwayFromHeat")]
         KhalifaEq3WallAwayFromHeat = 5,
         
-        [JsonProperty("UserCurve")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurve")]
         UserCurve = 6,
     }
 }

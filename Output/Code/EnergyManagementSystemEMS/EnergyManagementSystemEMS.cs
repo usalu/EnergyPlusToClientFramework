@@ -69,7 +69,6 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
     [Description("Declares EMS variable as a sensor a list of output variables and meters that can " +
         "be reported are available after a run on the report (.rdd) or meter dictionary f" +
         "ile (.mdd) if the Output:VariableDictionary has been requested.")]
-    [JsonObject("EnergyManagementSystem:Sensor")]
     public class EnergyManagementSystem_Sensor : BHoMObject, IEnergyPlusClass
     {
         
@@ -83,7 +82,6 @@ public string OutputVariableOrOutputMeterName { get; set; } = "";
     }
     
     [Description("Hardware portion of EMS used to set up actuators in the model")]
-    [JsonObject("EnergyManagementSystem:Actuator")]
     public class EnergyManagementSystem_Actuator : BHoMObject, IEnergyPlusClass
     {
         
@@ -102,12 +100,12 @@ public string ActuatedComponentControlType { get; set; } = "";
     
     [Description("Input EMS program. a program needs a name a description of when it should be call" +
         "ed and then lines of program code for EMS Runtime language")]
-    [JsonObject("EnergyManagementSystem:ProgramCallingManager")]
     public class EnergyManagementSystem_ProgramCallingManager : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("energyplus_model_calling_point")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EnergyManagementSystem_ProgramCallingManager_EnergyplusModelCallingPoint EnergyplusModelCallingPoint { get; set; } = (EnergyManagementSystem_ProgramCallingManager_EnergyplusModelCallingPoint)Enum.Parse(typeof(EnergyManagementSystem_ProgramCallingManager_EnergyplusModelCallingPoint), "AfterComponentInputReadIn");
         
 
@@ -118,64 +116,63 @@ public string Programs { get; set; } = "";
     public enum EnergyManagementSystem_ProgramCallingManager_EnergyplusModelCallingPoint
     {
         
-        [JsonProperty("AfterComponentInputReadIn")]
+        [System.Runtime.Serialization.EnumMember(Value="AfterComponentInputReadIn")]
         AfterComponentInputReadIn = 0,
         
-        [JsonProperty("AfterNewEnvironmentWarmUpIsComplete")]
+        [System.Runtime.Serialization.EnumMember(Value="AfterNewEnvironmentWarmUpIsComplete")]
         AfterNewEnvironmentWarmUpIsComplete = 1,
         
-        [JsonProperty("AfterPredictorAfterHVACManagers")]
+        [System.Runtime.Serialization.EnumMember(Value="AfterPredictorAfterHVACManagers")]
         AfterPredictorAfterHVACManagers = 2,
         
-        [JsonProperty("AfterPredictorBeforeHVACManagers")]
+        [System.Runtime.Serialization.EnumMember(Value="AfterPredictorBeforeHVACManagers")]
         AfterPredictorBeforeHVACManagers = 3,
         
-        [JsonProperty("BeginNewEnvironment")]
+        [System.Runtime.Serialization.EnumMember(Value="BeginNewEnvironment")]
         BeginNewEnvironment = 4,
         
-        [JsonProperty("BeginTimestepBeforePredictor")]
+        [System.Runtime.Serialization.EnumMember(Value="BeginTimestepBeforePredictor")]
         BeginTimestepBeforePredictor = 5,
         
-        [JsonProperty("BeginZoneTimestepAfterInitHeatBalance")]
+        [System.Runtime.Serialization.EnumMember(Value="BeginZoneTimestepAfterInitHeatBalance")]
         BeginZoneTimestepAfterInitHeatBalance = 6,
         
-        [JsonProperty("BeginZoneTimestepBeforeInitHeatBalance")]
+        [System.Runtime.Serialization.EnumMember(Value="BeginZoneTimestepBeforeInitHeatBalance")]
         BeginZoneTimestepBeforeInitHeatBalance = 7,
         
-        [JsonProperty("BeginZoneTimestepBeforeSetCurrentWeather")]
+        [System.Runtime.Serialization.EnumMember(Value="BeginZoneTimestepBeforeSetCurrentWeather")]
         BeginZoneTimestepBeforeSetCurrentWeather = 8,
         
-        [JsonProperty("EndOfSystemSizing")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfSystemSizing")]
         EndOfSystemSizing = 9,
         
-        [JsonProperty("EndOfSystemTimestepAfterHVACReporting")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfSystemTimestepAfterHVACReporting")]
         EndOfSystemTimestepAfterHVACReporting = 10,
         
-        [JsonProperty("EndOfSystemTimestepBeforeHVACReporting")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfSystemTimestepBeforeHVACReporting")]
         EndOfSystemTimestepBeforeHVACReporting = 11,
         
-        [JsonProperty("EndOfZoneSizing")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfZoneSizing")]
         EndOfZoneSizing = 12,
         
-        [JsonProperty("EndOfZoneTimestepAfterZoneReporting")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfZoneTimestepAfterZoneReporting")]
         EndOfZoneTimestepAfterZoneReporting = 13,
         
-        [JsonProperty("EndOfZoneTimestepBeforeZoneReporting")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfZoneTimestepBeforeZoneReporting")]
         EndOfZoneTimestepBeforeZoneReporting = 14,
         
-        [JsonProperty("InsideHVACSystemIterationLoop")]
+        [System.Runtime.Serialization.EnumMember(Value="InsideHVACSystemIterationLoop")]
         InsideHVACSystemIterationLoop = 15,
         
-        [JsonProperty("UnitarySystemSizing")]
+        [System.Runtime.Serialization.EnumMember(Value="UnitarySystemSizing")]
         UnitarySystemSizing = 16,
         
-        [JsonProperty("UserDefinedComponentModel")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefinedComponentModel")]
         UserDefinedComponentModel = 17,
     }
     
     [Description("This input defines an Erl program Each field after the name is a line of EMS Runt" +
         "ime Language")]
-    [JsonObject("EnergyManagementSystem:Program")]
     public class EnergyManagementSystem_Program : BHoMObject, IEnergyPlusClass
     {
         
@@ -186,7 +183,6 @@ public string Lines { get; set; } = "";
     
     [Description("This input defines an Erl program subroutine Each field after the name is a line " +
         "of EMS Runtime Language")]
-    [JsonObject("EnergyManagementSystem:Subroutine")]
     public class EnergyManagementSystem_Subroutine : BHoMObject, IEnergyPlusClass
     {
         
@@ -197,7 +193,6 @@ public string Lines { get; set; } = "";
     
     [Description("Declares Erl variable as having global scope No spaces allowed in names used for " +
         "Erl variables")]
-    [JsonObject("EnergyManagementSystem:GlobalVariable")]
     public class EnergyManagementSystem_GlobalVariable : BHoMObject, IEnergyPlusClass
     {
         
@@ -207,7 +202,6 @@ public string Variables { get; set; } = "";
     }
     
     [Description("This object sets up an EnergyPlus output variable from an Erl variable")]
-    [JsonObject("EnergyManagementSystem:OutputVariable")]
     public class EnergyManagementSystem_OutputVariable : BHoMObject, IEnergyPlusClass
     {
         
@@ -218,10 +212,12 @@ public string EmsVariableName { get; set; } = "";
         
 
 [JsonProperty("type_of_data_in_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EnergyManagementSystem_OutputVariable_TypeOfDataInVariable TypeOfDataInVariable { get; set; } = (EnergyManagementSystem_OutputVariable_TypeOfDataInVariable)Enum.Parse(typeof(EnergyManagementSystem_OutputVariable_TypeOfDataInVariable), "Averaged");
         
 
 [JsonProperty("update_frequency")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EnergyManagementSystem_OutputVariable_UpdateFrequency UpdateFrequency { get; set; } = (EnergyManagementSystem_OutputVariable_UpdateFrequency)Enum.Parse(typeof(EnergyManagementSystem_OutputVariable_UpdateFrequency), "SystemTimestep");
         
 
@@ -239,25 +235,24 @@ public string Units { get; set; } = "";
     public enum EnergyManagementSystem_OutputVariable_TypeOfDataInVariable
     {
         
-        [JsonProperty("Averaged")]
+        [System.Runtime.Serialization.EnumMember(Value="Averaged")]
         Averaged = 0,
         
-        [JsonProperty("Summed")]
+        [System.Runtime.Serialization.EnumMember(Value="Summed")]
         Summed = 1,
     }
     
     public enum EnergyManagementSystem_OutputVariable_UpdateFrequency
     {
         
-        [JsonProperty("SystemTimestep")]
+        [System.Runtime.Serialization.EnumMember(Value="SystemTimestep")]
         SystemTimestep = 0,
         
-        [JsonProperty("ZoneTimestep")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneTimestep")]
         ZoneTimestep = 1,
     }
     
     [Description("This object sets up an EnergyPlus output variable from an Erl variable")]
-    [JsonObject("EnergyManagementSystem:MeteredOutputVariable")]
     public class EnergyManagementSystem_MeteredOutputVariable : BHoMObject, IEnergyPlusClass
     {
         
@@ -268,6 +263,7 @@ public string EmsVariableName { get; set; } = "";
         
 
 [JsonProperty("update_frequency")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EnergyManagementSystem_MeteredOutputVariable_UpdateFrequency UpdateFrequency { get; set; } = (EnergyManagementSystem_MeteredOutputVariable_UpdateFrequency)Enum.Parse(typeof(EnergyManagementSystem_MeteredOutputVariable_UpdateFrequency), "SystemTimestep");
         
 
@@ -279,17 +275,20 @@ public string EmsProgramOrSubroutineName { get; set; } = "";
 [Description("choose the type of fuel, water, electricity, pollution or heat rate that should b" +
     "e metered.")]
 [JsonProperty("resource_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EnergyManagementSystem_MeteredOutputVariable_ResourceType ResourceType { get; set; } = (EnergyManagementSystem_MeteredOutputVariable_ResourceType)Enum.Parse(typeof(EnergyManagementSystem_MeteredOutputVariable_ResourceType), "Coal");
         
 
 [Description("choose a general classification, building (internal services), HVAC (air systems)" +
     ", or plant (hydronic systems), or system")]
 [JsonProperty("group_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EnergyManagementSystem_MeteredOutputVariable_GroupType GroupType { get; set; } = (EnergyManagementSystem_MeteredOutputVariable_GroupType)Enum.Parse(typeof(EnergyManagementSystem_MeteredOutputVariable_GroupType), "Building");
         
 
 [Description("choose how the metered output should be classified for end-use category")]
 [JsonProperty("end_use_category")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EnergyManagementSystem_MeteredOutputVariable_EndUseCategory EndUseCategory { get; set; } = (EnergyManagementSystem_MeteredOutputVariable_EndUseCategory)Enum.Parse(typeof(EnergyManagementSystem_MeteredOutputVariable_EndUseCategory), "Baseboard");
         
 
@@ -308,172 +307,171 @@ public string Units { get; set; } = "";
     public enum EnergyManagementSystem_MeteredOutputVariable_UpdateFrequency
     {
         
-        [JsonProperty("SystemTimestep")]
+        [System.Runtime.Serialization.EnumMember(Value="SystemTimestep")]
         SystemTimestep = 0,
         
-        [JsonProperty("ZoneTimestep")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneTimestep")]
         ZoneTimestep = 1,
     }
     
     public enum EnergyManagementSystem_MeteredOutputVariable_ResourceType
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("CondensateWaterCollected")]
+        [System.Runtime.Serialization.EnumMember(Value="CondensateWaterCollected")]
         CondensateWaterCollected = 1,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 2,
         
-        [JsonProperty("DistrictCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictCooling")]
         DistrictCooling = 3,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 4,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 5,
         
-        [JsonProperty("ElectricityProducedOnSite")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricityProducedOnSite")]
         ElectricityProducedOnSite = 6,
         
-        [JsonProperty("EnergyTransfer")]
+        [System.Runtime.Serialization.EnumMember(Value="EnergyTransfer")]
         EnergyTransfer = 7,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 8,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 9,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 10,
         
-        [JsonProperty("MainsWaterSupply")]
+        [System.Runtime.Serialization.EnumMember(Value="MainsWaterSupply")]
         MainsWaterSupply = 11,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 12,
         
-        [JsonProperty("OnSiteWaterProduced")]
+        [System.Runtime.Serialization.EnumMember(Value="OnSiteWaterProduced")]
         OnSiteWaterProduced = 13,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 14,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 15,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 16,
         
-        [JsonProperty("RainWaterCollected")]
+        [System.Runtime.Serialization.EnumMember(Value="RainWaterCollected")]
         RainWaterCollected = 17,
         
-        [JsonProperty("SolarAirHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="SolarAirHeating")]
         SolarAirHeating = 18,
         
-        [JsonProperty("SolarWaterHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="SolarWaterHeating")]
         SolarWaterHeating = 19,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 20,
         
-        [JsonProperty("WaterUse")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterUse")]
         WaterUse = 21,
         
-        [JsonProperty("WellWaterDrawn")]
+        [System.Runtime.Serialization.EnumMember(Value="WellWaterDrawn")]
         WellWaterDrawn = 22,
     }
     
     public enum EnergyManagementSystem_MeteredOutputVariable_GroupType
     {
         
-        [JsonProperty("Building")]
+        [System.Runtime.Serialization.EnumMember(Value="Building")]
         Building = 0,
         
-        [JsonProperty("HVAC")]
+        [System.Runtime.Serialization.EnumMember(Value="HVAC")]
         HVAC = 1,
         
-        [JsonProperty("Plant")]
+        [System.Runtime.Serialization.EnumMember(Value="Plant")]
         Plant = 2,
         
-        [JsonProperty("System")]
+        [System.Runtime.Serialization.EnumMember(Value="System")]
         System = 3,
     }
     
     public enum EnergyManagementSystem_MeteredOutputVariable_EndUseCategory
     {
         
-        [JsonProperty("Baseboard")]
+        [System.Runtime.Serialization.EnumMember(Value="Baseboard")]
         Baseboard = 0,
         
-        [JsonProperty("Boilers")]
+        [System.Runtime.Serialization.EnumMember(Value="Boilers")]
         Boilers = 1,
         
-        [JsonProperty("Chillers")]
+        [System.Runtime.Serialization.EnumMember(Value="Chillers")]
         Chillers = 2,
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 3,
         
-        [JsonProperty("CoolingCoils")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingCoils")]
         CoolingCoils = 4,
         
-        [JsonProperty("ExteriorEquipment")]
+        [System.Runtime.Serialization.EnumMember(Value="ExteriorEquipment")]
         ExteriorEquipment = 5,
         
-        [JsonProperty("ExteriorLights")]
+        [System.Runtime.Serialization.EnumMember(Value="ExteriorLights")]
         ExteriorLights = 6,
         
-        [JsonProperty("Fans")]
+        [System.Runtime.Serialization.EnumMember(Value="Fans")]
         Fans = 7,
         
-        [JsonProperty("HeatRecovery")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecovery")]
         HeatRecovery = 8,
         
-        [JsonProperty("HeatRecoveryForCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecoveryForCooling")]
         HeatRecoveryForCooling = 9,
         
-        [JsonProperty("HeatRecoveryForHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecoveryForHeating")]
         HeatRecoveryForHeating = 10,
         
-        [JsonProperty("HeatRejection")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRejection")]
         HeatRejection = 11,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 12,
         
-        [JsonProperty("HeatingCoils")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingCoils")]
         HeatingCoils = 13,
         
-        [JsonProperty("Humidifier")]
+        [System.Runtime.Serialization.EnumMember(Value="Humidifier")]
         Humidifier = 14,
         
-        [JsonProperty("InteriorEquipment")]
+        [System.Runtime.Serialization.EnumMember(Value="InteriorEquipment")]
         InteriorEquipment = 15,
         
-        [JsonProperty("InteriorLights")]
+        [System.Runtime.Serialization.EnumMember(Value="InteriorLights")]
         InteriorLights = 16,
         
-        [JsonProperty("OnSiteGeneration")]
+        [System.Runtime.Serialization.EnumMember(Value="OnSiteGeneration")]
         OnSiteGeneration = 17,
         
-        [JsonProperty("Pumps")]
+        [System.Runtime.Serialization.EnumMember(Value="Pumps")]
         Pumps = 18,
         
-        [JsonProperty("Refrigeration")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration")]
         Refrigeration = 19,
         
-        [JsonProperty("WaterSystems")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterSystems")]
         WaterSystems = 20,
     }
     
     [Description("This object sets up an EMS trend variable from an Erl variable A trend variable l" +
         "ogs values across timesteps")]
-    [JsonObject("EnergyManagementSystem:TrendVariable")]
     public class EnergyManagementSystem_TrendVariable : BHoMObject, IEnergyPlusClass
     {
         
@@ -488,7 +486,6 @@ public System.Nullable<float> NumberOfTimestepsToBeLogged { get; set; } = null;
     }
     
     [Description("Declares EMS variable as an internal data variable")]
-    [JsonObject("EnergyManagementSystem:InternalVariable")]
     public class EnergyManagementSystem_InternalVariable : BHoMObject, IEnergyPlusClass
     {
         
@@ -502,7 +499,6 @@ public string InternalDataType { get; set; } = "";
     }
     
     [Description("Declares EMS variable that identifies a curve or table")]
-    [JsonObject("EnergyManagementSystem:CurveOrTableIndexVariable")]
     public class EnergyManagementSystem_CurveOrTableIndexVariable : BHoMObject, IEnergyPlusClass
     {
         
@@ -512,7 +508,6 @@ public string CurveOrTableObjectName { get; set; } = "";
     }
     
     [Description("Declares EMS variable that identifies a construction")]
-    [JsonObject("EnergyManagementSystem:ConstructionIndexVariable")]
     public class EnergyManagementSystem_ConstructionIndexVariable : BHoMObject, IEnergyPlusClass
     {
         

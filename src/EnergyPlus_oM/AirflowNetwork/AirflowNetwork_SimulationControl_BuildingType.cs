@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     public enum AirflowNetwork_SimulationControl_BuildingType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HighRise")]
+        [System.Runtime.Serialization.EnumMember(Value="HighRise")]
         HighRise = 1,
         
-        [JsonProperty("LowRise")]
+        [System.Runtime.Serialization.EnumMember(Value="LowRise")]
         LowRise = 2,
     }
 }

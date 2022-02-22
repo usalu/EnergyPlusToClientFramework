@@ -10,7 +10,6 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
                  "smaller containers filled with water that are placed in a larger tank or series " +
                  "of tanks. The model uses polynomial equations to describe the system performance" +
                  ".")]
-    [JsonObject("ThermalStorage:Ice:Detailed")]
     public class ThermalStorage_Ice_Detailed : BHoMObject, IEnergyPlusClass
     {
         
@@ -35,6 +34,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("discharging_curve_variable_specifications")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ThermalStorage_Ice_Detailed_DischargingCurveVariableSpecifications DischargingCurveVariableSpecifications { get; set; } = (ThermalStorage_Ice_Detailed_DischargingCurveVariableSpecifications)Enum.Parse(typeof(ThermalStorage_Ice_Detailed_DischargingCurveVariableSpecifications), "FractionChargedLMTD");
         
 
@@ -43,6 +43,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("charging_curve_variable_specifications")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ThermalStorage_Ice_Detailed_ChargingCurveVariableSpecifications ChargingCurveVariableSpecifications { get; set; } = (ThermalStorage_Ice_Detailed_ChargingCurveVariableSpecifications)Enum.Parse(typeof(ThermalStorage_Ice_Detailed_ChargingCurveVariableSpecifications), "FractionChargedLMTD");
         
 
@@ -77,6 +78,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         [Description("This field determines whether the system uses internal or external melt during di" +
                      "scharging. This will then have an impact on charging performance.")]
         [JsonProperty("thaw_process_indicator")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ThermalStorage_Ice_Detailed_ThawProcessIndicator ThawProcessIndicator { get; set; } = (ThermalStorage_Ice_Detailed_ThawProcessIndicator)Enum.Parse(typeof(ThermalStorage_Ice_Detailed_ThawProcessIndicator), "OutsideMelt");
     }
 }

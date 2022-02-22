@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum LifeCycleCost_Parameters_DiscountingConvention
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BeginningOfYear")]
+        [System.Runtime.Serialization.EnumMember(Value="BeginningOfYear")]
         BeginningOfYear = 1,
         
-        [JsonProperty("EndOfYear")]
+        [System.Runtime.Serialization.EnumMember(Value="EndOfYear")]
         EndOfYear = 2,
         
-        [JsonProperty("MidYear")]
+        [System.Runtime.Serialization.EnumMember(Value="MidYear")]
         MidYear = 3,
     }
 }

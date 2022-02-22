@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelCell_AirSupply_AirSupplyRateCalculationMode
     {
         
-        [JsonProperty("AirRatiobyStoics")]
+        [System.Runtime.Serialization.EnumMember(Value="AirRatiobyStoics")]
         AirRatiobyStoics = 0,
         
-        [JsonProperty("QuadraticFunctionofElectricPower")]
+        [System.Runtime.Serialization.EnumMember(Value="QuadraticFunctionofElectricPower")]
         QuadraticFunctionofElectricPower = 1,
         
-        [JsonProperty("QuadraticFunctionofFuelRate")]
+        [System.Runtime.Serialization.EnumMember(Value="QuadraticFunctionofFuelRate")]
         QuadraticFunctionofFuelRate = 2,
     }
 }

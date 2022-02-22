@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_DualDuct_NightCycleControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CycleOnAny")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAny")]
         CycleOnAny = 1,
         
-        [JsonProperty("CycleOnControlZone")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnControlZone")]
         CycleOnControlZone = 2,
         
-        [JsonProperty("StayOff")]
+        [System.Runtime.Serialization.EnumMember(Value="StayOff")]
         StayOff = 3,
     }
 }

@@ -1,47 +1,45 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_OutdoorAirUnit_EquipmentList_Component4ObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 1,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 2,
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 3,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 4,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 5,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 6,
         
-        [JsonProperty("CoilSystem:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX")]
         CoilSystemCoolingDX = 7,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatexchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatexchangerAssisted")]
         CoilSystemCoolingWaterHeatexchangerAssisted = 8,
         
-        [JsonProperty("CoilSystem:Heating:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Heating:DX")]
         CoilSystemHeatingDX = 9,
         
-        [JsonProperty("Dehumidifier:Desiccant:NoFans")]
+        [System.Runtime.Serialization.EnumMember(Value="Dehumidifier:Desiccant:NoFans")]
         DehumidifierDesiccantNoFans = 10,
         
-        [JsonProperty("HeatExchanger:AirToAir:FlatPlate")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:FlatPlate")]
         HeatExchangerAirToAirFlatPlate = 11,
         
-        [JsonProperty("HeatExchanger:AirToAir:SensibleAndLatent")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:AirToAir:SensibleAndLatent")]
         HeatExchangerAirToAirSensibleAndLatent = 12,
     }
 }

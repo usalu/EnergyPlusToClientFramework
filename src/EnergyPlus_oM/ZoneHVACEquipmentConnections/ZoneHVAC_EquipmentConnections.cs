@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACEquipmentConnections
                  " the zone air node, air inlet nodes, air exhaust nodes, and the air return node." +
                  " A zone equipment list is referenced which lists all HVAC equipment connected to" +
                  " the zone.")]
-    [JsonObject("ZoneHVAC:EquipmentConnections")]
     public class ZoneHVAC_EquipmentConnections : BHoMObject, IEnergyPlusClass
     {
         

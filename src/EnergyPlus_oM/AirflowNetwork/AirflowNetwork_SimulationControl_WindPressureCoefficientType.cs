@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     public enum AirflowNetwork_SimulationControl_WindPressureCoefficientType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Input")]
+        [System.Runtime.Serialization.EnumMember(Value="Input")]
         Input = 1,
         
-        [JsonProperty("SurfaceAverageCalculation")]
+        [System.Runtime.Serialization.EnumMember(Value="SurfaceAverageCalculation")]
         SurfaceAverageCalculation = 2,
     }
 }

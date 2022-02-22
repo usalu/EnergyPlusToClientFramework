@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
     
     [Description("Defines a generic zone air unit for custom modeling using Energy Management Syste" +
         "m or External Interface")]
-    [JsonObject("ZoneHVAC:ForcedAir:UserDefined")]
     public class ZoneHVAC_ForcedAir_UserDefined : BHoMObject, IEnergyPlusClass
     {
         

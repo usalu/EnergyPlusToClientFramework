@@ -6,12 +6,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     [Description("This setpoint manager places a high and low schedule value on one or more nodes.")]
-    [JsonObject("SetpointManager:Scheduled:DualSetpoint")]
     public class SetpointManager_Scheduled_DualSetpoint : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SetpointManager_Scheduled_DualSetpoint_ControlVariable ControlVariable { get; set; } = (SetpointManager_Scheduled_DualSetpoint_ControlVariable)Enum.Parse(typeof(SetpointManager_Scheduled_DualSetpoint_ControlVariable), "Temperature");
         
 

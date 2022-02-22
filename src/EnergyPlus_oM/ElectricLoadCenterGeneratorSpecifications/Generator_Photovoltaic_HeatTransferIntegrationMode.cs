@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_Photovoltaic_HeatTransferIntegrationMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Decoupled")]
+        [System.Runtime.Serialization.EnumMember(Value="Decoupled")]
         Decoupled = 1,
         
-        [JsonProperty("DecoupledUllebergDynamic")]
+        [System.Runtime.Serialization.EnumMember(Value="DecoupledUllebergDynamic")]
         DecoupledUllebergDynamic = 2,
         
-        [JsonProperty("IntegratedExteriorVentedCavity")]
+        [System.Runtime.Serialization.EnumMember(Value="IntegratedExteriorVentedCavity")]
         IntegratedExteriorVentedCavity = 3,
         
-        [JsonProperty("IntegratedSurfaceOutsideFace")]
+        [System.Runtime.Serialization.EnumMember(Value="IntegratedSurfaceOutsideFace")]
         IntegratedSurfaceOutsideFace = 4,
         
-        [JsonProperty("IntegratedTranspiredCollector")]
+        [System.Runtime.Serialization.EnumMember(Value="IntegratedTranspiredCollector")]
         IntegratedTranspiredCollector = 5,
         
-        [JsonProperty("PhotovoltaicThermalSolarCollector")]
+        [System.Runtime.Serialization.EnumMember(Value="PhotovoltaicThermalSolarCollector")]
         PhotovoltaicThermalSolarCollector = 6,
     }
 }

@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_Case_LatentCaseCreditCurveType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CaseTemperatureMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="CaseTemperatureMethod")]
         CaseTemperatureMethod = 1,
         
-        [JsonProperty("DewpointMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="DewpointMethod")]
         DewpointMethod = 2,
         
-        [JsonProperty("RelativeHumidityMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="RelativeHumidityMethod")]
         RelativeHumidityMethod = 3,
     }
 }

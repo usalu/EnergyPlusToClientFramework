@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelCell_AuxiliaryHeater_SkinLossDestination
     {
         
-        [JsonProperty("AirInletForFuelCell")]
+        [System.Runtime.Serialization.EnumMember(Value="AirInletForFuelCell")]
         AirInletForFuelCell = 0,
         
-        [JsonProperty("SurroundingZone")]
+        [System.Runtime.Serialization.EnumMember(Value="SurroundingZone")]
         SurroundingZone = 1,
     }
 }

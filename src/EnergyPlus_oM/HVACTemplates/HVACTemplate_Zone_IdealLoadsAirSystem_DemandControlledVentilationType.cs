@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Zone_IdealLoadsAirSystem_DemandControlledVentilationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CO2Setpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="CO2Setpoint")]
         CO2Setpoint = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("OccupancySchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="OccupancySchedule")]
         OccupancySchedule = 3,
     }
 }

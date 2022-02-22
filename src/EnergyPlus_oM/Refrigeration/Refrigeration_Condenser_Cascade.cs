@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     [Description(@"Cascade condenser for a refrigeration system (Refrigeration:System). The cascade condenser is unlike the other condenser options because it rejects heat to another, higher-temperature, refrigeration system. That is, the cascade condenser acts as a heat rejection object for one system, but acts as a refrigeration load for another system.")]
-    [JsonObject("Refrigeration:Condenser:Cascade")]
     public class Refrigeration_Condenser_Cascade : BHoMObject, IEnergyPlusClass
     {
         
@@ -30,6 +29,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         [Description("Fixed keeps condensing temperature constant Float sets the condensing temperature" +
                      " according to the other loads on the higher temperature system")]
         [JsonProperty("condensing_temperature_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Refrigeration_Condenser_Cascade_CondensingTemperatureControlType CondensingTemperatureControlType { get; set; } = (Refrigeration_Condenser_Cascade_CondensingTemperatureControlType)Enum.Parse(typeof(Refrigeration_Condenser_Cascade_CondensingTemperatureControlType), "Fixed");
         
 

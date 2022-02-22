@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     [Description("Determines the optimal start of HVAC systems before occupancy.")]
-    [JsonObject("AvailabilityManager:OptimumStart")]
     public class AvailabilityManager_OptimumStart : BHoMObject, IEnergyPlusClass
     {
         
@@ -21,6 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
         
 
         [JsonProperty("control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AvailabilityManager_OptimumStart_ControlType ControlType { get; set; } = (AvailabilityManager_OptimumStart_ControlType)Enum.Parse(typeof(AvailabilityManager_OptimumStart_ControlType), "ControlZone");
         
 
@@ -38,6 +38,7 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
         
 
         [JsonProperty("control_algorithm")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AvailabilityManager_OptimumStart_ControlAlgorithm ControlAlgorithm { get; set; } = (AvailabilityManager_OptimumStart_ControlAlgorithm)Enum.Parse(typeof(AvailabilityManager_OptimumStart_ControlAlgorithm), "AdaptiveASHRAE");
         
 

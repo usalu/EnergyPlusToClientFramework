@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for detailed entry of subsurfaces (windows, doors, glass doors, tubular da" +
                  "ylighting devices).")]
-    [JsonObject("FenestrationSurface:Detailed")]
     public class FenestrationSurface_Detailed : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("surface_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FenestrationSurface_Detailed_SurfaceType SurfaceType { get; set; } = (FenestrationSurface_Detailed_SurfaceType)Enum.Parse(typeof(FenestrationSurface_Detailed_SurfaceType), "Door");
         
 

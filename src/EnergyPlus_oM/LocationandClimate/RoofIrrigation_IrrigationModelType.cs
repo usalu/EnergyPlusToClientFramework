@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum RoofIrrigation_IrrigationModelType
     {
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 0,
         
-        [JsonProperty("SmartSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="SmartSchedule")]
         SmartSchedule = 1,
     }
 }

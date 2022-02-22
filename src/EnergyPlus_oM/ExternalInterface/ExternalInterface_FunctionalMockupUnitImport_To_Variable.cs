@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
 {
     [Description("Declares Erl variable as having global scope No spaces allowed in names used for " +
                  "Erl variables")]
-    [JsonObject("ExternalInterface:FunctionalMockupUnitImport:To:Variable")]
     public class ExternalInterface_FunctionalMockupUnitImport_To_Variable : BHoMObject, IEnergyPlusClass
     {
         

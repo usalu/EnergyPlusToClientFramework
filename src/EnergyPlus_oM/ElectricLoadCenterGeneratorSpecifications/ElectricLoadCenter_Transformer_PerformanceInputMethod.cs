@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum ElectricLoadCenter_Transformer_PerformanceInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NominalEfficiency")]
+        [System.Runtime.Serialization.EnumMember(Value="NominalEfficiency")]
         NominalEfficiency = 1,
         
-        [JsonProperty("RatedLosses")]
+        [System.Runtime.Serialization.EnumMember(Value="RatedLosses")]
         RatedLosses = 2,
     }
 }

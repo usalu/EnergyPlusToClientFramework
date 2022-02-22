@@ -1,44 +1,42 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum HeatExchanger_FluidToFluid_ControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CoolingDifferentialOnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingDifferentialOnOff")]
         CoolingDifferentialOnOff = 1,
         
-        [JsonProperty("CoolingSetpointModulated")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingSetpointModulated")]
         CoolingSetpointModulated = 2,
         
-        [JsonProperty("CoolingSetpointOnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingSetpointOnOff")]
         CoolingSetpointOnOff = 3,
         
-        [JsonProperty("CoolingSetpointOnOffWithComponentOverride")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingSetpointOnOffWithComponentOverride")]
         CoolingSetpointOnOffWithComponentOverride = 4,
         
-        [JsonProperty("DualDeadbandSetpointModulated")]
+        [System.Runtime.Serialization.EnumMember(Value="DualDeadbandSetpointModulated")]
         DualDeadbandSetpointModulated = 5,
         
-        [JsonProperty("DualDeadbandSetpointOnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="DualDeadbandSetpointOnOff")]
         DualDeadbandSetpointOnOff = 6,
         
-        [JsonProperty("HeatingSetpointModulated")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingSetpointModulated")]
         HeatingSetpointModulated = 7,
         
-        [JsonProperty("HeatingSetpointOnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingSetpointOnOff")]
         HeatingSetpointOnOff = 8,
         
-        [JsonProperty("OperationSchemeModulated")]
+        [System.Runtime.Serialization.EnumMember(Value="OperationSchemeModulated")]
         OperationSchemeModulated = 9,
         
-        [JsonProperty("OperationSchemeOnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="OperationSchemeOnOff")]
         OperationSchemeOnOff = 10,
         
-        [JsonProperty("UncontrolledOn")]
+        [System.Runtime.Serialization.EnumMember(Value="UncontrolledOn")]
         UncontrolledOn = 11,
     }
 }

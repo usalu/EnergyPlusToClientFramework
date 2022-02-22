@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     [Description("Packaged terminal air conditioner (PTAC). Forced-convection heating-cooling unit " +
                  "with supply fan, direct expansion (DX) cooling coil, heating coil (gas, electric" +
                  ", hot water, or steam) and fixed-position outdoor air mixer.")]
-    [JsonObject("ZoneHVAC:PackagedTerminalAirConditioner")]
     public class ZoneHVAC_PackagedTerminalAirConditioner : BHoMObject, IEnergyPlusClass
     {
         
@@ -34,6 +33,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
                      "e left blank if the PTAC is connected to central dedicated outdoor air through a" +
                      "n AirTerminal:SingleDuct:Mixer object.")]
         [JsonProperty("outdoor_air_mixer_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_PackagedTerminalAirConditioner_OutdoorAirMixerObjectType OutdoorAirMixerObjectType { get; set; } = (ZoneHVAC_PackagedTerminalAirConditioner_OutdoorAirMixerObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalAirConditioner_OutdoorAirMixerObjectType), "OutdoorAirMixer");
         
 
@@ -78,6 +78,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description(@"Fan:ConstantVolume only works when continuous fan operation is used the entire simulation (all supply air fan operating mode schedule values are greater than 0). If any fan operating mode schedule values are 0 a Fan:SystemModel or Fan:OnOff object must be used.")]
         [JsonProperty("supply_air_fan_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_PackagedTerminalAirConditioner_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_PackagedTerminalAirConditioner_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalAirConditioner_SupplyAirFanObjectType), "FanConstantVolume");
         
 
@@ -88,6 +89,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description("Select the type of heating coil.")]
         [JsonProperty("heating_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_PackagedTerminalAirConditioner_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_PackagedTerminalAirConditioner_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalAirConditioner_HeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -99,6 +101,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         [Description("Select the type of Cooling Coil. Only works with Coil:Cooling:DX:SingleSpeed or C" +
                      "oilSystem:Cooling:DX:HeatExchangerAssisted or Coil:Cooling:DX:VariableSpeed.")]
         [JsonProperty("cooling_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_PackagedTerminalAirConditioner_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_PackagedTerminalAirConditioner_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalAirConditioner_CoolingCoilObjectType), "CoilCoolingDXSingleSpeed");
         
 
@@ -109,6 +112,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description("Select fan placement as either blow through or draw through.")]
         [JsonProperty("fan_placement")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_PackagedTerminalAirConditioner_FanPlacement FanPlacement { get; set; } = (ZoneHVAC_PackagedTerminalAirConditioner_FanPlacement)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalAirConditioner_FanPlacement), "DrawThrough");
         
 
@@ -128,6 +132,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("capacity_control_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_PackagedTerminalAirConditioner_CapacityControlMethod CapacityControlMethod { get; set; } = (ZoneHVAC_PackagedTerminalAirConditioner_CapacityControlMethod)Enum.Parse(typeof(ZoneHVAC_PackagedTerminalAirConditioner_CapacityControlMethod), "None");
         
 

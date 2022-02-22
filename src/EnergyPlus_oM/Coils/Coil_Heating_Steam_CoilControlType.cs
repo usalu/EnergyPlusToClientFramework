@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     public enum Coil_Heating_Steam_CoilControlType
     {
         
-        [JsonProperty("TemperatureSetpointControl")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureSetpointControl")]
         TemperatureSetpointControl = 0,
         
-        [JsonProperty("ZoneLoadControl")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneLoadControl")]
         ZoneLoadControl = 1,
     }
 }

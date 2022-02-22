@@ -1,38 +1,36 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     public enum DesignSpecification_OutdoorAir_OutdoorAirMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirChanges/Hour")]
+        [System.Runtime.Serialization.EnumMember(Value="AirChanges/Hour")]
         AirChangesHour = 1,
         
-        [JsonProperty("Flow/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Area")]
         FlowArea = 2,
         
-        [JsonProperty("Flow/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Person")]
         FlowPerson = 3,
         
-        [JsonProperty("Flow/Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Zone")]
         FlowZone = 4,
         
-        [JsonProperty("IndoorAirQualityProcedure")]
+        [System.Runtime.Serialization.EnumMember(Value="IndoorAirQualityProcedure")]
         IndoorAirQualityProcedure = 5,
         
-        [JsonProperty("Maximum")]
+        [System.Runtime.Serialization.EnumMember(Value="Maximum")]
         Maximum = 6,
         
-        [JsonProperty("ProportionalControlBasedOnDesignOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="ProportionalControlBasedOnDesignOccupancy")]
         ProportionalControlBasedOnDesignOccupancy = 7,
         
-        [JsonProperty("ProportionalControlBasedOnOccupancySchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="ProportionalControlBasedOnOccupancySchedule")]
         ProportionalControlBasedOnOccupancySchedule = 8,
         
-        [JsonProperty("Sum")]
+        [System.Runtime.Serialization.EnumMember(Value="Sum")]
         Sum = 9,
     }
 }

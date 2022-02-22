@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Zone terminal unit, variable volume, reheat optional. For heating, this unit acti" +
                  "vates reheat coil first, then increases airflow (if reverse action specified).")]
-    [JsonObject("HVACTemplate:Zone:VAV")]
     public class HVACTemplate_Zone_VAV : BHoMObject, IEnergyPlusClass
     {
         
@@ -51,6 +50,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "rate) Scheduled = Scheduled Minimum Air Flow Fraction (a fraction of Maximum Air" +
                      " Flow")]
         [JsonProperty("zone_minimum_air_flow_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_VAV_ZoneMinimumAirFlowInputMethod ZoneMinimumAirFlowInputMethod { get; set; } = (HVACTemplate_Zone_VAV_ZoneMinimumAirFlowInputMethod)Enum.Parse(typeof(HVACTemplate_Zone_VAV_ZoneMinimumAirFlowInputMethod), "Constant");
         
 
@@ -71,6 +71,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"Flow/Person, Flow/Zone, Flow/Area, Sum, and Maximum use the values in the next three fields: Outdoor Air Flow Rate per Person, Outdoor Air Flow Rate per Zone Floor Area, and Outdoor Air Flow Rate per Zone. DetailedSpecification ignores these three Outdoor Air Flow Rate fields and instead references design specification objects named in the fields Design Specification Outdoor Air Object Name and Design Specification Zone Air Distribution Object Name.")]
         [JsonProperty("outdoor_air_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_VAV_OutdoorAirMethod OutdoorAirMethod { get; set; } = (HVACTemplate_Zone_VAV_OutdoorAirMethod)Enum.Parse(typeof(HVACTemplate_Zone_VAV_OutdoorAirMethod), "Empty");
         
 
@@ -91,6 +92,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("reheat_coil_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_VAV_ReheatCoilType ReheatCoilType { get; set; } = (HVACTemplate_Zone_VAV_ReheatCoilType)Enum.Parse(typeof(HVACTemplate_Zone_VAV_ReheatCoilType), "None");
         
 
@@ -100,6 +102,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("damper_heating_action")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_VAV_DamperHeatingAction DamperHeatingAction { get; set; } = (HVACTemplate_Zone_VAV_DamperHeatingAction)Enum.Parse(typeof(HVACTemplate_Zone_VAV_DamperHeatingAction), "Reverse");
         
 
@@ -136,6 +139,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
         
 
         [JsonProperty("baseboard_heating_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_VAV_BaseboardHeatingType BaseboardHeatingType { get; set; } = (HVACTemplate_Zone_VAV_BaseboardHeatingType)Enum.Parse(typeof(HVACTemplate_Zone_VAV_BaseboardHeatingType), "None");
         
 
@@ -150,6 +154,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description(@"SupplyAirTemperature = use the value from Zone Cooling Design Supply Air Temperature TemperatureDifference = use the value from Zone Cooling Design Supply Air Temperature Difference SystemSupplyAirTemperature = use the value from HVACTemplate:System:VAV Cooling Coil Design Setpoint")]
         [JsonProperty("zone_cooling_design_supply_air_temperature_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_VAV_ZoneCoolingDesignSupplyAirTemperatureInputMethod ZoneCoolingDesignSupplyAirTemperatureInputMethod { get; set; } = (HVACTemplate_Zone_VAV_ZoneCoolingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(HVACTemplate_Zone_VAV_ZoneCoolingDesignSupplyAirTemperatureInputMethod), "SystemSupplyAirTemperature");
         
 
@@ -168,6 +173,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "ure TemperatureDifference = use the value from Zone Heating Design Supply Air Te" +
                      "mperature Difference")]
         [JsonProperty("zone_heating_design_supply_air_temperature_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Zone_VAV_ZoneHeatingDesignSupplyAirTemperatureInputMethod ZoneHeatingDesignSupplyAirTemperatureInputMethod { get; set; } = (HVACTemplate_Zone_VAV_ZoneHeatingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(HVACTemplate_Zone_VAV_ZoneHeatingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 

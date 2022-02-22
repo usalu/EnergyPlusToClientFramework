@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("This object is optional and is used to define details needed to model the stack c" +
                  "ooler on PEMFC.")]
-    [JsonObject("Generator:FuelCell:StackCooler")]
     public class Generator_FuelCell_StackCooler : BHoMObject, IEnergyPlusClass
     {
         

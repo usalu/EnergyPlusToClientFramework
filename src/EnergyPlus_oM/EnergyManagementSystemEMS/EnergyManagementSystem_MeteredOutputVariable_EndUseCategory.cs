@@ -1,71 +1,69 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     public enum EnergyManagementSystem_MeteredOutputVariable_EndUseCategory
     {
         
-        [JsonProperty("Baseboard")]
+        [System.Runtime.Serialization.EnumMember(Value="Baseboard")]
         Baseboard = 0,
         
-        [JsonProperty("Boilers")]
+        [System.Runtime.Serialization.EnumMember(Value="Boilers")]
         Boilers = 1,
         
-        [JsonProperty("Chillers")]
+        [System.Runtime.Serialization.EnumMember(Value="Chillers")]
         Chillers = 2,
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 3,
         
-        [JsonProperty("CoolingCoils")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingCoils")]
         CoolingCoils = 4,
         
-        [JsonProperty("ExteriorEquipment")]
+        [System.Runtime.Serialization.EnumMember(Value="ExteriorEquipment")]
         ExteriorEquipment = 5,
         
-        [JsonProperty("ExteriorLights")]
+        [System.Runtime.Serialization.EnumMember(Value="ExteriorLights")]
         ExteriorLights = 6,
         
-        [JsonProperty("Fans")]
+        [System.Runtime.Serialization.EnumMember(Value="Fans")]
         Fans = 7,
         
-        [JsonProperty("HeatRecovery")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecovery")]
         HeatRecovery = 8,
         
-        [JsonProperty("HeatRecoveryForCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecoveryForCooling")]
         HeatRecoveryForCooling = 9,
         
-        [JsonProperty("HeatRecoveryForHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecoveryForHeating")]
         HeatRecoveryForHeating = 10,
         
-        [JsonProperty("HeatRejection")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRejection")]
         HeatRejection = 11,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 12,
         
-        [JsonProperty("HeatingCoils")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingCoils")]
         HeatingCoils = 13,
         
-        [JsonProperty("Humidifier")]
+        [System.Runtime.Serialization.EnumMember(Value="Humidifier")]
         Humidifier = 14,
         
-        [JsonProperty("InteriorEquipment")]
+        [System.Runtime.Serialization.EnumMember(Value="InteriorEquipment")]
         InteriorEquipment = 15,
         
-        [JsonProperty("InteriorLights")]
+        [System.Runtime.Serialization.EnumMember(Value="InteriorLights")]
         InteriorLights = 16,
         
-        [JsonProperty("OnSiteGeneration")]
+        [System.Runtime.Serialization.EnumMember(Value="OnSiteGeneration")]
         OnSiteGeneration = 17,
         
-        [JsonProperty("Pumps")]
+        [System.Runtime.Serialization.EnumMember(Value="Pumps")]
         Pumps = 18,
         
-        [JsonProperty("Refrigeration")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration")]
         Refrigeration = 19,
         
-        [JsonProperty("WaterSystems")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterSystems")]
         WaterSystems = 20,
     }
 }

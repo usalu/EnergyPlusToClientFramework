@@ -1,35 +1,33 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_Meter_Cumulative_MeterFileOnly_ReportingFrequency
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 1,
         
-        [JsonProperty("Daily")]
+        [System.Runtime.Serialization.EnumMember(Value="Daily")]
         Daily = 2,
         
-        [JsonProperty("Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="Detailed")]
         Detailed = 3,
         
-        [JsonProperty("Environment")]
+        [System.Runtime.Serialization.EnumMember(Value="Environment")]
         Environment = 4,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 5,
         
-        [JsonProperty("Monthly")]
+        [System.Runtime.Serialization.EnumMember(Value="Monthly")]
         Monthly = 6,
         
-        [JsonProperty("RunPeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="RunPeriod")]
         RunPeriod = 7,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 8,
     }
 }

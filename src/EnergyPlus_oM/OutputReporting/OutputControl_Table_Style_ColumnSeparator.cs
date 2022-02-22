@@ -1,41 +1,39 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum OutputControl_Table_Style_ColumnSeparator
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("All")]
+        [System.Runtime.Serialization.EnumMember(Value="All")]
         All = 1,
         
-        [JsonProperty("Comma")]
+        [System.Runtime.Serialization.EnumMember(Value="Comma")]
         Comma = 2,
         
-        [JsonProperty("CommaAndHTML")]
+        [System.Runtime.Serialization.EnumMember(Value="CommaAndHTML")]
         CommaAndHTML = 3,
         
-        [JsonProperty("CommaAndXML")]
+        [System.Runtime.Serialization.EnumMember(Value="CommaAndXML")]
         CommaAndXML = 4,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 5,
         
-        [JsonProperty("HTML")]
+        [System.Runtime.Serialization.EnumMember(Value="HTML")]
         HTML = 6,
         
-        [JsonProperty("Tab")]
+        [System.Runtime.Serialization.EnumMember(Value="Tab")]
         Tab = 7,
         
-        [JsonProperty("TabAndHTML")]
+        [System.Runtime.Serialization.EnumMember(Value="TabAndHTML")]
         TabAndHTML = 8,
         
-        [JsonProperty("XML")]
+        [System.Runtime.Serialization.EnumMember(Value="XML")]
         XML = 9,
         
-        [JsonProperty("XMLandHTML")]
+        [System.Runtime.Serialization.EnumMember(Value="XMLandHTML")]
         XMLandHTML = 10,
     }
 }

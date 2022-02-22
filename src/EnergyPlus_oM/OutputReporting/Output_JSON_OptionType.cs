@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_JSON_OptionType
     {
         
-        [JsonProperty("TimeSeries")]
+        [System.Runtime.Serialization.EnumMember(Value="TimeSeries")]
         TimeSeries = 0,
         
-        [JsonProperty("TimeSeriesAndTabular")]
+        [System.Runtime.Serialization.EnumMember(Value="TimeSeriesAndTabular")]
         TimeSeriesAndTabular = 1,
     }
 }

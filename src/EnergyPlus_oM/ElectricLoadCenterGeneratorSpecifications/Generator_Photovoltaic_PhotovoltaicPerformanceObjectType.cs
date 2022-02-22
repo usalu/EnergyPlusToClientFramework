@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_Photovoltaic_PhotovoltaicPerformanceObjectType
     {
         
-        [JsonProperty("PhotovoltaicPerformance:EquivalentOne-Diode")]
+        [System.Runtime.Serialization.EnumMember(Value="PhotovoltaicPerformance:EquivalentOne-Diode")]
         PhotovoltaicPerformanceEquivalentOneDiode = 0,
         
-        [JsonProperty("PhotovoltaicPerformance:Sandia")]
+        [System.Runtime.Serialization.EnumMember(Value="PhotovoltaicPerformance:Sandia")]
         PhotovoltaicPerformanceSandia = 1,
         
-        [JsonProperty("PhotovoltaicPerformance:Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="PhotovoltaicPerformance:Simple")]
         PhotovoltaicPerformanceSimple = 2,
     }
 }

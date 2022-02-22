@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object specifies the properties of airflow through windows and doors (window" +
                  ", door and glass door heat transfer subsurfaces) when they are closed or open.")]
-    [JsonObject("AirflowNetwork:MultiZone:Component:DetailedOpening")]
     public class AirflowNetwork_MultiZone_Component_DetailedOpening : BHoMObject, IEnergyPlusClass
     {
         
@@ -30,6 +29,7 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
         [Description("Select the type of vertical opening: Non-pivoted opening or Horizontally pivoted " +
                      "opening.")]
         [JsonProperty("type_of_rectangular_large_vertical_opening_lvo_")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLargeVerticalOpeningLvo TypeOfRectangularLargeVerticalOpeningLvo { get; set; } = (AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLargeVerticalOpeningLvo)Enum.Parse(typeof(AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLargeVerticalOpeningLvo), "NonPivoted");
         
 

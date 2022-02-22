@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
     
     [Description("ScheduleTypeLimits specifies the data types and limits for the values contained i" +
         "n schedules")]
-    [JsonObject("ScheduleTypeLimits")]
     public class ScheduleTypeLimits : BHoMObject, IEnergyPlusClass
     {
         
@@ -88,6 +87,7 @@ public System.Nullable<float> UpperLimitValue { get; set; } = null;
     "r Discrete (only integer numbers between min and max are valid. (Could also allo" +
     "w REAL and INTEGER to mean the same things)")]
 [JsonProperty("numeric_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ScheduleTypeLimits_NumericType NumericType { get; set; } = (ScheduleTypeLimits_NumericType)Enum.Parse(typeof(ScheduleTypeLimits_NumericType), "Continuous");
         
 
@@ -95,6 +95,7 @@ public ScheduleTypeLimits_NumericType NumericType { get; set; } = (ScheduleTypeL
     "Angle (degrees) Convection Coefficient (W/m2-K or Btu/sqft-hr-F) Activity Level " +
     "(W/person) Velocity (m/s or ft/min) Capacity (W or Btu/h) Power (W)")]
 [JsonProperty("unit_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ScheduleTypeLimits_UnitType UnitType { get; set; } = (ScheduleTypeLimits_UnitType)Enum.Parse(typeof(ScheduleTypeLimits_UnitType), "Dimensionless");
     }
 }

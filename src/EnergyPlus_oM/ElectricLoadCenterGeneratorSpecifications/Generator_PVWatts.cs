@@ -7,12 +7,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description(@"Describes a simple set of inputs for an array of photovoltaic (PV) modules as described in the PVWatts software. A series of different PVWatts arrays can be connected to a single electric load center (preferably through an ElectricLoadCenter:Inverter:PVWatts). Array tilt and azimuth can be either specified on this object or taken from a referenced building surface or shading surface. If a surface is specified, the array participates normally in all shading calculations.")]
-    [JsonObject("Generator:PVWatts")]
     public class Generator_PVWatts : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("pvwatts_version")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_PVWatts_PvwattsVersion PvwattsVersion { get; set; } = (Generator_PVWatts_PvwattsVersion)Enum.Parse(typeof(Generator_PVWatts_PvwattsVersion), "_5");
         
 
@@ -22,10 +22,12 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("module_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_PVWatts_ModuleType ModuleType { get; set; } = (Generator_PVWatts_ModuleType)Enum.Parse(typeof(Generator_PVWatts_ModuleType), "Premium");
         
 
         [JsonProperty("array_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_PVWatts_ArrayType ArrayType { get; set; } = (Generator_PVWatts_ArrayType)Enum.Parse(typeof(Generator_PVWatts_ArrayType), "FixedOpenRack");
         
 
@@ -37,6 +39,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                      "n unshaded array is assumed. Surface - The array geometry (tilt and azimuth) as " +
                      "well as shading is determined from surface referenced.")]
         [JsonProperty("array_geometry_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_PVWatts_ArrayGeometryType ArrayGeometryType { get; set; } = (Generator_PVWatts_ArrayGeometryType)Enum.Parse(typeof(Generator_PVWatts_ArrayGeometryType), "TiltAzimuth");
         
 

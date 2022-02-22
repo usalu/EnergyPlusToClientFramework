@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("a list of meters that can be reported are available after a run on the meter dict" +
                  "ionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    [JsonObject("ElectricLoadCenter:Transformer")]
     public class ElectricLoadCenter_Transformer : BHoMObject, IEnergyPlusClass
     {
         
@@ -21,6 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 
         [Description(@"A transformer can be used to transfer electric energy from utility grid to building (PowerInFromGrid)or from building on-site generation to the grid (PowerOutToGrid) or within a load center to match generation to the facility service main panel (LoadCenterPowerConditioning)")]
         [JsonProperty("transformer_usage")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ElectricLoadCenter_Transformer_TransformerUsage TransformerUsage { get; set; } = (ElectricLoadCenter_Transformer_TransformerUsage)Enum.Parse(typeof(ElectricLoadCenter_Transformer_TransformerUsage), "PowerInFromGrid");
         
 
@@ -46,6 +46,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 
         [Description("Winding material used by the transformer.")]
         [JsonProperty("conductor_material")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ElectricLoadCenter_Transformer_ConductorMaterial ConductorMaterial { get; set; } = (ElectricLoadCenter_Transformer_ConductorMaterial)Enum.Parse(typeof(ElectricLoadCenter_Transformer_ConductorMaterial), "Aluminum");
         
 
@@ -60,6 +61,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         [Description("User can define transformer performance by specifying load and no load losses at " +
                      "rated conditions or nameplate efficiency and maximum efficiency")]
         [JsonProperty("performance_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ElectricLoadCenter_Transformer_PerformanceInputMethod PerformanceInputMethod { get; set; } = (ElectricLoadCenter_Transformer_PerformanceInputMethod)Enum.Parse(typeof(ElectricLoadCenter_Transformer_PerformanceInputMethod), "RatedLosses");
         
 
@@ -98,6 +100,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 
         [Description("Only required when the transformer is used for power in from the utility grid")]
         [JsonProperty("consider_transformer_loss_for_utility_cost")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes ConsiderTransformerLossForUtilityCost { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 

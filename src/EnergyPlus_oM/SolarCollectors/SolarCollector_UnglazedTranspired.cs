@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
 {
     [Description(@"Unglazed transpired solar collector (UTSC) used to condition outdoor air. This type of collector is generally used to heat air drawn through perforated absorbers and also recover heat conducted out through the underlying surface. This object represents a single collector attached to one or more building or shading surfaces and to one or more outdoor air systems.")]
-    [JsonObject("SolarCollector:UnglazedTranspired")]
     public class SolarCollector_UnglazedTranspired : BHoMObject, IEnergyPlusClass
     {
         
@@ -80,10 +79,12 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
         
 
         [JsonProperty("hole_layout_pattern_for_pitch")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SolarCollector_UnglazedTranspired_HoleLayoutPatternForPitch HoleLayoutPatternForPitch { get; set; } = (SolarCollector_UnglazedTranspired_HoleLayoutPatternForPitch)Enum.Parse(typeof(SolarCollector_UnglazedTranspired_HoleLayoutPatternForPitch), "Square");
         
 
         [JsonProperty("heat_exchange_effectiveness_correlation")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SolarCollector_UnglazedTranspired_HeatExchangeEffectivenessCorrelation HeatExchangeEffectivenessCorrelation { get; set; } = (SolarCollector_UnglazedTranspired_HeatExchangeEffectivenessCorrelation)Enum.Parse(typeof(SolarCollector_UnglazedTranspired_HeatExchangeEffectivenessCorrelation), "Kutscher1994");
         
 
@@ -93,6 +94,7 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
         
 
         [JsonProperty("roughness_of_collector")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SolarCollector_UnglazedTranspired_RoughnessOfCollector RoughnessOfCollector { get; set; } = (SolarCollector_UnglazedTranspired_RoughnessOfCollector)Enum.Parse(typeof(SolarCollector_UnglazedTranspired_RoughnessOfCollector), "MediumRough");
         
 

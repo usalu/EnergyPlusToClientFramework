@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 {
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
                  "roups to the end of the list")]
-    [JsonObject("ZoneHVAC:Baseboard:RadiantConvective:Water")]
     public class ZoneHVAC_Baseboard_RadiantConvective_Water : BHoMObject, IEnergyPlusClass
     {
         

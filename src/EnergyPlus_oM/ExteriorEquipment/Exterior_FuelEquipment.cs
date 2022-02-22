@@ -6,12 +6,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ExteriorEquipment
 {
     [Description("only used for Meter type reporting, does not affect building loads")]
-    [JsonObject("Exterior:FuelEquipment")]
     public class Exterior_FuelEquipment : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("fuel_use_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Exterior_FuelEquipment_FuelUseType FuelUseType { get; set; } = (Exterior_FuelEquipment_FuelUseType)Enum.Parse(typeof(Exterior_FuelEquipment_FuelUseType), "Coal");
         
 

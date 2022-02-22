@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
 {
     public enum PlantComponent_UserDefined_PlantConnection1LoadingMode
     {
         
-        [JsonProperty("DemandsLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="DemandsLoad")]
         DemandsLoad = 0,
         
-        [JsonProperty("MeetsLoadWithNominalCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetsLoadWithNominalCapacity")]
         MeetsLoadWithNominalCapacity = 1,
         
-        [JsonProperty("MeetsLoadWithNominalCapacityHiOutLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetsLoadWithNominalCapacityHiOutLimit")]
         MeetsLoadWithNominalCapacityHiOutLimit = 2,
         
-        [JsonProperty("MeetsLoadWithNominalCapacityLowOutLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetsLoadWithNominalCapacityLowOutLimit")]
         MeetsLoadWithNominalCapacityLowOutLimit = 3,
         
-        [JsonProperty("MeetsLoadWithPassiveCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="MeetsLoadWithPassiveCapacity")]
         MeetsLoadWithPassiveCapacity = 4,
     }
 }

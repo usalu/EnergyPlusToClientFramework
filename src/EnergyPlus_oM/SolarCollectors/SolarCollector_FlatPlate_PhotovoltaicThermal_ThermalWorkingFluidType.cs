@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
 {
     public enum SolarCollector_FlatPlate_PhotovoltaicThermal_ThermalWorkingFluidType
     {
         
-        [JsonProperty("Air")]
+        [System.Runtime.Serialization.EnumMember(Value="Air")]
         Air = 0,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 1,
     }
 }

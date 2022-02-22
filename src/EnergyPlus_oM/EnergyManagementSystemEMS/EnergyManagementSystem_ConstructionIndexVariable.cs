@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     [Description("Declares EMS variable that identifies a construction")]
-    [JsonObject("EnergyManagementSystem:ConstructionIndexVariable")]
     public class EnergyManagementSystem_ConstructionIndexVariable : BHoMObject, IEnergyPlusClass
     {
         

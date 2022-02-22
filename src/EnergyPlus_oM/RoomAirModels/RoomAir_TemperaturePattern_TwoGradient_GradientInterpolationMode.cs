@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     public enum RoomAir_TemperaturePattern_TwoGradient_GradientInterpolationMode
     {
         
-        [JsonProperty("OutdoorDryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorDryBulbTemperature")]
         OutdoorDryBulbTemperature = 0,
         
-        [JsonProperty("SensibleCoolingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="SensibleCoolingLoad")]
         SensibleCoolingLoad = 1,
         
-        [JsonProperty("SensibleHeatingLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="SensibleHeatingLoad")]
         SensibleHeatingLoad = 2,
         
-        [JsonProperty("ZoneAndOutdoorTemperatureDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAndOutdoorTemperatureDifference")]
         ZoneAndOutdoorTemperatureDifference = 3,
         
-        [JsonProperty("ZoneDryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneDryBulbTemperature")]
         ZoneDryBulbTemperature = 4,
     }
 }

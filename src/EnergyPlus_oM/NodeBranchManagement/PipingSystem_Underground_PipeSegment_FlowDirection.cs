@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     public enum PipingSystem_Underground_PipeSegment_FlowDirection
     {
         
-        [JsonProperty("DecreasingZ")]
+        [System.Runtime.Serialization.EnumMember(Value="DecreasingZ")]
         DecreasingZ = 0,
         
-        [JsonProperty("IncreasingZ")]
+        [System.Runtime.Serialization.EnumMember(Value="IncreasingZ")]
         IncreasingZ = 1,
     }
 }

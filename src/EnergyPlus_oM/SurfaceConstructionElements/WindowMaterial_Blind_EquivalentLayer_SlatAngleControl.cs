@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum WindowMaterial_Blind_EquivalentLayer_SlatAngleControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlockBeamSolar")]
+        [System.Runtime.Serialization.EnumMember(Value="BlockBeamSolar")]
         BlockBeamSolar = 1,
         
-        [JsonProperty("FixedSlatAngle")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedSlatAngle")]
         FixedSlatAngle = 2,
         
-        [JsonProperty("MaximizeSolar")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximizeSolar")]
         MaximizeSolar = 3,
     }
 }

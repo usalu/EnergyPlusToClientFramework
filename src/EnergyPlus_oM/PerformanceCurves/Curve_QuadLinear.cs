@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"Linear curve with four independent variables. Input for the linear curve consists of a curve name, the two coefficients, and the maximum and minimum valid independent variable values. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*w + C3*x + C4*y + C5*z")]
-    [JsonObject("Curve:QuadLinear")]
     public class Curve_QuadLinear : BHoMObject, IEnergyPlusClass
     {
         
@@ -74,18 +73,22 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
         
 
         [JsonProperty("input_unit_type_for_w")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_QuadLinear_InputUnitTypeForW InputUnitTypeForW { get; set; } = (Curve_QuadLinear_InputUnitTypeForW)Enum.Parse(typeof(Curve_QuadLinear_InputUnitTypeForW), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_x")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_QuadLinear_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_QuadLinear_InputUnitTypeForX)Enum.Parse(typeof(Curve_QuadLinear_InputUnitTypeForX), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_y")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_QuadLinear_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_QuadLinear_InputUnitTypeForY)Enum.Parse(typeof(Curve_QuadLinear_InputUnitTypeForY), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_z")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_QuadLinear_InputUnitTypeForZ InputUnitTypeForZ { get; set; } = (Curve_QuadLinear_InputUnitTypeForZ)Enum.Parse(typeof(Curve_QuadLinear_InputUnitTypeForZ), "Dimensionless");
     }
 }

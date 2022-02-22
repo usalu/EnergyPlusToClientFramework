@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     public enum Coil_Cooling_Water_TypeOfAnalysis
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DetailedAnalysis")]
+        [System.Runtime.Serialization.EnumMember(Value="DetailedAnalysis")]
         DetailedAnalysis = 1,
         
-        [JsonProperty("SimpleAnalysis")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleAnalysis")]
         SimpleAnalysis = 2,
     }
 }

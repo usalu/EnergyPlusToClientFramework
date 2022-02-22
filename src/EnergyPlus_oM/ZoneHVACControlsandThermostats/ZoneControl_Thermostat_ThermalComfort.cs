@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
 {
     [Description("If you use a ZoneList in the Zone or ZoneList name field then this definition app" +
                  "lies to all the zones in the ZoneList.")]
-    [JsonObject("ZoneControl:Thermostat:ThermalComfort")]
     public class ZoneControl_Thermostat_ThermalComfort : BHoMObject, IEnergyPlusClass
     {
         
@@ -20,6 +19,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         [Description("The method used to calculate thermal comfort dry-bulb temperature setpoint for mu" +
                      "ltiple people objects in a zone")]
         [JsonProperty("averaging_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneControl_Thermostat_ThermalComfort_AveragingMethod AveragingMethod { get; set; } = (ZoneControl_Thermostat_ThermalComfort_AveragingMethod)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_AveragingMethod), "PeopleAverage");
         
 
@@ -42,6 +42,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("thermal_comfort_control_1_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType ThermalComfortControl1ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
@@ -52,6 +53,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("thermal_comfort_control_2_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType ThermalComfortControl2ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
@@ -62,6 +64,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("thermal_comfort_control_3_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType ThermalComfortControl3ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
@@ -72,6 +75,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("thermal_comfort_control_4_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType ThermalComfortControl4ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 

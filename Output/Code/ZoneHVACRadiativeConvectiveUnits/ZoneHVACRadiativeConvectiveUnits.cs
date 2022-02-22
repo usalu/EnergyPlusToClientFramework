@@ -67,13 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
     
     
     [Description(null)]
-    [JsonObject("ZoneHVAC:Baseboard:RadiantConvective:Water:Design")]
     public class ZoneHVAC_Baseboard_RadiantConvective_Water_Design : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"Enter the method used to determine the heating design capacity. HeatingDesignCapacity = > selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea = > selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity = > is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
 [JsonProperty("heating_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_Baseboard_RadiantConvective_Water_Design_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (ZoneHVAC_Baseboard_RadiantConvective_Water_Design_HeatingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_Baseboard_RadiantConvective_Water_Design_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
@@ -105,22 +105,21 @@ public System.Nullable<float> FractionOfRadiantEnergyIncidentOnPeople { get; set
     public enum ZoneHVAC_Baseboard_RadiantConvective_Water_Design_HeatingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("FractionOfAutosizedHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingCapacity")]
         FractionOfAutosizedHeatingCapacity = 2,
         
-        [JsonProperty("HeatingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingDesignCapacity")]
         HeatingDesignCapacity = 3,
     }
     
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
         "roups to the end of the list")]
-    [JsonObject("ZoneHVAC:Baseboard:RadiantConvective:Water")]
     public class ZoneHVAC_Baseboard_RadiantConvective_Water : BHoMObject, IEnergyPlusClass
     {
         
@@ -168,13 +167,13 @@ public string SurfaceFractions { get; set; } = "";
     }
     
     [Description(null)]
-    [JsonObject("ZoneHVAC:Baseboard:RadiantConvective:Steam:Design")]
     public class ZoneHVAC_Baseboard_RadiantConvective_Steam_Design : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"Enter the method used to determine the heating design capacity. HeatingDesignCapacity is selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea is selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
 [JsonProperty("heating_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_Baseboard_RadiantConvective_Steam_Design_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (ZoneHVAC_Baseboard_RadiantConvective_Steam_Design_HeatingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_Baseboard_RadiantConvective_Steam_Design_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
@@ -206,22 +205,21 @@ public System.Nullable<float> FractionOfRadiantEnergyIncidentOnPeople { get; set
     public enum ZoneHVAC_Baseboard_RadiantConvective_Steam_Design_HeatingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("FractionOfAutosizedHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingCapacity")]
         FractionOfAutosizedHeatingCapacity = 2,
         
-        [JsonProperty("HeatingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingDesignCapacity")]
         HeatingDesignCapacity = 3,
     }
     
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
         "roups to the end of the list.")]
-    [JsonObject("ZoneHVAC:Baseboard:RadiantConvective:Steam")]
     public class ZoneHVAC_Baseboard_RadiantConvective_Steam : BHoMObject, IEnergyPlusClass
     {
         
@@ -264,7 +262,6 @@ public string SurfaceFractions { get; set; } = "";
     
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
         "roups to the end of the list")]
-    [JsonObject("ZoneHVAC:Baseboard:RadiantConvective:Electric")]
     public class ZoneHVAC_Baseboard_RadiantConvective_Electric : BHoMObject, IEnergyPlusClass
     {
         
@@ -277,6 +274,7 @@ public string AvailabilityScheduleName { get; set; } = "";
 
 [Description(@"Enter the method used to determine the heating design capacity. HeatingDesignCapacity = > selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea = > selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity = > is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
 [JsonProperty("heating_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_Baseboard_RadiantConvective_Electric_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (ZoneHVAC_Baseboard_RadiantConvective_Electric_HeatingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_Baseboard_RadiantConvective_Electric_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
@@ -318,22 +316,21 @@ public string SurfaceFractions { get; set; } = "";
     public enum ZoneHVAC_Baseboard_RadiantConvective_Electric_HeatingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("FractionOfAutosizedHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingCapacity")]
         FractionOfAutosizedHeatingCapacity = 2,
         
-        [JsonProperty("HeatingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingDesignCapacity")]
         HeatingDesignCapacity = 3,
     }
     
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
         "roups to the end of the list")]
-    [JsonObject("ZoneHVAC:CoolingPanel:RadiantConvective:Water")]
     public class ZoneHVAC_CoolingPanel_RadiantConvective_Water : BHoMObject, IEnergyPlusClass
     {
         
@@ -364,6 +361,7 @@ public System.Nullable<float> RatedWaterMassFlowRate { get; set; } = (System.Nul
 
 [Description(@"Enter the method used to determine the cooling design capacity for scalable sizing. CoolingDesignCapacity => selected when the design cooling capacity value is specified or auto-sized. CapacityPerFloorArea => selected when the design cooling capacity is determined from user specified cooling capacity per floor area and total floor area of cooled zone served by the hydrolic unit. FractionOfAutosizedCoolingCapacity => is selected when the design cooling capacity is determined from a user specified fraction and the auto-sized design cooling capacity of the system.")]
 [JsonProperty("cooling_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_CoolingPanel_RadiantConvective_Water_CoolingDesignCapacityMethod CoolingDesignCapacityMethod { get; set; } = (ZoneHVAC_CoolingPanel_RadiantConvective_Water_CoolingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_CoolingPanel_RadiantConvective_Water_CoolingDesignCapacityMethod), "CoolingDesignCapacity");
         
 
@@ -392,6 +390,7 @@ public string MaximumChilledWaterFlowRate { get; set; } = "";
 
 [Description("Temperature on which unit is controlled")]
 [JsonProperty("control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_CoolingPanel_RadiantConvective_Water_ControlType ControlType { get; set; } = (ZoneHVAC_CoolingPanel_RadiantConvective_Water_ControlType)Enum.Parse(typeof(ZoneHVAC_CoolingPanel_RadiantConvective_Water_ControlType), "MeanAirTemperature");
         
 
@@ -404,6 +403,7 @@ public string CoolingControlTemperatureScheduleName { get; set; } = "";
         
 
 [JsonProperty("condensation_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_CoolingPanel_RadiantConvective_Water_CondensationControlType CondensationControlType { get; set; } = (ZoneHVAC_CoolingPanel_RadiantConvective_Water_CondensationControlType)Enum.Parse(typeof(ZoneHVAC_CoolingPanel_RadiantConvective_Water_CondensationControlType), "SimpleOff");
         
 
@@ -426,69 +426,68 @@ public string SurfaceFractions { get; set; } = "";
     public enum ZoneHVAC_CoolingPanel_RadiantConvective_Water_CoolingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("CoolingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingDesignCapacity")]
         CoolingDesignCapacity = 2,
         
-        [JsonProperty("FractionOfAutosizedCoolingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedCoolingCapacity")]
         FractionOfAutosizedCoolingCapacity = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
     
     public enum ZoneHVAC_CoolingPanel_RadiantConvective_Water_ControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MeanAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanAirTemperature")]
         MeanAirTemperature = 1,
         
-        [JsonProperty("MeanRadiantTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanRadiantTemperature")]
         MeanRadiantTemperature = 2,
         
-        [JsonProperty("OperativeTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OperativeTemperature")]
         OperativeTemperature = 3,
         
-        [JsonProperty("OutdoorDryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorDryBulbTemperature")]
         OutdoorDryBulbTemperature = 4,
         
-        [JsonProperty("OutdoorWetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorWetBulbTemperature")]
         OutdoorWetBulbTemperature = 5,
         
-        [JsonProperty("ZoneConvectiveLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneConvectiveLoad")]
         ZoneConvectiveLoad = 6,
         
-        [JsonProperty("ZoneTotalLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneTotalLoad")]
         ZoneTotalLoad = 7,
     }
     
     public enum ZoneHVAC_CoolingPanel_RadiantConvective_Water_CondensationControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Off")]
+        [System.Runtime.Serialization.EnumMember(Value="Off")]
         Off = 1,
         
-        [JsonProperty("SimpleOff")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleOff")]
         SimpleOff = 2,
         
-        [JsonProperty("VariableOff")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableOff")]
         VariableOff = 3,
     }
     
     [Description("Hot water baseboard heater, convection-only. Natural convection hydronic heating " +
         "unit.")]
-    [JsonObject("ZoneHVAC:Baseboard:Convective:Water")]
     public class ZoneHVAC_Baseboard_Convective_Water : BHoMObject, IEnergyPlusClass
     {
         
@@ -509,6 +508,7 @@ public string OutletNodeName { get; set; } = "";
 
 [Description(@"Enter the method used to determine the heating design capacity. HeatingDesignCapacity = > selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea = > selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity = > is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
 [JsonProperty("heating_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_Baseboard_Convective_Water_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (ZoneHVAC_Baseboard_Convective_Water_HeatingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_Baseboard_Convective_Water_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
@@ -546,22 +546,21 @@ public System.Nullable<float> ConvergenceTolerance { get; set; } = (System.Nulla
     public enum ZoneHVAC_Baseboard_Convective_Water_HeatingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("FractionOfAutosizedHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingCapacity")]
         FractionOfAutosizedHeatingCapacity = 2,
         
-        [JsonProperty("HeatingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingDesignCapacity")]
         HeatingDesignCapacity = 3,
     }
     
     [Description("Electric baseboard heater, convection-only. Natural convection electric heating u" +
         "nit.")]
-    [JsonObject("ZoneHVAC:Baseboard:Convective:Electric")]
     public class ZoneHVAC_Baseboard_Convective_Electric : BHoMObject, IEnergyPlusClass
     {
         
@@ -574,6 +573,7 @@ public string AvailabilityScheduleName { get; set; } = "";
 
 [Description(@"Enter the method used to determine the heating design capacity. HeatingDesignCapacity = > selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea = > selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity = > is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
 [JsonProperty("heating_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_Baseboard_Convective_Electric_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (ZoneHVAC_Baseboard_Convective_Electric_HeatingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_Baseboard_Convective_Electric_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
@@ -603,23 +603,22 @@ public System.Nullable<float> Efficiency { get; set; } = (System.Nullable<float>
     public enum ZoneHVAC_Baseboard_Convective_Electric_HeatingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("FractionOfAutosizedHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingCapacity")]
         FractionOfAutosizedHeatingCapacity = 2,
         
-        [JsonProperty("HeatingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingDesignCapacity")]
         HeatingDesignCapacity = 3,
     }
     
     [Description("Low temperature hydronic radiant heating and/or cooling system embedded in a buil" +
         "ding surface (wall, ceiling, or floor). Controlled by varying the hot or chilled" +
         " water flow to the unit.")]
-    [JsonObject("ZoneHVAC:LowTemperatureRadiant:VariableFlow")]
     public class ZoneHVAC_LowTemperatureRadiant_VariableFlow : BHoMObject, IEnergyPlusClass
     {
         
@@ -688,6 +687,7 @@ public string CoolingWaterOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("number_of_circuits")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_VariableFlow_NumberOfCircuits NumberOfCircuits { get; set; } = (ZoneHVAC_LowTemperatureRadiant_VariableFlow_NumberOfCircuits)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_VariableFlow_NumberOfCircuits), "OnePerSurface");
         
 
@@ -698,24 +698,24 @@ public System.Nullable<float> CircuitLength { get; set; } = (System.Nullable<flo
     public enum ZoneHVAC_LowTemperatureRadiant_VariableFlow_NumberOfCircuits
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CalculateFromCircuitLength")]
+        [System.Runtime.Serialization.EnumMember(Value="CalculateFromCircuitLength")]
         CalculateFromCircuitLength = 1,
         
-        [JsonProperty("OnePerSurface")]
+        [System.Runtime.Serialization.EnumMember(Value="OnePerSurface")]
         OnePerSurface = 2,
     }
     
     [Description(null)]
-    [JsonObject("ZoneHVAC:LowTemperatureRadiant:VariableFlow:Design")]
     public class ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"This parameter identifies how the heat transfer between fluid being circulated through the radiant system and the radiant system (slab) is modeled. ConvectionOnly means that only convection between the fluid and the inside surface of the pipe is modeled using a conventional equation for flow inside a pipe. ISOStandard models convection between the fluid and the inside of of the pipe and conduction through the pipe material using equations specific to ISO Standard 11855-2.")]
 [JsonProperty("fluid_to_radiant_surface_heat_transfer_model")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_FluidToRadiantSurfaceHeatTransferModel FluidToRadiantSurfaceHeatTransferModel { get; set; } = (ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_FluidToRadiantSurfaceHeatTransferModel)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_FluidToRadiantSurfaceHeatTransferModel), "ConvectionOnly");
         
 
@@ -734,16 +734,19 @@ public System.Nullable<float> HydronicTubingConductivity { get; set; } = (System
 
 [Description("(Temperature on which unit is controlled)")]
 [JsonProperty("temperature_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_TemperatureControlType TemperatureControlType { get; set; } = (ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_TemperatureControlType)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_TemperatureControlType), "MeanAirTemperature");
         
 
 [Description("How setpoint temperature is defined")]
 [JsonProperty("setpoint_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_SetpointControlType SetpointControlType { get; set; } = (ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_SetpointControlType)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_SetpointControlType), "HalfFlowPower");
         
 
 [Description(@"Enter the method used to determine the heating design capacity. HeatingDesignCapacity = > selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea = > selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity = > is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
 [JsonProperty("heating_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_HeatingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
@@ -770,6 +773,7 @@ public string HeatingControlTemperatureScheduleName { get; set; } = "";
 
 [Description(@"Enter the method used to determine the cooling design capacity for scalable sizing. CoolingDesignCapacity => selected when the design cooling capacity value is specified or auto-sized. CapacityPerFloorArea => selected when the design cooling capacity is determined from user specified cooling capacity per floor area and total floor area of cooled zone served by the hydrolic unit. FractionOfAutosizedCoolingCapacity => is selected when the design cooling capacity is determined from a user specified fraction and the auto-sized design cooling capacity of the system.")]
 [JsonProperty("cooling_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_CoolingDesignCapacityMethod CoolingDesignCapacityMethod { get; set; } = (ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_CoolingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_CoolingDesignCapacityMethod), "CoolingDesignCapacity");
         
 
@@ -795,6 +799,7 @@ public string CoolingControlTemperatureScheduleName { get; set; } = "";
         
 
 [JsonProperty("condensation_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_CondensationControlType CondensationControlType { get; set; } = (ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_CondensationControlType)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_CondensationControlType), "SimpleOff");
         
 
@@ -812,112 +817,111 @@ public string ChangeoverDelayTimePeriodSchedule { get; set; } = "";
     public enum ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_FluidToRadiantSurfaceHeatTransferModel
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConvectionOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ConvectionOnly")]
         ConvectionOnly = 1,
         
-        [JsonProperty("ISOStandard")]
+        [System.Runtime.Serialization.EnumMember(Value="ISOStandard")]
         ISOStandard = 2,
     }
     
     public enum ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_TemperatureControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MeanAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanAirTemperature")]
         MeanAirTemperature = 1,
         
-        [JsonProperty("MeanRadiantTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanRadiantTemperature")]
         MeanRadiantTemperature = 2,
         
-        [JsonProperty("OperativeTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OperativeTemperature")]
         OperativeTemperature = 3,
         
-        [JsonProperty("OutdoorDryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorDryBulbTemperature")]
         OutdoorDryBulbTemperature = 4,
         
-        [JsonProperty("OutdoorWetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorWetBulbTemperature")]
         OutdoorWetBulbTemperature = 5,
         
-        [JsonProperty("SurfaceFaceTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SurfaceFaceTemperature")]
         SurfaceFaceTemperature = 6,
         
-        [JsonProperty("SurfaceInteriorTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SurfaceInteriorTemperature")]
         SurfaceInteriorTemperature = 7,
     }
     
     public enum ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_SetpointControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HalfFlowPower")]
+        [System.Runtime.Serialization.EnumMember(Value="HalfFlowPower")]
         HalfFlowPower = 1,
         
-        [JsonProperty("ZeroFlowPower")]
+        [System.Runtime.Serialization.EnumMember(Value="ZeroFlowPower")]
         ZeroFlowPower = 2,
     }
     
     public enum ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_HeatingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("FractionOfAutosizedHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingCapacity")]
         FractionOfAutosizedHeatingCapacity = 2,
         
-        [JsonProperty("HeatingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingDesignCapacity")]
         HeatingDesignCapacity = 3,
     }
     
     public enum ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_CoolingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("CoolingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingDesignCapacity")]
         CoolingDesignCapacity = 2,
         
-        [JsonProperty("FractionOfAutosizedCoolingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedCoolingCapacity")]
         FractionOfAutosizedCoolingCapacity = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
     
     public enum ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_CondensationControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Off")]
+        [System.Runtime.Serialization.EnumMember(Value="Off")]
         Off = 1,
         
-        [JsonProperty("SimpleOff")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleOff")]
         SimpleOff = 2,
         
-        [JsonProperty("VariableOff")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableOff")]
         VariableOff = 3,
     }
     
     [Description("Low temperature hydronic radiant heating and/or cooling system embedded in a buil" +
         "ding surface (wall, ceiling, or floor). Controlled by varying the hot or chilled" +
         " water temperature circulating through the unit.")]
-    [JsonObject("ZoneHVAC:LowTemperatureRadiant:ConstantFlow")]
     public class ZoneHVAC_LowTemperatureRadiant_ConstantFlow : BHoMObject, IEnergyPlusClass
     {
         
@@ -1019,6 +1023,7 @@ public string CoolingLowControlTemperatureScheduleName { get; set; } = "";
         
 
 [JsonProperty("number_of_circuits")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits NumberOfCircuits { get; set; } = (ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits), "OnePerSurface");
         
 
@@ -1029,24 +1034,24 @@ public System.Nullable<float> CircuitLength { get; set; } = (System.Nullable<flo
     public enum ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CalculateFromCircuitLength")]
+        [System.Runtime.Serialization.EnumMember(Value="CalculateFromCircuitLength")]
         CalculateFromCircuitLength = 1,
         
-        [JsonProperty("OnePerSurface")]
+        [System.Runtime.Serialization.EnumMember(Value="OnePerSurface")]
         OnePerSurface = 2,
     }
     
     [Description(null)]
-    [JsonObject("ZoneHVAC:LowTemperatureRadiant:ConstantFlow:Design")]
     public class ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"This parameter identifies how the heat transfer between fluid being circulated through the radiant system and the radiant system (slab) is modeled. ConvectionOnly means that only convection between the fluid and the inside surface of the pipe is modeled using a conventional equation for flow inside a pipe. ISOStandard models convection between the fluid and the inside of of the pipe and conduction through the pipe material using equations specific to ISO Standard 11855-2.")]
 [JsonProperty("fluid_to_radiant_surface_heat_transfer_model")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_FluidToRadiantSurfaceHeatTransferModel FluidToRadiantSurfaceHeatTransferModel { get; set; } = (ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_FluidToRadiantSurfaceHeatTransferModel)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_FluidToRadiantSurfaceHeatTransferModel), "ConvectionOnly");
         
 
@@ -1065,6 +1070,7 @@ public System.Nullable<float> HydronicTubingConductivity { get; set; } = (System
 
 [Description("Temperature used to control system")]
 [JsonProperty("temperature_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_TemperatureControlType TemperatureControlType { get; set; } = (ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_TemperatureControlType)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_TemperatureControlType), "MeanAirTemperature");
         
 
@@ -1082,6 +1088,7 @@ public System.Nullable<float> FractionOfMotorInefficienciesToFluidStream { get; 
         
 
 [JsonProperty("condensation_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_CondensationControlType CondensationControlType { get; set; } = (ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_CondensationControlType)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_CondensationControlType), "SimpleOff");
         
 
@@ -1099,65 +1106,64 @@ public string ChangeoverDelayTimePeriodSchedule { get; set; } = "";
     public enum ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_FluidToRadiantSurfaceHeatTransferModel
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConvectionOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ConvectionOnly")]
         ConvectionOnly = 1,
         
-        [JsonProperty("ISOStandard")]
+        [System.Runtime.Serialization.EnumMember(Value="ISOStandard")]
         ISOStandard = 2,
     }
     
     public enum ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_TemperatureControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MeanAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanAirTemperature")]
         MeanAirTemperature = 1,
         
-        [JsonProperty("MeanRadiantTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanRadiantTemperature")]
         MeanRadiantTemperature = 2,
         
-        [JsonProperty("OperativeTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OperativeTemperature")]
         OperativeTemperature = 3,
         
-        [JsonProperty("OutdoorDryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorDryBulbTemperature")]
         OutdoorDryBulbTemperature = 4,
         
-        [JsonProperty("OutdoorWetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorWetBulbTemperature")]
         OutdoorWetBulbTemperature = 5,
         
-        [JsonProperty("RunningMeanOutdoorDryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="RunningMeanOutdoorDryBulbTemperature")]
         RunningMeanOutdoorDryBulbTemperature = 6,
         
-        [JsonProperty("SurfaceFaceTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SurfaceFaceTemperature")]
         SurfaceFaceTemperature = 7,
         
-        [JsonProperty("SurfaceInteriorTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SurfaceInteriorTemperature")]
         SurfaceInteriorTemperature = 8,
     }
     
     public enum ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_CondensationControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Off")]
+        [System.Runtime.Serialization.EnumMember(Value="Off")]
         Off = 1,
         
-        [JsonProperty("SimpleOff")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleOff")]
         SimpleOff = 2,
         
-        [JsonProperty("VariableOff")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableOff")]
         VariableOff = 3,
     }
     
     [Description("Electric resistance low temperature radiant system")]
-    [JsonObject("ZoneHVAC:LowTemperatureRadiant:Electric")]
     public class ZoneHVAC_LowTemperatureRadiant_Electric : BHoMObject, IEnergyPlusClass
     {
         
@@ -1182,6 +1188,7 @@ public string SurfaceNameOrRadiantSurfaceGroupName { get; set; } = "";
 
 [Description(@"Enter the method used to determine the maximum electrical heating design capacity. HeatingDesignCapacity = > selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea = > selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity = > is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
 [JsonProperty("heating_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_Electric_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (ZoneHVAC_LowTemperatureRadiant_Electric_HeatingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_Electric_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
@@ -1206,11 +1213,13 @@ public System.Nullable<float> FractionOfAutosizedHeatingDesignCapacity { get; se
 
 [Description("Temperature used to control unit")]
 [JsonProperty("temperature_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_Electric_TemperatureControlType TemperatureControlType { get; set; } = (ZoneHVAC_LowTemperatureRadiant_Electric_TemperatureControlType)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_Electric_TemperatureControlType), "MeanAirTemperature");
         
 
 [Description("How setpoint temperature is defined")]
 [JsonProperty("setpoint_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_LowTemperatureRadiant_Electric_SetpointControlType SetpointControlType { get; set; } = (ZoneHVAC_LowTemperatureRadiant_Electric_SetpointControlType)Enum.Parse(typeof(ZoneHVAC_LowTemperatureRadiant_Electric_SetpointControlType), "HalfFlowPower");
         
 
@@ -1225,57 +1234,57 @@ public string HeatingSetpointTemperatureScheduleName { get; set; } = "";
     public enum ZoneHVAC_LowTemperatureRadiant_Electric_HeatingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("FractionOfAutosizedHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingCapacity")]
         FractionOfAutosizedHeatingCapacity = 2,
         
-        [JsonProperty("HeatingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingDesignCapacity")]
         HeatingDesignCapacity = 3,
     }
     
     public enum ZoneHVAC_LowTemperatureRadiant_Electric_TemperatureControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MeanAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanAirTemperature")]
         MeanAirTemperature = 1,
         
-        [JsonProperty("MeanRadiantTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanRadiantTemperature")]
         MeanRadiantTemperature = 2,
         
-        [JsonProperty("OperativeTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OperativeTemperature")]
         OperativeTemperature = 3,
         
-        [JsonProperty("OutdoorDryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorDryBulbTemperature")]
         OutdoorDryBulbTemperature = 4,
         
-        [JsonProperty("OutdoorWetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorWetBulbTemperature")]
         OutdoorWetBulbTemperature = 5,
         
-        [JsonProperty("SurfaceFaceTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SurfaceFaceTemperature")]
         SurfaceFaceTemperature = 6,
         
-        [JsonProperty("SurfaceInteriorTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SurfaceInteriorTemperature")]
         SurfaceInteriorTemperature = 7,
     }
     
     public enum ZoneHVAC_LowTemperatureRadiant_Electric_SetpointControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("HalfFlowPower")]
+        [System.Runtime.Serialization.EnumMember(Value="HalfFlowPower")]
         HalfFlowPower = 1,
         
-        [JsonProperty("ZeroFlowPower")]
+        [System.Runtime.Serialization.EnumMember(Value="ZeroFlowPower")]
         ZeroFlowPower = 2,
     }
     
@@ -1283,7 +1292,6 @@ public string HeatingSetpointTemperatureScheduleName { get; set; } = "";
         "Note that the following flow fractions must sum up to 1.0 The number of surfaces" +
         " can be expanded beyond 100, if necessary, by adding more groups to the end of t" +
         "he list")]
-    [JsonObject("ZoneHVAC:LowTemperatureRadiant:SurfaceGroup")]
     public class ZoneHVAC_LowTemperatureRadiant_SurfaceGroup : BHoMObject, IEnergyPlusClass
     {
         
@@ -1294,7 +1302,6 @@ public string SurfaceFractions { get; set; } = "";
     
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
         "roups to the end of the list")]
-    [JsonObject("ZoneHVAC:HighTemperatureRadiant")]
     public class ZoneHVAC_HighTemperatureRadiant : BHoMObject, IEnergyPlusClass
     {
         
@@ -1312,6 +1319,7 @@ public string ZoneName { get; set; } = "";
 
 [Description(@"Enter the method used to determine the maximum heating power input capacity. HeatingDesignCapacity = > selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea = > selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity = > is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
 [JsonProperty("heating_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_HighTemperatureRadiant_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (ZoneHVAC_HighTemperatureRadiant_HeatingDesignCapacityMethod)Enum.Parse(typeof(ZoneHVAC_HighTemperatureRadiant_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
@@ -1336,6 +1344,7 @@ public System.Nullable<float> FractionOfAutosizedHeatingDesignCapacity { get; se
 
 [Description("Natural gas or electricity")]
 [JsonProperty("fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_HighTemperatureRadiant_FuelType FuelType { get; set; } = (ZoneHVAC_HighTemperatureRadiant_FuelType)Enum.Parse(typeof(ZoneHVAC_HighTemperatureRadiant_FuelType), "Electricity");
         
 
@@ -1361,6 +1370,7 @@ public System.Nullable<float> FractionOfInputThatIsLost { get; set; } = (System.
 
 [Description("Temperature type used to control unit")]
 [JsonProperty("temperature_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_HighTemperatureRadiant_TemperatureControlType TemperatureControlType { get; set; } = (ZoneHVAC_HighTemperatureRadiant_TemperatureControlType)Enum.Parse(typeof(ZoneHVAC_HighTemperatureRadiant_TemperatureControlType), "OperativeTemperature");
         
 
@@ -1386,57 +1396,56 @@ public string SurfaceFractions { get; set; } = "";
     public enum ZoneHVAC_HighTemperatureRadiant_HeatingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("FractionOfAutosizedHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingCapacity")]
         FractionOfAutosizedHeatingCapacity = 2,
         
-        [JsonProperty("HeatingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingDesignCapacity")]
         HeatingDesignCapacity = 3,
     }
     
     public enum ZoneHVAC_HighTemperatureRadiant_FuelType
     {
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 0,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 1,
     }
     
     public enum ZoneHVAC_HighTemperatureRadiant_TemperatureControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MeanAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanAirTemperature")]
         MeanAirTemperature = 1,
         
-        [JsonProperty("MeanAirTemperatureSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanAirTemperatureSetpoint")]
         MeanAirTemperatureSetpoint = 2,
         
-        [JsonProperty("MeanRadiantTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanRadiantTemperature")]
         MeanRadiantTemperature = 3,
         
-        [JsonProperty("MeanRadiantTemperatureSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanRadiantTemperatureSetpoint")]
         MeanRadiantTemperatureSetpoint = 4,
         
-        [JsonProperty("OperativeTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OperativeTemperature")]
         OperativeTemperature = 5,
         
-        [JsonProperty("OperativeTemperatureSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="OperativeTemperatureSetpoint")]
         OperativeTemperatureSetpoint = 6,
     }
     
     [Description("Ventilated slab system where outdoor air flows through hollow cores in a building" +
         " surface (wall, ceiling, or floor).")]
-    [JsonObject("ZoneHVAC:VentilatedSlab")]
     public class ZoneHVAC_VentilatedSlab : BHoMObject, IEnergyPlusClass
     {
         
@@ -1462,6 +1471,7 @@ public string MaximumAirFlowRate { get; set; } = "";
         
 
 [JsonProperty("outdoor_air_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_VentilatedSlab_OutdoorAirControlType OutdoorAirControlType { get; set; } = (ZoneHVAC_VentilatedSlab_OutdoorAirControlType)Enum.Parse(typeof(ZoneHVAC_VentilatedSlab_OutdoorAirControlType), "FixedAmount");
         
 
@@ -1485,6 +1495,7 @@ public string MaximumOutdoorAirFractionOrTemperatureScheduleName { get; set; } =
         
 
 [JsonProperty("system_configuration_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_VentilatedSlab_SystemConfigurationType SystemConfigurationType { get; set; } = (ZoneHVAC_VentilatedSlab_SystemConfigurationType)Enum.Parse(typeof(ZoneHVAC_VentilatedSlab_SystemConfigurationType), "SlabOnly");
         
 
@@ -1504,6 +1515,7 @@ public System.Nullable<float> NumberOfCores { get; set; } = null;
 
 [Description("(temperature on which unit is controlled)")]
 [JsonProperty("temperature_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_VentilatedSlab_TemperatureControlType TemperatureControlType { get; set; } = (ZoneHVAC_VentilatedSlab_TemperatureControlType)Enum.Parse(typeof(ZoneHVAC_VentilatedSlab_TemperatureControlType), "OutdoorDryBulbTemperature");
         
 
@@ -1588,10 +1600,12 @@ public string FanName { get; set; } = "";
         
 
 [JsonProperty("coil_option_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_VentilatedSlab_CoilOptionType CoilOptionType { get; set; } = (ZoneHVAC_VentilatedSlab_CoilOptionType)Enum.Parse(typeof(ZoneHVAC_VentilatedSlab_CoilOptionType), "Cooling");
         
 
 [JsonProperty("heating_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_VentilatedSlab_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_VentilatedSlab_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_VentilatedSlab_HeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -1604,6 +1618,7 @@ public string HotWaterOrSteamInletNodeName { get; set; } = "";
         
 
 [JsonProperty("cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_VentilatedSlab_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_VentilatedSlab_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_VentilatedSlab_CoolingCoilObjectType), "CoilCoolingWater");
         
 
@@ -1628,102 +1643,102 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     public enum ZoneHVAC_VentilatedSlab_OutdoorAirControlType
     {
         
-        [JsonProperty("FixedAmount")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedAmount")]
         FixedAmount = 0,
         
-        [JsonProperty("FixedTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedTemperature")]
         FixedTemperature = 1,
         
-        [JsonProperty("VariablePercent")]
+        [System.Runtime.Serialization.EnumMember(Value="VariablePercent")]
         VariablePercent = 2,
     }
     
     public enum ZoneHVAC_VentilatedSlab_SystemConfigurationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("SeriesSlabs")]
+        [System.Runtime.Serialization.EnumMember(Value="SeriesSlabs")]
         SeriesSlabs = 1,
         
-        [JsonProperty("SlabAndZone")]
+        [System.Runtime.Serialization.EnumMember(Value="SlabAndZone")]
         SlabAndZone = 2,
         
-        [JsonProperty("SlabOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="SlabOnly")]
         SlabOnly = 3,
     }
     
     public enum ZoneHVAC_VentilatedSlab_TemperatureControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MeanAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanAirTemperature")]
         MeanAirTemperature = 1,
         
-        [JsonProperty("MeanRadiantTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MeanRadiantTemperature")]
         MeanRadiantTemperature = 2,
         
-        [JsonProperty("OperativeTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OperativeTemperature")]
         OperativeTemperature = 3,
         
-        [JsonProperty("OutdoorDryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorDryBulbTemperature")]
         OutdoorDryBulbTemperature = 4,
         
-        [JsonProperty("OutdoorWetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorWetBulbTemperature")]
         OutdoorWetBulbTemperature = 5,
         
-        [JsonProperty("SurfaceTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SurfaceTemperature")]
         SurfaceTemperature = 6,
         
-        [JsonProperty("ZoneAirDewPointTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAirDewPointTemperature")]
         ZoneAirDewPointTemperature = 7,
     }
     
     public enum ZoneHVAC_VentilatedSlab_CoilOptionType
     {
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 0,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 1,
         
-        [JsonProperty("HeatingAndCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingAndCooling")]
         HeatingAndCooling = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
     }
     
     public enum ZoneHVAC_VentilatedSlab_HeatingCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     public enum ZoneHVAC_VentilatedSlab_CoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 0,
         
-        [JsonProperty("Coil:Cooling:Water:DetailedGeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:DetailedGeometry")]
         CoilCoolingWaterDetailedGeometry = 1,
         
-        [JsonProperty("CoilSystem:Cooling:Water:HeatExchangerAssisted")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:Water:HeatExchangerAssisted")]
         CoilSystemCoolingWaterHeatExchangerAssisted = 2,
     }
     
@@ -1731,7 +1746,6 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
         "rfaces. Note that the flow fractions must sum up to 1.0. The number of surfaces " +
         "can be expanded beyond 10, if necessary, by adding more groups to the end of the" +
         " list")]
-    [JsonObject("ZoneHVAC:VentilatedSlab:SlabGroup")]
     public class ZoneHVAC_VentilatedSlab_SlabGroup : BHoMObject, IEnergyPlusClass
     {
         

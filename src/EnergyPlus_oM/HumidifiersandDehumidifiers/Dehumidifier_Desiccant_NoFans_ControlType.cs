@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HumidifiersandDehumidifiers
 {
     public enum Dehumidifier_Desiccant_NoFans_ControlType
     {
         
-        [JsonProperty("LeavingMaximumHumidityRatioSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="LeavingMaximumHumidityRatioSetpoint")]
         LeavingMaximumHumidityRatioSetpoint = 0,
         
-        [JsonProperty("SystemNodeMaximumHumidityRatioSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="SystemNodeMaximumHumidityRatioSetpoint")]
         SystemNodeMaximumHumidityRatioSetpoint = 1,
     }
 }

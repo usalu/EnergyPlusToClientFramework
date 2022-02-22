@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
 {
     [Description("Defines a generic air system component for custom modeling using Energy Managemen" +
                  "t System or External Interface")]
-    [JsonObject("Coil:UserDefined")]
     public class Coil_UserDefined : BHoMObject, IEnergyPlusClass
     {
         
@@ -45,6 +44,7 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
         
 
         [JsonProperty("plant_connection_is_used")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_UserDefined_PlantConnectionIsUsed PlantConnectionIsUsed { get; set; } = (Coil_UserDefined_PlantConnectionIsUsed)Enum.Parse(typeof(Coil_UserDefined_PlantConnectionIsUsed), "No");
         
 

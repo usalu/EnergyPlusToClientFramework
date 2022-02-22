@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum GroundHeatExchanger_Slinky_HeatExchangerConfiguration
     {
         
-        [JsonProperty("Horizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="Horizontal")]
         Horizontal = 0,
         
-        [JsonProperty("Vertical")]
+        [System.Runtime.Serialization.EnumMember(Value="Vertical")]
         Vertical = 1,
     }
 }

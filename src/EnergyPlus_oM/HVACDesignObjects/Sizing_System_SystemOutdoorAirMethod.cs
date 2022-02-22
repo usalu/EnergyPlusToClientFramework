@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     public enum Sizing_System_SystemOutdoorAirMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("VentilationRateProcedure")]
+        [System.Runtime.Serialization.EnumMember(Value="VentilationRateProcedure")]
         VentilationRateProcedure = 1,
         
-        [JsonProperty("ZoneSum")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneSum")]
         ZoneSum = 2,
     }
 }

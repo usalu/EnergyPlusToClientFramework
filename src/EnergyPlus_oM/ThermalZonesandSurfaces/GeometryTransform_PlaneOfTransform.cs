@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum GeometryTransform_PlaneOfTransform
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("XY")]
+        [System.Runtime.Serialization.EnumMember(Value="XY")]
         XY = 1,
     }
 }

@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 {
     [Description("Ventilated slab system where outdoor air flows through hollow cores in a building" +
                  " surface (wall, ceiling, or floor).")]
-    [JsonObject("ZoneHVAC:VentilatedSlab")]
     public class ZoneHVAC_VentilatedSlab : BHoMObject, IEnergyPlusClass
     {
         
@@ -34,6 +33,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
         
 
         [JsonProperty("outdoor_air_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_VentilatedSlab_OutdoorAirControlType OutdoorAirControlType { get; set; } = (ZoneHVAC_VentilatedSlab_OutdoorAirControlType)Enum.Parse(typeof(ZoneHVAC_VentilatedSlab_OutdoorAirControlType), "FixedAmount");
         
 
@@ -57,6 +57,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
         
 
         [JsonProperty("system_configuration_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_VentilatedSlab_SystemConfigurationType SystemConfigurationType { get; set; } = (ZoneHVAC_VentilatedSlab_SystemConfigurationType)Enum.Parse(typeof(ZoneHVAC_VentilatedSlab_SystemConfigurationType), "SlabOnly");
         
 
@@ -76,6 +77,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 
         [Description("(temperature on which unit is controlled)")]
         [JsonProperty("temperature_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_VentilatedSlab_TemperatureControlType TemperatureControlType { get; set; } = (ZoneHVAC_VentilatedSlab_TemperatureControlType)Enum.Parse(typeof(ZoneHVAC_VentilatedSlab_TemperatureControlType), "OutdoorDryBulbTemperature");
         
 
@@ -160,10 +162,12 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
         
 
         [JsonProperty("coil_option_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_VentilatedSlab_CoilOptionType CoilOptionType { get; set; } = (ZoneHVAC_VentilatedSlab_CoilOptionType)Enum.Parse(typeof(ZoneHVAC_VentilatedSlab_CoilOptionType), "Cooling");
         
 
         [JsonProperty("heating_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_VentilatedSlab_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_VentilatedSlab_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_VentilatedSlab_HeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -176,6 +180,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
         
 
         [JsonProperty("cooling_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_VentilatedSlab_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_VentilatedSlab_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_VentilatedSlab_CoolingCoilObjectType), "CoilCoolingWater");
         
 

@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Daylighting
 {
     public enum Output_DaylightFactors_ReportingDays
     {
         
-        [JsonProperty("AllShadowCalculationDays")]
+        [System.Runtime.Serialization.EnumMember(Value="AllShadowCalculationDays")]
         AllShadowCalculationDays = 0,
         
-        [JsonProperty("SizingDays")]
+        [System.Runtime.Serialization.EnumMember(Value="SizingDays")]
         SizingDays = 1,
     }
 }

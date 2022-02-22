@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_PVWatts_ArrayGeometryType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Surface")]
+        [System.Runtime.Serialization.EnumMember(Value="Surface")]
         Surface = 1,
         
-        [JsonProperty("TiltAzimuth")]
+        [System.Runtime.Serialization.EnumMember(Value="TiltAzimuth")]
         TiltAzimuth = 2,
     }
 }

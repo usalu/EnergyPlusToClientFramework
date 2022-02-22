@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_AirChiller_FanSpeedControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 1,
         
-        [JsonProperty("FixedLinear")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedLinear")]
         FixedLinear = 2,
         
-        [JsonProperty("TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoSpeed")]
         TwoSpeed = 3,
         
-        [JsonProperty("VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableSpeed")]
         VariableSpeed = 4,
     }
 }

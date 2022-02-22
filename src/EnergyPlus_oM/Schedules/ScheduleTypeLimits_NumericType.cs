@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     public enum ScheduleTypeLimits_NumericType
     {
         
-        [JsonProperty("Continuous")]
+        [System.Runtime.Serialization.EnumMember(Value="Continuous")]
         Continuous = 0,
         
-        [JsonProperty("Discrete")]
+        [System.Runtime.Serialization.EnumMember(Value="Discrete")]
         Discrete = 1,
     }
 }

@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     [Description("Unit ventilator. Forced-convection ventilation unit with supply fan (constant-vol" +
                  "ume or variable-volume), optional chilled water cooling coil, optional heating c" +
                  "oil (gas, electric, hot water, or steam) and controllable outdoor air mixer.")]
-    [JsonObject("ZoneHVAC:UnitVentilator")]
     public class ZoneHVAC_UnitVentilator : BHoMObject, IEnergyPlusClass
     {
         
@@ -25,6 +24,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("outdoor_air_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_UnitVentilator_OutdoorAirControlType OutdoorAirControlType { get; set; } = (ZoneHVAC_UnitVentilator_OutdoorAirControlType)Enum.Parse(typeof(ZoneHVAC_UnitVentilator_OutdoorAirControlType), "FixedAmount");
         
 
@@ -83,6 +83,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         [Description("Allowable fan types are Fan:ConstantVolume, Fan:OnOff, Fan:VariableVolume, and Fa" +
                      "n:SystemModel")]
         [JsonProperty("supply_air_fan_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_UnitVentilator_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_UnitVentilator_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_UnitVentilator_SupplyAirFanObjectType), "FanConstantVolume");
         
 
@@ -91,6 +92,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("coil_option")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_UnitVentilator_CoilOption CoilOption { get; set; } = (ZoneHVAC_UnitVentilator_CoilOption)Enum.Parse(typeof(ZoneHVAC_UnitVentilator_CoilOption), "Cooling");
         
 
@@ -100,6 +102,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("heating_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_UnitVentilator_HeatingCoilObjectType HeatingCoilObjectType { get; set; } = (ZoneHVAC_UnitVentilator_HeatingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_UnitVentilator_HeatingCoilObjectType), "CoilHeatingElectric");
         
 
@@ -112,6 +115,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("cooling_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_UnitVentilator_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_UnitVentilator_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_UnitVentilator_CoolingCoilObjectType), "CoilCoolingWater");
         
 

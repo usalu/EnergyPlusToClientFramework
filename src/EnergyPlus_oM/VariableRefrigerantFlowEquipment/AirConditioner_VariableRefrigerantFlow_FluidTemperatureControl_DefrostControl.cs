@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.VariableRefrigerantFlowEquipment
 {
     public enum AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("OnDemand")]
+        [System.Runtime.Serialization.EnumMember(Value="OnDemand")]
         OnDemand = 1,
         
-        [JsonProperty("Timed")]
+        [System.Runtime.Serialization.EnumMember(Value="Timed")]
         Timed = 2,
     }
 }

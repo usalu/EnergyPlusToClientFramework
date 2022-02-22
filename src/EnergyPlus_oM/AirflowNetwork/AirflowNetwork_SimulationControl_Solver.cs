@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     public enum AirflowNetwork_SimulationControl_Solver
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConjugateGradient")]
+        [System.Runtime.Serialization.EnumMember(Value="ConjugateGradient")]
         ConjugateGradient = 1,
         
-        [JsonProperty("SkylineLU")]
+        [System.Runtime.Serialization.EnumMember(Value="SkylineLU")]
         SkylineLU = 2,
     }
 }

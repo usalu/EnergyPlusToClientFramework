@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterSystems
 {
     public enum WaterUse_Storage_TypeOfSupplyControlledByFloatValve
     {
         
-        [JsonProperty("GroundwaterWell")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundwaterWell")]
         GroundwaterWell = 0,
         
-        [JsonProperty("Mains")]
+        [System.Runtime.Serialization.EnumMember(Value="Mains")]
         Mains = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("OtherTank")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherTank")]
         OtherTank = 3,
     }
 }

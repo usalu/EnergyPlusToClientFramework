@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirTemperatureLimit
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ExhaustAirTemperatureLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="ExhaustAirTemperatureLimit")]
         ExhaustAirTemperatureLimit = 1,
         
-        [JsonProperty("NoExhaustAirTemperatureLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="NoExhaustAirTemperatureLimit")]
         NoExhaustAirTemperatureLimit = 2,
     }
 }

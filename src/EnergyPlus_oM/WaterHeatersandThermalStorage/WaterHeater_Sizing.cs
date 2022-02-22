@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
     [Description("This input object is used with WaterHeater:Mixed or with WaterHeater:Stratified t" +
                  "o autosize tank volume and heater capacity This object is not needed if water he" +
                  "aters are not autosized.")]
-    [JsonObject("WaterHeater:Sizing")]
     public class WaterHeater_Sizing : BHoMObject, IEnergyPlusClass
     {
         
@@ -18,6 +17,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("design_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_Sizing_DesignMode DesignMode { get; set; } = (WaterHeater_Sizing_DesignMode)Enum.Parse(typeof(WaterHeater_Sizing_DesignMode), "PeakDraw");
         
 

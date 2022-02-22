@@ -1,32 +1,30 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     public enum AirflowNetwork_Distribution_Node_ComponentObjectTypeOrNodeType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirLoopHVAC:OutdoorAirSystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:OutdoorAirSystem")]
         AirLoopHVACOutdoorAirSystem = 1,
         
-        [JsonProperty("AirLoopHVAC:ZoneMixer")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:ZoneMixer")]
         AirLoopHVACZoneMixer = 2,
         
-        [JsonProperty("AirLoopHVAC:ZoneSplitter")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:ZoneSplitter")]
         AirLoopHVACZoneSplitter = 3,
         
-        [JsonProperty("OAMixerOutdoorAirStreamNode")]
+        [System.Runtime.Serialization.EnumMember(Value="OAMixerOutdoorAirStreamNode")]
         OAMixerOutdoorAirStreamNode = 4,
         
-        [JsonProperty("Other")]
+        [System.Runtime.Serialization.EnumMember(Value="Other")]
         Other = 5,
         
-        [JsonProperty("OutdoorAir:Node")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir:Node")]
         OutdoorAirNode = 6,
         
-        [JsonProperty("OutdoorAir:NodeList")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir:NodeList")]
         OutdoorAirNodeList = 7,
     }
 }

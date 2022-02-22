@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.Pumps
     
     
     [Description("This pump model is described in the ASHRAE secondary HVAC toolkit.")]
-    [JsonObject("Pump:VariableSpeed")]
     public class Pump_VariableSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -129,6 +128,7 @@ public string DesignMinimumFlowRate { get; set; } = (System.String)"Autosize";
         
 
 [JsonProperty("pump_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Pump_VariableSpeed_PumpControlType PumpControlType { get; set; } = (Pump_VariableSpeed_PumpControlType)Enum.Parse(typeof(Pump_VariableSpeed_PumpControlType), "Continuous");
         
 
@@ -150,6 +150,7 @@ public System.Nullable<float> ImpellerDiameter { get; set; } = null;
         
 
 [JsonProperty("vfd_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Pump_VariableSpeed_VfdControlType VfdControlType { get; set; } = (Pump_VariableSpeed_VfdControlType)Enum.Parse(typeof(Pump_VariableSpeed_VfdControlType), "ManualControl");
         
 
@@ -189,6 +190,7 @@ public System.Nullable<float> SkinLossRadiativeFraction { get; set; } = null;
 
 [Description(@"Used to indicate which sizing factor is used to calculate Design Power Consumption. PowerPerFlow indicates that Design Electric Power per Unit Flow Rate is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * scaling factor PowerPerFlowPerPressure indicates that Design Shaft Power per Unit Flow Rate per Unit Head is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * Design Pump Head * scaling factor / Motor Efficiency")]
 [JsonProperty("design_power_sizing_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Pump_VariableSpeed_DesignPowerSizingMethod DesignPowerSizingMethod { get; set; } = (Pump_VariableSpeed_DesignPowerSizingMethod)Enum.Parse(typeof(Pump_VariableSpeed_DesignPowerSizingMethod), "PowerPerFlowPerPressure");
         
 
@@ -217,41 +219,40 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Pump_VariableSpeed_PumpControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Continuous")]
+        [System.Runtime.Serialization.EnumMember(Value="Continuous")]
         Continuous = 1,
         
-        [JsonProperty("Intermittent")]
+        [System.Runtime.Serialization.EnumMember(Value="Intermittent")]
         Intermittent = 2,
     }
     
     public enum Pump_VariableSpeed_VfdControlType
     {
         
-        [JsonProperty("ManualControl")]
+        [System.Runtime.Serialization.EnumMember(Value="ManualControl")]
         ManualControl = 0,
         
-        [JsonProperty("PressureSetpointControl")]
+        [System.Runtime.Serialization.EnumMember(Value="PressureSetpointControl")]
         PressureSetpointControl = 1,
     }
     
     public enum Pump_VariableSpeed_DesignPowerSizingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("PowerPerFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlow")]
         PowerPerFlow = 1,
         
-        [JsonProperty("PowerPerFlowPerPressure")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlowPerPressure")]
         PowerPerFlowPerPressure = 2,
     }
     
     [Description("This pump model is described in the ASHRAE secondary HVAC toolkit.")]
-    [JsonObject("Pump:ConstantSpeed")]
     public class Pump_ConstantSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -291,6 +292,7 @@ public System.Nullable<float> FractionOfMotorInefficienciesToFluidStream { get; 
         
 
 [JsonProperty("pump_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Pump_ConstantSpeed_PumpControlType PumpControlType { get; set; } = (Pump_ConstantSpeed_PumpControlType)Enum.Parse(typeof(Pump_ConstantSpeed_PumpControlType), "Continuous");
         
 
@@ -329,6 +331,7 @@ public System.Nullable<float> SkinLossRadiativeFraction { get; set; } = null;
 
 [Description(@"Used to indicate which sizing factor is used to calculate Design Power Consumption. PowerPerFlow indicates that Design Electric Power per Unit Flow Rate is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * scaling factor PowerPerFlowPerPressure indicates that Design Shaft Power per Unit Flow Rate per Unit Head is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * Design Pump Head * scaling factor / Motor Efficiency")]
 [JsonProperty("design_power_sizing_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Pump_ConstantSpeed_DesignPowerSizingMethod DesignPowerSizingMethod { get; set; } = (Pump_ConstantSpeed_DesignPowerSizingMethod)Enum.Parse(typeof(Pump_ConstantSpeed_DesignPowerSizingMethod), "PowerPerFlowPerPressure");
         
 
@@ -352,32 +355,31 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Pump_ConstantSpeed_PumpControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Continuous")]
+        [System.Runtime.Serialization.EnumMember(Value="Continuous")]
         Continuous = 1,
         
-        [JsonProperty("Intermittent")]
+        [System.Runtime.Serialization.EnumMember(Value="Intermittent")]
         Intermittent = 2,
     }
     
     public enum Pump_ConstantSpeed_DesignPowerSizingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("PowerPerFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlow")]
         PowerPerFlow = 1,
         
-        [JsonProperty("PowerPerFlowPerPressure")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlowPerPressure")]
         PowerPerFlowPerPressure = 2,
     }
     
     [Description("This pump model is described in the ASHRAE secondary HVAC toolkit. Variable Speed" +
         " Condensate pump for Steam Systems")]
-    [JsonObject("Pump:VariableSpeed:Condensate")]
     public class Pump_VariableSpeed_Condensate : BHoMObject, IEnergyPlusClass
     {
         
@@ -454,6 +456,7 @@ public System.Nullable<float> SkinLossRadiativeFraction { get; set; } = null;
 
 [Description(@"Used to indicate which sizing factor is used to calculate Design Power Consumption. PowerPerFlow indicates that Design Electric Power per Unit Flow Rate is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * scaling factor PowerPerFlowPerPressure indicates that Design Shaft Power per Unit Flow Rate per Unit Head is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * Design Pump Head * scaling factor / Motor Efficiency")]
 [JsonProperty("design_power_sizing_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Pump_VariableSpeed_Condensate_DesignPowerSizingMethod DesignPowerSizingMethod { get; set; } = (Pump_VariableSpeed_Condensate_DesignPowerSizingMethod)Enum.Parse(typeof(Pump_VariableSpeed_Condensate_DesignPowerSizingMethod), "PowerPerFlowPerPressure");
         
 
@@ -477,19 +480,18 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Pump_VariableSpeed_Condensate_DesignPowerSizingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("PowerPerFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlow")]
         PowerPerFlow = 1,
         
-        [JsonProperty("PowerPerFlowPerPressure")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlowPerPressure")]
         PowerPerFlowPerPressure = 2,
     }
     
     [Description("This Headered pump object describes a pump bank with more than 1 pump in parallel" +
         "")]
-    [JsonObject("HeaderedPumps:ConstantSpeed")]
     public class HeaderedPumps_ConstantSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -513,6 +515,7 @@ public System.Nullable<float> NumberOfPumpsInBank { get; set; } = null;
         
 
 [JsonProperty("flow_sequencing_control_scheme")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeaderedPumps_ConstantSpeed_FlowSequencingControlScheme FlowSequencingControlScheme { get; set; } = (HeaderedPumps_ConstantSpeed_FlowSequencingControlScheme)Enum.Parse(typeof(HeaderedPumps_ConstantSpeed_FlowSequencingControlScheme), "Sequential");
         
 
@@ -540,6 +543,7 @@ public System.Nullable<float> FractionOfMotorInefficienciesToFluidStream { get; 
         
 
 [JsonProperty("pump_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeaderedPumps_ConstantSpeed_PumpControlType PumpControlType { get; set; } = (HeaderedPumps_ConstantSpeed_PumpControlType)Enum.Parse(typeof(HeaderedPumps_ConstantSpeed_PumpControlType), "Continuous");
         
 
@@ -563,6 +567,7 @@ public System.Nullable<float> SkinLossRadiativeFraction { get; set; } = null;
 
 [Description(@"Used to indicate which sizing factor is used to calculate Design Power Consumption. PowerPerFlow indicates that Design Electric Power per Unit Flow Rate is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * scaling factor PowerPerFlowPerPressure indicates that Design Shaft Power per Unit Flow Rate per Unit Head is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * Design Pump Head * scaling factor / Motor Efficiency")]
 [JsonProperty("design_power_sizing_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeaderedPumps_ConstantSpeed_DesignPowerSizingMethod DesignPowerSizingMethod { get; set; } = (HeaderedPumps_ConstantSpeed_DesignPowerSizingMethod)Enum.Parse(typeof(HeaderedPumps_ConstantSpeed_DesignPowerSizingMethod), "PowerPerFlowPerPressure");
         
 
@@ -586,42 +591,41 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum HeaderedPumps_ConstantSpeed_FlowSequencingControlScheme
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Sequential")]
+        [System.Runtime.Serialization.EnumMember(Value="Sequential")]
         Sequential = 1,
     }
     
     public enum HeaderedPumps_ConstantSpeed_PumpControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Continuous")]
+        [System.Runtime.Serialization.EnumMember(Value="Continuous")]
         Continuous = 1,
         
-        [JsonProperty("Intermittent")]
+        [System.Runtime.Serialization.EnumMember(Value="Intermittent")]
         Intermittent = 2,
     }
     
     public enum HeaderedPumps_ConstantSpeed_DesignPowerSizingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("PowerPerFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlow")]
         PowerPerFlow = 1,
         
-        [JsonProperty("PowerPerFlowPerPressure")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlowPerPressure")]
         PowerPerFlowPerPressure = 2,
     }
     
     [Description("This Headered pump object describes a pump bank with more than 1 pump in parallel" +
         "")]
-    [JsonObject("HeaderedPumps:VariableSpeed")]
     public class HeaderedPumps_VariableSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -645,6 +649,7 @@ public System.Nullable<float> NumberOfPumpsInBank { get; set; } = null;
         
 
 [JsonProperty("flow_sequencing_control_scheme")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeaderedPumps_VariableSpeed_FlowSequencingControlScheme FlowSequencingControlScheme { get; set; } = (HeaderedPumps_VariableSpeed_FlowSequencingControlScheme)Enum.Parse(typeof(HeaderedPumps_VariableSpeed_FlowSequencingControlScheme), "Sequential");
         
 
@@ -693,6 +698,7 @@ public System.Nullable<float> MinimumFlowRateFraction { get; set; } = (System.Nu
         
 
 [JsonProperty("pump_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeaderedPumps_VariableSpeed_PumpControlType PumpControlType { get; set; } = (HeaderedPumps_VariableSpeed_PumpControlType)Enum.Parse(typeof(HeaderedPumps_VariableSpeed_PumpControlType), "Continuous");
         
 
@@ -716,6 +722,7 @@ public System.Nullable<float> SkinLossRadiativeFraction { get; set; } = null;
 
 [Description(@"Used to indicate which sizing factor is used to calculate Design Power Consumption. PowerPerFlow indicates that Design Electric Power per Unit Flow Rate is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * scaling factor PowerPerFlowPerPressure indicates that Design Shaft Power per Unit Flow Rate per Unit Head is used as scaling factor. Design Power Consumption = Design Maximum Flow Rate * Design Pump Head * scaling factor / Motor Efficiency")]
 [JsonProperty("design_power_sizing_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeaderedPumps_VariableSpeed_DesignPowerSizingMethod DesignPowerSizingMethod { get; set; } = (HeaderedPumps_VariableSpeed_DesignPowerSizingMethod)Enum.Parse(typeof(HeaderedPumps_VariableSpeed_DesignPowerSizingMethod), "PowerPerFlowPerPressure");
         
 
@@ -739,36 +746,36 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum HeaderedPumps_VariableSpeed_FlowSequencingControlScheme
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Sequential")]
+        [System.Runtime.Serialization.EnumMember(Value="Sequential")]
         Sequential = 1,
     }
     
     public enum HeaderedPumps_VariableSpeed_PumpControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Continuous")]
+        [System.Runtime.Serialization.EnumMember(Value="Continuous")]
         Continuous = 1,
         
-        [JsonProperty("Intermittent")]
+        [System.Runtime.Serialization.EnumMember(Value="Intermittent")]
         Intermittent = 2,
     }
     
     public enum HeaderedPumps_VariableSpeed_DesignPowerSizingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("PowerPerFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlow")]
         PowerPerFlow = 1,
         
-        [JsonProperty("PowerPerFlowPerPressure")]
+        [System.Runtime.Serialization.EnumMember(Value="PowerPerFlowPerPressure")]
         PowerPerFlowPerPressure = 2,
     }
 }

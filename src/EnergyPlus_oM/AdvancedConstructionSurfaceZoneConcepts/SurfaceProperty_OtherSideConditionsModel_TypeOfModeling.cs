@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceProperty_OtherSideConditionsModel_TypeOfModeling
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConvectiveUnderwater")]
+        [System.Runtime.Serialization.EnumMember(Value="ConvectiveUnderwater")]
         ConvectiveUnderwater = 1,
         
-        [JsonProperty("GapConvectionRadiation")]
+        [System.Runtime.Serialization.EnumMember(Value="GapConvectionRadiation")]
         GapConvectionRadiation = 2,
         
-        [JsonProperty("GroundCoupledSurface")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundCoupledSurface")]
         GroundCoupledSurface = 3,
         
-        [JsonProperty("UndergroundPipingSystemSurface")]
+        [System.Runtime.Serialization.EnumMember(Value="UndergroundPipingSystemSurface")]
         UndergroundPipingSystemSurface = 4,
     }
 }

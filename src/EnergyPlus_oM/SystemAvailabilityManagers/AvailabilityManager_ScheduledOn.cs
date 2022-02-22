@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     [Description("Determines the availability of a loop or system: only controls the turn on action" +
                  ". Schedule overrides fan/pump schedule.")]
-    [JsonObject("AvailabilityManager:ScheduledOn")]
     public class AvailabilityManager_ScheduledOn : BHoMObject, IEnergyPlusClass
     {
         

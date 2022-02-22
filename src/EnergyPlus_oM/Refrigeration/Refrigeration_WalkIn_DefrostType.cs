@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_WalkIn_DefrostType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Electric")]
         Electric = 1,
         
-        [JsonProperty("HotFluid")]
+        [System.Runtime.Serialization.EnumMember(Value="HotFluid")]
         HotFluid = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
         
-        [JsonProperty("OffCycle")]
+        [System.Runtime.Serialization.EnumMember(Value="OffCycle")]
         OffCycle = 4,
     }
 }

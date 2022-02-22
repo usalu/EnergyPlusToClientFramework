@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
     [Description("Water heater with stratified, multi-node water tank. May be used to model a tankl" +
                  "ess water heater (small tank volume), a hot water storage tank (zero heater capa" +
                  "city), or a heat pump water heater (see WaterHeater:HeatPump:*.)")]
-    [JsonObject("WaterHeater:Stratified")]
     public class WaterHeater_Stratified : BHoMObject, IEnergyPlusClass
     {
         
@@ -30,6 +29,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("tank_shape")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_Stratified_TankShape TankShape { get; set; } = (WaterHeater_Stratified_TankShape)Enum.Parse(typeof(WaterHeater_Stratified_TankShape), "VerticalCylinder");
         
 
@@ -43,6 +43,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("heater_priority_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_Stratified_HeaterPriorityControl HeaterPriorityControl { get; set; } = (WaterHeater_Stratified_HeaterPriorityControl)Enum.Parse(typeof(WaterHeater_Stratified_HeaterPriorityControl), "MasterSlave");
         
 
@@ -79,6 +80,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("heater_fuel_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_Stratified_HeaterFuelType HeaterFuelType { get; set; } = (WaterHeater_Stratified_HeaterFuelType)Enum.Parse(typeof(WaterHeater_Stratified_HeaterFuelType), "Coal");
         
 
@@ -91,6 +93,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("off_cycle_parasitic_fuel_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_Stratified_OffCycleParasiticFuelType OffCycleParasiticFuelType { get; set; } = (WaterHeater_Stratified_OffCycleParasiticFuelType)Enum.Parse(typeof(WaterHeater_Stratified_OffCycleParasiticFuelType), "Coal");
         
 
@@ -107,6 +110,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("on_cycle_parasitic_fuel_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_Stratified_OnCycleParasiticFuelType OnCycleParasiticFuelType { get; set; } = (WaterHeater_Stratified_OnCycleParasiticFuelType)Enum.Parse(typeof(WaterHeater_Stratified_OnCycleParasiticFuelType), "Coal");
         
 
@@ -119,6 +123,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("ambient_temperature_indicator")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_Stratified_AmbientTemperatureIndicator AmbientTemperatureIndicator { get; set; } = (WaterHeater_Stratified_AmbientTemperatureIndicator)Enum.Parse(typeof(WaterHeater_Stratified_AmbientTemperatureIndicator), "Outdoors");
         
 
@@ -215,6 +220,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("inlet_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_Stratified_InletMode InletMode { get; set; } = (WaterHeater_Stratified_InletMode)Enum.Parse(typeof(WaterHeater_Stratified_InletMode), "Fixed");
         
 
@@ -290,6 +296,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 
         [Description(@"StorageTank mode always requests flow unless tank is at its Maximum Temperature Limit IndirectHeatPrimarySetpoint mode requests flow whenever primary setpoint for heater 1 calls for heat IndirectHeatAlternateSetpoint mode requests flow whenever alternate indirect setpoint calls for heat")]
         [JsonProperty("source_side_flow_control_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_Stratified_SourceSideFlowControlMode SourceSideFlowControlMode { get; set; } = (WaterHeater_Stratified_SourceSideFlowControlMode)Enum.Parse(typeof(WaterHeater_Stratified_SourceSideFlowControlMode), "IndirectHeatPrimarySetpoint");
         
 

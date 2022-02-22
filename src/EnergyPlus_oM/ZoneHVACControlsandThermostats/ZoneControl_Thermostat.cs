@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     [Description("Define the Thermostat settings for a zone or list of zones. If you use a ZoneList" +
                  " in the Zone or ZoneList name field then this definition applies to all the zone" +
                  "s in the ZoneList.")]
-    [JsonObject("ZoneControl:Thermostat")]
     public class ZoneControl_Thermostat : BHoMObject, IEnergyPlusClass
     {
         
@@ -24,6 +23,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("control_1_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneControl_Thermostat_Control1ObjectType Control1ObjectType { get; set; } = (ZoneControl_Thermostat_Control1ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_Control1ObjectType), "ThermostatSetpointDualSetpoint");
         
 
@@ -35,6 +35,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("control_2_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneControl_Thermostat_Control2ObjectType Control2ObjectType { get; set; } = (ZoneControl_Thermostat_Control2ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_Control2ObjectType), "ThermostatSetpointDualSetpoint");
         
 
@@ -46,6 +47,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("control_3_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneControl_Thermostat_Control3ObjectType Control3ObjectType { get; set; } = (ZoneControl_Thermostat_Control3ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_Control3ObjectType), "ThermostatSetpointDualSetpoint");
         
 
@@ -57,6 +59,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("control_4_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneControl_Thermostat_Control4ObjectType Control4ObjectType { get; set; } = (ZoneControl_Thermostat_Control4ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_Control4ObjectType), "ThermostatSetpointDualSetpoint");
         
 

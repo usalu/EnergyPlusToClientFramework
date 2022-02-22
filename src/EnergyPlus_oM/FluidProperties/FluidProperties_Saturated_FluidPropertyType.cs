@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     public enum FluidProperties_Saturated_FluidPropertyType
     {
         
-        [JsonProperty("Density")]
+        [System.Runtime.Serialization.EnumMember(Value="Density")]
         Density = 0,
         
-        [JsonProperty("Enthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="Enthalpy")]
         Enthalpy = 1,
         
-        [JsonProperty("Pressure")]
+        [System.Runtime.Serialization.EnumMember(Value="Pressure")]
         Pressure = 2,
         
-        [JsonProperty("SpecificHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="SpecificHeat")]
         SpecificHeat = 3,
     }
 }

@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     public enum Sizing_Plant_CoincidentSizingFactorMode
     {
         
-        [JsonProperty("GlobalCoolingSizingFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="GlobalCoolingSizingFactor")]
         GlobalCoolingSizingFactor = 0,
         
-        [JsonProperty("GlobalHeatingSizingFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="GlobalHeatingSizingFactor")]
         GlobalHeatingSizingFactor = 1,
         
-        [JsonProperty("LoopComponentSizingFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="LoopComponentSizingFactor")]
         LoopComponentSizingFactor = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
     }
 }

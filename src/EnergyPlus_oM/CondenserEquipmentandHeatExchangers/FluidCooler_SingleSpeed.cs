@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     [Description("The fluid cooler is modeled as a cross flow heat exchanger (both streams unmixed)" +
                  " with single-speed fans (induced draft configuration).")]
-    [JsonObject("FluidCooler:SingleSpeed")]
     public class FluidCooler_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -26,6 +25,7 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
                      "A and the Design Water Flow Rate, or by specifying the fluid cooler nominal capa" +
                      "city")]
         [JsonProperty("performance_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FluidCooler_SingleSpeed_PerformanceInputMethod PerformanceInputMethod { get; set; } = (FluidCooler_SingleSpeed_PerformanceInputMethod)Enum.Parse(typeof(FluidCooler_SingleSpeed_PerformanceInputMethod), "NominalCapacity");
         
 

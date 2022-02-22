@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Plant_Boiler_BoilerType
     {
         
-        [JsonProperty("CondensingHotWaterBoiler")]
+        [System.Runtime.Serialization.EnumMember(Value="CondensingHotWaterBoiler")]
         CondensingHotWaterBoiler = 0,
         
-        [JsonProperty("DistrictHotWater")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHotWater")]
         DistrictHotWater = 1,
         
-        [JsonProperty("HotWaterBoiler")]
+        [System.Runtime.Serialization.EnumMember(Value="HotWaterBoiler")]
         HotWaterBoiler = 2,
     }
 }

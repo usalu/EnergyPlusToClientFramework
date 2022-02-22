@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.Parametrics
     
     
     [Description(@"Parametric objects allow a set of multiple simulations to be defined in a single idf file. The parametric preprocessor scans the idf for Parametric:* objects then creates and runs multiple idf files, one for each defined simulation. The core parametric object is Parametric:SetValueForRun which defines the name of a parameter and sets the parameter to different values depending on which run is being simulated.")]
-    [JsonObject("Parametric:SetValueForRun")]
     public class Parametric_SetValueForRun : BHoMObject, IEnergyPlusClass
     {
         

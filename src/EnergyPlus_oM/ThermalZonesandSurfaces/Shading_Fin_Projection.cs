@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Fins are usually shading surfaces that are perpendicular to a window or door.")]
-    [JsonObject("Shading:Fin:Projection")]
     public class Shading_Fin_Projection : BHoMObject, IEnergyPlusClass
     {
         

@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("Used to specify radiant view factors for thermal comfort calculations.")]
-    [JsonObject("ComfortViewFactorAngles")]
     public class ComfortViewFactorAngles : BHoMObject, IEnergyPlusClass
     {
         

@@ -65,7 +65,6 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
     
     
     [Description("Specifies the EnergyPlus version of the IDF file.")]
-    [JsonObject("Version")]
     public class Version : BHoMObject, IEnergyPlusClass
     {
         

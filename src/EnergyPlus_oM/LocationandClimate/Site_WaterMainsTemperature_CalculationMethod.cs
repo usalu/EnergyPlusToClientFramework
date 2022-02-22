@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum Site_WaterMainsTemperature_CalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Correlation")]
+        [System.Runtime.Serialization.EnumMember(Value="Correlation")]
         Correlation = 1,
         
-        [JsonProperty("CorrelationFromWeatherFile")]
+        [System.Runtime.Serialization.EnumMember(Value="CorrelationFromWeatherFile")]
         CorrelationFromWeatherFile = 2,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 3,
     }
 }

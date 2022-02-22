@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
     
     [Description("List components on the branch in simulation and connection order Note: this shoul" +
         "d NOT include splitters or mixers which define endpoints of branches")]
-    [JsonObject("Branch")]
     public class Branch : BHoMObject, IEnergyPlusClass
     {
         
@@ -85,7 +84,6 @@ public string Components { get; set; } = "";
     [Description("Branches MUST be listed in Flow order: Inlet branch, then parallel branches, then" +
         " Outlet branch. Branches are simulated in the order listed. Branch names cannot " +
         "be duplicated within a single branch list.")]
-    [JsonObject("BranchList")]
     public class BranchList : BHoMObject, IEnergyPlusClass
     {
         
@@ -96,7 +94,6 @@ public string Branches { get; set; } = "";
     
     [Description("Split one air/water stream into N outlet streams. Branch names cannot be duplicat" +
         "ed within a single Splitter list.")]
-    [JsonObject("Connector:Splitter")]
     public class Connector_Splitter : BHoMObject, IEnergyPlusClass
     {
         
@@ -111,7 +108,6 @@ public string Branches { get; set; } = "";
     
     [Description("Mix N inlet air/water streams into one. Branch names cannot be duplicated within " +
         "a single mixer list.")]
-    [JsonObject("Connector:Mixer")]
     public class Connector_Mixer : BHoMObject, IEnergyPlusClass
     {
         
@@ -126,12 +122,12 @@ public string Branches { get; set; } = "";
     
     [Description("only two connectors allowed per loop if two entered, one must be Connector:Splitt" +
         "er and one must be Connector:Mixer")]
-    [JsonObject("ConnectorList")]
     public class ConnectorList : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("connector_1_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ConnectorList_Connector1ObjectType Connector1ObjectType { get; set; } = (ConnectorList_Connector1ObjectType)Enum.Parse(typeof(ConnectorList_Connector1ObjectType), "ConnectorMixer");
         
 
@@ -140,6 +136,7 @@ public string Connector1Name { get; set; } = "";
         
 
 [JsonProperty("connector_2_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ConnectorList_Connector2ObjectType Connector2ObjectType { get; set; } = (ConnectorList_Connector2ObjectType)Enum.Parse(typeof(ConnectorList_Connector2ObjectType), "ConnectorMixer");
         
 
@@ -150,26 +147,25 @@ public string Connector2Name { get; set; } = "";
     public enum ConnectorList_Connector1ObjectType
     {
         
-        [JsonProperty("Connector:Mixer")]
+        [System.Runtime.Serialization.EnumMember(Value="Connector:Mixer")]
         ConnectorMixer = 0,
         
-        [JsonProperty("Connector:Splitter")]
+        [System.Runtime.Serialization.EnumMember(Value="Connector:Splitter")]
         ConnectorSplitter = 1,
     }
     
     public enum ConnectorList_Connector2ObjectType
     {
         
-        [JsonProperty("Connector:Mixer")]
+        [System.Runtime.Serialization.EnumMember(Value="Connector:Mixer")]
         ConnectorMixer = 0,
         
-        [JsonProperty("Connector:Splitter")]
+        [System.Runtime.Serialization.EnumMember(Value="Connector:Splitter")]
         ConnectorSplitter = 1,
     }
     
     [Description("This object is used in places where lists of nodes may be needed, e.g. ZoneHVAC:E" +
         "quipmentConnections field Zone Air Inlet Node or NodeList Name")]
-    [JsonObject("NodeList")]
     public class NodeList : BHoMObject, IEnergyPlusClass
     {
         
@@ -179,7 +175,6 @@ public string Nodes { get; set; } = "";
     }
     
     [Description(@"This object sets the temperature and humidity conditions for an outdoor air node. It allows the height above ground to be specified. This object may be used more than once. The same node name may not appear in both an OutdoorAir:Node object and an OutdoorAir:NodeList object. This object defines local outdoor air environmental conditions.")]
-    [JsonObject("OutdoorAir:Node")]
     public class OutdoorAir_Node : BHoMObject, IEnergyPlusClass
     {
         
@@ -220,6 +215,7 @@ public string WindPressureCoefficientCurveName { get; set; } = "";
     "at should be evaluated from 0 to 180 degrees Specify No for curves that should b" +
     "e evaluated from 0 to 360 degrees")]
 [JsonProperty("symmetric_wind_pressure_coefficient_curve")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes SymmetricWindPressureCoefficientCurve { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -228,24 +224,24 @@ public EmptyNoYes SymmetricWindPressureCoefficientCurve { get; set; } = (EmptyNo
     "and the surface azimuth Specify Absolute to use the wind direction angle directl" +
     "y")]
 [JsonProperty("wind_angle_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutdoorAir_Node_WindAngleType WindAngleType { get; set; } = (OutdoorAir_Node_WindAngleType)Enum.Parse(typeof(OutdoorAir_Node_WindAngleType), "Absolute");
     }
     
     public enum OutdoorAir_Node_WindAngleType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Absolute")]
+        [System.Runtime.Serialization.EnumMember(Value="Absolute")]
         Absolute = 1,
         
-        [JsonProperty("Relative")]
+        [System.Runtime.Serialization.EnumMember(Value="Relative")]
         Relative = 2,
     }
     
     [Description(@"This object sets the temperature and humidity conditions for an outdoor air node using the weather data values. to vary outdoor air node conditions with height above ground use OutdoorAir:Node instead of this object. This object may be used more than once. The same node name may not appear in both an OutdoorAir:Node object and an OutdoorAir:NodeList object.")]
-    [JsonObject("OutdoorAir:NodeList")]
     public class OutdoorAir_NodeList : BHoMObject, IEnergyPlusClass
     {
         
@@ -255,7 +251,6 @@ public string Nodes { get; set; } = "";
     }
     
     [Description("Passes Inlet Node state variables to Outlet Node state variables")]
-    [JsonObject("Pipe:Adiabatic")]
     public class Pipe_Adiabatic : BHoMObject, IEnergyPlusClass
     {
         
@@ -269,7 +264,6 @@ public string OutletNodeName { get; set; } = "";
     }
     
     [Description("Passes Inlet Node state variables to Outlet Node state variables")]
-    [JsonObject("Pipe:Adiabatic:Steam")]
     public class Pipe_Adiabatic_Steam : BHoMObject, IEnergyPlusClass
     {
         
@@ -283,7 +277,6 @@ public string OutletNodeName { get; set; } = "";
     }
     
     [Description("Pipe model with transport delay and heat transfer to the environment.")]
-    [JsonObject("Pipe:Indoor")]
     public class Pipe_Indoor : BHoMObject, IEnergyPlusClass
     {
         
@@ -301,6 +294,7 @@ public string FluidOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("environment_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Pipe_Indoor_EnvironmentType EnvironmentType { get; set; } = (Pipe_Indoor_EnvironmentType)Enum.Parse(typeof(Pipe_Indoor_EnvironmentType), "Zone");
         
 
@@ -327,18 +321,17 @@ public System.Nullable<float> PipeLength { get; set; } = null;
     public enum Pipe_Indoor_EnvironmentType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 1,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 2,
     }
     
     [Description("Pipe model with transport delay and heat transfer to the environment.")]
-    [JsonObject("Pipe:Outdoor")]
     public class Pipe_Outdoor : BHoMObject, IEnergyPlusClass
     {
         
@@ -369,7 +362,6 @@ public System.Nullable<float> PipeLength { get; set; } = null;
     
     [Description("Buried Pipe model: For pipes buried at a depth less than one meter, this is an al" +
         "ternative object to: HeatExchanger:Surface")]
-    [JsonObject("Pipe:Underground")]
     public class Pipe_Underground : BHoMObject, IEnergyPlusClass
     {
         
@@ -387,6 +379,7 @@ public string FluidOutletNodeName { get; set; } = "";
         
 
 [JsonProperty("sun_exposure")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Pipe_Underground_SunExposure SunExposure { get; set; } = (Pipe_Underground_SunExposure)Enum.Parse(typeof(Pipe_Underground_SunExposure), "NoSun");
         
 
@@ -404,6 +397,7 @@ public string SoilMaterialName { get; set; } = "";
         
 
 [JsonProperty("undisturbed_ground_temperature_model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Pipe_Underground_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (Pipe_Underground_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(Pipe_Underground_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
@@ -414,28 +408,27 @@ public string UndisturbedGroundTemperatureModelName { get; set; } = "";
     public enum Pipe_Underground_SunExposure
     {
         
-        [JsonProperty("NoSun")]
+        [System.Runtime.Serialization.EnumMember(Value="NoSun")]
         NoSun = 0,
         
-        [JsonProperty("SunExposed")]
+        [System.Runtime.Serialization.EnumMember(Value="SunExposed")]
         SunExposed = 1,
     }
     
     public enum Pipe_Underground_UndisturbedGroundTemperatureModelType
     {
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:FiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:FiniteDifference")]
         SiteGroundTemperatureUndisturbedFiniteDifference = 0,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
         SiteGroundTemperatureUndisturbedKusudaAchenbach = 1,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:Xing")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:Xing")]
         SiteGroundTemperatureUndisturbedXing = 2,
     }
     
     [Description("The ground domain object for underground piping system simulation.")]
-    [JsonObject("PipingSystem:Underground:Domain")]
     public class PipingSystem_Underground_Domain : BHoMObject, IEnergyPlusClass
     {
         
@@ -461,6 +454,7 @@ public System.Nullable<float> XDirectionMeshDensityParameter { get; set; } = (Sy
         
 
 [JsonProperty("x_direction_mesh_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PipingSystem_Underground_Domain_XDirectionMeshType XDirectionMeshType { get; set; } = (PipingSystem_Underground_Domain_XDirectionMeshType)Enum.Parse(typeof(PipingSystem_Underground_Domain_XDirectionMeshType), "SymmetricGeometric");
         
 
@@ -475,6 +469,7 @@ public System.Nullable<float> YDirectionMeshDensityParameter { get; set; } = (Sy
         
 
 [JsonProperty("y_direction_mesh_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PipingSystem_Underground_Domain_YDirectionMeshType YDirectionMeshType { get; set; } = (PipingSystem_Underground_Domain_YDirectionMeshType)Enum.Parse(typeof(PipingSystem_Underground_Domain_YDirectionMeshType), "SymmetricGeometric");
         
 
@@ -489,6 +484,7 @@ public System.Nullable<float> ZDirectionMeshDensityParameter { get; set; } = (Sy
         
 
 [JsonProperty("z_direction_mesh_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PipingSystem_Underground_Domain_ZDirectionMeshType ZDirectionMeshType { get; set; } = (PipingSystem_Underground_Domain_ZDirectionMeshType)Enum.Parse(typeof(PipingSystem_Underground_Domain_ZDirectionMeshType), "SymmetricGeometric");
         
 
@@ -520,6 +516,7 @@ public System.Nullable<float> SoilMoistureContentVolumeFractionAtSaturation { ge
         
 
 [JsonProperty("undisturbed_ground_temperature_model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
@@ -530,6 +527,7 @@ public string UndisturbedGroundTemperatureModelName { get; set; } = "";
 [Description("if Yes, then the following basement inputs are used if No, then the following bas" +
     "ement inputs are *ignored*")]
 [JsonProperty("this_domain_includes_basement_surface_interaction")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ThisDomainIncludesBasementSurfaceInteraction { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -545,6 +543,7 @@ public System.Nullable<float> DepthOfBasementWallInGroundDomain { get; set; } = 
 
 [Description("Required only if Domain Has Basement Interaction")]
 [JsonProperty("shift_pipe_x_coordinates_by_basement_width")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth ShiftPipeXCoordinatesByBasementWidth { get; set; } = (PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth)Enum.Parse(typeof(PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth), "No");
         
 
@@ -582,60 +581,59 @@ public string PipeCircuits { get; set; } = "";
     public enum PipingSystem_Underground_Domain_XDirectionMeshType
     {
         
-        [JsonProperty("SymmetricGeometric")]
+        [System.Runtime.Serialization.EnumMember(Value="SymmetricGeometric")]
         SymmetricGeometric = 0,
         
-        [JsonProperty("Uniform")]
+        [System.Runtime.Serialization.EnumMember(Value="Uniform")]
         Uniform = 1,
     }
     
     public enum PipingSystem_Underground_Domain_YDirectionMeshType
     {
         
-        [JsonProperty("SymmetricGeometric")]
+        [System.Runtime.Serialization.EnumMember(Value="SymmetricGeometric")]
         SymmetricGeometric = 0,
         
-        [JsonProperty("Uniform")]
+        [System.Runtime.Serialization.EnumMember(Value="Uniform")]
         Uniform = 1,
     }
     
     public enum PipingSystem_Underground_Domain_ZDirectionMeshType
     {
         
-        [JsonProperty("SymmetricGeometric")]
+        [System.Runtime.Serialization.EnumMember(Value="SymmetricGeometric")]
         SymmetricGeometric = 0,
         
-        [JsonProperty("Uniform")]
+        [System.Runtime.Serialization.EnumMember(Value="Uniform")]
         Uniform = 1,
     }
     
     public enum PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType
     {
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:FiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:FiniteDifference")]
         SiteGroundTemperatureUndisturbedFiniteDifference = 0,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
         SiteGroundTemperatureUndisturbedKusudaAchenbach = 1,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:Xing")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:Xing")]
         SiteGroundTemperatureUndisturbedXing = 2,
     }
     
     public enum PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth
     {
         
-        [JsonProperty("No")]
+        [System.Runtime.Serialization.EnumMember(Value="No")]
         No = 0,
         
-        [JsonProperty("Yes")]
+        [System.Runtime.Serialization.EnumMember(Value="Yes")]
         Yes = 1,
     }
     
     [Description("The pipe circuit object in an underground piping system. This object is simulated" +
         " within an underground piping domain object and connected on a branch on a plant" +
         " loop.")]
-    [JsonObject("PipingSystem:Underground:PipeCircuit")]
     public class PipingSystem_Underground_PipeCircuit : BHoMObject, IEnergyPlusClass
     {
         
@@ -701,7 +699,6 @@ public string PipeSegments { get; set; } = "";
     [Description("The pipe segment to be used in an underground piping system This object represent" +
         "s a single pipe leg positioned axially in the local z-direction, at a given x, y" +
         " location in the domain")]
-    [JsonObject("PipingSystem:Underground:PipeSegment")]
     public class PipingSystem_Underground_PipeSegment : BHoMObject, IEnergyPlusClass
     {
         
@@ -722,21 +719,21 @@ public System.Nullable<float> YPosition { get; set; } = null;
 [Description("This segment will be simulated such that the flow is in the selected direction. T" +
     "his can allow for detailed analysis of circuiting effects in a single domain.")]
 [JsonProperty("flow_direction")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PipingSystem_Underground_PipeSegment_FlowDirection FlowDirection { get; set; } = (PipingSystem_Underground_PipeSegment_FlowDirection)Enum.Parse(typeof(PipingSystem_Underground_PipeSegment_FlowDirection), "DecreasingZ");
     }
     
     public enum PipingSystem_Underground_PipeSegment_FlowDirection
     {
         
-        [JsonProperty("DecreasingZ")]
+        [System.Runtime.Serialization.EnumMember(Value="DecreasingZ")]
         DecreasingZ = 0,
         
-        [JsonProperty("IncreasingZ")]
+        [System.Runtime.Serialization.EnumMember(Value="IncreasingZ")]
         IncreasingZ = 1,
     }
     
     [Description("Passes inlet node state variables to outlet node state variables")]
-    [JsonObject("Duct")]
     public class Duct : BHoMObject, IEnergyPlusClass
     {
         

@@ -7,12 +7,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description(@"This chiller bank can contain multiple chiller heaters and heat pump performance objects. Its function is to encapsulate the extra controls needed to turn individual modules on/off and whether they are to operate in cooling-only, heating-only or simultaneous cooling/heating mode and whether to connect the source water to the evaporator or condenser side.")]
-    [JsonObject("CentralHeatPumpSystem")]
     public class CentralHeatPumpSystem : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ControlMethod ControlMethod { get; set; } = (CentralHeatPumpSystem_ControlMethod)Enum.Parse(typeof(CentralHeatPumpSystem_ControlMethod), "SmartMixing");
         
 
@@ -51,6 +51,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_1")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType1 ChillerHeaterModulesPerformanceComponentObjectType1 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType1)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType1), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -67,6 +68,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_2")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType2 ChillerHeaterModulesPerformanceComponentObjectType2 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType2)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType2), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -83,6 +85,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_performance_component_object_type_3")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterPerformanceComponentObjectType3 ChillerHeaterPerformanceComponentObjectType3 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterPerformanceComponentObjectType3)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterPerformanceComponentObjectType3), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -99,6 +102,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_4")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType4 ChillerHeaterModulesPerformanceComponentObjectType4 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType4)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType4), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -115,6 +119,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_5")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType5 ChillerHeaterModulesPerformanceComponentObjectType5 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType5)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType5), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -131,6 +136,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_6")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType6 ChillerHeaterModulesPerformanceComponentObjectType6 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType6)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType6), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -147,6 +153,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_7")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType7 ChillerHeaterModulesPerformanceComponentObjectType7 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType7)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType7), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -163,6 +170,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_8")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType8 ChillerHeaterModulesPerformanceComponentObjectType8 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType8)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType8), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -179,6 +187,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_9")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType9 ChillerHeaterModulesPerformanceComponentObjectType9 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType9)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType9), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -195,6 +204,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_10")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType10 ChillerHeaterModulesPerformanceComponentObjectType10 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType10)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType10), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -211,6 +221,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_11")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType11 ChillerHeaterModulesPerformanceComponentObjectType11 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType11)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType11), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -227,6 +238,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_12")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType12 ChillerHeaterModulesPerformanceComponentObjectType12 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType12)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType12), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -243,6 +255,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_13")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType13 ChillerHeaterModulesPerformanceComponentObjectType13 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType13)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType13), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -259,6 +272,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_14")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType14 ChillerHeaterModulesPerformanceComponentObjectType14 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType14)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType14), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -275,6 +289,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_15")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType15 ChillerHeaterModulesPerformanceComponentObjectType15 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType15)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType15), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -291,6 +306,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_16")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType16 ChillerHeaterModulesPerformanceComponentObjectType16 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType16)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType16), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -307,6 +323,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_17")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType17 ChillerHeaterModulesPerformanceComponentObjectType17 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType17)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType17), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -323,6 +340,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_18")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType18 ChillerHeaterModulesPerformanceComponentObjectType18 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType18)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType18), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -339,6 +357,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_19")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType19 ChillerHeaterModulesPerformanceComponentObjectType19 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType19)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType19), "ChillerHeaterPerformanceElectricEIR");
         
 
@@ -355,6 +374,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("chiller_heater_modules_performance_component_object_type_20")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType20 ChillerHeaterModulesPerformanceComponentObjectType20 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType20)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType20), "ChillerHeaterPerformanceElectricEIR");
         
 

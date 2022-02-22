@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     [Description("A non-recurring cost happens only once during the study period. For costs that oc" +
                  "cur more than once during the study period on a regular schedule, use the LifeCy" +
                  "cleCost:RecurringCost object.")]
-    [JsonObject("LifeCycleCost:NonrecurringCost")]
     public class LifeCycleCost_NonrecurringCost : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("category")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleCost_NonrecurringCost_Category Category { get; set; } = (LifeCycleCost_NonrecurringCost_Category)Enum.Parse(typeof(LifeCycleCost_NonrecurringCost_Category), "Construction");
         
 
@@ -26,6 +26,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                      "s past the Start of Costs. For most non-recurring costs the Start of Costs shoul" +
                      "d be Base Period which begins at the base month and year.")]
         [JsonProperty("start_of_costs")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleCost_NonrecurringCost_StartOfCosts StartOfCosts { get; set; } = (LifeCycleCost_NonrecurringCost_StartOfCosts)Enum.Parse(typeof(LifeCycleCost_NonrecurringCost_StartOfCosts), "ServicePeriod");
         
 

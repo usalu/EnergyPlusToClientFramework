@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     public enum AirflowNetwork_MultiZone_ExternalNode_WindAngleType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Absolute")]
+        [System.Runtime.Serialization.EnumMember(Value="Absolute")]
         Absolute = 1,
         
-        [JsonProperty("Relative")]
+        [System.Runtime.Serialization.EnumMember(Value="Relative")]
         Relative = 2,
     }
 }

@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Zone_PTHP_SupplementalHeatingCoilType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Electric")]
         Electric = 1,
         
-        [JsonProperty("Gas")]
+        [System.Runtime.Serialization.EnumMember(Value="Gas")]
         Gas = 2,
         
-        [JsonProperty("HotWater")]
+        [System.Runtime.Serialization.EnumMember(Value="HotWater")]
         HotWater = 3,
     }
 }

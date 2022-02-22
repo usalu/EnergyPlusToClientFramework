@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
                  "ly. Relationship between liquid suction transport coefficient and moisture conte" +
                  "nt Has no effect with other HeatBalanceAlgorithm solution algorithms")]
-    [JsonObject("MaterialProperty:HeatAndMoistureTransfer:Suction")]
     public class MaterialProperty_HeatAndMoistureTransfer_Suction : BHoMObject, IEnergyPlusClass
     {
         

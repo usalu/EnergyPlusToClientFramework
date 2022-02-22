@@ -1,56 +1,54 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum SizingPeriod_WeatherFileConditionType_PeriodSelection
     {
         
-        [JsonProperty("AutumnTypical")]
+        [System.Runtime.Serialization.EnumMember(Value="AutumnTypical")]
         AutumnTypical = 0,
         
-        [JsonProperty("DrySeason")]
+        [System.Runtime.Serialization.EnumMember(Value="DrySeason")]
         DrySeason = 1,
         
-        [JsonProperty("NoDrySeason")]
+        [System.Runtime.Serialization.EnumMember(Value="NoDrySeason")]
         NoDrySeason = 2,
         
-        [JsonProperty("NoDrySeasonMax")]
+        [System.Runtime.Serialization.EnumMember(Value="NoDrySeasonMax")]
         NoDrySeasonMax = 3,
         
-        [JsonProperty("NoDrySeasonMin")]
+        [System.Runtime.Serialization.EnumMember(Value="NoDrySeasonMin")]
         NoDrySeasonMin = 4,
         
-        [JsonProperty("NoWetSeason")]
+        [System.Runtime.Serialization.EnumMember(Value="NoWetSeason")]
         NoWetSeason = 5,
         
-        [JsonProperty("NoWetSeasonMax")]
+        [System.Runtime.Serialization.EnumMember(Value="NoWetSeasonMax")]
         NoWetSeasonMax = 6,
         
-        [JsonProperty("NoWetSeasonMin")]
+        [System.Runtime.Serialization.EnumMember(Value="NoWetSeasonMin")]
         NoWetSeasonMin = 7,
         
-        [JsonProperty("SpringTypical")]
+        [System.Runtime.Serialization.EnumMember(Value="SpringTypical")]
         SpringTypical = 8,
         
-        [JsonProperty("SummerExtreme")]
+        [System.Runtime.Serialization.EnumMember(Value="SummerExtreme")]
         SummerExtreme = 9,
         
-        [JsonProperty("SummerTypical")]
+        [System.Runtime.Serialization.EnumMember(Value="SummerTypical")]
         SummerTypical = 10,
         
-        [JsonProperty("TropicalCold")]
+        [System.Runtime.Serialization.EnumMember(Value="TropicalCold")]
         TropicalCold = 11,
         
-        [JsonProperty("TropicalHot")]
+        [System.Runtime.Serialization.EnumMember(Value="TropicalHot")]
         TropicalHot = 12,
         
-        [JsonProperty("WetSeason")]
+        [System.Runtime.Serialization.EnumMember(Value="WetSeason")]
         WetSeason = 13,
         
-        [JsonProperty("WinterExtreme")]
+        [System.Runtime.Serialization.EnumMember(Value="WinterExtreme")]
         WinterExtreme = 14,
         
-        [JsonProperty("WinterTypical")]
+        [System.Runtime.Serialization.EnumMember(Value="WinterTypical")]
         WinterTypical = 15,
     }
 }

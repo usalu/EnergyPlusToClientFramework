@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     [Description("This object sets up an EMS trend variable from an Erl variable A trend variable l" +
                  "ogs values across timesteps")]
-    [JsonObject("EnergyManagementSystem:TrendVariable")]
     public class EnergyManagementSystem_TrendVariable : BHoMObject, IEnergyPlusClass
     {
         

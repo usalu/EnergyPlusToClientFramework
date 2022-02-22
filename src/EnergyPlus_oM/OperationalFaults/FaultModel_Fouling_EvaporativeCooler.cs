@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes the fouling fault of the wetted coil evaporative cooler")]
-    [JsonObject("FaultModel:Fouling:EvaporativeCooler")]
     public class FaultModel_Fouling_EvaporativeCooler : BHoMObject, IEnergyPlusClass
     {
         
@@ -24,6 +23,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
                      "l evaporative cooler The fault does not apply to direct evaporative coolers or t" +
                      "he dry coil indirect evaporative coolers")]
         [JsonProperty("evaporative_cooler_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType EvaporativeCoolerObjectType { get; set; } = (FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType)Enum.Parse(typeof(FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType), "EvaporativeCoolerIndirectWetCoil");
         
 

@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.VariableRefrigerantFlowEquipment
 {
     [Description(@"This is a key object in the new physics based VRF model applicable for Fluid Temperature Control It describes the Variable Refrigerant Flow system excluding the performance of indoor units Indoor units are modeled separately, see ZoneHVAC:TerminalUnit:VariableRefrigerantFlow")]
-    [JsonObject("AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl")]
     public class AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,6 +76,7 @@ namespace BH.oM.Adapters.EnergyPlus.VariableRefrigerantFlowEquipment
         
 
         [JsonProperty("refrigerant_temperature_control_algorithm_for_indoor_unit")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_RefrigerantTemperatureControlAlgorithmForIndoorUnit RefrigerantTemperatureControlAlgorithmForIndoorUnit { get; set; } = (AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_RefrigerantTemperatureControlAlgorithmForIndoorUnit)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_RefrigerantTemperatureControlAlgorithmForIndoorUnit), "VariableTemp");
         
 
@@ -194,12 +194,14 @@ namespace BH.oM.Adapters.EnergyPlus.VariableRefrigerantFlowEquipment
                      " to cooling to melt frost formation on the condenser coil The resistive strategy" +
                      " uses a resistive heater to melt the frost.")]
         [JsonProperty("defrost_strategy")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostStrategy DefrostStrategy { get; set; } = (AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostStrategy)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostStrategy), "Resistive");
         
 
         [Description("Choose a defrost control type Either use a fixed Timed defrost period or select O" +
                      "nDemand to defrost only when necessary")]
         [JsonProperty("defrost_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostControl DefrostControl { get; set; } = (AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostControl)Enum.Parse(typeof(AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_DefrostControl), "Timed");
         
 

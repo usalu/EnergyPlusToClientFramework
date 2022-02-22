@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description(@"Intended for modeling an auxiliary heater for a fuel cell power generator, however this portion of the model is not yet available. The program still requires one of these objects be included even though the data are not yet used (so that internal data structures can be allocated).")]
-    [JsonObject("Generator:FuelCell:AuxiliaryHeater")]
     public class Generator_FuelCell_AuxiliaryHeater : BHoMObject, IEnergyPlusClass
     {
         
@@ -28,6 +27,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("skin_loss_destination")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelCell_AuxiliaryHeater_SkinLossDestination SkinLossDestination { get; set; } = (Generator_FuelCell_AuxiliaryHeater_SkinLossDestination)Enum.Parse(typeof(Generator_FuelCell_AuxiliaryHeater_SkinLossDestination), "AirInletForFuelCell");
         
 
@@ -36,6 +36,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("heating_capacity_units")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelCell_AuxiliaryHeater_HeatingCapacityUnits HeatingCapacityUnits { get; set; } = (Generator_FuelCell_AuxiliaryHeater_HeatingCapacityUnits)Enum.Parse(typeof(Generator_FuelCell_AuxiliaryHeater_HeatingCapacityUnits), "Watts");
         
 

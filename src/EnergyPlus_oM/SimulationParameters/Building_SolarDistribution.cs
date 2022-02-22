@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum Building_SolarDistribution
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FullExterior")]
+        [System.Runtime.Serialization.EnumMember(Value="FullExterior")]
         FullExterior = 1,
         
-        [JsonProperty("FullExteriorWithReflections")]
+        [System.Runtime.Serialization.EnumMember(Value="FullExteriorWithReflections")]
         FullExteriorWithReflections = 2,
         
-        [JsonProperty("FullInteriorAndExterior")]
+        [System.Runtime.Serialization.EnumMember(Value="FullInteriorAndExterior")]
         FullInteriorAndExterior = 3,
         
-        [JsonProperty("FullInteriorAndExteriorWithReflections")]
+        [System.Runtime.Serialization.EnumMember(Value="FullInteriorAndExteriorWithReflections")]
         FullInteriorAndExteriorWithReflections = 4,
         
-        [JsonProperty("MinimalShadowing")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimalShadowing")]
         MinimalShadowing = 5,
     }
 }

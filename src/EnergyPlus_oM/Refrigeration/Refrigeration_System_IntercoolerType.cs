@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_System_IntercoolerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Flash Intercooler")]
+        [System.Runtime.Serialization.EnumMember(Value="Flash Intercooler")]
         FlashIntercooler = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("Shell-and-Coil Intercooler")]
+        [System.Runtime.Serialization.EnumMember(Value="Shell-and-Coil Intercooler")]
         ShellandCoilIntercooler = 3,
     }
 }

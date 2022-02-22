@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
     [Description("Chilled water storage with a well-mixed, single-node tank. The chilled water is \"" +
                  "used\" by drawing from the \"Use Side\" of the water tank. The tank is indirectly c" +
                  "harged by circulating cold water through the \"Source Side\" of the water tank.")]
-    [JsonObject("ThermalStorage:ChilledWater:Mixed")]
     public class ThermalStorage_ChilledWater_Mixed : BHoMObject, IEnergyPlusClass
     {
         
@@ -35,6 +34,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("ambient_temperature_indicator")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ThermalStorage_ChilledWater_Mixed_AmbientTemperatureIndicator AmbientTemperatureIndicator { get; set; } = (ThermalStorage_ChilledWater_Mixed_AmbientTemperatureIndicator)Enum.Parse(typeof(ThermalStorage_ChilledWater_Mixed_AmbientTemperatureIndicator), "Outdoors");
         
 

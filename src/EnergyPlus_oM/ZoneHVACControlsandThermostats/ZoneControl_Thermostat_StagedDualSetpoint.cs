@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     [Description("Define the Thermostat StagedDualSetpoint settings for a zone or list of zones. If" +
                  " you use a ZoneList in the Zone or ZoneList name field then this definition appl" +
                  "ies to all the zones in the ZoneList.")]
-    [JsonObject("ZoneControl:Thermostat:StagedDualSetpoint")]
     public class ZoneControl_Thermostat_StagedDualSetpoint : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_EvaporativeCoolerUnit_SecondEvaporativeCoolerObjectType
     {
         
-        [JsonProperty("EvaporativeCooler:Direct:CelDekPad")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Direct:CelDekPad")]
         EvaporativeCoolerDirectCelDekPad = 0,
         
-        [JsonProperty("EvaporativeCooler:Direct:ResearchSpecial")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Direct:ResearchSpecial")]
         EvaporativeCoolerDirectResearchSpecial = 1,
         
-        [JsonProperty("EvaporativeCooler:Indirect:CelDekPad")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Indirect:CelDekPad")]
         EvaporativeCoolerIndirectCelDekPad = 2,
         
-        [JsonProperty("EvaporativeCooler:Indirect:ResearchSpecial")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Indirect:ResearchSpecial")]
         EvaporativeCoolerIndirectResearchSpecial = 3,
         
-        [JsonProperty("EvaporativeCooler:Indirect:WetCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Indirect:WetCoil")]
         EvaporativeCoolerIndirectWetCoil = 4,
     }
 }

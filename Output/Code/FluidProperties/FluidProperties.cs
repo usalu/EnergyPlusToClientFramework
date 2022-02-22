@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.FluidProperties
     
     
     [Description("potential fluid name/type in the input file repeat this object for each fluid")]
-    [JsonObject("FluidProperties:Name")]
     public class FluidProperties_Name : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,27 +76,28 @@ public string FluidName { get; set; } = "";
         
 
 [JsonProperty("fluid_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_Name_FluidType FluidType { get; set; } = (FluidProperties_Name_FluidType)Enum.Parse(typeof(FluidProperties_Name_FluidType), "Glycol");
     }
     
     public enum FluidProperties_Name_FluidType
     {
         
-        [JsonProperty("Glycol")]
+        [System.Runtime.Serialization.EnumMember(Value="Glycol")]
         Glycol = 0,
         
-        [JsonProperty("Refrigerant")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigerant")]
         Refrigerant = 1,
     }
     
     [Description("glycol and what concentration it is")]
-    [JsonObject("FluidProperties:GlycolConcentration")]
     public class FluidProperties_GlycolConcentration : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description("or UserDefined Fluid (must show up as a glycol in FluidProperties:Name object)")]
 [JsonProperty("glycol_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_GlycolConcentration_GlycolType GlycolType { get; set; } = (FluidProperties_GlycolConcentration_GlycolType)Enum.Parse(typeof(FluidProperties_GlycolConcentration_GlycolType), "EthyleneGlycol");
         
 
@@ -112,18 +112,17 @@ public System.Nullable<float> GlycolConcentration { get; set; } = null;
     public enum FluidProperties_GlycolConcentration_GlycolType
     {
         
-        [JsonProperty("EthyleneGlycol")]
+        [System.Runtime.Serialization.EnumMember(Value="EthyleneGlycol")]
         EthyleneGlycol = 0,
         
-        [JsonProperty("PropyleneGlycol")]
+        [System.Runtime.Serialization.EnumMember(Value="PropyleneGlycol")]
         PropyleneGlycol = 1,
         
-        [JsonProperty("UserDefinedGlycolType")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefinedGlycolType")]
         UserDefinedGlycolType = 2,
     }
     
     [Description(@"property values for fluid properties list of up to 250 temperatures, note that number of property values must match the number of properties in other words, there must be a one-to-one correspondence between the property values in this list and the actual properties list in other syntax degrees C (for all temperature inputs)")]
-    [JsonObject("FluidProperties:Temperatures")]
     public class FluidProperties_Temperatures : BHoMObject, IEnergyPlusClass
     {
         
@@ -1129,7 +1128,6 @@ public System.Nullable<float> Temperature250 { get; set; } = null;
     }
     
     [Description("fluid properties for the saturated region")]
-    [JsonObject("FluidProperties:Saturated")]
     public class FluidProperties_Saturated : BHoMObject, IEnergyPlusClass
     {
         
@@ -1141,11 +1139,13 @@ public string FluidName { get; set; } = "";
 [Description("Enthalpy Units are J/kg Density Units are kg/m3 SpecificHeat Units are J/kg-K Pre" +
     "ssure Units are Pa")]
 [JsonProperty("fluid_property_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_Saturated_FluidPropertyType FluidPropertyType { get; set; } = (FluidProperties_Saturated_FluidPropertyType)Enum.Parse(typeof(FluidProperties_Saturated_FluidPropertyType), "Density");
         
 
 [Description("Fluid=saturated fluid FluidGas=saturated vapor")]
 [JsonProperty("fluid_phase")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_Saturated_FluidPhase FluidPhase { get; set; } = (FluidProperties_Saturated_FluidPhase)Enum.Parse(typeof(FluidProperties_Saturated_FluidPhase), "Fluid");
         
 
@@ -2157,31 +2157,30 @@ public System.Nullable<float> PropertyValue250 { get; set; } = null;
     public enum FluidProperties_Saturated_FluidPropertyType
     {
         
-        [JsonProperty("Density")]
+        [System.Runtime.Serialization.EnumMember(Value="Density")]
         Density = 0,
         
-        [JsonProperty("Enthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="Enthalpy")]
         Enthalpy = 1,
         
-        [JsonProperty("Pressure")]
+        [System.Runtime.Serialization.EnumMember(Value="Pressure")]
         Pressure = 2,
         
-        [JsonProperty("SpecificHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="SpecificHeat")]
         SpecificHeat = 3,
     }
     
     public enum FluidProperties_Saturated_FluidPhase
     {
         
-        [JsonProperty("Fluid")]
+        [System.Runtime.Serialization.EnumMember(Value="Fluid")]
         Fluid = 0,
         
-        [JsonProperty("FluidGas")]
+        [System.Runtime.Serialization.EnumMember(Value="FluidGas")]
         FluidGas = 1,
     }
     
     [Description("fluid properties for the superheated region")]
-    [JsonObject("FluidProperties:Superheated")]
     public class FluidProperties_Superheated : BHoMObject, IEnergyPlusClass
     {
         
@@ -2192,6 +2191,7 @@ public string FluidName { get; set; } = "";
 
 [Description("Enthalpy Units are J/kg Density Units are kg/m3")]
 [JsonProperty("fluid_property_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_Superheated_FluidPropertyType FluidPropertyType { get; set; } = (FluidProperties_Superheated_FluidPropertyType)Enum.Parse(typeof(FluidProperties_Superheated_FluidPropertyType), "Density");
         
 
@@ -3208,15 +3208,14 @@ public System.Nullable<float> PropertyValue250 { get; set; } = null;
     public enum FluidProperties_Superheated_FluidPropertyType
     {
         
-        [JsonProperty("Density")]
+        [System.Runtime.Serialization.EnumMember(Value="Density")]
         Density = 0,
         
-        [JsonProperty("Enthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="Enthalpy")]
         Enthalpy = 1,
     }
     
     [Description("fluid properties for water/other fluid mixtures")]
-    [JsonObject("FluidProperties:Concentration")]
     public class FluidProperties_Concentration : BHoMObject, IEnergyPlusClass
     {
         
@@ -3229,6 +3228,7 @@ public string FluidName { get; set; } = "";
 [Description("Density Units are kg/m3 SpecificHeat Units are J/kg-K Conductivity Units are W/m-" +
     "K Viscosity Units are N-s/m2")]
 [JsonProperty("fluid_property_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_Concentration_FluidPropertyType FluidPropertyType { get; set; } = (FluidProperties_Concentration_FluidPropertyType)Enum.Parse(typeof(FluidProperties_Concentration_FluidPropertyType), "Conductivity");
         
 
@@ -4245,16 +4245,16 @@ public System.Nullable<float> PropertyValue250 { get; set; } = null;
     public enum FluidProperties_Concentration_FluidPropertyType
     {
         
-        [JsonProperty("Conductivity")]
+        [System.Runtime.Serialization.EnumMember(Value="Conductivity")]
         Conductivity = 0,
         
-        [JsonProperty("Density")]
+        [System.Runtime.Serialization.EnumMember(Value="Density")]
         Density = 1,
         
-        [JsonProperty("SpecificHeat")]
+        [System.Runtime.Serialization.EnumMember(Value="SpecificHeat")]
         SpecificHeat = 2,
         
-        [JsonProperty("Viscosity")]
+        [System.Runtime.Serialization.EnumMember(Value="Viscosity")]
         Viscosity = 3,
     }
 }

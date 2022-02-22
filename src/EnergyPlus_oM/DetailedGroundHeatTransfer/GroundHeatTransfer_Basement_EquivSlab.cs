@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("Using an equivalent slab allows non-rectangular shapes to be modeled accurately. " +
                  "The simulation default should be EquivSizing=True")]
-    [JsonObject("GroundHeatTransfer:Basement:EquivSlab")]
     public class GroundHeatTransfer_Basement_EquivSlab : BHoMObject, IEnergyPlusClass
     {
         
@@ -20,6 +19,7 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
                      "ions be input directly? (FALSE)] Only advanced special simulations should use FA" +
                      "LSE.")]
         [JsonProperty("equivsizing_flag")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public GroundHeatTransfer_Basement_EquivSlab_EquivsizingFlag EquivsizingFlag { get; set; } = (GroundHeatTransfer_Basement_EquivSlab_EquivsizingFlag)Enum.Parse(typeof(GroundHeatTransfer_Basement_EquivSlab_EquivsizingFlag), "FALSE");
     }
 }

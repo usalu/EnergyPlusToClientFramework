@@ -72,6 +72,10 @@
       <Project>{359F13C1-0743-48A5-A3C0-5F9532651779}</Project>
       <Name>EnergyPlus_9_5_0_JsonSchema</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EnergyPlus_oM\EnergyPlus_oM.csproj">
+      <Project>{9278bbf2-a2fe-411f-ad68-8672f1d03280}</Project>
+      <Name>EnergyPlus_oM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

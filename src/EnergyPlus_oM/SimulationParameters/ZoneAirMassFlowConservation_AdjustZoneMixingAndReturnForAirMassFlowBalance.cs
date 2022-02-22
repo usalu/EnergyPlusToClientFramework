@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum ZoneAirMassFlowConservation_AdjustZoneMixingAndReturnForAirMassFlowBalance
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AdjustMixingOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjustMixingOnly")]
         AdjustMixingOnly = 1,
         
-        [JsonProperty("AdjustMixingThenReturn")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjustMixingThenReturn")]
         AdjustMixingThenReturn = 2,
         
-        [JsonProperty("AdjustReturnOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjustReturnOnly")]
         AdjustReturnOnly = 3,
         
-        [JsonProperty("AdjustReturnThenMixing")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjustReturnThenMixing")]
         AdjustReturnThenMixing = 4,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 5,
     }
 }

@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     public enum WaterHeater_Sizing_DesignMode
     {
         
-        [JsonProperty("PeakDraw")]
+        [System.Runtime.Serialization.EnumMember(Value="PeakDraw")]
         PeakDraw = 0,
         
-        [JsonProperty("PerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="PerFloorArea")]
         PerFloorArea = 1,
         
-        [JsonProperty("PerPerson")]
+        [System.Runtime.Serialization.EnumMember(Value="PerPerson")]
         PerPerson = 2,
         
-        [JsonProperty("PerSolarCollectorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="PerSolarCollectorArea")]
         PerSolarCollectorArea = 3,
         
-        [JsonProperty("PerUnit")]
+        [System.Runtime.Serialization.EnumMember(Value="PerUnit")]
         PerUnit = 4,
         
-        [JsonProperty("ResidentialHUD-FHAMinimum")]
+        [System.Runtime.Serialization.EnumMember(Value="ResidentialHUD-FHAMinimum")]
         ResidentialHUDFHAMinimum = 5,
     }
 }

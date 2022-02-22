@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     [Description("This controller is used exclusively by the ZoneHVAC:EnergyRecoveryVentilator obje" +
                  "ct to allow economizer (free cooling) operation when possible.")]
-    [JsonObject("ZoneHVAC:EnergyRecoveryVentilator:Controller")]
     public class ZoneHVAC_EnergyRecoveryVentilator_Controller : BHoMObject, IEnergyPlusClass
     {
         
@@ -45,10 +44,12 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("exhaust_air_temperature_limit")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirTemperatureLimit ExhaustAirTemperatureLimit { get; set; } = (ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirTemperatureLimit)Enum.Parse(typeof(ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirTemperatureLimit), "NoExhaustAirTemperatureLimit");
         
 
         [JsonProperty("exhaust_air_enthalpy_limit")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirEnthalpyLimit ExhaustAirEnthalpyLimit { get; set; } = (ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirEnthalpyLimit)Enum.Parse(typeof(ZoneHVAC_EnergyRecoveryVentilator_Controller_ExhaustAirEnthalpyLimit), "NoExhaustAirEnthalpyLimit");
         
 
@@ -62,6 +63,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         [Description("Select Yes to modify air flow rates based on a zone humidistat. Select No to disa" +
                      "ble this feature.")]
         [JsonProperty("high_humidity_control_flag")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes HighHumidityControlFlag { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -78,6 +80,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description(@"If NO is selected, the air flow rate is modified any time indoor relative humidity is above humidistat setpoint. If YES is selected, outdoor air flow rate is modified any time indoor relative humidity is above the humidistat setpoint AND the outdoor humidity ratio is less than the indoor humidity ratio.")]
         [JsonProperty("control_high_indoor_humidity_based_on_outdoor_humidity_ratio")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes ControlHighIndoorHumidityBasedOnOutdoorHumidityRatio { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
     }
 }

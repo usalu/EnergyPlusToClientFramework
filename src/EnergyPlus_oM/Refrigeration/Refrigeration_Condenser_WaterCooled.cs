@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     [Description("Water cooled condenser for a refrigeration system (Refrigeration:System).")]
-    [JsonObject("Refrigeration:Condenser:WaterCooled")]
     public class Refrigeration_Condenser_WaterCooled : BHoMObject, IEnergyPlusClass
     {
         
@@ -42,6 +41,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         
 
         [JsonProperty("water_cooled_loop_flow_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Refrigeration_Condenser_WaterCooled_WaterCooledLoopFlowType WaterCooledLoopFlowType { get; set; } = (Refrigeration_Condenser_WaterCooled_WaterCooledLoopFlowType)Enum.Parse(typeof(Refrigeration_Condenser_WaterCooled_WaterCooledLoopFlowType), "VariableFlow");
         
 

@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.EvaporativeCoolers
     [Description("Indirect evaporative cooler with user-specified effectiveness (can represent rigi" +
                  "d pad or wetted coil), recirculating water pump, and secondary air fan. This mod" +
                  "el is controlled to meet the primary air outlet temperature setpoint.")]
-    [JsonObject("EvaporativeCooler:Indirect:ResearchSpecial")]
     public class EvaporativeCooler_Indirect_ResearchSpecial : BHoMObject, IEnergyPlusClass
     {
         

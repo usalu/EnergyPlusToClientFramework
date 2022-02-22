@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     public enum AirTerminal_SingleDuct_Mixer_PerPersonVentilationRateMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CurrentOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="CurrentOccupancy")]
         CurrentOccupancy = 1,
         
-        [JsonProperty("DesignOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignOccupancy")]
         DesignOccupancy = 2,
     }
 }

@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum PhotovoltaicPerformance_EquivalentOneDiode_CellType
     {
         
-        [JsonProperty("AmorphousSilicon")]
+        [System.Runtime.Serialization.EnumMember(Value="AmorphousSilicon")]
         AmorphousSilicon = 0,
         
-        [JsonProperty("CrystallineSilicon")]
+        [System.Runtime.Serialization.EnumMember(Value="CrystallineSilicon")]
         CrystallineSilicon = 1,
     }
 }

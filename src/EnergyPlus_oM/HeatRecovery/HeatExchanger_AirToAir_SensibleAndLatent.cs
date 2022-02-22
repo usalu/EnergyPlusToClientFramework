@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
     [Description("This object models an air-to-air heat exchanger using effectiveness relationships" +
                  ". The heat exchanger can transfer sensible energy, latent energy, or both betwee" +
                  "n the supply (primary) and exhaust (secondary) air streams.")]
-    [JsonObject("HeatExchanger:AirToAir:SensibleAndLatent")]
     public class HeatExchanger_AirToAir_SensibleAndLatent : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,14 +76,17 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
         
 
         [JsonProperty("supply_air_outlet_temperature_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes SupplyAirOutletTemperatureControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
         [JsonProperty("heat_exchanger_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType HeatExchangerType { get; set; } = (HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType)Enum.Parse(typeof(HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType), "Plate");
         
 
         [JsonProperty("frost_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType FrostControlType { get; set; } = (HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType)Enum.Parse(typeof(HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType), "None");
         
 
@@ -112,6 +114,7 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
         [Description("Yes means that the heat exchanger will be locked out (off) when the economizer is" +
                      " operating or high humidity control is active")]
         [JsonProperty("economizer_lockout")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
     }
 }

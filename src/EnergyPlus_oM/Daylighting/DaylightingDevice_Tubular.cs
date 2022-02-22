@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
     [Description("Defines a tubular daylighting device (TDD) consisting of three components: a dome" +
                  ", a pipe, and a diffuser. The dome and diffuser are defined separately using the" +
                  " FenestrationSurface:Detailed object.")]
-    [JsonObject("DaylightingDevice:Tubular")]
     public class DaylightingDevice_Tubular : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Plant_Tower_TowerType
     {
         
-        [JsonProperty("SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="SingleSpeed")]
         SingleSpeed = 0,
         
-        [JsonProperty("TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoSpeed")]
         TwoSpeed = 1,
     }
 }

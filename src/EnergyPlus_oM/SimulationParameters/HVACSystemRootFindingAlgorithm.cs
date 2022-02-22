@@ -7,12 +7,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Specifies a HVAC system solver algorithm to find a root")]
-    [JsonObject("HVACSystemRootFindingAlgorithm")]
     public class HVACSystemRootFindingAlgorithm : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("algorithm")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACSystemRootFindingAlgorithm_Algorithm Algorithm { get; set; } = (HVACSystemRootFindingAlgorithm_Algorithm)Enum.Parse(typeof(HVACSystemRootFindingAlgorithm_Algorithm), "RegulaFalsi");
         
 

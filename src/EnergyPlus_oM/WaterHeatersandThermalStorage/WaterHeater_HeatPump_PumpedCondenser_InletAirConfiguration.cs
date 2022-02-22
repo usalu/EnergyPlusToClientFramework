@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     public enum WaterHeater_HeatPump_PumpedCondenser_InletAirConfiguration
     {
         
-        [JsonProperty("OutdoorAirOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAirOnly")]
         OutdoorAirOnly = 0,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 1,
         
-        [JsonProperty("ZoneAirOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAirOnly")]
         ZoneAirOnly = 2,
         
-        [JsonProperty("ZoneAndOutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAndOutdoorAir")]
         ZoneAndOutdoorAir = 3,
     }
 }

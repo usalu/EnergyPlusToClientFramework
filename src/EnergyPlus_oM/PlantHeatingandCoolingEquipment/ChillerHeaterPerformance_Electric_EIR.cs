@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description(@"This chiller model is a generic chiller-heater where the cooling mode performance is a function of condenser entering or leaving fluid temperature and the heating mode performance is typically a function of condenser leaving fluid temperature. Performance at off-reference conditions is modeled using three polynomial equations per mode. Six curve objects are required.")]
-    [JsonObject("ChillerHeaterPerformance:Electric:EIR")]
     public class ChillerHeaterPerformance_Electric_EIR : BHoMObject, IEnergyPlusClass
     {
         
@@ -68,6 +67,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 
         [Description("Sets chilled water flow rate to either constant or variable.")]
         [JsonProperty("chilled_water_flow_mode_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ChillerHeaterPerformance_Electric_EIR_ChilledWaterFlowModeType ChilledWaterFlowModeType { get; set; } = (ChillerHeaterPerformance_Electric_EIR_ChilledWaterFlowModeType)Enum.Parse(typeof(ChillerHeaterPerformance_Electric_EIR_ChilledWaterFlowModeType), "ConstantFlow");
         
 
@@ -90,11 +90,13 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("condenser_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ChillerHeaterPerformance_Electric_EIR_CondenserType CondenserType { get; set; } = (ChillerHeaterPerformance_Electric_EIR_CondenserType)Enum.Parse(typeof(ChillerHeaterPerformance_Electric_EIR_CondenserType), "WaterCooled");
         
 
         [Description(@"Sets the second independent variable in the three temperature dependent performance curves to either the leaving or entering condenser water temperature. Manufacturers express the performance of their chillers using either the leaving condenser water temperature (to the tower) or the entering condenser water temperature (from the tower). Cooling mode is generally a stronger function of Entering Condenser Fluid Temperature")]
         [JsonProperty("cooling_mode_temperature_curve_condenser_water_independent_variable")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ChillerHeaterPerformance_Electric_EIR_CoolingModeTemperatureCurveCondenserWaterIndependentVariable CoolingModeTemperatureCurveCondenserWaterIndependentVariable { get; set; } = (ChillerHeaterPerformance_Electric_EIR_CoolingModeTemperatureCurveCondenserWaterIndependentVariable)Enum.Parse(typeof(ChillerHeaterPerformance_Electric_EIR_CoolingModeTemperatureCurveCondenserWaterIndependentVariable), "EnteringCondenser");
         
 
@@ -125,6 +127,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 
         [Description(@"Sets the second independent variable in the three temperature dependent performance curves to either the leaving or entering condenser water temperature. Manufacturers express the performance of their chillers using either the leaving condenser water temperature (to the tower) or the entering condenser water temperature (from the tower). Heating mode (or Simul Clg/Htg Load) should be a function of Leaving Condenser Fluid Temperature Only use EnteringCondenser as a last resort in case no performance data exists for LeavingCondenser")]
         [JsonProperty("heating_mode_temperature_curve_condenser_water_independent_variable")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ChillerHeaterPerformance_Electric_EIR_HeatingModeTemperatureCurveCondenserWaterIndependentVariable HeatingModeTemperatureCurveCondenserWaterIndependentVariable { get; set; } = (ChillerHeaterPerformance_Electric_EIR_HeatingModeTemperatureCurveCondenserWaterIndependentVariable)Enum.Parse(typeof(ChillerHeaterPerformance_Electric_EIR_HeatingModeTemperatureCurveCondenserWaterIndependentVariable), "LeavingCondenser");
         
 

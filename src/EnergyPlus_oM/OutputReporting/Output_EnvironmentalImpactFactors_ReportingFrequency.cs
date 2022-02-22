@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_EnvironmentalImpactFactors_ReportingFrequency
     {
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 0,
         
-        [JsonProperty("Daily")]
+        [System.Runtime.Serialization.EnumMember(Value="Daily")]
         Daily = 1,
         
-        [JsonProperty("Environment")]
+        [System.Runtime.Serialization.EnumMember(Value="Environment")]
         Environment = 2,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 3,
         
-        [JsonProperty("Monthly")]
+        [System.Runtime.Serialization.EnumMember(Value="Monthly")]
         Monthly = 4,
         
-        [JsonProperty("RunPeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="RunPeriod")]
         RunPeriod = 5,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 6,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum Wall_Detailed_SunExposure
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("NoSun")]
+        [System.Runtime.Serialization.EnumMember(Value="NoSun")]
         NoSun = 1,
         
-        [JsonProperty("SunExposed")]
+        [System.Runtime.Serialization.EnumMember(Value="SunExposed")]
         SunExposed = 2,
     }
 }

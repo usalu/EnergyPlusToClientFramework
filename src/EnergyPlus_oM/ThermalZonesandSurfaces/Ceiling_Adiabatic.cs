@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for simplified entry of interior ceilings.")]
-    [JsonObject("Ceiling:Adiabatic")]
     public class Ceiling_Adiabatic : BHoMObject, IEnergyPlusClass
     {
         

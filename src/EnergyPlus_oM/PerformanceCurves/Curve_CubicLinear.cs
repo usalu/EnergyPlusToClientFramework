@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description(@"Cubic-linear curve with two independent variables. Input consists of the curve name, the six coefficients, and min and max values for each of the independent variables. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = (C1 + C2*x + C3*x**2 + C4*x**3) + (C5 + C6*x)*y")]
-    [JsonObject("Curve:CubicLinear")]
     public class Curve_CubicLinear : BHoMObject, IEnergyPlusClass
     {
         
@@ -62,14 +61,17 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
         
 
         [JsonProperty("input_unit_type_for_x")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_CubicLinear_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_CubicLinear_InputUnitTypeForX)Enum.Parse(typeof(Curve_CubicLinear_InputUnitTypeForX), "Dimensionless");
         
 
         [JsonProperty("input_unit_type_for_y")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_CubicLinear_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_CubicLinear_InputUnitTypeForY)Enum.Parse(typeof(Curve_CubicLinear_InputUnitTypeForY), "Dimensionless");
         
 
         [JsonProperty("output_unit_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Curve_CubicLinear_OutputUnitType OutputUnitType { get; set; } = (Curve_CubicLinear_OutputUnitType)Enum.Parse(typeof(Curve_CubicLinear_OutputUnitType), "Dimensionless");
     }
 }

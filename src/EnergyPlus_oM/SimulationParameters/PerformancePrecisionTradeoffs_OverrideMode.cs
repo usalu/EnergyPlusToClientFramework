@@ -1,38 +1,36 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum PerformancePrecisionTradeoffs_OverrideMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Advanced")]
+        [System.Runtime.Serialization.EnumMember(Value="Advanced")]
         Advanced = 1,
         
-        [JsonProperty("Mode01")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode01")]
         Mode01 = 2,
         
-        [JsonProperty("Mode02")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode02")]
         Mode02 = 3,
         
-        [JsonProperty("Mode03")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode03")]
         Mode03 = 4,
         
-        [JsonProperty("Mode04")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode04")]
         Mode04 = 5,
         
-        [JsonProperty("Mode05")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode05")]
         Mode05 = 6,
         
-        [JsonProperty("Mode06")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode06")]
         Mode06 = 7,
         
-        [JsonProperty("Mode07")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode07")]
         Mode07 = 8,
         
-        [JsonProperty("Normal")]
+        [System.Runtime.Serialization.EnumMember(Value="Normal")]
         Normal = 9,
     }
 }

@@ -10,12 +10,12 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
                  "mes that slats are thin and flat, applies correction empirical correlation to ac" +
                  "count for curvature effect. Slats are assumed to transmit and reflect diffusely." +
                  "")]
-    [JsonObject("WindowMaterial:Blind:EquivalentLayer")]
     public class WindowMaterial_Blind_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("slat_orientation")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WindowMaterial_Blind_EquivalentLayer_SlatOrientation SlatOrientation { get; set; } = (WindowMaterial_Blind_EquivalentLayer_SlatOrientation)Enum.Parse(typeof(WindowMaterial_Blind_EquivalentLayer_SlatOrientation), "Horizontal");
         
 
@@ -143,6 +143,7 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 
         [Description(@"Used only if slat angle control is desired to either maximize solar gain (MaximizeSolar), maximize visibility while eliminating beam solar radiation (BlockBeamSolar), or fixed slate angle (FixedSlatAngle). If FixedSlatAngle is selected, the slat angle entered above is used.")]
         [JsonProperty("slat_angle_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WindowMaterial_Blind_EquivalentLayer_SlatAngleControl SlatAngleControl { get; set; } = (WindowMaterial_Blind_EquivalentLayer_SlatAngleControl)Enum.Parse(typeof(WindowMaterial_Blind_EquivalentLayer_SlatAngleControl), "FixedSlatAngle");
     }
 }

@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description("DX cooling coil performance for a single operating mode which may have one or mor" +
                  "e speeds.")]
-    [JsonObject("Coil:Cooling:DX:CurveFit:OperatingMode")]
     public class Coil_Cooling_DX_CurveFit_OperatingMode : BHoMObject, IEnergyPlusClass
     {
         
@@ -55,10 +54,12 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("apply_latent_degradation_to_speeds_greater_than_1")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes ApplyLatentDegradationToSpeedsGreaterThan1 { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
         [JsonProperty("condenser_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Cooling_DX_CurveFit_OperatingMode_CondenserType CondenserType { get; set; } = (Coil_Cooling_DX_CurveFit_OperatingMode_CondenserType)Enum.Parse(typeof(Coil_Cooling_DX_CurveFit_OperatingMode_CondenserType), "AirCooled");
         
 

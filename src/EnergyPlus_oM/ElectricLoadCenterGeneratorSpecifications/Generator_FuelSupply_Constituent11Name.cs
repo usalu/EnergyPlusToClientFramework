@@ -1,50 +1,48 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelSupply_Constituent11Name
     {
         
-        [JsonProperty("Argon")]
+        [System.Runtime.Serialization.EnumMember(Value="Argon")]
         Argon = 0,
         
-        [JsonProperty("Butane")]
+        [System.Runtime.Serialization.EnumMember(Value="Butane")]
         Butane = 1,
         
-        [JsonProperty("CarbonDioxide")]
+        [System.Runtime.Serialization.EnumMember(Value="CarbonDioxide")]
         CarbonDioxide = 2,
         
-        [JsonProperty("Ethane")]
+        [System.Runtime.Serialization.EnumMember(Value="Ethane")]
         Ethane = 3,
         
-        [JsonProperty("Ethanol")]
+        [System.Runtime.Serialization.EnumMember(Value="Ethanol")]
         Ethanol = 4,
         
-        [JsonProperty("Hexane")]
+        [System.Runtime.Serialization.EnumMember(Value="Hexane")]
         Hexane = 5,
         
-        [JsonProperty("Hydrogen")]
+        [System.Runtime.Serialization.EnumMember(Value="Hydrogen")]
         Hydrogen = 6,
         
-        [JsonProperty("Methane")]
+        [System.Runtime.Serialization.EnumMember(Value="Methane")]
         Methane = 7,
         
-        [JsonProperty("Methanol")]
+        [System.Runtime.Serialization.EnumMember(Value="Methanol")]
         Methanol = 8,
         
-        [JsonProperty("Nitrogen")]
+        [System.Runtime.Serialization.EnumMember(Value="Nitrogen")]
         Nitrogen = 9,
         
-        [JsonProperty("Oxygen")]
+        [System.Runtime.Serialization.EnumMember(Value="Oxygen")]
         Oxygen = 10,
         
-        [JsonProperty("Pentane")]
+        [System.Runtime.Serialization.EnumMember(Value="Pentane")]
         Pentane = 11,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 12,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 13,
     }
 }

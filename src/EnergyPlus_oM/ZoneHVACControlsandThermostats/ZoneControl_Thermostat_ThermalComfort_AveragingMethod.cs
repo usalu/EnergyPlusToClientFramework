@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
 {
     public enum ZoneControl_Thermostat_ThermalComfort_AveragingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ObjectAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="ObjectAverage")]
         ObjectAverage = 1,
         
-        [JsonProperty("PeopleAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="PeopleAverage")]
         PeopleAverage = 2,
         
-        [JsonProperty("SpecificObject")]
+        [System.Runtime.Serialization.EnumMember(Value="SpecificObject")]
         SpecificObject = 3,
     }
 }

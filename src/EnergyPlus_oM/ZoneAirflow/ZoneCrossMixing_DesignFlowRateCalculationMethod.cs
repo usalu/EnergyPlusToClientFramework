@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 {
     public enum ZoneCrossMixing_DesignFlowRateCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirChanges/Hour")]
+        [System.Runtime.Serialization.EnumMember(Value="AirChanges/Hour")]
         AirChangesHour = 1,
         
-        [JsonProperty("Flow/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Area")]
         FlowArea = 2,
         
-        [JsonProperty("Flow/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Person")]
         FlowPerson = 3,
         
-        [JsonProperty("Flow/Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Zone")]
         FlowZone = 4,
     }
 }

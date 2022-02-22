@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.EvaporativeCoolers
     
     [Description("Direct evaporative cooler with rigid media evaporative pad and recirculating wate" +
         "r pump. This model has no controls other than its availability schedule.")]
-    [JsonObject("EvaporativeCooler:Direct:CelDekPad")]
     public class EvaporativeCooler_Direct_CelDekPad : BHoMObject, IEnergyPlusClass
     {
         
@@ -111,7 +110,6 @@ public string WaterSupplyStorageTankName { get; set; } = "";
     [Description("Indirect evaporative cooler with rigid media evaporative pad, recirculating water" +
         " pump, and secondary air fan. This model has no controls other than its availabi" +
         "lity schedule.")]
-    [JsonObject("EvaporativeCooler:Indirect:CelDekPad")]
     public class EvaporativeCooler_Indirect_CelDekPad : BHoMObject, IEnergyPlusClass
     {
         
@@ -174,7 +172,6 @@ public string SecondaryAirInletNodeName { get; set; } = "";
     
     [Description("Indirect evaporative cooler with wetted coil, recirculating water pump, and secon" +
         "dary air fan. This model has no controls other than its availability schedule.")]
-    [JsonObject("EvaporativeCooler:Indirect:WetCoil")]
     public class EvaporativeCooler_Indirect_WetCoil : BHoMObject, IEnergyPlusClass
     {
         
@@ -234,7 +231,6 @@ public string SecondaryAirInletNodeName { get; set; } = "";
     [Description("Indirect evaporative cooler with user-specified effectiveness (can represent rigi" +
         "d pad or wetted coil), recirculating water pump, and secondary air fan. This mod" +
         "el is controlled to meet the primary air outlet temperature setpoint.")]
-    [JsonObject("EvaporativeCooler:Indirect:ResearchSpecial")]
     public class EvaporativeCooler_Indirect_ResearchSpecial : BHoMObject, IEnergyPlusClass
     {
         
@@ -378,7 +374,6 @@ public System.Nullable<float> DryOperationMaximumLimitOutdoorDrybulbTemperature 
     [Description("Direct evaporative cooler with user-specified effectiveness (can represent rigid " +
         "pad or similar media), and recirculating water pump, and secondary air fan. This" +
         " model is controlled to meet the primary air outlet temperature setpoint.")]
-    [JsonObject("EvaporativeCooler:Direct:ResearchSpecial")]
     public class EvaporativeCooler_Direct_ResearchSpecial : BHoMObject, IEnergyPlusClass
     {
         

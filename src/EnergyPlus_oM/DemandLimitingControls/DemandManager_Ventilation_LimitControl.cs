@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
 {
     public enum DemandManager_Ventilation_LimitControl
     {
         
-        [JsonProperty("FixedRate")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedRate")]
         FixedRate = 0,
         
-        [JsonProperty("Off")]
+        [System.Runtime.Serialization.EnumMember(Value="Off")]
         Off = 1,
         
-        [JsonProperty("ReductionRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="ReductionRatio")]
         ReductionRatio = 2,
     }
 }

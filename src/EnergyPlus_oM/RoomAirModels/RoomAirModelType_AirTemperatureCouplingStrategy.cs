@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     public enum RoomAirModelType_AirTemperatureCouplingStrategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Direct")]
+        [System.Runtime.Serialization.EnumMember(Value="Direct")]
         Direct = 1,
         
-        [JsonProperty("Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Indirect")]
         Indirect = 2,
     }
 }

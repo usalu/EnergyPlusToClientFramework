@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     [Description("This object is used to define coefficients for the approach temperature correlati" +
                  "on for a variable speed cooling tower when tower Model Type is specified as York" +
                  "CalcUserDefined in the object CoolingTower:VariableSpeed.")]
-    [JsonObject("CoolingTowerPerformance:YorkCalc")]
     public class CoolingTowerPerformance_YorkCalc : BHoMObject, IEnergyPlusClass
     {
         

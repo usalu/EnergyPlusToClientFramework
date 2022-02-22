@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Pumps
 {
     public enum HeaderedPumps_ConstantSpeed_FlowSequencingControlScheme
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Sequential")]
+        [System.Runtime.Serialization.EnumMember(Value="Sequential")]
         Sequential = 1,
     }
 }

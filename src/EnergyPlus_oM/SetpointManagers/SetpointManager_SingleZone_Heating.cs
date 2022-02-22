@@ -7,12 +7,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     [Description(@"This setpoint manager detects the control zone load to meet the current heating setpoint, zone inlet node flow rate, and zone node temperature, and calculates a setpoint temperature for the supply air that will satisfy the zone heating load for the control zone.")]
-    [JsonObject("SetpointManager:SingleZone:Heating")]
     public class SetpointManager_SingleZone_Heating : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SetpointManager_SingleZone_Heating_ControlVariable ControlVariable { get; set; } = (SetpointManager_SingleZone_Heating_ControlVariable)Enum.Parse(typeof(SetpointManager_SingleZone_Heating_ControlVariable), "Temperature");
         
 

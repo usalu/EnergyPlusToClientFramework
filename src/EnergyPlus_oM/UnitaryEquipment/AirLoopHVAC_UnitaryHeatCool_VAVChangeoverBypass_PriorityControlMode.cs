@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
 {
     public enum AirLoopHVAC_UnitaryHeatCool_VAVChangeoverBypass_PriorityControlMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CoolingPriority")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingPriority")]
         CoolingPriority = 1,
         
-        [JsonProperty("HeatingPriority")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingPriority")]
         HeatingPriority = 2,
         
-        [JsonProperty("LoadPriority")]
+        [System.Runtime.Serialization.EnumMember(Value="LoadPriority")]
         LoadPriority = 3,
         
-        [JsonProperty("ZonePriority")]
+        [System.Runtime.Serialization.EnumMember(Value="ZonePriority")]
         ZonePriority = 4,
     }
 }

@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.Parametrics
     
     
     [Description(@"Parametric objects allow a set of multiple simulations to be defined in a single idf file. The parametric preprocessor scans the idf for Parametric:* objects then creates and runs multiple idf files, one for each defined simulation. The core parametric object is Parametric:SetValueForRun which defines the name of a parameter and sets the parameter to different values depending on which run is being simulated.")]
-    [JsonObject("Parametric:SetValueForRun")]
     public class Parametric_SetValueForRun : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,7 +76,6 @@ public string Values { get; set; } = "";
     }
     
     [Description(@"This object allows some types of objects to be included for some parametric cases and not for others. For example, you might want an overhang on a window in some parametric runs and not others. A single Parametric:Logic object is allowed per file. Consult the Input Output Reference for available commands and syntax.")]
-    [JsonObject("Parametric:Logic")]
     public class Parametric_Logic : BHoMObject, IEnergyPlusClass
     {
         
@@ -88,7 +86,6 @@ public string Lines { get; set; } = "";
     
     [Description("Controls which parametric runs are simulated. This object is optional. If it is n" +
         "ot included, then all parametric runs are performed.")]
-    [JsonObject("Parametric:RunControl")]
     public class Parametric_RunControl : BHoMObject, IEnergyPlusClass
     {
         
@@ -100,7 +97,6 @@ public string Runs { get; set; } = "";
     [Description("Defines the suffixes to be appended to the idf and output file names for each par" +
         "ametric run. If this object is omitted, the suffix will default to the run numbe" +
         "r.")]
-    [JsonObject("Parametric:FileNameSuffix")]
     public class Parametric_FileNameSuffix : BHoMObject, IEnergyPlusClass
     {
         

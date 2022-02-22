@@ -6,13 +6,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes fault of dirty air filters")]
-    [JsonObject("FaultModel:Fouling:AirFilter")]
     public class FaultModel_Fouling_AirFilter : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("Choose the type of the fan Support for Fan:SystemModel is pending")]
         [JsonProperty("fan_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FaultModel_Fouling_AirFilter_FanObjectType FanObjectType { get; set; } = (FaultModel_Fouling_AirFilter_FanObjectType)Enum.Parse(typeof(FaultModel_Fouling_AirFilter_FanObjectType), "FanConstantVolume");
         
 

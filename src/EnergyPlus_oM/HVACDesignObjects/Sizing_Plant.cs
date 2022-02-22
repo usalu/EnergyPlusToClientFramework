@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     [Description(@"Specifies the input needed to autosize plant loop flow rates and equipment capacities. This information is initially used by components that use water for heating or cooling such as hot or chilled water coils to calculate their maximum water flow rates. These flow rates are then summed for use in calculating the Plant Loop flow rates.")]
-    [JsonObject("Sizing:Plant")]
     public class Sizing_Plant : BHoMObject, IEnergyPlusClass
     {
         
@@ -18,6 +17,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("loop_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Sizing_Plant_LoopType LoopType { get; set; } = (Sizing_Plant_LoopType)Enum.Parse(typeof(Sizing_Plant_LoopType), "Condenser");
         
 
@@ -33,6 +33,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
                      "input field called Do HVAC Sizing Simulation for Sizing Periods in SimulationCon" +
                      "trol must be set to Yes")]
         [JsonProperty("sizing_option")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Sizing_Plant_SizingOption SizingOption { get; set; } = (Sizing_Plant_SizingOption)Enum.Parse(typeof(Sizing_Plant_SizingOption), "NonCoincident");
         
 
@@ -45,6 +46,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         [Description("this is used to adjust the result for coincident sizing by applying a sizing fact" +
                      "or")]
         [JsonProperty("coincident_sizing_factor_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Sizing_Plant_CoincidentSizingFactorMode CoincidentSizingFactorMode { get; set; } = (Sizing_Plant_CoincidentSizingFactorMode)Enum.Parse(typeof(Sizing_Plant_CoincidentSizingFactorMode), "GlobalCoolingSizingFactor");
     }
 }

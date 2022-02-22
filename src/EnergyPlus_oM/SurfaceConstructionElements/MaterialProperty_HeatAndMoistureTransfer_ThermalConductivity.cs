@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
                  "ly. Relationship between thermal conductivity and moisture content Has no effect" +
                  " with other HeatBalanceAlgorithm solution algorithms")]
-    [JsonObject("MaterialProperty:HeatAndMoistureTransfer:ThermalConductivity")]
     public class MaterialProperty_HeatAndMoistureTransfer_ThermalConductivity : BHoMObject, IEnergyPlusClass
     {
         

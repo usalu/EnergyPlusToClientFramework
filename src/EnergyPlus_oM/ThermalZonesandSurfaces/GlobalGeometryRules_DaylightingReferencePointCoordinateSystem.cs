@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum GlobalGeometryRules_DaylightingReferencePointCoordinateSystem
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Relative")]
+        [System.Runtime.Serialization.EnumMember(Value="Relative")]
         Relative = 1,
         
-        [JsonProperty("World")]
+        [System.Runtime.Serialization.EnumMember(Value="World")]
         World = 2,
     }
 }

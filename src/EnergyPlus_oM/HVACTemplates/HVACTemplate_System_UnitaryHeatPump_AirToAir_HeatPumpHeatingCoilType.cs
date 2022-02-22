@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_UnitaryHeatPump_AirToAir_HeatPumpHeatingCoilType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("SingleSpeedDXHeatPump")]
+        [System.Runtime.Serialization.EnumMember(Value="SingleSpeedDXHeatPump")]
         SingleSpeedDXHeatPump = 1,
     }
 }

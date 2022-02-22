@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
 {
     [Description("Defines a generic single duct air terminal unit for custom modeling using Energy " +
                  "Management System or External Interface")]
-    [JsonObject("AirTerminal:SingleDuct:UserDefined")]
     public class AirTerminal_SingleDuct_UserDefined : BHoMObject, IEnergyPlusClass
     {
         

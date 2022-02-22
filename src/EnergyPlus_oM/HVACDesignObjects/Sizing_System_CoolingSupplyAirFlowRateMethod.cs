@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     public enum Sizing_System_CoolingSupplyAirFlowRateMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignDay")]
         DesignDay = 1,
         
-        [JsonProperty("Flow/System")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/System")]
         FlowSystem = 2,
         
-        [JsonProperty("FlowPerCoolingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerCoolingCapacity")]
         FlowPerCoolingCapacity = 3,
         
-        [JsonProperty("FlowPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerFloorArea")]
         FlowPerFloorArea = 4,
         
-        [JsonProperty("FractionOfAutosizedCoolingAirflow")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedCoolingAirflow")]
         FractionOfAutosizedCoolingAirflow = 5,
     }
 }

@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface
     {
         
-        [JsonProperty("MediumRough")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumRough")]
         MediumRough = 0,
         
-        [JsonProperty("MediumSmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="MediumSmooth")]
         MediumSmooth = 1,
         
-        [JsonProperty("Rough")]
+        [System.Runtime.Serialization.EnumMember(Value="Rough")]
         Rough = 2,
         
-        [JsonProperty("Smooth")]
+        [System.Runtime.Serialization.EnumMember(Value="Smooth")]
         Smooth = 3,
         
-        [JsonProperty("VeryRough")]
+        [System.Runtime.Serialization.EnumMember(Value="VeryRough")]
         VeryRough = 4,
         
-        [JsonProperty("VerySmooth")]
+        [System.Runtime.Serialization.EnumMember(Value="VerySmooth")]
         VerySmooth = 5,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     public enum WindowMaterial_Blind_SlatOrientation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Horizontal")]
+        [System.Runtime.Serialization.EnumMember(Value="Horizontal")]
         Horizontal = 1,
         
-        [JsonProperty("Vertical")]
+        [System.Runtime.Serialization.EnumMember(Value="Vertical")]
         Vertical = 2,
     }
 }

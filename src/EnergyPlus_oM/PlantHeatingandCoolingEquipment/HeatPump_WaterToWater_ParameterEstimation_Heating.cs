@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description("OSU parameter estimation model")]
-    [JsonObject("HeatPump:WaterToWater:ParameterEstimation:Heating")]
     public class HeatPump_WaterToWater_ParameterEstimation_Heating : BHoMObject, IEnergyPlusClass
     {
         

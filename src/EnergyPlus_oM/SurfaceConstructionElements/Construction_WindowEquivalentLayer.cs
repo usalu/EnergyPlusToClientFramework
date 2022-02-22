@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("Start with outside layer and work your way to the inside Layer Up to 11 layers to" +
                  "tal. Up to six solid layers and up to five gaps. Enter the material name for eac" +
                  "h layer")]
-    [JsonObject("Construction:WindowEquivalentLayer")]
     public class Construction_WindowEquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         

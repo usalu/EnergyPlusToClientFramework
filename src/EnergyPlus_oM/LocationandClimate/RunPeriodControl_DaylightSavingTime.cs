@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description(@"This object sets up the daylight saving time period for any RunPeriod. Ignores any daylight saving time period on the weather file and uses this definition. These are not used with SizingPeriod:DesignDay objects. Use with SizingPeriod:WeatherFileDays object can be controlled in that object.")]
-    [JsonObject("RunPeriodControl:DaylightSavingTime")]
     public class RunPeriodControl_DaylightSavingTime : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     public enum SetpointManager_ReturnTemperature_ChilledWater_ReturnTemperatureSetpointInputType
     {
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 0,
         
-        [JsonProperty("ReturnTemperatureSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="ReturnTemperatureSetpoint")]
         ReturnTemperatureSetpoint = 1,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 2,
     }
 }

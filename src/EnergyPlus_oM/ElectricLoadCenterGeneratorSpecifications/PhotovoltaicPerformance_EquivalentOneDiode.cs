@@ -9,12 +9,12 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("Describes the performance characteristics of Photovoltaic (PV) modules to be mode" +
                  "led using an equivalent one-diode circuit. This model is also known as the 4- or" +
                  " 5-parameter TRNSYS model for photovoltaics.")]
-    [JsonObject("PhotovoltaicPerformance:EquivalentOne-Diode")]
     public class PhotovoltaicPerformance_EquivalentOneDiode : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("cell_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PhotovoltaicPerformance_EquivalentOneDiode_CellType CellType { get; set; } = (PhotovoltaicPerformance_EquivalentOneDiode_CellType)Enum.Parse(typeof(PhotovoltaicPerformance_EquivalentOneDiode_CellType), "AmorphousSilicon");
         
 

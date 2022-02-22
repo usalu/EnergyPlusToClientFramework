@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     [Description("Specifies the dimensions of a window frame, dividers, and inside reveal surfaces." +
                  " Referenced by the surface objects for exterior windows and glass doors (ref: Fe" +
                  "nestrationSurface:Detailed, Window, and GlazedDoor).")]
-    [JsonObject("WindowProperty:FrameAndDivider")]
     public class WindowProperty_FrameAndDivider : BHoMObject, IEnergyPlusClass
     {
         
@@ -58,6 +57,7 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
         
 
         [JsonProperty("divider_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WindowProperty_FrameAndDivider_DividerType DividerType { get; set; } = (WindowProperty_FrameAndDivider_DividerType)Enum.Parse(typeof(WindowProperty_FrameAndDivider_DividerType), "DividedLite");
         
 

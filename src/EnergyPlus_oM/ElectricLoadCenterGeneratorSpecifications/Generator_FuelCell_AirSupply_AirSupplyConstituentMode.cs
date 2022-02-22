@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelCell_AirSupply_AirSupplyConstituentMode
     {
         
-        [JsonProperty("AmbientAir")]
+        [System.Runtime.Serialization.EnumMember(Value="AmbientAir")]
         AmbientAir = 0,
         
-        [JsonProperty("UserDefinedConstituents")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefinedConstituents")]
         UserDefinedConstituents = 1,
     }
 }

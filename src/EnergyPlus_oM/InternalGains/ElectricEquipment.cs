@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     [Description("Sets internal gains for electric equipment in the zone. If you use a ZoneList in " +
                  "the Zone or ZoneList name field then this definition applies to all the zones in" +
                  " the ZoneList.")]
-    [JsonObject("ElectricEquipment")]
     public class ElectricEquipment : BHoMObject, IEnergyPlusClass
     {
         
@@ -26,6 +25,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 
         [Description(@"The entered calculation method is used to create the maximum amount of electric equipment for this set of attributes Choices: EquipmentLevel => Equipment Level -- simply enter watts of equipment Watts/Area => Watts per Zone Floor Area -- enter the number to apply. Value * Floor Area = Equipment Level Watts/Person => Watts per Person -- enter the number to apply. Value * Occupants = Equipment Level")]
         [JsonProperty("design_level_calculation_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ElectricEquipment_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (ElectricEquipment_DesignLevelCalculationMethod)Enum.Parse(typeof(ElectricEquipment_DesignLevelCalculationMethod), "EquipmentLevel");
         
 

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum WindowShadingControl_MultipleSurfaceControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Group")]
+        [System.Runtime.Serialization.EnumMember(Value="Group")]
         Group = 1,
         
-        [JsonProperty("Sequential")]
+        [System.Runtime.Serialization.EnumMember(Value="Sequential")]
         Sequential = 2,
     }
 }

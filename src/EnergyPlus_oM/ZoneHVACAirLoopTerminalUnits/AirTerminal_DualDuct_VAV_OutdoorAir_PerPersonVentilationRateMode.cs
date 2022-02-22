@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     public enum AirTerminal_DualDuct_VAV_OutdoorAir_PerPersonVentilationRateMode
     {
         
-        [JsonProperty("CurrentOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="CurrentOccupancy")]
         CurrentOccupancy = 0,
         
-        [JsonProperty("DesignOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignOccupancy")]
         DesignOccupancy = 1,
     }
 }

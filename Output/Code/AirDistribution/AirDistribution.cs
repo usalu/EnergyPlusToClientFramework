@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
     
     
     [Description("Defines a central forced air system.")]
-    [JsonObject("AirLoopHVAC")]
     public class AirLoopHVAC : BHoMObject, IEnergyPlusClass
     {
         
@@ -126,7 +125,6 @@ public System.Nullable<float> DesignReturnAirFlowFractionOfSupplyAirFlow { get; 
     }
     
     [Description("List equipment in simulation order")]
-    [JsonObject("AirLoopHVAC:OutdoorAirSystem:EquipmentList")]
     public class AirLoopHVAC_OutdoorAirSystem_EquipmentList : BHoMObject, IEnergyPlusClass
     {
         
@@ -204,7 +202,6 @@ public string Component9Name { get; set; } = "";
     }
     
     [Description(@"Outdoor air subsystem for an AirLoopHVAC. Includes an outdoor air mixing box and optional outdoor air conditioning equipment such as heat recovery, preheat, and precool coils. From the perspective of the primary air loop the outdoor air system is treated as a single component.")]
-    [JsonObject("AirLoopHVAC:OutdoorAirSystem")]
     public class AirLoopHVAC_OutdoorAirSystem : BHoMObject, IEnergyPlusClass
     {
         
@@ -227,7 +224,6 @@ public string AvailabilityManagerListName { get; set; } = "";
     
     [Description("Outdoor air mixer. Node names cannot be duplicated within a single OutdoorAir:Mix" +
         "er object or across all outdoor air mixers.")]
-    [JsonObject("OutdoorAir:Mixer")]
     public class OutdoorAir_Mixer : BHoMObject, IEnergyPlusClass
     {
         
@@ -255,7 +251,6 @@ public string ReturnAirStreamNodeName { get; set; } = "";
     [Description("Split one air stream into N outlet streams (currently 500 per air loop, but exten" +
         "sible). Node names cannot be duplicated within a single zone splitter (AirLoopHV" +
         "AC:ZoneSplitter) list.")]
-    [JsonObject("AirLoopHVAC:ZoneSplitter")]
     public class AirLoopHVAC_ZoneSplitter : BHoMObject, IEnergyPlusClass
     {
         
@@ -270,7 +265,6 @@ public string Nodes { get; set; } = "";
     
     [Description("Connects 1 zone inlet air stream, through zone supply plenum, to one or more outl" +
         "ets. Node names cannot be duplicated within a single supply plenum list.")]
-    [JsonObject("AirLoopHVAC:SupplyPlenum")]
     public class AirLoopHVAC_SupplyPlenum : BHoMObject, IEnergyPlusClass
     {
         
@@ -293,7 +287,6 @@ public string Nodes { get; set; } = "";
     
     [Description("A supply path can only contain AirLoopHVAC:ZoneSplitter and AirLoopHVAC:SupplyPle" +
         "num objects which may be in series or parallel.")]
-    [JsonObject("AirLoopHVAC:SupplyPath")]
     public class AirLoopHVAC_SupplyPath : BHoMObject, IEnergyPlusClass
     {
         
@@ -309,7 +302,6 @@ public string Components { get; set; } = "";
     [Description("Mix N inlet air streams into one (currently 500 per air loop, but extensible). No" +
         "de names cannot be duplicated within a single zone mixer (AirLoopHVAC:ZoneMixer)" +
         " list.")]
-    [JsonObject("AirLoopHVAC:ZoneMixer")]
     public class AirLoopHVAC_ZoneMixer : BHoMObject, IEnergyPlusClass
     {
         
@@ -325,7 +317,6 @@ public string Nodes { get; set; } = "";
     [Description("Connects N zone inlet air streams, through zone return plenum, to outlet (current" +
         "ly 500 per air loop) Node names cannot be duplicated within a single plenum list" +
         ".")]
-    [JsonObject("AirLoopHVAC:ReturnPlenum")]
     public class AirLoopHVAC_ReturnPlenum : BHoMObject, IEnergyPlusClass
     {
         
@@ -352,7 +343,6 @@ public string Nodes { get; set; } = "";
     
     [Description("A return air path can only contain one AirLoopHVAC:ZoneMixer and one or more AirL" +
         "oopHVAC:ReturnPlenum objects.")]
-    [JsonObject("AirLoopHVAC:ReturnPath")]
     public class AirLoopHVAC_ReturnPath : BHoMObject, IEnergyPlusClass
     {
         
@@ -367,7 +357,6 @@ public string Components { get; set; } = "";
     
     [Description("Defines a central forced air system to provide dedicated outdoor air to multiple " +
         "AirLoopHVACs.")]
-    [JsonObject("AirLoopHVAC:DedicatedOutdoorAirSystem")]
     public class AirLoopHVAC_DedicatedOutdoorAirSystem : BHoMObject, IEnergyPlusClass
     {
         
@@ -420,7 +409,6 @@ public string Airloophvacs { get; set; } = "";
     }
     
     [Description(@"Mix N inlet air streams from Relief Air Stream Node in OutdoorAir:Mixer objects served by AirLoopHVAC objects listed in AirLoopHVAC:DedicatedOutdoorAirSystem into one (currently 10 as default, but extensible). Node names cannot be duplicated within a single mixer list.")]
-    [JsonObject("AirLoopHVAC:Mixer")]
     public class AirLoopHVAC_Mixer : BHoMObject, IEnergyPlusClass
     {
         
@@ -434,7 +422,6 @@ public string Nodes { get; set; } = "";
     }
     
     [Description(@"Split one air stream from AirLoopHVAC:DedicatedOutdoorAirSystem outlet node into N outlet streams (currently 10 as default, but extensible). Node names should be Outdoor Air Stream Node Name in OutdoorAir:Mixer objects served by AirLoopHVAC objects listed in AirLoopHVAC:DedicatedOutdoorAirSystem.")]
-    [JsonObject("AirLoopHVAC:Splitter")]
     public class AirLoopHVAC_Splitter : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     public enum OutputControl_Sizing_Style_ColumnSeparator
     {
         
-        [JsonProperty("Comma")]
+        [System.Runtime.Serialization.EnumMember(Value="Comma")]
         Comma = 0,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 1,
         
-        [JsonProperty("Tab")]
+        [System.Runtime.Serialization.EnumMember(Value="Tab")]
         Tab = 2,
     }
 }

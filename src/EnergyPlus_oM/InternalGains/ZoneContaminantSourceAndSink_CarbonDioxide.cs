@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("Represents internal CO2 gains and sinks in the zone.")]
-    [JsonObject("ZoneContaminantSourceAndSink:CarbonDioxide")]
     public class ZoneContaminantSourceAndSink_CarbonDioxide : BHoMObject, IEnergyPlusClass
     {
         

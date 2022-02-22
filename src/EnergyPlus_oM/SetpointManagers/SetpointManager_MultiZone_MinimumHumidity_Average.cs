@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
     [Description("This setpoint manager sets the average supply air minimum humidity ratio based on" +
                  " moisture load requirements of all controlled zones in an air loop served by a c" +
                  "entral air-conditioner.")]
-    [JsonObject("SetpointManager:MultiZone:MinimumHumidity:Average")]
     public class SetpointManager_MultiZone_MinimumHumidity_Average : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     public enum Sizing_Zone_CoolingDesignAirFlowMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignDay")]
         DesignDay = 1,
         
-        [JsonProperty("DesignDayWithLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignDayWithLimit")]
         DesignDayWithLimit = 2,
         
-        [JsonProperty("Flow/Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Zone")]
         FlowZone = 3,
     }
 }

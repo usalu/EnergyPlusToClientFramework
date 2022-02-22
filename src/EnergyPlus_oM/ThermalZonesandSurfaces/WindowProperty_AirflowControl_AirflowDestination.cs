@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum WindowProperty_AirflowControl_AirflowDestination
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("IndoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="IndoorAir")]
         IndoorAir = 1,
         
-        [JsonProperty("OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAir")]
         OutdoorAir = 2,
         
-        [JsonProperty("ReturnAir")]
+        [System.Runtime.Serialization.EnumMember(Value="ReturnAir")]
         ReturnAir = 3,
     }
 }

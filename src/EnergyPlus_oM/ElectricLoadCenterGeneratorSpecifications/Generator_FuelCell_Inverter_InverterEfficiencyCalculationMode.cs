@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelCell_Inverter_InverterEfficiencyCalculationMode
     {
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 0,
         
-        [JsonProperty("Quadratic")]
+        [System.Runtime.Serialization.EnumMember(Value="Quadratic")]
         Quadratic = 1,
     }
 }

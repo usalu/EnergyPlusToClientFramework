@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.GeneralDataEntry
     
     [Description("matrix data in row-major order list each row keeping the columns in order number " +
         "of values must equal N1 x N2")]
-    [JsonObject("Matrix:TwoDimension")]
     public class Matrix_TwoDimension : BHoMObject, IEnergyPlusClass
     {
         

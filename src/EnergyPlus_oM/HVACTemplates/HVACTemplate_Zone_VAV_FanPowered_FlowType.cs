@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Zone_VAV_FanPowered_FlowType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Parallel")]
+        [System.Runtime.Serialization.EnumMember(Value="Parallel")]
         Parallel = 1,
         
-        [JsonProperty("ParallelFromPlenum")]
+        [System.Runtime.Serialization.EnumMember(Value="ParallelFromPlenum")]
         ParallelFromPlenum = 2,
         
-        [JsonProperty("Series")]
+        [System.Runtime.Serialization.EnumMember(Value="Series")]
         Series = 3,
         
-        [JsonProperty("SeriesFromPlenum")]
+        [System.Runtime.Serialization.EnumMember(Value="SeriesFromPlenum")]
         SeriesFromPlenum = 4,
     }
 }

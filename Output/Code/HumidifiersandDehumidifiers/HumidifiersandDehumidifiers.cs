@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.HumidifiersandDehumidifiers
     
     
     [Description("Electrically heated steam humidifier with fan.")]
-    [JsonObject("Humidifier:Steam:Electric")]
     public class Humidifier_Steam_Electric : BHoMObject, IEnergyPlusClass
     {
         
@@ -111,7 +110,6 @@ public string WaterStorageTankName { get; set; } = "";
     }
     
     [Description("Natural gas fired steam humidifier with optional blower fan.")]
-    [JsonObject("Humidifier:Steam:Gas")]
     public class Humidifier_Steam_Gas : BHoMObject, IEnergyPlusClass
     {
         
@@ -171,24 +169,24 @@ public string WaterStorageTankName { get; set; } = "";
 
 [Description(@"The inlet water temperature can be fixed at 20C as it is done for electric steam humidifier or it can be allowed to vary with temperature of the water source. Currently allowed water sources are main water or water storage tank in water use objects. if FixedInletWaterTemperature is specified, then a fixed 20C water temperature will be used, or else if VariableInletWaterTemperature is specified, then inlet water will vary depending the source water temperature. If this input field is left blank, then fixed inlet water temperature of 20C will be assumed.")]
 [JsonProperty("inlet_water_temperature_option")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Humidifier_Steam_Gas_InletWaterTemperatureOption InletWaterTemperatureOption { get; set; } = (Humidifier_Steam_Gas_InletWaterTemperatureOption)Enum.Parse(typeof(Humidifier_Steam_Gas_InletWaterTemperatureOption), "FixedInletWaterTemperature");
     }
     
     public enum Humidifier_Steam_Gas_InletWaterTemperatureOption
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FixedInletWaterTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedInletWaterTemperature")]
         FixedInletWaterTemperature = 1,
         
-        [JsonProperty("VariableInletWaterTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableInletWaterTemperature")]
         VariableInletWaterTemperature = 2,
     }
     
     [Description(@"This object models a solid desiccant dehumidifier. The process air stream is the air which is dehumidified. The regeneration air stream is the air which is heated to regenerate the desiccant. This object determines the process air outlet conditions, the load on the regeneration heating coil, the electric power consumption for the wheel rotor motor, and the regeneration air fan mass flow rate. All other heat exchangers are modeled as separate objects connected to the inlet and outlet nodes of the dehumidifier. The solid desiccant dehumidifier is typically used in an AirLoopHVAC:OutdoorAirSystem, but can also be specified in any AirLoopHVAC.")]
-    [JsonObject("Dehumidifier:Desiccant:NoFans")]
     public class Dehumidifier_Desiccant_NoFans : BHoMObject, IEnergyPlusClass
     {
         
@@ -223,6 +221,7 @@ public string RegenerationFanInletNodeName { get; set; } = "";
 
 [Description(@"Type of setpoint control: LeavingMaximumHumidityRatioSetpoint means that the unit is controlled to deliver air at the Leaving Max Humidity Ratio Setpoint (see below), SystemNodeMaximumHumidityRatioSetpoint means that the leaving humidity ratio setpoint is the System Node Humidity Ratio Max property of the Process Air Outlet Node. A Setpoint object must be used to control this setpoint. Both control types use bypass dampers to prevent over drying.")]
 [JsonProperty("control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Dehumidifier_Desiccant_NoFans_ControlType ControlType { get; set; } = (Dehumidifier_Desiccant_NoFans_ControlType)Enum.Parse(typeof(Dehumidifier_Desiccant_NoFans_ControlType), "LeavingMaximumHumidityRatioSetpoint");
         
 
@@ -250,6 +249,7 @@ public System.Nullable<float> RotorPower { get; set; } = null;
 
 [Description("heating coil type works with gas, electric, hot water and steam heating coils")]
 [JsonProperty("regeneration_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Dehumidifier_Desiccant_NoFans_RegenerationCoilObjectType RegenerationCoilObjectType { get; set; } = (Dehumidifier_Desiccant_NoFans_RegenerationCoilObjectType)Enum.Parse(typeof(Dehumidifier_Desiccant_NoFans_RegenerationCoilObjectType), "CoilHeatingElectric");
         
 
@@ -261,6 +261,7 @@ public string RegenerationCoilName { get; set; } = "";
 [Description("Type of fan object for regeneration air. When using the Default Performance Model" +
     " Type (see below), only Fan:VariableVolume or Fan:SystemModel are valid.")]
 [JsonProperty("regeneration_fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Dehumidifier_Desiccant_NoFans_RegenerationFanObjectType RegenerationFanObjectType { get; set; } = (Dehumidifier_Desiccant_NoFans_RegenerationFanObjectType)Enum.Parse(typeof(Dehumidifier_Desiccant_NoFans_RegenerationFanObjectType), "FanConstantVolume");
         
 
@@ -271,6 +272,7 @@ public string RegenerationFanName { get; set; } = "";
 
 [Description(@"Specifies whether the default performance model or user-specified curves should be used to model the performance. The default model is a generic solid desiccant wheel using performance curves of the form: curve = C1 + C2*edb + C3*edb**2 + C4*ew + C5*ew**2 + C6*vel + C7*vel**2 + C8*edb*ew + C9*edb**2*ew**2 + C10*edb*vel + C11*edb**2*vel**2 + C12*ew*vel + C13*ew**2*vel**2 + C14*ALOG(edb) + C15*ALOG(ew) + C16*ALOG(vel) edb = process entering dry-bulb temperature [C] ew  = process entering humidity ratio [kgWater/kgDryAir] vel = process air velocity [m/s] If UserCurves are specified, then performance is calculated as follows: Leaving Dry-Bulb = (Leaving Dry-Bulb fTW Curve) * (Leaving Dry-Bulb fV Curve) Leaving Humidity Ratio = (Leaving Humidity Ratio fTW Curve) * (Leaving Humidity Ratio fV Curve) Regen Energy = (Regen Energy fTW Curve) * (Regen Energy fV Curve) Regen Velocity = (Regen Velocity fTW Curve) * (Regen Velocity fV Curve)")]
 [JsonProperty("performance_model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Dehumidifier_Desiccant_NoFans_PerformanceModelType PerformanceModelType { get; set; } = (Dehumidifier_Desiccant_NoFans_PerformanceModelType)Enum.Parse(typeof(Dehumidifier_Desiccant_NoFans_PerformanceModelType), "Default");
         
 
@@ -330,54 +332,53 @@ public System.Nullable<float> NominalRegenerationTemperature { get; set; } = nul
     public enum Dehumidifier_Desiccant_NoFans_ControlType
     {
         
-        [JsonProperty("LeavingMaximumHumidityRatioSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="LeavingMaximumHumidityRatioSetpoint")]
         LeavingMaximumHumidityRatioSetpoint = 0,
         
-        [JsonProperty("SystemNodeMaximumHumidityRatioSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="SystemNodeMaximumHumidityRatioSetpoint")]
         SystemNodeMaximumHumidityRatioSetpoint = 1,
     }
     
     public enum Dehumidifier_Desiccant_NoFans_RegenerationCoilObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     public enum Dehumidifier_Desiccant_NoFans_RegenerationFanObjectType
     {
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 0,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 1,
         
-        [JsonProperty("Fan:VariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:VariableVolume")]
         FanVariableVolume = 2,
     }
     
     public enum Dehumidifier_Desiccant_NoFans_PerformanceModelType
     {
         
-        [JsonProperty("Default")]
+        [System.Runtime.Serialization.EnumMember(Value="Default")]
         Default = 0,
         
-        [JsonProperty("UserCurves")]
+        [System.Runtime.Serialization.EnumMember(Value="UserCurves")]
         UserCurves = 1,
     }
     
     [Description(@"This compound object models a desiccant heat exchanger, an optional heater, and associated fans. The process air stream is the air which is dehumidified. The regeneration air stream is the air which is heated to regenerate the desiccant. The desiccant heat exchanger transfers both sensible and latent energy between the process and regeneration air streams. The desiccant dehumidifier is typically used in an AirLoopHVAC:OutdoorAirSystem, but can also be specified in any AirLoopHVAC.")]
-    [JsonObject("Dehumidifier:Desiccant:System")]
     public class Dehumidifier_Desiccant_System : BHoMObject, IEnergyPlusClass
     {
         
@@ -389,6 +390,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("desiccant_heat_exchanger_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Dehumidifier_Desiccant_System_DesiccantHeatExchangerObjectType DesiccantHeatExchangerObjectType { get; set; } = (Dehumidifier_Desiccant_System_DesiccantHeatExchangerObjectType)Enum.Parse(typeof(Dehumidifier_Desiccant_System_DesiccantHeatExchangerObjectType), "HeatExchangerDesiccantBalancedFlow");
         
 
@@ -401,6 +403,7 @@ public string SensorNodeName { get; set; } = "";
         
 
 [JsonProperty("regeneration_air_fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Dehumidifier_Desiccant_System_RegenerationAirFanObjectType RegenerationAirFanObjectType { get; set; } = (Dehumidifier_Desiccant_System_RegenerationAirFanObjectType)Enum.Parse(typeof(Dehumidifier_Desiccant_System_RegenerationAirFanObjectType), "FanConstantVolume");
         
 
@@ -409,11 +412,13 @@ public string RegenerationAirFanName { get; set; } = "";
         
 
 [JsonProperty("regeneration_air_fan_placement")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Dehumidifier_Desiccant_System_RegenerationAirFanPlacement RegenerationAirFanPlacement { get; set; } = (Dehumidifier_Desiccant_System_RegenerationAirFanPlacement)Enum.Parse(typeof(Dehumidifier_Desiccant_System_RegenerationAirFanPlacement), "DrawThrough");
         
 
 [Description(@"works with gas, electric, hot water and steam heating coils. For autosizing the regeneration air heating coil the Design Coil Inlet Air Condition used is the outdoor air condition if the desiccant system is on the primary air loop, or else if the desiccant system is on outdoor air system then it is the return air condition. The Design Coil Outlet Air Temperature is the Regeneration Inlet Air Setpoint Temperature specified in the input field below.")]
 [JsonProperty("regeneration_air_heater_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Dehumidifier_Desiccant_System_RegenerationAirHeaterObjectType RegenerationAirHeaterObjectType { get; set; } = (Dehumidifier_Desiccant_System_RegenerationAirHeaterObjectType)Enum.Parse(typeof(Dehumidifier_Desiccant_System_RegenerationAirHeaterObjectType), "CoilHeatingElectric");
         
 
@@ -428,6 +433,7 @@ public System.Nullable<float> RegenerationInletAirSetpointTemperature { get; set
         
 
 [JsonProperty("companion_cooling_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Dehumidifier_Desiccant_System_CompanionCoolingCoilObjectType CompanionCoolingCoilObjectType { get; set; } = (Dehumidifier_Desiccant_System_CompanionCoolingCoilObjectType)Enum.Parse(typeof(Dehumidifier_Desiccant_System_CompanionCoolingCoilObjectType), "CoilCoolingDXSingleSpeed");
         
 
@@ -438,10 +444,12 @@ public string CompanionCoolingCoilName { get; set; } = "";
 [Description("Select Yes if the companion cooling coil is located directly upstream of the desi" +
     "ccant heat exchanger\'s process air inlet node.")]
 [JsonProperty("companion_cooling_coil_upstream_of_dehumidifier_process_inlet")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes CompanionCoolingCoilUpstreamOfDehumidifierProcessInlet { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("companion_coil_regeneration_air_heating")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes CompanionCoilRegenerationAirHeating { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -461,62 +469,62 @@ public string ExhaustFanPowerCurveName { get; set; } = "";
     public enum Dehumidifier_Desiccant_System_DesiccantHeatExchangerObjectType
     {
         
-        [JsonProperty("HeatExchanger:Desiccant:BalancedFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:Desiccant:BalancedFlow")]
         HeatExchangerDesiccantBalancedFlow = 0,
     }
     
     public enum Dehumidifier_Desiccant_System_RegenerationAirFanObjectType
     {
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 0,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 1,
         
-        [JsonProperty("Fan:SystemModel")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:SystemModel")]
         FanSystemModel = 2,
     }
     
     public enum Dehumidifier_Desiccant_System_RegenerationAirFanPlacement
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BlowThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="BlowThrough")]
         BlowThrough = 1,
         
-        [JsonProperty("DrawThrough")]
+        [System.Runtime.Serialization.EnumMember(Value="DrawThrough")]
         DrawThrough = 2,
     }
     
     public enum Dehumidifier_Desiccant_System_RegenerationAirHeaterObjectType
     {
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 0,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 1,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 2,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 3,
     }
     
     public enum Dehumidifier_Desiccant_System_CompanionCoolingCoilObjectType
     {
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 0,
         
-        [JsonProperty("Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
         CoilCoolingDXTwoStageWithHumidityControlMode = 1,
         
-        [JsonProperty("Coil:Cooling:DX:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:VariableSpeed")]
         CoilCoolingDXVariableSpeed = 2,
     }
 }

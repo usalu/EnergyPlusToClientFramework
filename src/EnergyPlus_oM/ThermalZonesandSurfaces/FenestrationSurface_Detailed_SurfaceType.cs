@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum FenestrationSurface_Detailed_SurfaceType
     {
         
-        [JsonProperty("Door")]
+        [System.Runtime.Serialization.EnumMember(Value="Door")]
         Door = 0,
         
-        [JsonProperty("GlassDoor")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoor")]
         GlassDoor = 1,
         
-        [JsonProperty("TubularDaylightDiffuser")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffuser")]
         TubularDaylightDiffuser = 2,
         
-        [JsonProperty("TubularDaylightDome")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDome")]
         TubularDaylightDome = 3,
         
-        [JsonProperty("Window")]
+        [System.Runtime.Serialization.EnumMember(Value="Window")]
         Window = 4,
     }
 }

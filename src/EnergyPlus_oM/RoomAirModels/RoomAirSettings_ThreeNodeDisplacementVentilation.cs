@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     [Description("The UCSD model for Displacement Ventilation")]
-    [JsonObject("RoomAirSettings:ThreeNodeDisplacementVentilation")]
     public class RoomAirSettings_ThreeNodeDisplacementVentilation : BHoMObject, IEnergyPlusClass
     {
         

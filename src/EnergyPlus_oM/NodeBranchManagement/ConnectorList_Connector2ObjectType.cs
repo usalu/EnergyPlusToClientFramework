@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     public enum ConnectorList_Connector2ObjectType
     {
         
-        [JsonProperty("Connector:Mixer")]
+        [System.Runtime.Serialization.EnumMember(Value="Connector:Mixer")]
         ConnectorMixer = 0,
         
-        [JsonProperty("Connector:Splitter")]
+        [System.Runtime.Serialization.EnumMember(Value="Connector:Splitter")]
         ConnectorSplitter = 1,
     }
 }

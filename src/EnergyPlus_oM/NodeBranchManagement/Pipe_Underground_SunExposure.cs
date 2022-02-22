@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     public enum Pipe_Underground_SunExposure
     {
         
-        [JsonProperty("NoSun")]
+        [System.Runtime.Serialization.EnumMember(Value="NoSun")]
         NoSun = 0,
         
-        [JsonProperty("SunExposed")]
+        [System.Runtime.Serialization.EnumMember(Value="SunExposed")]
         SunExposed = 1,
     }
 }

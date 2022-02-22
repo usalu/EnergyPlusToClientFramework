@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_DualDuct_HeatingCoilSetpointControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coldest")]
+        [System.Runtime.Serialization.EnumMember(Value="Coldest")]
         Coldest = 1,
         
-        [JsonProperty("FixedSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedSetpoint")]
         FixedSetpoint = 2,
         
-        [JsonProperty("OutdoorAirTemperatureReset")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAirTemperatureReset")]
         OutdoorAirTemperatureReset = 3,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 4,
     }
 }

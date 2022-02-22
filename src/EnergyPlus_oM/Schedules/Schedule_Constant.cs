@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     [Description("Constant hourly value for entire year.")]
-    [JsonObject("Schedule:Constant")]
     public class Schedule_Constant : BHoMObject, IEnergyPlusClass
     {
         

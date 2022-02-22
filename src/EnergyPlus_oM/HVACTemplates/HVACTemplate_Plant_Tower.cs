@@ -8,12 +8,12 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("This object adds a cooling tower to an HVACTemplate:Plant:ChilledWaterLoop or Mix" +
                  "edWaterLoop.")]
-    [JsonObject("HVACTemplate:Plant:Tower")]
     public class HVACTemplate_Plant_Tower : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("tower_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Plant_Tower_TowerType TowerType { get; set; } = (HVACTemplate_Plant_Tower_TowerType)Enum.Parse(typeof(HVACTemplate_Plant_Tower_TowerType), "SingleSpeed");
         
 
@@ -58,6 +58,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
                      "If left blank, will serve a chilled water loop if present, or a mixed water loop" +
                      " (if no chilled water loop is present).")]
         [JsonProperty("template_plant_loop_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Plant_Tower_TemplatePlantLoopType TemplatePlantLoopType { get; set; } = (HVACTemplate_Plant_Tower_TemplatePlantLoopType)Enum.Parse(typeof(HVACTemplate_Plant_Tower_TemplatePlantLoopType), "ChilledWater");
     }
 }

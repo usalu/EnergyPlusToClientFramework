@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_Surfaces_List_ReportType
     {
         
-        [JsonProperty("CostInfo")]
+        [System.Runtime.Serialization.EnumMember(Value="CostInfo")]
         CostInfo = 0,
         
-        [JsonProperty("DecayCurvesFromComponentLoadsSummary")]
+        [System.Runtime.Serialization.EnumMember(Value="DecayCurvesFromComponentLoadsSummary")]
         DecayCurvesFromComponentLoadsSummary = 1,
         
-        [JsonProperty("Details")]
+        [System.Runtime.Serialization.EnumMember(Value="Details")]
         Details = 2,
         
-        [JsonProperty("DetailsWithVertices")]
+        [System.Runtime.Serialization.EnumMember(Value="DetailsWithVertices")]
         DetailsWithVertices = 3,
         
-        [JsonProperty("Lines")]
+        [System.Runtime.Serialization.EnumMember(Value="Lines")]
         Lines = 4,
         
-        [JsonProperty("Vertices")]
+        [System.Runtime.Serialization.EnumMember(Value="Vertices")]
         Vertices = 5,
         
-        [JsonProperty("ViewFactorInfo")]
+        [System.Runtime.Serialization.EnumMember(Value="ViewFactorInfo")]
         ViewFactorInfo = 6,
     }
 }

@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
 {
     [Description(@"Plant equipment operation scheme for outdoor wet-bulb temperature difference operation. Specifies one or more groups of equipment which are available to operate for successive ranges based the difference between a reference node temperature and the outdoor wet-bulb temperature.")]
-    [JsonObject("PlantEquipmentOperation:OutdoorWetBulbDifference")]
     public class PlantEquipmentOperation_OutdoorWetBulbDifference : BHoMObject, IEnergyPlusClass
     {
         

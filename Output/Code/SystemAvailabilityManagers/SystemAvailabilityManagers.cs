@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
     
     [Description("Determines the availability of a loop or system: whether it is on or off. Schedul" +
         "e overrides fan/pump schedule.")]
-    [JsonObject("AvailabilityManager:Scheduled")]
     public class AvailabilityManager_Scheduled : BHoMObject, IEnergyPlusClass
     {
         
@@ -79,7 +78,6 @@ public string ScheduleName { get; set; } = "";
     
     [Description("Determines the availability of a loop or system: only controls the turn on action" +
         ". Schedule overrides fan/pump schedule.")]
-    [JsonObject("AvailabilityManager:ScheduledOn")]
     public class AvailabilityManager_ScheduledOn : BHoMObject, IEnergyPlusClass
     {
         
@@ -90,7 +88,6 @@ public string ScheduleName { get; set; } = "";
     
     [Description("Determines the availability of a loop or system: only controls the turn off actio" +
         "n. Schedule overrides fan/pump schedule.")]
-    [JsonObject("AvailabilityManager:ScheduledOff")]
     public class AvailabilityManager_ScheduledOff : BHoMObject, IEnergyPlusClass
     {
         
@@ -100,7 +97,6 @@ public string ScheduleName { get; set; } = "";
     }
     
     [Description("Determines the optimal start of HVAC systems before occupancy.")]
-    [JsonObject("AvailabilityManager:OptimumStart")]
     public class AvailabilityManager_OptimumStart : BHoMObject, IEnergyPlusClass
     {
         
@@ -114,6 +110,7 @@ public string FanScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AvailabilityManager_OptimumStart_ControlType ControlType { get; set; } = (AvailabilityManager_OptimumStart_ControlType)Enum.Parse(typeof(AvailabilityManager_OptimumStart_ControlType), "ControlZone");
         
 
@@ -131,6 +128,7 @@ public System.Nullable<float> MaximumValueForOptimumStartTime { get; set; } = (S
         
 
 [JsonProperty("control_algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AvailabilityManager_OptimumStart_ControlAlgorithm ControlAlgorithm { get; set; } = (AvailabilityManager_OptimumStart_ControlAlgorithm)Enum.Parse(typeof(AvailabilityManager_OptimumStart_ControlAlgorithm), "AdaptiveASHRAE");
         
 
@@ -164,41 +162,40 @@ public System.Nullable<float> NumberOfPreviousDays { get; set; } = (System.Nulla
     public enum AvailabilityManager_OptimumStart_ControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ControlZone")]
+        [System.Runtime.Serialization.EnumMember(Value="ControlZone")]
         ControlZone = 1,
         
-        [JsonProperty("MaximumofZoneList")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumofZoneList")]
         MaximumofZoneList = 2,
         
-        [JsonProperty("StayOff")]
+        [System.Runtime.Serialization.EnumMember(Value="StayOff")]
         StayOff = 3,
     }
     
     public enum AvailabilityManager_OptimumStart_ControlAlgorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AdaptiveASHRAE")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASHRAE")]
         AdaptiveASHRAE = 1,
         
-        [JsonProperty("AdaptiveTemperatureGradient")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveTemperatureGradient")]
         AdaptiveTemperatureGradient = 2,
         
-        [JsonProperty("ConstantStartTime")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantStartTime")]
         ConstantStartTime = 3,
         
-        [JsonProperty("ConstantTemperatureGradient")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantTemperatureGradient")]
         ConstantTemperatureGradient = 4,
     }
     
     [Description("Determines the availability of a loop or system: whether it is on or off. Dependi" +
         "ng on zone temperatures, overrides Schedules and forces system Fans on.")]
-    [JsonObject("AvailabilityManager:NightCycle")]
     public class AvailabilityManager_NightCycle : BHoMObject, IEnergyPlusClass
     {
         
@@ -215,6 +212,7 @@ public string FanScheduleName { get; set; } = "";
     "nager assignment list, the key choices for Control Type would only be StayOff an" +
     "d CycleOnControlZone")]
 [JsonProperty("control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AvailabilityManager_NightCycle_ControlType ControlType { get; set; } = (AvailabilityManager_NightCycle_ControlType)Enum.Parse(typeof(AvailabilityManager_NightCycle_ControlType), "StayOff");
         
 
@@ -223,6 +221,7 @@ public System.Nullable<float> ThermostatTolerance { get; set; } = (System.Nullab
         
 
 [JsonProperty("cycling_run_time_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AvailabilityManager_NightCycle_CyclingRunTimeControlType CyclingRunTimeControlType { get; set; } = (AvailabilityManager_NightCycle_CyclingRunTimeControlType)Enum.Parse(typeof(AvailabilityManager_NightCycle_CyclingRunTimeControlType), "FixedRunTime");
         
 
@@ -252,53 +251,52 @@ public string HeatingZoneFansOnlyZoneOrZoneListName { get; set; } = "";
     public enum AvailabilityManager_NightCycle_ControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CycleOnAny")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAny")]
         CycleOnAny = 1,
         
-        [JsonProperty("CycleOnAnyCoolingOrHeatingZone")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAnyCoolingOrHeatingZone")]
         CycleOnAnyCoolingOrHeatingZone = 2,
         
-        [JsonProperty("CycleOnAnyCoolingZone")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAnyCoolingZone")]
         CycleOnAnyCoolingZone = 3,
         
-        [JsonProperty("CycleOnAnyHeatingZone")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAnyHeatingZone")]
         CycleOnAnyHeatingZone = 4,
         
-        [JsonProperty("CycleOnAnyHeatingZoneFansOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAnyHeatingZoneFansOnly")]
         CycleOnAnyHeatingZoneFansOnly = 5,
         
-        [JsonProperty("CycleOnAnyZoneFansOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnAnyZoneFansOnly")]
         CycleOnAnyZoneFansOnly = 6,
         
-        [JsonProperty("CycleOnControlZone")]
+        [System.Runtime.Serialization.EnumMember(Value="CycleOnControlZone")]
         CycleOnControlZone = 7,
         
-        [JsonProperty("StayOff")]
+        [System.Runtime.Serialization.EnumMember(Value="StayOff")]
         StayOff = 8,
     }
     
     public enum AvailabilityManager_NightCycle_CyclingRunTimeControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FixedRunTime")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedRunTime")]
         FixedRunTime = 1,
         
-        [JsonProperty("Thermostat")]
+        [System.Runtime.Serialization.EnumMember(Value="Thermostat")]
         Thermostat = 2,
         
-        [JsonProperty("ThermostatWithMinimumRunTime")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatWithMinimumRunTime")]
         ThermostatWithMinimumRunTime = 3,
     }
     
     [Description("Overrides fan/pump schedules depending on temperature difference between two node" +
         "s.")]
-    [JsonObject("AvailabilityManager:DifferentialThermostat")]
     public class AvailabilityManager_DifferentialThermostat : BHoMObject, IEnergyPlusClass
     {
         
@@ -321,7 +319,6 @@ public System.Nullable<float> TemperatureDifferenceOffLimit { get; set; } = null
     }
     
     [Description("Overrides fan/pump schedules depending on temperature at sensor node.")]
-    [JsonObject("AvailabilityManager:HighTemperatureTurnOff")]
     public class AvailabilityManager_HighTemperatureTurnOff : BHoMObject, IEnergyPlusClass
     {
         
@@ -335,7 +332,6 @@ public System.Nullable<float> Temperature { get; set; } = null;
     }
     
     [Description("Overrides fan/pump schedules depending on temperature at sensor node.")]
-    [JsonObject("AvailabilityManager:HighTemperatureTurnOn")]
     public class AvailabilityManager_HighTemperatureTurnOn : BHoMObject, IEnergyPlusClass
     {
         
@@ -349,7 +345,6 @@ public System.Nullable<float> Temperature { get; set; } = null;
     }
     
     [Description("Overrides fan/pump schedules depending on temperature at sensor node.")]
-    [JsonObject("AvailabilityManager:LowTemperatureTurnOff")]
     public class AvailabilityManager_LowTemperatureTurnOff : BHoMObject, IEnergyPlusClass
     {
         
@@ -368,7 +363,6 @@ public string ApplicabilityScheduleName { get; set; } = "";
     }
     
     [Description("Overrides fan/pump schedules depending on temperature at sensor node.")]
-    [JsonObject("AvailabilityManager:LowTemperatureTurnOn")]
     public class AvailabilityManager_LowTemperatureTurnOn : BHoMObject, IEnergyPlusClass
     {
         
@@ -383,7 +377,6 @@ public System.Nullable<float> Temperature { get; set; } = null;
     
     [Description("depending on zone and outdoor conditions overrides fan schedule to do precooling " +
         "with outdoor air")]
-    [JsonObject("AvailabilityManager:NightVentilation")]
     public class AvailabilityManager_NightVentilation : BHoMObject, IEnergyPlusClass
     {
         
@@ -428,7 +421,6 @@ public string ControlZoneName { get; set; } = "";
     }
     
     [Description(@"Depending on zone and outdoor conditions overrides window/door opening controls to maximize natural ventilation and turn off an HVAC system when ventilation control conditions are met. This object (zone ventilation object name) has not been instrumented to work with global Zone or Zone List names option for Ventilation:DesignFlowRate. In order to use, you must enter the single <Ventilation:DesignFlowRate> name in that field. If it is a part of a global ventilation assignment the name will be <Zone Name> <global Ventilation:DesignFlowRate> name. Currently, hybrid ventilation manager is restricted to one per zone. It can either be applied through the air loop or directly to the zone. If hybrid ventilation manager is applied to an air loop and one of the zones served by that air loop also has hybrid ventilation manager, then zone hybrid ventilation manager is disabled.")]
-    [JsonObject("AvailabilityManager:HybridVentilation")]
     public class AvailabilityManager_HybridVentilation : BHoMObject, IEnergyPlusClass
     {
         
@@ -454,6 +446,7 @@ public string VentilationControlModeScheduleName { get; set; } = "";
 [Description("If Yes, ventilation is shutoff when there is rain If No, there is no rain control" +
     "")]
 [JsonProperty("use_weather_file_rain_indicators")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes UseWeatherFileRainIndicators { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
@@ -533,7 +526,6 @@ public System.Nullable<float> MinimumVentilationTime { get; set; } = (System.Nul
     }
     
     [Description(@"Defines the applicable managers used for an AirLoopHVAC or PlantLoop. The priority of availability managers is based on a set of rules and are specific to the type of loop. The output from each availability manager is an availability status flag: NoAction, ForceOff, CycleOn, or CycleOnZoneFansOnly (used only for air loops).")]
-    [JsonObject("AvailabilityManagerAssignmentList")]
     public class AvailabilityManagerAssignmentList : BHoMObject, IEnergyPlusClass
     {
         

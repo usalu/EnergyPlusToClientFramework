@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
 {
     public enum DemandManagerAssignmentList_DemandManagerPriority
     {
         
-        [JsonProperty("All")]
+        [System.Runtime.Serialization.EnumMember(Value="All")]
         All = 0,
         
-        [JsonProperty("Sequential")]
+        [System.Runtime.Serialization.EnumMember(Value="Sequential")]
         Sequential = 1,
     }
 }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum SizingPeriod_DesignDay_BeginEnvironmentResetMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FullResetAtBeginEnvironment")]
+        [System.Runtime.Serialization.EnumMember(Value="FullResetAtBeginEnvironment")]
         FullResetAtBeginEnvironment = 1,
         
-        [JsonProperty("SuppressAllBeginEnvironmentResets")]
+        [System.Runtime.Serialization.EnumMember(Value="SuppressAllBeginEnvironmentResets")]
         SuppressAllBeginEnvironmentResets = 2,
     }
 }

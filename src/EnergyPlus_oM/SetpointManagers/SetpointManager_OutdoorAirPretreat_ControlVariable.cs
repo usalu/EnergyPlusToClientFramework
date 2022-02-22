@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     public enum SetpointManager_OutdoorAirPretreat_ControlVariable
     {
         
-        [JsonProperty("HumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="HumidityRatio")]
         HumidityRatio = 0,
         
-        [JsonProperty("MaximumHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximumHumidityRatio")]
         MaximumHumidityRatio = 1,
         
-        [JsonProperty("MinimumHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumHumidityRatio")]
         MinimumHumidityRatio = 2,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 3,
     }
 }

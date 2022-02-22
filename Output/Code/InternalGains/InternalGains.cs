@@ -69,7 +69,6 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     [Description("Sets internal gains and contaminant rates for occupants in the zone. If you use a" +
         " ZoneList in the Zone or ZoneList name field then this definition applies to all" +
         " the zones in the ZoneList.")]
-    [JsonObject("People")]
     public class People : BHoMObject, IEnergyPlusClass
     {
         
@@ -85,6 +84,7 @@ public string NumberOfPeopleScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum number of people for this set of attributes (i.e. sensible fraction, schedule, etc) Choices: People -- simply enter number of occupants. People per Zone Floor Area -- enter the number to apply. Value * Floor Area = Number of people Zone Floor Area per Person -- enter the number to apply. Floor Area / Value = Number of people")]
 [JsonProperty("number_of_people_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_NumberOfPeopleCalculationMethod NumberOfPeopleCalculationMethod { get; set; } = (People_NumberOfPeopleCalculationMethod)Enum.Parse(typeof(People_NumberOfPeopleCalculationMethod), "People");
         
 
@@ -126,11 +126,13 @@ public System.Nullable<float> CarbonDioxideGenerationRate { get; set; } = (Syste
         
 
 [JsonProperty("enable_ashrae_55_comfort_warnings")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes EnableAshrae55ComfortWarnings { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("optional (only required for thermal comfort runs)")]
 [JsonProperty("mean_radiant_temperature_calculation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_MeanRadiantTemperatureCalculationType MeanRadiantTemperatureCalculationType { get; set; } = (People_MeanRadiantTemperatureCalculationType)Enum.Parse(typeof(People_MeanRadiantTemperatureCalculationType), "ZoneAveraged");
         
 
@@ -147,6 +149,7 @@ public string WorkEfficiencyScheduleName { get; set; } = "";
         
 
 [JsonProperty("clothing_insulation_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ClothingInsulationCalculationMethod ClothingInsulationCalculationMethod { get; set; } = (People_ClothingInsulationCalculationMethod)Enum.Parse(typeof(People_ClothingInsulationCalculationMethod), "ClothingInsulationSchedule");
         
 
@@ -171,36 +174,43 @@ public string AirVelocityScheduleName { get; set; } = "";
 
 [Description("optional (only needed for people thermal comfort results reporting)")]
 [JsonProperty("thermal_comfort_model_1_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel1Type ThermalComfortModel1Type { get; set; } = (People_ThermalComfortModel1Type)Enum.Parse(typeof(People_ThermalComfortModel1Type), "AdaptiveASH55");
         
 
 [Description("optional (second type of thermal comfort model and results reporting)")]
 [JsonProperty("thermal_comfort_model_2_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel2Type ThermalComfortModel2Type { get; set; } = (People_ThermalComfortModel2Type)Enum.Parse(typeof(People_ThermalComfortModel2Type), "AdaptiveASH55");
         
 
 [Description("optional (third thermal comfort model and report type)")]
 [JsonProperty("thermal_comfort_model_3_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel3Type ThermalComfortModel3Type { get; set; } = (People_ThermalComfortModel3Type)Enum.Parse(typeof(People_ThermalComfortModel3Type), "AdaptiveASH55");
         
 
 [Description("optional (fourth thermal comfort model and report type)")]
 [JsonProperty("thermal_comfort_model_4_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel4Type ThermalComfortModel4Type { get; set; } = (People_ThermalComfortModel4Type)Enum.Parse(typeof(People_ThermalComfortModel4Type), "AdaptiveASH55");
         
 
 [Description("optional (fifth thermal comfort model and report type)")]
 [JsonProperty("thermal_comfort_model_5_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel5Type ThermalComfortModel5Type { get; set; } = (People_ThermalComfortModel5Type)Enum.Parse(typeof(People_ThermalComfortModel5Type), "AdaptiveASH55");
         
 
 [Description("optional (sixth thermal comfort model and report type)")]
 [JsonProperty("thermal_comfort_model_6_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel6Type ThermalComfortModel6Type { get; set; } = (People_ThermalComfortModel6Type)Enum.Parse(typeof(People_ThermalComfortModel6Type), "AdaptiveASH55");
         
 
 [Description("optional (seventh thermal comfort model and report type)")]
 [JsonProperty("thermal_comfort_model_7_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public People_ThermalComfortModel7Type ThermalComfortModel7Type { get; set; } = (People_ThermalComfortModel7Type)Enum.Parse(typeof(People_ThermalComfortModel7Type), "AdaptiveASH55");
         
 
@@ -214,228 +224,227 @@ public string AnkleLevelAirVelocityScheduleName { get; set; } = "";
     public enum People_NumberOfPeopleCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Area/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Area/Person")]
         AreaPerson = 1,
         
-        [JsonProperty("People")]
+        [System.Runtime.Serialization.EnumMember(Value="People")]
         People = 2,
         
-        [JsonProperty("People/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="People/Area")]
         PeopleArea = 3,
     }
     
     public enum People_MeanRadiantTemperatureCalculationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AngleFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="AngleFactor")]
         AngleFactor = 1,
         
-        [JsonProperty("SurfaceWeighted")]
+        [System.Runtime.Serialization.EnumMember(Value="SurfaceWeighted")]
         SurfaceWeighted = 2,
         
-        [JsonProperty("ZoneAveraged")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAveraged")]
         ZoneAveraged = 3,
     }
     
     public enum People_ClothingInsulationCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CalculationMethodSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="CalculationMethodSchedule")]
         CalculationMethodSchedule = 1,
         
-        [JsonProperty("ClothingInsulationSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="ClothingInsulationSchedule")]
         ClothingInsulationSchedule = 2,
         
-        [JsonProperty("DynamicClothingModelASHRAE55")]
+        [System.Runtime.Serialization.EnumMember(Value="DynamicClothingModelASHRAE55")]
         DynamicClothingModelASHRAE55 = 3,
     }
     
     public enum People_ThermalComfortModel1Type
     {
         
-        [JsonProperty("AdaptiveASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH55")]
         AdaptiveASH55 = 0,
         
-        [JsonProperty("AdaptiveCEN15251")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251")]
         AdaptiveCEN15251 = 1,
         
-        [JsonProperty("AnkleDraftASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AnkleDraftASH55")]
         AnkleDraftASH55 = 2,
         
-        [JsonProperty("CoolingEffectASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingEffectASH55")]
         CoolingEffectASH55 = 3,
         
-        [JsonProperty("Fanger")]
+        [System.Runtime.Serialization.EnumMember(Value="Fanger")]
         Fanger = 4,
         
-        [JsonProperty("KSU")]
+        [System.Runtime.Serialization.EnumMember(Value="KSU")]
         KSU = 5,
         
-        [JsonProperty("Pierce")]
+        [System.Runtime.Serialization.EnumMember(Value="Pierce")]
         Pierce = 6,
     }
     
     public enum People_ThermalComfortModel2Type
     {
         
-        [JsonProperty("AdaptiveASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH55")]
         AdaptiveASH55 = 0,
         
-        [JsonProperty("AdaptiveCEN15251")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251")]
         AdaptiveCEN15251 = 1,
         
-        [JsonProperty("AnkleDraftASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AnkleDraftASH55")]
         AnkleDraftASH55 = 2,
         
-        [JsonProperty("CoolingEffectASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingEffectASH55")]
         CoolingEffectASH55 = 3,
         
-        [JsonProperty("Fanger")]
+        [System.Runtime.Serialization.EnumMember(Value="Fanger")]
         Fanger = 4,
         
-        [JsonProperty("KSU")]
+        [System.Runtime.Serialization.EnumMember(Value="KSU")]
         KSU = 5,
         
-        [JsonProperty("Pierce")]
+        [System.Runtime.Serialization.EnumMember(Value="Pierce")]
         Pierce = 6,
     }
     
     public enum People_ThermalComfortModel3Type
     {
         
-        [JsonProperty("AdaptiveASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH55")]
         AdaptiveASH55 = 0,
         
-        [JsonProperty("AdaptiveCEN15251")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251")]
         AdaptiveCEN15251 = 1,
         
-        [JsonProperty("AnkleDraftASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AnkleDraftASH55")]
         AnkleDraftASH55 = 2,
         
-        [JsonProperty("CoolingEffectASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingEffectASH55")]
         CoolingEffectASH55 = 3,
         
-        [JsonProperty("Fanger")]
+        [System.Runtime.Serialization.EnumMember(Value="Fanger")]
         Fanger = 4,
         
-        [JsonProperty("KSU")]
+        [System.Runtime.Serialization.EnumMember(Value="KSU")]
         KSU = 5,
         
-        [JsonProperty("Pierce")]
+        [System.Runtime.Serialization.EnumMember(Value="Pierce")]
         Pierce = 6,
     }
     
     public enum People_ThermalComfortModel4Type
     {
         
-        [JsonProperty("AdaptiveASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH55")]
         AdaptiveASH55 = 0,
         
-        [JsonProperty("AdaptiveCEN15251")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251")]
         AdaptiveCEN15251 = 1,
         
-        [JsonProperty("AnkleDraftASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AnkleDraftASH55")]
         AnkleDraftASH55 = 2,
         
-        [JsonProperty("CoolingEffectASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingEffectASH55")]
         CoolingEffectASH55 = 3,
         
-        [JsonProperty("Fanger")]
+        [System.Runtime.Serialization.EnumMember(Value="Fanger")]
         Fanger = 4,
         
-        [JsonProperty("KSU")]
+        [System.Runtime.Serialization.EnumMember(Value="KSU")]
         KSU = 5,
         
-        [JsonProperty("Pierce")]
+        [System.Runtime.Serialization.EnumMember(Value="Pierce")]
         Pierce = 6,
     }
     
     public enum People_ThermalComfortModel5Type
     {
         
-        [JsonProperty("AdaptiveASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH55")]
         AdaptiveASH55 = 0,
         
-        [JsonProperty("AdaptiveCEN15251")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251")]
         AdaptiveCEN15251 = 1,
         
-        [JsonProperty("AnkleDraftASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AnkleDraftASH55")]
         AnkleDraftASH55 = 2,
         
-        [JsonProperty("CoolingEffectASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingEffectASH55")]
         CoolingEffectASH55 = 3,
         
-        [JsonProperty("Fanger")]
+        [System.Runtime.Serialization.EnumMember(Value="Fanger")]
         Fanger = 4,
         
-        [JsonProperty("KSU")]
+        [System.Runtime.Serialization.EnumMember(Value="KSU")]
         KSU = 5,
         
-        [JsonProperty("Pierce")]
+        [System.Runtime.Serialization.EnumMember(Value="Pierce")]
         Pierce = 6,
     }
     
     public enum People_ThermalComfortModel6Type
     {
         
-        [JsonProperty("AdaptiveASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH55")]
         AdaptiveASH55 = 0,
         
-        [JsonProperty("AdaptiveCEN15251")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251")]
         AdaptiveCEN15251 = 1,
         
-        [JsonProperty("AnkleDraftASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AnkleDraftASH55")]
         AnkleDraftASH55 = 2,
         
-        [JsonProperty("CoolingEffectASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingEffectASH55")]
         CoolingEffectASH55 = 3,
         
-        [JsonProperty("Fanger")]
+        [System.Runtime.Serialization.EnumMember(Value="Fanger")]
         Fanger = 4,
         
-        [JsonProperty("KSU")]
+        [System.Runtime.Serialization.EnumMember(Value="KSU")]
         KSU = 5,
         
-        [JsonProperty("Pierce")]
+        [System.Runtime.Serialization.EnumMember(Value="Pierce")]
         Pierce = 6,
     }
     
     public enum People_ThermalComfortModel7Type
     {
         
-        [JsonProperty("AdaptiveASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH55")]
         AdaptiveASH55 = 0,
         
-        [JsonProperty("AdaptiveCEN15251")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251")]
         AdaptiveCEN15251 = 1,
         
-        [JsonProperty("AnkleDraftASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AnkleDraftASH55")]
         AnkleDraftASH55 = 2,
         
-        [JsonProperty("CoolingEffectASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingEffectASH55")]
         CoolingEffectASH55 = 3,
         
-        [JsonProperty("Fanger")]
+        [System.Runtime.Serialization.EnumMember(Value="Fanger")]
         Fanger = 4,
         
-        [JsonProperty("KSU")]
+        [System.Runtime.Serialization.EnumMember(Value="KSU")]
         KSU = 5,
         
-        [JsonProperty("Pierce")]
+        [System.Runtime.Serialization.EnumMember(Value="Pierce")]
         Pierce = 6,
     }
     
     [Description("Used to specify radiant view factors for thermal comfort calculations.")]
-    [JsonObject("ComfortViewFactorAngles")]
     public class ComfortViewFactorAngles : BHoMObject, IEnergyPlusClass
     {
         
@@ -607,7 +616,6 @@ public System.Nullable<float> AngleFactor20 { get; set; } = null;
     [Description("Sets internal gains for lights in the zone. If you use a ZoneList in the Zone or " +
         "ZoneList name field then this definition applies to all the zones in the ZoneLis" +
         "t.")]
-    [JsonObject("Lights")]
     public class Lights : BHoMObject, IEnergyPlusClass
     {
         
@@ -624,6 +632,7 @@ public string ScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum amount of lights for this set of attributes Choices: LightingLevel => Lighting Level -- simply enter watts of lights Watts/Area => Watts per Zone Floor Area -- enter the number to apply. Value * Floor Area = Lights Watts/Person => Watts per Person -- enter the number to apply. Value * Occupants = Lights")]
 [JsonProperty("design_level_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Lights_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (Lights_DesignLevelCalculationMethod)Enum.Parse(typeof(Lights_DesignLevelCalculationMethod), "LightingLevel");
         
 
@@ -666,6 +675,7 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
         
 
 [JsonProperty("return_air_fraction_calculated_from_plenum_temperature")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ReturnAirFractionCalculatedFromPlenumTemperature { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -691,23 +701,22 @@ public string ReturnAirHeatGainNodeName { get; set; } = "";
     public enum Lights_DesignLevelCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LightingLevel")]
+        [System.Runtime.Serialization.EnumMember(Value="LightingLevel")]
         LightingLevel = 1,
         
-        [JsonProperty("Watts/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Area")]
         WattsArea = 2,
         
-        [JsonProperty("Watts/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Person")]
         WattsPerson = 3,
     }
     
     [Description("Sets internal gains for electric equipment in the zone. If you use a ZoneList in " +
         "the Zone or ZoneList name field then this definition applies to all the zones in" +
         " the ZoneList.")]
-    [JsonObject("ElectricEquipment")]
     public class ElectricEquipment : BHoMObject, IEnergyPlusClass
     {
         
@@ -724,6 +733,7 @@ public string ScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum amount of electric equipment for this set of attributes Choices: EquipmentLevel => Equipment Level -- simply enter watts of equipment Watts/Area => Watts per Zone Floor Area -- enter the number to apply. Value * Floor Area = Equipment Level Watts/Person => Watts per Person -- enter the number to apply. Value * Occupants = Equipment Level")]
 [JsonProperty("design_level_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricEquipment_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (ElectricEquipment_DesignLevelCalculationMethod)Enum.Parse(typeof(ElectricEquipment_DesignLevelCalculationMethod), "EquipmentLevel");
         
 
@@ -760,23 +770,22 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum ElectricEquipment_DesignLevelCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("EquipmentLevel")]
+        [System.Runtime.Serialization.EnumMember(Value="EquipmentLevel")]
         EquipmentLevel = 1,
         
-        [JsonProperty("Watts/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Area")]
         WattsArea = 2,
         
-        [JsonProperty("Watts/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Person")]
         WattsPerson = 3,
     }
     
     [Description("Sets internal gains and contaminant rates for gas equipment in the zone. If you u" +
         "se a ZoneList in the Zone name field then this definition applies to all those z" +
         "ones.")]
-    [JsonObject("GasEquipment")]
     public class GasEquipment : BHoMObject, IEnergyPlusClass
     {
         
@@ -793,6 +802,7 @@ public string ScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum amount of gas equipment for this set of attributes Choices: EquipmentLevel => Design Level -- simply enter power input of equipment Watts/Area or Power/Area => Power per Zone Floor Area -- enter the number to apply. Value * Floor Area = Equipment Level Watts/Person or Power/Person => Power per Person -- enter the number to apply. Value * Occupants = Equipment Level")]
 [JsonProperty("design_level_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GasEquipment_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (GasEquipment_DesignLevelCalculationMethod)Enum.Parse(typeof(GasEquipment_DesignLevelCalculationMethod), "EquipmentLevel");
         
 
@@ -834,28 +844,27 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum GasEquipment_DesignLevelCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("EquipmentLevel")]
+        [System.Runtime.Serialization.EnumMember(Value="EquipmentLevel")]
         EquipmentLevel = 1,
         
-        [JsonProperty("Power/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Power/Area")]
         PowerArea = 2,
         
-        [JsonProperty("Power/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Power/Person")]
         PowerPerson = 3,
         
-        [JsonProperty("Watts/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Area")]
         WattsArea = 4,
         
-        [JsonProperty("Watts/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Person")]
         WattsPerson = 5,
     }
     
     [Description("Sets internal gains for hot water equipment in the zone. If you use a ZoneList in" +
         " the Zone name field then this definition applies to all those zones.")]
-    [JsonObject("HotWaterEquipment")]
     public class HotWaterEquipment : BHoMObject, IEnergyPlusClass
     {
         
@@ -872,6 +881,7 @@ public string ScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum amount of hot water equipment for this set of attributes Choices: EquipmentLevel => Design Level -- simply enter power input of equipment Watts/Area or Power/Area => Power per Zone Floor Area -- enter the number to apply. Value * Floor Area = Equipment Level Watts/Person or Power/Person => Power per Person -- enter the number to apply. Value * Occupants = Equipment Level")]
 [JsonProperty("design_level_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HotWaterEquipment_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (HotWaterEquipment_DesignLevelCalculationMethod)Enum.Parse(typeof(HotWaterEquipment_DesignLevelCalculationMethod), "EquipmentLevel");
         
 
@@ -908,27 +918,26 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum HotWaterEquipment_DesignLevelCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("EquipmentLevel")]
+        [System.Runtime.Serialization.EnumMember(Value="EquipmentLevel")]
         EquipmentLevel = 1,
         
-        [JsonProperty("Power/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Power/Area")]
         PowerArea = 2,
         
-        [JsonProperty("Power/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Power/Person")]
         PowerPerson = 3,
         
-        [JsonProperty("Watts/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Area")]
         WattsArea = 4,
         
-        [JsonProperty("Watts/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Person")]
         WattsPerson = 5,
     }
     
     [Description("Sets internal gains for steam equipment in the zone.")]
-    [JsonObject("SteamEquipment")]
     public class SteamEquipment : BHoMObject, IEnergyPlusClass
     {
         
@@ -945,6 +954,7 @@ public string ScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum amount of steam equipment for this set of attributes Choices: EquipmentLevel => Design Level -- simply enter power input of equipment Watts/Area or Power/Area => Power per Zone Floor Area -- enter the number to apply. Value * Floor Area = Equipment Level Watts/Person or Power/Person => Power per Person -- enter the number to apply. Value * Occupants = Equipment Level")]
 [JsonProperty("design_level_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SteamEquipment_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (SteamEquipment_DesignLevelCalculationMethod)Enum.Parse(typeof(SteamEquipment_DesignLevelCalculationMethod), "EquipmentLevel");
         
 
@@ -981,32 +991,32 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum SteamEquipment_DesignLevelCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("EquipmentLevel")]
+        [System.Runtime.Serialization.EnumMember(Value="EquipmentLevel")]
         EquipmentLevel = 1,
         
-        [JsonProperty("Power/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Power/Area")]
         PowerArea = 2,
         
-        [JsonProperty("Power/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Power/Person")]
         PowerPerson = 3,
         
-        [JsonProperty("Watts/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Area")]
         WattsArea = 4,
         
-        [JsonProperty("Watts/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Person")]
         WattsPerson = 5,
     }
     
     [Description("Sets internal gains or losses for \"other\" equipment in the zone.")]
-    [JsonObject("OtherEquipment")]
     public class OtherEquipment : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("fuel_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OtherEquipment_FuelType FuelType { get; set; } = (OtherEquipment_FuelType)Enum.Parse(typeof(OtherEquipment_FuelType), "None");
         
 
@@ -1022,6 +1032,7 @@ public string ScheduleName { get; set; } = "";
 
 [Description(@"The entered calculation method is used to create the maximum amount of other equipment. to set a loss, use a negative value in the following fields. for this set of attributes Choices: EquipmentLevel => Design Level -- simply enter power input of equipment Watts/Area or Power/Area => Power per Zone Floor Area -- enter the number to apply. Value * Floor Area = Equipment Level Watts/Person or Power/Person => Power per Person -- enter the number to apply. Value * Occupants = Equipment Level")]
 [JsonProperty("design_level_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OtherEquipment_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (OtherEquipment_DesignLevelCalculationMethod)Enum.Parse(typeof(OtherEquipment_DesignLevelCalculationMethod), "EquipmentLevel");
         
 
@@ -1064,77 +1075,76 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum OtherEquipment_FuelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 1,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 2,
         
-        [JsonProperty("DistrictCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictCooling")]
         DistrictCooling = 3,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 4,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 5,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 6,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 7,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 8,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 9,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 10,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 11,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 12,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 13,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 14,
     }
     
     public enum OtherEquipment_DesignLevelCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("EquipmentLevel")]
+        [System.Runtime.Serialization.EnumMember(Value="EquipmentLevel")]
         EquipmentLevel = 1,
         
-        [JsonProperty("Power/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Power/Area")]
         PowerArea = 2,
         
-        [JsonProperty("Power/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Power/Person")]
         PowerPerson = 3,
         
-        [JsonProperty("Watts/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Area")]
         WattsArea = 4,
         
-        [JsonProperty("Watts/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Person")]
         WattsPerson = 5,
     }
     
     [Description("This object describes air-cooled electric information technology equipment (ITE) " +
         "which has variable power consumption as a function of loading and temperature.")]
-    [JsonObject("ElectricEquipment:ITE:AirCooled")]
     public class ElectricEquipment_ITE_AirCooled : BHoMObject, IEnergyPlusClass
     {
         
@@ -1145,6 +1155,7 @@ public string ZoneName { get; set; } = "";
 
 [Description(@"The specified method is used to calculate the IT inlet temperature and zone return air temperature. If FlowFromSystem is chosen, the zone is assumed to be well-mixed. If FlowControlWithApproachTemperatures is chosen, Supply and Return approach temperature should be defined to indicate the temperature difference due to the air distribution. When FlowControlWithApproachTemperatures is chosen, the inputs of Air Inlet Connection Type, Design Recirculation Fraction and Recirculation Function of Loading and Supply Temperature Curve Name are ignored. For multiple ITE objects defined for one zone, the same calculation method should apply. The FlowControlWithApproachTemperatures only applies to ITE zones with single duct VAV terminal unit. Other return air heat gains from window or lights are not allowed when FlowControlWithApproachTemperatures is chosen.")]
 [JsonProperty("air_flow_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricEquipment_ITE_AirCooled_AirFlowCalculationMethod AirFlowCalculationMethod { get; set; } = (ElectricEquipment_ITE_AirCooled_AirFlowCalculationMethod)Enum.Parse(typeof(ElectricEquipment_ITE_AirCooled_AirFlowCalculationMethod), "FlowFromSystem");
         
 
@@ -1153,6 +1164,7 @@ public ElectricEquipment_ITE_AirCooled_AirFlowCalculationMethod AirFlowCalculati
     "ea => Watts per Zone Floor Area -- Design Power = Watts per Zone Floor Area * Fl" +
     "oor Area")]
 [JsonProperty("design_power_input_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricEquipment_ITE_AirCooled_DesignPowerInputCalculationMethod DesignPowerInputCalculationMethod { get; set; } = (ElectricEquipment_ITE_AirCooled_DesignPowerInputCalculationMethod)Enum.Parse(typeof(ElectricEquipment_ITE_AirCooled_DesignPowerInputCalculationMethod), "Empty");
         
 
@@ -1218,11 +1230,13 @@ public System.Nullable<float> DesignEnteringAirTemperature { get; set; } = (Syst
 [Description("Specifies the allowable operating conditions for the air inlet conditions. Used f" +
     "or reporting time outside allowable conditions.")]
 [JsonProperty("environmental_class")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricEquipment_ITE_AirCooled_EnvironmentalClass EnvironmentalClass { get; set; } = (ElectricEquipment_ITE_AirCooled_EnvironmentalClass)Enum.Parse(typeof(ElectricEquipment_ITE_AirCooled_EnvironmentalClass), "None");
         
 
 [Description(@"Specifies the type of connection between the zone and the ITE air inlet node. AdjustedSupply = ITE inlet temperature will be the current Supply Air Node temperature adjusted by the current recirculation fraction. All heat output is added to the zone air heat balance as a convective gain. ZoneAirNode = ITE air inlet condition is  the average zone condition. All heat output is added to the zone air heat balance as a convective gain. RoomAirModel = ITE air inlet and outlet are connected to room air model nodes. This field is only used when Air Flow Calculation Method is FlowFromSystem.")]
 [JsonProperty("air_inlet_connection_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricEquipment_ITE_AirCooled_AirInletConnectionType AirInletConnectionType { get; set; } = (ElectricEquipment_ITE_AirCooled_AirInletConnectionType)Enum.Parse(typeof(ElectricEquipment_ITE_AirCooled_AirInletConnectionType), "AdjustedSupply");
         
 
@@ -1312,75 +1326,74 @@ public string ReturnTemperatureDifferenceSchedule { get; set; } = "";
     public enum ElectricEquipment_ITE_AirCooled_AirFlowCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FlowControlWithApproachTemperatures")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowControlWithApproachTemperatures")]
         FlowControlWithApproachTemperatures = 1,
         
-        [JsonProperty("FlowFromSystem")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowFromSystem")]
         FlowFromSystem = 2,
     }
     
     public enum ElectricEquipment_ITE_AirCooled_DesignPowerInputCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Watts/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Area")]
         WattsArea = 1,
         
-        [JsonProperty("Watts/Unit")]
+        [System.Runtime.Serialization.EnumMember(Value="Watts/Unit")]
         WattsUnit = 2,
     }
     
     public enum ElectricEquipment_ITE_AirCooled_EnvironmentalClass
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("A1")]
+        [System.Runtime.Serialization.EnumMember(Value="A1")]
         A1 = 1,
         
-        [JsonProperty("A2")]
+        [System.Runtime.Serialization.EnumMember(Value="A2")]
         A2 = 2,
         
-        [JsonProperty("A3")]
+        [System.Runtime.Serialization.EnumMember(Value="A3")]
         A3 = 3,
         
-        [JsonProperty("A4")]
+        [System.Runtime.Serialization.EnumMember(Value="A4")]
         A4 = 4,
         
-        [JsonProperty("B")]
+        [System.Runtime.Serialization.EnumMember(Value="B")]
         B = 5,
         
-        [JsonProperty("C")]
+        [System.Runtime.Serialization.EnumMember(Value="C")]
         C = 6,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 7,
     }
     
     public enum ElectricEquipment_ITE_AirCooled_AirInletConnectionType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AdjustedSupply")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjustedSupply")]
         AdjustedSupply = 1,
         
-        [JsonProperty("RoomAirModel")]
+        [System.Runtime.Serialization.EnumMember(Value="RoomAirModel")]
         RoomAirModel = 2,
         
-        [JsonProperty("ZoneAirNode")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneAirNode")]
         ZoneAirNode = 3,
     }
     
     [Description("Specifies outside temperature-controlled electric baseboard heating.")]
-    [JsonObject("ZoneBaseboard:OutdoorTemperatureControlled")]
     public class ZoneBaseboard_OutdoorTemperatureControlled : BHoMObject, IEnergyPlusClass
     {
         
@@ -1423,7 +1436,6 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     
     [Description("Specifies an indoor swimming pools linked to a floor surface. The pool is assumed" +
         " to cover the entire floor to which it is linked.")]
-    [JsonObject("SwimmingPool:Indoor")]
     public class SwimmingPool_Indoor : BHoMObject, IEnergyPlusClass
     {
         
@@ -1499,7 +1511,6 @@ public string PeopleHeatGainSchedule { get; set; } = "";
     }
     
     [Description("Represents internal CO2 gains and sinks in the zone.")]
-    [JsonObject("ZoneContaminantSourceAndSink:CarbonDioxide")]
     public class ZoneContaminantSourceAndSink_CarbonDioxide : BHoMObject, IEnergyPlusClass
     {
         
@@ -1521,7 +1532,6 @@ public string ScheduleName { get; set; } = "";
     
     [Description("Sets internal generic contaminant gains and sinks in a zone with constant values." +
         "")]
-    [JsonObject("ZoneContaminantSourceAndSink:Generic:Constant")]
     public class ZoneContaminantSourceAndSink_Generic_Constant : BHoMObject, IEnergyPlusClass
     {
         
@@ -1554,7 +1564,6 @@ public string RemovalScheduleName { get; set; } = "";
     
     [Description("Simulate generic contaminant source driven by the pressure difference across a su" +
         "rface.")]
-    [JsonObject("SurfaceContaminantSourceAndSink:Generic:PressureDriven")]
     public class SurfaceContaminantSourceAndSink_Generic_PressureDriven : BHoMObject, IEnergyPlusClass
     {
         
@@ -1578,7 +1587,6 @@ public System.Nullable<float> GenerationExponent { get; set; } = null;
     }
     
     [Description("Simulate generic contaminant source driven by the cutoff concentration model.")]
-    [JsonObject("ZoneContaminantSourceAndSink:Generic:CutoffModel")]
     public class ZoneContaminantSourceAndSink_Generic_CutoffModel : BHoMObject, IEnergyPlusClass
     {
         
@@ -1604,7 +1612,6 @@ public System.Nullable<float> CutoffGenericContaminantAtWhichEmissionCeases { ge
     }
     
     [Description("Simulate generic contaminant source driven by the cutoff concentration model.")]
-    [JsonObject("ZoneContaminantSourceAndSink:Generic:DecaySource")]
     public class ZoneContaminantSourceAndSink_Generic_DecaySource : BHoMObject, IEnergyPlusClass
     {
         
@@ -1630,7 +1637,6 @@ public System.Nullable<float> DelayTimeConstant { get; set; } = null;
     
     [Description("Simulate generic contaminant source driven by the boundary layer diffusion contro" +
         "lled model.")]
-    [JsonObject("SurfaceContaminantSourceAndSink:Generic:BoundaryLayerDiffusion")]
     public class SurfaceContaminantSourceAndSink_Generic_BoundaryLayerDiffusion : BHoMObject, IEnergyPlusClass
     {
         
@@ -1656,7 +1662,6 @@ public System.Nullable<float> HenryAdsorptionConstantOrPartitionCoefficient { ge
     
     [Description("Simulate generic contaminant source driven by the boundary layer diffusion contro" +
         "lled model.")]
-    [JsonObject("SurfaceContaminantSourceAndSink:Generic:DepositionVelocitySink")]
     public class SurfaceContaminantSourceAndSink_Generic_DepositionVelocitySink : BHoMObject, IEnergyPlusClass
     {
         
@@ -1678,7 +1683,6 @@ public string ScheduleName { get; set; } = "";
     
     [Description("Simulate generic contaminant source driven by the boundary layer diffusion contro" +
         "lled model.")]
-    [JsonObject("ZoneContaminantSourceAndSink:Generic:DepositionRateSink")]
     public class ZoneContaminantSourceAndSink_Generic_DepositionRateSink : BHoMObject, IEnergyPlusClass
     {
         

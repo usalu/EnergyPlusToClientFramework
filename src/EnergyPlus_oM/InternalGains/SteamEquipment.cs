@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("Sets internal gains for steam equipment in the zone.")]
-    [JsonObject("SteamEquipment")]
     public class SteamEquipment : BHoMObject, IEnergyPlusClass
     {
         
@@ -24,6 +23,7 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 
         [Description(@"The entered calculation method is used to create the maximum amount of steam equipment for this set of attributes Choices: EquipmentLevel => Design Level -- simply enter power input of equipment Watts/Area or Power/Area => Power per Zone Floor Area -- enter the number to apply. Value * Floor Area = Equipment Level Watts/Person or Power/Person => Power per Person -- enter the number to apply. Value * Occupants = Equipment Level")]
         [JsonProperty("design_level_calculation_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SteamEquipment_DesignLevelCalculationMethod DesignLevelCalculationMethod { get; set; } = (SteamEquipment_DesignLevelCalculationMethod)Enum.Parse(typeof(SteamEquipment_DesignLevelCalculationMethod), "EquipmentLevel");
         
 

@@ -1,32 +1,30 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
 {
     public enum Table_IndependentVariable_UnitType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Angle")]
+        [System.Runtime.Serialization.EnumMember(Value="Angle")]
         Angle = 1,
         
-        [JsonProperty("Dimensionless")]
+        [System.Runtime.Serialization.EnumMember(Value="Dimensionless")]
         Dimensionless = 2,
         
-        [JsonProperty("Distance")]
+        [System.Runtime.Serialization.EnumMember(Value="Distance")]
         Distance = 3,
         
-        [JsonProperty("MassFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="MassFlow")]
         MassFlow = 4,
         
-        [JsonProperty("Power")]
+        [System.Runtime.Serialization.EnumMember(Value="Power")]
         Power = 5,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 6,
         
-        [JsonProperty("VolumetricFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="VolumetricFlow")]
         VolumetricFlow = 7,
     }
 }

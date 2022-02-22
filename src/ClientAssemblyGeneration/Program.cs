@@ -10,7 +10,12 @@ using System.Threading.Tasks;
 using ClientAssemblyGeneration.Builders;
 using ClientAssemblyGeneration.Directors;
 using EnergyPlus_9_5_0_JsonSchema;
+using EnergyPlus_oM;
 using Microsoft.CSharp;
+using Newtonsoft.Json;
+using BH.oM.Adapters.EnergyPlus;
+using BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts;
+using BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment;
 
 namespace ClientAssemblyGeneration
 {
@@ -20,9 +25,10 @@ namespace ClientAssemblyGeneration
         {
             ClientCodeCompileUnitBuilder builder = new BHoMClientCodeCompileUnitBuilder();
             ClientCodeCompileUnitDirector director = new EPClientCodeCompileUnitDirector(EPJsonSchema.GetOfficalEPJsonSchema, builder);
-            CodeCompileUnit ePbHoMCodeCompileUnit = director.GetCodeCompileUnit();
+            CodeCompileUnit ePbHoMCodeCompileUnit = director.GetCodeCompileUnit("BH.oM.Adapters.EnergyPlus", 
+                new CodeNamespaceImport[]{new CodeNamespaceImport("BH.oM.Base")});
 
-            var cSharpCodeProvider = new CSharpCodeProvider();
+            var ePbHoMcSharpCodeProvider = new CSharpCodeProvider();
             //options for the layout of the generated C# and VB code
             var codeGeneratorOptions = new CodeGeneratorOptions()
             {
@@ -35,17 +41,17 @@ namespace ClientAssemblyGeneration
             };
 
             StringWriter stringWriterCSharp = new StringWriter();
-            cSharpCodeProvider.GenerateCodeFromCompileUnit(ePbHoMCodeCompileUnit, stringWriterCSharp, codeGeneratorOptions);
+            ePbHoMcSharpCodeProvider.GenerateCodeFromCompileUnit(ePbHoMCodeCompileUnit, stringWriterCSharp, codeGeneratorOptions);
             string allCode = stringWriterCSharp.ToString();
             File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\EnergyPlus.cs", allCode);
 
-            var results = cSharpCodeProvider.CompileAssemblyFromDom(new CompilerParameters
+            var results = ePbHoMcSharpCodeProvider.CompileAssemblyFromDom(new CompilerParameters
             {
                 GenerateExecutable = false,
                 OutputAssembly = $@"C:\Git\EPJsonClientCodeGeneration\Output\EnergyPlus.dll",
                 GenerateInMemory = false,
                 TreatWarningsAsErrors = false,
-                ReferencedAssemblies = { "BHoM.dll", "Newtonsoft.Json.dll"}
+                ReferencedAssemblies = { "BHoM.dll", "Newtonsoft.Json.dll", "System.Runtime.Serialization.dll" }
             }, ePbHoMCodeCompileUnit);
 
             string folder = @"C:\Git\EPJsonClientCodeGeneration\Output\Code";
@@ -59,6 +65,17 @@ namespace ClientAssemblyGeneration
                 Directory.CreateDirectory(ePNamespaceFolder);
                 File.WriteAllText(ePNamespaceFolder + "\\" + ePNamespaceName + ".cs", "namespace" + ePNamespace);
             }
+
+            var epJsonTest = new EnergyPlusJson();
+            var testObjects = new Dictionary<string, Boiler_HotWater>();
+            var testProperty = new Boiler_HotWater();
+            //testProperty.ConstantInternalVaporTransferCoefficient = EmptyNoYes.Empty;
+            testProperty.BoilerFlowMode = Boiler_HotWater_BoilerFlowMode.Empty;
+            testObjects.Add("Main boiler1", testProperty);
+            epJsonTest.Boiler_HotWater_Dictionary = testObjects;
+            var settings = new JsonSerializerSettings() { ContractResolver = new NullToEmptyStringResolver() };
+            File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\Test.json", JsonConvert.SerializeObject(epJsonTest));
+            var B = JsonConvert.SerializeObject(epJsonTest, settings);
 
         }
     }

@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     public enum Coil_WaterHeating_AirToWaterHeatPump_Pumped_EvaporatorAirTemperatureTypeForCurveObjects
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DryBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="DryBulbTemperature")]
         DryBulbTemperature = 1,
         
-        [JsonProperty("WetBulbTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbTemperature")]
         WetBulbTemperature = 2,
     }
 }

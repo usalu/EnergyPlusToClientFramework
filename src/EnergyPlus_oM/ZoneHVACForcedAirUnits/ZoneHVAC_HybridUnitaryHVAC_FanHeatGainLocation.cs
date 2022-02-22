@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_HybridUnitaryHVAC_FanHeatGainLocation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MixedAirStream")]
+        [System.Runtime.Serialization.EnumMember(Value="MixedAirStream")]
         MixedAirStream = 1,
         
-        [JsonProperty("SupplyAirStream")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplyAirStream")]
         SupplyAirStream = 2,
     }
 }

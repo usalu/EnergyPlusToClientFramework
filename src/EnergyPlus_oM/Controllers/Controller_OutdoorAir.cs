@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
     [Description("Controller to set the outdoor air flow rate for an air loop. Control options incl" +
                  "ude fixed, proportional, scheduled, economizer, and demand-controlled ventilatio" +
                  "n.")]
-    [JsonObject("Controller:OutdoorAir")]
     public class Controller_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -43,10 +42,12 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
         
 
         [JsonProperty("economizer_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Controller_OutdoorAir_EconomizerControlType EconomizerControlType { get; set; } = (Controller_OutdoorAir_EconomizerControlType)Enum.Parse(typeof(Controller_OutdoorAir_EconomizerControlType), "NoEconomizer");
         
 
         [JsonProperty("economizer_control_action_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Controller_OutdoorAir_EconomizerControlActionType EconomizerControlActionType { get; set; } = (Controller_OutdoorAir_EconomizerControlActionType)Enum.Parse(typeof(Controller_OutdoorAir_EconomizerControlActionType), "ModulateFlow");
         
 
@@ -84,10 +85,12 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
         
 
         [JsonProperty("lockout_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Controller_OutdoorAir_LockoutType LockoutType { get; set; } = (Controller_OutdoorAir_LockoutType)Enum.Parse(typeof(Controller_OutdoorAir_LockoutType), "NoLockout");
         
 
         [JsonProperty("minimum_limit_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Controller_OutdoorAir_MinimumLimitType MinimumLimitType { get; set; } = (Controller_OutdoorAir_MinimumLimitType)Enum.Parse(typeof(Controller_OutdoorAir_MinimumLimitType), "ProportionalMinimum");
         
 
@@ -120,6 +123,7 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
 
         [Description(@"Optional field to enable modified outdoor air flow rates based on zone relative humidity. Select Yes to modify outdoor air flow rate based on a zone humidistat. Select No to disable this feature. If the field Economizer Control Type = NoEconomizer, then this option is disabled.")]
         [JsonProperty("high_humidity_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes HighHumidityControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -139,11 +143,13 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
 
         [Description(@"If No is selected, the outdoor air flow rate is modified any time indoor relative humidity is above the humidistat setpoint. If Yes is selected, the outdoor air flow rate is modified any time the indoor relative humidity is above the humidistat setpoint and the outdoor humidity ratio is less than the indoor humidity ratio. This field is only used when the field High Humidity Control = Yes.")]
         [JsonProperty("control_high_indoor_humidity_based_on_outdoor_humidity_ratio")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes ControlHighIndoorHumidityBasedOnOutdoorHumidityRatio { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
         [Description(@"BypassWhenWithinEconomizerLimits specifies that heat recovery is active only when the economizer is off because conditions are outside the economizer control limits BypassWhenOAFlowGreaterThanMinimum specifies enhanced economizer controls to allow heat recovery when economizer is active (within limits) but the outdoor air flow rate is at the minimum.")]
         [JsonProperty("heat_recovery_bypass_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Controller_OutdoorAir_HeatRecoveryBypassControlType HeatRecoveryBypassControlType { get; set; } = (Controller_OutdoorAir_HeatRecoveryBypassControlType)Enum.Parse(typeof(Controller_OutdoorAir_HeatRecoveryBypassControlType), "BypassWhenWithinEconomizerLimits");
     }
 }

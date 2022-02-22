@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     public enum ThermalStorage_Ice_Detailed_ThawProcessIndicator
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("InsideMelt")]
+        [System.Runtime.Serialization.EnumMember(Value="InsideMelt")]
         InsideMelt = 1,
         
-        [JsonProperty("OutsideMelt")]
+        [System.Runtime.Serialization.EnumMember(Value="OutsideMelt")]
         OutsideMelt = 2,
     }
 }

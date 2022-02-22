@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     [Description("Direct expansion (DX) heating coil (air-to-air heat pump) and compressor unit (in" +
                  "cludes electric compressor and outdoor fan), single-speed, with defrost controls" +
                  ".")]
-    [JsonObject("Coil:Heating:DX:SingleSpeed")]
     public class Coil_Heating_DX_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -108,10 +107,12 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("defrost_strategy")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Heating_DX_SingleSpeed_DefrostStrategy DefrostStrategy { get; set; } = (Coil_Heating_DX_SingleSpeed_DefrostStrategy)Enum.Parse(typeof(Coil_Heating_DX_SingleSpeed_DefrostStrategy), "ReverseCycle");
         
 
         [JsonProperty("defrost_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Heating_DX_SingleSpeed_DefrostControl DefrostControl { get; set; } = (Coil_Heating_DX_SingleSpeed_DefrostControl)Enum.Parse(typeof(Coil_Heating_DX_SingleSpeed_DefrostControl), "Timed");
         
 

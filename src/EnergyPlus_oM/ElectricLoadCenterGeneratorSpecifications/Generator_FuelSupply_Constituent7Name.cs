@@ -1,35 +1,33 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelSupply_Constituent7Name
     {
         
-        [JsonProperty("Butane")]
+        [System.Runtime.Serialization.EnumMember(Value="Butane")]
         Butane = 0,
         
-        [JsonProperty("Ethane")]
+        [System.Runtime.Serialization.EnumMember(Value="Ethane")]
         Ethane = 1,
         
-        [JsonProperty("Ethanol")]
+        [System.Runtime.Serialization.EnumMember(Value="Ethanol")]
         Ethanol = 2,
         
-        [JsonProperty("Hexane")]
+        [System.Runtime.Serialization.EnumMember(Value="Hexane")]
         Hexane = 3,
         
-        [JsonProperty("Hydrogen")]
+        [System.Runtime.Serialization.EnumMember(Value="Hydrogen")]
         Hydrogen = 4,
         
-        [JsonProperty("Methane")]
+        [System.Runtime.Serialization.EnumMember(Value="Methane")]
         Methane = 5,
         
-        [JsonProperty("Methanol")]
+        [System.Runtime.Serialization.EnumMember(Value="Methanol")]
         Methanol = 6,
         
-        [JsonProperty("Pentane")]
+        [System.Runtime.Serialization.EnumMember(Value="Pentane")]
         Pentane = 7,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 8,
     }
 }

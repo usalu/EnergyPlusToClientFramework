@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum ShadowCalculation_PolygonClippingAlgorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConvexWeilerAtherton")]
+        [System.Runtime.Serialization.EnumMember(Value="ConvexWeilerAtherton")]
         ConvexWeilerAtherton = 1,
         
-        [JsonProperty("SlaterBarskyandSutherlandHodgman")]
+        [System.Runtime.Serialization.EnumMember(Value="SlaterBarskyandSutherlandHodgman")]
         SlaterBarskyandSutherlandHodgman = 2,
         
-        [JsonProperty("SutherlandHodgman")]
+        [System.Runtime.Serialization.EnumMember(Value="SutherlandHodgman")]
         SutherlandHodgman = 3,
     }
 }

@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description("DX cooling coil performance for a single speed within a single operating mode.")]
-    [JsonObject("Coil:Cooling:DX:CurveFit:Speed")]
     public class Coil_Cooling_DX_CurveFit_Speed : BHoMObject, IEnergyPlusClass
     {
         

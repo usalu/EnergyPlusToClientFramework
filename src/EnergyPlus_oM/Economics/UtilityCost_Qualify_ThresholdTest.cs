@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum UtilityCost_Qualify_ThresholdTest
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Consecutive")]
+        [System.Runtime.Serialization.EnumMember(Value="Consecutive")]
         Consecutive = 1,
         
-        [JsonProperty("Count")]
+        [System.Runtime.Serialization.EnumMember(Value="Count")]
         Count = 2,
     }
 }

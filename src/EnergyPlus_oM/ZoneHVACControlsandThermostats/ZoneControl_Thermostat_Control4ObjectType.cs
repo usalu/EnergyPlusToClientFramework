@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
 {
     public enum ZoneControl_Thermostat_Control4ObjectType
     {
         
-        [JsonProperty("ThermostatSetpoint:DualSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:DualSetpoint")]
         ThermostatSetpointDualSetpoint = 0,
         
-        [JsonProperty("ThermostatSetpoint:SingleCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleCooling")]
         ThermostatSetpointSingleCooling = 1,
         
-        [JsonProperty("ThermostatSetpoint:SingleHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleHeating")]
         ThermostatSetpointSingleHeating = 2,
         
-        [JsonProperty("ThermostatSetpoint:SingleHeatingOrCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleHeatingOrCooling")]
         ThermostatSetpointSingleHeatingOrCooling = 3,
     }
 }

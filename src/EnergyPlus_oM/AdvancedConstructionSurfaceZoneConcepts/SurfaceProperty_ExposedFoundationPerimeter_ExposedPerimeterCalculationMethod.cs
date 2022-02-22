@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceProperty_ExposedFoundationPerimeter_ExposedPerimeterCalculationMethod
     {
         
-        [JsonProperty("BySegment")]
+        [System.Runtime.Serialization.EnumMember(Value="BySegment")]
         BySegment = 0,
         
-        [JsonProperty("ExposedPerimeterFraction")]
+        [System.Runtime.Serialization.EnumMember(Value="ExposedPerimeterFraction")]
         ExposedPerimeterFraction = 1,
         
-        [JsonProperty("TotalExposedPerimeter")]
+        [System.Runtime.Serialization.EnumMember(Value="TotalExposedPerimeter")]
         TotalExposedPerimeter = 2,
     }
 }

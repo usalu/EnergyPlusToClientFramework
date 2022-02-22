@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     
     [Description("Specifies the building\'s location. Only one location is allowed. Weather data fil" +
         "e location, if it exists, will override this object.")]
-    [JsonObject("Site:Location")]
     public class Site_Location : BHoMObject, IEnergyPlusClass
     {
         
@@ -97,7 +96,6 @@ public System.Nullable<float> Elevation { get; set; } = (System.Nullable<float>)
     
     [Description("Captures the scheduling of a moving/reorienting building, or more likely a vessel" +
         "")]
-    [JsonObject("Site:VariableLocation")]
     public class Site_VariableLocation : BHoMObject, IEnergyPlusClass
     {
         
@@ -122,7 +120,6 @@ public string BuildingLocationOrientationSchedule { get; set; } = "";
     }
     
     [Description(@"The design day object creates the parameters for the program to create the 24 hour weather profile that can be used for sizing as well as running to test the other simulation parameters. Parameters in this include a date (month and day), a day type (which uses the appropriate schedules for either sizing or simple tests), min/max temperatures, wind speeds, and solar radiation values.")]
-    [JsonObject("SizingPeriod:DesignDay")]
     public class SizingPeriod_DesignDay : BHoMObject, IEnergyPlusClass
     {
         
@@ -138,6 +135,7 @@ public System.Nullable<float> DayOfMonth { get; set; } = null;
 
 [Description("Day Type selects the schedules appropriate for this design day")]
 [JsonProperty("day_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SizingPeriod_DesignDay_DayType DayType { get; set; } = (SizingPeriod_DesignDay_DayType)Enum.Parse(typeof(SizingPeriod_DesignDay_DayType), "CustomDay1");
         
 
@@ -155,6 +153,7 @@ public System.Nullable<float> DailyDryBulbTemperatureRange { get; set; } = (Syst
 
 [Description("Type of modifier to the dry-bulb temperature calculated for the timestep")]
 [JsonProperty("dry_bulb_temperature_range_modifier_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SizingPeriod_DesignDay_DryBulbTemperatureRangeModifierType DryBulbTemperatureRangeModifierType { get; set; } = (SizingPeriod_DesignDay_DryBulbTemperatureRangeModifierType)Enum.Parse(typeof(SizingPeriod_DesignDay_DryBulbTemperatureRangeModifierType), "DefaultMultipliers");
         
 
@@ -166,6 +165,7 @@ public string DryBulbTemperatureRangeModifierDayScheduleName { get; set; } = "";
 [Description("values/schedules indicated here and in subsequent fields create the humidity valu" +
     "es in the 24 hour design day conditions profile.")]
 [JsonProperty("humidity_condition_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SizingPeriod_DesignDay_HumidityConditionType HumidityConditionType { get; set; } = (SizingPeriod_DesignDay_HumidityConditionType)Enum.Parse(typeof(SizingPeriod_DesignDay_HumidityConditionType), "WetBulb");
         
 
@@ -219,21 +219,25 @@ public System.Nullable<float> WindDirection { get; set; } = null;
 
 [Description("Yes is raining (all day), No is not raining")]
 [JsonProperty("rain_indicator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RainIndicator { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("Yes is Snow on Ground, No is no Snow on Ground")]
 [JsonProperty("snow_indicator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes SnowIndicator { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("Yes -- use schedules modified for Daylight Saving Time Schedules. No - do not use" +
     " schedules modified for Daylight Saving Time Schedules")]
 [JsonProperty("daylight_saving_time_indicator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes DaylightSavingTimeIndicator { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("solar_model_indicator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SizingPeriod_DesignDay_SolarModelIndicator SolarModelIndicator { get; set; } = (SizingPeriod_DesignDay_SolarModelIndicator)Enum.Parse(typeof(SizingPeriod_DesignDay_SolarModelIndicator), "ASHRAEClearSky");
         
 
@@ -276,136 +280,136 @@ public System.Nullable<float> MaximumNumberWarmupDays { get; set; } = null;
     "ning of the design day. When using a series of similiar design days, this field " +
     "can be used to retain warmup state from the previous design day.")]
 [JsonProperty("begin_environment_reset_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SizingPeriod_DesignDay_BeginEnvironmentResetMode BeginEnvironmentResetMode { get; set; } = (SizingPeriod_DesignDay_BeginEnvironmentResetMode)Enum.Parse(typeof(SizingPeriod_DesignDay_BeginEnvironmentResetMode), "FullResetAtBeginEnvironment");
     }
     
     public enum SizingPeriod_DesignDay_DayType
     {
         
-        [JsonProperty("CustomDay1")]
+        [System.Runtime.Serialization.EnumMember(Value="CustomDay1")]
         CustomDay1 = 0,
         
-        [JsonProperty("CustomDay2")]
+        [System.Runtime.Serialization.EnumMember(Value="CustomDay2")]
         CustomDay2 = 1,
         
-        [JsonProperty("Friday")]
+        [System.Runtime.Serialization.EnumMember(Value="Friday")]
         Friday = 2,
         
-        [JsonProperty("Holiday")]
+        [System.Runtime.Serialization.EnumMember(Value="Holiday")]
         Holiday = 3,
         
-        [JsonProperty("Monday")]
+        [System.Runtime.Serialization.EnumMember(Value="Monday")]
         Monday = 4,
         
-        [JsonProperty("Saturday")]
+        [System.Runtime.Serialization.EnumMember(Value="Saturday")]
         Saturday = 5,
         
-        [JsonProperty("SummerDesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="SummerDesignDay")]
         SummerDesignDay = 6,
         
-        [JsonProperty("Sunday")]
+        [System.Runtime.Serialization.EnumMember(Value="Sunday")]
         Sunday = 7,
         
-        [JsonProperty("Thursday")]
+        [System.Runtime.Serialization.EnumMember(Value="Thursday")]
         Thursday = 8,
         
-        [JsonProperty("Tuesday")]
+        [System.Runtime.Serialization.EnumMember(Value="Tuesday")]
         Tuesday = 9,
         
-        [JsonProperty("Wednesday")]
+        [System.Runtime.Serialization.EnumMember(Value="Wednesday")]
         Wednesday = 10,
         
-        [JsonProperty("WinterDesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="WinterDesignDay")]
         WinterDesignDay = 11,
     }
     
     public enum SizingPeriod_DesignDay_DryBulbTemperatureRangeModifierType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DefaultMultipliers")]
+        [System.Runtime.Serialization.EnumMember(Value="DefaultMultipliers")]
         DefaultMultipliers = 1,
         
-        [JsonProperty("DifferenceSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferenceSchedule")]
         DifferenceSchedule = 2,
         
-        [JsonProperty("MultiplierSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="MultiplierSchedule")]
         MultiplierSchedule = 3,
         
-        [JsonProperty("TemperatureProfileSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureProfileSchedule")]
         TemperatureProfileSchedule = 4,
     }
     
     public enum SizingPeriod_DesignDay_HumidityConditionType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DewPoint")]
+        [System.Runtime.Serialization.EnumMember(Value="DewPoint")]
         DewPoint = 1,
         
-        [JsonProperty("Enthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="Enthalpy")]
         Enthalpy = 2,
         
-        [JsonProperty("HumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="HumidityRatio")]
         HumidityRatio = 3,
         
-        [JsonProperty("RelativeHumiditySchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="RelativeHumiditySchedule")]
         RelativeHumiditySchedule = 4,
         
-        [JsonProperty("WetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulb")]
         WetBulb = 5,
         
-        [JsonProperty("WetBulbProfileDefaultMultipliers")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbProfileDefaultMultipliers")]
         WetBulbProfileDefaultMultipliers = 6,
         
-        [JsonProperty("WetBulbProfileDifferenceSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbProfileDifferenceSchedule")]
         WetBulbProfileDifferenceSchedule = 7,
         
-        [JsonProperty("WetBulbProfileMultiplierSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbProfileMultiplierSchedule")]
         WetBulbProfileMultiplierSchedule = 8,
     }
     
     public enum SizingPeriod_DesignDay_SolarModelIndicator
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASHRAEClearSky")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAEClearSky")]
         ASHRAEClearSky = 1,
         
-        [JsonProperty("ASHRAETau")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAETau")]
         ASHRAETau = 2,
         
-        [JsonProperty("ASHRAETau2017")]
+        [System.Runtime.Serialization.EnumMember(Value="ASHRAETau2017")]
         ASHRAETau2017 = 3,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 4,
         
-        [JsonProperty("ZhangHuang")]
+        [System.Runtime.Serialization.EnumMember(Value="ZhangHuang")]
         ZhangHuang = 5,
     }
     
     public enum SizingPeriod_DesignDay_BeginEnvironmentResetMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FullResetAtBeginEnvironment")]
+        [System.Runtime.Serialization.EnumMember(Value="FullResetAtBeginEnvironment")]
         FullResetAtBeginEnvironment = 1,
         
-        [JsonProperty("SuppressAllBeginEnvironmentResets")]
+        [System.Runtime.Serialization.EnumMember(Value="SuppressAllBeginEnvironmentResets")]
         SuppressAllBeginEnvironmentResets = 2,
     }
     
     [Description("Use a weather file period for design sizing calculations.")]
-    [JsonObject("SizingPeriod:WeatherFileDays")]
     public class SizingPeriod_WeatherFileDays : BHoMObject, IEnergyPlusClass
     {
         
@@ -428,63 +432,65 @@ public System.Nullable<float> EndDayOfMonth { get; set; } = null;
 
 [Description(@"=[|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|SummerDesignDay|WinterDesignDay| |CustomDay1|CustomDay2]; if you use SummerDesignDay or WinterDesignDay or the CustomDays then this will apply to the whole period; other days (i.e., Monday) will signify a start day and normal sequence of subsequent days")]
 [JsonProperty("day_of_week_for_start_day")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SizingPeriod_WeatherFileDays_DayOfWeekForStartDay DayOfWeekForStartDay { get; set; } = (SizingPeriod_WeatherFileDays_DayOfWeekForStartDay)Enum.Parse(typeof(SizingPeriod_WeatherFileDays_DayOfWeekForStartDay), "Monday");
         
 
 [Description("If yes or blank, use daylight saving period as specified on Weatherfile. If no, d" +
     "o not use the daylight saving period as specified on the Weatherfile.")]
 [JsonProperty("use_weather_file_daylight_saving_period")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes UseWeatherFileDaylightSavingPeriod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("use_weather_file_rain_and_snow_indicators")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes UseWeatherFileRainAndSnowIndicators { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
     }
     
     public enum SizingPeriod_WeatherFileDays_DayOfWeekForStartDay
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CustomDay1")]
+        [System.Runtime.Serialization.EnumMember(Value="CustomDay1")]
         CustomDay1 = 1,
         
-        [JsonProperty("CustomDay2")]
+        [System.Runtime.Serialization.EnumMember(Value="CustomDay2")]
         CustomDay2 = 2,
         
-        [JsonProperty("Friday")]
+        [System.Runtime.Serialization.EnumMember(Value="Friday")]
         Friday = 3,
         
-        [JsonProperty("Monday")]
+        [System.Runtime.Serialization.EnumMember(Value="Monday")]
         Monday = 4,
         
-        [JsonProperty("Saturday")]
+        [System.Runtime.Serialization.EnumMember(Value="Saturday")]
         Saturday = 5,
         
-        [JsonProperty("SummerDesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="SummerDesignDay")]
         SummerDesignDay = 6,
         
-        [JsonProperty("Sunday")]
+        [System.Runtime.Serialization.EnumMember(Value="Sunday")]
         Sunday = 7,
         
-        [JsonProperty("Thursday")]
+        [System.Runtime.Serialization.EnumMember(Value="Thursday")]
         Thursday = 8,
         
-        [JsonProperty("Tuesday")]
+        [System.Runtime.Serialization.EnumMember(Value="Tuesday")]
         Tuesday = 9,
         
-        [JsonProperty("Wednesday")]
+        [System.Runtime.Serialization.EnumMember(Value="Wednesday")]
         Wednesday = 10,
         
-        [JsonProperty("WinterDesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="WinterDesignDay")]
         WinterDesignDay = 11,
     }
     
     [Description("Use a weather file period for design sizing calculations. EPW weather files are c" +
         "reated with typical and extreme periods created heuristically from the weather f" +
         "ile data. For more details on these periods, see AuxiliaryPrograms document.")]
-    [JsonObject("SizingPeriod:WeatherFileConditionType")]
     public class SizingPeriod_WeatherFileConditionType : BHoMObject, IEnergyPlusClass
     {
         
@@ -493,119 +499,122 @@ public EmptyNoYes UseWeatherFileRainAndSnowIndicators { get; set; } = (EmptyNoYe
     "ht be identified in the Weather File. Not all possible types are available for a" +
     "ll weather files.")]
 [JsonProperty("period_selection")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SizingPeriod_WeatherFileConditionType_PeriodSelection PeriodSelection { get; set; } = (SizingPeriod_WeatherFileConditionType_PeriodSelection)Enum.Parse(typeof(SizingPeriod_WeatherFileConditionType_PeriodSelection), "AutumnTypical");
         
 
 [Description(@"=[|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|SummerDesignDay|WinterDesignDay| |CustomDay1|CustomDay2]; if you use SummerDesignDay or WinterDesignDay or the CustomDays then this will apply to the whole period; other days (i.e., Monday) will signify a start day and normal sequence of subsequent days")]
 [JsonProperty("day_of_week_for_start_day")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SizingPeriod_WeatherFileConditionType_DayOfWeekForStartDay DayOfWeekForStartDay { get; set; } = (SizingPeriod_WeatherFileConditionType_DayOfWeekForStartDay)Enum.Parse(typeof(SizingPeriod_WeatherFileConditionType_DayOfWeekForStartDay), "Monday");
         
 
 [Description("If yes or blank, use daylight saving period as specified on Weatherfile. If no, d" +
     "o not use the daylight saving period as specified on the Weatherfile.")]
 [JsonProperty("use_weather_file_daylight_saving_period")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes UseWeatherFileDaylightSavingPeriod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("use_weather_file_rain_and_snow_indicators")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes UseWeatherFileRainAndSnowIndicators { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
     }
     
     public enum SizingPeriod_WeatherFileConditionType_PeriodSelection
     {
         
-        [JsonProperty("AutumnTypical")]
+        [System.Runtime.Serialization.EnumMember(Value="AutumnTypical")]
         AutumnTypical = 0,
         
-        [JsonProperty("DrySeason")]
+        [System.Runtime.Serialization.EnumMember(Value="DrySeason")]
         DrySeason = 1,
         
-        [JsonProperty("NoDrySeason")]
+        [System.Runtime.Serialization.EnumMember(Value="NoDrySeason")]
         NoDrySeason = 2,
         
-        [JsonProperty("NoDrySeasonMax")]
+        [System.Runtime.Serialization.EnumMember(Value="NoDrySeasonMax")]
         NoDrySeasonMax = 3,
         
-        [JsonProperty("NoDrySeasonMin")]
+        [System.Runtime.Serialization.EnumMember(Value="NoDrySeasonMin")]
         NoDrySeasonMin = 4,
         
-        [JsonProperty("NoWetSeason")]
+        [System.Runtime.Serialization.EnumMember(Value="NoWetSeason")]
         NoWetSeason = 5,
         
-        [JsonProperty("NoWetSeasonMax")]
+        [System.Runtime.Serialization.EnumMember(Value="NoWetSeasonMax")]
         NoWetSeasonMax = 6,
         
-        [JsonProperty("NoWetSeasonMin")]
+        [System.Runtime.Serialization.EnumMember(Value="NoWetSeasonMin")]
         NoWetSeasonMin = 7,
         
-        [JsonProperty("SpringTypical")]
+        [System.Runtime.Serialization.EnumMember(Value="SpringTypical")]
         SpringTypical = 8,
         
-        [JsonProperty("SummerExtreme")]
+        [System.Runtime.Serialization.EnumMember(Value="SummerExtreme")]
         SummerExtreme = 9,
         
-        [JsonProperty("SummerTypical")]
+        [System.Runtime.Serialization.EnumMember(Value="SummerTypical")]
         SummerTypical = 10,
         
-        [JsonProperty("TropicalCold")]
+        [System.Runtime.Serialization.EnumMember(Value="TropicalCold")]
         TropicalCold = 11,
         
-        [JsonProperty("TropicalHot")]
+        [System.Runtime.Serialization.EnumMember(Value="TropicalHot")]
         TropicalHot = 12,
         
-        [JsonProperty("WetSeason")]
+        [System.Runtime.Serialization.EnumMember(Value="WetSeason")]
         WetSeason = 13,
         
-        [JsonProperty("WinterExtreme")]
+        [System.Runtime.Serialization.EnumMember(Value="WinterExtreme")]
         WinterExtreme = 14,
         
-        [JsonProperty("WinterTypical")]
+        [System.Runtime.Serialization.EnumMember(Value="WinterTypical")]
         WinterTypical = 15,
     }
     
     public enum SizingPeriod_WeatherFileConditionType_DayOfWeekForStartDay
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CustomDay1")]
+        [System.Runtime.Serialization.EnumMember(Value="CustomDay1")]
         CustomDay1 = 1,
         
-        [JsonProperty("CustomDay2")]
+        [System.Runtime.Serialization.EnumMember(Value="CustomDay2")]
         CustomDay2 = 2,
         
-        [JsonProperty("Friday")]
+        [System.Runtime.Serialization.EnumMember(Value="Friday")]
         Friday = 3,
         
-        [JsonProperty("Monday")]
+        [System.Runtime.Serialization.EnumMember(Value="Monday")]
         Monday = 4,
         
-        [JsonProperty("Saturday")]
+        [System.Runtime.Serialization.EnumMember(Value="Saturday")]
         Saturday = 5,
         
-        [JsonProperty("SummerDesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="SummerDesignDay")]
         SummerDesignDay = 6,
         
-        [JsonProperty("Sunday")]
+        [System.Runtime.Serialization.EnumMember(Value="Sunday")]
         Sunday = 7,
         
-        [JsonProperty("Thursday")]
+        [System.Runtime.Serialization.EnumMember(Value="Thursday")]
         Thursday = 8,
         
-        [JsonProperty("Tuesday")]
+        [System.Runtime.Serialization.EnumMember(Value="Tuesday")]
         Tuesday = 9,
         
-        [JsonProperty("Wednesday")]
+        [System.Runtime.Serialization.EnumMember(Value="Wednesday")]
         Wednesday = 10,
         
-        [JsonProperty("WinterDesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="WinterDesignDay")]
         WinterDesignDay = 11,
     }
     
     [Description("Specify a range of dates and other parameters for a simulation. Multiple run peri" +
         "ods may be input, but they may not overlap.")]
-    [JsonObject("RunPeriod")]
     public class RunPeriod : BHoMObject, IEnergyPlusClass
     {
         
@@ -642,6 +651,7 @@ public System.Nullable<float> EndYear { get; set; } = null;
     " this field will default to Sunday If a year is input and this field is blank, t" +
     "he correct weekday is determined")]
 [JsonProperty("day_of_week_for_start_day")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RunPeriod_DayOfWeekForStartDay DayOfWeekForStartDay { get; set; } = (RunPeriod_DayOfWeekForStartDay)Enum.Parse(typeof(RunPeriod_DayOfWeekForStartDay), "Friday");
         
 
@@ -649,60 +659,65 @@ public RunPeriod_DayOfWeekForStartDay DayOfWeekForStartDay { get; set; } = (RunP
     "holidays specified on the Weatherfile. Note: You can still specify holidays/spec" +
     "ial days using the RunPeriodControl:SpecialDays object(s).")]
 [JsonProperty("use_weather_file_holidays_and_special_days")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes UseWeatherFileHolidaysAndSpecialDays { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [Description("If yes or blank, use daylight saving period as specified on Weatherfile. If no, d" +
     "o not use the daylight saving period as specified on the Weatherfile.")]
 [JsonProperty("use_weather_file_daylight_saving_period")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes UseWeatherFileDaylightSavingPeriod { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [Description("if yes and single day holiday falls on weekend, \"holiday\" occurs on following Mon" +
     "day")]
 [JsonProperty("apply_weekend_holiday_rule")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ApplyWeekendHolidayRule { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("use_weather_file_rain_indicators")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes UseWeatherFileRainIndicators { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("use_weather_file_snow_indicators")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes UseWeatherFileSnowIndicators { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("treat_weather_as_actual")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes TreatWeatherAsActual { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
     
     public enum RunPeriod_DayOfWeekForStartDay
     {
         
-        [JsonProperty("Friday")]
+        [System.Runtime.Serialization.EnumMember(Value="Friday")]
         Friday = 0,
         
-        [JsonProperty("Monday")]
+        [System.Runtime.Serialization.EnumMember(Value="Monday")]
         Monday = 1,
         
-        [JsonProperty("Saturday")]
+        [System.Runtime.Serialization.EnumMember(Value="Saturday")]
         Saturday = 2,
         
-        [JsonProperty("Sunday")]
+        [System.Runtime.Serialization.EnumMember(Value="Sunday")]
         Sunday = 3,
         
-        [JsonProperty("Thursday")]
+        [System.Runtime.Serialization.EnumMember(Value="Thursday")]
         Thursday = 4,
         
-        [JsonProperty("Tuesday")]
+        [System.Runtime.Serialization.EnumMember(Value="Tuesday")]
         Tuesday = 5,
         
-        [JsonProperty("Wednesday")]
+        [System.Runtime.Serialization.EnumMember(Value="Wednesday")]
         Wednesday = 6,
     }
     
     [Description(@"This object sets up holidays/special days to be used during weather file run periods. (These are not used with SizingPeriod:* objects.) Depending on the value in the run period, days on the weather file may also be used. However, the weather file specification will take precedence over any specification shown here. (No error message on duplicate days or overlapping days).")]
-    [JsonObject("RunPeriodControl:SpecialDays")]
     public class RunPeriodControl_SpecialDays : BHoMObject, IEnergyPlusClass
     {
         
@@ -718,33 +733,33 @@ public System.Nullable<float> Duration { get; set; } = (System.Nullable<float>)S
 
 [Description("Special Day Type selects the schedules appropriate for each day so labeled")]
 [JsonProperty("special_day_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RunPeriodControl_SpecialDays_SpecialDayType SpecialDayType { get; set; } = (RunPeriodControl_SpecialDays_SpecialDayType)Enum.Parse(typeof(RunPeriodControl_SpecialDays_SpecialDayType), "Holiday");
     }
     
     public enum RunPeriodControl_SpecialDays_SpecialDayType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CustomDay1")]
+        [System.Runtime.Serialization.EnumMember(Value="CustomDay1")]
         CustomDay1 = 1,
         
-        [JsonProperty("CustomDay2")]
+        [System.Runtime.Serialization.EnumMember(Value="CustomDay2")]
         CustomDay2 = 2,
         
-        [JsonProperty("Holiday")]
+        [System.Runtime.Serialization.EnumMember(Value="Holiday")]
         Holiday = 3,
         
-        [JsonProperty("SummerDesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="SummerDesignDay")]
         SummerDesignDay = 4,
         
-        [JsonProperty("WinterDesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="WinterDesignDay")]
         WinterDesignDay = 5,
     }
     
     [Description(@"This object sets up the daylight saving time period for any RunPeriod. Ignores any daylight saving time period on the weather file and uses this definition. These are not used with SizingPeriod:DesignDay objects. Use with SizingPeriod:WeatherFileDays object can be controlled in that object.")]
-    [JsonObject("RunPeriodControl:DaylightSavingTime")]
     public class RunPeriodControl_DaylightSavingTime : BHoMObject, IEnergyPlusClass
     {
         
@@ -759,7 +774,6 @@ public string EndDate { get; set; } = "";
     }
     
     [Description("This object is used to override internal sky temperature calculations.")]
-    [JsonObject("WeatherProperty:SkyTemperature")]
     public class WeatherProperty_SkyTemperature : BHoMObject, IEnergyPlusClass
     {
         
@@ -767,6 +781,7 @@ public string EndDate { get; set; } = "";
 [Description("The field indicates that the sky temperature will be imported from external sched" +
     "ules or calculated by alternative methods other than default.")]
 [JsonProperty("calculation_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WeatherProperty_SkyTemperature_CalculationType CalculationType { get; set; } = (WeatherProperty_SkyTemperature_CalculationType)Enum.Parse(typeof(WeatherProperty_SkyTemperature_CalculationType), "ClarkAllen");
         
 
@@ -777,41 +792,41 @@ public string ScheduleName { get; set; } = "";
 
 [Description(@"If yes or blank, use Horizontal IR values from weather file when present, otherwise use the specified sky model. If no, always use the specified sky model and ignore the horizontal IR values from the weather file. For Calculation Type = ScheduleValue, DifferenceScheduleDryBulbValue or DifferenceScheduleDewPointValue, this field is ignored and the scheduled values are used.")]
 [JsonProperty("use_weather_file_horizontal_ir")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes UseWeatherFileHorizontalIr { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
     }
     
     public enum WeatherProperty_SkyTemperature_CalculationType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BerdahlMartin")]
+        [System.Runtime.Serialization.EnumMember(Value="BerdahlMartin")]
         BerdahlMartin = 1,
         
-        [JsonProperty("Brunt")]
+        [System.Runtime.Serialization.EnumMember(Value="Brunt")]
         Brunt = 2,
         
-        [JsonProperty("ClarkAllen")]
+        [System.Runtime.Serialization.EnumMember(Value="ClarkAllen")]
         ClarkAllen = 3,
         
-        [JsonProperty("DifferenceScheduleDewPointValue")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferenceScheduleDewPointValue")]
         DifferenceScheduleDewPointValue = 4,
         
-        [JsonProperty("DifferenceScheduleDryBulbValue")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferenceScheduleDryBulbValue")]
         DifferenceScheduleDryBulbValue = 5,
         
-        [JsonProperty("Idso")]
+        [System.Runtime.Serialization.EnumMember(Value="Idso")]
         Idso = 6,
         
-        [JsonProperty("ScheduleValue")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduleValue")]
         ScheduleValue = 7,
     }
     
     [Description("This object should only be used for non-standard weather data. Standard weather d" +
         "ata such as TMY2, IWEC, and ASHRAE design day data are all measured at the defau" +
         "lt conditions and do not require this object.")]
-    [JsonObject("Site:WeatherStation")]
     public class Site_WeatherStation : BHoMObject, IEnergyPlusClass
     {
         
@@ -833,7 +848,6 @@ public System.Nullable<float> AirTemperatureSensorHeightAboveGround { get; set; 
     }
     
     [Description(@"This object is used if the user requires advanced control over height-dependent variations in wind speed and temperature. When this object is not present, the default model for temperature dependence on height is used, and the wind speed is modeled according to the Terrain field of the BUILDING object.")]
-    [JsonObject("Site:HeightVariation")]
     public class Site_HeightVariation : BHoMObject, IEnergyPlusClass
     {
         
@@ -853,7 +867,6 @@ public System.Nullable<float> AirTemperatureGradientCoefficient { get; set; } = 
     }
     
     [Description(@"These temperatures are specifically for those surfaces that have the outside environment of ""Ground"". Documentation about what values these should be is located in the Auxiliary programs document (Ground Heat Transfer) as well as the InputOutput Reference. CAUTION - Do not use the ""undisturbed"" ground temperatures from the weather data. These values are too extreme for the soil under a conditioned building. For best results, use the Slab or Basement program to calculate custom monthly average ground temperatures (see Auxiliary Programs). For typical commercial buildings in the USA, a reasonable default value is 2C less than the average indoor space temperature.")]
-    [JsonObject("Site:GroundTemperature:BuildingSurface")]
     public class Site_GroundTemperature_BuildingSurface : BHoMObject, IEnergyPlusClass
     {
         
@@ -909,7 +922,6 @@ public System.Nullable<float> DecemberGroundTemperature { get; set; } = (System.
     [Description("These temperatures are specifically for underground walls and ground floors defin" +
         "ed with the C-factor and F-factor methods, and should be close to the monthly av" +
         "erage outdoor air temperature delayed by 3 months for the location.")]
-    [JsonObject("Site:GroundTemperature:FCfactorMethod")]
     public class Site_GroundTemperature_FCfactorMethod : BHoMObject, IEnergyPlusClass
     {
         
@@ -965,7 +977,6 @@ public System.Nullable<float> DecemberGroundTemperature { get; set; } = (System.
     [Description("These temperatures are specifically for the Surface Ground Heat Exchanger and sho" +
         "uld probably be close to the average outdoor air temperature for the location. T" +
         "hey are not used in other models.")]
-    [JsonObject("Site:GroundTemperature:Shallow")]
     public class Site_GroundTemperature_Shallow : BHoMObject, IEnergyPlusClass
     {
         
@@ -1021,7 +1032,6 @@ public System.Nullable<float> DecemberSurfaceGroundTemperature { get; set; } = (
     [Description("These temperatures are specifically for the ground heat exchangers that would use" +
         " \"deep\" (3-4 m depth) ground temperatures for their heat source. They are not us" +
         "ed in other models.")]
-    [JsonObject("Site:GroundTemperature:Deep")]
     public class Site_GroundTemperature_Deep : BHoMObject, IEnergyPlusClass
     {
         
@@ -1076,7 +1086,6 @@ public System.Nullable<float> DecemberDeepGroundTemperature { get; set; } = (Sys
     
     [Description("Undisturbed ground temperature object using a detailed finite difference 1-D mode" +
         "l")]
-    [JsonObject("Site:GroundTemperature:Undisturbed:FiniteDifference")]
     public class Site_GroundTemperature_Undisturbed_FiniteDifference : BHoMObject, IEnergyPlusClass
     {
         
@@ -1108,7 +1117,6 @@ public System.Nullable<float> EvapotranspirationGroundCoverParameter { get; set;
     
     [Description("Undisturbed ground temperature object using the Kusuda-Achenbach 1965 correlation" +
         ".")]
-    [JsonObject("Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
     public class Site_GroundTemperature_Undisturbed_KusudaAchenbach : BHoMObject, IEnergyPlusClass
     {
         
@@ -1146,7 +1154,6 @@ public System.Nullable<float> PhaseShiftOfMinimumSurfaceTemperature { get; set; 
     
     [Description("Undisturbed ground temperature object using the Xing 2014 2 harmonic parameter mo" +
         "del.")]
-    [JsonObject("Site:GroundTemperature:Undisturbed:Xing")]
     public class Site_GroundTemperature_Undisturbed_Xing : BHoMObject, IEnergyPlusClass
     {
         
@@ -1185,7 +1192,6 @@ public System.Nullable<float> PhaseShiftOfTemperatureAmplitude2 { get; set; } = 
     
     [Description("Ground-coupled slab model for on-grade and in-grade cases with or without insulat" +
         "ion.")]
-    [JsonObject("Site:GroundDomain:Slab")]
     public class Site_GroundDomain_Slab : BHoMObject, IEnergyPlusClass
     {
         
@@ -1223,6 +1229,7 @@ public System.Nullable<float> SoilMoistureContentVolumeFractionAtSaturation { ge
         
 
 [JsonProperty("undisturbed_ground_temperature_model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Site_GroundDomain_Slab_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (Site_GroundDomain_Slab_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(Site_GroundDomain_Slab_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
@@ -1241,6 +1248,7 @@ public string SlabBoundaryConditionModelName { get; set; } = "";
 
 [Description("This field specifies whether the slab is located \"in-grade\" or \"on-grade\"")]
 [JsonProperty("slab_location")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Site_GroundDomain_Slab_SlabLocation SlabLocation { get; set; } = (Site_GroundDomain_Slab_SlabLocation)Enum.Parse(typeof(Site_GroundDomain_Slab_SlabLocation), "InGrade");
         
 
@@ -1252,6 +1260,7 @@ public string SlabMaterialName { get; set; } = "";
 [Description("This field specifies the presence of insulation beneath the slab. Only required f" +
     "or in-grade case.")]
 [JsonProperty("horizontal_insulation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes HorizontalInsulation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -1263,6 +1272,7 @@ public string HorizontalInsulationMaterialName { get; set; } = "";
 [Description("This field specifies whether the horizontal insulation fully insulates the surfac" +
     "e or is perimeter only insulation")]
 [JsonProperty("horizontal_insulation_extents")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Site_GroundDomain_Slab_HorizontalInsulationExtents HorizontalInsulationExtents { get; set; } = (Site_GroundDomain_Slab_HorizontalInsulationExtents)Enum.Parse(typeof(Site_GroundDomain_Slab_HorizontalInsulationExtents), "Full");
         
 
@@ -1273,6 +1283,7 @@ public System.Nullable<float> PerimeterInsulationWidth { get; set; } = null;
 
 [Description("This field specifies the presence of vertical insulation at the slab edge.")]
 [JsonProperty("vertical_insulation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes VerticalInsulation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -1289,6 +1300,7 @@ public System.Nullable<float> VerticalInsulationDepth { get; set; } = null;
 
 [Description("This field specifies the ground domain simulation timestep.")]
 [JsonProperty("simulation_timestep")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Site_GroundDomain_Slab_SimulationTimestep SimulationTimestep { get; set; } = (Site_GroundDomain_Slab_SimulationTimestep)Enum.Parse(typeof(Site_GroundDomain_Slab_SimulationTimestep), "Hourly");
         
 
@@ -1303,55 +1315,54 @@ public System.Nullable<float> MeshDensityParameter { get; set; } = (System.Nulla
     public enum Site_GroundDomain_Slab_UndisturbedGroundTemperatureModelType
     {
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:FiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:FiniteDifference")]
         SiteGroundTemperatureUndisturbedFiniteDifference = 0,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
         SiteGroundTemperatureUndisturbedKusudaAchenbach = 1,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:Xing")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:Xing")]
         SiteGroundTemperatureUndisturbedXing = 2,
     }
     
     public enum Site_GroundDomain_Slab_SlabLocation
     {
         
-        [JsonProperty("InGrade")]
+        [System.Runtime.Serialization.EnumMember(Value="InGrade")]
         InGrade = 0,
         
-        [JsonProperty("OnGrade")]
+        [System.Runtime.Serialization.EnumMember(Value="OnGrade")]
         OnGrade = 1,
     }
     
     public enum Site_GroundDomain_Slab_HorizontalInsulationExtents
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Full")]
+        [System.Runtime.Serialization.EnumMember(Value="Full")]
         Full = 1,
         
-        [JsonProperty("Perimeter")]
+        [System.Runtime.Serialization.EnumMember(Value="Perimeter")]
         Perimeter = 2,
     }
     
     public enum Site_GroundDomain_Slab_SimulationTimestep
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 1,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 2,
     }
     
     [Description("Ground-coupled basement model for simulating basements or other underground zones" +
         ".")]
-    [JsonObject("Site:GroundDomain:Basement")]
     public class Site_GroundDomain_Basement : BHoMObject, IEnergyPlusClass
     {
         
@@ -1392,6 +1403,7 @@ public System.Nullable<float> SoilMoistureContentVolumeFractionAtSaturation { ge
         
 
 [JsonProperty("undisturbed_ground_temperature_model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Site_GroundDomain_Basement_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (Site_GroundDomain_Basement_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(Site_GroundDomain_Basement_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
@@ -1410,6 +1422,7 @@ public string BasementFloorBoundaryConditionModelName { get; set; } = "";
 
 [Description("This field specifies the presence of insulation beneath the basement floor.")]
 [JsonProperty("horizontal_insulation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes HorizontalInsulation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -1420,6 +1433,7 @@ public string HorizontalInsulationMaterialName { get; set; } = "";
 [Description("This field specifies whether the horizontal insulation fully insulates the surfac" +
     "e or is perimeter only insulation")]
 [JsonProperty("horizontal_insulation_extents")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Site_GroundDomain_Basement_HorizontalInsulationExtents HorizontalInsulationExtents { get; set; } = (Site_GroundDomain_Basement_HorizontalInsulationExtents)Enum.Parse(typeof(Site_GroundDomain_Basement_HorizontalInsulationExtents), "Full");
         
 
@@ -1439,6 +1453,7 @@ public string BasementWallBoundaryConditionModelName { get; set; } = "";
         
 
 [JsonProperty("vertical_insulation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes VerticalInsulation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -1453,6 +1468,7 @@ public System.Nullable<float> VerticalInsulationDepth { get; set; } = null;
 
 [Description("This field specifies the basement domain simulation interval.")]
 [JsonProperty("simulation_timestep")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Site_GroundDomain_Basement_SimulationTimestep SimulationTimestep { get; set; } = (Site_GroundDomain_Basement_SimulationTimestep)Enum.Parse(typeof(Site_GroundDomain_Basement_SimulationTimestep), "Hourly");
         
 
@@ -1463,46 +1479,45 @@ public System.Nullable<float> MeshDensityParameter { get; set; } = (System.Nulla
     public enum Site_GroundDomain_Basement_UndisturbedGroundTemperatureModelType
     {
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:FiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:FiniteDifference")]
         SiteGroundTemperatureUndisturbedFiniteDifference = 0,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:KusudaAchenbach")]
         SiteGroundTemperatureUndisturbedKusudaAchenbach = 1,
         
-        [JsonProperty("Site:GroundTemperature:Undisturbed:Xing")]
+        [System.Runtime.Serialization.EnumMember(Value="Site:GroundTemperature:Undisturbed:Xing")]
         SiteGroundTemperatureUndisturbedXing = 2,
     }
     
     public enum Site_GroundDomain_Basement_HorizontalInsulationExtents
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Full")]
+        [System.Runtime.Serialization.EnumMember(Value="Full")]
         Full = 1,
         
-        [JsonProperty("Perimeter")]
+        [System.Runtime.Serialization.EnumMember(Value="Perimeter")]
         Perimeter = 2,
     }
     
     public enum Site_GroundDomain_Basement_SimulationTimestep
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 1,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 2,
     }
     
     [Description("Specifies the ground reflectance values used to calculate ground reflected solar." +
         " The ground reflectance can be further modified when snow is on the ground by Si" +
         "te:GroundReflectance:SnowModifier.")]
-    [JsonObject("Site:GroundReflectance")]
     public class Site_GroundReflectance : BHoMObject, IEnergyPlusClass
     {
         
@@ -1558,7 +1573,6 @@ public System.Nullable<float> DecemberGroundReflectance { get; set; } = (System.
     [Description("Specifies ground reflectance multipliers when snow resident on the ground. These " +
         "multipliers are applied to the \"normal\" ground reflectances specified in Site:Gr" +
         "oundReflectance.")]
-    [JsonObject("Site:GroundReflectance:SnowModifier")]
     public class Site_GroundReflectance_SnowModifier : BHoMObject, IEnergyPlusClass
     {
         
@@ -1576,7 +1590,6 @@ public System.Nullable<float> DaylightingGroundReflectedSolarModifier { get; set
     [Description("Used to calculate water mains temperatures delivered by underground water main pi" +
         "pes. Water mains temperatures are a function of outdoor climate conditions and v" +
         "ary with time of year.")]
-    [JsonObject("Site:WaterMainsTemperature")]
     public class Site_WaterMainsTemperature : BHoMObject, IEnergyPlusClass
     {
         
@@ -1584,6 +1597,7 @@ public System.Nullable<float> DaylightingGroundReflectedSolarModifier { get; set
 [Description("If calculation method is CorrelationFromWeatherFile, the two numeric input fields" +
     " are ignored. Instead, EnergyPlus calculates them from weather file.")]
 [JsonProperty("calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Site_WaterMainsTemperature_CalculationMethod CalculationMethod { get; set; } = (Site_WaterMainsTemperature_CalculationMethod)Enum.Parse(typeof(Site_WaterMainsTemperature_CalculationMethod), "CorrelationFromWeatherFile");
         
 
@@ -1606,27 +1620,27 @@ public System.Nullable<float> MaximumDifferenceInMonthlyAverageOutdoorAirTempera
     public enum Site_WaterMainsTemperature_CalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Correlation")]
+        [System.Runtime.Serialization.EnumMember(Value="Correlation")]
         Correlation = 1,
         
-        [JsonProperty("CorrelationFromWeatherFile")]
+        [System.Runtime.Serialization.EnumMember(Value="CorrelationFromWeatherFile")]
         CorrelationFromWeatherFile = 2,
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 3,
     }
     
     [Description("Used to describe the amount of water precipitation at the building site. Precipit" +
         "ation includes both rain and the equivalent water content of snow.")]
-    [JsonObject("Site:Precipitation")]
     public class Site_Precipitation : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("precipitation_model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Site_Precipitation_PrecipitationModelType PrecipitationModelType { get; set; } = (Site_Precipitation_PrecipitationModelType)Enum.Parse(typeof(Site_Precipitation_PrecipitationModelType), "ScheduleAndDesignLevel");
         
 
@@ -1648,13 +1662,12 @@ public System.Nullable<float> AverageTotalAnnualPrecipitation { get; set; } = nu
     public enum Site_Precipitation_PrecipitationModelType
     {
         
-        [JsonProperty("ScheduleAndDesignLevel")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduleAndDesignLevel")]
         ScheduleAndDesignLevel = 0,
     }
     
     [Description("Used to describe the amount of irrigation on the ecoroof surface over the course " +
         "of the simulation runperiod.")]
-    [JsonObject("RoofIrrigation")]
     public class RoofIrrigation : BHoMObject, IEnergyPlusClass
     {
         
@@ -1662,6 +1675,7 @@ public System.Nullable<float> AverageTotalAnnualPrecipitation { get; set; } = nu
 [Description("SmartSchedule will not allow irrigation when soil is already moist. Current thres" +
     "hold set at 30% of saturation.")]
 [JsonProperty("irrigation_model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public RoofIrrigation_IrrigationModelType IrrigationModelType { get; set; } = (RoofIrrigation_IrrigationModelType)Enum.Parse(typeof(RoofIrrigation_IrrigationModelType), "Schedule");
         
 
@@ -1679,16 +1693,15 @@ public System.Nullable<float> IrrigationMaximumSaturationThreshold { get; set; }
     public enum RoofIrrigation_IrrigationModelType
     {
         
-        [JsonProperty("Schedule")]
+        [System.Runtime.Serialization.EnumMember(Value="Schedule")]
         Schedule = 0,
         
-        [JsonProperty("SmartSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="SmartSchedule")]
         SmartSchedule = 1,
     }
     
     [Description("If this object is omitted, the default solar and visible spectrum data will be us" +
         "ed.")]
-    [JsonObject("Site:SolarAndVisibleSpectrum")]
     public class Site_SolarAndVisibleSpectrum : BHoMObject, IEnergyPlusClass
     {
         
@@ -1697,6 +1710,7 @@ public System.Nullable<float> IrrigationMaximumSaturationThreshold { get; set; }
     "alculations. Choices: Default - existing hard-wired spectrum data in EnergyPlus." +
     " UserDefined - user specified spectrum data referenced by the next two fields")]
 [JsonProperty("spectrum_data_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Site_SolarAndVisibleSpectrum_SpectrumDataMethod SpectrumDataMethod { get; set; } = (Site_SolarAndVisibleSpectrum_SpectrumDataMethod)Enum.Parse(typeof(Site_SolarAndVisibleSpectrum_SpectrumDataMethod), "Default");
         
 
@@ -1711,25 +1725,25 @@ public string VisibleSpectrumDataObjectName { get; set; } = "";
     public enum Site_SolarAndVisibleSpectrum_SpectrumDataMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Default")]
+        [System.Runtime.Serialization.EnumMember(Value="Default")]
         Default = 1,
         
-        [JsonProperty("UserDefined")]
+        [System.Runtime.Serialization.EnumMember(Value="UserDefined")]
         UserDefined = 2,
     }
     
     [Description("Spectrum Data Type is followed by up to 107 sets of normal-incidence measured val" +
         "ues of [wavelength, spectrum] for wavelengths covering the solar (0.25 to 2.5 mi" +
         "crons) or visible spectrum (0.38 to 0.78 microns)")]
-    [JsonObject("Site:SpectrumData")]
     public class Site_SpectrumData : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("spectrum_data_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Site_SpectrumData_SpectrumDataType SpectrumDataType { get; set; } = (Site_SpectrumData_SpectrumDataType)Enum.Parse(typeof(Site_SpectrumData_SpectrumDataType), "Solar");
         
 
@@ -1756,10 +1770,10 @@ public string Extensions { get; set; } = "";
     public enum Site_SpectrumData_SpectrumDataType
     {
         
-        [JsonProperty("Solar")]
+        [System.Runtime.Serialization.EnumMember(Value="Solar")]
         Solar = 0,
         
-        [JsonProperty("Visible")]
+        [System.Runtime.Serialization.EnumMember(Value="Visible")]
         Visible = 1,
     }
 }

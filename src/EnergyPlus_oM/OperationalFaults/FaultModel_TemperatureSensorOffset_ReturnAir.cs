@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes return air temperature sensor offset")]
-    [JsonObject("FaultModel:TemperatureSensorOffset:ReturnAir")]
     public class FaultModel_TemperatureSensorOffset_ReturnAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -21,6 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
         
 
         [JsonProperty("controller_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType), "ControllerOutdoorAir");
         
 

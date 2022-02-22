@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
 {
     public enum HeatExchanger_AirToAir_FlatPlate_FlowArrangementType
     {
         
-        [JsonProperty("CounterFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="CounterFlow")]
         CounterFlow = 0,
         
-        [JsonProperty("CrossFlowBothUnmixed")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlowBothUnmixed")]
         CrossFlowBothUnmixed = 1,
         
-        [JsonProperty("ParallelFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ParallelFlow")]
         ParallelFlow = 2,
     }
 }

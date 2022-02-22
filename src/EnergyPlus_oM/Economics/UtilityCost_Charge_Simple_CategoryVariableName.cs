@@ -1,38 +1,36 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum UtilityCost_Charge_Simple_CategoryVariableName
     {
         
-        [JsonProperty("Adjustment")]
+        [System.Runtime.Serialization.EnumMember(Value="Adjustment")]
         Adjustment = 0,
         
-        [JsonProperty("Basis")]
+        [System.Runtime.Serialization.EnumMember(Value="Basis")]
         Basis = 1,
         
-        [JsonProperty("DemandCharges")]
+        [System.Runtime.Serialization.EnumMember(Value="DemandCharges")]
         DemandCharges = 2,
         
-        [JsonProperty("EnergyCharges")]
+        [System.Runtime.Serialization.EnumMember(Value="EnergyCharges")]
         EnergyCharges = 3,
         
-        [JsonProperty("NotIncluded")]
+        [System.Runtime.Serialization.EnumMember(Value="NotIncluded")]
         NotIncluded = 4,
         
-        [JsonProperty("ServiceCharges")]
+        [System.Runtime.Serialization.EnumMember(Value="ServiceCharges")]
         ServiceCharges = 5,
         
-        [JsonProperty("Subtotal")]
+        [System.Runtime.Serialization.EnumMember(Value="Subtotal")]
         Subtotal = 6,
         
-        [JsonProperty("Surcharge")]
+        [System.Runtime.Serialization.EnumMember(Value="Surcharge")]
         Surcharge = 7,
         
-        [JsonProperty("Taxes")]
+        [System.Runtime.Serialization.EnumMember(Value="Taxes")]
         Taxes = 8,
         
-        [JsonProperty("Total")]
+        [System.Runtime.Serialization.EnumMember(Value="Total")]
         Total = 9,
     }
 }

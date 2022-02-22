@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     public enum Refrigeration_AirChiller_VerticalLocation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Ceiling")]
+        [System.Runtime.Serialization.EnumMember(Value="Ceiling")]
         Ceiling = 1,
         
-        [JsonProperty("Floor")]
+        [System.Runtime.Serialization.EnumMember(Value="Floor")]
         Floor = 2,
         
-        [JsonProperty("Middle")]
+        [System.Runtime.Serialization.EnumMember(Value="Middle")]
         Middle = 3,
     }
 }

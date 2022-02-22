@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     public enum AvailabilityManager_NightCycle_CyclingRunTimeControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FixedRunTime")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedRunTime")]
         FixedRunTime = 1,
         
-        [JsonProperty("Thermostat")]
+        [System.Runtime.Serialization.EnumMember(Value="Thermostat")]
         Thermostat = 2,
         
-        [JsonProperty("ThermostatWithMinimumRunTime")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatWithMinimumRunTime")]
         ThermostatWithMinimumRunTime = 3,
     }
 }

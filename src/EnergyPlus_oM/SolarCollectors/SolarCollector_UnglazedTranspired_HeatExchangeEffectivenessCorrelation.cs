@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
 {
     public enum SolarCollector_UnglazedTranspired_HeatExchangeEffectivenessCorrelation
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Kutscher1994")]
+        [System.Runtime.Serialization.EnumMember(Value="Kutscher1994")]
         Kutscher1994 = 1,
         
-        [JsonProperty("VanDeckerHollandsBrunger2001")]
+        [System.Runtime.Serialization.EnumMember(Value="VanDeckerHollandsBrunger2001")]
         VanDeckerHollandsBrunger2001 = 2,
     }
 }

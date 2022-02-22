@@ -10,15 +10,15 @@ namespace ClientAssemblyGeneration.Builders
 {
     public abstract class ClientCodeCompileUnitBuilder
     {
-        CodeCompileUnit clientCodeCompileUnit;
+        CodeCompileUnit _clientCodeCompileUnit;
 
         public ClientCodeCompileUnitBuilder()
         {
-            clientCodeCompileUnit = new CodeCompileUnit();
+            _clientCodeCompileUnit = new CodeCompileUnit();
         }
         public virtual CodeNamespace FindNamespace(string name)
         {
-            foreach (CodeNamespace clientNamespace in clientCodeCompileUnit.Namespaces)
+            foreach (CodeNamespace clientNamespace in _clientCodeCompileUnit.Namespaces)
                 if (clientNamespace.Name == name)
                     return clientNamespace;
             throw new Exception("The namespace doesn't exist (yet). Make sure to build it first.");
@@ -30,7 +30,6 @@ namespace ClientAssemblyGeneration.Builders
                     return clientClass;
             throw new Exception("The class doesn't exist (yet) in the namespace. Make sure to build it first.");
         }
-
         internal CodeTypeDeclaration FindEnum(string namespaceName, string name)
         {
             foreach (CodeTypeDeclaration clientClass in FindNamespace(namespaceName).Types)
@@ -41,11 +40,19 @@ namespace ClientAssemblyGeneration.Builders
 
         internal CodeTypeDeclaration FindEnum(string name)
         {
-            foreach (CodeNamespace clientNamespace in clientCodeCompileUnit.Namespaces)
+            foreach (CodeNamespace clientNamespace in _clientCodeCompileUnit.Namespaces)
                 foreach (CodeTypeDeclaration clientClass in clientNamespace.Types)
                     if (clientClass.Name == name && clientClass.IsEnum == true)
                         return clientClass;
             throw new Exception("The enum doesn't exist (yet). Make sure to build it first.");
+        }
+        internal bool IsEnumAvailable(string name)
+        {
+            foreach (CodeNamespace clientNamespace in _clientCodeCompileUnit.Namespaces)
+            foreach (CodeTypeDeclaration clientClass in clientNamespace.Types)
+                if (clientClass.Name == name && clientClass.IsEnum == true)
+                    return true;
+            return false;
         }
 
         public virtual void BuildNamespace(string name, string description = "", CodeNamespaceImport[] imports = null)
@@ -56,7 +63,7 @@ namespace ClientAssemblyGeneration.Builders
             };
             if (imports != null)
                 clientNamespace.Imports.AddRange(imports);
-            clientCodeCompileUnit.Namespaces.Add(clientNamespace);
+            _clientCodeCompileUnit.Namespaces.Add(clientNamespace);
         }
 
         public virtual void BuildAttribute() { }
@@ -149,6 +156,6 @@ namespace ClientAssemblyGeneration.Builders
         public virtual void BuildMethod() { }
         public virtual void BuildEvent() { }
 
-        public CodeCompileUnit GetClientCodeCompileUnit() => clientCodeCompileUnit;
+        public CodeCompileUnit GetClientCodeCompileUnit() => _clientCodeCompileUnit;
     }
 }

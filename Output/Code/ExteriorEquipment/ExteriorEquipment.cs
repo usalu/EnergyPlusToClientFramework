@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.ExteriorEquipment
     
     
     [Description("only used for Meter type reporting, does not affect building loads")]
-    [JsonObject("Exterior:Lights")]
     public class Exterior_Lights : BHoMObject, IEnergyPlusClass
     {
         
@@ -84,6 +83,7 @@ public System.Nullable<float> DesignLevel { get; set; } = null;
 
 [Description("Astronomical Clock option overrides schedule to turn lights off when sun is up")]
 [JsonProperty("control_option")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Exterior_Lights_ControlOption ControlOption { get; set; } = (Exterior_Lights_ControlOption)Enum.Parse(typeof(Exterior_Lights_ControlOption), "AstronomicalClock");
         
 
@@ -96,20 +96,20 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Exterior_Lights_ControlOption
     {
         
-        [JsonProperty("AstronomicalClock")]
+        [System.Runtime.Serialization.EnumMember(Value="AstronomicalClock")]
         AstronomicalClock = 0,
         
-        [JsonProperty("ScheduleNameOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduleNameOnly")]
         ScheduleNameOnly = 1,
     }
     
     [Description("only used for Meter type reporting, does not affect building loads")]
-    [JsonObject("Exterior:FuelEquipment")]
     public class Exterior_FuelEquipment : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("fuel_use_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Exterior_FuelEquipment_FuelUseType FuelUseType { get; set; } = (Exterior_FuelEquipment_FuelUseType)Enum.Parse(typeof(Exterior_FuelEquipment_FuelUseType), "Coal");
         
 
@@ -132,56 +132,56 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Exterior_FuelEquipment_FuelUseType
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("DistrictCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictCooling")]
         DistrictCooling = 2,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 3,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 4,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 5,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 6,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 7,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 8,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 9,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 10,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 11,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 12,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 13,
     }
     
     [Description("only used for Meter type reporting, does not affect building loads")]
-    [JsonObject("Exterior:WaterEquipment")]
     public class Exterior_WaterEquipment : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("fuel_use_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Exterior_WaterEquipment_FuelUseType FuelUseType { get; set; } = (Exterior_WaterEquipment_FuelUseType)Enum.Parse(typeof(Exterior_WaterEquipment_FuelUseType), "Water");
         
 
@@ -204,10 +204,10 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Exterior_WaterEquipment_FuelUseType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 1,
     }
 }

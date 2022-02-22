@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
 {
     public enum SolarCollector_UnglazedTranspired_HoleLayoutPatternForPitch
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Square")]
+        [System.Runtime.Serialization.EnumMember(Value="Square")]
         Square = 1,
         
-        [JsonProperty("Triangle")]
+        [System.Runtime.Serialization.EnumMember(Value="Triangle")]
         Triangle = 2,
     }
 }

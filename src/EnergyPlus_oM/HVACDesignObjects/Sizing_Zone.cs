@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     [Description(@"Specifies the data needed to perform a zone design air flow calculation. The calculation is done for every sizing period included in the input. The maximum cooling and heating load and cooling, heating, and ventilation air flows are then saved for system level and zone component design calculations.")]
-    [JsonObject("Sizing:Zone")]
     public class Sizing_Zone : BHoMObject, IEnergyPlusClass
     {
         
@@ -17,6 +16,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("zone_cooling_design_supply_air_temperature_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Sizing_Zone_ZoneCoolingDesignSupplyAirTemperatureInputMethod ZoneCoolingDesignSupplyAirTemperatureInputMethod { get; set; } = (Sizing_Zone_ZoneCoolingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(Sizing_Zone_ZoneCoolingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 
@@ -32,6 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("zone_heating_design_supply_air_temperature_input_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Sizing_Zone_ZoneHeatingDesignSupplyAirTemperatureInputMethod ZoneHeatingDesignSupplyAirTemperatureInputMethod { get; set; } = (Sizing_Zone_ZoneHeatingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(Sizing_Zone_ZoneHeatingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 
@@ -69,6 +70,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("cooling_design_air_flow_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Sizing_Zone_CoolingDesignAirFlowMethod CoolingDesignAirFlowMethod { get; set; } = (Sizing_Zone_CoolingDesignAirFlowMethod)Enum.Parse(typeof(Sizing_Zone_CoolingDesignAirFlowMethod), "DesignDay");
         
 
@@ -97,6 +99,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         
 
         [JsonProperty("heating_design_air_flow_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Sizing_Zone_HeatingDesignAirFlowMethod HeatingDesignAirFlowMethod { get; set; } = (Sizing_Zone_HeatingDesignAirFlowMethod)Enum.Parse(typeof(Sizing_Zone_HeatingDesignAirFlowMethod), "DesignDay");
         
 
@@ -132,12 +135,14 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
         [Description("account for effect of dedicated outdoor air system supplying air directly to the " +
                      "zone")]
         [JsonProperty("account_for_dedicated_outdoor_air_system")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes AccountForDedicatedOutdoorAirSystem { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
         [Description("1)supply neutral ventilation air; 2)supply neutral dehumidified and reheated vent" +
                      "ilation air; 3)supply cold ventilation air")]
         [JsonProperty("dedicated_outdoor_air_system_control_strategy")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Sizing_Zone_DedicatedOutdoorAirSystemControlStrategy DedicatedOutdoorAirSystemControlStrategy { get; set; } = (Sizing_Zone_DedicatedOutdoorAirSystemControlStrategy)Enum.Parse(typeof(Sizing_Zone_DedicatedOutdoorAirSystemControlStrategy), "NeutralSupplyAir");
         
 

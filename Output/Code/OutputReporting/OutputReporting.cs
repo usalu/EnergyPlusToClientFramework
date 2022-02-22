@@ -67,104 +67,107 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
     
     
     [Description(@"Produces a list summarizing the output variables and meters that are available for reporting for the model being simulated (rdd output file). The list varies depending on the types of objects present in the idf file. For example, variables related to lights will only appear if a Lights object is present. The IDF option generates complete Output:Variable objects to simplify adding the desired output to the idf file.")]
-    [JsonObject("Output:VariableDictionary")]
     public class Output_VariableDictionary : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("key_field")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_VariableDictionary_KeyField KeyField { get; set; } = (Output_VariableDictionary_KeyField)Enum.Parse(typeof(Output_VariableDictionary_KeyField), "Empty");
         
 
 [JsonProperty("sort_option")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_VariableDictionary_SortOption SortOption { get; set; } = (Output_VariableDictionary_SortOption)Enum.Parse(typeof(Output_VariableDictionary_SortOption), "Name");
     }
     
     public enum Output_VariableDictionary_KeyField
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("IDF")]
+        [System.Runtime.Serialization.EnumMember(Value="IDF")]
         IDF = 1,
         
-        [JsonProperty("regular")]
+        [System.Runtime.Serialization.EnumMember(Value="regular")]
         Regular = 2,
     }
     
     public enum Output_VariableDictionary_SortOption
     {
         
-        [JsonProperty("Name")]
+        [System.Runtime.Serialization.EnumMember(Value="Name")]
         Name = 0,
         
-        [JsonProperty("Unsorted")]
+        [System.Runtime.Serialization.EnumMember(Value="Unsorted")]
         Unsorted = 1,
     }
     
     [Description("Produces a report summarizing the details of surfaces in the eio output file.")]
-    [JsonObject("Output:Surfaces:List")]
     public class Output_Surfaces_List : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("report_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Surfaces_List_ReportType ReportType { get; set; } = (Output_Surfaces_List_ReportType)Enum.Parse(typeof(Output_Surfaces_List_ReportType), "CostInfo");
         
 
 [Description("(IDF, only for Output:Surfaces:List, Lines report -- will print transformed coord" +
     "inates in IDF style)")]
 [JsonProperty("report_specifications")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Surfaces_List_ReportSpecifications ReportSpecifications { get; set; } = (Output_Surfaces_List_ReportSpecifications)Enum.Parse(typeof(Output_Surfaces_List_ReportSpecifications), "IDF");
     }
     
     public enum Output_Surfaces_List_ReportType
     {
         
-        [JsonProperty("CostInfo")]
+        [System.Runtime.Serialization.EnumMember(Value="CostInfo")]
         CostInfo = 0,
         
-        [JsonProperty("DecayCurvesFromComponentLoadsSummary")]
+        [System.Runtime.Serialization.EnumMember(Value="DecayCurvesFromComponentLoadsSummary")]
         DecayCurvesFromComponentLoadsSummary = 1,
         
-        [JsonProperty("Details")]
+        [System.Runtime.Serialization.EnumMember(Value="Details")]
         Details = 2,
         
-        [JsonProperty("DetailsWithVertices")]
+        [System.Runtime.Serialization.EnumMember(Value="DetailsWithVertices")]
         DetailsWithVertices = 3,
         
-        [JsonProperty("Lines")]
+        [System.Runtime.Serialization.EnumMember(Value="Lines")]
         Lines = 4,
         
-        [JsonProperty("Vertices")]
+        [System.Runtime.Serialization.EnumMember(Value="Vertices")]
         Vertices = 5,
         
-        [JsonProperty("ViewFactorInfo")]
+        [System.Runtime.Serialization.EnumMember(Value="ViewFactorInfo")]
         ViewFactorInfo = 6,
     }
     
     public enum Output_Surfaces_List_ReportSpecifications
     {
         
-        [JsonProperty("IDF")]
+        [System.Runtime.Serialization.EnumMember(Value="IDF")]
         IDF = 0,
     }
     
     [Description("Produces reports/files that are capable of rendering graphically or being importe" +
         "d into other programs. Rendering does not alter the actual inputs/surfaces.")]
-    [JsonObject("Output:Surfaces:Drawing")]
     public class Output_Surfaces_Drawing : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("report_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Surfaces_Drawing_ReportType ReportType { get; set; } = (Output_Surfaces_Drawing_ReportType)Enum.Parse(typeof(Output_Surfaces_Drawing_ReportType), "DXF");
         
 
 [Description("Triangulate3DFace (default), ThickPolyline, RegularPolyline apply to DXF This fie" +
     "ld is ignored for DXF:WireFrame and VRML")]
 [JsonProperty("report_specifications_1")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Surfaces_Drawing_ReportSpecifications1 ReportSpecifications1 { get; set; } = (Output_Surfaces_Drawing_ReportSpecifications1)Enum.Parse(typeof(Output_Surfaces_Drawing_ReportSpecifications1), "Triangulate3DFace");
         
 
@@ -176,164 +179,167 @@ public string ReportSpecifications2 { get; set; } = "";
     public enum Output_Surfaces_Drawing_ReportType
     {
         
-        [JsonProperty("DXF")]
+        [System.Runtime.Serialization.EnumMember(Value="DXF")]
         DXF = 0,
         
-        [JsonProperty("DXF:WireFrame")]
+        [System.Runtime.Serialization.EnumMember(Value="DXF:WireFrame")]
         DXFWireFrame = 1,
         
-        [JsonProperty("VRML")]
+        [System.Runtime.Serialization.EnumMember(Value="VRML")]
         VRML = 2,
     }
     
     public enum Output_Surfaces_Drawing_ReportSpecifications1
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("RegularPolyline")]
+        [System.Runtime.Serialization.EnumMember(Value="RegularPolyline")]
         RegularPolyline = 1,
         
-        [JsonProperty("ThickPolyline")]
+        [System.Runtime.Serialization.EnumMember(Value="ThickPolyline")]
         ThickPolyline = 2,
         
-        [JsonProperty("Triangulate3DFace")]
+        [System.Runtime.Serialization.EnumMember(Value="Triangulate3DFace")]
         Triangulate3DFace = 3,
     }
     
     [Description("Produces a condensed reporting that illustrates the full range of schedule values" +
         " in the eio output file. In the style of input: DaySchedule,  WeekSchedule, and " +
         "Annual Schedule.")]
-    [JsonObject("Output:Schedules")]
     public class Output_Schedules : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("key_field")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Schedules_KeyField KeyField { get; set; } = (Output_Schedules_KeyField)Enum.Parse(typeof(Output_Schedules_KeyField), "Hourly");
     }
     
     public enum Output_Schedules_KeyField
     {
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 0,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 1,
     }
     
     [Description("Adds a report to the eio output file which shows details for each construction, i" +
         "ncluding overall properties, a list of material layers, and calculated results r" +
         "elated to conduction transfer functions.")]
-    [JsonObject("Output:Constructions")]
     public class Output_Constructions : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("details_type_1")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Constructions_DetailsType1 DetailsType1 { get; set; } = (Output_Constructions_DetailsType1)Enum.Parse(typeof(Output_Constructions_DetailsType1), "Constructions");
         
 
 [JsonProperty("details_type_2")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Constructions_DetailsType2 DetailsType2 { get; set; } = (Output_Constructions_DetailsType2)Enum.Parse(typeof(Output_Constructions_DetailsType2), "Constructions");
     }
     
     public enum Output_Constructions_DetailsType1
     {
         
-        [JsonProperty("Constructions")]
+        [System.Runtime.Serialization.EnumMember(Value="Constructions")]
         Constructions = 0,
         
-        [JsonProperty("Materials")]
+        [System.Runtime.Serialization.EnumMember(Value="Materials")]
         Materials = 1,
     }
     
     public enum Output_Constructions_DetailsType2
     {
         
-        [JsonProperty("Constructions")]
+        [System.Runtime.Serialization.EnumMember(Value="Constructions")]
         Constructions = 0,
         
-        [JsonProperty("Materials")]
+        [System.Runtime.Serialization.EnumMember(Value="Materials")]
         Materials = 1,
     }
     
     [Description("This object is used to control the output produced by the Energy Management Syste" +
         "m")]
-    [JsonObject("Output:EnergyManagementSystem")]
     public class Output_EnergyManagementSystem : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("actuator_availability_dictionary_reporting")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_EnergyManagementSystem_ActuatorAvailabilityDictionaryReporting ActuatorAvailabilityDictionaryReporting { get; set; } = (Output_EnergyManagementSystem_ActuatorAvailabilityDictionaryReporting)Enum.Parse(typeof(Output_EnergyManagementSystem_ActuatorAvailabilityDictionaryReporting), "None");
         
 
 [JsonProperty("internal_variable_availability_dictionary_reporting")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_EnergyManagementSystem_InternalVariableAvailabilityDictionaryReporting InternalVariableAvailabilityDictionaryReporting { get; set; } = (Output_EnergyManagementSystem_InternalVariableAvailabilityDictionaryReporting)Enum.Parse(typeof(Output_EnergyManagementSystem_InternalVariableAvailabilityDictionaryReporting), "None");
         
 
 [JsonProperty("ems_runtime_language_debug_output_level")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_EnergyManagementSystem_EmsRuntimeLanguageDebugOutputLevel EmsRuntimeLanguageDebugOutputLevel { get; set; } = (Output_EnergyManagementSystem_EmsRuntimeLanguageDebugOutputLevel)Enum.Parse(typeof(Output_EnergyManagementSystem_EmsRuntimeLanguageDebugOutputLevel), "None");
     }
     
     public enum Output_EnergyManagementSystem_ActuatorAvailabilityDictionaryReporting
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 1,
         
-        [JsonProperty("NotByUniqueKeyNames")]
+        [System.Runtime.Serialization.EnumMember(Value="NotByUniqueKeyNames")]
         NotByUniqueKeyNames = 2,
         
-        [JsonProperty("Verbose")]
+        [System.Runtime.Serialization.EnumMember(Value="Verbose")]
         Verbose = 3,
     }
     
     public enum Output_EnergyManagementSystem_InternalVariableAvailabilityDictionaryReporting
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 1,
         
-        [JsonProperty("NotByUniqueKeyNames")]
+        [System.Runtime.Serialization.EnumMember(Value="NotByUniqueKeyNames")]
         NotByUniqueKeyNames = 2,
         
-        [JsonProperty("Verbose")]
+        [System.Runtime.Serialization.EnumMember(Value="Verbose")]
         Verbose = 3,
     }
     
     public enum Output_EnergyManagementSystem_EmsRuntimeLanguageDebugOutputLevel
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ErrorsOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ErrorsOnly")]
         ErrorsOnly = 1,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 2,
         
-        [JsonProperty("Verbose")]
+        [System.Runtime.Serialization.EnumMember(Value="Verbose")]
         Verbose = 3,
     }
     
     [Description(@"This object is used to set colors for reporting on various building elements particularly for the DXF reports. We know the user can enter 0 to 255 and the color map is available in DXF output. Therefore, we are limiting the colors in that range. You can extend by editing the IDD but you do so on your own. Colors not changed in any scheme will remain as the default scheme uses.")]
-    [JsonObject("OutputControl:SurfaceColorScheme")]
     public class OutputControl_SurfaceColorScheme : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("drawing_element_1_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement1Type DrawingElement1Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement1Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement1Type), "AttachedBuildingShades");
         
 
@@ -343,6 +349,7 @@ public System.Nullable<float> ColorForDrawingElement1 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_2_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement2Type DrawingElement2Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement2Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement2Type), "AttachedBuildingShades");
         
 
@@ -352,6 +359,7 @@ public System.Nullable<float> ColorForDrawingElement2 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_3_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement3Type DrawingElement3Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement3Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement3Type), "AttachedBuildingShades");
         
 
@@ -361,6 +369,7 @@ public System.Nullable<float> ColorForDrawingElement3 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_4_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement4Type DrawingElement4Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement4Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement4Type), "AttachedBuildingShades");
         
 
@@ -370,6 +379,7 @@ public System.Nullable<float> ColorForDrawingElement4 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_5_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement5Type DrawingElement5Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement5Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement5Type), "AttachedBuildingShades");
         
 
@@ -379,6 +389,7 @@ public System.Nullable<float> ColorForDrawingElement5 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_6_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement6Type DrawingElement6Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement6Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement6Type), "AttachedBuildingShades");
         
 
@@ -388,6 +399,7 @@ public System.Nullable<float> ColorForDrawingElement6 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_7_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement7Type DrawingElement7Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement7Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement7Type), "AttachedBuildingShades");
         
 
@@ -397,6 +409,7 @@ public System.Nullable<float> ColorForDrawingElement7 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_8_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement8Type DrawingElement8Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement8Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement8Type), "AttachedBuildingShades");
         
 
@@ -406,6 +419,7 @@ public System.Nullable<float> ColorForDrawingElement8 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_9_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement9Type DrawingElement9Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement9Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement9Type), "AttachedBuildingShades");
         
 
@@ -415,6 +429,7 @@ public System.Nullable<float> ColorForDrawingElement9 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_10_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement10Type DrawingElement10Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement10Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement10Type), "AttachedBuildingShades");
         
 
@@ -424,6 +439,7 @@ public System.Nullable<float> ColorForDrawingElement10 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_11_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement11Type DrawingElement11Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement11Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement11Type), "AttachedBuildingShades");
         
 
@@ -433,6 +449,7 @@ public System.Nullable<float> ColorForDrawingElement11 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_12_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement12Type DrawingElement12Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement12Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement12Type), "AttachedBuildingShades");
         
 
@@ -442,6 +459,7 @@ public System.Nullable<float> ColorForDrawingElement12 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_13_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement13Type DrawingElement13Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement13Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement13Type), "AttachedBuildingShades");
         
 
@@ -451,6 +469,7 @@ public System.Nullable<float> ColorForDrawingElement13 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_14_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement14Type DrawingElement14Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement14Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement14Type), "AttachedBuildingShades");
         
 
@@ -460,6 +479,7 @@ public System.Nullable<float> ColorForDrawingElement14 { get; set; } = null;
         
 
 [JsonProperty("drawing_element_15_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement15Type DrawingElement15Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement15Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement15Type), "AttachedBuildingShades");
         
 
@@ -471,740 +491,739 @@ public System.Nullable<float> ColorForDrawingElement15 { get; set; } = null;
     public enum OutputControl_SurfaceColorScheme_DrawingElement1Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement2Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement3Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement4Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement5Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement6Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement7Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement8Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement9Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement10Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement11Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement12Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement13Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement14Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement15Type
     {
         
-        [JsonProperty("AttachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="AttachedBuildingShades")]
         AttachedBuildingShades = 0,
         
-        [JsonProperty("DaylightReferencePoint1")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint1")]
         DaylightReferencePoint1 = 1,
         
-        [JsonProperty("DaylightReferencePoint2")]
+        [System.Runtime.Serialization.EnumMember(Value="DaylightReferencePoint2")]
         DaylightReferencePoint2 = 2,
         
-        [JsonProperty("DetachedBuildingShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedBuildingShades")]
         DetachedBuildingShades = 3,
         
-        [JsonProperty("DetachedFixedShades")]
+        [System.Runtime.Serialization.EnumMember(Value="DetachedFixedShades")]
         DetachedFixedShades = 4,
         
-        [JsonProperty("Doors")]
+        [System.Runtime.Serialization.EnumMember(Value="Doors")]
         Doors = 5,
         
-        [JsonProperty("Floors")]
+        [System.Runtime.Serialization.EnumMember(Value="Floors")]
         Floors = 6,
         
-        [JsonProperty("GlassDoors")]
+        [System.Runtime.Serialization.EnumMember(Value="GlassDoors")]
         GlassDoors = 7,
         
-        [JsonProperty("Photovoltaics")]
+        [System.Runtime.Serialization.EnumMember(Value="Photovoltaics")]
         Photovoltaics = 8,
         
-        [JsonProperty("Roofs")]
+        [System.Runtime.Serialization.EnumMember(Value="Roofs")]
         Roofs = 9,
         
-        [JsonProperty("Text")]
+        [System.Runtime.Serialization.EnumMember(Value="Text")]
         Text = 10,
         
-        [JsonProperty("TubularDaylightDiffusers")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDiffusers")]
         TubularDaylightDiffusers = 11,
         
-        [JsonProperty("TubularDaylightDomes")]
+        [System.Runtime.Serialization.EnumMember(Value="TubularDaylightDomes")]
         TubularDaylightDomes = 12,
         
-        [JsonProperty("Walls")]
+        [System.Runtime.Serialization.EnumMember(Value="Walls")]
         Walls = 13,
         
-        [JsonProperty("Windows")]
+        [System.Runtime.Serialization.EnumMember(Value="Windows")]
         Windows = 14,
     }
     
     [Description(@"This object allows the user to call report types that are predefined and will appear with the other tabular reports. These predefined reports are sensitive to the OutputControl:Table:Style object and appear in the same files as the tabular reports. The entries for this object is a list of the predefined reports that should appear in the tabular report output file.")]
-    [JsonObject("Output:Table:SummaryReports")]
     public class Output_Table_SummaryReports : BHoMObject, IEnergyPlusClass
     {
         
@@ -1217,7 +1236,6 @@ public string Reports { get; set; } = "";
         "hours that occurs in different bins for a single specific output variable or met" +
         "er. Two different types of binning are reported: by month and by hour of the day" +
         ".")]
-    [JsonObject("Output:Table:TimeBins")]
     public class Output_Table_TimeBins : BHoMObject, IEnergyPlusClass
     {
         
@@ -1256,27 +1274,27 @@ public string ScheduleName { get; set; } = "";
 [Description("Optional input on the type of units for the variable used by other fields in the " +
     "object.")]
 [JsonProperty("variable_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Table_TimeBins_VariableType VariableType { get; set; } = (Output_Table_TimeBins_VariableType)Enum.Parse(typeof(Output_Table_TimeBins_VariableType), "Energy");
     }
     
     public enum Output_Table_TimeBins_VariableType
     {
         
-        [JsonProperty("Energy")]
+        [System.Runtime.Serialization.EnumMember(Value="Energy")]
         Energy = 0,
         
-        [JsonProperty("Power")]
+        [System.Runtime.Serialization.EnumMember(Value="Power")]
         Power = 1,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 2,
         
-        [JsonProperty("VolumetricFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="VolumetricFlow")]
         VolumetricFlow = 3,
     }
     
     [Description(@"Provides a generic method of setting up tables of monthly results. The report has multiple columns that are each defined using a repeated group of fields for any number of columns. A single Output:Table:Monthly object often produces multiple tables in the output. A table is produced for every instance of a particular output variable. For example, a table defined with zone variables will be produced once for every zone.")]
-    [JsonObject("Output:Table:Monthly")]
     public class Output_Table_Monthly : BHoMObject, IEnergyPlusClass
     {
         
@@ -1290,7 +1308,6 @@ public string VariableDetails { get; set; } = "";
     }
     
     [Description(@"Provides a generic method of setting up tables of annual results with one row per object. The report has multiple columns that are each defined using a repeated group of fields for any number of columns. A single Output:Table:Annual produces a single table in the output.")]
-    [JsonObject("Output:Table:Annual")]
     public class Output_Table_Annual : BHoMObject, IEnergyPlusClass
     {
         
@@ -1312,82 +1329,82 @@ public string VariableDetails { get; set; } = "";
     }
     
     [Description(@"default style for the OutputControl:Table:Style is comma -- this works well for importing into spreadsheet programs such as Excel(tm) but not so well for word processing programs -- there tab may be a better choice. fixed puts spaces between the ""columns"". HTML produces tables in HTML. XML produces an XML file. note - if no OutputControl:Table:Style is included, the defaults are comma and None.")]
-    [JsonObject("OutputControl:Table:Style")]
     public class OutputControl_Table_Style : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("column_separator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_Table_Style_ColumnSeparator ColumnSeparator { get; set; } = (OutputControl_Table_Style_ColumnSeparator)Enum.Parse(typeof(OutputControl_Table_Style_ColumnSeparator), "Comma");
         
 
 [JsonProperty("unit_conversion")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_Table_Style_UnitConversion UnitConversion { get; set; } = (OutputControl_Table_Style_UnitConversion)Enum.Parse(typeof(OutputControl_Table_Style_UnitConversion), "None");
     }
     
     public enum OutputControl_Table_Style_ColumnSeparator
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("All")]
+        [System.Runtime.Serialization.EnumMember(Value="All")]
         All = 1,
         
-        [JsonProperty("Comma")]
+        [System.Runtime.Serialization.EnumMember(Value="Comma")]
         Comma = 2,
         
-        [JsonProperty("CommaAndHTML")]
+        [System.Runtime.Serialization.EnumMember(Value="CommaAndHTML")]
         CommaAndHTML = 3,
         
-        [JsonProperty("CommaAndXML")]
+        [System.Runtime.Serialization.EnumMember(Value="CommaAndXML")]
         CommaAndXML = 4,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 5,
         
-        [JsonProperty("HTML")]
+        [System.Runtime.Serialization.EnumMember(Value="HTML")]
         HTML = 6,
         
-        [JsonProperty("Tab")]
+        [System.Runtime.Serialization.EnumMember(Value="Tab")]
         Tab = 7,
         
-        [JsonProperty("TabAndHTML")]
+        [System.Runtime.Serialization.EnumMember(Value="TabAndHTML")]
         TabAndHTML = 8,
         
-        [JsonProperty("XML")]
+        [System.Runtime.Serialization.EnumMember(Value="XML")]
         XML = 9,
         
-        [JsonProperty("XMLandHTML")]
+        [System.Runtime.Serialization.EnumMember(Value="XMLandHTML")]
         XMLandHTML = 10,
     }
     
     public enum OutputControl_Table_Style_UnitConversion
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("InchPound")]
+        [System.Runtime.Serialization.EnumMember(Value="InchPound")]
         InchPound = 1,
         
-        [JsonProperty("JtoGJ")]
+        [System.Runtime.Serialization.EnumMember(Value="JtoGJ")]
         JtoGJ = 2,
         
-        [JsonProperty("JtoKWH")]
+        [System.Runtime.Serialization.EnumMember(Value="JtoKWH")]
         JtoKWH = 3,
         
-        [JsonProperty("JtoMJ")]
+        [System.Runtime.Serialization.EnumMember(Value="JtoMJ")]
         JtoMJ = 4,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 5,
     }
     
     [Description("Calculations of the time that setpoints are not met use a tolerance of 0.2C. This" +
         " object allows changing the tolerance used to determine when setpoints are being" +
         " met.")]
-    [JsonObject("OutputControl:ReportingTolerances")]
     public class OutputControl_ReportingTolerances : BHoMObject, IEnergyPlusClass
     {
         
@@ -1403,7 +1420,6 @@ public System.Nullable<float> ToleranceForTimeCoolingSetpointNotMet { get; set; 
     }
     
     [Description(@"each Output:Variable command picks variables to be put onto the standard output file (.eso) some variables may not be reported for every simulation. a list of variables that can be reported are available after a run on the report dictionary file (.rdd) if the Output:VariableDictionary has been requested.")]
-    [JsonObject("Output:Variable")]
     public class Output_Variable : BHoMObject, IEnergyPlusClass
     {
         
@@ -1421,6 +1437,7 @@ public string VariableName { get; set; } = "";
     "he zone Timestep/Number of Timesteps in hour value RunPeriod and Environment are" +
     " the same")]
 [JsonProperty("reporting_frequency")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Variable_ReportingFrequency ReportingFrequency { get; set; } = (Output_Variable_ReportingFrequency)Enum.Parse(typeof(Output_Variable_ReportingFrequency), "Hourly");
         
 
@@ -1431,36 +1448,35 @@ public string ScheduleName { get; set; } = "";
     public enum Output_Variable_ReportingFrequency
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 1,
         
-        [JsonProperty("Daily")]
+        [System.Runtime.Serialization.EnumMember(Value="Daily")]
         Daily = 2,
         
-        [JsonProperty("Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="Detailed")]
         Detailed = 3,
         
-        [JsonProperty("Environment")]
+        [System.Runtime.Serialization.EnumMember(Value="Environment")]
         Environment = 4,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 5,
         
-        [JsonProperty("Monthly")]
+        [System.Runtime.Serialization.EnumMember(Value="Monthly")]
         Monthly = 6,
         
-        [JsonProperty("RunPeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="RunPeriod")]
         RunPeriod = 7,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 8,
     }
     
     [Description(@"Each Output:Meter command picks meters to be put onto the standard output file (.eso) and meter file (.mtr). Not all meters are reported in every simulation. A list of meters that can be reported are available after a run on the meter dictionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    [JsonObject("Output:Meter")]
     public class Output_Meter : BHoMObject, IEnergyPlusClass
     {
         
@@ -1475,42 +1491,42 @@ public string KeyName { get; set; } = "";
 [Description("Timestep refers to the zone Timestep/Number of Timesteps in hour value RunPeriod " +
     "and Environment are the same")]
 [JsonProperty("reporting_frequency")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Meter_ReportingFrequency ReportingFrequency { get; set; } = (Output_Meter_ReportingFrequency)Enum.Parse(typeof(Output_Meter_ReportingFrequency), "Hourly");
     }
     
     public enum Output_Meter_ReportingFrequency
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 1,
         
-        [JsonProperty("Daily")]
+        [System.Runtime.Serialization.EnumMember(Value="Daily")]
         Daily = 2,
         
-        [JsonProperty("Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="Detailed")]
         Detailed = 3,
         
-        [JsonProperty("Environment")]
+        [System.Runtime.Serialization.EnumMember(Value="Environment")]
         Environment = 4,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 5,
         
-        [JsonProperty("Monthly")]
+        [System.Runtime.Serialization.EnumMember(Value="Monthly")]
         Monthly = 6,
         
-        [JsonProperty("RunPeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="RunPeriod")]
         RunPeriod = 7,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 8,
     }
     
     [Description(@"Each Output:Meter:MeterFileOnly command picks meters to be put only onto meter file (.mtr). Not all meters are reported in every simulation. A list of meters that can be reported a list of meters that can be reported are available after a run on the meter dictionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    [JsonObject("Output:Meter:MeterFileOnly")]
     public class Output_Meter_MeterFileOnly : BHoMObject, IEnergyPlusClass
     {
         
@@ -1525,42 +1541,42 @@ public string KeyName { get; set; } = "";
 [Description("Timestep refers to the zone Timestep/Number of Timesteps in hour value RunPeriod " +
     "and Environment are the same")]
 [JsonProperty("reporting_frequency")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Meter_MeterFileOnly_ReportingFrequency ReportingFrequency { get; set; } = (Output_Meter_MeterFileOnly_ReportingFrequency)Enum.Parse(typeof(Output_Meter_MeterFileOnly_ReportingFrequency), "Hourly");
     }
     
     public enum Output_Meter_MeterFileOnly_ReportingFrequency
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 1,
         
-        [JsonProperty("Daily")]
+        [System.Runtime.Serialization.EnumMember(Value="Daily")]
         Daily = 2,
         
-        [JsonProperty("Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="Detailed")]
         Detailed = 3,
         
-        [JsonProperty("Environment")]
+        [System.Runtime.Serialization.EnumMember(Value="Environment")]
         Environment = 4,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 5,
         
-        [JsonProperty("Monthly")]
+        [System.Runtime.Serialization.EnumMember(Value="Monthly")]
         Monthly = 6,
         
-        [JsonProperty("RunPeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="RunPeriod")]
         RunPeriod = 7,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 8,
     }
     
     [Description(@"Each Output:Meter:Cumulative command picks meters to be reported cumulatively onto the standard output file (.eso) and meter file (.mtr). Not all meters are reported in every simulation. a list of meters that can be reported are available after a run on the meter dictionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    [JsonObject("Output:Meter:Cumulative")]
     public class Output_Meter_Cumulative : BHoMObject, IEnergyPlusClass
     {
         
@@ -1575,42 +1591,42 @@ public string KeyName { get; set; } = "";
 [Description("Timestep refers to the zone Timestep/Number of Timesteps in hour value RunPeriod " +
     "and Environment are the same")]
 [JsonProperty("reporting_frequency")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Meter_Cumulative_ReportingFrequency ReportingFrequency { get; set; } = (Output_Meter_Cumulative_ReportingFrequency)Enum.Parse(typeof(Output_Meter_Cumulative_ReportingFrequency), "Hourly");
     }
     
     public enum Output_Meter_Cumulative_ReportingFrequency
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 1,
         
-        [JsonProperty("Daily")]
+        [System.Runtime.Serialization.EnumMember(Value="Daily")]
         Daily = 2,
         
-        [JsonProperty("Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="Detailed")]
         Detailed = 3,
         
-        [JsonProperty("Environment")]
+        [System.Runtime.Serialization.EnumMember(Value="Environment")]
         Environment = 4,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 5,
         
-        [JsonProperty("Monthly")]
+        [System.Runtime.Serialization.EnumMember(Value="Monthly")]
         Monthly = 6,
         
-        [JsonProperty("RunPeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="RunPeriod")]
         RunPeriod = 7,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 8,
     }
     
     [Description(@"Each Output:Meter:Cumulative:MeterFileOnly command picks meters to be reported cumulatively onto the standard output file (.eso) and meter file (.mtr). Not all meters are reported in every simulation. a list of meters that can be reported are available after a run on the meter dictionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    [JsonObject("Output:Meter:Cumulative:MeterFileOnly")]
     public class Output_Meter_Cumulative_MeterFileOnly : BHoMObject, IEnergyPlusClass
     {
         
@@ -1625,47 +1641,48 @@ public string KeyName { get; set; } = "";
 [Description("Timestep refers to the zone Timestep/Number of Timesteps in hour value RunPeriod " +
     "and Environment are the same")]
 [JsonProperty("reporting_frequency")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Meter_Cumulative_MeterFileOnly_ReportingFrequency ReportingFrequency { get; set; } = (Output_Meter_Cumulative_MeterFileOnly_ReportingFrequency)Enum.Parse(typeof(Output_Meter_Cumulative_MeterFileOnly_ReportingFrequency), "Hourly");
     }
     
     public enum Output_Meter_Cumulative_MeterFileOnly_ReportingFrequency
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 1,
         
-        [JsonProperty("Daily")]
+        [System.Runtime.Serialization.EnumMember(Value="Daily")]
         Daily = 2,
         
-        [JsonProperty("Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="Detailed")]
         Detailed = 3,
         
-        [JsonProperty("Environment")]
+        [System.Runtime.Serialization.EnumMember(Value="Environment")]
         Environment = 4,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 5,
         
-        [JsonProperty("Monthly")]
+        [System.Runtime.Serialization.EnumMember(Value="Monthly")]
         Monthly = 6,
         
-        [JsonProperty("RunPeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="RunPeriod")]
         RunPeriod = 7,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 8,
     }
     
     [Description(@"Used to allow users to combine specific variables and/or meters into ""custom"" meter configurations. To access these meters by name, one must first run a simulation to generate the RDD/MDD files and names. A Meter:Custom cannot reference another Meter:Custom.")]
-    [JsonObject("Meter:Custom")]
     public class Meter_Custom : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("resource_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Meter_Custom_ResourceType ResourceType { get; set; } = (Meter_Custom_ResourceType)Enum.Parse(typeof(Meter_Custom_ResourceType), "Coal");
         
 
@@ -1676,61 +1693,61 @@ public string VariableDetails { get; set; } = "";
     public enum Meter_Custom_ResourceType
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("DistrictCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictCooling")]
         DistrictCooling = 2,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 3,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 4,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 5,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 6,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 7,
         
-        [JsonProperty("Generic")]
+        [System.Runtime.Serialization.EnumMember(Value="Generic")]
         Generic = 8,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 9,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 10,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 11,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 12,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 13,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 14,
     }
     
     [Description("Used to allow users to combine specific variables and/or meters into \"custom\" met" +
         "er configurations. To access these meters by name, one must first run a simulati" +
         "on to generate the RDD/MDD files and names.")]
-    [JsonObject("Meter:CustomDecrement")]
     public class Meter_CustomDecrement : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("resource_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Meter_CustomDecrement_ResourceType ResourceType { get; set; } = (Meter_CustomDecrement_ResourceType)Enum.Parse(typeof(Meter_CustomDecrement_ResourceType), "Coal");
         
 
@@ -1745,269 +1762,302 @@ public string VariableDetails { get; set; } = "";
     public enum Meter_CustomDecrement_ResourceType
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("DistrictCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictCooling")]
         DistrictCooling = 2,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 3,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 4,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 5,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 6,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 7,
         
-        [JsonProperty("Generic")]
+        [System.Runtime.Serialization.EnumMember(Value="Generic")]
         Generic = 8,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 9,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 10,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 11,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 12,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 13,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 14,
     }
     
     [Description("Conditionally turn on/off output from EnergyPlus.")]
-    [JsonObject("OutputControl:Files")]
     public class OutputControl_Files : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("output_csv")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputCsv { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("output_mtr")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputMtr { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_eso")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputEso { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_eio")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputEio { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_tabular")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputTabular { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_sqlite")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputSqlite { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_json")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputJson { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_audit")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputAudit { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_zone_sizing")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputZoneSizing { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_system_sizing")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputSystemSizing { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_dxf")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputDxf { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_bnd")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputBnd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_rdd")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputRdd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_mdd")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputMdd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_mtd")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputMtd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_end")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputEnd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_shd")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputShd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_dfs")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputDfs { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_glhe")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputGlhe { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_delightin")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputDelightin { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_delighteldmp")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputDelighteldmp { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_delightdfdmp")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputDelightdfdmp { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_edd")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputEdd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_dbg")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputDbg { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_perflog")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputPerflog { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_sln")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputSln { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_sci")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputSci { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_wrl")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputWrl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_screen")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputScreen { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_extshd")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputExtshd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [Description("Not Implemented Yet")]
 [JsonProperty("output_tarcog")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputTarcog { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
     }
     
     [Description("Output from EnergyPlus can be written to JSON format files.")]
-    [JsonObject("Output:JSON")]
     public class Output_JSON : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("option_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_JSON_OptionType OptionType { get; set; } = (Output_JSON_OptionType)Enum.Parse(typeof(Output_JSON_OptionType), "TimeSeries");
         
 
 [JsonProperty("output_json")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputJson { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [JsonProperty("output_cbor")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputCbor { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("output_messagepack")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputMessagepack { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
     
     public enum Output_JSON_OptionType
     {
         
-        [JsonProperty("TimeSeries")]
+        [System.Runtime.Serialization.EnumMember(Value="TimeSeries")]
         TimeSeries = 0,
         
-        [JsonProperty("TimeSeriesAndTabular")]
+        [System.Runtime.Serialization.EnumMember(Value="TimeSeriesAndTabular")]
         TimeSeriesAndTabular = 1,
     }
     
     [Description("Output from EnergyPlus can be written to an SQLite format file.")]
-    [JsonObject("Output:SQLite")]
     public class Output_SQLite : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("option_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_SQLite_OptionType OptionType { get; set; } = (Output_SQLite_OptionType)Enum.Parse(typeof(Output_SQLite_OptionType), "Simple");
         
 
 [Description("Unit conversion option used when writing SQLite Tabular Data This option applies " +
     "to TabularData and TabularDatawithString in the SQLite file")]
 [JsonProperty("unit_conversion_for_tabular_data")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_SQLite_UnitConversionForTabularData UnitConversionForTabularData { get; set; } = (Output_SQLite_UnitConversionForTabularData)Enum.Parse(typeof(Output_SQLite_UnitConversionForTabularData), "UseOutputControlTableStyle");
     }
     
     public enum Output_SQLite_OptionType
     {
         
-        [JsonProperty("Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="Simple")]
         Simple = 0,
         
-        [JsonProperty("SimpleAndTabular")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleAndTabular")]
         SimpleAndTabular = 1,
     }
     
     public enum Output_SQLite_UnitConversionForTabularData
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("InchPound")]
+        [System.Runtime.Serialization.EnumMember(Value="InchPound")]
         InchPound = 1,
         
-        [JsonProperty("JtoGJ")]
+        [System.Runtime.Serialization.EnumMember(Value="JtoGJ")]
         JtoGJ = 2,
         
-        [JsonProperty("JtoKWH")]
+        [System.Runtime.Serialization.EnumMember(Value="JtoKWH")]
         JtoKWH = 3,
         
-        [JsonProperty("JtoMJ")]
+        [System.Runtime.Serialization.EnumMember(Value="JtoMJ")]
         JtoMJ = 4,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 5,
         
-        [JsonProperty("UseOutputControlTableStyle")]
+        [System.Runtime.Serialization.EnumMember(Value="UseOutputControlTableStyle")]
         UseOutputControlTableStyle = 6,
     }
     
     [Description("This is used to Automatically report the facility meters and turn on the Environm" +
         "ental Impact Report calculations for all of the Environmental Factors.")]
-    [JsonObject("Output:EnvironmentalImpactFactors")]
     public class Output_EnvironmentalImpactFactors : BHoMObject, IEnergyPlusClass
     {
         
@@ -2015,37 +2065,37 @@ public Output_SQLite_UnitConversionForTabularData UnitConversionForTabularData {
 [Description("Timestep refers to the zone Timestep/Number of Timesteps in hour value RunPeriod " +
     "and Environment are the same. Detailed is not a valid choice.")]
 [JsonProperty("reporting_frequency")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_EnvironmentalImpactFactors_ReportingFrequency ReportingFrequency { get; set; } = (Output_EnvironmentalImpactFactors_ReportingFrequency)Enum.Parse(typeof(Output_EnvironmentalImpactFactors_ReportingFrequency), "Annual");
     }
     
     public enum Output_EnvironmentalImpactFactors_ReportingFrequency
     {
         
-        [JsonProperty("Annual")]
+        [System.Runtime.Serialization.EnumMember(Value="Annual")]
         Annual = 0,
         
-        [JsonProperty("Daily")]
+        [System.Runtime.Serialization.EnumMember(Value="Daily")]
         Daily = 1,
         
-        [JsonProperty("Environment")]
+        [System.Runtime.Serialization.EnumMember(Value="Environment")]
         Environment = 2,
         
-        [JsonProperty("Hourly")]
+        [System.Runtime.Serialization.EnumMember(Value="Hourly")]
         Hourly = 3,
         
-        [JsonProperty("Monthly")]
+        [System.Runtime.Serialization.EnumMember(Value="Monthly")]
         Monthly = 4,
         
-        [JsonProperty("RunPeriod")]
+        [System.Runtime.Serialization.EnumMember(Value="RunPeriod")]
         RunPeriod = 5,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 6,
     }
     
     [Description("Used to help convert district and ideal energy use to a fuel type and provide tot" +
         "al carbon equivalent with coefficients Also used in Source=>Site conversions.")]
-    [JsonObject("EnvironmentalImpactFactors")]
     public class EnvironmentalImpactFactors : BHoMObject, IEnergyPlusClass
     {
         
@@ -2080,12 +2130,12 @@ public System.Nullable<float> TotalCarbonEquivalentEmissionFactorFromCo2 { get; 
     [Description("Provides Fuel Factors for Emissions as well as Source=>Site conversions. OtherFue" +
         "l1, OtherFuel2 provide options for users who want to create and use fuels that m" +
         "ay not be mainstream (biomass, wood, pellets).")]
-    [JsonObject("FuelFactors")]
     public class FuelFactors : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("existing_fuel_resource_name")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FuelFactors_ExistingFuelResourceName ExistingFuelResourceName { get; set; } = (FuelFactors_ExistingFuelResourceName)Enum.Parse(typeof(FuelFactors_ExistingFuelResourceName), "Coal");
         
 
@@ -2236,40 +2286,39 @@ public string NuclearLowLevelEmissionFactorScheduleName { get; set; } = "";
     public enum FuelFactors_ExistingFuelResourceName
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 1,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 2,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 3,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 4,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 5,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 6,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 7,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 8,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 9,
     }
     
     [Description("Special keys to produce certain warning messages or effect certain simulation cha" +
         "racteristics.")]
-    [JsonObject("Output:Diagnostics")]
     public class Output_Diagnostics : BHoMObject, IEnergyPlusClass
     {
         
@@ -2279,22 +2328,22 @@ public string Diagnostics { get; set; } = "";
     }
     
     [Description("switch eplusout.dbg file on or off")]
-    [JsonObject("Output:DebuggingData")]
     public class Output_DebuggingData : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("report_debugging_data")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ReportDebuggingData { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("report_during_warmup")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ReportDuringWarmup { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
     
     [Description("This object does not come from a user input. This is generated by a pre-processor" +
         " so that various conditions can be gracefully passed on by the InputProcessor.")]
-    [JsonObject("Output:PreprocessorMessage")]
     public class Output_PreprocessorMessage : BHoMObject, IEnergyPlusClass
     {
         
@@ -2305,6 +2354,7 @@ public string PreprocessorName { get; set; } = "";
 
 [Description("Depending on type, InputProcessor may terminate the program.")]
 [JsonProperty("error_severity")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_PreprocessorMessage_ErrorSeverity ErrorSeverity { get; set; } = (Output_PreprocessorMessage_ErrorSeverity)Enum.Parse(typeof(Output_PreprocessorMessage_ErrorSeverity), "Fatal");
         
 
@@ -2351,16 +2401,16 @@ public string MessageLine10 { get; set; } = "";
     public enum Output_PreprocessorMessage_ErrorSeverity
     {
         
-        [JsonProperty("Fatal")]
+        [System.Runtime.Serialization.EnumMember(Value="Fatal")]
         Fatal = 0,
         
-        [JsonProperty("Information")]
+        [System.Runtime.Serialization.EnumMember(Value="Information")]
         Information = 1,
         
-        [JsonProperty("Severe")]
+        [System.Runtime.Serialization.EnumMember(Value="Severe")]
         Severe = 2,
         
-        [JsonProperty("Warning")]
+        [System.Runtime.Serialization.EnumMember(Value="Warning")]
         Warning = 3,
     }
 }

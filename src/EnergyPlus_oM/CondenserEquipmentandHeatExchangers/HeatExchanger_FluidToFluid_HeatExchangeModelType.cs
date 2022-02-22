@@ -1,32 +1,30 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum HeatExchanger_FluidToFluid_HeatExchangeModelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CounterFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="CounterFlow")]
         CounterFlow = 1,
         
-        [JsonProperty("CrossFlowBothMixed")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlowBothMixed")]
         CrossFlowBothMixed = 2,
         
-        [JsonProperty("CrossFlowBothUnMixed")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlowBothUnMixed")]
         CrossFlowBothUnMixed = 3,
         
-        [JsonProperty("CrossFlowSupplyMixedDemandUnMixed")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlowSupplyMixedDemandUnMixed")]
         CrossFlowSupplyMixedDemandUnMixed = 4,
         
-        [JsonProperty("CrossFlowSupplyUnMixedDemandMixed")]
+        [System.Runtime.Serialization.EnumMember(Value="CrossFlowSupplyUnMixedDemandMixed")]
         CrossFlowSupplyUnMixedDemandMixed = 5,
         
-        [JsonProperty("Ideal")]
+        [System.Runtime.Serialization.EnumMember(Value="Ideal")]
         Ideal = 6,
         
-        [JsonProperty("ParallelFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ParallelFlow")]
         ParallelFlow = 7,
     }
 }

@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACEquipmentConnections
 {
     public enum ZoneHVAC_EquipmentList_LoadDistributionScheme
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("SequentialLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="SequentialLoad")]
         SequentialLoad = 1,
         
-        [JsonProperty("SequentialUniformPLR")]
+        [System.Runtime.Serialization.EnumMember(Value="SequentialUniformPLR")]
         SequentialUniformPLR = 2,
         
-        [JsonProperty("UniformLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="UniformLoad")]
         UniformLoad = 3,
         
-        [JsonProperty("UniformPLR")]
+        [System.Runtime.Serialization.EnumMember(Value="UniformPLR")]
         UniformPLR = 4,
     }
 }

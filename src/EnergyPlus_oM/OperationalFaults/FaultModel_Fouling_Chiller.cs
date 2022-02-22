@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes the fouling fault of chillers with water-cooled condensers")]
-    [JsonObject("FaultModel:Fouling:Chiller")]
     public class FaultModel_Fouling_Chiller : BHoMObject, IEnergyPlusClass
     {
         
@@ -23,6 +22,7 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
         [Description("Enter the type of a chiller object The fault applies to the chillers with water-c" +
                      "ooled condensers")]
         [JsonProperty("chiller_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FaultModel_Fouling_Chiller_ChillerObjectType ChillerObjectType { get; set; } = (FaultModel_Fouling_Chiller_ChillerObjectType)Enum.Parse(typeof(FaultModel_Fouling_Chiller_ChillerObjectType), "ChillerCombustionTurbine");
         
 

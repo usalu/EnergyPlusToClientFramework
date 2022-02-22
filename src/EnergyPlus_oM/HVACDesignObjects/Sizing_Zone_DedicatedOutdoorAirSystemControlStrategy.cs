@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     public enum Sizing_Zone_DedicatedOutdoorAirSystemControlStrategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ColdSupplyAir")]
+        [System.Runtime.Serialization.EnumMember(Value="ColdSupplyAir")]
         ColdSupplyAir = 1,
         
-        [JsonProperty("NeutralDehumidifiedSupplyAir")]
+        [System.Runtime.Serialization.EnumMember(Value="NeutralDehumidifiedSupplyAir")]
         NeutralDehumidifiedSupplyAir = 2,
         
-        [JsonProperty("NeutralSupplyAir")]
+        [System.Runtime.Serialization.EnumMember(Value="NeutralSupplyAir")]
         NeutralSupplyAir = 3,
     }
 }

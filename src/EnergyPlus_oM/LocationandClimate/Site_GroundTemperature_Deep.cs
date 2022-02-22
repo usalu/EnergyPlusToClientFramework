@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("These temperatures are specifically for the ground heat exchangers that would use" +
                  " \"deep\" (3-4 m depth) ground temperatures for their heat source. They are not us" +
                  "ed in other models.")]
-    [JsonObject("Site:GroundTemperature:Deep")]
     public class Site_GroundTemperature_Deep : BHoMObject, IEnergyPlusClass
     {
         

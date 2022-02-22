@@ -1,11 +1,9 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_Surfaces_List_ReportSpecifications
     {
         
-        [JsonProperty("IDF")]
+        [System.Runtime.Serialization.EnumMember(Value="IDF")]
         IDF = 0,
     }
 }

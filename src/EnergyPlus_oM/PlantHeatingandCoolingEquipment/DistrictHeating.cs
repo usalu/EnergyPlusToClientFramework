@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description("Centralized source of hot water, such as a district heating system.")]
-    [JsonObject("DistrictHeating")]
     public class DistrictHeating : BHoMObject, IEnergyPlusClass
     {
         

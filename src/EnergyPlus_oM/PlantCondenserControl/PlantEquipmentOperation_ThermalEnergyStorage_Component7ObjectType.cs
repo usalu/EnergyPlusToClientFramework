@@ -1,38 +1,36 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
 {
     public enum PlantEquipmentOperation_ThermalEnergyStorage_Component7ObjectType
     {
         
-        [JsonProperty("Chiller:Absorption")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption")]
         ChillerAbsorption = 0,
         
-        [JsonProperty("Chiller:Absorption:Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption:Indirect")]
         ChillerAbsorptionIndirect = 1,
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 2,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 3,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 4,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 5,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 6,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 7,
         
-        [JsonProperty("ThermalStorage:Ice:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Detailed")]
         ThermalStorageIceDetailed = 8,
         
-        [JsonProperty("ThermalStorage:Ice:Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalStorage:Ice:Simple")]
         ThermalStorageIceSimple = 9,
     }
 }

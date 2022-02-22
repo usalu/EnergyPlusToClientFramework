@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum CoolingTower_VariableSpeed_Merkel_CellControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MaximalCell")]
+        [System.Runtime.Serialization.EnumMember(Value="MaximalCell")]
         MaximalCell = 1,
         
-        [JsonProperty("MinimalCell")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimalCell")]
         MinimalCell = 2,
     }
 }

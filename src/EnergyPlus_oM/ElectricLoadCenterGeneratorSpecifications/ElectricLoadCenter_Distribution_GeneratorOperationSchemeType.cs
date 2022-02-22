@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum ElectricLoadCenter_Distribution_GeneratorOperationSchemeType
     {
         
-        [JsonProperty("Baseload")]
+        [System.Runtime.Serialization.EnumMember(Value="Baseload")]
         Baseload = 0,
         
-        [JsonProperty("DemandLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="DemandLimit")]
         DemandLimit = 1,
         
-        [JsonProperty("FollowThermal")]
+        [System.Runtime.Serialization.EnumMember(Value="FollowThermal")]
         FollowThermal = 2,
         
-        [JsonProperty("FollowThermalLimitElectrical")]
+        [System.Runtime.Serialization.EnumMember(Value="FollowThermalLimitElectrical")]
         FollowThermalLimitElectrical = 3,
         
-        [JsonProperty("TrackElectrical")]
+        [System.Runtime.Serialization.EnumMember(Value="TrackElectrical")]
         TrackElectrical = 4,
         
-        [JsonProperty("TrackMeter")]
+        [System.Runtime.Serialization.EnumMember(Value="TrackMeter")]
         TrackMeter = 5,
         
-        [JsonProperty("TrackSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="TrackSchedule")]
         TrackSchedule = 6,
     }
 }

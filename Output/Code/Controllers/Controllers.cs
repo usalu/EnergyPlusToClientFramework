@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
     
     
     [Description(@"Controller for a water coil which is located directly in an air loop branch or outdoor air equipment list. Controls the coil water flow to meet the specified leaving air setpoint(s). Used with Coil:Heating:Water, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry, and CoilSystem:Cooling:Water:HeatexchangerAssisted.")]
-    [JsonObject("Controller:WaterCoil")]
     public class Controller_WaterCoil : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,16 +76,19 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
     "r:MultiZone:MaximumHumidity:Average, or SetpointManager:Multizone:Humidity:Maxim" +
     "um object")]
 [JsonProperty("control_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Controller_WaterCoil_ControlVariable ControlVariable { get; set; } = (Controller_WaterCoil_ControlVariable)Enum.Parse(typeof(Controller_WaterCoil_ControlVariable), "HumidityRatio");
         
 
 [Description("Leave blank to have this automatically selected from coil type. Chilled water coi" +
     "ls should be reverse action Hot water coils should be normal action")]
 [JsonProperty("action")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Controller_WaterCoil_Action Action { get; set; } = (Controller_WaterCoil_Action)Enum.Parse(typeof(Controller_WaterCoil_Action), "Normal");
         
 
 [JsonProperty("actuator_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Controller_WaterCoil_ActuatorVariable ActuatorVariable { get; set; } = (Controller_WaterCoil_ActuatorVariable)Enum.Parse(typeof(Controller_WaterCoil_ActuatorVariable), "Flow");
         
 
@@ -113,37 +115,36 @@ public System.Nullable<float> MinimumActuatedFlow { get; set; } = (System.Nullab
     public enum Controller_WaterCoil_ControlVariable
     {
         
-        [JsonProperty("HumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="HumidityRatio")]
         HumidityRatio = 0,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 1,
         
-        [JsonProperty("TemperatureAndHumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureAndHumidityRatio")]
         TemperatureAndHumidityRatio = 2,
     }
     
     public enum Controller_WaterCoil_Action
     {
         
-        [JsonProperty("Normal")]
+        [System.Runtime.Serialization.EnumMember(Value="Normal")]
         Normal = 0,
         
-        [JsonProperty("Reverse")]
+        [System.Runtime.Serialization.EnumMember(Value="Reverse")]
         Reverse = 1,
     }
     
     public enum Controller_WaterCoil_ActuatorVariable
     {
         
-        [JsonProperty("Flow")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow")]
         Flow = 0,
     }
     
     [Description("Controller to set the outdoor air flow rate for an air loop. Control options incl" +
         "ude fixed, proportional, scheduled, economizer, and demand-controlled ventilatio" +
         "n.")]
-    [JsonObject("Controller:OutdoorAir")]
     public class Controller_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -177,10 +178,12 @@ public string MaximumOutdoorAirFlowRate { get; set; } = "";
         
 
 [JsonProperty("economizer_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Controller_OutdoorAir_EconomizerControlType EconomizerControlType { get; set; } = (Controller_OutdoorAir_EconomizerControlType)Enum.Parse(typeof(Controller_OutdoorAir_EconomizerControlType), "NoEconomizer");
         
 
 [JsonProperty("economizer_control_action_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Controller_OutdoorAir_EconomizerControlActionType EconomizerControlActionType { get; set; } = (Controller_OutdoorAir_EconomizerControlActionType)Enum.Parse(typeof(Controller_OutdoorAir_EconomizerControlActionType), "ModulateFlow");
         
 
@@ -218,10 +221,12 @@ public System.Nullable<float> EconomizerMinimumLimitDryBulbTemperature { get; se
         
 
 [JsonProperty("lockout_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Controller_OutdoorAir_LockoutType LockoutType { get; set; } = (Controller_OutdoorAir_LockoutType)Enum.Parse(typeof(Controller_OutdoorAir_LockoutType), "NoLockout");
         
 
 [JsonProperty("minimum_limit_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Controller_OutdoorAir_MinimumLimitType MinimumLimitType { get; set; } = (Controller_OutdoorAir_MinimumLimitType)Enum.Parse(typeof(Controller_OutdoorAir_MinimumLimitType), "ProportionalMinimum");
         
 
@@ -254,6 +259,7 @@ public string TimeOfDayEconomizerControlScheduleName { get; set; } = "";
 
 [Description(@"Optional field to enable modified outdoor air flow rates based on zone relative humidity. Select Yes to modify outdoor air flow rate based on a zone humidistat. Select No to disable this feature. If the field Economizer Control Type = NoEconomizer, then this option is disabled.")]
 [JsonProperty("high_humidity_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes HighHumidityControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -273,102 +279,103 @@ public System.Nullable<float> HighHumidityOutdoorAirFlowRatio { get; set; } = (S
 
 [Description(@"If No is selected, the outdoor air flow rate is modified any time indoor relative humidity is above the humidistat setpoint. If Yes is selected, the outdoor air flow rate is modified any time the indoor relative humidity is above the humidistat setpoint and the outdoor humidity ratio is less than the indoor humidity ratio. This field is only used when the field High Humidity Control = Yes.")]
 [JsonProperty("control_high_indoor_humidity_based_on_outdoor_humidity_ratio")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ControlHighIndoorHumidityBasedOnOutdoorHumidityRatio { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [Description(@"BypassWhenWithinEconomizerLimits specifies that heat recovery is active only when the economizer is off because conditions are outside the economizer control limits BypassWhenOAFlowGreaterThanMinimum specifies enhanced economizer controls to allow heat recovery when economizer is active (within limits) but the outdoor air flow rate is at the minimum.")]
 [JsonProperty("heat_recovery_bypass_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Controller_OutdoorAir_HeatRecoveryBypassControlType HeatRecoveryBypassControlType { get; set; } = (Controller_OutdoorAir_HeatRecoveryBypassControlType)Enum.Parse(typeof(Controller_OutdoorAir_HeatRecoveryBypassControlType), "BypassWhenWithinEconomizerLimits");
     }
     
     public enum Controller_OutdoorAir_EconomizerControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DifferentialDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferentialDryBulb")]
         DifferentialDryBulb = 1,
         
-        [JsonProperty("DifferentialDryBulbAndEnthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferentialDryBulbAndEnthalpy")]
         DifferentialDryBulbAndEnthalpy = 2,
         
-        [JsonProperty("DifferentialEnthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferentialEnthalpy")]
         DifferentialEnthalpy = 3,
         
-        [JsonProperty("ElectronicEnthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectronicEnthalpy")]
         ElectronicEnthalpy = 4,
         
-        [JsonProperty("FixedDewPointAndDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedDewPointAndDryBulb")]
         FixedDewPointAndDryBulb = 5,
         
-        [JsonProperty("FixedDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedDryBulb")]
         FixedDryBulb = 6,
         
-        [JsonProperty("FixedEnthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedEnthalpy")]
         FixedEnthalpy = 7,
         
-        [JsonProperty("NoEconomizer")]
+        [System.Runtime.Serialization.EnumMember(Value="NoEconomizer")]
         NoEconomizer = 8,
     }
     
     public enum Controller_OutdoorAir_EconomizerControlActionType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("MinimumFlowWithBypass")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumFlowWithBypass")]
         MinimumFlowWithBypass = 1,
         
-        [JsonProperty("ModulateFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="ModulateFlow")]
         ModulateFlow = 2,
     }
     
     public enum Controller_OutdoorAir_LockoutType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("LockoutWithCompressor")]
+        [System.Runtime.Serialization.EnumMember(Value="LockoutWithCompressor")]
         LockoutWithCompressor = 1,
         
-        [JsonProperty("LockoutWithHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="LockoutWithHeating")]
         LockoutWithHeating = 2,
         
-        [JsonProperty("NoLockout")]
+        [System.Runtime.Serialization.EnumMember(Value="NoLockout")]
         NoLockout = 3,
     }
     
     public enum Controller_OutdoorAir_MinimumLimitType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FixedMinimum")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedMinimum")]
         FixedMinimum = 1,
         
-        [JsonProperty("ProportionalMinimum")]
+        [System.Runtime.Serialization.EnumMember(Value="ProportionalMinimum")]
         ProportionalMinimum = 2,
     }
     
     public enum Controller_OutdoorAir_HeatRecoveryBypassControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("BypassWhenOAFlowGreaterThanMinimum")]
+        [System.Runtime.Serialization.EnumMember(Value="BypassWhenOAFlowGreaterThanMinimum")]
         BypassWhenOAFlowGreaterThanMinimum = 1,
         
-        [JsonProperty("BypassWhenWithinEconomizerLimits")]
+        [System.Runtime.Serialization.EnumMember(Value="BypassWhenWithinEconomizerLimits")]
         BypassWhenWithinEconomizerLimits = 2,
     }
     
     [Description(@"This object is used in conjunction with Controller:OutdoorAir to specify outdoor ventilation air based on outdoor air specified in the DesignSpecification:OutdoorAir object The Controller:OutdoorAir object is associated with a specific air loop, so the outdoor air flow rates specified in Controller:MechanicalVentilation correspond to the zones attached to that specific air loop. Duplicate groups of Zone name, Design Specification Outdoor Air Object Name, and Design Specification Zone Air Distribution Object Name to increase allowable number of entries")]
-    [JsonObject("Controller:MechanicalVentilation")]
     public class Controller_MechanicalVentilation : BHoMObject, IEnergyPlusClass
     {
         
@@ -381,10 +388,12 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty("demand_controlled_ventilation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes DemandControlledVentilation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("system_outdoor_air_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Controller_MechanicalVentilation_SystemOutdoorAirMethod SystemOutdoorAirMethod { get; set; } = (Controller_MechanicalVentilation_SystemOutdoorAirMethod)Enum.Parse(typeof(Controller_MechanicalVentilation_SystemOutdoorAirMethod), "VentilationRateProcedure");
         
 
@@ -399,41 +408,41 @@ public string ZoneSpecifications { get; set; } = "";
     public enum Controller_MechanicalVentilation_SystemOutdoorAirMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("IndoorAirQualityProcedure")]
+        [System.Runtime.Serialization.EnumMember(Value="IndoorAirQualityProcedure")]
         IndoorAirQualityProcedure = 1,
         
-        [JsonProperty("IndoorAirQualityProcedureCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="IndoorAirQualityProcedureCombined")]
         IndoorAirQualityProcedureCombined = 2,
         
-        [JsonProperty("IndoorAirQualityProcedureGenericContaminant")]
+        [System.Runtime.Serialization.EnumMember(Value="IndoorAirQualityProcedureGenericContaminant")]
         IndoorAirQualityProcedureGenericContaminant = 3,
         
-        [JsonProperty("ProportionalControlBasedOnDesignOARate")]
+        [System.Runtime.Serialization.EnumMember(Value="ProportionalControlBasedOnDesignOARate")]
         ProportionalControlBasedOnDesignOARate = 4,
         
-        [JsonProperty("ProportionalControlBasedOnDesignOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="ProportionalControlBasedOnDesignOccupancy")]
         ProportionalControlBasedOnDesignOccupancy = 5,
         
-        [JsonProperty("ProportionalControlBasedOnOccupancySchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="ProportionalControlBasedOnOccupancySchedule")]
         ProportionalControlBasedOnOccupancySchedule = 6,
         
-        [JsonProperty("VentilationRateProcedure")]
+        [System.Runtime.Serialization.EnumMember(Value="VentilationRateProcedure")]
         VentilationRateProcedure = 7,
         
-        [JsonProperty("ZoneSum")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneSum")]
         ZoneSum = 8,
     }
     
     [Description("List controllers in order of control sequence")]
-    [JsonObject("AirLoopHVAC:ControllerList")]
     public class AirLoopHVAC_ControllerList : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("controller_1_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirLoopHVAC_ControllerList_Controller1ObjectType Controller1ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller1ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller1ObjectType), "ControllerOutdoorAir");
         
 
@@ -442,6 +451,7 @@ public string Controller1Name { get; set; } = "";
         
 
 [JsonProperty("controller_2_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirLoopHVAC_ControllerList_Controller2ObjectType Controller2ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller2ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller2ObjectType), "ControllerOutdoorAir");
         
 
@@ -450,6 +460,7 @@ public string Controller2Name { get; set; } = "";
         
 
 [JsonProperty("controller_3_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirLoopHVAC_ControllerList_Controller3ObjectType Controller3ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller3ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller3ObjectType), "ControllerOutdoorAir");
         
 
@@ -458,6 +469,7 @@ public string Controller3Name { get; set; } = "";
         
 
 [JsonProperty("controller_4_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirLoopHVAC_ControllerList_Controller4ObjectType Controller4ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller4ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller4ObjectType), "ControllerOutdoorAir");
         
 
@@ -466,6 +478,7 @@ public string Controller4Name { get; set; } = "";
         
 
 [JsonProperty("controller_5_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirLoopHVAC_ControllerList_Controller5ObjectType Controller5ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller5ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller5ObjectType), "ControllerOutdoorAir");
         
 
@@ -474,6 +487,7 @@ public string Controller5Name { get; set; } = "";
         
 
 [JsonProperty("controller_6_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirLoopHVAC_ControllerList_Controller6ObjectType Controller6ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller6ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller6ObjectType), "ControllerOutdoorAir");
         
 
@@ -482,6 +496,7 @@ public string Controller6Name { get; set; } = "";
         
 
 [JsonProperty("controller_7_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirLoopHVAC_ControllerList_Controller7ObjectType Controller7ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller7ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller7ObjectType), "ControllerOutdoorAir");
         
 
@@ -490,6 +505,7 @@ public string Controller7Name { get; set; } = "";
         
 
 [JsonProperty("controller_8_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirLoopHVAC_ControllerList_Controller8ObjectType Controller8ObjectType { get; set; } = (AirLoopHVAC_ControllerList_Controller8ObjectType)Enum.Parse(typeof(AirLoopHVAC_ControllerList_Controller8ObjectType), "ControllerOutdoorAir");
         
 
@@ -500,80 +516,80 @@ public string Controller8Name { get; set; } = "";
     public enum AirLoopHVAC_ControllerList_Controller1ObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
         
-        [JsonProperty("Controller:WaterCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:WaterCoil")]
         ControllerWaterCoil = 1,
     }
     
     public enum AirLoopHVAC_ControllerList_Controller2ObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
         
-        [JsonProperty("Controller:WaterCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:WaterCoil")]
         ControllerWaterCoil = 1,
     }
     
     public enum AirLoopHVAC_ControllerList_Controller3ObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
         
-        [JsonProperty("Controller:WaterCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:WaterCoil")]
         ControllerWaterCoil = 1,
     }
     
     public enum AirLoopHVAC_ControllerList_Controller4ObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
         
-        [JsonProperty("Controller:WaterCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:WaterCoil")]
         ControllerWaterCoil = 1,
     }
     
     public enum AirLoopHVAC_ControllerList_Controller5ObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
         
-        [JsonProperty("Controller:WaterCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:WaterCoil")]
         ControllerWaterCoil = 1,
     }
     
     public enum AirLoopHVAC_ControllerList_Controller6ObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
         
-        [JsonProperty("Controller:WaterCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:WaterCoil")]
         ControllerWaterCoil = 1,
     }
     
     public enum AirLoopHVAC_ControllerList_Controller7ObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
         
-        [JsonProperty("Controller:WaterCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:WaterCoil")]
         ControllerWaterCoil = 1,
     }
     
     public enum AirLoopHVAC_ControllerList_Controller8ObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
         
-        [JsonProperty("Controller:WaterCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:WaterCoil")]
         ControllerWaterCoil = 1,
     }
 }

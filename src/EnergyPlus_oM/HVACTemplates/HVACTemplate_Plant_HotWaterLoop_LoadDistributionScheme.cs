@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Plant_HotWaterLoop_LoadDistributionScheme
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Optimal")]
+        [System.Runtime.Serialization.EnumMember(Value="Optimal")]
         Optimal = 1,
         
-        [JsonProperty("SequentialLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="SequentialLoad")]
         SequentialLoad = 2,
         
-        [JsonProperty("SequentialUniformPLR")]
+        [System.Runtime.Serialization.EnumMember(Value="SequentialUniformPLR")]
         SequentialUniformPLR = 3,
         
-        [JsonProperty("UniformLoad")]
+        [System.Runtime.Serialization.EnumMember(Value="UniformLoad")]
         UniformLoad = 4,
         
-        [JsonProperty("UniformPLR")]
+        [System.Runtime.Serialization.EnumMember(Value="UniformPLR")]
         UniformPLR = 5,
     }
 }

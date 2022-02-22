@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_PackagedVAV_CoolingCoilSetpointResetType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 1,
         
-        [JsonProperty("OutdoorAirTemperatureReset")]
+        [System.Runtime.Serialization.EnumMember(Value="OutdoorAirTemperatureReset")]
         OutdoorAirTemperatureReset = 2,
         
-        [JsonProperty("Warmest")]
+        [System.Runtime.Serialization.EnumMember(Value="Warmest")]
         Warmest = 3,
         
-        [JsonProperty("WarmestTemperatureFirst")]
+        [System.Runtime.Serialization.EnumMember(Value="WarmestTemperatureFirst")]
         WarmestTemperatureFirst = 4,
     }
 }

@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description(@"Simulates an object of pre-determined (constant or scheduled) source temperature The object introduces fluid into the plant loop at the specified temperature and at the same flow rate as the fluid enters the component Fluid entering the component vanishes equivalent to the relief air in an air system")]
-    [JsonObject("PlantComponent:TemperatureSource")]
     public class PlantComponent_TemperatureSource : BHoMObject, IEnergyPlusClass
     {
         
@@ -27,6 +26,7 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
         [JsonProperty("temperature_specification_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PlantComponent_TemperatureSource_TemperatureSpecificationType TemperatureSpecificationType { get; set; } = (PlantComponent_TemperatureSource_TemperatureSpecificationType)Enum.Parse(typeof(PlantComponent_TemperatureSource_TemperatureSpecificationType), "Constant");
         
 

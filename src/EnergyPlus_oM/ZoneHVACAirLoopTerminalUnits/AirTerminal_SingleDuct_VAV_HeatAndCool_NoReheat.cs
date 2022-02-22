@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     [Description("Central air system terminal unit, single duct, variable volume for both cooling a" +
                  "nd heating, with no reheat coil.")]
-    [JsonObject("AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat")]
     public class AirTerminal_SingleDuct_VAV_HeatAndCool_NoReheat : BHoMObject, IEnergyPlusClass
     {
         

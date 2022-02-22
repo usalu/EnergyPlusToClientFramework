@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
 {
     public enum PlantComponent_UserDefined_PlantConnection2LoopFlowRequestMode
     {
         
-        [JsonProperty("NeedsFlowAndTurnsLoopOn")]
+        [System.Runtime.Serialization.EnumMember(Value="NeedsFlowAndTurnsLoopOn")]
         NeedsFlowAndTurnsLoopOn = 0,
         
-        [JsonProperty("NeedsFlowIfLoopOn")]
+        [System.Runtime.Serialization.EnumMember(Value="NeedsFlowIfLoopOn")]
         NeedsFlowIfLoopOn = 1,
         
-        [JsonProperty("ReceivesWhateverFlowAvailable")]
+        [System.Runtime.Serialization.EnumMember(Value="ReceivesWhateverFlowAvailable")]
         ReceivesWhateverFlowAvailable = 2,
     }
 }

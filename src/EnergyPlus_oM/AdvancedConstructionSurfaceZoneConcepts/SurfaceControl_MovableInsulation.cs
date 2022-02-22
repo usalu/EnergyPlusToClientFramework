@@ -6,12 +6,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     [Description("Exterior or Interior Insulation on opaque surfaces")]
-    [JsonObject("SurfaceControl:MovableInsulation")]
     public class SurfaceControl_MovableInsulation : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("insulation_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SurfaceControl_MovableInsulation_InsulationType InsulationType { get; set; } = (SurfaceControl_MovableInsulation_InsulationType)Enum.Parse(typeof(SurfaceControl_MovableInsulation_InsulationType), "Inside");
         
 

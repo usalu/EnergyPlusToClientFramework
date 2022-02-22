@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_PackagedVAV_CoolingCoilType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("TwoSpeedDX")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoSpeedDX")]
         TwoSpeedDX = 1,
         
-        [JsonProperty("TwoSpeedHumidControlDX")]
+        [System.Runtime.Serialization.EnumMember(Value="TwoSpeedHumidControlDX")]
         TwoSpeedHumidControlDX = 2,
     }
 }

@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.FluidProperties
     
     
     [Description("potential fluid name/type in the input file repeat this object for each fluid")]
-    [JsonObject("FluidProperties:Name")]
     public class FluidProperties_Name : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,6 +76,7 @@ public string FluidName { get; set; } = "";
         
 
 [JsonProperty("fluid_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_Name_FluidType FluidType { get; set; } = (FluidProperties_Name_FluidType)Enum.Parse(typeof(FluidProperties_Name_FluidType), "Glycol");
     }
 }

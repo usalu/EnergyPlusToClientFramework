@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("Allows an additional heat source term to be added to the inside or outside surfac" +
                  "e boundary. A heat source can be added to either or both the inside and outside " +
                  "of the same surface.")]
-    [JsonObject("SurfaceProperty:HeatBalanceSourceTerm")]
     public class SurfaceProperty_HeatBalanceSourceTerm : BHoMObject, IEnergyPlusClass
     {
         

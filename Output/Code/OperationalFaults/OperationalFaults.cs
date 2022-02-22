@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
     
     
     [Description("This object describes outdoor air temperature sensor offset")]
-    [JsonObject("FaultModel:TemperatureSensorOffset:OutdoorAir")]
     public class FaultModel_TemperatureSensorOffset_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -81,6 +80,7 @@ public string SeverityScheduleName { get; set; } = "";
         
 
 [JsonProperty("controller_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_TemperatureSensorOffset_OutdoorAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_OutdoorAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_OutdoorAir_ControllerObjectType), "ControllerOutdoorAir");
         
 
@@ -95,12 +95,11 @@ public System.Nullable<float> TemperatureSensorOffset { get; set; } = (System.Nu
     public enum FaultModel_TemperatureSensorOffset_OutdoorAir_ControllerObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
     }
     
     [Description("This object describes outdoor air humidity sensor offset")]
-    [JsonObject("FaultModel:HumiditySensorOffset:OutdoorAir")]
     public class FaultModel_HumiditySensorOffset_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -114,6 +113,7 @@ public string SeverityScheduleName { get; set; } = "";
         
 
 [JsonProperty("controller_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_HumiditySensorOffset_OutdoorAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_HumiditySensorOffset_OutdoorAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_HumiditySensorOffset_OutdoorAir_ControllerObjectType), "ControllerOutdoorAir");
         
 
@@ -128,12 +128,11 @@ public System.Nullable<float> HumiditySensorOffset { get; set; } = (System.Nulla
     public enum FaultModel_HumiditySensorOffset_OutdoorAir_ControllerObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
     }
     
     [Description("This object describes outdoor air enthalpy sensor offset")]
-    [JsonObject("FaultModel:EnthalpySensorOffset:OutdoorAir")]
     public class FaultModel_EnthalpySensorOffset_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -147,6 +146,7 @@ public string SeverityScheduleName { get; set; } = "";
         
 
 [JsonProperty("controller_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_EnthalpySensorOffset_OutdoorAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_EnthalpySensorOffset_OutdoorAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_EnthalpySensorOffset_OutdoorAir_ControllerObjectType), "ControllerOutdoorAir");
         
 
@@ -161,12 +161,11 @@ public System.Nullable<float> EnthalpySensorOffset { get; set; } = (System.Nulla
     public enum FaultModel_EnthalpySensorOffset_OutdoorAir_ControllerObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
     }
     
     [Description("This object describes return air temperature sensor offset")]
-    [JsonObject("FaultModel:TemperatureSensorOffset:ReturnAir")]
     public class FaultModel_TemperatureSensorOffset_ReturnAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -180,6 +179,7 @@ public string SeverityScheduleName { get; set; } = "";
         
 
 [JsonProperty("controller_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType), "ControllerOutdoorAir");
         
 
@@ -194,12 +194,11 @@ public System.Nullable<float> TemperatureSensorOffset { get; set; } = (System.Nu
     public enum FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
     }
     
     [Description("This object describes return air enthalpy sensor offset")]
-    [JsonObject("FaultModel:EnthalpySensorOffset:ReturnAir")]
     public class FaultModel_EnthalpySensorOffset_ReturnAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -213,6 +212,7 @@ public string SeverityScheduleName { get; set; } = "";
         
 
 [JsonProperty("controller_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_EnthalpySensorOffset_ReturnAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_EnthalpySensorOffset_ReturnAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_EnthalpySensorOffset_ReturnAir_ControllerObjectType), "ControllerOutdoorAir");
         
 
@@ -227,12 +227,11 @@ public System.Nullable<float> EnthalpySensorOffset { get; set; } = (System.Nulla
     public enum FaultModel_EnthalpySensorOffset_ReturnAir_ControllerObjectType
     {
         
-        [JsonProperty("Controller:OutdoorAir")]
+        [System.Runtime.Serialization.EnumMember(Value="Controller:OutdoorAir")]
         ControllerOutdoorAir = 0,
     }
     
     [Description("This object describes fault of chiller supply water temperature sensor offset")]
-    [JsonObject("FaultModel:TemperatureSensorOffset:ChillerSupplyWater")]
     public class FaultModel_TemperatureSensorOffset_ChillerSupplyWater : BHoMObject, IEnergyPlusClass
     {
         
@@ -247,6 +246,7 @@ public string SeverityScheduleName { get; set; } = "";
 
 [Description("Enter the type of a chiller object")]
 [JsonProperty("chiller_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_TemperatureSensorOffset_ChillerSupplyWater_ChillerObjectType ChillerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_ChillerSupplyWater_ChillerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_ChillerSupplyWater_ChillerObjectType), "ChillerAbsorption");
         
 
@@ -262,33 +262,32 @@ public System.Nullable<float> ReferenceSensorOffset { get; set; } = (System.Null
     public enum FaultModel_TemperatureSensorOffset_ChillerSupplyWater_ChillerObjectType
     {
         
-        [JsonProperty("Chiller:Absorption")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption")]
         ChillerAbsorption = 0,
         
-        [JsonProperty("Chiller:Absorption:Indirect")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Absorption:Indirect")]
         ChillerAbsorptionIndirect = 1,
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 2,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 3,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 4,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 5,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 6,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 7,
     }
     
     [Description("This object describes fault of coil supply air temperature sensor offset")]
-    [JsonObject("FaultModel:TemperatureSensorOffset:CoilSupplyAir")]
     public class FaultModel_TemperatureSensorOffset_CoilSupplyAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -303,6 +302,7 @@ public string SeverityScheduleName { get; set; } = "";
 
 [Description("Enter the type of the coil affected")]
 [JsonProperty("coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_TemperatureSensorOffset_CoilSupplyAir_CoilObjectType CoilObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_CoilSupplyAir_CoilObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_CoilSupplyAir_CoilObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -324,39 +324,38 @@ public System.Nullable<float> ReferenceSensorOffset { get; set; } = (System.Null
     public enum FaultModel_TemperatureSensorOffset_CoilSupplyAir_CoilObjectType
     {
         
-        [JsonProperty("AirLoopHVAC:UnitarySystem")]
+        [System.Runtime.Serialization.EnumMember(Value="AirLoopHVAC:UnitarySystem")]
         AirLoopHVACUnitarySystem = 0,
         
-        [JsonProperty("Coil:Cooling:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water")]
         CoilCoolingWater = 1,
         
-        [JsonProperty("Coil:Cooling:Water:Detailedgeometry")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:Water:Detailedgeometry")]
         CoilCoolingWaterDetailedgeometry = 2,
         
-        [JsonProperty("Coil:Heating:Desuperheater")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Desuperheater")]
         CoilHeatingDesuperheater = 3,
         
-        [JsonProperty("Coil:Heating:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Electric")]
         CoilHeatingElectric = 4,
         
-        [JsonProperty("Coil:Heating:Gas")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Gas")]
         CoilHeatingGas = 5,
         
-        [JsonProperty("Coil:Heating:Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Steam")]
         CoilHeatingSteam = 6,
         
-        [JsonProperty("Coil:Heating:Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Water")]
         CoilHeatingWater = 7,
         
-        [JsonProperty("CoilSystem:Cooling:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Cooling:DX")]
         CoilSystemCoolingDX = 8,
         
-        [JsonProperty("CoilSystem:Heating:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="CoilSystem:Heating:DX")]
         CoilSystemHeatingDX = 9,
     }
     
     [Description("This object describes fault of condenser supply water temperature sensor offset")]
-    [JsonObject("FaultModel:TemperatureSensorOffset:CondenserSupplyWater")]
     public class FaultModel_TemperatureSensorOffset_CondenserSupplyWater : BHoMObject, IEnergyPlusClass
     {
         
@@ -371,6 +370,7 @@ public string SeverityScheduleName { get; set; } = "";
 
 [Description("Enter the type of the cooling tower affected")]
 [JsonProperty("cooling_tower_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_TemperatureSensorOffset_CondenserSupplyWater_CoolingTowerObjectType CoolingTowerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_CondenserSupplyWater_CoolingTowerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_CondenserSupplyWater_CoolingTowerObjectType), "CoolingTowerSingleSpeed");
         
 
@@ -386,21 +386,20 @@ public System.Nullable<float> ReferenceSensorOffset { get; set; } = (System.Null
     public enum FaultModel_TemperatureSensorOffset_CondenserSupplyWater_CoolingTowerObjectType
     {
         
-        [JsonProperty("CoolingTower:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingTower:SingleSpeed")]
         CoolingTowerSingleSpeed = 0,
         
-        [JsonProperty("CoolingTower:TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingTower:TwoSpeed")]
         CoolingTowerTwoSpeed = 1,
         
-        [JsonProperty("CoolingTower:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingTower:VariableSpeed")]
         CoolingTowerVariableSpeed = 2,
         
-        [JsonProperty("CoolingTower:VariableSpeed:MERKEL")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingTower:VariableSpeed:MERKEL")]
         CoolingTowerVariableSpeedMERKEL = 3,
     }
     
     [Description("This object describes fault of thermostat offset")]
-    [JsonObject("FaultModel:ThermostatOffset")]
     public class FaultModel_ThermostatOffset : BHoMObject, IEnergyPlusClass
     {
         
@@ -423,7 +422,6 @@ public System.Nullable<float> ReferenceThermostatOffset { get; set; } = (System.
     }
     
     [Description("This object describes fault of humidistat offset")]
-    [JsonObject("FaultModel:HumidistatOffset")]
     public class FaultModel_HumidistatOffset : BHoMObject, IEnergyPlusClass
     {
         
@@ -436,6 +434,7 @@ public string HumidistatName { get; set; } = "";
 [Description("Two types are available: Type ThermostatOffsetIndependent Type ThermostatOffsetDe" +
     "pendent")]
 [JsonProperty("humidistat_offset_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_HumidistatOffset_HumidistatOffsetType HumidistatOffsetType { get; set; } = (FaultModel_HumidistatOffset_HumidistatOffsetType)Enum.Parse(typeof(FaultModel_HumidistatOffset_HumidistatOffsetType), "ThermostatOffsetIndependent");
         
 
@@ -463,24 +462,24 @@ public string RelatedThermostatOffsetFaultName { get; set; } = "";
     public enum FaultModel_HumidistatOffset_HumidistatOffsetType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ThermostatOffsetDependent")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatOffsetDependent")]
         ThermostatOffsetDependent = 1,
         
-        [JsonProperty("ThermostatOffsetIndependent")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatOffsetIndependent")]
         ThermostatOffsetIndependent = 2,
     }
     
     [Description("This object describes fault of dirty air filters")]
-    [JsonObject("FaultModel:Fouling:AirFilter")]
     public class FaultModel_Fouling_AirFilter : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description("Choose the type of the fan Support for Fan:SystemModel is pending")]
 [JsonProperty("fan_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_Fouling_AirFilter_FanObjectType FanObjectType { get; set; } = (FaultModel_Fouling_AirFilter_FanObjectType)Enum.Parse(typeof(FaultModel_Fouling_AirFilter_FanObjectType), "FanConstantVolume");
         
 
@@ -508,19 +507,18 @@ public string FanCurveName { get; set; } = "";
     public enum FaultModel_Fouling_AirFilter_FanObjectType
     {
         
-        [JsonProperty("Fan:ConstantVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:ConstantVolume")]
         FanConstantVolume = 0,
         
-        [JsonProperty("Fan:OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:OnOff")]
         FanOnOff = 1,
         
-        [JsonProperty("Fan:VariableVolume")]
+        [System.Runtime.Serialization.EnumMember(Value="Fan:VariableVolume")]
         FanVariableVolume = 2,
     }
     
     [Description("This object describes the fouling fault of boilers with water-based heat exchange" +
         "rs")]
-    [JsonObject("FaultModel:Fouling:Boiler")]
     public class FaultModel_Fouling_Boiler : BHoMObject, IEnergyPlusClass
     {
         
@@ -535,6 +533,7 @@ public string SeverityScheduleName { get; set; } = "";
 
 [Description("Enter the type of a boiler object The fault applies to the hot-water boilers")]
 [JsonProperty("boiler_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_Fouling_Boiler_BoilerObjectType BoilerObjectType { get; set; } = (FaultModel_Fouling_Boiler_BoilerObjectType)Enum.Parse(typeof(FaultModel_Fouling_Boiler_BoilerObjectType), "BoilerHotWater");
         
 
@@ -552,12 +551,11 @@ public System.Nullable<float> FoulingFactor { get; set; } = (System.Nullable<flo
     public enum FaultModel_Fouling_Boiler_BoilerObjectType
     {
         
-        [JsonProperty("Boiler:HotWater")]
+        [System.Runtime.Serialization.EnumMember(Value="Boiler:HotWater")]
         BoilerHotWater = 0,
     }
     
     [Description("This object describes the fouling fault of the wetted coil evaporative cooler")]
-    [JsonObject("FaultModel:Fouling:EvaporativeCooler")]
     public class FaultModel_Fouling_EvaporativeCooler : BHoMObject, IEnergyPlusClass
     {
         
@@ -574,6 +572,7 @@ public string SeverityScheduleName { get; set; } = "";
     "l evaporative cooler The fault does not apply to direct evaporative coolers or t" +
     "he dry coil indirect evaporative coolers")]
 [JsonProperty("evaporative_cooler_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType EvaporativeCoolerObjectType { get; set; } = (FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType)Enum.Parse(typeof(FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType), "EvaporativeCoolerIndirectWetCoil");
         
 
@@ -592,12 +591,11 @@ public System.Nullable<float> FoulingFactor { get; set; } = (System.Nullable<flo
     public enum FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType
     {
         
-        [JsonProperty("EvaporativeCooler:Indirect:WetCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="EvaporativeCooler:Indirect:WetCoil")]
         EvaporativeCoolerIndirectWetCoil = 0,
     }
     
     [Description("This object describes the fouling fault of chillers with water-cooled condensers")]
-    [JsonObject("FaultModel:Fouling:Chiller")]
     public class FaultModel_Fouling_Chiller : BHoMObject, IEnergyPlusClass
     {
         
@@ -613,6 +611,7 @@ public string SeverityScheduleName { get; set; } = "";
 [Description("Enter the type of a chiller object The fault applies to the chillers with water-c" +
     "ooled condensers")]
 [JsonProperty("chiller_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_Fouling_Chiller_ChillerObjectType ChillerObjectType { get; set; } = (FaultModel_Fouling_Chiller_ChillerObjectType)Enum.Parse(typeof(FaultModel_Fouling_Chiller_ChillerObjectType), "ChillerCombustionTurbine");
         
 
@@ -631,27 +630,26 @@ public System.Nullable<float> FoulingFactor { get; set; } = (System.Nullable<flo
     public enum FaultModel_Fouling_Chiller_ChillerObjectType
     {
         
-        [JsonProperty("Chiller:CombustionTurbine")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:CombustionTurbine")]
         ChillerCombustionTurbine = 0,
         
-        [JsonProperty("Chiller:ConstantCOP")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:ConstantCOP")]
         ChillerConstantCOP = 1,
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 2,
         
-        [JsonProperty("Chiller:Electric:EIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:EIR")]
         ChillerElectricEIR = 3,
         
-        [JsonProperty("Chiller:Electric:ReformulatedEIR")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric:ReformulatedEIR")]
         ChillerElectricReformulatedEIR = 4,
         
-        [JsonProperty("Chiller:EngineDriven")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:EngineDriven")]
         ChillerEngineDriven = 5,
     }
     
     [Description("This object describes the fault of fouling cooling towers")]
-    [JsonObject("FaultModel:Fouling:CoolingTower")]
     public class FaultModel_Fouling_CoolingTower : BHoMObject, IEnergyPlusClass
     {
         
@@ -666,6 +664,7 @@ public string SeverityScheduleName { get; set; } = "";
 
 [Description("Enter the type of the cooling tower affected")]
 [JsonProperty("cooling_tower_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_Fouling_CoolingTower_CoolingTowerObjectType CoolingTowerObjectType { get; set; } = (FaultModel_Fouling_CoolingTower_CoolingTowerObjectType)Enum.Parse(typeof(FaultModel_Fouling_CoolingTower_CoolingTowerObjectType), "CoolingTowerSingleSpeed");
         
 
@@ -684,18 +683,17 @@ public System.Nullable<float> ReferenceUaReductionFactor { get; set; } = null;
     public enum FaultModel_Fouling_CoolingTower_CoolingTowerObjectType
     {
         
-        [JsonProperty("CoolingTower:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingTower:SingleSpeed")]
         CoolingTowerSingleSpeed = 0,
         
-        [JsonProperty("CoolingTower:TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingTower:TwoSpeed")]
         CoolingTowerTwoSpeed = 1,
         
-        [JsonProperty("CoolingTower:VariableSpeed:MERKEL")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingTower:VariableSpeed:MERKEL")]
         CoolingTowerVariableSpeedMERKEL = 2,
     }
     
     [Description("This object describes fouling water heating or cooling coils")]
-    [JsonObject("FaultModel:Fouling:Coil")]
     public class FaultModel_Fouling_Coil : BHoMObject, IEnergyPlusClass
     {
         
@@ -713,6 +711,7 @@ public string SeverityScheduleName { get; set; } = "";
         
 
 [JsonProperty("fouling_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_Fouling_Coil_FoulingInputMethod FoulingInputMethod { get; set; } = (FaultModel_Fouling_Coil_FoulingInputMethod)Enum.Parse(typeof(FaultModel_Fouling_Coil_FoulingInputMethod), "FouledUARated");
         
 
@@ -745,13 +744,13 @@ public System.Nullable<float> InsideToOutsideCoilSurfaceAreaRatio { get; set; } 
     public enum FaultModel_Fouling_Coil_FoulingInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FouledUARated")]
+        [System.Runtime.Serialization.EnumMember(Value="FouledUARated")]
         FouledUARated = 1,
         
-        [JsonProperty("FoulingFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="FoulingFactor")]
         FoulingFactor = 2,
     }
 }

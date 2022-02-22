@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum HeatBalanceSettings_ConductionFiniteDifference_DifferenceScheme
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CrankNicholsonSecondOrder")]
+        [System.Runtime.Serialization.EnumMember(Value="CrankNicholsonSecondOrder")]
         CrankNicholsonSecondOrder = 1,
         
-        [JsonProperty("FullyImplicitFirstOrder")]
+        [System.Runtime.Serialization.EnumMember(Value="FullyImplicitFirstOrder")]
         FullyImplicitFirstOrder = 2,
     }
 }

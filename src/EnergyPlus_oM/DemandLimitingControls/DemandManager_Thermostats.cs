@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
 {
     [Description("used for demand limiting ZoneControl:Thermostat objects.")]
-    [JsonObject("DemandManager:Thermostats")]
     public class DemandManager_Thermostats : BHoMObject, IEnergyPlusClass
     {
         
@@ -18,6 +17,7 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
         
 
         [JsonProperty("reset_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public DemandManager_Thermostats_ResetControl ResetControl { get; set; } = (DemandManager_Thermostats_ResetControl)Enum.Parse(typeof(DemandManager_Thermostats_ResetControl), "Fixed");
         
 
@@ -40,6 +40,7 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
         
 
         [JsonProperty("selection_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public DemandManager_Thermostats_SelectionControl SelectionControl { get; set; } = (DemandManager_Thermostats_SelectionControl)Enum.Parse(typeof(DemandManager_Thermostats_SelectionControl), "All");
         
 

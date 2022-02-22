@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description(@"Describes an array of photovoltaic (PV) modules. A series of different PV arrays can be connected to a single electric load center (and inverter) by listing them all in an ElectricLoadCenter:Generator object. PV performance is taken from the referenced PhotovoltaicPerformance:* object. Array tilt, azimuth, and gross area are taken from the referenced building surface or shading surface. The array surface participates normally in all shading calculations.")]
-    [JsonObject("Generator:Photovoltaic")]
     public class Generator_Photovoltaic : BHoMObject, IEnergyPlusClass
     {
         
@@ -17,6 +16,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("photovoltaic_performance_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_Photovoltaic_PhotovoltaicPerformanceObjectType PhotovoltaicPerformanceObjectType { get; set; } = (Generator_Photovoltaic_PhotovoltaicPerformanceObjectType)Enum.Parse(typeof(Generator_Photovoltaic_PhotovoltaicPerformanceObjectType), "PhotovoltaicPerformanceEquivalentOneDiode");
         
 
@@ -26,6 +26,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("heat_transfer_integration_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_Photovoltaic_HeatTransferIntegrationMode HeatTransferIntegrationMode { get; set; } = (Generator_Photovoltaic_HeatTransferIntegrationMode)Enum.Parse(typeof(Generator_Photovoltaic_HeatTransferIntegrationMode), "Decoupled");
         
 

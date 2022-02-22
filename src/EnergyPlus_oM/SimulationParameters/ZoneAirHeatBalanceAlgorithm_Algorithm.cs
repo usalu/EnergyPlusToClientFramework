@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum ZoneAirHeatBalanceAlgorithm_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AnalyticalSolution")]
+        [System.Runtime.Serialization.EnumMember(Value="AnalyticalSolution")]
         AnalyticalSolution = 1,
         
-        [JsonProperty("EulerMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="EulerMethod")]
         EulerMethod = 2,
         
-        [JsonProperty("ThirdOrderBackwardDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="ThirdOrderBackwardDifference")]
         ThirdOrderBackwardDifference = 3,
     }
 }

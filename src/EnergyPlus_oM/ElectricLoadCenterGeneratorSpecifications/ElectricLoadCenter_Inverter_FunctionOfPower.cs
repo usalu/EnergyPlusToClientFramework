@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                  "t (AC) in an electric load center that contains photovoltaic modules. This input" +
                  " object is for an inverter model where efficiency is a function of normalized po" +
                  "wer.")]
-    [JsonObject("ElectricLoadCenter:Inverter:FunctionOfPower")]
     public class ElectricLoadCenter_Inverter_FunctionOfPower : BHoMObject, IEnergyPlusClass
     {
         

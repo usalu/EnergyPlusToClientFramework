@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
                  "Note that the following flow fractions must sum up to 1.0 The number of surfaces" +
                  " can be expanded beyond 100, if necessary, by adding more groups to the end of t" +
                  "he list")]
-    [JsonObject("ZoneHVAC:LowTemperatureRadiant:SurfaceGroup")]
     public class ZoneHVAC_LowTemperatureRadiant_SurfaceGroup : BHoMObject, IEnergyPlusClass
     {
         

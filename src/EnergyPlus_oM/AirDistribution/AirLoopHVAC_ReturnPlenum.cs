@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
     [Description("Connects N zone inlet air streams, through zone return plenum, to outlet (current" +
                  "ly 500 per air loop) Node names cannot be duplicated within a single plenum list" +
                  ".")]
-    [JsonObject("AirLoopHVAC:ReturnPlenum")]
     public class AirLoopHVAC_ReturnPlenum : BHoMObject, IEnergyPlusClass
     {
         

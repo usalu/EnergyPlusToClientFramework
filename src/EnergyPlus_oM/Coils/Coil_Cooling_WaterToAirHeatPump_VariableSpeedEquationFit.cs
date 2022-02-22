@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description(@"Direct expansion (DX) cooling coil for water-to-air heat pump (includes electric compressor), variable-speed, equation-fit model. Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Equation-fit model uses normalized curves to describe the heat pump performance. Requires two to ten sets of performance data and will interpolate between speeds. Modeled as a single coil with variable-speed compressor.")]
-    [JsonObject("Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit")]
     public class Coil_Cooling_WaterToAirHeatPump_VariableSpeedEquationFit : BHoMObject, IEnergyPlusClass
     {
         

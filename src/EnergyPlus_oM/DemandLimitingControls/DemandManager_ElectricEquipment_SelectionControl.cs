@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
 {
     public enum DemandManager_ElectricEquipment_SelectionControl
     {
         
-        [JsonProperty("All")]
+        [System.Runtime.Serialization.EnumMember(Value="All")]
         All = 0,
         
-        [JsonProperty("RotateMany")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateMany")]
         RotateMany = 1,
         
-        [JsonProperty("RotateOne")]
+        [System.Runtime.Serialization.EnumMember(Value="RotateOne")]
         RotateOne = 2,
     }
 }

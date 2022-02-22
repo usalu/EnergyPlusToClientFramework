@@ -6,12 +6,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("Used only with Generator:FuelCell and Generator:MicroCHP")]
-    [JsonObject("Generator:FuelSupply")]
     public class Generator_FuelSupply : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("fuel_temperature_modeling_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_FuelTemperatureModelingMode FuelTemperatureModelingMode { get; set; } = (Generator_FuelSupply_FuelTemperatureModelingMode)Enum.Parse(typeof(Generator_FuelSupply_FuelTemperatureModelingMode), "Scheduled");
         
 
@@ -32,6 +32,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("fuel_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_FuelType FuelType { get; set; } = (Generator_FuelSupply_FuelType)Enum.Parse(typeof(Generator_FuelSupply_FuelType), "GaseousConstituents");
         
 
@@ -56,6 +57,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_1_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_Constituent1Name Constituent1Name { get; set; } = (Generator_FuelSupply_Constituent1Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent1Name), "Argon");
         
 
@@ -64,6 +66,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_2_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_Constituent2Name Constituent2Name { get; set; } = (Generator_FuelSupply_Constituent2Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent2Name), "Argon");
         
 
@@ -72,6 +75,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_3_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_Constituent3Name Constituent3Name { get; set; } = (Generator_FuelSupply_Constituent3Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent3Name), "Argon");
         
 
@@ -80,6 +84,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_4_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_Constituent4Name Constituent4Name { get; set; } = (Generator_FuelSupply_Constituent4Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent4Name), "Argon");
         
 
@@ -88,6 +93,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_5_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_Constituent5Name Constituent5Name { get; set; } = (Generator_FuelSupply_Constituent5Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent5Name), "Argon");
         
 
@@ -96,6 +102,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_6_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_Constituent6Name Constituent6Name { get; set; } = (Generator_FuelSupply_Constituent6Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent6Name), "Argon");
         
 
@@ -104,6 +111,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_7_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_Constituent7Name Constituent7Name { get; set; } = (Generator_FuelSupply_Constituent7Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent7Name), "Butane");
         
 
@@ -112,6 +120,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_8_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_Constituent8Name Constituent8Name { get; set; } = (Generator_FuelSupply_Constituent8Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent8Name), "Argon");
         
 
@@ -120,6 +129,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_9_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_Constituent9Name Constituent9Name { get; set; } = (Generator_FuelSupply_Constituent9Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent9Name), "Argon");
         
 
@@ -128,6 +138,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_10_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_Constituent10Name Constituent10Name { get; set; } = (Generator_FuelSupply_Constituent10Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent10Name), "Argon");
         
 
@@ -136,6 +147,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_11_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_Constituent11Name Constituent11Name { get; set; } = (Generator_FuelSupply_Constituent11Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent11Name), "Argon");
         
 
@@ -144,6 +156,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("constituent_12_name")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_FuelSupply_Constituent12Name Constituent12Name { get; set; } = (Generator_FuelSupply_Constituent12Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent12Name), "Argon");
         
 

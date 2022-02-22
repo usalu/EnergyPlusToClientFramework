@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
 {
     public enum SolarCollectorPerformance_IntegralCollectorStorage_IcsCollectorType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("RectangularTank")]
+        [System.Runtime.Serialization.EnumMember(Value="RectangularTank")]
         RectangularTank = 1,
     }
 }

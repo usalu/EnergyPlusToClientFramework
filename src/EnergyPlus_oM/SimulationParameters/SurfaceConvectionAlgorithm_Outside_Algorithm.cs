@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     public enum SurfaceConvectionAlgorithm_Outside_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AdaptiveConvectionAlgorithm")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveConvectionAlgorithm")]
         AdaptiveConvectionAlgorithm = 1,
         
-        [JsonProperty("DOE-2")]
+        [System.Runtime.Serialization.EnumMember(Value="DOE-2")]
         DOE2 = 2,
         
-        [JsonProperty("MoWiTT")]
+        [System.Runtime.Serialization.EnumMember(Value="MoWiTT")]
         MoWiTT = 3,
         
-        [JsonProperty("SimpleCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleCombined")]
         SimpleCombined = 4,
         
-        [JsonProperty("TARP")]
+        [System.Runtime.Serialization.EnumMember(Value="TARP")]
         TARP = 5,
     }
 }

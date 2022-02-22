@@ -1,38 +1,36 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Plant_ChilledWaterLoop_FluidType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("EthyleneGlycol30")]
+        [System.Runtime.Serialization.EnumMember(Value="EthyleneGlycol30")]
         EthyleneGlycol30 = 1,
         
-        [JsonProperty("EthyleneGlycol40")]
+        [System.Runtime.Serialization.EnumMember(Value="EthyleneGlycol40")]
         EthyleneGlycol40 = 2,
         
-        [JsonProperty("EthyleneGlycol50")]
+        [System.Runtime.Serialization.EnumMember(Value="EthyleneGlycol50")]
         EthyleneGlycol50 = 3,
         
-        [JsonProperty("EthyleneGlycol60")]
+        [System.Runtime.Serialization.EnumMember(Value="EthyleneGlycol60")]
         EthyleneGlycol60 = 4,
         
-        [JsonProperty("PropyleneGlycol30")]
+        [System.Runtime.Serialization.EnumMember(Value="PropyleneGlycol30")]
         PropyleneGlycol30 = 5,
         
-        [JsonProperty("PropyleneGlycol40")]
+        [System.Runtime.Serialization.EnumMember(Value="PropyleneGlycol40")]
         PropyleneGlycol40 = 6,
         
-        [JsonProperty("PropyleneGlycol50")]
+        [System.Runtime.Serialization.EnumMember(Value="PropyleneGlycol50")]
         PropyleneGlycol50 = 7,
         
-        [JsonProperty("PropyleneGlycol60")]
+        [System.Runtime.Serialization.EnumMember(Value="PropyleneGlycol60")]
         PropyleneGlycol60 = 8,
         
-        [JsonProperty("Water")]
+        [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 9,
     }
 }

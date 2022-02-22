@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     public enum SetpointManager_ReturnAirBypassFlow_ControlVariable
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Flow")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow")]
         Flow = 1,
     }
 }

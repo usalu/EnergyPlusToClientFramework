@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     public enum People_NumberOfPeopleCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Area/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Area/Person")]
         AreaPerson = 1,
         
-        [JsonProperty("People")]
+        [System.Runtime.Serialization.EnumMember(Value="People")]
         People = 2,
         
-        [JsonProperty("People/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="People/Area")]
         PeopleArea = 3,
     }
 }

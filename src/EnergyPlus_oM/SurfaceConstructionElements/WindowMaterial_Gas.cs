@@ -6,12 +6,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Gas material properties that are used in Windows or Glass Doors")]
-    [JsonObject("WindowMaterial:Gas")]
     public class WindowMaterial_Gas : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("gas_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WindowMaterial_Gas_GasType GasType { get; set; } = (WindowMaterial_Gas_GasType)Enum.Parse(typeof(WindowMaterial_Gas_GasType), "Air");
         
 

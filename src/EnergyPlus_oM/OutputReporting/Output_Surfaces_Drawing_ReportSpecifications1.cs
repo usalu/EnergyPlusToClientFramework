@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_Surfaces_Drawing_ReportSpecifications1
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("RegularPolyline")]
+        [System.Runtime.Serialization.EnumMember(Value="RegularPolyline")]
         RegularPolyline = 1,
         
-        [JsonProperty("ThickPolyline")]
+        [System.Runtime.Serialization.EnumMember(Value="ThickPolyline")]
         ThickPolyline = 2,
         
-        [JsonProperty("Triangulate3DFace")]
+        [System.Runtime.Serialization.EnumMember(Value="Triangulate3DFace")]
         Triangulate3DFace = 3,
     }
 }

@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("Simulate generic contaminant source driven by the cutoff concentration model.")]
-    [JsonObject("ZoneContaminantSourceAndSink:Generic:CutoffModel")]
     public class ZoneContaminantSourceAndSink_Generic_CutoffModel : BHoMObject, IEnergyPlusClass
     {
         

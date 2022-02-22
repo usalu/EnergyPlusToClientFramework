@@ -10,12 +10,12 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
                  "re of the air in the heating supply duct. Usually it is used in conjunction with" +
                  " a SetpointManager:Warmest resetting the temperature of the air in the cooling s" +
                  "upply duct.")]
-    [JsonObject("SetpointManager:Coldest")]
     public class SetpointManager_Coldest : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("control_variable")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SetpointManager_Coldest_ControlVariable ControlVariable { get; set; } = (SetpointManager_Coldest_ControlVariable)Enum.Parse(typeof(SetpointManager_Coldest_ControlVariable), "Temperature");
         
 
@@ -33,6 +33,7 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
         
 
         [JsonProperty("strategy")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SetpointManager_Coldest_Strategy Strategy { get; set; } = (SetpointManager_Coldest_Strategy)Enum.Parse(typeof(SetpointManager_Coldest_Strategy), "MinimumTemperature");
         
 

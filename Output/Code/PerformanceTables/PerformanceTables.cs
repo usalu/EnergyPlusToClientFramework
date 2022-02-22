@@ -68,16 +68,17 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
     
     [Description("An independent variable representing a single dimension of a Table:Lookup object." +
         "")]
-    [JsonObject("Table:IndependentVariable")]
     public class Table_IndependentVariable : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("interpolation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_IndependentVariable_InterpolationMethod InterpolationMethod { get; set; } = (Table_IndependentVariable_InterpolationMethod)Enum.Parse(typeof(Table_IndependentVariable_InterpolationMethod), "Linear");
         
 
 [JsonProperty("extrapolation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_IndependentVariable_ExtrapolationMethod ExtrapolationMethod { get; set; } = (Table_IndependentVariable_ExtrapolationMethod)Enum.Parse(typeof(Table_IndependentVariable_ExtrapolationMethod), "Constant");
         
 
@@ -94,6 +95,7 @@ public System.Nullable<float> NormalizationReferenceValue { get; set; } = null;
         
 
 [JsonProperty("unit_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_IndependentVariable_UnitType UnitType { get; set; } = (Table_IndependentVariable_UnitType)Enum.Parse(typeof(Table_IndependentVariable_UnitType), "Dimensionless");
         
 
@@ -116,59 +118,58 @@ public string Values { get; set; } = "";
     public enum Table_IndependentVariable_InterpolationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Cubic")]
+        [System.Runtime.Serialization.EnumMember(Value="Cubic")]
         Cubic = 1,
         
-        [JsonProperty("Linear")]
+        [System.Runtime.Serialization.EnumMember(Value="Linear")]
         Linear = 2,
     }
     
     public enum Table_IndependentVariable_ExtrapolationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 1,
         
-        [JsonProperty("Linear")]
+        [System.Runtime.Serialization.EnumMember(Value="Linear")]
         Linear = 2,
     }
     
     public enum Table_IndependentVariable_UnitType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Angle")]
+        [System.Runtime.Serialization.EnumMember(Value="Angle")]
         Angle = 1,
         
-        [JsonProperty("Dimensionless")]
+        [System.Runtime.Serialization.EnumMember(Value="Dimensionless")]
         Dimensionless = 2,
         
-        [JsonProperty("Distance")]
+        [System.Runtime.Serialization.EnumMember(Value="Distance")]
         Distance = 3,
         
-        [JsonProperty("MassFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="MassFlow")]
         MassFlow = 4,
         
-        [JsonProperty("Power")]
+        [System.Runtime.Serialization.EnumMember(Value="Power")]
         Power = 5,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 6,
         
-        [JsonProperty("VolumetricFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="VolumetricFlow")]
         VolumetricFlow = 7,
     }
     
     [Description("A sorted list of independent variables used by one or more Table:Lookup objects.")]
-    [JsonObject("Table:IndependentVariableList")]
     public class Table_IndependentVariableList : BHoMObject, IEnergyPlusClass
     {
         
@@ -178,7 +179,6 @@ public string IndependentVariables { get; set; } = "";
     }
     
     [Description(@"Lookup tables are used in place of curves and can represent any number of independent variables (defined as Table:IndependentVariable objects in a Table:IndependentVariableList). Output values are interpolated within the bounds defined by each independent variable and extrapolated beyond the bounds according to the interpolation/extrapolation methods defined by each independent variable.")]
-    [JsonObject("Table:Lookup")]
     public class Table_Lookup : BHoMObject, IEnergyPlusClass
     {
         
@@ -188,6 +188,7 @@ public string IndependentVariableListName { get; set; } = "";
         
 
 [JsonProperty("normalization_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_Lookup_NormalizationMethod NormalizationMethod { get; set; } = (Table_Lookup_NormalizationMethod)Enum.Parse(typeof(Table_Lookup_NormalizationMethod), "None");
         
 
@@ -204,6 +205,7 @@ public System.Nullable<float> MaximumOutput { get; set; } = null;
         
 
 [JsonProperty("output_unit_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_Lookup_OutputUnitType OutputUnitType { get; set; } = (Table_Lookup_OutputUnitType)Enum.Parse(typeof(Table_Lookup_OutputUnitType), "Dimensionless");
         
 
@@ -226,38 +228,38 @@ public string Values { get; set; } = "";
     public enum Table_Lookup_NormalizationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AutomaticWithDivisor")]
+        [System.Runtime.Serialization.EnumMember(Value="AutomaticWithDivisor")]
         AutomaticWithDivisor = 1,
         
-        [JsonProperty("DivisorOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="DivisorOnly")]
         DivisorOnly = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
     }
     
     public enum Table_Lookup_OutputUnitType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Capacity")]
+        [System.Runtime.Serialization.EnumMember(Value="Capacity")]
         Capacity = 1,
         
-        [JsonProperty("Dimensionless")]
+        [System.Runtime.Serialization.EnumMember(Value="Dimensionless")]
         Dimensionless = 2,
         
-        [JsonProperty("Power")]
+        [System.Runtime.Serialization.EnumMember(Value="Power")]
         Power = 3,
         
-        [JsonProperty("Pressure")]
+        [System.Runtime.Serialization.EnumMember(Value="Pressure")]
         Pressure = 4,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 5,
     }
 }

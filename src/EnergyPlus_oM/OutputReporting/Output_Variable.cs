@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description(@"each Output:Variable command picks variables to be put onto the standard output file (.eso) some variables may not be reported for every simulation. a list of variables that can be reported are available after a run on the report dictionary file (.rdd) if the Output:VariableDictionary has been requested.")]
-    [JsonObject("Output:Variable")]
     public class Output_Variable : BHoMObject, IEnergyPlusClass
     {
         
@@ -24,6 +23,7 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
                      "he zone Timestep/Number of Timesteps in hour value RunPeriod and Environment are" +
                      " the same")]
         [JsonProperty("reporting_frequency")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Output_Variable_ReportingFrequency ReportingFrequency { get; set; } = (Output_Variable_ReportingFrequency)Enum.Parse(typeof(Output_Variable_ReportingFrequency), "Hourly");
         
 

@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     public enum People_ThermalComfortModel1Type
     {
         
-        [JsonProperty("AdaptiveASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH55")]
         AdaptiveASH55 = 0,
         
-        [JsonProperty("AdaptiveCEN15251")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251")]
         AdaptiveCEN15251 = 1,
         
-        [JsonProperty("AnkleDraftASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="AnkleDraftASH55")]
         AnkleDraftASH55 = 2,
         
-        [JsonProperty("CoolingEffectASH55")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingEffectASH55")]
         CoolingEffectASH55 = 3,
         
-        [JsonProperty("Fanger")]
+        [System.Runtime.Serialization.EnumMember(Value="Fanger")]
         Fanger = 4,
         
-        [JsonProperty("KSU")]
+        [System.Runtime.Serialization.EnumMember(Value="KSU")]
         KSU = 5,
         
-        [JsonProperty("Pierce")]
+        [System.Runtime.Serialization.EnumMember(Value="Pierce")]
         Pierce = 6,
     }
 }

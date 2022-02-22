@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     public enum GroundHeatExchanger_Surface_LowerSurfaceEnvironment
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Exposed")]
+        [System.Runtime.Serialization.EnumMember(Value="Exposed")]
         Exposed = 1,
         
-        [JsonProperty("Ground")]
+        [System.Runtime.Serialization.EnumMember(Value="Ground")]
         Ground = 2,
     }
 }

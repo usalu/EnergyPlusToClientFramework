@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_Surfaces_Drawing_ReportType
     {
         
-        [JsonProperty("DXF")]
+        [System.Runtime.Serialization.EnumMember(Value="DXF")]
         DXF = 0,
         
-        [JsonProperty("DXF:WireFrame")]
+        [System.Runtime.Serialization.EnumMember(Value="DXF:WireFrame")]
         DXFWireFrame = 1,
         
-        [JsonProperty("VRML")]
+        [System.Runtime.Serialization.EnumMember(Value="VRML")]
         VRML = 2,
     }
 }

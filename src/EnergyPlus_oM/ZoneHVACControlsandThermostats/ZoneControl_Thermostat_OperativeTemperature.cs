@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
                  "he zones on that list (but you won\'t be able to use the object list to pick only" +
                  " one of those zones. Thermostat names are <Zone Name> <global Thermostat name> i" +
                  "nternally.")]
-    [JsonObject("ZoneControl:Thermostat:OperativeTemperature")]
     public class ZoneControl_Thermostat_OperativeTemperature : BHoMObject, IEnergyPlusClass
     {
         
@@ -21,6 +20,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         
 
         [JsonProperty("radiative_fraction_input_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneControl_Thermostat_OperativeTemperature_RadiativeFractionInputMode RadiativeFractionInputMode { get; set; } = (ZoneControl_Thermostat_OperativeTemperature_RadiativeFractionInputMode)Enum.Parse(typeof(ZoneControl_Thermostat_OperativeTemperature_RadiativeFractionInputMode), "Constant");
         
 
@@ -36,6 +36,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
         [Description("the cooling setpoint temperature schedule of the referenced thermostat will be ad" +
                      "justed based on the selected adaptive comfort model type")]
         [JsonProperty("adaptive_comfort_model_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType AdaptiveComfortModelType { get; set; } = (ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType)Enum.Parse(typeof(ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType), "None");
     }
 }

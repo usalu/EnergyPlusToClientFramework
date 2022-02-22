@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.VariableRefrigerantFlowEquipment
 {
     public enum AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR_RefrigerantTemperatureControlAlgorithmForIndoorUnit
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConstantTemp")]
+        [System.Runtime.Serialization.EnumMember(Value="ConstantTemp")]
         ConstantTemp = 1,
         
-        [JsonProperty("VariableTemp")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableTemp")]
         VariableTemp = 2,
     }
 }

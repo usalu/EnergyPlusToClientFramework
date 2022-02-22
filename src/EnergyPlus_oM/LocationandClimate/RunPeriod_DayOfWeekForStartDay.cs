@@ -1,29 +1,27 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum RunPeriod_DayOfWeekForStartDay
     {
         
-        [JsonProperty("Friday")]
+        [System.Runtime.Serialization.EnumMember(Value="Friday")]
         Friday = 0,
         
-        [JsonProperty("Monday")]
+        [System.Runtime.Serialization.EnumMember(Value="Monday")]
         Monday = 1,
         
-        [JsonProperty("Saturday")]
+        [System.Runtime.Serialization.EnumMember(Value="Saturday")]
         Saturday = 2,
         
-        [JsonProperty("Sunday")]
+        [System.Runtime.Serialization.EnumMember(Value="Sunday")]
         Sunday = 3,
         
-        [JsonProperty("Thursday")]
+        [System.Runtime.Serialization.EnumMember(Value="Thursday")]
         Thursday = 4,
         
-        [JsonProperty("Tuesday")]
+        [System.Runtime.Serialization.EnumMember(Value="Tuesday")]
         Tuesday = 5,
         
-        [JsonProperty("Wednesday")]
+        [System.Runtime.Serialization.EnumMember(Value="Wednesday")]
         Wednesday = 6,
     }
 }

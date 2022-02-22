@@ -1,35 +1,33 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     public enum SurfaceProperty_HeatTransferAlgorithm_MultipleSurface_SurfaceType
     {
         
-        [JsonProperty("AllExteriorFloors")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorFloors")]
         AllExteriorFloors = 0,
         
-        [JsonProperty("AllExteriorRoofs")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorRoofs")]
         AllExteriorRoofs = 1,
         
-        [JsonProperty("AllExteriorSurfaces")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorSurfaces")]
         AllExteriorSurfaces = 2,
         
-        [JsonProperty("AllExteriorWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="AllExteriorWalls")]
         AllExteriorWalls = 3,
         
-        [JsonProperty("AllGroundContactSurfaces")]
+        [System.Runtime.Serialization.EnumMember(Value="AllGroundContactSurfaces")]
         AllGroundContactSurfaces = 4,
         
-        [JsonProperty("AllInteriorCeilings")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorCeilings")]
         AllInteriorCeilings = 5,
         
-        [JsonProperty("AllInteriorFloors")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorFloors")]
         AllInteriorFloors = 6,
         
-        [JsonProperty("AllInteriorSurfaces")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorSurfaces")]
         AllInteriorSurfaces = 7,
         
-        [JsonProperty("AllInteriorWalls")]
+        [System.Runtime.Serialization.EnumMember(Value="AllInteriorWalls")]
         AllInteriorWalls = 8,
     }
 }

@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ExteriorEquipment
 {
     public enum Exterior_Lights_ControlOption
     {
         
-        [JsonProperty("AstronomicalClock")]
+        [System.Runtime.Serialization.EnumMember(Value="AstronomicalClock")]
         AstronomicalClock = 0,
         
-        [JsonProperty("ScheduleNameOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduleNameOnly")]
         ScheduleNameOnly = 1,
     }
 }

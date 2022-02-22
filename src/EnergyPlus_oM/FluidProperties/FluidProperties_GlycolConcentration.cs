@@ -6,13 +6,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     [Description("glycol and what concentration it is")]
-    [JsonObject("FluidProperties:GlycolConcentration")]
     public class FluidProperties_GlycolConcentration : BHoMObject, IEnergyPlusClass
     {
         
 
         [Description("or UserDefined Fluid (must show up as a glycol in FluidProperties:Name object)")]
         [JsonProperty("glycol_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FluidProperties_GlycolConcentration_GlycolType GlycolType { get; set; } = (FluidProperties_GlycolConcentration_GlycolType)Enum.Parse(typeof(FluidProperties_GlycolConcentration_GlycolType), "EthyleneGlycol");
         
 

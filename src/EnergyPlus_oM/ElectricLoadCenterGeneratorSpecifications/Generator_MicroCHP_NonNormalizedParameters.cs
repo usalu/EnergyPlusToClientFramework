@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("This object is referenced by a Generator:MicroCHP object and provides the non-nor" +
                  "malized parameters for the MicroCHP generator model.")]
-    [JsonObject("Generator:MicroCHP:NonNormalizedParameters")]
     public class Generator_MicroCHP_NonNormalizedParameters : BHoMObject, IEnergyPlusClass
     {
         
@@ -39,6 +38,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("cooling_water_flow_rate_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_MicroCHP_NonNormalizedParameters_CoolingWaterFlowRateMode CoolingWaterFlowRateMode { get; set; } = (Generator_MicroCHP_NonNormalizedParameters_CoolingWaterFlowRateMode)Enum.Parse(typeof(Generator_MicroCHP_NonNormalizedParameters_CoolingWaterFlowRateMode), "InternalControl");
         
 
@@ -85,6 +85,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         [Description("Stirling engines use Nominal Engine Temperature Internal combustion engines use T" +
                      "ime Delay")]
         [JsonProperty("warm_up_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_MicroCHP_NonNormalizedParameters_WarmUpMode WarmUpMode { get; set; } = (Generator_MicroCHP_NonNormalizedParameters_WarmUpMode)Enum.Parse(typeof(Generator_MicroCHP_NonNormalizedParameters_WarmUpMode), "NominalEngineTemperature");
         
 
@@ -117,6 +118,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("restart_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Generator_MicroCHP_NonNormalizedParameters_RestartMode RestartMode { get; set; } = (Generator_MicroCHP_NonNormalizedParameters_RestartMode)Enum.Parse(typeof(Generator_MicroCHP_NonNormalizedParameters_RestartMode), "MandatoryCoolDown");
     }
 }

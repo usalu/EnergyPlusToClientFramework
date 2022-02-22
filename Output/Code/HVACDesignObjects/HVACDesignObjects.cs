@@ -68,13 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
     
     [Description("This object is used to describe general outdoor air requirements which are refere" +
         "nced by other objects.")]
-    [JsonObject("DesignSpecification:OutdoorAir")]
     public class DesignSpecification_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"Flow/Person => Outdoor Air Flow per Person * Occupancy = Design Flow Rate, Flow/Area => Outdoor Air Flow per Zone Floor Area * Zone Floor Area = Design Flow Rate, Flow/Zone => Outdoor Air Flow per Zone = Design Flow Rate, AirChanges/Hour => Outdoor Air Flow Air Changes per Hour * Zone Volume adjusted for m3/s = Design Flow Rate")]
 [JsonProperty("outdoor_air_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DesignSpecification_OutdoorAir_OutdoorAirMethod OutdoorAirMethod { get; set; } = (DesignSpecification_OutdoorAir_OutdoorAirMethod)Enum.Parse(typeof(DesignSpecification_OutdoorAir_OutdoorAirMethod), "Empty");
         
 
@@ -116,41 +116,40 @@ public string ProportionalControlMinimumOutdoorAirFlowRateScheduleName { get; se
     public enum DesignSpecification_OutdoorAir_OutdoorAirMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AirChanges/Hour")]
+        [System.Runtime.Serialization.EnumMember(Value="AirChanges/Hour")]
         AirChangesHour = 1,
         
-        [JsonProperty("Flow/Area")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Area")]
         FlowArea = 2,
         
-        [JsonProperty("Flow/Person")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Person")]
         FlowPerson = 3,
         
-        [JsonProperty("Flow/Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Zone")]
         FlowZone = 4,
         
-        [JsonProperty("IndoorAirQualityProcedure")]
+        [System.Runtime.Serialization.EnumMember(Value="IndoorAirQualityProcedure")]
         IndoorAirQualityProcedure = 5,
         
-        [JsonProperty("Maximum")]
+        [System.Runtime.Serialization.EnumMember(Value="Maximum")]
         Maximum = 6,
         
-        [JsonProperty("ProportionalControlBasedOnDesignOccupancy")]
+        [System.Runtime.Serialization.EnumMember(Value="ProportionalControlBasedOnDesignOccupancy")]
         ProportionalControlBasedOnDesignOccupancy = 7,
         
-        [JsonProperty("ProportionalControlBasedOnOccupancySchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="ProportionalControlBasedOnOccupancySchedule")]
         ProportionalControlBasedOnOccupancySchedule = 8,
         
-        [JsonProperty("Sum")]
+        [System.Runtime.Serialization.EnumMember(Value="Sum")]
         Sum = 9,
     }
     
     [Description("This object is used to describe zone air distribution in terms of air distributio" +
         "n effectiveness and secondary recirculation fraction. It is referenced by Sizing" +
         ":Zone and Controller:MechanicalVentilation objects")]
-    [JsonObject("DesignSpecification:ZoneAirDistribution")]
     public class DesignSpecification_ZoneAirDistribution : BHoMObject, IEnergyPlusClass
     {
         
@@ -178,7 +177,6 @@ public System.Nullable<float> MinimumZoneVentilationEfficiency { get; set; } = (
     }
     
     [Description(@"Specifies global heating and cooling sizing factors/ratios. These ratios are applied at the zone level to all of the zone heating and cooling loads and air flow rates. Then these new loads and air flow rates are used to calculate the system level flow rates and capacities and are used in all component sizing calculations. Specifies the width (in load timesteps) of a moving average window which is used to smooth the peak load across more than one timestep.")]
-    [JsonObject("Sizing:Parameters")]
     public class Sizing_Parameters : BHoMObject, IEnergyPlusClass
     {
         
@@ -199,7 +197,6 @@ public System.Nullable<float> TimestepsInAveragingWindow { get; set; } = null;
     }
     
     [Description(@"Specifies the data needed to perform a zone design air flow calculation. The calculation is done for every sizing period included in the input. The maximum cooling and heating load and cooling, heating, and ventilation air flows are then saved for system level and zone component design calculations.")]
-    [JsonObject("Sizing:Zone")]
     public class Sizing_Zone : BHoMObject, IEnergyPlusClass
     {
         
@@ -209,6 +206,7 @@ public string ZoneOrZonelistName { get; set; } = "";
         
 
 [JsonProperty("zone_cooling_design_supply_air_temperature_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_Zone_ZoneCoolingDesignSupplyAirTemperatureInputMethod ZoneCoolingDesignSupplyAirTemperatureInputMethod { get; set; } = (Sizing_Zone_ZoneCoolingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(Sizing_Zone_ZoneCoolingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 
@@ -224,6 +222,7 @@ public System.Nullable<float> ZoneCoolingDesignSupplyAirTemperatureDifference { 
         
 
 [JsonProperty("zone_heating_design_supply_air_temperature_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_Zone_ZoneHeatingDesignSupplyAirTemperatureInputMethod ZoneHeatingDesignSupplyAirTemperatureInputMethod { get; set; } = (Sizing_Zone_ZoneHeatingDesignSupplyAirTemperatureInputMethod)Enum.Parse(typeof(Sizing_Zone_ZoneHeatingDesignSupplyAirTemperatureInputMethod), "SupplyAirTemperature");
         
 
@@ -261,6 +260,7 @@ public System.Nullable<float> ZoneCoolingSizingFactor { get; set; } = null;
         
 
 [JsonProperty("cooling_design_air_flow_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_Zone_CoolingDesignAirFlowMethod CoolingDesignAirFlowMethod { get; set; } = (Sizing_Zone_CoolingDesignAirFlowMethod)Enum.Parse(typeof(Sizing_Zone_CoolingDesignAirFlowMethod), "DesignDay");
         
 
@@ -289,6 +289,7 @@ public System.Nullable<float> CoolingMinimumAirFlowFraction { get; set; } = (Sys
         
 
 [JsonProperty("heating_design_air_flow_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_Zone_HeatingDesignAirFlowMethod HeatingDesignAirFlowMethod { get; set; } = (Sizing_Zone_HeatingDesignAirFlowMethod)Enum.Parse(typeof(Sizing_Zone_HeatingDesignAirFlowMethod), "DesignDay");
         
 
@@ -324,12 +325,14 @@ public string DesignSpecificationZoneAirDistributionObjectName { get; set; } = "
 [Description("account for effect of dedicated outdoor air system supplying air directly to the " +
     "zone")]
 [JsonProperty("account_for_dedicated_outdoor_air_system")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes AccountForDedicatedOutdoorAirSystem { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("1)supply neutral ventilation air; 2)supply neutral dehumidified and reheated vent" +
     "ilation air; 3)supply cold ventilation air")]
 [JsonProperty("dedicated_outdoor_air_system_control_strategy")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_Zone_DedicatedOutdoorAirSystemControlStrategy DedicatedOutdoorAirSystemControlStrategy { get; set; } = (Sizing_Zone_DedicatedOutdoorAirSystemControlStrategy)Enum.Parse(typeof(Sizing_Zone_DedicatedOutdoorAirSystemControlStrategy), "NeutralSupplyAir");
         
 
@@ -344,86 +347,86 @@ public string DedicatedOutdoorAirHighSetpointTemperatureForDesign { get; set; } 
     public enum Sizing_Zone_ZoneCoolingDesignSupplyAirTemperatureInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("SupplyAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplyAirTemperature")]
         SupplyAirTemperature = 1,
         
-        [JsonProperty("TemperatureDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureDifference")]
         TemperatureDifference = 2,
     }
     
     public enum Sizing_Zone_ZoneHeatingDesignSupplyAirTemperatureInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("SupplyAirTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplyAirTemperature")]
         SupplyAirTemperature = 1,
         
-        [JsonProperty("TemperatureDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="TemperatureDifference")]
         TemperatureDifference = 2,
     }
     
     public enum Sizing_Zone_CoolingDesignAirFlowMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignDay")]
         DesignDay = 1,
         
-        [JsonProperty("DesignDayWithLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignDayWithLimit")]
         DesignDayWithLimit = 2,
         
-        [JsonProperty("Flow/Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Zone")]
         FlowZone = 3,
     }
     
     public enum Sizing_Zone_HeatingDesignAirFlowMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignDay")]
         DesignDay = 1,
         
-        [JsonProperty("DesignDayWithLimit")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignDayWithLimit")]
         DesignDayWithLimit = 2,
         
-        [JsonProperty("Flow/Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/Zone")]
         FlowZone = 3,
     }
     
     public enum Sizing_Zone_DedicatedOutdoorAirSystemControlStrategy
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ColdSupplyAir")]
+        [System.Runtime.Serialization.EnumMember(Value="ColdSupplyAir")]
         ColdSupplyAir = 1,
         
-        [JsonProperty("NeutralDehumidifiedSupplyAir")]
+        [System.Runtime.Serialization.EnumMember(Value="NeutralDehumidifiedSupplyAir")]
         NeutralDehumidifiedSupplyAir = 2,
         
-        [JsonProperty("NeutralSupplyAir")]
+        [System.Runtime.Serialization.EnumMember(Value="NeutralSupplyAir")]
         NeutralSupplyAir = 3,
     }
     
     [Description("This object is used to describe general scalable zone HVAC equipment sizing which" +
         " are referenced by other objects.")]
-    [JsonObject("DesignSpecification:ZoneHVAC:Sizing")]
     public class DesignSpecification_ZoneHVAC_Sizing : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"Enter the method used to determine the cooling supply air volume flow rate. None is used when a cooling coil is not included in the Zone HVAC Equip or this field may be blank. SupplyAirFlowRate => selected when the magnitude of the supply air volume flow rate is specified. FlowPerFloorArea => selected when the supply air volume flow rate is determined from total floor area served by the Zone HVAC unit and Flow Per Floor Area value specified. FractionOfAutosizedCoolingAirflow => is selected when the supply air volume is determined from a user specified fraction and the autosized cooling supply air flow rate value determined by the simulation. FlowPerCoolingCapacity => is selected when the supply air volume is determined from user specified flow per Cooling Capacity and Cooling Capacity determined by the simulation.")]
 [JsonProperty("cooling_supply_air_flow_rate_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DesignSpecification_ZoneHVAC_Sizing_CoolingSupplyAirFlowRateMethod CoolingSupplyAirFlowRateMethod { get; set; } = (DesignSpecification_ZoneHVAC_Sizing_CoolingSupplyAirFlowRateMethod)Enum.Parse(typeof(DesignSpecification_ZoneHVAC_Sizing_CoolingSupplyAirFlowRateMethod), "SupplyAirFlowRate");
         
 
@@ -456,6 +459,7 @@ public System.Nullable<float> CoolingSupplyAirFlowRatePerUnitCoolingCapacity { g
 
 [Description(@"Enter the method used to determine the supply air volume flow rate When No Cooling or Heating is Required. None is used when a cooling or heating coil is not included in the Zone HVAC Equipment or this field may be blank. SupplyAirFlowRate => selected when the magnitude of the supply air volume flow rate is specified. FlowPerFloorArea => selected when the supply air volume flow rate is determined from total floor area served by the Zone HVAC unit and Flow Per Floor Area is specified. FractionOfAutosizedCoolingAirflow => is selected when the supply air volume is determined from a user specified fraction and the Autosized cooling supply air flow rate value determined by the simulation. FractionOfAutosizedHeatingAirflow => is selected when the supply air volume is determined from a user specified fraction and the Autosized heating supply air flow rate value determined by the simulation.")]
 [JsonProperty("no_load_supply_air_flow_rate_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DesignSpecification_ZoneHVAC_Sizing_NoLoadSupplyAirFlowRateMethod NoLoadSupplyAirFlowRateMethod { get; set; } = (DesignSpecification_ZoneHVAC_Sizing_NoLoadSupplyAirFlowRateMethod)Enum.Parse(typeof(DesignSpecification_ZoneHVAC_Sizing_NoLoadSupplyAirFlowRateMethod), "SupplyAirFlowRate");
         
 
@@ -488,6 +492,7 @@ public System.Nullable<float> NoLoadFractionOfHeatingSupplyAirFlowRate { get; se
 
 [Description(@"Enter the method used to determine the heating supply air volume flow rate. None is used when a heating coil is not included in the Zone HVAC Equipment or this field may be blank. SupplyAirFlowRate => selected when the magnitude of the heating supply air volume flow rate is specified. FlowPerFloorArea => selected when the supply air volume flow rate is determined from total floor area served by a Zone HVAC unit and user specified value of Flow Per Floor Area. FractionOfAutosizedHeatingAirflow => is selected when the supply air volume is determined from a user specified fraction and the Autosized heating supply air flow rate value determined by the simulation. FlowPerHeatingCapacity => is selected when the supply air volume is determined from user specified flow per Heating Capacity and Heating Capacity determined by the simulation.")]
 [JsonProperty("heating_supply_air_flow_rate_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DesignSpecification_ZoneHVAC_Sizing_HeatingSupplyAirFlowRateMethod HeatingSupplyAirFlowRateMethod { get; set; } = (DesignSpecification_ZoneHVAC_Sizing_HeatingSupplyAirFlowRateMethod)Enum.Parse(typeof(DesignSpecification_ZoneHVAC_Sizing_HeatingSupplyAirFlowRateMethod), "SupplyAirFlowRate");
         
 
@@ -521,6 +526,7 @@ public System.Nullable<float> HeatingSupplyAirFlowRatePerUnitHeatingCapacity { g
 
 [Description(@"Enter the method used to determine the cooling design capacity for scalable sizing. None is used when a cooling coils is not included in the Zone HVAC Equipment or this field may be blank. If this input field is left blank, then the design cooling capacity is set to zero. CoolingDesignCapacity => selected when the design cooling capacity value is specified or auto-sized. CapacityPerFloorArea => selected when the design cooling capacity is determine from user specified cooling capacity per floor area and zone floor area. FractionOfAutosizedCoolingCapacity => is selected when the design cooling capacity is determined from a user specified fraction and the auto-sized design cooling capacity.")]
 [JsonProperty("cooling_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DesignSpecification_ZoneHVAC_Sizing_CoolingDesignCapacityMethod CoolingDesignCapacityMethod { get; set; } = (DesignSpecification_ZoneHVAC_Sizing_CoolingDesignCapacityMethod)Enum.Parse(typeof(DesignSpecification_ZoneHVAC_Sizing_CoolingDesignCapacityMethod), "None");
         
 
@@ -544,6 +550,7 @@ public System.Nullable<float> FractionOfAutosizedCoolingDesignCapacity { get; se
 
 [Description(@"Enter the method used to determine the heating design capacity for scalable sizing. None is used when a heating coil is not included in the Zone HVAC Equipment or this field may be blank. If this input field is left blank, then the design heating capacity is set to zero. HeatingDesignCapacity => selected when the design heating capacity value is specified or auto-sized. CapacityPerFloorArea => selected when the design cooling capacity is determine from user specified heating capacity per flow area and zone floor area. FractionOfAutosizedHeatingCapacity => is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity")]
 [JsonProperty("heating_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DesignSpecification_ZoneHVAC_Sizing_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (DesignSpecification_ZoneHVAC_Sizing_HeatingDesignCapacityMethod)Enum.Parse(typeof(DesignSpecification_ZoneHVAC_Sizing_HeatingDesignCapacityMethod), "None");
         
 
@@ -569,109 +576,108 @@ public System.Nullable<float> FractionOfAutosizedHeatingDesignCapacity { get; se
     public enum DesignSpecification_ZoneHVAC_Sizing_CoolingSupplyAirFlowRateMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FlowPerCoolingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerCoolingCapacity")]
         FlowPerCoolingCapacity = 1,
         
-        [JsonProperty("FlowPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerFloorArea")]
         FlowPerFloorArea = 2,
         
-        [JsonProperty("FractionOfAutosizedCoolingAirflow")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedCoolingAirflow")]
         FractionOfAutosizedCoolingAirflow = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
         
-        [JsonProperty("SupplyAirFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplyAirFlowRate")]
         SupplyAirFlowRate = 5,
     }
     
     public enum DesignSpecification_ZoneHVAC_Sizing_NoLoadSupplyAirFlowRateMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FlowPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerFloorArea")]
         FlowPerFloorArea = 1,
         
-        [JsonProperty("FractionOfAutosizedCoolingAirflow")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedCoolingAirflow")]
         FractionOfAutosizedCoolingAirflow = 2,
         
-        [JsonProperty("FractionOfAutosizedHeatingAirflow")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingAirflow")]
         FractionOfAutosizedHeatingAirflow = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
         
-        [JsonProperty("SupplyAirFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplyAirFlowRate")]
         SupplyAirFlowRate = 5,
     }
     
     public enum DesignSpecification_ZoneHVAC_Sizing_HeatingSupplyAirFlowRateMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FlowPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerFloorArea")]
         FlowPerFloorArea = 1,
         
-        [JsonProperty("FlowPerHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerHeatingCapacity")]
         FlowPerHeatingCapacity = 2,
         
-        [JsonProperty("FractionOfAutosizedHeatingAirflow")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingAirflow")]
         FractionOfAutosizedHeatingAirflow = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
         
-        [JsonProperty("SupplyAirFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplyAirFlowRate")]
         SupplyAirFlowRate = 5,
     }
     
     public enum DesignSpecification_ZoneHVAC_Sizing_CoolingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("CoolingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingDesignCapacity")]
         CoolingDesignCapacity = 2,
         
-        [JsonProperty("FractionOfAutosizedCoolingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedCoolingCapacity")]
         FractionOfAutosizedCoolingCapacity = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
     
     public enum DesignSpecification_ZoneHVAC_Sizing_HeatingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("FractionOfAutosizedHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingCapacity")]
         FractionOfAutosizedHeatingCapacity = 2,
         
-        [JsonProperty("HeatingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingDesignCapacity")]
         HeatingDesignCapacity = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
     
     [Description("This object is used to scale the sizing of air terminal units.")]
-    [JsonObject("DesignSpecification:AirTerminal:Sizing")]
     public class DesignSpecification_AirTerminal_Sizing : BHoMObject, IEnergyPlusClass
     {
         
@@ -711,7 +717,6 @@ public System.Nullable<float> FractionOfMinimumOutdoorAirFlow { get; set; } = (S
     [Description("Specifies the input needed to perform sizing calculations for a central forced ai" +
         "r system. System design air flow, heating capacity, and cooling capacity will be" +
         " calculated using this input data.")]
-    [JsonObject("Sizing:System")]
     public class Sizing_System : BHoMObject, IEnergyPlusClass
     {
         
@@ -722,6 +727,7 @@ public string AirloopName { get; set; } = "";
 
 [Description(@"Specifies the basis for sizing the system supply air flow rate Sensible and Total use the zone design air flow rates to size the system supply air flow rate The cooling coil will then be sized at either the peak Sensible or Total flow rate and conditions The heating coil is always sized at the peak sensible heating load. VentilationRequirement uses the system ventilation requirement")]
 [JsonProperty("type_of_load_to_size_on")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_System_TypeOfLoadToSizeOn TypeOfLoadToSizeOn { get; set; } = (Sizing_System_TypeOfLoadToSizeOn)Enum.Parse(typeof(Sizing_System_TypeOfLoadToSizeOn), "Sensible");
         
 
@@ -758,14 +764,17 @@ public System.Nullable<float> CentralHeatingDesignSupplyAirTemperature { get; se
         
 
 [JsonProperty("type_of_zone_sum_to_use")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_System_TypeOfZoneSumToUse TypeOfZoneSumToUse { get; set; } = (Sizing_System_TypeOfZoneSumToUse)Enum.Parse(typeof(Sizing_System_TypeOfZoneSumToUse), "NonCoincident");
         
 
 [JsonProperty("100_outdoor_air_in_cooling")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes _100OutdoorAirInCooling { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [JsonProperty("100_outdoor_air_in_heating")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes _100OutdoorAirInHeating { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -778,6 +787,7 @@ public System.Nullable<float> CentralHeatingDesignSupplyAirHumidityRatio { get; 
         
 
 [JsonProperty("cooling_supply_air_flow_rate_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_System_CoolingSupplyAirFlowRateMethod CoolingSupplyAirFlowRateMethod { get; set; } = (Sizing_System_CoolingSupplyAirFlowRateMethod)Enum.Parse(typeof(Sizing_System_CoolingSupplyAirFlowRateMethod), "DesignDay");
         
 
@@ -809,6 +819,7 @@ public System.Nullable<float> CoolingSupplyAirFlowRatePerUnitCoolingCapacity { g
         
 
 [JsonProperty("heating_supply_air_flow_rate_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_System_HeatingSupplyAirFlowRateMethod HeatingSupplyAirFlowRateMethod { get; set; } = (Sizing_System_HeatingSupplyAirFlowRateMethod)Enum.Parse(typeof(Sizing_System_HeatingSupplyAirFlowRateMethod), "DesignDay");
         
 
@@ -847,6 +858,7 @@ public System.Nullable<float> HeatingSupplyAirFlowRatePerUnitHeatingCapacity { g
         
 
 [JsonProperty("system_outdoor_air_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_System_SystemOutdoorAirMethod SystemOutdoorAirMethod { get; set; } = (Sizing_System_SystemOutdoorAirMethod)Enum.Parse(typeof(Sizing_System_SystemOutdoorAirMethod), "ZoneSum");
         
 
@@ -856,6 +868,7 @@ public System.Nullable<float> ZoneMaximumOutdoorAirFraction { get; set; } = (Sys
 
 [Description(@"Enter the method used to determine the system cooling design capacity for scalable sizing. None is used when a cooling coils is not included in an airloop or this field may be blank. If this input field is left blank, then the design cooling capacity is set to zero. CoolingDesignCapacity => selected when the design cooling capacity value is specified or auto-sized. CapacityPerFloorArea => selected when the design cooling capacity is determined from user specified cooling capacity per floor area and total floor area of cooled zones served by an airloop. FractionOfAutosizedCoolingCapacity => is selected when the design cooling capacity is determined from a user specified fraction and the auto-sized design cooling capacity of the system.")]
 [JsonProperty("cooling_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_System_CoolingDesignCapacityMethod CoolingDesignCapacityMethod { get; set; } = (Sizing_System_CoolingDesignCapacityMethod)Enum.Parse(typeof(Sizing_System_CoolingDesignCapacityMethod), "CoolingDesignCapacity");
         
 
@@ -879,6 +892,7 @@ public System.Nullable<float> FractionOfAutosizedCoolingDesignCapacity { get; se
 
 [Description(@"Enter the method used to determine the heating design capacity for scalable sizing. None is used when a heating coil not included in an airloop or this field may be blank. If this input field is left blank, then the design heating capacity is set to zero. HeatingDesignCapacity => selected when the design heating capacity value is specified or auto-sized. CapacityPerFloorArea => selected when the design heating capacity is determined from user specified heating capacity per flow area and total floor area of heated zones served by an airloop. FractionOfAutosizedHeatingCapacity => is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity of the system.")]
 [JsonProperty("heating_design_capacity_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_System_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { get; set; } = (Sizing_System_HeatingDesignCapacityMethod)Enum.Parse(typeof(Sizing_System_HeatingDesignCapacityMethod), "HeatingDesignCapacity");
         
 
@@ -902,157 +916,157 @@ public System.Nullable<float> FractionOfAutosizedHeatingDesignCapacity { get; se
 
 [Description("Method used to control the coil\'s output")]
 [JsonProperty("central_cooling_capacity_control_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_System_CentralCoolingCapacityControlMethod CentralCoolingCapacityControlMethod { get; set; } = (Sizing_System_CentralCoolingCapacityControlMethod)Enum.Parse(typeof(Sizing_System_CentralCoolingCapacityControlMethod), "OnOff");
     }
     
     public enum Sizing_System_TypeOfLoadToSizeOn
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Sensible")]
+        [System.Runtime.Serialization.EnumMember(Value="Sensible")]
         Sensible = 1,
         
-        [JsonProperty("Total")]
+        [System.Runtime.Serialization.EnumMember(Value="Total")]
         Total = 2,
         
-        [JsonProperty("VentilationRequirement")]
+        [System.Runtime.Serialization.EnumMember(Value="VentilationRequirement")]
         VentilationRequirement = 3,
     }
     
     public enum Sizing_System_TypeOfZoneSumToUse
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coincident")]
+        [System.Runtime.Serialization.EnumMember(Value="Coincident")]
         Coincident = 1,
         
-        [JsonProperty("NonCoincident")]
+        [System.Runtime.Serialization.EnumMember(Value="NonCoincident")]
         NonCoincident = 2,
     }
     
     public enum Sizing_System_CoolingSupplyAirFlowRateMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignDay")]
         DesignDay = 1,
         
-        [JsonProperty("Flow/System")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/System")]
         FlowSystem = 2,
         
-        [JsonProperty("FlowPerCoolingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerCoolingCapacity")]
         FlowPerCoolingCapacity = 3,
         
-        [JsonProperty("FlowPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerFloorArea")]
         FlowPerFloorArea = 4,
         
-        [JsonProperty("FractionOfAutosizedCoolingAirflow")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedCoolingAirflow")]
         FractionOfAutosizedCoolingAirflow = 5,
     }
     
     public enum Sizing_System_HeatingSupplyAirFlowRateMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DesignDay")]
+        [System.Runtime.Serialization.EnumMember(Value="DesignDay")]
         DesignDay = 1,
         
-        [JsonProperty("Flow/System")]
+        [System.Runtime.Serialization.EnumMember(Value="Flow/System")]
         FlowSystem = 2,
         
-        [JsonProperty("FlowPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerFloorArea")]
         FlowPerFloorArea = 3,
         
-        [JsonProperty("FlowPerHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FlowPerHeatingCapacity")]
         FlowPerHeatingCapacity = 4,
         
-        [JsonProperty("FractionOfAutosizedCoolingAirflow")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedCoolingAirflow")]
         FractionOfAutosizedCoolingAirflow = 5,
         
-        [JsonProperty("FractionOfAutosizedHeatingAirflow")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingAirflow")]
         FractionOfAutosizedHeatingAirflow = 6,
     }
     
     public enum Sizing_System_SystemOutdoorAirMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("VentilationRateProcedure")]
+        [System.Runtime.Serialization.EnumMember(Value="VentilationRateProcedure")]
         VentilationRateProcedure = 1,
         
-        [JsonProperty("ZoneSum")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneSum")]
         ZoneSum = 2,
     }
     
     public enum Sizing_System_CoolingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("CoolingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingDesignCapacity")]
         CoolingDesignCapacity = 2,
         
-        [JsonProperty("FractionOfAutosizedCoolingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedCoolingCapacity")]
         FractionOfAutosizedCoolingCapacity = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
     
     public enum Sizing_System_HeatingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("FractionOfAutosizedHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingCapacity")]
         FractionOfAutosizedHeatingCapacity = 2,
         
-        [JsonProperty("HeatingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingDesignCapacity")]
         HeatingDesignCapacity = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
     
     public enum Sizing_System_CentralCoolingCapacityControlMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Bypass")]
+        [System.Runtime.Serialization.EnumMember(Value="Bypass")]
         Bypass = 1,
         
-        [JsonProperty("OnOff")]
+        [System.Runtime.Serialization.EnumMember(Value="OnOff")]
         OnOff = 2,
         
-        [JsonProperty("VAV")]
+        [System.Runtime.Serialization.EnumMember(Value="VAV")]
         VAV = 3,
         
-        [JsonProperty("VT")]
+        [System.Runtime.Serialization.EnumMember(Value="VT")]
         VT = 4,
     }
     
     [Description(@"Specifies the input needed to autosize plant loop flow rates and equipment capacities. This information is initially used by components that use water for heating or cooling such as hot or chilled water coils to calculate their maximum water flow rates. These flow rates are then summed for use in calculating the Plant Loop flow rates.")]
-    [JsonObject("Sizing:Plant")]
     public class Sizing_Plant : BHoMObject, IEnergyPlusClass
     {
         
@@ -1063,6 +1077,7 @@ public string PlantOrCondenserLoopName { get; set; } = "";
         
 
 [JsonProperty("loop_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_Plant_LoopType LoopType { get; set; } = (Sizing_Plant_LoopType)Enum.Parse(typeof(Sizing_Plant_LoopType), "Condenser");
         
 
@@ -1078,6 +1093,7 @@ public System.Nullable<float> LoopDesignTemperatureDifference { get; set; } = nu
     "input field called Do HVAC Sizing Simulation for Sizing Periods in SimulationCon" +
     "trol must be set to Yes")]
 [JsonProperty("sizing_option")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_Plant_SizingOption SizingOption { get; set; } = (Sizing_Plant_SizingOption)Enum.Parse(typeof(Sizing_Plant_SizingOption), "NonCoincident");
         
 
@@ -1090,51 +1106,52 @@ public System.Nullable<float> ZoneTimestepsInAveragingWindow { get; set; } = (Sy
 [Description("this is used to adjust the result for coincident sizing by applying a sizing fact" +
     "or")]
 [JsonProperty("coincident_sizing_factor_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Sizing_Plant_CoincidentSizingFactorMode CoincidentSizingFactorMode { get; set; } = (Sizing_Plant_CoincidentSizingFactorMode)Enum.Parse(typeof(Sizing_Plant_CoincidentSizingFactorMode), "GlobalCoolingSizingFactor");
     }
     
     public enum Sizing_Plant_LoopType
     {
         
-        [JsonProperty("Condenser")]
+        [System.Runtime.Serialization.EnumMember(Value="Condenser")]
         Condenser = 0,
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 1,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 2,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 3,
     }
     
     public enum Sizing_Plant_SizingOption
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Coincident")]
+        [System.Runtime.Serialization.EnumMember(Value="Coincident")]
         Coincident = 1,
         
-        [JsonProperty("NonCoincident")]
+        [System.Runtime.Serialization.EnumMember(Value="NonCoincident")]
         NonCoincident = 2,
     }
     
     public enum Sizing_Plant_CoincidentSizingFactorMode
     {
         
-        [JsonProperty("GlobalCoolingSizingFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="GlobalCoolingSizingFactor")]
         GlobalCoolingSizingFactor = 0,
         
-        [JsonProperty("GlobalHeatingSizingFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="GlobalHeatingSizingFactor")]
         GlobalHeatingSizingFactor = 1,
         
-        [JsonProperty("LoopComponentSizingFactor")]
+        [System.Runtime.Serialization.EnumMember(Value="LoopComponentSizingFactor")]
         LoopComponentSizingFactor = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
     }
     
@@ -1142,25 +1159,25 @@ public Sizing_Plant_CoincidentSizingFactorMode CoincidentSizingFactorMode { get;
         "ng into spreadsheet programs such as Excel(tm) but not so well for word processi" +
         "ng programs -- there tab may be a better choice. Fixed puts spaces between the \"" +
         "columns\"")]
-    [JsonObject("OutputControl:Sizing:Style")]
     public class OutputControl_Sizing_Style : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("column_separator")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_Sizing_Style_ColumnSeparator ColumnSeparator { get; set; } = (OutputControl_Sizing_Style_ColumnSeparator)Enum.Parse(typeof(OutputControl_Sizing_Style_ColumnSeparator), "Comma");
     }
     
     public enum OutputControl_Sizing_Style_ColumnSeparator
     {
         
-        [JsonProperty("Comma")]
+        [System.Runtime.Serialization.EnumMember(Value="Comma")]
         Comma = 0,
         
-        [JsonProperty("Fixed")]
+        [System.Runtime.Serialization.EnumMember(Value="Fixed")]
         Fixed = 1,
         
-        [JsonProperty("Tab")]
+        [System.Runtime.Serialization.EnumMember(Value="Tab")]
         Tab = 2,
     }
 }

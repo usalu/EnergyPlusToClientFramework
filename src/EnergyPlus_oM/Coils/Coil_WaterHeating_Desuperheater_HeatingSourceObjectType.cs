@@ -1,38 +1,36 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     public enum Coil_WaterHeating_Desuperheater_HeatingSourceObjectType
     {
         
-        [JsonProperty("Coil:Cooling:DX:MultiSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:MultiSpeed")]
         CoilCoolingDXMultiSpeed = 0,
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 1,
         
-        [JsonProperty("Coil:Cooling:DX:TwoSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoSpeed")]
         CoilCoolingDXTwoSpeed = 2,
         
-        [JsonProperty("Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:TwoStageWithHumidityControlMode")]
         CoilCoolingDXTwoStageWithHumidityControlMode = 3,
         
-        [JsonProperty("Coil:Cooling:DX:VariableSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:VariableSpeed")]
         CoilCoolingDXVariableSpeed = 4,
         
-        [JsonProperty("Coil:Cooling:WaterToAirHeatPump:EquationFit")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:WaterToAirHeatPump:EquationFit")]
         CoilCoolingWaterToAirHeatPumpEquationFit = 5,
         
-        [JsonProperty("Refrigeration:CompressorRack")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration:CompressorRack")]
         RefrigerationCompressorRack = 6,
         
-        [JsonProperty("Refrigeration:Condenser:AirCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration:Condenser:AirCooled")]
         RefrigerationCondenserAirCooled = 7,
         
-        [JsonProperty("Refrigeration:Condenser:EvaporativeCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration:Condenser:EvaporativeCooled")]
         RefrigerationCondenserEvaporativeCooled = 8,
         
-        [JsonProperty("Refrigeration:Condenser:WaterCooled")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration:Condenser:WaterCooled")]
         RefrigerationCondenserWaterCooled = 9,
     }
 }

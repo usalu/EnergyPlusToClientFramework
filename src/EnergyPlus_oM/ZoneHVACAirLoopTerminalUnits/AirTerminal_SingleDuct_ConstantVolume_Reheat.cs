@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
     
     [Description("Central air system terminal unit, single duct, constant volume, with reheat coil " +
         "(hot water, electric, gas, or steam).")]
-    [JsonObject("AirTerminal:SingleDuct:ConstantVolume:Reheat")]
     public class AirTerminal_SingleDuct_ConstantVolume_Reheat : BHoMObject, IEnergyPlusClass
     {
         
@@ -92,6 +91,7 @@ public string MaximumAirFlowRate { get; set; } = "";
         
 
 [JsonProperty("reheat_coil_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public AirTerminal_SingleDuct_ConstantVolume_Reheat_ReheatCoilObjectType ReheatCoilObjectType { get; set; } = (AirTerminal_SingleDuct_ConstantVolume_Reheat_ReheatCoilObjectType)Enum.Parse(typeof(AirTerminal_SingleDuct_ConstantVolume_Reheat_ReheatCoilObjectType), "CoilHeatingElectric");
         
 

@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     public enum DesignSpecification_ZoneHVAC_Sizing_HeatingDesignCapacityMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CapacityPerFloorArea")]
+        [System.Runtime.Serialization.EnumMember(Value="CapacityPerFloorArea")]
         CapacityPerFloorArea = 1,
         
-        [JsonProperty("FractionOfAutosizedHeatingCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="FractionOfAutosizedHeatingCapacity")]
         FractionOfAutosizedHeatingCapacity = 2,
         
-        [JsonProperty("HeatingDesignCapacity")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingDesignCapacity")]
         HeatingDesignCapacity = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
 }

@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object specifies the properties of air flow through a horizontal opening")]
-    [JsonObject("AirflowNetwork:MultiZone:Component:HorizontalOpening")]
     public class AirflowNetwork_MultiZone_Component_HorizontalOpening : BHoMObject, IEnergyPlusClass
     {
         

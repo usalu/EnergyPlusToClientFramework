@@ -1,35 +1,33 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     public enum SizingPeriod_DesignDay_HumidityConditionType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DewPoint")]
+        [System.Runtime.Serialization.EnumMember(Value="DewPoint")]
         DewPoint = 1,
         
-        [JsonProperty("Enthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="Enthalpy")]
         Enthalpy = 2,
         
-        [JsonProperty("HumidityRatio")]
+        [System.Runtime.Serialization.EnumMember(Value="HumidityRatio")]
         HumidityRatio = 3,
         
-        [JsonProperty("RelativeHumiditySchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="RelativeHumiditySchedule")]
         RelativeHumiditySchedule = 4,
         
-        [JsonProperty("WetBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulb")]
         WetBulb = 5,
         
-        [JsonProperty("WetBulbProfileDefaultMultipliers")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbProfileDefaultMultipliers")]
         WetBulbProfileDefaultMultipliers = 6,
         
-        [JsonProperty("WetBulbProfileDifferenceSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbProfileDifferenceSchedule")]
         WetBulbProfileDifferenceSchedule = 7,
         
-        [JsonProperty("WetBulbProfileMultiplierSchedule")]
+        [System.Runtime.Serialization.EnumMember(Value="WetBulbProfileMultiplierSchedule")]
         WetBulbProfileMultiplierSchedule = 8,
     }
 }

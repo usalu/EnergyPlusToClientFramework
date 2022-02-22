@@ -1,53 +1,51 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     public enum ScheduleTypeLimits_UnitType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ActivityLevel")]
+        [System.Runtime.Serialization.EnumMember(Value="ActivityLevel")]
         ActivityLevel = 1,
         
-        [JsonProperty("Angle")]
+        [System.Runtime.Serialization.EnumMember(Value="Angle")]
         Angle = 2,
         
-        [JsonProperty("Availability")]
+        [System.Runtime.Serialization.EnumMember(Value="Availability")]
         Availability = 3,
         
-        [JsonProperty("Capacity")]
+        [System.Runtime.Serialization.EnumMember(Value="Capacity")]
         Capacity = 4,
         
-        [JsonProperty("Control")]
+        [System.Runtime.Serialization.EnumMember(Value="Control")]
         Control = 5,
         
-        [JsonProperty("ConvectionCoefficient")]
+        [System.Runtime.Serialization.EnumMember(Value="ConvectionCoefficient")]
         ConvectionCoefficient = 6,
         
-        [JsonProperty("DeltaTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="DeltaTemperature")]
         DeltaTemperature = 7,
         
-        [JsonProperty("Dimensionless")]
+        [System.Runtime.Serialization.EnumMember(Value="Dimensionless")]
         Dimensionless = 8,
         
-        [JsonProperty("Mode")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode")]
         Mode = 9,
         
-        [JsonProperty("Percent")]
+        [System.Runtime.Serialization.EnumMember(Value="Percent")]
         Percent = 10,
         
-        [JsonProperty("Power")]
+        [System.Runtime.Serialization.EnumMember(Value="Power")]
         Power = 11,
         
-        [JsonProperty("PrecipitationRate")]
+        [System.Runtime.Serialization.EnumMember(Value="PrecipitationRate")]
         PrecipitationRate = 12,
         
-        [JsonProperty("Temperature")]
+        [System.Runtime.Serialization.EnumMember(Value="Temperature")]
         Temperature = 13,
         
-        [JsonProperty("Velocity")]
+        [System.Runtime.Serialization.EnumMember(Value="Velocity")]
         Velocity = 14,
     }
 }

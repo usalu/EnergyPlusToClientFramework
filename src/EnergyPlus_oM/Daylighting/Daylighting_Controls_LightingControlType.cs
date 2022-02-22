@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Daylighting
 {
     public enum Daylighting_Controls_LightingControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Continuous")]
+        [System.Runtime.Serialization.EnumMember(Value="Continuous")]
         Continuous = 1,
         
-        [JsonProperty("ContinuousOff")]
+        [System.Runtime.Serialization.EnumMember(Value="ContinuousOff")]
         ContinuousOff = 2,
         
-        [JsonProperty("Stepped")]
+        [System.Runtime.Serialization.EnumMember(Value="Stepped")]
         Stepped = 3,
     }
 }

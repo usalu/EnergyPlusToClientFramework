@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     [Description("Window air conditioner. Forced-convection cooling-only unit with supply fan, dire" +
                  "ct expansion (DX) cooling coil, and fixed-position outdoor air mixer.")]
-    [JsonObject("ZoneHVAC:WindowAirConditioner")]
     public class ZoneHVAC_WindowAirConditioner : BHoMObject, IEnergyPlusClass
     {
         
@@ -37,6 +36,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description("currently only one OutdoorAir:Mixer object type is available.")]
         [JsonProperty("outdoor_air_mixer_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_WindowAirConditioner_OutdoorAirMixerObjectType OutdoorAirMixerObjectType { get; set; } = (ZoneHVAC_WindowAirConditioner_OutdoorAirMixerObjectType)Enum.Parse(typeof(ZoneHVAC_WindowAirConditioner_OutdoorAirMixerObjectType), "OutdoorAirMixer");
         
 
@@ -46,6 +46,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 
         [Description(@"Fan:ConstantVolume only works when continuous fan operation is used the entire simulation (all supply air fan operating mode schedule values are greater than 0). If any fan operating mode schedule values are 0 a Fan:SystemModel or Fan:OnOff object must be used.")]
         [JsonProperty("supply_air_fan_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_WindowAirConditioner_SupplyAirFanObjectType SupplyAirFanObjectType { get; set; } = (ZoneHVAC_WindowAirConditioner_SupplyAirFanObjectType)Enum.Parse(typeof(ZoneHVAC_WindowAirConditioner_SupplyAirFanObjectType), "FanConstantVolume");
         
 
@@ -56,6 +57,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("cooling_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_WindowAirConditioner_CoolingCoilObjectType CoolingCoilObjectType { get; set; } = (ZoneHVAC_WindowAirConditioner_CoolingCoilObjectType)Enum.Parse(typeof(ZoneHVAC_WindowAirConditioner_CoolingCoilObjectType), "CoilCoolingDXSingleSpeed");
         
 
@@ -69,6 +71,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("fan_placement")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_WindowAirConditioner_FanPlacement FanPlacement { get; set; } = (ZoneHVAC_WindowAirConditioner_FanPlacement)Enum.Parse(typeof(ZoneHVAC_WindowAirConditioner_FanPlacement), "BlowThrough");
         
 

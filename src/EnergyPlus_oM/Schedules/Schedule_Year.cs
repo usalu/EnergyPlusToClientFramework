@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     [Description("A Schedule:Year contains from 1 to 52 week schedules")]
-    [JsonObject("Schedule:Year")]
     public class Schedule_Year : BHoMObject, IEnergyPlusClass
     {
         

@@ -1,38 +1,36 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     public enum ComponentCost_LineItem_LineItemType
     {
         
-        [JsonProperty("Chiller:Electric")]
+        [System.Runtime.Serialization.EnumMember(Value="Chiller:Electric")]
         ChillerElectric = 0,
         
-        [JsonProperty("Coil:Cooling:DX:SingleSpeed")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Cooling:DX:SingleSpeed")]
         CoilCoolingDXSingleSpeed = 1,
         
-        [JsonProperty("Coil:DX")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:DX")]
         CoilDX = 2,
         
-        [JsonProperty("Coil:Heating:Fuel")]
+        [System.Runtime.Serialization.EnumMember(Value="Coil:Heating:Fuel")]
         CoilHeatingFuel = 3,
         
-        [JsonProperty("Construction")]
+        [System.Runtime.Serialization.EnumMember(Value="Construction")]
         Construction = 4,
         
-        [JsonProperty("Daylighting:Controls")]
+        [System.Runtime.Serialization.EnumMember(Value="Daylighting:Controls")]
         DaylightingControls = 5,
         
-        [JsonProperty("General")]
+        [System.Runtime.Serialization.EnumMember(Value="General")]
         General = 6,
         
-        [JsonProperty("Generator:Photovoltaic")]
+        [System.Runtime.Serialization.EnumMember(Value="Generator:Photovoltaic")]
         GeneratorPhotovoltaic = 7,
         
-        [JsonProperty("Lights")]
+        [System.Runtime.Serialization.EnumMember(Value="Lights")]
         Lights = 8,
         
-        [JsonProperty("Shading:Zone:Detailed")]
+        [System.Runtime.Serialization.EnumMember(Value="Shading:Zone:Detailed")]
         ShadingZoneDetailed = 9,
     }
 }

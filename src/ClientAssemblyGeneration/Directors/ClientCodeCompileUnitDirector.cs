@@ -11,7 +11,7 @@ namespace ClientAssemblyGeneration.Directors
         {
             this._clientCodeCompileUnitBuilder = clientCodeCompileUnitBuilder;
         }
-        public abstract CodeCompileUnit GetCodeCompileUnit();
+        public abstract CodeCompileUnit GetCodeCompileUnit(string baseNamespaceName, CodeNamespaceImport[] additionalImports);
         
     }
 }

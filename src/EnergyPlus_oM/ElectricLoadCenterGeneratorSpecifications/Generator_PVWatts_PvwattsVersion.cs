@@ -1,11 +1,9 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_PVWatts_PvwattsVersion
     {
         
-        [JsonProperty("5")]
+        [System.Runtime.Serialization.EnumMember(Value="5")]
         _5 = 0,
     }
 }

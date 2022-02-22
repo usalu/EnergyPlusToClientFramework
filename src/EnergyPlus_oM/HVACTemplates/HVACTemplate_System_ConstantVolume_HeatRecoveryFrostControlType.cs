@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_ConstantVolume_HeatRecoveryFrostControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ExhaustAirRecirculation")]
+        [System.Runtime.Serialization.EnumMember(Value="ExhaustAirRecirculation")]
         ExhaustAirRecirculation = 1,
         
-        [JsonProperty("ExhaustOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="ExhaustOnly")]
         ExhaustOnly = 2,
         
-        [JsonProperty("MinimumExhaustTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimumExhaustTemperature")]
         MinimumExhaustTemperature = 3,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 4,
     }
 }

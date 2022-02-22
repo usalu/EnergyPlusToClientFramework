@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterSystems
 {
     public enum WaterUse_Storage_WaterThermalMode
     {
         
-        [JsonProperty("ScheduledTemperature")]
+        [System.Runtime.Serialization.EnumMember(Value="ScheduledTemperature")]
         ScheduledTemperature = 0,
         
-        [JsonProperty("ThermalModel")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermalModel")]
         ThermalModel = 1,
     }
 }

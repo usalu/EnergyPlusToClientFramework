@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     [Description("define an air node for some types of nodal air models")]
-    [JsonObject("RoomAir:Node:AirflowNetwork")]
     public class RoomAir_Node_AirflowNetwork : BHoMObject, IEnergyPlusClass
     {
         

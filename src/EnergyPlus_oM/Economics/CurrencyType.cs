@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     
     [Description("If CurrencyType is not specified, it will default to USD and produce $ in the rep" +
         "orts.")]
-    [JsonObject("CurrencyType")]
     public class CurrencyType : BHoMObject, IEnergyPlusClass
     {
         
@@ -76,6 +75,7 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     "ry or region. Based on ISO 4217 currency codes. Common currency codes are USD fo" +
     "r $ and EUR for Euros.")]
 [JsonProperty("monetary_unit")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CurrencyType_MonetaryUnit MonetaryUnit { get; set; } = (CurrencyType_MonetaryUnit)Enum.Parse(typeof(CurrencyType_MonetaryUnit), "AFN");
     }
 }

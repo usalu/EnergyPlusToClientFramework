@@ -10,7 +10,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "cludes electric compressor and outdoor fan), variable-speed, with defrost contro" +
                  "ls. Requires two to ten sets of performance data and will interpolate between sp" +
                  "eeds.")]
-    [JsonObject("Coil:Heating:DX:VariableSpeed")]
     public class Coil_Heating_DX_VariableSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -75,10 +74,12 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("defrost_strategy")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Heating_DX_VariableSpeed_DefrostStrategy DefrostStrategy { get; set; } = (Coil_Heating_DX_VariableSpeed_DefrostStrategy)Enum.Parse(typeof(Coil_Heating_DX_VariableSpeed_DefrostStrategy), "ReverseCycle");
         
 
         [JsonProperty("defrost_control")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Heating_DX_VariableSpeed_DefrostControl DefrostControl { get; set; } = (Coil_Heating_DX_VariableSpeed_DefrostControl)Enum.Parse(typeof(Coil_Heating_DX_VariableSpeed_DefrostControl), "Timed");
         
 

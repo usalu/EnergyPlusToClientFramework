@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     public enum Output_Constructions_DetailsType2
     {
         
-        [JsonProperty("Constructions")]
+        [System.Runtime.Serialization.EnumMember(Value="Constructions")]
         Constructions = 0,
         
-        [JsonProperty("Materials")]
+        [System.Runtime.Serialization.EnumMember(Value="Materials")]
         Materials = 1,
     }
 }

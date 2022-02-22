@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
     
     
     [Description(@"Add directories to the search path for Python plugin modules The directory containing the EnergyPlus executable file is automatically added so that the Python interpreter can find the packaged up pyenergyplus Python package. By default, the current working directory and input file directory are also added to the search path. However, this object allows modifying this behavior. With this object, searching these directories can be disabled, and users can add supplemental search paths that point to libraries of plugin scripts.")]
-    [JsonObject("PythonPlugin:SearchPaths")]
     public class PythonPlugin_SearchPaths : BHoMObject, IEnergyPlusClass
     {
         
@@ -75,12 +74,14 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
 [Description("Adding the current working directory allows Python to find plugin scripts in the " +
     "current directory.")]
 [JsonProperty("add_current_working_directory_to_search_path")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes AddCurrentWorkingDirectoryToSearchPath { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [Description("Enabling this will allow Python to find plugin scripts in the same directory as t" +
     "he running input file, even if that is not the current working directory.")]
 [JsonProperty("add_input_file_directory_to_search_path")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes AddInputFileDirectoryToSearchPath { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 

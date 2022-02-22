@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
     
     
     [Description("Specifies the EnergyPlus version of the IDF file.")]
-    [JsonObject("Version")]
     public class Version : BHoMObject, IEnergyPlusClass
     {
         
@@ -77,7 +76,6 @@ public string VersionIdentifier { get; set; } = (System.String)"9.5";
     }
     
     [Description(@"Note that the following 3 fields are related to the Sizing:Zone, Sizing:System, and Sizing:Plant objects. Having these fields set to Yes but no corresponding Sizing object will not cause the sizing to be done. However, having any of these fields set to No, the corresponding Sizing object is ignored. Note also, if you want to do system sizing, you must also do zone sizing in the same run or an error will result.")]
-    [JsonObject("SimulationControl")]
     public class SimulationControl : BHoMObject, IEnergyPlusClass
     {
         
@@ -85,30 +83,35 @@ public string VersionIdentifier { get; set; } = (System.String)"9.5";
 [Description("If Yes, Zone sizing is accomplished from corresponding Sizing:Zone objects and au" +
     "tosize fields.")]
 [JsonProperty("do_zone_sizing_calculation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes DoZoneSizingCalculation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("If Yes, System sizing is accomplished from corresponding Sizing:System objects an" +
     "d autosize fields. If Yes, Zone sizing (previous field) must also be Yes.")]
 [JsonProperty("do_system_sizing_calculation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes DoSystemSizingCalculation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("If Yes, Plant sizing is accomplished from corresponding Sizing:Plant objects and " +
     "autosize fields.")]
 [JsonProperty("do_plant_sizing_calculation")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes DoPlantSizingCalculation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("If Yes, SizingPeriod:* objects are executed and results from those may be display" +
     "ed..")]
 [JsonProperty("run_simulation_for_sizing_periods")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RunSimulationForSizingPeriods { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [Description("If Yes, RunPeriod:* objects are executed and results from those may be displayed." +
     ".")]
 [JsonProperty("run_simulation_for_weather_file_run_periods")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RunSimulationForWeatherFileRunPeriods { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
@@ -116,6 +119,7 @@ public EmptyNoYes RunSimulationForWeatherFileRunPeriods { get; set; } = (EmptyNo
     ". Currently limited to use with coincident plant sizing, see Sizing:Plant object" +
     "")]
 [JsonProperty("do_hvac_sizing_simulation_for_sizing_periods")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes DoHvacSizingSimulationForSizingPeriods { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -128,7 +132,6 @@ public System.Nullable<float> MaximumNumberOfHvacSizingSimulationPasses { get; s
     
     [Description("This object enables users to choose certain options that speed up EnergyPlus simu" +
         "lation, but may lead to small decreases in accuracy of results.")]
-    [JsonObject("PerformancePrecisionTradeoffs")]
     public class PerformancePrecisionTradeoffs : BHoMObject, IEnergyPlusClass
     {
         
@@ -136,12 +139,14 @@ public System.Nullable<float> MaximumNumberOfHvacSizingSimulationPasses { get; s
 [Description("If Yes, an analytical or empirical solution will be used to replace iterations in" +
     " the coil performance calculations.")]
 [JsonProperty("use_coil_direct_solutions")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes UseCoilDirectSolutions { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("Determines which algorithm will be used to solve long wave radiant exchange among" +
     " surfaces within a zone.")]
 [JsonProperty("zone_radiant_exchange_algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PerformancePrecisionTradeoffs_ZoneRadiantExchangeAlgorithm ZoneRadiantExchangeAlgorithm { get; set; } = (PerformancePrecisionTradeoffs_ZoneRadiantExchangeAlgorithm)Enum.Parse(typeof(PerformancePrecisionTradeoffs_ZoneRadiantExchangeAlgorithm), "ScriptF");
         
 
@@ -149,6 +154,7 @@ public PerformancePrecisionTradeoffs_ZoneRadiantExchangeAlgorithm ZoneRadiantExc
     " of each mode are shown in the documentation. When Advanced is selected the N1 f" +
     "ield value is used.")]
 [JsonProperty("override_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PerformancePrecisionTradeoffs_OverrideMode OverrideMode { get; set; } = (PerformancePrecisionTradeoffs_OverrideMode)Enum.Parse(typeof(PerformancePrecisionTradeoffs_OverrideMode), "Normal");
         
 
@@ -167,47 +173,47 @@ public System.Nullable<float> Maxalloweddeltemp { get; set; } = (System.Nullable
     public enum PerformancePrecisionTradeoffs_ZoneRadiantExchangeAlgorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CarrollMRT")]
+        [System.Runtime.Serialization.EnumMember(Value="CarrollMRT")]
         CarrollMRT = 1,
         
-        [JsonProperty("ScriptF")]
+        [System.Runtime.Serialization.EnumMember(Value="ScriptF")]
         ScriptF = 2,
     }
     
     public enum PerformancePrecisionTradeoffs_OverrideMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Advanced")]
+        [System.Runtime.Serialization.EnumMember(Value="Advanced")]
         Advanced = 1,
         
-        [JsonProperty("Mode01")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode01")]
         Mode01 = 2,
         
-        [JsonProperty("Mode02")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode02")]
         Mode02 = 3,
         
-        [JsonProperty("Mode03")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode03")]
         Mode03 = 4,
         
-        [JsonProperty("Mode04")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode04")]
         Mode04 = 5,
         
-        [JsonProperty("Mode05")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode05")]
         Mode05 = 6,
         
-        [JsonProperty("Mode06")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode06")]
         Mode06 = 7,
         
-        [JsonProperty("Mode07")]
+        [System.Runtime.Serialization.EnumMember(Value="Mode07")]
         Mode07 = 8,
         
-        [JsonProperty("Normal")]
+        [System.Runtime.Serialization.EnumMember(Value="Normal")]
         Normal = 9,
     }
     
@@ -215,7 +221,6 @@ public System.Nullable<float> Maxalloweddeltemp { get; set; } = (System.Nullable
         "re necessary correlations between the entries for this object and some entries i" +
         "n the Site:WeatherStation and Site:HeightVariation objects, specifically the Ter" +
         "rain field.")]
-    [JsonObject("Building")]
     public class Building : BHoMObject, IEnergyPlusClass
     {
         
@@ -228,6 +233,7 @@ public System.Nullable<float> NorthAxis { get; set; } = (System.Nullable<float>)
 [Description("Country=FlatOpenCountry | Suburbs=CountryTownsSuburbs | City=CityCenter | Ocean=b" +
     "ody of water (5km) | Urban=Urban-Industrial-Forest")]
 [JsonProperty("terrain")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Building_Terrain Terrain { get; set; } = (Building_Terrain)Enum.Parse(typeof(Building_Terrain), "Suburbs");
         
 
@@ -244,6 +250,7 @@ public System.Nullable<float> TemperatureConvergenceToleranceValue { get; set; }
 [Description("MinimalShadowing | FullExterior | FullInteriorAndExterior | FullExteriorWithRefle" +
     "ctions | FullInteriorAndExteriorWithReflections")]
 [JsonProperty("solar_distribution")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Building_SolarDistribution SolarDistribution { get; set; } = (Building_SolarDistribution)Enum.Parse(typeof(Building_SolarDistribution), "FullExterior");
         
 
@@ -261,62 +268,63 @@ public System.Nullable<float> MinimumNumberOfWarmupDays { get; set; } = (System.
     public enum Building_Terrain
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("City")]
+        [System.Runtime.Serialization.EnumMember(Value="City")]
         City = 1,
         
-        [JsonProperty("Country")]
+        [System.Runtime.Serialization.EnumMember(Value="Country")]
         Country = 2,
         
-        [JsonProperty("Ocean")]
+        [System.Runtime.Serialization.EnumMember(Value="Ocean")]
         Ocean = 3,
         
-        [JsonProperty("Suburbs")]
+        [System.Runtime.Serialization.EnumMember(Value="Suburbs")]
         Suburbs = 4,
         
-        [JsonProperty("Urban")]
+        [System.Runtime.Serialization.EnumMember(Value="Urban")]
         Urban = 5,
     }
     
     public enum Building_SolarDistribution
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FullExterior")]
+        [System.Runtime.Serialization.EnumMember(Value="FullExterior")]
         FullExterior = 1,
         
-        [JsonProperty("FullExteriorWithReflections")]
+        [System.Runtime.Serialization.EnumMember(Value="FullExteriorWithReflections")]
         FullExteriorWithReflections = 2,
         
-        [JsonProperty("FullInteriorAndExterior")]
+        [System.Runtime.Serialization.EnumMember(Value="FullInteriorAndExterior")]
         FullInteriorAndExterior = 3,
         
-        [JsonProperty("FullInteriorAndExteriorWithReflections")]
+        [System.Runtime.Serialization.EnumMember(Value="FullInteriorAndExteriorWithReflections")]
         FullInteriorAndExteriorWithReflections = 4,
         
-        [JsonProperty("MinimalShadowing")]
+        [System.Runtime.Serialization.EnumMember(Value="MinimalShadowing")]
         MinimalShadowing = 5,
     }
     
     [Description("This object is used to control details of the solar, shading, and daylighting mod" +
         "els")]
-    [JsonObject("ShadowCalculation")]
     public class ShadowCalculation : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"Select between CPU-based polygon clipping method, the GPU-based pixel counting method, or importing from external shading data. If PixelCounting is selected and GPU hardware (or GPU emulation) is not available, a warning will be displayed and EnergyPlus will revert to PolygonClipping. If Scheduled is chosen, the External Shading Fraction Schedule Name is required in SurfaceProperty:LocalEnvironment. If Imported is chosen, the Schedule:File:Shading object is required.")]
 [JsonProperty("shading_calculation_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ShadowCalculation_ShadingCalculationMethod ShadingCalculationMethod { get; set; } = (ShadowCalculation_ShadingCalculationMethod)Enum.Parse(typeof(ShadowCalculation_ShadingCalculationMethod), "PolygonClipping");
         
 
 [Description("choose calculation frequency method. note that Timestep is only needed for certai" +
     "n cases and can increase execution time significantly.")]
 [JsonProperty("shading_calculation_update_frequency_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ShadowCalculation_ShadingCalculationUpdateFrequencyMethod ShadingCalculationUpdateFrequencyMethod { get; set; } = (ShadowCalculation_ShadingCalculationUpdateFrequencyMethod)Enum.Parse(typeof(ShadowCalculation_ShadingCalculationUpdateFrequencyMethod), "Periodic");
         
 
@@ -334,6 +342,7 @@ public System.Nullable<float> MaximumFiguresInShadowOverlapCalculations { get; s
 [Description("Advanced Feature. Internal default is SutherlandHodgman Refer to InputOutput Refe" +
     "rence and Engineering Reference for more information")]
 [JsonProperty("polygon_clipping_algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ShadowCalculation_PolygonClippingAlgorithm PolygonClippingAlgorithm { get; set; } = (ShadowCalculation_PolygonClippingAlgorithm)Enum.Parse(typeof(ShadowCalculation_PolygonClippingAlgorithm), "SutherlandHodgman");
         
 
@@ -347,22 +356,26 @@ public System.Nullable<float> PixelCountingResolution { get; set; } = (System.Nu
     "etailed method. Refer to InputOutput Reference and Engineering Reference for mor" +
     "e information")]
 [JsonProperty("sky_diffuse_modeling_algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ShadowCalculation_SkyDiffuseModelingAlgorithm SkyDiffuseModelingAlgorithm { get; set; } = (ShadowCalculation_SkyDiffuseModelingAlgorithm)Enum.Parse(typeof(ShadowCalculation_SkyDiffuseModelingAlgorithm), "SimpleSkyDiffuseModeling");
         
 
 [Description("If Yes is chosen, the calculated external shading fraction results will be saved " +
     "to an external CSV file with surface names as the column headers.")]
 [JsonProperty("output_external_shading_calculation_results")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputExternalShadingCalculationResults { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description(@"If Yes, self-shading will be disabled from all exterior surfaces in a given Shading Zone Group to surfaces within the same Shading Zone Group. If both Disable Self-Shading Within Shading Zone Groups and Disable Self-Shading From Shading Zone Groups to Other Zones = Yes, then all self-shading from exterior surfaces will be disabled. If only one of these fields = Yes, then at least one Shading Zone Group must be specified, or this field will be ignored. Shading from Shading:* surfaces, overhangs, fins, and reveals will not be disabled.")]
 [JsonProperty("disable_self_shading_within_shading_zone_groups")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes DisableSelfShadingWithinShadingZoneGroups { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description(@"If Yes, self-shading will be disabled from all exterior surfaces in a given Shading Zone Group to all other zones in the model. If both Disable Self-Shading Within Shading Zone Groups and Disable Self-Shading From Shading Zone Groups to Other Zones = Yes, then all self-shading from exterior surfaces will be disabled. If only one of these fields = Yes, then at least one Shading Zone Group must be specified, or this field will be ignored. Shading from Shading:* surfaces, overhangs, fins, and reveals will not be disabled.")]
 [JsonProperty("disable_self_shading_from_shading_zone_groups_to_other_zones")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes DisableSelfShadingFromShadingZoneGroupsToOtherZones { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -373,139 +386,139 @@ public string ShadingZoneGroups { get; set; } = "";
     public enum ShadowCalculation_ShadingCalculationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Imported")]
+        [System.Runtime.Serialization.EnumMember(Value="Imported")]
         Imported = 1,
         
-        [JsonProperty("PixelCounting")]
+        [System.Runtime.Serialization.EnumMember(Value="PixelCounting")]
         PixelCounting = 2,
         
-        [JsonProperty("PolygonClipping")]
+        [System.Runtime.Serialization.EnumMember(Value="PolygonClipping")]
         PolygonClipping = 3,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 4,
     }
     
     public enum ShadowCalculation_ShadingCalculationUpdateFrequencyMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Periodic")]
+        [System.Runtime.Serialization.EnumMember(Value="Periodic")]
         Periodic = 1,
         
-        [JsonProperty("Timestep")]
+        [System.Runtime.Serialization.EnumMember(Value="Timestep")]
         Timestep = 2,
     }
     
     public enum ShadowCalculation_PolygonClippingAlgorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ConvexWeilerAtherton")]
+        [System.Runtime.Serialization.EnumMember(Value="ConvexWeilerAtherton")]
         ConvexWeilerAtherton = 1,
         
-        [JsonProperty("SlaterBarskyandSutherlandHodgman")]
+        [System.Runtime.Serialization.EnumMember(Value="SlaterBarskyandSutherlandHodgman")]
         SlaterBarskyandSutherlandHodgman = 2,
         
-        [JsonProperty("SutherlandHodgman")]
+        [System.Runtime.Serialization.EnumMember(Value="SutherlandHodgman")]
         SutherlandHodgman = 3,
     }
     
     public enum ShadowCalculation_SkyDiffuseModelingAlgorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DetailedSkyDiffuseModeling")]
+        [System.Runtime.Serialization.EnumMember(Value="DetailedSkyDiffuseModeling")]
         DetailedSkyDiffuseModeling = 1,
         
-        [JsonProperty("SimpleSkyDiffuseModeling")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleSkyDiffuseModeling")]
         SimpleSkyDiffuseModeling = 2,
     }
     
     [Description("Default indoor surface heat transfer convection algorithm to be used for all zone" +
         "s")]
-    [JsonObject("SurfaceConvectionAlgorithm:Inside")]
     public class SurfaceConvectionAlgorithm_Inside : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"Simple = constant value natural convection (ASHRAE) TARP = variable natural convection based on temperature difference (ASHRAE, Walton) CeilingDiffuser = ACH-based forced and mixed convection correlations for ceiling diffuser configuration with simple natural convection limit AdaptiveConvectionAlgorithm = dynamic selection of convection models based on conditions ASTMC1340 = mixed convection correlations based on heat flow direction, surface tilt angle, surface characteristic length, and air speed past the surface.")]
 [JsonProperty("algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Inside_Algorithm Algorithm { get; set; } = (SurfaceConvectionAlgorithm_Inside_Algorithm)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Inside_Algorithm), "TARP");
     }
     
     public enum SurfaceConvectionAlgorithm_Inside_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ASTMC1340")]
+        [System.Runtime.Serialization.EnumMember(Value="ASTMC1340")]
         ASTMC1340 = 1,
         
-        [JsonProperty("AdaptiveConvectionAlgorithm")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveConvectionAlgorithm")]
         AdaptiveConvectionAlgorithm = 2,
         
-        [JsonProperty("CeilingDiffuser")]
+        [System.Runtime.Serialization.EnumMember(Value="CeilingDiffuser")]
         CeilingDiffuser = 3,
         
-        [JsonProperty("Simple")]
+        [System.Runtime.Serialization.EnumMember(Value="Simple")]
         Simple = 4,
         
-        [JsonProperty("TARP")]
+        [System.Runtime.Serialization.EnumMember(Value="TARP")]
         TARP = 5,
     }
     
     [Description("Default outside surface heat transfer convection algorithm to be used for all zon" +
         "es")]
-    [JsonObject("SurfaceConvectionAlgorithm:Outside")]
     public class SurfaceConvectionAlgorithm_Outside : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"SimpleCombined = Combined radiation and convection coefficient using simple ASHRAE model TARP = correlation from models developed by ASHRAE, Walton, and Sparrow et. al. MoWiTT = correlation from measurements by Klems and Yazdanian for smooth surfaces DOE-2 = correlation from measurements by Klems and Yazdanian for rough surfaces AdaptiveConvectionAlgorithm = dynamic selection of correlations based on conditions")]
 [JsonProperty("algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SurfaceConvectionAlgorithm_Outside_Algorithm Algorithm { get; set; } = (SurfaceConvectionAlgorithm_Outside_Algorithm)Enum.Parse(typeof(SurfaceConvectionAlgorithm_Outside_Algorithm), "Empty");
     }
     
     public enum SurfaceConvectionAlgorithm_Outside_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AdaptiveConvectionAlgorithm")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveConvectionAlgorithm")]
         AdaptiveConvectionAlgorithm = 1,
         
-        [JsonProperty("DOE-2")]
+        [System.Runtime.Serialization.EnumMember(Value="DOE-2")]
         DOE2 = 2,
         
-        [JsonProperty("MoWiTT")]
+        [System.Runtime.Serialization.EnumMember(Value="MoWiTT")]
         MoWiTT = 3,
         
-        [JsonProperty("SimpleCombined")]
+        [System.Runtime.Serialization.EnumMember(Value="SimpleCombined")]
         SimpleCombined = 4,
         
-        [JsonProperty("TARP")]
+        [System.Runtime.Serialization.EnumMember(Value="TARP")]
         TARP = 5,
     }
     
     [Description(@"Determines which Heat Balance Algorithm will be used ie. CTF (Conduction Transfer Functions), EMPD (Effective Moisture Penetration Depth with Conduction Transfer Functions). Advanced/Research Usage: CondFD (Conduction Finite Difference) Advanced/Research Usage: ConductionFiniteDifferenceSimplified Advanced/Research Usage: HAMT (Combined Heat And Moisture Finite Element)")]
-    [JsonObject("HeatBalanceAlgorithm")]
     public class HeatBalanceAlgorithm : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatBalanceAlgorithm_Algorithm Algorithm { get; set; } = (HeatBalanceAlgorithm_Algorithm)Enum.Parse(typeof(HeatBalanceAlgorithm_Algorithm), "ConductionTransferFunction");
         
 
@@ -524,30 +537,30 @@ public System.Nullable<float> MaximumSurfaceConvectionHeatTransferCoefficientVal
     public enum HeatBalanceAlgorithm_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CombinedHeatAndMoistureFiniteElement")]
+        [System.Runtime.Serialization.EnumMember(Value="CombinedHeatAndMoistureFiniteElement")]
         CombinedHeatAndMoistureFiniteElement = 1,
         
-        [JsonProperty("ConductionFiniteDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="ConductionFiniteDifference")]
         ConductionFiniteDifference = 2,
         
-        [JsonProperty("ConductionTransferFunction")]
+        [System.Runtime.Serialization.EnumMember(Value="ConductionTransferFunction")]
         ConductionTransferFunction = 3,
         
-        [JsonProperty("MoisturePenetrationDepthConductionTransferFunction")]
+        [System.Runtime.Serialization.EnumMember(Value="MoisturePenetrationDepthConductionTransferFunction")]
         MoisturePenetrationDepthConductionTransferFunction = 4,
     }
     
     [Description("Determines settings for the Conduction Finite Difference algorithm for surface he" +
         "at transfer modeling.")]
-    [JsonObject("HeatBalanceSettings:ConductionFiniteDifference")]
     public class HeatBalanceSettings_ConductionFiniteDifference : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("difference_scheme")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatBalanceSettings_ConductionFiniteDifference_DifferenceScheme DifferenceScheme { get; set; } = (HeatBalanceSettings_ConductionFiniteDifference_DifferenceScheme)Enum.Parse(typeof(HeatBalanceSettings_ConductionFiniteDifference_DifferenceScheme), "FullyImplicitFirstOrder");
         
 
@@ -567,50 +580,50 @@ public System.Nullable<float> InsideFaceSurfaceTemperatureConvergenceCriteria { 
     public enum HeatBalanceSettings_ConductionFiniteDifference_DifferenceScheme
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CrankNicholsonSecondOrder")]
+        [System.Runtime.Serialization.EnumMember(Value="CrankNicholsonSecondOrder")]
         CrankNicholsonSecondOrder = 1,
         
-        [JsonProperty("FullyImplicitFirstOrder")]
+        [System.Runtime.Serialization.EnumMember(Value="FullyImplicitFirstOrder")]
         FullyImplicitFirstOrder = 2,
     }
     
     [Description("Determines which algorithm will be used to solve the zone air heat balance.")]
-    [JsonObject("ZoneAirHeatBalanceAlgorithm")]
     public class ZoneAirHeatBalanceAlgorithm : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneAirHeatBalanceAlgorithm_Algorithm Algorithm { get; set; } = (ZoneAirHeatBalanceAlgorithm_Algorithm)Enum.Parse(typeof(ZoneAirHeatBalanceAlgorithm_Algorithm), "ThirdOrderBackwardDifference");
     }
     
     public enum ZoneAirHeatBalanceAlgorithm_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AnalyticalSolution")]
+        [System.Runtime.Serialization.EnumMember(Value="AnalyticalSolution")]
         AnalyticalSolution = 1,
         
-        [JsonProperty("EulerMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="EulerMethod")]
         EulerMethod = 2,
         
-        [JsonProperty("ThirdOrderBackwardDifference")]
+        [System.Runtime.Serialization.EnumMember(Value="ThirdOrderBackwardDifference")]
         ThirdOrderBackwardDifference = 3,
     }
     
     [Description("Determines which contaminant concentration will be simulates.")]
-    [JsonObject("ZoneAirContaminantBalance")]
     public class ZoneAirContaminantBalance : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description("If Yes, CO2 simulation will be performed.")]
 [JsonProperty("carbon_dioxide_concentration")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes CarbonDioxideConcentration { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -621,6 +634,7 @@ public string OutdoorCarbonDioxideScheduleName { get; set; } = "";
 
 [Description("If Yes, generic contaminant simulation will be performed.")]
 [JsonProperty("generic_contaminant_concentration")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes GenericContaminantConcentration { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -631,80 +645,81 @@ public string OutdoorGenericContaminantScheduleName { get; set; } = "";
     }
     
     [Description(@"Enforces the zone air mass flow balance by either adjusting zone mixing object flow only, adjusting zone total return flow only, zone mixing and the zone total return flows, or adjusting the zone total return and zone mixing object flows. Zone infiltration flow air flow is increased or decreased depending user selection in the infiltration treatment method. If either of zone mixing or zone return flow adjusting methods or infiltration is active, then the zone air mass flow balance calculation will attempt to enforce conservation of mass for each zone. If flow balancing method is ""None"" and infiltration is ""None"", then the zone air mass flow calculation defaults to assume self-balanced simple flow mixing and infiltration objects.")]
-    [JsonObject("ZoneAirMassFlowConservation")]
     public class ZoneAirMassFlowConservation : BHoMObject, IEnergyPlusClass
     {
         
 
 [Description(@"If ""AdjustMixingOnly"", zone mixing object flow rates are adjusted to balance the zone air mass flow and zone infiltration air flow may be increased or decreased if required in order to balance the zone air mass flow. If ""AdjustReturnOnly"", zone total return flow rate is adjusted to balance the zone air mass flow and zone infiltration air flow may be increased or decreased if required in order to balance the zone air mass flow. If ""AdjustMixingThenReturn"", first the zone mixing objects flow rates are adjusted to balance the zone air flow, second zone total return flow rate is adjusted and zone infiltration air flow may be increased or decreased if required in order to balance the zone air mass flow. If ""AdjustReturnThenMixing"", first zone total return flow rate is adjusted to balance the zone air flow, second the zone mixing object flow rates are adjusted and infiltration air flow may be increased or decreased if required in order to balance the zone air mass flow.")]
 [JsonProperty("adjust_zone_mixing_and_return_for_air_mass_flow_balance")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneAirMassFlowConservation_AdjustZoneMixingAndReturnForAirMassFlowBalance AdjustZoneMixingAndReturnForAirMassFlowBalance { get; set; } = (ZoneAirMassFlowConservation_AdjustZoneMixingAndReturnForAirMassFlowBalance)Enum.Parse(typeof(ZoneAirMassFlowConservation_AdjustZoneMixingAndReturnForAirMassFlowBalance), "None");
         
 
 [Description(@"This input field allows user to choose how zone infiltration flow is treated during the zone air mass flow balance calculation. AddInfiltrationFlow may add infiltration to the base flow specified in the infiltration object to balance the zone air mass flow. The additional infiltration air mass flow is not self-balanced. The base flow is assumed to be self-balanced. AdjustInfiltrationFlow may adjust the base flow calculated using the base flow specified in the infiltration object to balance the zone air mass flow. If it If no adjustment is required, then the base infiltration is assumed to be self-balanced. None will make no changes to the base infiltration flow.")]
 [JsonProperty("infiltration_balancing_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneAirMassFlowConservation_InfiltrationBalancingMethod InfiltrationBalancingMethod { get; set; } = (ZoneAirMassFlowConservation_InfiltrationBalancingMethod)Enum.Parse(typeof(ZoneAirMassFlowConservation_InfiltrationBalancingMethod), "AddInfiltrationFlow");
         
 
 [Description(@"This input field allows user to choose which zones are included in infiltration balancing. MixingSourceZonesOnly allows infiltration balancing only in zones which as source zones for mixing which also have an infiltration object defined. AllZones allows infiltration balancing in any zone which has an infiltration object defined.")]
 [JsonProperty("infiltration_balancing_zones")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneAirMassFlowConservation_InfiltrationBalancingZones InfiltrationBalancingZones { get; set; } = (ZoneAirMassFlowConservation_InfiltrationBalancingZones)Enum.Parse(typeof(ZoneAirMassFlowConservation_InfiltrationBalancingZones), "MixingSourceZonesOnly");
     }
     
     public enum ZoneAirMassFlowConservation_AdjustZoneMixingAndReturnForAirMassFlowBalance
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AdjustMixingOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjustMixingOnly")]
         AdjustMixingOnly = 1,
         
-        [JsonProperty("AdjustMixingThenReturn")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjustMixingThenReturn")]
         AdjustMixingThenReturn = 2,
         
-        [JsonProperty("AdjustReturnOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjustReturnOnly")]
         AdjustReturnOnly = 3,
         
-        [JsonProperty("AdjustReturnThenMixing")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjustReturnThenMixing")]
         AdjustReturnThenMixing = 4,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 5,
     }
     
     public enum ZoneAirMassFlowConservation_InfiltrationBalancingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AddInfiltrationFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="AddInfiltrationFlow")]
         AddInfiltrationFlow = 1,
         
-        [JsonProperty("AdjustInfiltrationFlow")]
+        [System.Runtime.Serialization.EnumMember(Value="AdjustInfiltrationFlow")]
         AdjustInfiltrationFlow = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
     }
     
     public enum ZoneAirMassFlowConservation_InfiltrationBalancingZones
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AllZones")]
+        [System.Runtime.Serialization.EnumMember(Value="AllZones")]
         AllZones = 1,
         
-        [JsonProperty("MixingSourceZonesOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="MixingSourceZonesOnly")]
         MixingSourceZonesOnly = 2,
     }
     
     [Description("Multiplier altering the relative capacitance of the air compared to an empty zone" +
         "")]
-    [JsonObject("ZoneCapacitanceMultiplier:ResearchSpecial")]
     public class ZoneCapacitanceMultiplier_ResearchSpecial : BHoMObject, IEnergyPlusClass
     {
         
@@ -741,7 +756,6 @@ public System.Nullable<float> GenericContaminantCapacityMultiplier { get; set; }
     [Description("Specifies the \"basic\" timestep for the simulation. The value entered here is also" +
         " known as the Zone Timestep. This is used in the Zone Heat Balance Model calcula" +
         "tion as the driving timestep for heat transfer and load calculations.")]
-    [JsonObject("Timestep")]
     public class Timestep : BHoMObject, IEnergyPlusClass
     {
         
@@ -753,7 +767,6 @@ public System.Nullable<float> NumberOfTimestepsPerHour { get; set; } = (System.N
     
     [Description("Specifies limits on HVAC system simulation timesteps and iterations. This item is" +
         " an advanced feature that should be used only with caution.")]
-    [JsonObject("ConvergenceLimits")]
     public class ConvergenceLimits : BHoMObject, IEnergyPlusClass
     {
         
@@ -782,12 +795,12 @@ public System.Nullable<float> MaximumPlantIterations { get; set; } = (System.Nul
     }
     
     [Description("Specifies a HVAC system solver algorithm to find a root")]
-    [JsonObject("HVACSystemRootFindingAlgorithm")]
     public class HVACSystemRootFindingAlgorithm : BHoMObject, IEnergyPlusClass
     {
         
 
 [JsonProperty("algorithm")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HVACSystemRootFindingAlgorithm_Algorithm Algorithm { get; set; } = (HVACSystemRootFindingAlgorithm_Algorithm)Enum.Parse(typeof(HVACSystemRootFindingAlgorithm_Algorithm), "RegulaFalsi");
         
 
@@ -800,22 +813,22 @@ public System.Nullable<float> NumberOfIterationsBeforeAlgorithmSwitch { get; set
     public enum HVACSystemRootFindingAlgorithm_Algorithm
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Alternation")]
+        [System.Runtime.Serialization.EnumMember(Value="Alternation")]
         Alternation = 1,
         
-        [JsonProperty("Bisection")]
+        [System.Runtime.Serialization.EnumMember(Value="Bisection")]
         Bisection = 2,
         
-        [JsonProperty("BisectionThenRegulaFalsi")]
+        [System.Runtime.Serialization.EnumMember(Value="BisectionThenRegulaFalsi")]
         BisectionThenRegulaFalsi = 3,
         
-        [JsonProperty("RegulaFalsi")]
+        [System.Runtime.Serialization.EnumMember(Value="RegulaFalsi")]
         RegulaFalsi = 4,
         
-        [JsonProperty("RegulaFalsiThenBisection")]
+        [System.Runtime.Serialization.EnumMember(Value="RegulaFalsiThenBisection")]
         RegulaFalsiThenBisection = 5,
     }
 }

@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Ground-coupled basement model for simulating basements or other underground zones" +
                  ".")]
-    [JsonObject("Site:GroundDomain:Basement")]
     public class Site_GroundDomain_Basement : BHoMObject, IEnergyPlusClass
     {
         
@@ -49,6 +48,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         
 
         [JsonProperty("undisturbed_ground_temperature_model_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Site_GroundDomain_Basement_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (Site_GroundDomain_Basement_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(Site_GroundDomain_Basement_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
@@ -67,6 +67,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 
         [Description("This field specifies the presence of insulation beneath the basement floor.")]
         [JsonProperty("horizontal_insulation")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes HorizontalInsulation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -77,6 +78,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         [Description("This field specifies whether the horizontal insulation fully insulates the surfac" +
                      "e or is perimeter only insulation")]
         [JsonProperty("horizontal_insulation_extents")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Site_GroundDomain_Basement_HorizontalInsulationExtents HorizontalInsulationExtents { get; set; } = (Site_GroundDomain_Basement_HorizontalInsulationExtents)Enum.Parse(typeof(Site_GroundDomain_Basement_HorizontalInsulationExtents), "Full");
         
 
@@ -96,6 +98,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
         
 
         [JsonProperty("vertical_insulation")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes VerticalInsulation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -110,6 +113,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 
         [Description("This field specifies the basement domain simulation interval.")]
         [JsonProperty("simulation_timestep")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Site_GroundDomain_Basement_SimulationTimestep SimulationTimestep { get; set; } = (Site_GroundDomain_Basement_SimulationTimestep)Enum.Parse(typeof(Site_GroundDomain_Basement_SimulationTimestep), "Hourly");
         
 

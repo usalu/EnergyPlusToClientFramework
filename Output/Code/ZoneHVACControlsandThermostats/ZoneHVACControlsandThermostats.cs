@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     
     [Description("Specifies zone relative humidity setpoint schedules for humidifying and dehumidif" +
         "ying.")]
-    [JsonObject("ZoneControl:Humidistat")]
     public class ZoneControl_Humidistat : BHoMObject, IEnergyPlusClass
     {
         
@@ -90,7 +89,6 @@ public string DehumidifyingRelativeHumiditySetpointScheduleName { get; set; } = 
     [Description("Define the Thermostat settings for a zone or list of zones. If you use a ZoneList" +
         " in the Zone or ZoneList name field then this definition applies to all the zone" +
         "s in the ZoneList.")]
-    [JsonObject("ZoneControl:Thermostat")]
     public class ZoneControl_Thermostat : BHoMObject, IEnergyPlusClass
     {
         
@@ -105,6 +103,7 @@ public string ControlTypeScheduleName { get; set; } = "";
         
 
 [JsonProperty("control_1_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_Control1ObjectType Control1ObjectType { get; set; } = (ZoneControl_Thermostat_Control1ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_Control1ObjectType), "ThermostatSetpointDualSetpoint");
         
 
@@ -116,6 +115,7 @@ public string Control1Name { get; set; } = "";
         
 
 [JsonProperty("control_2_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_Control2ObjectType Control2ObjectType { get; set; } = (ZoneControl_Thermostat_Control2ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_Control2ObjectType), "ThermostatSetpointDualSetpoint");
         
 
@@ -127,6 +127,7 @@ public string Control2Name { get; set; } = "";
         
 
 [JsonProperty("control_3_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_Control3ObjectType Control3ObjectType { get; set; } = (ZoneControl_Thermostat_Control3ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_Control3ObjectType), "ThermostatSetpointDualSetpoint");
         
 
@@ -138,6 +139,7 @@ public string Control3Name { get; set; } = "";
         
 
 [JsonProperty("control_4_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_Control4ObjectType Control4ObjectType { get; set; } = (ZoneControl_Thermostat_Control4ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_Control4ObjectType), "ThermostatSetpointDualSetpoint");
         
 
@@ -158,64 +160,64 @@ public System.Nullable<float> TemperatureDifferenceBetweenCutoutAndSetpoint { ge
     public enum ZoneControl_Thermostat_Control1ObjectType
     {
         
-        [JsonProperty("ThermostatSetpoint:DualSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:DualSetpoint")]
         ThermostatSetpointDualSetpoint = 0,
         
-        [JsonProperty("ThermostatSetpoint:SingleCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleCooling")]
         ThermostatSetpointSingleCooling = 1,
         
-        [JsonProperty("ThermostatSetpoint:SingleHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleHeating")]
         ThermostatSetpointSingleHeating = 2,
         
-        [JsonProperty("ThermostatSetpoint:SingleHeatingOrCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleHeatingOrCooling")]
         ThermostatSetpointSingleHeatingOrCooling = 3,
     }
     
     public enum ZoneControl_Thermostat_Control2ObjectType
     {
         
-        [JsonProperty("ThermostatSetpoint:DualSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:DualSetpoint")]
         ThermostatSetpointDualSetpoint = 0,
         
-        [JsonProperty("ThermostatSetpoint:SingleCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleCooling")]
         ThermostatSetpointSingleCooling = 1,
         
-        [JsonProperty("ThermostatSetpoint:SingleHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleHeating")]
         ThermostatSetpointSingleHeating = 2,
         
-        [JsonProperty("ThermostatSetpoint:SingleHeatingOrCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleHeatingOrCooling")]
         ThermostatSetpointSingleHeatingOrCooling = 3,
     }
     
     public enum ZoneControl_Thermostat_Control3ObjectType
     {
         
-        [JsonProperty("ThermostatSetpoint:DualSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:DualSetpoint")]
         ThermostatSetpointDualSetpoint = 0,
         
-        [JsonProperty("ThermostatSetpoint:SingleCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleCooling")]
         ThermostatSetpointSingleCooling = 1,
         
-        [JsonProperty("ThermostatSetpoint:SingleHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleHeating")]
         ThermostatSetpointSingleHeating = 2,
         
-        [JsonProperty("ThermostatSetpoint:SingleHeatingOrCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleHeatingOrCooling")]
         ThermostatSetpointSingleHeatingOrCooling = 3,
     }
     
     public enum ZoneControl_Thermostat_Control4ObjectType
     {
         
-        [JsonProperty("ThermostatSetpoint:DualSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:DualSetpoint")]
         ThermostatSetpointDualSetpoint = 0,
         
-        [JsonProperty("ThermostatSetpoint:SingleCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleCooling")]
         ThermostatSetpointSingleCooling = 1,
         
-        [JsonProperty("ThermostatSetpoint:SingleHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleHeating")]
         ThermostatSetpointSingleHeating = 2,
         
-        [JsonProperty("ThermostatSetpoint:SingleHeatingOrCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:SingleHeatingOrCooling")]
         ThermostatSetpointSingleHeatingOrCooling = 3,
     }
     
@@ -223,7 +225,6 @@ public System.Nullable<float> TemperatureDifferenceBetweenCutoutAndSetpoint { ge
         "he zones on that list (but you won\'t be able to use the object list to pick only" +
         " one of those zones. Thermostat names are <Zone Name> <global Thermostat name> i" +
         "nternally.")]
-    [JsonObject("ZoneControl:Thermostat:OperativeTemperature")]
     public class ZoneControl_Thermostat_OperativeTemperature : BHoMObject, IEnergyPlusClass
     {
         
@@ -235,6 +236,7 @@ public string ThermostatName { get; set; } = "";
         
 
 [JsonProperty("radiative_fraction_input_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_OperativeTemperature_RadiativeFractionInputMode RadiativeFractionInputMode { get; set; } = (ZoneControl_Thermostat_OperativeTemperature_RadiativeFractionInputMode)Enum.Parse(typeof(ZoneControl_Thermostat_OperativeTemperature_RadiativeFractionInputMode), "Constant");
         
 
@@ -250,53 +252,53 @@ public string RadiativeFractionScheduleName { get; set; } = "";
 [Description("the cooling setpoint temperature schedule of the referenced thermostat will be ad" +
     "justed based on the selected adaptive comfort model type")]
 [JsonProperty("adaptive_comfort_model_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType AdaptiveComfortModelType { get; set; } = (ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType)Enum.Parse(typeof(ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType), "None");
     }
     
     public enum ZoneControl_Thermostat_OperativeTemperature_RadiativeFractionInputMode
     {
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 0,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 1,
     }
     
     public enum ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AdaptiveASH5580PercentUpperLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH5580PercentUpperLine")]
         AdaptiveASH5580PercentUpperLine = 1,
         
-        [JsonProperty("AdaptiveASH5590PercentUpperLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH5590PercentUpperLine")]
         AdaptiveASH5590PercentUpperLine = 2,
         
-        [JsonProperty("AdaptiveASH55CentralLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveASH55CentralLine")]
         AdaptiveASH55CentralLine = 3,
         
-        [JsonProperty("AdaptiveCEN15251CategoryIIIUpperLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251CategoryIIIUpperLine")]
         AdaptiveCEN15251CategoryIIIUpperLine = 4,
         
-        [JsonProperty("AdaptiveCEN15251CategoryIIUpperLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251CategoryIIUpperLine")]
         AdaptiveCEN15251CategoryIIUpperLine = 5,
         
-        [JsonProperty("AdaptiveCEN15251CategoryIUpperLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251CategoryIUpperLine")]
         AdaptiveCEN15251CategoryIUpperLine = 6,
         
-        [JsonProperty("AdaptiveCEN15251CentralLine")]
+        [System.Runtime.Serialization.EnumMember(Value="AdaptiveCEN15251CentralLine")]
         AdaptiveCEN15251CentralLine = 7,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 8,
     }
     
     [Description("If you use a ZoneList in the Zone or ZoneList name field then this definition app" +
         "lies to all the zones in the ZoneList.")]
-    [JsonObject("ZoneControl:Thermostat:ThermalComfort")]
     public class ZoneControl_Thermostat_ThermalComfort : BHoMObject, IEnergyPlusClass
     {
         
@@ -308,6 +310,7 @@ public string ZoneOrZonelistName { get; set; } = "";
 [Description("The method used to calculate thermal comfort dry-bulb temperature setpoint for mu" +
     "ltiple people objects in a zone")]
 [JsonProperty("averaging_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_ThermalComfort_AveragingMethod AveragingMethod { get; set; } = (ZoneControl_Thermostat_ThermalComfort_AveragingMethod)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_AveragingMethod), "PeopleAverage");
         
 
@@ -330,6 +333,7 @@ public string ThermalComfortControlTypeScheduleName { get; set; } = "";
         
 
 [JsonProperty("thermal_comfort_control_1_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType ThermalComfortControl1ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
@@ -340,6 +344,7 @@ public string ThermalComfortControl1Name { get; set; } = "";
         
 
 [JsonProperty("thermal_comfort_control_2_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType ThermalComfortControl2ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
@@ -350,6 +355,7 @@ public string ThermalComfortControl2Name { get; set; } = "";
         
 
 [JsonProperty("thermal_comfort_control_3_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType ThermalComfortControl3ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
@@ -360,6 +366,7 @@ public string ThermalComfortControl3Name { get; set; } = "";
         
 
 [JsonProperty("thermal_comfort_control_4_object_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType ThermalComfortControl4ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
@@ -372,86 +379,85 @@ public string ThermalComfortControl4Name { get; set; } = "";
     public enum ZoneControl_Thermostat_ThermalComfort_AveragingMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("ObjectAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="ObjectAverage")]
         ObjectAverage = 1,
         
-        [JsonProperty("PeopleAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="PeopleAverage")]
         PeopleAverage = 2,
         
-        [JsonProperty("SpecificObject")]
+        [System.Runtime.Serialization.EnumMember(Value="SpecificObject")]
         SpecificObject = 3,
     }
     
     public enum ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType
     {
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:DualSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:DualSetpoint")]
         ThermostatSetpointThermalComfortFangerDualSetpoint = 0,
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:SingleCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:SingleCooling")]
         ThermostatSetpointThermalComfortFangerSingleCooling = 1,
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating")]
         ThermostatSetpointThermalComfortFangerSingleHeating = 2,
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:SingleHeatingOrCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:SingleHeatingOrCooling")]
         ThermostatSetpointThermalComfortFangerSingleHeatingOrCooling = 3,
     }
     
     public enum ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType
     {
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:DualSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:DualSetpoint")]
         ThermostatSetpointThermalComfortFangerDualSetpoint = 0,
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:SingleCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:SingleCooling")]
         ThermostatSetpointThermalComfortFangerSingleCooling = 1,
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating")]
         ThermostatSetpointThermalComfortFangerSingleHeating = 2,
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:SingleHeatingOrCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:SingleHeatingOrCooling")]
         ThermostatSetpointThermalComfortFangerSingleHeatingOrCooling = 3,
     }
     
     public enum ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType
     {
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:DualSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:DualSetpoint")]
         ThermostatSetpointThermalComfortFangerDualSetpoint = 0,
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:SingleCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:SingleCooling")]
         ThermostatSetpointThermalComfortFangerSingleCooling = 1,
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating")]
         ThermostatSetpointThermalComfortFangerSingleHeating = 2,
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:SingleHeatingOrCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:SingleHeatingOrCooling")]
         ThermostatSetpointThermalComfortFangerSingleHeatingOrCooling = 3,
     }
     
     public enum ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType
     {
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:DualSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:DualSetpoint")]
         ThermostatSetpointThermalComfortFangerDualSetpoint = 0,
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:SingleCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:SingleCooling")]
         ThermostatSetpointThermalComfortFangerSingleCooling = 1,
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating")]
         ThermostatSetpointThermalComfortFangerSingleHeating = 2,
         
-        [JsonProperty("ThermostatSetpoint:ThermalComfort:Fanger:SingleHeatingOrCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="ThermostatSetpoint:ThermalComfort:Fanger:SingleHeatingOrCooling")]
         ThermostatSetpointThermalComfortFangerSingleHeatingOrCooling = 3,
     }
     
     [Description("This object modifies a ZoneControl:Thermostat object to effect temperature contro" +
         "l based on zone air humidity conditions.")]
-    [JsonObject("ZoneControl:Thermostat:TemperatureAndHumidity")]
     public class ZoneControl_Thermostat_TemperatureAndHumidity : BHoMObject, IEnergyPlusClass
     {
         
@@ -467,10 +473,12 @@ public string DehumidifyingRelativeHumiditySetpointScheduleName { get; set; } = 
         
 
 [JsonProperty("dehumidification_control_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_TemperatureAndHumidity_DehumidificationControlType DehumidificationControlType { get; set; } = (ZoneControl_Thermostat_TemperatureAndHumidity_DehumidificationControlType)Enum.Parse(typeof(ZoneControl_Thermostat_TemperatureAndHumidity_DehumidificationControlType), "Overcool");
         
 
 [JsonProperty("overcool_range_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_TemperatureAndHumidity_OvercoolRangeInputMethod OvercoolRangeInputMethod { get; set; } = (ZoneControl_Thermostat_TemperatureAndHumidity_OvercoolRangeInputMethod)Enum.Parse(typeof(ZoneControl_Thermostat_TemperatureAndHumidity_OvercoolRangeInputMethod), "Constant");
         
 
@@ -496,32 +504,31 @@ public System.Nullable<float> OvercoolControlRatio { get; set; } = (System.Nulla
     public enum ZoneControl_Thermostat_TemperatureAndHumidity_DehumidificationControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 1,
         
-        [JsonProperty("Overcool")]
+        [System.Runtime.Serialization.EnumMember(Value="Overcool")]
         Overcool = 2,
     }
     
     public enum ZoneControl_Thermostat_TemperatureAndHumidity_OvercoolRangeInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Constant")]
+        [System.Runtime.Serialization.EnumMember(Value="Constant")]
         Constant = 1,
         
-        [JsonProperty("Scheduled")]
+        [System.Runtime.Serialization.EnumMember(Value="Scheduled")]
         Scheduled = 2,
     }
     
     [Description("Used for a heating only thermostat. The setpoint can be scheduled and varied thro" +
         "ughout the simulation but only heating is allowed with this control type.")]
-    [JsonObject("ThermostatSetpoint:SingleHeating")]
     public class ThermostatSetpoint_SingleHeating : BHoMObject, IEnergyPlusClass
     {
         
@@ -532,7 +539,6 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
     
     [Description("Used for a cooling only thermostat. The setpoint can be scheduled and varied thro" +
         "ughout the simulation but only cooling is allowed.")]
-    [JsonObject("ThermostatSetpoint:SingleCooling")]
     public class ThermostatSetpoint_SingleCooling : BHoMObject, IEnergyPlusClass
     {
         
@@ -544,7 +550,6 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
     [Description("Used for a heating and cooling thermostat with a single setpoint. The setpoint ca" +
         "n be scheduled and varied throughout the simulation for both heating and cooling" +
         ".")]
-    [JsonObject("ThermostatSetpoint:SingleHeatingOrCooling")]
     public class ThermostatSetpoint_SingleHeatingOrCooling : BHoMObject, IEnergyPlusClass
     {
         
@@ -555,7 +560,6 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
     
     [Description("Used for a heating and cooling thermostat with dual setpoints. The setpoints can " +
         "be scheduled and varied throughout the simulation for both heating and cooling.")]
-    [JsonObject("ThermostatSetpoint:DualSetpoint")]
     public class ThermostatSetpoint_DualSetpoint : BHoMObject, IEnergyPlusClass
     {
         
@@ -571,7 +575,6 @@ public string CoolingSetpointTemperatureScheduleName { get; set; } = "";
     [Description("Used for heating only thermal comfort control. The PMV setpoint can be scheduled " +
         "and varied throughout the simulation but only heating is allowed with this contr" +
         "ol type.")]
-    [JsonObject("ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating")]
     public class ThermostatSetpoint_ThermalComfort_Fanger_SingleHeating : BHoMObject, IEnergyPlusClass
     {
         
@@ -584,7 +587,6 @@ public string FangerThermalComfortScheduleName { get; set; } = "";
     [Description("Used for cooling only thermal comfort control. The PMV setpoint can be scheduled " +
         "and varied throughout the simulation but only cooling is allowed with this contr" +
         "ol type.")]
-    [JsonObject("ThermostatSetpoint:ThermalComfort:Fanger:SingleCooling")]
     public class ThermostatSetpoint_ThermalComfort_Fanger_SingleCooling : BHoMObject, IEnergyPlusClass
     {
         
@@ -597,7 +599,6 @@ public string FangerThermalComfortScheduleName { get; set; } = "";
     [Description("Used for heating and cooling thermal comfort control with a single setpoint. The " +
         "PMV setpoint can be scheduled and varied throughout the simulation for both heat" +
         "ing and cooling.")]
-    [JsonObject("ThermostatSetpoint:ThermalComfort:Fanger:SingleHeatingOrCooling")]
     public class ThermostatSetpoint_ThermalComfort_Fanger_SingleHeatingOrCooling : BHoMObject, IEnergyPlusClass
     {
         
@@ -610,7 +611,6 @@ public string FangerThermalComfortScheduleName { get; set; } = "";
     [Description("Used for heating and cooling thermal comfort control with dual setpoints. The PMV" +
         " setpoints can be scheduled and varied throughout the simulation for both heatin" +
         "g and cooling.")]
-    [JsonObject("ThermostatSetpoint:ThermalComfort:Fanger:DualSetpoint")]
     public class ThermostatSetpoint_ThermalComfort_Fanger_DualSetpoint : BHoMObject, IEnergyPlusClass
     {
         
@@ -628,7 +628,6 @@ public string FangerThermalComfortCoolingScheduleName { get; set; } = "";
     [Description("Define the Thermostat StagedDualSetpoint settings for a zone or list of zones. If" +
         " you use a ZoneList in the Zone or ZoneList name field then this definition appl" +
         "ies to all the zones in the ZoneList.")]
-    [JsonObject("ZoneControl:Thermostat:StagedDualSetpoint")]
     public class ZoneControl_Thermostat_StagedDualSetpoint : BHoMObject, IEnergyPlusClass
     {
         
@@ -705,7 +704,6 @@ public System.Nullable<float> Stage4CoolingTemperatureOffset { get; set; } = nul
     
     [Description("Used to control a zone to a specified indoor level of CO2 or generic contaminants" +
         ", or to specify minimum CO2 concentration schedule name for a zone.")]
-    [JsonObject("ZoneControl:ContaminantController")]
     public class ZoneControl_ContaminantController : BHoMObject, IEnergyPlusClass
     {
         

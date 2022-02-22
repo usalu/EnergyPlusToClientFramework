@@ -8,7 +8,6 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object specifies the properties of air flow through windows and doors (windo" +
                  "w, door and glass door heat transfer subsurfaces) when they are closed or open.")]
-    [JsonObject("AirflowNetwork:MultiZone:Component:SimpleOpening")]
     public class AirflowNetwork_MultiZone_Component_SimpleOpening : BHoMObject, IEnergyPlusClass
     {
         

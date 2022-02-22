@@ -1,23 +1,21 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_WindTurbine_PowerControl
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FixedSpeedFixedPitch")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedSpeedFixedPitch")]
         FixedSpeedFixedPitch = 1,
         
-        [JsonProperty("FixedSpeedVariablePitch")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedSpeedVariablePitch")]
         FixedSpeedVariablePitch = 2,
         
-        [JsonProperty("VariableSpeedFixedPitch")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableSpeedFixedPitch")]
         VariableSpeedFixedPitch = 3,
         
-        [JsonProperty("VariableSpeedVariablePitch")]
+        [System.Runtime.Serialization.EnumMember(Value="VariableSpeedVariablePitch")]
         VariableSpeedVariablePitch = 4,
     }
 }

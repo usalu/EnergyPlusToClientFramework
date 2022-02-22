@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     [Description(@"This compound component models a stand-alone energy recovery ventilator (ERV) that conditions outdoor ventilation air and supplies that air directly to a zone. The ERV unit is modeled as a collection of components: air-to-air heat exchanger, supply air fan, exhaust air fan and an optional controller to avoid overheating of the supply air (economizer or free cooling operation).")]
-    [JsonObject("ZoneHVAC:EnergyRecoveryVentilator")]
     public class ZoneHVAC_EnergyRecoveryVentilator : BHoMObject, IEnergyPlusClass
     {
         

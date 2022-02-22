@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
     
     
     [Description(@"Linear curve with one independent variable. Input for the linear curve consists of a curve name, the two coefficients, and the maximum and minimum valid independent variable values. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x")]
-    [JsonObject("Curve:Linear")]
     public class Curve_Linear : BHoMObject, IEnergyPlusClass
     {
         
@@ -99,10 +98,12 @@ public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
         
 
 [JsonProperty("input_unit_type_for_x")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Linear_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Linear_InputUnitTypeForX)Enum.Parse(typeof(Curve_Linear_InputUnitTypeForX), "Dimensionless");
         
 
 [JsonProperty("output_unit_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Linear_OutputUnitType OutputUnitType { get; set; } = (Curve_Linear_OutputUnitType)Enum.Parse(typeof(Curve_Linear_OutputUnitType), "Dimensionless");
     }
 }

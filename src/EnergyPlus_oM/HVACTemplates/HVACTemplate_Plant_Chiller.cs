@@ -7,12 +7,12 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("This object adds a chiller to an HVACTemplate:Plant:ChilledWaterLoop.")]
-    [JsonObject("HVACTemplate:Plant:Chiller")]
     public class HVACTemplate_Plant_Chiller : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("chiller_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Plant_Chiller_ChillerType ChillerType { get; set; } = (HVACTemplate_Plant_Chiller_ChillerType)Enum.Parse(typeof(HVACTemplate_Plant_Chiller_ChillerType), "DistrictChilledWater");
         
 
@@ -28,6 +28,7 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 
         [Description("Not applicable if Chiller Type is DistrictChilledWater")]
         [JsonProperty("condenser_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HVACTemplate_Plant_Chiller_CondenserType CondenserType { get; set; } = (HVACTemplate_Plant_Chiller_CondenserType)Enum.Parse(typeof(HVACTemplate_Plant_Chiller_CondenserType), "WaterCooled");
         
 

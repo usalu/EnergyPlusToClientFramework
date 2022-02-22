@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     public enum ZoneHVAC_IdealLoadsAirSystem_OutdoorAirEconomizerType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("DifferentialDryBulb")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferentialDryBulb")]
         DifferentialDryBulb = 1,
         
-        [JsonProperty("DifferentialEnthalpy")]
+        [System.Runtime.Serialization.EnumMember(Value="DifferentialEnthalpy")]
         DifferentialEnthalpy = 2,
         
-        [JsonProperty("NoEconomizer")]
+        [System.Runtime.Serialization.EnumMember(Value="NoEconomizer")]
         NoEconomizer = 3,
     }
 }

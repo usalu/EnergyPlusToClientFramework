@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
     
     
     [Description(@"Add directories to the search path for Python plugin modules The directory containing the EnergyPlus executable file is automatically added so that the Python interpreter can find the packaged up pyenergyplus Python package. By default, the current working directory and input file directory are also added to the search path. However, this object allows modifying this behavior. With this object, searching these directories can be disabled, and users can add supplemental search paths that point to libraries of plugin scripts.")]
-    [JsonObject("PythonPlugin:SearchPaths")]
     public class PythonPlugin_SearchPaths : BHoMObject, IEnergyPlusClass
     {
         
@@ -75,12 +74,14 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
 [Description("Adding the current working directory allows Python to find plugin scripts in the " +
     "current directory.")]
 [JsonProperty("add_current_working_directory_to_search_path")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes AddCurrentWorkingDirectoryToSearchPath { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [Description("Enabling this will allow Python to find plugin scripts in the same directory as t" +
     "he running input file, even if that is not the current working directory.")]
 [JsonProperty("add_input_file_directory_to_search_path")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes AddInputFileDirectoryToSearchPath { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
@@ -91,7 +92,6 @@ public string PySearchPaths { get; set; } = "";
     [Description("A single plugin to be executed during the simulation, which can contain multiple " +
         "calling points for the same class instance by overriding multiple calling point " +
         "methods.")]
-    [JsonObject("PythonPlugin:Instance")]
     public class PythonPlugin_Instance : BHoMObject, IEnergyPlusClass
     {
         
@@ -100,6 +100,7 @@ public string PySearchPaths { get; set; } = "";
     "se it will only be executed once warmup is completed and the actual run period b" +
     "egins")]
 [JsonProperty("run_during_warmup_days")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RunDuringWarmupDays { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -116,7 +117,6 @@ public string PluginClassName { get; set; } = "";
     
     [Description("This object defines name identifiers for custom Python Plugin variable data that " +
         "should be shared among all running Python Plugins.")]
-    [JsonObject("PythonPlugin:Variables")]
     public class PythonPlugin_Variables : BHoMObject, IEnergyPlusClass
     {
         
@@ -127,7 +127,6 @@ public string GlobalPyVars { get; set; } = "";
     
     [Description("This object sets up a Python plugin trend variable from an Python plugin variable" +
         " A trend variable logs values across timesteps")]
-    [JsonObject("PythonPlugin:TrendVariable")]
     public class PythonPlugin_TrendVariable : BHoMObject, IEnergyPlusClass
     {
         
@@ -141,7 +140,6 @@ public System.Nullable<float> NumberOfTimestepsToBeLogged { get; set; } = null;
     }
     
     [Description("This object sets up an EnergyPlus output variable from a Python Plugin variable")]
-    [JsonObject("PythonPlugin:OutputVariable")]
     public class PythonPlugin_OutputVariable : BHoMObject, IEnergyPlusClass
     {
         
@@ -155,10 +153,12 @@ public string PythonPluginVariableName { get; set; } = "";
     " the Resource Type, Group Type, and End-Use Subcategory fields on this object ar" +
     "e required")]
 [JsonProperty("type_of_data_in_variable")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PythonPlugin_OutputVariable_TypeOfDataInVariable TypeOfDataInVariable { get; set; } = (PythonPlugin_OutputVariable_TypeOfDataInVariable)Enum.Parse(typeof(PythonPlugin_OutputVariable_TypeOfDataInVariable), "Averaged");
         
 
 [JsonProperty("update_frequency")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PythonPlugin_OutputVariable_UpdateFrequency UpdateFrequency { get; set; } = (PythonPlugin_OutputVariable_UpdateFrequency)Enum.Parse(typeof(PythonPlugin_OutputVariable_UpdateFrequency), "SystemTimestep");
         
 
@@ -170,11 +170,13 @@ public string Units { get; set; } = "";
 
 [Description(@"This field is optional for regular output variables with ""Type of Data in Variable"" set to either Averaged or Summed. For Metered variables, this field is required. Choose the type of fuel, water, electricity, pollution or heat rate that should be metered.")]
 [JsonProperty("resource_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PythonPlugin_OutputVariable_ResourceType ResourceType { get; set; } = (PythonPlugin_OutputVariable_ResourceType)Enum.Parse(typeof(PythonPlugin_OutputVariable_ResourceType), "Coal");
         
 
 [Description(@"This field is optional for regular output variables with ""Type of Data in Variable"" set to either Averaged or Summed. For Metered variables, this field is required. Choose a general classification, building (internal services), HVAC (air systems), or plant (hydronic systems), or system")]
 [JsonProperty("group_type")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PythonPlugin_OutputVariable_GroupType GroupType { get; set; } = (PythonPlugin_OutputVariable_GroupType)Enum.Parse(typeof(PythonPlugin_OutputVariable_GroupType), "Building");
         
 
@@ -182,6 +184,7 @@ public PythonPlugin_OutputVariable_GroupType GroupType { get; set; } = (PythonPl
     "e\" set to either Averaged or Summed. For Metered variables, this field is requir" +
     "ed. Choose how the metered output should be classified for end-use category")]
 [JsonProperty("end_use_category")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PythonPlugin_OutputVariable_EndUseCategory EndUseCategory { get; set; } = (PythonPlugin_OutputVariable_EndUseCategory)Enum.Parse(typeof(PythonPlugin_OutputVariable_EndUseCategory), "Baseboard");
         
 
@@ -193,179 +196,179 @@ public string EndUseSubcategory { get; set; } = "";
     public enum PythonPlugin_OutputVariable_TypeOfDataInVariable
     {
         
-        [JsonProperty("Averaged")]
+        [System.Runtime.Serialization.EnumMember(Value="Averaged")]
         Averaged = 0,
         
-        [JsonProperty("Metered")]
+        [System.Runtime.Serialization.EnumMember(Value="Metered")]
         Metered = 1,
         
-        [JsonProperty("Summed")]
+        [System.Runtime.Serialization.EnumMember(Value="Summed")]
         Summed = 2,
     }
     
     public enum PythonPlugin_OutputVariable_UpdateFrequency
     {
         
-        [JsonProperty("SystemTimestep")]
+        [System.Runtime.Serialization.EnumMember(Value="SystemTimestep")]
         SystemTimestep = 0,
         
-        [JsonProperty("ZoneTimestep")]
+        [System.Runtime.Serialization.EnumMember(Value="ZoneTimestep")]
         ZoneTimestep = 1,
     }
     
     public enum PythonPlugin_OutputVariable_ResourceType
     {
         
-        [JsonProperty("Coal")]
+        [System.Runtime.Serialization.EnumMember(Value="Coal")]
         Coal = 0,
         
-        [JsonProperty("CondensateWaterCollected")]
+        [System.Runtime.Serialization.EnumMember(Value="CondensateWaterCollected")]
         CondensateWaterCollected = 1,
         
-        [JsonProperty("Diesel")]
+        [System.Runtime.Serialization.EnumMember(Value="Diesel")]
         Diesel = 2,
         
-        [JsonProperty("DistrictCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictCooling")]
         DistrictCooling = 3,
         
-        [JsonProperty("DistrictHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="DistrictHeating")]
         DistrictHeating = 4,
         
-        [JsonProperty("Electricity")]
+        [System.Runtime.Serialization.EnumMember(Value="Electricity")]
         Electricity = 5,
         
-        [JsonProperty("ElectricityProducedOnSite")]
+        [System.Runtime.Serialization.EnumMember(Value="ElectricityProducedOnSite")]
         ElectricityProducedOnSite = 6,
         
-        [JsonProperty("EnergyTransfer")]
+        [System.Runtime.Serialization.EnumMember(Value="EnergyTransfer")]
         EnergyTransfer = 7,
         
-        [JsonProperty("FuelOilNo1")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo1")]
         FuelOilNo1 = 8,
         
-        [JsonProperty("FuelOilNo2")]
+        [System.Runtime.Serialization.EnumMember(Value="FuelOilNo2")]
         FuelOilNo2 = 9,
         
-        [JsonProperty("Gasoline")]
+        [System.Runtime.Serialization.EnumMember(Value="Gasoline")]
         Gasoline = 10,
         
-        [JsonProperty("MainsWaterSupply")]
+        [System.Runtime.Serialization.EnumMember(Value="MainsWaterSupply")]
         MainsWaterSupply = 11,
         
-        [JsonProperty("NaturalGas")]
+        [System.Runtime.Serialization.EnumMember(Value="NaturalGas")]
         NaturalGas = 12,
         
-        [JsonProperty("OnSiteWaterProduced")]
+        [System.Runtime.Serialization.EnumMember(Value="OnSiteWaterProduced")]
         OnSiteWaterProduced = 13,
         
-        [JsonProperty("OtherFuel1")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel1")]
         OtherFuel1 = 14,
         
-        [JsonProperty("OtherFuel2")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherFuel2")]
         OtherFuel2 = 15,
         
-        [JsonProperty("Propane")]
+        [System.Runtime.Serialization.EnumMember(Value="Propane")]
         Propane = 16,
         
-        [JsonProperty("RainWaterCollected")]
+        [System.Runtime.Serialization.EnumMember(Value="RainWaterCollected")]
         RainWaterCollected = 17,
         
-        [JsonProperty("SolarAirHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="SolarAirHeating")]
         SolarAirHeating = 18,
         
-        [JsonProperty("SolarWaterHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="SolarWaterHeating")]
         SolarWaterHeating = 19,
         
-        [JsonProperty("Steam")]
+        [System.Runtime.Serialization.EnumMember(Value="Steam")]
         Steam = 20,
         
-        [JsonProperty("WaterUse")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterUse")]
         WaterUse = 21,
         
-        [JsonProperty("WellWaterDrawn")]
+        [System.Runtime.Serialization.EnumMember(Value="WellWaterDrawn")]
         WellWaterDrawn = 22,
     }
     
     public enum PythonPlugin_OutputVariable_GroupType
     {
         
-        [JsonProperty("Building")]
+        [System.Runtime.Serialization.EnumMember(Value="Building")]
         Building = 0,
         
-        [JsonProperty("HVAC")]
+        [System.Runtime.Serialization.EnumMember(Value="HVAC")]
         HVAC = 1,
         
-        [JsonProperty("Plant")]
+        [System.Runtime.Serialization.EnumMember(Value="Plant")]
         Plant = 2,
         
-        [JsonProperty("System")]
+        [System.Runtime.Serialization.EnumMember(Value="System")]
         System = 3,
     }
     
     public enum PythonPlugin_OutputVariable_EndUseCategory
     {
         
-        [JsonProperty("Baseboard")]
+        [System.Runtime.Serialization.EnumMember(Value="Baseboard")]
         Baseboard = 0,
         
-        [JsonProperty("Boilers")]
+        [System.Runtime.Serialization.EnumMember(Value="Boilers")]
         Boilers = 1,
         
-        [JsonProperty("Chillers")]
+        [System.Runtime.Serialization.EnumMember(Value="Chillers")]
         Chillers = 2,
         
-        [JsonProperty("Cooling")]
+        [System.Runtime.Serialization.EnumMember(Value="Cooling")]
         Cooling = 3,
         
-        [JsonProperty("CoolingCoils")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolingCoils")]
         CoolingCoils = 4,
         
-        [JsonProperty("ExteriorEquipment")]
+        [System.Runtime.Serialization.EnumMember(Value="ExteriorEquipment")]
         ExteriorEquipment = 5,
         
-        [JsonProperty("ExteriorLights")]
+        [System.Runtime.Serialization.EnumMember(Value="ExteriorLights")]
         ExteriorLights = 6,
         
-        [JsonProperty("Fans")]
+        [System.Runtime.Serialization.EnumMember(Value="Fans")]
         Fans = 7,
         
-        [JsonProperty("HeatRecovery")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecovery")]
         HeatRecovery = 8,
         
-        [JsonProperty("HeatRecoveryForCooling")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecoveryForCooling")]
         HeatRecoveryForCooling = 9,
         
-        [JsonProperty("HeatRecoveryForHeating")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRecoveryForHeating")]
         HeatRecoveryForHeating = 10,
         
-        [JsonProperty("HeatRejection")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatRejection")]
         HeatRejection = 11,
         
-        [JsonProperty("Heating")]
+        [System.Runtime.Serialization.EnumMember(Value="Heating")]
         Heating = 12,
         
-        [JsonProperty("HeatingCoils")]
+        [System.Runtime.Serialization.EnumMember(Value="HeatingCoils")]
         HeatingCoils = 13,
         
-        [JsonProperty("Humidifier")]
+        [System.Runtime.Serialization.EnumMember(Value="Humidifier")]
         Humidifier = 14,
         
-        [JsonProperty("InteriorEquipment")]
+        [System.Runtime.Serialization.EnumMember(Value="InteriorEquipment")]
         InteriorEquipment = 15,
         
-        [JsonProperty("InteriorLights")]
+        [System.Runtime.Serialization.EnumMember(Value="InteriorLights")]
         InteriorLights = 16,
         
-        [JsonProperty("OnSiteGeneration")]
+        [System.Runtime.Serialization.EnumMember(Value="OnSiteGeneration")]
         OnSiteGeneration = 17,
         
-        [JsonProperty("Pumps")]
+        [System.Runtime.Serialization.EnumMember(Value="Pumps")]
         Pumps = 18,
         
-        [JsonProperty("Refrigeration")]
+        [System.Runtime.Serialization.EnumMember(Value="Refrigeration")]
         Refrigeration = 19,
         
-        [JsonProperty("WaterSystems")]
+        [System.Runtime.Serialization.EnumMember(Value="WaterSystems")]
         WaterSystems = 20,
     }
 }

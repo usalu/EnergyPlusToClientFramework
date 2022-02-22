@@ -1,26 +1,24 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     public enum Generator_FuelCell_AirSupply_AirIntakeHeatRecoveryMode
     {
         
-        [JsonProperty("NoRecovery")]
+        [System.Runtime.Serialization.EnumMember(Value="NoRecovery")]
         NoRecovery = 0,
         
-        [JsonProperty("RecoverAuxiliaryBurner")]
+        [System.Runtime.Serialization.EnumMember(Value="RecoverAuxiliaryBurner")]
         RecoverAuxiliaryBurner = 1,
         
-        [JsonProperty("RecoverBurnerInverterStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="RecoverBurnerInverterStorage")]
         RecoverBurnerInverterStorage = 2,
         
-        [JsonProperty("RecoverElectricalStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="RecoverElectricalStorage")]
         RecoverElectricalStorage = 3,
         
-        [JsonProperty("RecoverInverter")]
+        [System.Runtime.Serialization.EnumMember(Value="RecoverInverter")]
         RecoverInverter = 4,
         
-        [JsonProperty("RecoverInverterandStorage")]
+        [System.Runtime.Serialization.EnumMember(Value="RecoverInverterandStorage")]
         RecoverInverterandStorage = 5,
     }
 }

@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
 {
     public enum Table_Lookup_NormalizationMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("AutomaticWithDivisor")]
+        [System.Runtime.Serialization.EnumMember(Value="AutomaticWithDivisor")]
         AutomaticWithDivisor = 1,
         
-        [JsonProperty("DivisorOnly")]
+        [System.Runtime.Serialization.EnumMember(Value="DivisorOnly")]
         DivisorOnly = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
     }
 }

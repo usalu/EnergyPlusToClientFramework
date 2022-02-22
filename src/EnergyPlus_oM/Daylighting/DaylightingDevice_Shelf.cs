@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
     [Description("Defines a daylighting which can have an inside shelf, an outside shelf, or both. " +
                  "The inside shelf is defined as a building surface and the outside shelf is defin" +
                  "ed as a shading surface.")]
-    [JsonObject("DaylightingDevice:Shelf")]
     public class DaylightingDevice_Shelf : BHoMObject, IEnergyPlusClass
     {
         

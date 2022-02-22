@@ -6,7 +6,6 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Captures the scheduling of a moving/reorienting building, or more likely a vessel" +
                  "")]
-    [JsonObject("Site:VariableLocation")]
     public class Site_VariableLocation : BHoMObject, IEnergyPlusClass
     {
         

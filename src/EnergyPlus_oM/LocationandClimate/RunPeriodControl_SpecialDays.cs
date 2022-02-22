@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description(@"This object sets up holidays/special days to be used during weather file run periods. (These are not used with SizingPeriod:* objects.) Depending on the value in the run period, days on the weather file may also be used. However, the weather file specification will take precedence over any specification shown here. (No error message on duplicate days or overlapping days).")]
-    [JsonObject("RunPeriodControl:SpecialDays")]
     public class RunPeriodControl_SpecialDays : BHoMObject, IEnergyPlusClass
     {
         
@@ -23,6 +22,7 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 
         [Description("Special Day Type selects the schedules appropriate for each day so labeled")]
         [JsonProperty("special_day_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public RunPeriodControl_SpecialDays_SpecialDayType SpecialDayType { get; set; } = (RunPeriodControl_SpecialDays_SpecialDayType)Enum.Parse(typeof(RunPeriodControl_SpecialDays_SpecialDayType), "Holiday");
     }
 }

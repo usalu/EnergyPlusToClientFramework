@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
 {
     public enum ExternalInterface_NameOfExternalInterface
     {
         
-        [JsonProperty("FunctionalMockupUnitExport")]
+        [System.Runtime.Serialization.EnumMember(Value="FunctionalMockupUnitExport")]
         FunctionalMockupUnitExport = 0,
         
-        [JsonProperty("FunctionalMockupUnitImport")]
+        [System.Runtime.Serialization.EnumMember(Value="FunctionalMockupUnitImport")]
         FunctionalMockupUnitImport = 1,
         
-        [JsonProperty("PtolemyServer")]
+        [System.Runtime.Serialization.EnumMember(Value="PtolemyServer")]
         PtolemyServer = 2,
     }
 }

@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
                  "ly. Relationship between liquid transport coefficient and moisture content Has n" +
                  "o effect with other HeatBalanceAlgorithm solution algorithms")]
-    [JsonObject("MaterialProperty:HeatAndMoistureTransfer:Redistribution")]
     public class MaterialProperty_HeatAndMoistureTransfer_Redistribution : BHoMObject, IEnergyPlusClass
     {
         

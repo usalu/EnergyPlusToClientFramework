@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     [Description("Hardware portion of EMS used to set up actuators in the model")]
-    [JsonObject("EnergyManagementSystem:Actuator")]
     public class EnergyManagementSystem_Actuator : BHoMObject, IEnergyPlusClass
     {
         

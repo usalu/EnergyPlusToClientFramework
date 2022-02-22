@@ -10,7 +10,6 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
                  "sidered to be perfect diffusers (all transmitted and reflected radiation is hemi" +
                  "spherically-diffuse) independent of angle of incidence. Shade represents roller " +
                  "blinds.")]
-    [JsonObject("WindowMaterial:Shade:EquivalentLayer")]
     public class WindowMaterial_Shade_EquivalentLayer : BHoMObject, IEnergyPlusClass
     {
         

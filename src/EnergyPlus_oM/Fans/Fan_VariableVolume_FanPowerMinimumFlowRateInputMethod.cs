@@ -1,17 +1,15 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Fans
 {
     public enum Fan_VariableVolume_FanPowerMinimumFlowRateInputMethod
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("FixedFlowRate")]
+        [System.Runtime.Serialization.EnumMember(Value="FixedFlowRate")]
         FixedFlowRate = 1,
         
-        [JsonProperty("Fraction")]
+        [System.Runtime.Serialization.EnumMember(Value="Fraction")]
         Fraction = 2,
     }
 }

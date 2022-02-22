@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     public enum Schedule_Day_List_InterpolateToTimestep
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("Average")]
+        [System.Runtime.Serialization.EnumMember(Value="Average")]
         Average = 1,
         
-        [JsonProperty("Linear")]
+        [System.Runtime.Serialization.EnumMember(Value="Linear")]
         Linear = 2,
         
-        [JsonProperty("No")]
+        [System.Runtime.Serialization.EnumMember(Value="No")]
         No = 3,
     }
 }

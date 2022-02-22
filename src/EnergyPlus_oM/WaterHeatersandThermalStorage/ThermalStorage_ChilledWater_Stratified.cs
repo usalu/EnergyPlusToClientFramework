@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
     [Description("Chilled water storage with a stratified, multi-node tank. The chilled water is \"u" +
                  "sed\" by drawing from the \"Use Side\" of the water tank. The tank is indirectly ch" +
                  "arged by circulating cold water through the \"Source Side\" of the water tank.")]
-    [JsonObject("ThermalStorage:ChilledWater:Stratified")]
     public class ThermalStorage_ChilledWater_Stratified : BHoMObject, IEnergyPlusClass
     {
         
@@ -24,6 +23,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("tank_shape")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ThermalStorage_ChilledWater_Stratified_TankShape TankShape { get; set; } = (ThermalStorage_ChilledWater_Stratified_TankShape)Enum.Parse(typeof(ThermalStorage_ChilledWater_Stratified_TankShape), "VerticalCylinder");
         
 
@@ -53,6 +53,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("ambient_temperature_indicator")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ThermalStorage_ChilledWater_Stratified_AmbientTemperatureIndicator AmbientTemperatureIndicator { get; set; } = (ThermalStorage_ChilledWater_Stratified_AmbientTemperatureIndicator)Enum.Parse(typeof(ThermalStorage_ChilledWater_Stratified_AmbientTemperatureIndicator), "Outdoors");
         
 
@@ -146,6 +147,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         
 
         [JsonProperty("inlet_mode")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ThermalStorage_ChilledWater_Stratified_InletMode InletMode { get; set; } = (ThermalStorage_ChilledWater_Stratified_InletMode)Enum.Parse(typeof(ThermalStorage_ChilledWater_Stratified_InletMode), "Fixed");
         
 

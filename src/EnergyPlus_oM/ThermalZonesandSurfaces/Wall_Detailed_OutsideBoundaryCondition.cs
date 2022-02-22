@@ -1,56 +1,54 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     public enum Wall_Detailed_OutsideBoundaryCondition
     {
         
-        [JsonProperty("Adiabatic")]
+        [System.Runtime.Serialization.EnumMember(Value="Adiabatic")]
         Adiabatic = 0,
         
-        [JsonProperty("Foundation")]
+        [System.Runtime.Serialization.EnumMember(Value="Foundation")]
         Foundation = 1,
         
-        [JsonProperty("Ground")]
+        [System.Runtime.Serialization.EnumMember(Value="Ground")]
         Ground = 2,
         
-        [JsonProperty("GroundBasementPreprocessorAverageFloor")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorAverageFloor")]
         GroundBasementPreprocessorAverageFloor = 3,
         
-        [JsonProperty("GroundBasementPreprocessorAverageWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorAverageWall")]
         GroundBasementPreprocessorAverageWall = 4,
         
-        [JsonProperty("GroundBasementPreprocessorLowerWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorLowerWall")]
         GroundBasementPreprocessorLowerWall = 5,
         
-        [JsonProperty("GroundBasementPreprocessorUpperWall")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundBasementPreprocessorUpperWall")]
         GroundBasementPreprocessorUpperWall = 6,
         
-        [JsonProperty("GroundFCfactorMethod")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundFCfactorMethod")]
         GroundFCfactorMethod = 7,
         
-        [JsonProperty("GroundSlabPreprocessorAverage")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorAverage")]
         GroundSlabPreprocessorAverage = 8,
         
-        [JsonProperty("GroundSlabPreprocessorCore")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorCore")]
         GroundSlabPreprocessorCore = 9,
         
-        [JsonProperty("GroundSlabPreprocessorPerimeter")]
+        [System.Runtime.Serialization.EnumMember(Value="GroundSlabPreprocessorPerimeter")]
         GroundSlabPreprocessorPerimeter = 10,
         
-        [JsonProperty("OtherSideCoefficients")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideCoefficients")]
         OtherSideCoefficients = 11,
         
-        [JsonProperty("OtherSideConditionsModel")]
+        [System.Runtime.Serialization.EnumMember(Value="OtherSideConditionsModel")]
         OtherSideConditionsModel = 12,
         
-        [JsonProperty("Outdoors")]
+        [System.Runtime.Serialization.EnumMember(Value="Outdoors")]
         Outdoors = 13,
         
-        [JsonProperty("Surface")]
+        [System.Runtime.Serialization.EnumMember(Value="Surface")]
         Surface = 14,
         
-        [JsonProperty("Zone")]
+        [System.Runtime.Serialization.EnumMember(Value="Zone")]
         Zone = 15,
     }
 }

@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     [Description("Air cooled condenser for a refrigeration system (Refrigeration:System).")]
-    [JsonObject("Refrigeration:Condenser:AirCooled")]
     public class Refrigeration_Condenser_AirCooled : BHoMObject, IEnergyPlusClass
     {
         
@@ -25,6 +24,7 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
         
 
         [JsonProperty("condenser_fan_speed_control_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Refrigeration_Condenser_AirCooled_CondenserFanSpeedControlType CondenserFanSpeedControlType { get; set; } = (Refrigeration_Condenser_AirCooled_CondenserFanSpeedControlType)Enum.Parse(typeof(Refrigeration_Condenser_AirCooled_CondenserFanSpeedControlType), "Fixed");
         
 

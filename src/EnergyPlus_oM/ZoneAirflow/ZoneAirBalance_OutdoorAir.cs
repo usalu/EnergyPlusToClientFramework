@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 {
     [Description(@"Provide a combined zone outdoor air flow by including interactions between mechanical ventilation, infiltration and duct leakage. This object will combine outdoor flows from all ZoneInfiltration and ZoneVentilation objects in the same zone. Balanced flows will be summed, while unbalanced flows will be added in quadrature.")]
-    [JsonObject("ZoneAirBalance:OutdoorAir")]
     public class ZoneAirBalance_OutdoorAir : BHoMObject, IEnergyPlusClass
     {
         
@@ -19,6 +18,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
         [Description("None: Only perform simple calculations without using a combined zone outdoor air." +
                      " Quadrature: A combined outdoor air is used in the quadrature sum.")]
         [JsonProperty("air_balance_method")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneAirBalance_OutdoorAir_AirBalanceMethod AirBalanceMethod { get; set; } = (ZoneAirBalance_OutdoorAir_AirBalanceMethod)Enum.Parse(typeof(ZoneAirBalance_OutdoorAir_AirBalanceMethod), "Quadrature");
         
 

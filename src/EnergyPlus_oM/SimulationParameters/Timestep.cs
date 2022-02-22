@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
     [Description("Specifies the \"basic\" timestep for the simulation. The value entered here is also" +
                  " known as the Zone Timestep. This is used in the Zone Heat Balance Model calcula" +
                  "tion as the driving timestep for heat transfer and load calculations.")]
-    [JsonObject("Timestep")]
     public class Timestep : BHoMObject, IEnergyPlusClass
     {
         

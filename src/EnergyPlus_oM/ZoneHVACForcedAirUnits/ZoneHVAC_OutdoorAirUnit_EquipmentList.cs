@@ -7,12 +7,12 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     [Description("Equipment list for components in a ZoneHVAC:OutdoorAirUnit. Components are simula" +
                  "ted sequentially in the order given in the equipment list.")]
-    [JsonObject("ZoneHVAC:OutdoorAirUnit:EquipmentList")]
     public class ZoneHVAC_OutdoorAirUnit_EquipmentList : BHoMObject, IEnergyPlusClass
     {
         
 
         [JsonProperty("component_1_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component1ObjectType Component1ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component1ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component1ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -21,6 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("component_2_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component2ObjectType Component2ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component2ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component2ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -29,6 +30,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("component_3_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component3ObjectType Component3ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component3ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component3ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -37,6 +39,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("component_4_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component4ObjectType Component4ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component4ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component4ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -45,6 +48,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("component_5_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component5ObjectType Component5ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component5ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component5ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -53,6 +57,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("component_6_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component6ObjectType Component6ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component6ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component6ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -61,6 +66,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("component_7_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component7ObjectType Component7ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component7ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component7ObjectType), "AirLoopHVACUnitarySystem");
         
 
@@ -69,6 +75,7 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
         
 
         [JsonProperty("component_8_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ZoneHVAC_OutdoorAirUnit_EquipmentList_Component8ObjectType Component8ObjectType { get; set; } = (ZoneHVAC_OutdoorAirUnit_EquipmentList_Component8ObjectType)Enum.Parse(typeof(ZoneHVAC_OutdoorAirUnit_EquipmentList_Component8ObjectType), "AirLoopHVACUnitarySystem");
         
 

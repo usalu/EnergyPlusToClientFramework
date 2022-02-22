@@ -65,7 +65,6 @@ namespace BH.oM.Adapters.EnergyPlus.HumidifiersandDehumidifiers
     
     
     [Description("Electrically heated steam humidifier with fan.")]
-    [JsonObject("Humidifier:Steam:Electric")]
     public class Humidifier_Steam_Electric : BHoMObject, IEnergyPlusClass
     {
         

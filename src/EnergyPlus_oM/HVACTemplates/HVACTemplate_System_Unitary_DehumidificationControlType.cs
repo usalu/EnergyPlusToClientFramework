@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_System_Unitary_DehumidificationControlType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("CoolReheatDesuperheater")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolReheatDesuperheater")]
         CoolReheatDesuperheater = 1,
         
-        [JsonProperty("CoolReheatHeatingCoil")]
+        [System.Runtime.Serialization.EnumMember(Value="CoolReheatHeatingCoil")]
         CoolReheatHeatingCoil = 2,
         
-        [JsonProperty("None")]
+        [System.Runtime.Serialization.EnumMember(Value="None")]
         None = 3,
     }
 }

@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     [Description("used for shading elements such as trees, other buildings, parts of this building " +
                  "not being modeled these items are relative to the current building and would mov" +
                  "e with relative geometry")]
-    [JsonObject("Shading:Building:Detailed")]
     public class Shading_Building_Detailed : BHoMObject, IEnergyPlusClass
     {
         

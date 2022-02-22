@@ -1,20 +1,18 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     public enum WaterHeater_Mixed_SourceSideFlowControlMode
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("IndirectHeatAlternateSetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="IndirectHeatAlternateSetpoint")]
         IndirectHeatAlternateSetpoint = 1,
         
-        [JsonProperty("IndirectHeatPrimarySetpoint")]
+        [System.Runtime.Serialization.EnumMember(Value="IndirectHeatPrimarySetpoint")]
         IndirectHeatPrimarySetpoint = 2,
         
-        [JsonProperty("StorageTank")]
+        [System.Runtime.Serialization.EnumMember(Value="StorageTank")]
         StorageTank = 3,
     }
 }

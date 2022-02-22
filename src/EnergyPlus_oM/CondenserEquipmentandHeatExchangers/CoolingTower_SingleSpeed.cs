@@ -67,7 +67,6 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     
     
     [Description(@"This tower model is based on Merkel's theory, which is also the basis for the tower model in ASHRAE's HVAC1 Toolkit. The open wet cooling tower is modeled as a counter flow heat exchanger with a single-speed fan drawing air through the tower (induced-draft configuration). Added fluid bypass as an additional capacity control. 8/2008. For a multi-cell tower, the capacity and air/water flow rate inputs are for the entire tower.")]
-    [JsonObject("CoolingTower:SingleSpeed")]
     public class CoolingTower_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -124,6 +123,7 @@ public System.Nullable<float> FreeConvectionUFactorTimesAreaValueSizingFactor { 
     "Air Flow Rate and the Design Water Flow Rate, or by specifying the tower nominal" +
     " capacity")]
 [JsonProperty("performance_input_method")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_SingleSpeed_PerformanceInputMethod PerformanceInputMethod { get; set; } = (CoolingTower_SingleSpeed_PerformanceInputMethod)Enum.Parse(typeof(CoolingTower_SingleSpeed_PerformanceInputMethod), "UFactorTimesAreaAndDesignWaterFlowRate");
         
 
@@ -189,6 +189,7 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [JsonProperty("evaporation_loss_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_SingleSpeed_EvaporationLossMode EvaporationLossMode { get; set; } = (CoolingTower_SingleSpeed_EvaporationLossMode)Enum.Parse(typeof(CoolingTower_SingleSpeed_EvaporationLossMode), "LossFactor");
         
 
@@ -204,6 +205,7 @@ public System.Nullable<float> DriftLossPercent { get; set; } = (System.Nullable<
         
 
 [JsonProperty("blowdown_calculation_mode")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_SingleSpeed_BlowdownCalculationMode BlowdownCalculationMode { get; set; } = (CoolingTower_SingleSpeed_BlowdownCalculationMode)Enum.Parse(typeof(CoolingTower_SingleSpeed_BlowdownCalculationMode), "ConcentrationRatio");
         
 
@@ -227,6 +229,7 @@ public string OutdoorAirInletNodeName { get; set; } = "";
         
 
 [JsonProperty("capacity_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_SingleSpeed_CapacityControl CapacityControl { get; set; } = (CoolingTower_SingleSpeed_CapacityControl)Enum.Parse(typeof(CoolingTower_SingleSpeed_CapacityControl), "FanCycling");
         
 
@@ -235,6 +238,7 @@ public System.Nullable<float> NumberOfCells { get; set; } = (System.Nullable<flo
         
 
 [JsonProperty("cell_control")]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CoolingTower_SingleSpeed_CellControl CellControl { get; set; } = (CoolingTower_SingleSpeed_CellControl)Enum.Parse(typeof(CoolingTower_SingleSpeed_CellControl), "MinimalCell");
         
 

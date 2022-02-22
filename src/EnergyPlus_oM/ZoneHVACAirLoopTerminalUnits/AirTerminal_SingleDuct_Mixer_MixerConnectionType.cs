@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     public enum AirTerminal_SingleDuct_Mixer_MixerConnectionType
     {
         
-        [JsonProperty("InletSide")]
+        [System.Runtime.Serialization.EnumMember(Value="InletSide")]
         InletSide = 0,
         
-        [JsonProperty("SupplySide")]
+        [System.Runtime.Serialization.EnumMember(Value="SupplySide")]
         SupplySide = 1,
     }
 }

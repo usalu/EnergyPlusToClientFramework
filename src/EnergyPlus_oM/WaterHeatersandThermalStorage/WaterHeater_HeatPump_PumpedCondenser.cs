@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 {
     [Description(@"This object models an air-source heat pump for water heating where the water is pumped out of the tank, through a heating coil and returned to the tank. For wrapped condenser HPWHs, see WaterHeater:HeatPump:WrappedCondenser. WaterHeater:HeatPump:PumpedCondenser is a compound object that references other component objects - Coil:WaterHeating:AirToWaterHeatPump:*, Fan:OnOff, WaterHeater:Mixed or WaterHeater:Stratified")]
-    [JsonObject("WaterHeater:HeatPump:PumpedCondenser")]
     public class WaterHeater_HeatPump_PumpedCondenser : BHoMObject, IEnergyPlusClass
     {
         
@@ -60,6 +59,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         [Description("Defines the configuration of the airflow path through the air coil and fan sectio" +
                      "n.")]
         [JsonProperty("inlet_air_configuration")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_HeatPump_PumpedCondenser_InletAirConfiguration InletAirConfiguration { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_InletAirConfiguration)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_InletAirConfiguration), "OutdoorAirOnly");
         
 
@@ -109,6 +109,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 
         [Description("Specify the type of water heater tank used by this heat pump water heater.")]
         [JsonProperty("tank_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_HeatPump_PumpedCondenser_TankObjectType TankObjectType { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_TankObjectType)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_TankObjectType), "Empty");
         
 
@@ -135,6 +136,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
                      "hoice is Coil:WaterHeating:AirToWaterHeatPump:Pumped and Coil:WaterHeating:AirTo" +
                      "WaterHeatPump:VariableSpeed, and CoilSystem:IntegratedHeatPump:AirSource")]
         [JsonProperty("dx_coil_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_HeatPump_PumpedCondenser_DxCoilObjectType DxCoilObjectType { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_DxCoilObjectType)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_DxCoilObjectType), "Empty");
         
 
@@ -160,6 +162,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
                      "rAir. If Schedule is selected, then you must provide a Compressor Ambient Temper" +
                      "ature Schedule Name below.")]
         [JsonProperty("compressor_location")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_HeatPump_PumpedCondenser_CompressorLocation CompressorLocation { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_CompressorLocation)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_CompressorLocation), "Outdoors");
         
 
@@ -171,6 +174,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         [Description("Specify the type of fan used by this heat pump water heater. The only valid choic" +
                      "es are Fan:SystemModel or Fan:OnOff.")]
         [JsonProperty("fan_object_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_HeatPump_PumpedCondenser_FanObjectType FanObjectType { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_FanObjectType)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_FanObjectType), "Empty");
         
 
@@ -183,6 +187,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
         [Description("BlowThrough means the fan is located before the air coil (upstream). DrawThrough " +
                      "means the fan is located after the air coil (downstream).")]
         [JsonProperty("fan_placement")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_HeatPump_PumpedCondenser_FanPlacement FanPlacement { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_FanPlacement)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_FanPlacement), "DrawThrough");
         
 
@@ -203,6 +208,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
                      "lance. If Zone is selected, Inlet Air Configuration must be ZoneAirOnly or ZoneA" +
                      "ndOutdoorAir.")]
         [JsonProperty("parasitic_heat_rejection_location")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_HeatPump_PumpedCondenser_ParasiticHeatRejectionLocation ParasiticHeatRejectionLocation { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_ParasiticHeatRejectionLocation)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_ParasiticHeatRejectionLocation), "Outdoors");
         
 
@@ -225,6 +231,7 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
 
         [Description(@"MutuallyExclusive means that once the tank heating element is active the heat pump is shut down until setpoint is reached. Simultaneous (default) means that both the tank heating element and heat pump are used at the same time recover the tank temperature.")]
         [JsonProperty("tank_element_control_logic")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WaterHeater_HeatPump_PumpedCondenser_TankElementControlLogic TankElementControlLogic { get; set; } = (WaterHeater_HeatPump_PumpedCondenser_TankElementControlLogic)Enum.Parse(typeof(WaterHeater_HeatPump_PumpedCondenser_TankElementControlLogic), "Simultaneous");
         
 

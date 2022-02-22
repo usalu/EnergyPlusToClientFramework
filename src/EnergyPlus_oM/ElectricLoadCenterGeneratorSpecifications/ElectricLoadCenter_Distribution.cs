@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("Describes a subpanel a list of meters that can be reported are available after a " +
                  "run on the meter dictionary file (.mdd) if the Output:VariableDictionary has bee" +
                  "n requested.")]
-    [JsonObject("ElectricLoadCenter:Distribution")]
     public class ElectricLoadCenter_Distribution : BHoMObject, IEnergyPlusClass
     {
         
@@ -22,6 +21,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         [Description("Determines how generators are to be controlled Required if Generator List is ente" +
                      "red.")]
         [JsonProperty("generator_operation_scheme_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ElectricLoadCenter_Distribution_GeneratorOperationSchemeType GeneratorOperationSchemeType { get; set; } = (ElectricLoadCenter_Distribution_GeneratorOperationSchemeType)Enum.Parse(typeof(ElectricLoadCenter_Distribution_GeneratorOperationSchemeType), "Baseload");
         
 
@@ -41,6 +41,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
         
 
         [JsonProperty("electrical_buss_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ElectricLoadCenter_Distribution_ElectricalBussType ElectricalBussType { get; set; } = (ElectricLoadCenter_Distribution_ElectricalBussType)Enum.Parse(typeof(ElectricLoadCenter_Distribution_ElectricalBussType), "AlternatingCurrent");
         
 
@@ -83,6 +84,7 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                      "meet the target level and during times of low use will charge storage from the g" +
                      "rid to increase facility grid demand to meet the target level.")]
         [JsonProperty("storage_operation_scheme")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ElectricLoadCenter_Distribution_StorageOperationScheme StorageOperationScheme { get; set; } = (ElectricLoadCenter_Distribution_StorageOperationScheme)Enum.Parse(typeof(ElectricLoadCenter_Distribution_StorageOperationScheme), "TrackFacilityElectricDemandStoreExcessOnSite");
         
 

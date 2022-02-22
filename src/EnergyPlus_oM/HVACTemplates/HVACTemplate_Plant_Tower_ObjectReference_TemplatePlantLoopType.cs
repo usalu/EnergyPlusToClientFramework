@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Plant_Tower_ObjectReference_TemplatePlantLoopType
     {
         
-        [JsonProperty("ChilledWater")]
+        [System.Runtime.Serialization.EnumMember(Value="ChilledWater")]
         ChilledWater = 0,
         
-        [JsonProperty("MixedWater")]
+        [System.Runtime.Serialization.EnumMember(Value="MixedWater")]
         MixedWater = 1,
     }
 }

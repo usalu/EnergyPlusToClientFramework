@@ -7,7 +7,6 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
     [Description("Plant equipment operation scheme for outdoor dry-bulb temperature range operation" +
                  ". Specifies one or more groups of equipment which are available to operate for s" +
                  "uccessive outdoor dry-bulb temperature ranges.")]
-    [JsonObject("PlantEquipmentOperation:OutdoorDryBulb")]
     public class PlantEquipmentOperation_OutdoorDryBulb : BHoMObject, IEnergyPlusClass
     {
         

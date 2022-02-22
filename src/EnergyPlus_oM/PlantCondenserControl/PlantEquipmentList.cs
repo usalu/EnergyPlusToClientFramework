@@ -66,7 +66,6 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
     
     
     [Description(@"List plant equipment in order of operating priority, 1st in list will be used 1st, etc Use only plant equipment in this list. If no equipment object types and equipment names are specified, then the corresponding PlantEquipmentOperation:* object will assume all available plant equipment for the loop should be OFF (not operate) within the specified lower/upper limit.")]
-    [JsonObject("PlantEquipmentList")]
     public class PlantEquipmentList : BHoMObject, IEnergyPlusClass
     {
         

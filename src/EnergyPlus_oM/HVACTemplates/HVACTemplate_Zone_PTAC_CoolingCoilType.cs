@@ -1,14 +1,12 @@
-using Newtonsoft.Json;
-
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     public enum HVACTemplate_Zone_PTAC_CoolingCoilType
     {
         
-        [JsonProperty("")]
+        [System.Runtime.Serialization.EnumMember(Value="null")]
         Empty = 0,
         
-        [JsonProperty("SingleSpeedDX")]
+        [System.Runtime.Serialization.EnumMember(Value="SingleSpeedDX")]
         SingleSpeedDX = 1,
     }
 }

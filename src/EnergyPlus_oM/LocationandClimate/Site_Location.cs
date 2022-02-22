@@ -68,7 +68,6 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     
     [Description("Specifies the building\'s location. Only one location is allowed. Weather data fil" +
         "e location, if it exists, will override this object.")]
-    [JsonObject("Site:Location")]
     public class Site_Location : BHoMObject, IEnergyPlusClass
     {
         

@@ -9,7 +9,6 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     [Description("Direct expansion (DX) cooling coil and condensing unit (includes electric compres" +
                  "sor and condenser fan), single-speed. Optional inputs for moisture evaporation f" +
                  "rom wet coil when compressor cycles off with continuous fan operation.")]
-    [JsonObject("Coil:Cooling:DX:SingleSpeed")]
     public class Coil_Cooling_DX_SingleSpeed : BHoMObject, IEnergyPlusClass
     {
         
@@ -122,6 +121,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
         
 
         [JsonProperty("condenser_type")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coil_Cooling_DX_SingleSpeed_CondenserType CondenserType { get; set; } = (Coil_Cooling_DX_SingleSpeed_CondenserType)Enum.Parse(typeof(Coil_Cooling_DX_SingleSpeed_CondenserType), "AirCooled");
         
 
@@ -189,6 +189,7 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                      "ling capacity and total electric power input of DX cooling coils per ANSI/ASHRAE" +
                      " 127.")]
         [JsonProperty("report_ashrae_standard_127_performance_ratings")]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public EmptyNoYes ReportAshraeStandard127PerformanceRatings { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
