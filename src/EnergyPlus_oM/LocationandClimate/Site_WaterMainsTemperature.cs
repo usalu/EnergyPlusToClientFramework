@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("Used to calculate water mains temperatures delivered by underground water main pi" +
                  "pes. Water mains temperatures are a function of outdoor climate conditions and v" +
                  "ary with time of year.")]
-    public class Site_WaterMainsTemperature : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_WaterMainsTemperature : BHoMObject
     {
         
 

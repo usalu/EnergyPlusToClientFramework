@@ -7,8 +7,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description(@"vairlable-speed Heat pump water heater (VSHPWH) heating coil, air-to-water direct-expansion (DX) system which includes a variable-speed water heating coil, evaporator air coil, evaporator fan, electric compressor, and water pump. Part of a WaterHeater:HeatPump system.")]
-    public class Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("number_of_speeds")]

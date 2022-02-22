@@ -7,8 +7,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Internal heat source to be attached to a construction layer")]
-    public class ConstructionProperty_InternalHeatSource : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ConstructionProperty_InternalHeatSource : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("construction_name")]

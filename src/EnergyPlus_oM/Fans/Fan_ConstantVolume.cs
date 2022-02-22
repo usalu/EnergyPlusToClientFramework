@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
     [Description("Constant volume fan that is intended to operate continuously based on a time sche" +
                  "dule. This fan will not cycle on and off based on cooling/heating load or other " +
                  "control signals.")]
-    public class Fan_ConstantVolume : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Fan_ConstantVolume : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object is used to provide advanced thermal comfort control of window opening" +
                  " and closing for both exterior and interior windows.")]
-    public class AirflowNetwork_OccupantVentilationControl : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_OccupantVentilationControl : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("minimum_opening_time")]

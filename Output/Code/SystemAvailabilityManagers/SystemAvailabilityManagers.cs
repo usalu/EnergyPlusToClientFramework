@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
     
     [Description("Determines the availability of a loop or system: whether it is on or off. Schedul" +
         "e overrides fan/pump schedule.")]
-    public class AvailabilityManager_Scheduled : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_Scheduled : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("schedule_name")]
@@ -78,8 +83,13 @@ public string ScheduleName { get; set; } = "";
     
     [Description("Determines the availability of a loop or system: only controls the turn on action" +
         ". Schedule overrides fan/pump schedule.")]
-    public class AvailabilityManager_ScheduledOn : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_ScheduledOn : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("schedule_name")]
@@ -88,8 +98,13 @@ public string ScheduleName { get; set; } = "";
     
     [Description("Determines the availability of a loop or system: only controls the turn off actio" +
         "n. Schedule overrides fan/pump schedule.")]
-    public class AvailabilityManager_ScheduledOff : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_ScheduledOff : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("schedule_name")]
@@ -97,8 +112,13 @@ public string ScheduleName { get; set; } = "";
     }
     
     [Description("Determines the optimal start of HVAC systems before occupancy.")]
-    public class AvailabilityManager_OptimumStart : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_OptimumStart : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("applicability_schedule_name")]
@@ -196,8 +216,13 @@ public System.Nullable<float> NumberOfPreviousDays { get; set; } = (System.Nulla
     
     [Description("Determines the availability of a loop or system: whether it is on or off. Dependi" +
         "ng on zone temperatures, overrides Schedules and forces system Fans on.")]
-    public class AvailabilityManager_NightCycle : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_NightCycle : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("applicability_schedule_name")]
@@ -297,8 +322,13 @@ public string HeatingZoneFansOnlyZoneOrZoneListName { get; set; } = "";
     
     [Description("Overrides fan/pump schedules depending on temperature difference between two node" +
         "s.")]
-    public class AvailabilityManager_DifferentialThermostat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_DifferentialThermostat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("hot_node_name")]
@@ -319,8 +349,13 @@ public System.Nullable<float> TemperatureDifferenceOffLimit { get; set; } = null
     }
     
     [Description("Overrides fan/pump schedules depending on temperature at sensor node.")]
-    public class AvailabilityManager_HighTemperatureTurnOff : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_HighTemperatureTurnOff : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("sensor_node_name")]
@@ -332,8 +367,13 @@ public System.Nullable<float> Temperature { get; set; } = null;
     }
     
     [Description("Overrides fan/pump schedules depending on temperature at sensor node.")]
-    public class AvailabilityManager_HighTemperatureTurnOn : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_HighTemperatureTurnOn : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("sensor_node_name")]
@@ -345,8 +385,13 @@ public System.Nullable<float> Temperature { get; set; } = null;
     }
     
     [Description("Overrides fan/pump schedules depending on temperature at sensor node.")]
-    public class AvailabilityManager_LowTemperatureTurnOff : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_LowTemperatureTurnOff : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("sensor_node_name")]
@@ -363,8 +408,13 @@ public string ApplicabilityScheduleName { get; set; } = "";
     }
     
     [Description("Overrides fan/pump schedules depending on temperature at sensor node.")]
-    public class AvailabilityManager_LowTemperatureTurnOn : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_LowTemperatureTurnOn : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("sensor_node_name")]
@@ -377,8 +427,13 @@ public System.Nullable<float> Temperature { get; set; } = null;
     
     [Description("depending on zone and outdoor conditions overrides fan schedule to do precooling " +
         "with outdoor air")]
-    public class AvailabilityManager_NightVentilation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_NightVentilation : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("applicability_schedule_name")]
@@ -421,8 +476,13 @@ public string ControlZoneName { get; set; } = "";
     }
     
     [Description(@"Depending on zone and outdoor conditions overrides window/door opening controls to maximize natural ventilation and turn off an HVAC system when ventilation control conditions are met. This object (zone ventilation object name) has not been instrumented to work with global Zone or Zone List names option for Ventilation:DesignFlowRate. In order to use, you must enter the single <Ventilation:DesignFlowRate> name in that field. If it is a part of a global ventilation assignment the name will be <Zone Name> <global Ventilation:DesignFlowRate> name. Currently, hybrid ventilation manager is restricted to one per zone. It can either be applied through the air loop or directly to the zone. If hybrid ventilation manager is applied to an air loop and one of the zones served by that air loop also has hybrid ventilation manager, then zone hybrid ventilation manager is disabled.")]
-    public class AvailabilityManager_HybridVentilation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_HybridVentilation : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC or HVACTemplate:System:* object. If this field i" +
@@ -526,8 +586,13 @@ public System.Nullable<float> MinimumVentilationTime { get; set; } = (System.Nul
     }
     
     [Description(@"Defines the applicable managers used for an AirLoopHVAC or PlantLoop. The priority of availability managers is based on a set of rules and are specific to the type of loop. The output from each availability manager is an availability status flag: NoAction, ForceOff, CycleOn, or CycleOnZoneFansOnly (used only for air loops).")]
-    public class AvailabilityManagerAssignmentList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManagerAssignmentList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("managers")]

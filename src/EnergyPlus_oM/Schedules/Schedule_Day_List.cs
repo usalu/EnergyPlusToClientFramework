@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     [Description("Schedule:Day:List will allow the user to list 24 hours worth of values, which can" +
                  " be sub-hourly in nature.")]
-    public class Schedule_Day_List : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_Day_List : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("schedule_type_limits_name")]

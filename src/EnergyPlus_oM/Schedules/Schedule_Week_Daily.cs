@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     [Description("A Schedule:Week:Daily contains 12 Schedule:Day:Hourly objects, one for each day t" +
                  "ype.")]
-    public class Schedule_Week_Daily : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_Week_Daily : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("sunday_schedule_day_name")]

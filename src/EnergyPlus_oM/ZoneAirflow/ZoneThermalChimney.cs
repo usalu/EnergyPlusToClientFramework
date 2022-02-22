@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
     [Description("A thermal chimney is a vertical shaft utilizing solar radiation to enhance natura" +
                  "l ventilation. It consists of an absorber wall, air gap and glass cover with hig" +
                  "h solar transmissivity.")]
-    public class ZoneThermalChimney : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneThermalChimney : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Name of zone that is the thermal chimney")]

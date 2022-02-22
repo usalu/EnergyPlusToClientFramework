@@ -126,12 +126,14 @@ namespace ClientAssemblyGeneration.Builders
             clientNamespace.Types.Add(clientEnum);
         }
 
-        public virtual void BuildClass(string clientNamespaceName, string name, string description = "", CodeTypeReferenceCollection superClassesAndInterfaces = null , CodeAttributeDeclarationCollection attributes = null)
+        public virtual void BuildClass(string clientNamespaceName, string name, string description = "", CodeTypeReferenceCollection superClassesAndInterfaces = null ,
+            CodeAttributeDeclarationCollection attributes = null, MemberAttributes accessors = MemberAttributes.Public | MemberAttributes.Final)
         {
             var clientClass = new CodeTypeDeclaration(name)
             {
                 IsClass = true,
             };
+            clientClass.Attributes = accessors;
             if (description != "")
                 clientClass.CustomAttributes.Add(new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(description))));
             if (attributes != null)

@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description("Produces a report summarizing the details of surfaces in the eio output file.")]
-    public class Output_Surfaces_List : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Surfaces_List : BHoMObject
     {
         
 

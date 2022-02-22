@@ -67,7 +67,8 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
     
     
     [Description(@"Produces a list summarizing the output variables and meters that are available for reporting for the model being simulated (rdd output file). The list varies depending on the types of objects present in the idf file. For example, variables related to lights will only appear if a Lights object is present. The IDF option generates complete Output:Variable objects to simplify adding the desired output to the idf file.")]
-    public class Output_VariableDictionary : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_VariableDictionary : BHoMObject
     {
         
 
@@ -105,7 +106,8 @@ public Output_VariableDictionary_SortOption SortOption { get; set; } = (Output_V
     }
     
     [Description("Produces a report summarizing the details of surfaces in the eio output file.")]
-    public class Output_Surfaces_List : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Surfaces_List : BHoMObject
     {
         
 
@@ -155,7 +157,8 @@ public Output_Surfaces_List_ReportSpecifications ReportSpecifications { get; set
     
     [Description("Produces reports/files that are capable of rendering graphically or being importe" +
         "d into other programs. Rendering does not alter the actual inputs/surfaces.")]
-    public class Output_Surfaces_Drawing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Surfaces_Drawing : BHoMObject
     {
         
 
@@ -208,7 +211,8 @@ public string ReportSpecifications2 { get; set; } = "";
     [Description("Produces a condensed reporting that illustrates the full range of schedule values" +
         " in the eio output file. In the style of input: DaySchedule,  WeekSchedule, and " +
         "Annual Schedule.")]
-    public class Output_Schedules : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Schedules : BHoMObject
     {
         
 
@@ -230,7 +234,8 @@ public Output_Schedules_KeyField KeyField { get; set; } = (Output_Schedules_KeyF
     [Description("Adds a report to the eio output file which shows details for each construction, i" +
         "ncluding overall properties, a list of material layers, and calculated results r" +
         "elated to conduction transfer functions.")]
-    public class Output_Constructions : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Constructions : BHoMObject
     {
         
 
@@ -266,7 +271,8 @@ public Output_Constructions_DetailsType2 DetailsType2 { get; set; } = (Output_Co
     
     [Description("This object is used to control the output produced by the Energy Management Syste" +
         "m")]
-    public class Output_EnergyManagementSystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_EnergyManagementSystem : BHoMObject
     {
         
 
@@ -334,8 +340,13 @@ public Output_EnergyManagementSystem_EmsRuntimeLanguageDebugOutputLevel EmsRunti
     }
     
     [Description(@"This object is used to set colors for reporting on various building elements particularly for the DXF reports. We know the user can enter 0 to 255 and the color map is available in DXF output. Therefore, we are limiting the colors in that range. You can extend by editing the IDD but you do so on your own. Colors not changed in any scheme will remain as the default scheme uses.")]
-    public class OutputControl_SurfaceColorScheme : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OutputControl_SurfaceColorScheme : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("drawing_element_1_type")]
@@ -1224,7 +1235,8 @@ public System.Nullable<float> ColorForDrawingElement15 { get; set; } = null;
     }
     
     [Description(@"This object allows the user to call report types that are predefined and will appear with the other tabular reports. These predefined reports are sensitive to the OutputControl:Table:Style object and appear in the same files as the tabular reports. The entries for this object is a list of the predefined reports that should appear in the tabular report output file.")]
-    public class Output_Table_SummaryReports : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Table_SummaryReports : BHoMObject
     {
         
 
@@ -1236,7 +1248,8 @@ public string Reports { get; set; } = "";
         "hours that occurs in different bins for a single specific output variable or met" +
         "er. Two different types of binning are reported: by month and by hour of the day" +
         ".")]
-    public class Output_Table_TimeBins : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Table_TimeBins : BHoMObject
     {
         
 
@@ -1295,8 +1308,13 @@ public Output_Table_TimeBins_VariableType VariableType { get; set; } = (Output_T
     }
     
     [Description(@"Provides a generic method of setting up tables of monthly results. The report has multiple columns that are each defined using a repeated group of fields for any number of columns. A single Output:Table:Monthly object often produces multiple tables in the output. A table is produced for every instance of a particular output variable. For example, a table defined with zone variables will be produced once for every zone.")]
-    public class Output_Table_Monthly : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Table_Monthly : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("digits_after_decimal")]
@@ -1308,8 +1326,13 @@ public string VariableDetails { get; set; } = "";
     }
     
     [Description(@"Provides a generic method of setting up tables of annual results with one row per object. The report has multiple columns that are each defined using a repeated group of fields for any number of columns. A single Output:Table:Annual produces a single table in the output.")]
-    public class Output_Table_Annual : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Table_Annual : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"An optional text string that is compared to the names of the objects referenced by the variables and if they match are included in the table. A footnote will appear that indicates that the objects shown may not be all the objects that of that type that occur in the file.")]
@@ -1329,7 +1352,8 @@ public string VariableDetails { get; set; } = "";
     }
     
     [Description(@"default style for the OutputControl:Table:Style is comma -- this works well for importing into spreadsheet programs such as Excel(tm) but not so well for word processing programs -- there tab may be a better choice. fixed puts spaces between the ""columns"". HTML produces tables in HTML. XML produces an XML file. note - if no OutputControl:Table:Style is included, the defaults are comma and None.")]
-    public class OutputControl_Table_Style : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OutputControl_Table_Style : BHoMObject
     {
         
 
@@ -1405,7 +1429,8 @@ public OutputControl_Table_Style_UnitConversion UnitConversion { get; set; } = (
     [Description("Calculations of the time that setpoints are not met use a tolerance of 0.2C. This" +
         " object allows changing the tolerance used to determine when setpoints are being" +
         " met.")]
-    public class OutputControl_ReportingTolerances : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OutputControl_ReportingTolerances : BHoMObject
     {
         
 
@@ -1420,7 +1445,8 @@ public System.Nullable<float> ToleranceForTimeCoolingSetpointNotMet { get; set; 
     }
     
     [Description(@"each Output:Variable command picks variables to be put onto the standard output file (.eso) some variables may not be reported for every simulation. a list of variables that can be reported are available after a run on the report dictionary file (.rdd) if the Output:VariableDictionary has been requested.")]
-    public class Output_Variable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Variable : BHoMObject
     {
         
 
@@ -1477,7 +1503,8 @@ public string ScheduleName { get; set; } = "";
     }
     
     [Description(@"Each Output:Meter command picks meters to be put onto the standard output file (.eso) and meter file (.mtr). Not all meters are reported in every simulation. A list of meters that can be reported are available after a run on the meter dictionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    public class Output_Meter : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Meter : BHoMObject
     {
         
 
@@ -1527,7 +1554,8 @@ public Output_Meter_ReportingFrequency ReportingFrequency { get; set; } = (Outpu
     }
     
     [Description(@"Each Output:Meter:MeterFileOnly command picks meters to be put only onto meter file (.mtr). Not all meters are reported in every simulation. A list of meters that can be reported a list of meters that can be reported are available after a run on the meter dictionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    public class Output_Meter_MeterFileOnly : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Meter_MeterFileOnly : BHoMObject
     {
         
 
@@ -1577,7 +1605,8 @@ public Output_Meter_MeterFileOnly_ReportingFrequency ReportingFrequency { get; s
     }
     
     [Description(@"Each Output:Meter:Cumulative command picks meters to be reported cumulatively onto the standard output file (.eso) and meter file (.mtr). Not all meters are reported in every simulation. a list of meters that can be reported are available after a run on the meter dictionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    public class Output_Meter_Cumulative : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Meter_Cumulative : BHoMObject
     {
         
 
@@ -1627,7 +1656,8 @@ public Output_Meter_Cumulative_ReportingFrequency ReportingFrequency { get; set;
     }
     
     [Description(@"Each Output:Meter:Cumulative:MeterFileOnly command picks meters to be reported cumulatively onto the standard output file (.eso) and meter file (.mtr). Not all meters are reported in every simulation. a list of meters that can be reported are available after a run on the meter dictionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    public class Output_Meter_Cumulative_MeterFileOnly : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Meter_Cumulative_MeterFileOnly : BHoMObject
     {
         
 
@@ -1677,8 +1707,13 @@ public Output_Meter_Cumulative_MeterFileOnly_ReportingFrequency ReportingFrequen
     }
     
     [Description(@"Used to allow users to combine specific variables and/or meters into ""custom"" meter configurations. To access these meters by name, one must first run a simulation to generate the RDD/MDD files and names. A Meter:Custom cannot reference another Meter:Custom.")]
-    public class Meter_Custom : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Meter_Custom : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("resource_type")]
@@ -1742,8 +1777,13 @@ public string VariableDetails { get; set; } = "";
     [Description("Used to allow users to combine specific variables and/or meters into \"custom\" met" +
         "er configurations. To access these meters by name, one must first run a simulati" +
         "on to generate the RDD/MDD files and names.")]
-    public class Meter_CustomDecrement : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Meter_CustomDecrement : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("resource_type")]
@@ -1809,7 +1849,8 @@ public string VariableDetails { get; set; } = "";
     }
     
     [Description("Conditionally turn on/off output from EnergyPlus.")]
-    public class OutputControl_Files : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OutputControl_Files : BHoMObject
     {
         
 
@@ -1970,7 +2011,8 @@ public EmptyNoYes OutputTarcog { get; set; } = (EmptyNoYes)Enum.Parse(typeof(Emp
     }
     
     [Description("Output from EnergyPlus can be written to JSON format files.")]
-    public class Output_JSON : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_JSON : BHoMObject
     {
         
 
@@ -2005,7 +2047,8 @@ public EmptyNoYes OutputMessagepack { get; set; } = (EmptyNoYes)Enum.Parse(typeo
     }
     
     [Description("Output from EnergyPlus can be written to an SQLite format file.")]
-    public class Output_SQLite : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_SQLite : BHoMObject
     {
         
 
@@ -2058,7 +2101,8 @@ public Output_SQLite_UnitConversionForTabularData UnitConversionForTabularData {
     
     [Description("This is used to Automatically report the facility meters and turn on the Environm" +
         "ental Impact Report calculations for all of the Environmental Factors.")]
-    public class Output_EnvironmentalImpactFactors : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_EnvironmentalImpactFactors : BHoMObject
     {
         
 
@@ -2096,7 +2140,8 @@ public Output_EnvironmentalImpactFactors_ReportingFrequency ReportingFrequency {
     
     [Description("Used to help convert district and ideal energy use to a fuel type and provide tot" +
         "al carbon equivalent with coefficients Also used in Source=>Site conversions.")]
-    public class EnvironmentalImpactFactors : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnvironmentalImpactFactors : BHoMObject
     {
         
 
@@ -2130,7 +2175,8 @@ public System.Nullable<float> TotalCarbonEquivalentEmissionFactorFromCo2 { get; 
     [Description("Provides Fuel Factors for Emissions as well as Source=>Site conversions. OtherFue" +
         "l1, OtherFuel2 provide options for users who want to create and use fuels that m" +
         "ay not be mainstream (biomass, wood, pellets).")]
-    public class FuelFactors : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FuelFactors : BHoMObject
     {
         
 
@@ -2319,7 +2365,8 @@ public string NuclearLowLevelEmissionFactorScheduleName { get; set; } = "";
     
     [Description("Special keys to produce certain warning messages or effect certain simulation cha" +
         "racteristics.")]
-    public class Output_Diagnostics : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Diagnostics : BHoMObject
     {
         
 
@@ -2328,7 +2375,8 @@ public string Diagnostics { get; set; } = "";
     }
     
     [Description("switch eplusout.dbg file on or off")]
-    public class Output_DebuggingData : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_DebuggingData : BHoMObject
     {
         
 
@@ -2344,7 +2392,8 @@ public EmptyNoYes ReportDuringWarmup { get; set; } = (EmptyNoYes)Enum.Parse(type
     
     [Description("This object does not come from a user input. This is generated by a pre-processor" +
         " so that various conditions can be gracefully passed on by the InputProcessor.")]
-    public class Output_PreprocessorMessage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_PreprocessorMessage : BHoMObject
     {
         
 

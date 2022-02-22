@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     
     
     [Description("This object defines the global parameters used in an Airflow Network simulation.")]
-    public class AirflowNetwork_SimulationControl : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_SimulationControl : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"NoMultizoneOrDistribution: Only perform Simple calculations (objects ZoneInfiltration:*, ZoneVentilation:*, ZoneMixing, ZoneCrossMixing, ZoneRefrigerationDoorMixing, ZoneAirBalance:OutdoorAir, ZoneEarthtube, ZoneThermalChimney, and ZoneCoolTower:Shower); MultizoneWithoutDistribution: Use AirflowNetwork objects to simulate multizone Airflows driven by wind during simulation time, and objects of ZoneInfiltration:*, ZoneVentilation:*, ZoneMixing, ZoneCrossMixing ZoneRefrigerationDoorMixing, ZoneAirBalance:OutdoorAir, ZoneEarthtube, ZoneThermalChimney, and ZoneCoolTower:Shower are ignored; MultizoneWithDistributionOnlyDuringFanOperation: Perform distribution system calculations during system fan on time and Simple calculations during system Fan off time; MultizoneWithDistribution: Perform distribution system calculations during system fan on time and multizone Airflow driven by wind during system fan off time.")]
@@ -238,7 +243,8 @@ public EmptyNoYes AllowUnsupportedZoneEquipment { get; set; } = (EmptyNoYes)Enum
     
     [Description("This object is used to simultaneously control a thermal zone\'s window and door op" +
         "enings, both exterior and interior.")]
-    public class AirflowNetwork_MultiZone_Zone : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_Zone : BHoMObject
     {
         
 
@@ -353,7 +359,8 @@ public string OccupantVentilationControlName { get; set; } = "";
     [Description("This object specifies the properties of a surface linkage through which air flows" +
         ". Airflow Report: Node 1 as an inside face zone; Node 2 as an outside face zone " +
         "or external node.")]
-    public class AirflowNetwork_MultiZone_Surface : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_Surface : BHoMObject
     {
         
 
@@ -496,8 +503,13 @@ public System.Nullable<float> EquivalentRectangleAspectRatio { get; set; } = (Sy
     
     [Description("This object specifies the conditions under which the air mass flow coefficient wa" +
         "s measured.")]
-    public class AirflowNetwork_MultiZone_ReferenceCrackConditions : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_ReferenceCrackConditions : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the reference temperature under which the surface crack data were obtained." +
@@ -519,8 +531,13 @@ public System.Nullable<float> ReferenceHumidityRatio { get; set; } = (System.Nul
     }
     
     [Description("This object specifies the properties of airflow through a crack.")]
-    public class AirflowNetwork_MultiZone_Surface_Crack : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_Surface_Crack : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the air mass flow coefficient at the conditions defined in the Reference Cr" +
@@ -541,8 +558,13 @@ public string ReferenceCrackConditions { get; set; } = "";
     }
     
     [Description("This object is used to define surface air leakage.")]
-    public class AirflowNetwork_MultiZone_Surface_EffectiveLeakageArea : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_Surface_EffectiveLeakageArea : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the effective leakage area.")]
@@ -568,8 +590,13 @@ public System.Nullable<float> AirMassFlowExponent { get; set; } = (System.Nullab
     
     [Description("This object specifies the properties of airflow through windows and doors (window" +
         ", door and glass door heat transfer subsurfaces) when they are closed or open.")]
-    public class AirflowNetwork_MultiZone_Component_DetailedOpening : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_Component_DetailedOpening : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Defined at 1 Pa per meter of crack length. Enter the coefficient used in the foll" +
@@ -725,8 +752,13 @@ public System.Nullable<float> StartHeightFactorForOpeningFactor4 { get; set; } =
     
     [Description("This object specifies the properties of air flow through windows and doors (windo" +
         "w, door and glass door heat transfer subsurfaces) when they are closed or open.")]
-    public class AirflowNetwork_MultiZone_Component_SimpleOpening : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_Component_SimpleOpening : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Defined at 1 Pa pressure difference. Enter the coefficient used in the following " +
@@ -756,8 +788,13 @@ public System.Nullable<float> DischargeCoefficient { get; set; } = null;
     }
     
     [Description("This object specifies the properties of air flow through a horizontal opening")]
-    public class AirflowNetwork_MultiZone_Component_HorizontalOpening : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_Component_HorizontalOpening : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Defined at 1 Pa pressure difference. Enter the coefficient used in the following " +
@@ -786,8 +823,13 @@ public System.Nullable<float> DischargeCoefficient { get; set; } = null;
     
     [Description("This object specifies the additional properties for a zone exhaust fan to perform" +
         " multizone airflow calculations.")]
-    public class AirflowNetwork_MultiZone_Component_ZoneExhaustFan : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_Component_ZoneExhaustFan : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Enter the air mass flow coefficient at the conditions defined in the Reference Crack Conditions object. Defined at 1 Pa pressure difference. Enter the coefficient used in the following equation: Mass Flow Rate = Air Mass Flow Coefficient * (dP)^Air Mass Flow Exponent. Used only when the fan is off.")]
@@ -809,8 +851,13 @@ public string ReferenceCrackConditions { get; set; } = "";
     }
     
     [Description("This object defines outdoor environmental conditions outside of the building.")]
-    public class AirflowNetwork_MultiZone_ExternalNode : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_ExternalNode : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Designates the reference height used to calculate relative pressure.")]
@@ -855,8 +902,13 @@ public AirflowNetwork_MultiZone_ExternalNode_WindAngleType WindAngleType { get; 
     }
     
     [Description(@"Used only if Wind Pressure Coefficient (WPC) Type = Input in the AirflowNetwork:SimulationControl object. Number of WPC Values in the corresponding AirflowNetwork:MultiZone:WindPressureCoefficientValues object must be the same as the number of wind directions specified for this AirflowNetwork:MultiZone:WindPressureCoefficientArray object.")]
-    public class AirflowNetwork_MultiZone_WindPressureCoefficientArray : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_WindPressureCoefficientArray : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the wind direction corresponding to the 1st WPC Array value.")]
@@ -1040,8 +1092,13 @@ public System.Nullable<float> WindDirection36 { get; set; } = null;
     }
     
     [Description(@"Used only if Wind Pressure Coefficient (WPC) Type = INPUT in the AirflowNetwork:SimulationControl object. The number of WPC numeric inputs must correspond to the number of wind direction inputs in the AirflowNetwork:Multizone:WindPressureCoefficientArray object.")]
-    public class AirflowNetwork_MultiZone_WindPressureCoefficientValues : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_WindPressureCoefficientValues : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of the AirflowNetwork:Multizone:WindPressureCoefficientArray objec" +
@@ -1234,8 +1291,13 @@ public System.Nullable<float> WindPressureCoefficientValue36 { get; set; } = nul
         "rflowNetwork model. The specified pressure setpoint is used to control the zone " +
         "exhaust fan flow rate in a controlled zone or the relief air flow rate in an air" +
         " loop.")]
-    public class AirflowNetwork_ZoneControl_PressureController : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_ZoneControl_PressureController : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_zone_name")]
@@ -1276,8 +1338,13 @@ public string PressureSetpointScheduleName { get; set; } = "";
     }
     
     [Description("This object represents an air distribution node in the AirflowNetwork model.")]
-    public class AirflowNetwork_Distribution_Node : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Node : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Designates node names defined in another object. The node name may occur in air branches. Enter a node name to represent a node already defined in an air loop. Leave this field blank if the Node or Object Type field below is entered as AirLoopHVAC:ZoneMixer, AirLoopHVAC:ZoneSplitter, AirLoopHVAC:OutdoorAirSystem, or Other.")]
@@ -1325,8 +1392,13 @@ public System.Nullable<float> NodeHeight { get; set; } = (System.Nullable<float>
     }
     
     [Description("This object defines the characteristics of a supply or return air leak.")]
-    public class AirflowNetwork_Distribution_Component_Leak : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_Leak : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Defined at 1 Pa pressure difference across this component. Enter the coefficient " +
@@ -1344,8 +1416,13 @@ public System.Nullable<float> AirMassFlowExponent { get; set; } = (System.Nullab
     
     [Description("This object is used to define supply and return air leaks with respect to the fan" +
         "\'s maximum air flow rate.")]
-    public class AirflowNetwork_Distribution_Component_LeakageRatio : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_LeakageRatio : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Defined as a ratio of leak flow rate to the maximum flow rate.")]
@@ -1370,8 +1447,13 @@ public System.Nullable<float> AirMassFlowExponent { get; set; } = (System.Nullab
     
     [Description("This object defines the relationship between pressure and air flow through the du" +
         "ct.")]
-    public class AirflowNetwork_Distribution_Component_Duct : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_Duct : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the length of the duct.")]
@@ -1424,7 +1506,8 @@ public System.Nullable<float> InsideConvectionCoefficient { get; set; } = null;
     }
     
     [Description("This object defines the name of the supply Air Fan used in an Air loop.")]
-    public class AirflowNetwork_Distribution_Component_Fan : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_Fan : BHoMObject
     {
         
 
@@ -1458,7 +1541,8 @@ public AirflowNetwork_Distribution_Component_Fan_SupplyFanObjectType SupplyFanOb
     }
     
     [Description("This object defines the name of a coil used in an air loop.")]
-    public class AirflowNetwork_Distribution_Component_Coil : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_Coil : BHoMObject
     {
         
 
@@ -1529,7 +1613,8 @@ public System.Nullable<float> AirPathHydraulicDiameter { get; set; } = null;
     
     [Description("This object defines the name of an air-to-air heat exchanger used in an air loop." +
         "")]
-    public class AirflowNetwork_Distribution_Component_HeatExchanger : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_HeatExchanger : BHoMObject
     {
         
 
@@ -1570,7 +1655,8 @@ public System.Nullable<float> AirPathHydraulicDiameter { get; set; } = null;
     }
     
     [Description("This object defines the name of a terminal unit in an air loop.")]
-    public class AirflowNetwork_Distribution_Component_TerminalUnit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_TerminalUnit : BHoMObject
     {
         
 
@@ -1608,8 +1694,13 @@ public System.Nullable<float> AirPathHydraulicDiameter { get; set; } = null;
     }
     
     [Description(@"This object defines the characteristics of a constant pressure drop component (e.g. filter). Each node connected to this object can not be a node of mixer, splitter, a node of air primary loop, or zone equipment loop. It is recommended to connect to a duct component at both ends.")]
-    public class AirflowNetwork_Distribution_Component_ConstantPressureDrop : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_ConstantPressureDrop : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the pressure drop across this component.")]
@@ -1619,8 +1710,13 @@ public System.Nullable<float> PressureDifferenceAcrossTheComponent { get; set; }
     
     [Description("This object includes the outdoor air flow rate set by the Controller:OutdoorAir o" +
         "bject in the airflow network.")]
-    public class AirflowNetwork_Distribution_Component_OutdoorAirFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_OutdoorAirFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("outdoor_air_mixer_name")]
@@ -1646,8 +1742,13 @@ public string ReferenceCrackConditions { get; set; } = "";
     }
     
     [Description("This object allows variation of air flow rate to perform pressure.")]
-    public class AirflowNetwork_Distribution_Component_ReliefAirFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_ReliefAirFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("outdoor_air_mixer_name")]
@@ -1673,8 +1774,13 @@ public string ReferenceCrackConditions { get; set; } = "";
     }
     
     [Description("This object defines the connection between two nodes and a component.")]
-    public class AirflowNetwork_Distribution_Linkage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Linkage : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of zone or AirflowNetwork Node.")]
@@ -1703,7 +1809,8 @@ public string ThermalZoneName { get; set; } = "";
     
     [Description("This object is used to allow user-defined view factors to be used for duct-surfac" +
         "e radiation calculations.")]
-    public class AirflowNetwork_Distribution_DuctViewFactors : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_DuctViewFactors : BHoMObject
     {
         
 
@@ -1725,8 +1832,13 @@ public string Surfaces { get; set; } = "";
     
     [Description("This object is used to provide advanced thermal comfort control of window opening" +
         " and closing for both exterior and interior windows.")]
-    public class AirflowNetwork_OccupantVentilationControl : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_OccupantVentilationControl : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("minimum_opening_time")]
@@ -1778,8 +1890,13 @@ public string ClosingProbabilityScheduleName { get; set; } = "";
     
     [Description("This object represents a node in a zone in the combination of RoomAir and Airflow" +
         "Network model.")]
-    public class AirflowNetwork_IntraZone_Node : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_IntraZone_Node : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a RoomAir:Node object defined in a RoomAirSettings:AirflowNetwo" +
@@ -1801,8 +1918,13 @@ public System.Nullable<float> NodeHeight { get; set; } = (System.Nullable<float>
     
     [Description("This object defines the connection between two nodes and a component used in the " +
         "combination of RoomAir and AirflowNetwork model.")]
-    public class AirflowNetwork_IntraZone_Linkage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_IntraZone_Linkage : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of zone or AirflowNetwork Node.")]

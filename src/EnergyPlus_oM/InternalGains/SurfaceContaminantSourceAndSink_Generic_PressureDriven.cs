@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("Simulate generic contaminant source driven by the pressure difference across a su" +
                  "rface.")]
-    public class SurfaceContaminantSourceAndSink_Generic_PressureDriven : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceContaminantSourceAndSink_Generic_PressureDriven : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("surface_name")]

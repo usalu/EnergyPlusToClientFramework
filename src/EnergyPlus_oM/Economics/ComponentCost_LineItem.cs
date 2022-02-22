@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     [Description("Each instance of this object creates a cost line item and will contribute to the " +
                  "total for a cost estimate.")]
-    public class ComponentCost_LineItem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ComponentCost_LineItem : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("type")]

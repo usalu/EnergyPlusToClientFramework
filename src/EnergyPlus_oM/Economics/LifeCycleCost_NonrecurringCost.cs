@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     [Description("A non-recurring cost happens only once during the study period. For costs that oc" +
                  "cur more than once during the study period on a regular schedule, use the LifeCy" +
                  "cleCost:RecurringCost object.")]
-    public class LifeCycleCost_NonrecurringCost : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class LifeCycleCost_NonrecurringCost : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("category")]

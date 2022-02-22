@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     [Description("Direct expansion (DX) heating coil (air-to-air heat pump) and compressor unit (in" +
                  "cludes electric compressor and outdoor fan), single-speed, with defrost controls" +
                  ".")]
-    public class Coil_Heating_DX_SingleSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_DX_SingleSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

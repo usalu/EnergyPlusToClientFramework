@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     [Description("depending on zone and outdoor conditions overrides fan schedule to do precooling " +
                  "with outdoor air")]
-    public class AvailabilityManager_NightVentilation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_NightVentilation : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("applicability_schedule_name")]

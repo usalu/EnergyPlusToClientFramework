@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description("DX cooling coil performance for a single operating mode which may have one or mor" +
                  "e speeds.")]
-    public class Coil_Cooling_DX_CurveFit_OperatingMode : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_CurveFit_OperatingMode : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description(@"Total (sensible+latent) cooling capacity not accounting for the effect of supply air fan heat. Rating point: air entering the evaporator coil at 26.7 C dry-bulb/19.4 C wet-bulb, and air entering the condenser coil at 35 C dry-bulb/23.9 C wet-bulb. gross capacity excluding supply air fan heat")]

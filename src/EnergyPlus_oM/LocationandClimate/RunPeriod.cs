@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Specify a range of dates and other parameters for a simulation. Multiple run peri" +
                  "ods may be input, but they may not overlap.")]
-    public class RunPeriod : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RunPeriod : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("begin_month")]

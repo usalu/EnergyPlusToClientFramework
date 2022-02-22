@@ -67,7 +67,8 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
     
     
     [Description("Specifies the EnergyPlus version of the IDF file.")]
-    public class Version : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Version : BHoMObject
     {
         
 
@@ -76,7 +77,8 @@ public string VersionIdentifier { get; set; } = (System.String)"9.5";
     }
     
     [Description(@"Note that the following 3 fields are related to the Sizing:Zone, Sizing:System, and Sizing:Plant objects. Having these fields set to Yes but no corresponding Sizing object will not cause the sizing to be done. However, having any of these fields set to No, the corresponding Sizing object is ignored. Note also, if you want to do system sizing, you must also do zone sizing in the same run or an error will result.")]
-    public class SimulationControl : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SimulationControl : BHoMObject
     {
         
 
@@ -132,7 +134,8 @@ public System.Nullable<float> MaximumNumberOfHvacSizingSimulationPasses { get; s
     
     [Description("This object enables users to choose certain options that speed up EnergyPlus simu" +
         "lation, but may lead to small decreases in accuracy of results.")]
-    public class PerformancePrecisionTradeoffs : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PerformancePrecisionTradeoffs : BHoMObject
     {
         
 
@@ -221,8 +224,13 @@ public System.Nullable<float> Maxalloweddeltemp { get; set; } = (System.Nullable
         "re necessary correlations between the entries for this object and some entries i" +
         "n the Site:WeatherStation and Site:HeightVariation objects, specifically the Ter" +
         "rain field.")]
-    public class Building : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Building : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("degrees from true North")]
@@ -311,7 +319,8 @@ public System.Nullable<float> MinimumNumberOfWarmupDays { get; set; } = (System.
     
     [Description("This object is used to control details of the solar, shading, and daylighting mod" +
         "els")]
-    public class ShadowCalculation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ShadowCalculation : BHoMObject
     {
         
 
@@ -446,7 +455,8 @@ public string ShadingZoneGroups { get; set; } = "";
     
     [Description("Default indoor surface heat transfer convection algorithm to be used for all zone" +
         "s")]
-    public class SurfaceConvectionAlgorithm_Inside : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceConvectionAlgorithm_Inside : BHoMObject
     {
         
 
@@ -480,7 +490,8 @@ public SurfaceConvectionAlgorithm_Inside_Algorithm Algorithm { get; set; } = (Su
     
     [Description("Default outside surface heat transfer convection algorithm to be used for all zon" +
         "es")]
-    public class SurfaceConvectionAlgorithm_Outside : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceConvectionAlgorithm_Outside : BHoMObject
     {
         
 
@@ -513,7 +524,8 @@ public SurfaceConvectionAlgorithm_Outside_Algorithm Algorithm { get; set; } = (S
     }
     
     [Description(@"Determines which Heat Balance Algorithm will be used ie. CTF (Conduction Transfer Functions), EMPD (Effective Moisture Penetration Depth with Conduction Transfer Functions). Advanced/Research Usage: CondFD (Conduction Finite Difference) Advanced/Research Usage: ConductionFiniteDifferenceSimplified Advanced/Research Usage: HAMT (Combined Heat And Moisture Finite Element)")]
-    public class HeatBalanceAlgorithm : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HeatBalanceAlgorithm : BHoMObject
     {
         
 
@@ -555,7 +567,8 @@ public System.Nullable<float> MaximumSurfaceConvectionHeatTransferCoefficientVal
     
     [Description("Determines settings for the Conduction Finite Difference algorithm for surface he" +
         "at transfer modeling.")]
-    public class HeatBalanceSettings_ConductionFiniteDifference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HeatBalanceSettings_ConductionFiniteDifference : BHoMObject
     {
         
 
@@ -591,7 +604,8 @@ public System.Nullable<float> InsideFaceSurfaceTemperatureConvergenceCriteria { 
     }
     
     [Description("Determines which algorithm will be used to solve the zone air heat balance.")]
-    public class ZoneAirHeatBalanceAlgorithm : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneAirHeatBalanceAlgorithm : BHoMObject
     {
         
 
@@ -617,7 +631,8 @@ public ZoneAirHeatBalanceAlgorithm_Algorithm Algorithm { get; set; } = (ZoneAirH
     }
     
     [Description("Determines which contaminant concentration will be simulates.")]
-    public class ZoneAirContaminantBalance : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneAirContaminantBalance : BHoMObject
     {
         
 
@@ -645,7 +660,8 @@ public string OutdoorGenericContaminantScheduleName { get; set; } = "";
     }
     
     [Description(@"Enforces the zone air mass flow balance by either adjusting zone mixing object flow only, adjusting zone total return flow only, zone mixing and the zone total return flows, or adjusting the zone total return and zone mixing object flows. Zone infiltration flow air flow is increased or decreased depending user selection in the infiltration treatment method. If either of zone mixing or zone return flow adjusting methods or infiltration is active, then the zone air mass flow balance calculation will attempt to enforce conservation of mass for each zone. If flow balancing method is ""None"" and infiltration is ""None"", then the zone air mass flow calculation defaults to assume self-balanced simple flow mixing and infiltration objects.")]
-    public class ZoneAirMassFlowConservation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneAirMassFlowConservation : BHoMObject
     {
         
 
@@ -720,8 +736,13 @@ public ZoneAirMassFlowConservation_InfiltrationBalancingZones InfiltrationBalanc
     
     [Description("Multiplier altering the relative capacitance of the air compared to an empty zone" +
         "")]
-    public class ZoneCapacitanceMultiplier_ResearchSpecial : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneCapacitanceMultiplier_ResearchSpecial : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If this field is left blank, the multipliers are applied to all the zones not spe" +
@@ -756,7 +777,8 @@ public System.Nullable<float> GenericContaminantCapacityMultiplier { get; set; }
     [Description("Specifies the \"basic\" timestep for the simulation. The value entered here is also" +
         " known as the Zone Timestep. This is used in the Zone Heat Balance Model calcula" +
         "tion as the driving timestep for heat transfer and load calculations.")]
-    public class Timestep : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Timestep : BHoMObject
     {
         
 
@@ -767,7 +789,8 @@ public System.Nullable<float> NumberOfTimestepsPerHour { get; set; } = (System.N
     
     [Description("Specifies limits on HVAC system simulation timesteps and iterations. This item is" +
         " an advanced feature that should be used only with caution.")]
-    public class ConvergenceLimits : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ConvergenceLimits : BHoMObject
     {
         
 
@@ -795,7 +818,8 @@ public System.Nullable<float> MaximumPlantIterations { get; set; } = (System.Nul
     }
     
     [Description("Specifies a HVAC system solver algorithm to find a root")]
-    public class HVACSystemRootFindingAlgorithm : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACSystemRootFindingAlgorithm : BHoMObject
     {
         
 

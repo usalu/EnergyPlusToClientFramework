@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
     
     
     [Description(@"Linear curve with one independent variable. Input for the linear curve consists of a curve name, the two coefficients, and the maximum and minimum valid independent variable values. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x")]
-    public class Curve_Linear : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_Linear : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_constant")]
@@ -158,8 +163,13 @@ public Curve_Linear_OutputUnitType OutputUnitType { get; set; } = (Curve_Linear_
     }
     
     [Description(@"Linear curve with four independent variables. Input for the linear curve consists of a curve name, the two coefficients, and the maximum and minimum valid independent variable values. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*w + C3*x + C4*y + C5*z")]
-    public class Curve_QuadLinear : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_QuadLinear : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_constant")]
@@ -357,8 +367,13 @@ public Curve_QuadLinear_InputUnitTypeForZ InputUnitTypeForZ { get; set; } = (Cur
     }
     
     [Description(@"Linear curve with five independent variables. Input for the linear curve consists of a curve name, the two coefficients, and the maximum and minimum valid independent variable values. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*v + C3*w + C4*x + C5*y + C6*z")]
-    public class Curve_QuintLinear : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_QuintLinear : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_constant")]
@@ -601,8 +616,13 @@ public Curve_QuintLinear_InputUnitTypeForZ InputUnitTypeForZ { get; set; } = (Cu
     }
     
     [Description(@"Quadratic curve with one independent variable. Input for a quadratic curve consists of the curve name, the three coefficients, and the maximum and minimum valid independent variable values. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x + C3*x**2")]
-    public class Curve_Quadratic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_Quadratic : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_constant")]
@@ -693,8 +713,13 @@ public Curve_Quadratic_OutputUnitType OutputUnitType { get; set; } = (Curve_Quad
     }
     
     [Description(@"Cubic curve with one independent variable. Input for a cubic curve consists of the curve name, the 4 coefficients, and the maximum and minimum valid independent variable values. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x + C3*x**2 + C4*x**3")]
-    public class Curve_Cubic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_Cubic : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_constant")]
@@ -789,8 +814,13 @@ public Curve_Cubic_OutputUnitType OutputUnitType { get; set; } = (Curve_Cubic_Ou
     }
     
     [Description(@"Quartic (fourth order polynomial) curve with one independent variable. Input for a Quartic curve consists of the curve name, the five coefficients, and the maximum and minimum valid independent variable values. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x + C3*x**2 + C4*x**3 + C5*x**4")]
-    public class Curve_Quartic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_Quartic : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_constant")]
@@ -889,8 +919,13 @@ public Curve_Quartic_OutputUnitType OutputUnitType { get; set; } = (Curve_Quarti
     }
     
     [Description(@"Exponent curve with one independent variable. Input for a exponent curve consists of the curve name, the 3 coefficients, and the maximum and minimum valid independent variable values. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x**C3 The independent variable x is raised to the C3 power, multiplied by C2, and C1 is added to the result.")]
-    public class Curve_Exponent : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_Exponent : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_constant")]
@@ -983,8 +1018,13 @@ public Curve_Exponent_OutputUnitType OutputUnitType { get; set; } = (Curve_Expon
     }
     
     [Description(@"Cubic curve with two independent variables. Input consists of the curve name, the ten coefficients, and the minimum and maximum values for each of the independent variables. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x + C3*x**2 + C4*y + C5*y**2 + C6*x*y + C7*x**3 + C8*y**3 + C9*x**2*y + C10*x*y**2")]
-    public class Curve_Bicubic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_Bicubic : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_constant")]
@@ -1141,8 +1181,13 @@ public Curve_Bicubic_OutputUnitType OutputUnitType { get; set; } = (Curve_Bicubi
     }
     
     [Description(@"Quadratic curve with two independent variables. Input consists of the curve name, the six coefficients, and min and max values for each of the independent variables. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x + C3*x**2 + C4*y + C5*y**2 + C6*x*y")]
-    public class Curve_Biquadratic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_Biquadratic : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_constant")]
@@ -1283,8 +1328,13 @@ public Curve_Biquadratic_OutputUnitType OutputUnitType { get; set; } = (Curve_Bi
     }
     
     [Description(@"Quadratic-linear curve with two independent variables. Input consists of the curve name, the six coefficients, and min and max values for each of the independent variables. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = (C1 + C2*x + C3*x**2) + (C4 + C5*x + C6*x**2)*y")]
-    public class Curve_QuadraticLinear : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_QuadraticLinear : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_constant")]
@@ -1425,8 +1475,13 @@ public Curve_QuadraticLinear_OutputUnitType OutputUnitType { get; set; } = (Curv
     }
     
     [Description(@"Cubic-linear curve with two independent variables. Input consists of the curve name, the six coefficients, and min and max values for each of the independent variables. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = (C1 + C2*x + C3*x**2 + C4*x**3) + (C5 + C6*x)*y")]
-    public class Curve_CubicLinear : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_CubicLinear : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_constant")]
@@ -1543,8 +1598,13 @@ public Curve_CubicLinear_OutputUnitType OutputUnitType { get; set; } = (Curve_Cu
     }
     
     [Description(@"Quadratic curve with three independent variables. Input consists of the curve name, the twenty seven coefficients, and min and max values for each of the independent variables. Optional inputs for curve minimum and maximum may be used to limit the output of the performance curve. curve = a0 + a1*x**2 + a2*x + a3*y**2 + a4*y + a5*z**2 + a6*z + a7*x**2*y**2 + a8*x*y + a9*x*y**2 + a10*x**2*y + a11*x**2*z**2 + a12*x*z + a13*x*z**2 + a14*x**2*z + a15*y**2*z**2 + a16*y*z + a17*y*z**2 + a18*y**2*z + a19*x**2*y**2*z**2 + a20*x**2*y**2*z + a21*x**2*y*z**2 + a22*x*y**2*z**2 + a23*x**2*y*z + a24*x*y**2*z + a25*x*y*z**2 +a26*x*y*z")]
-    public class Curve_Triquadratic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_Triquadratic : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_constant")]
@@ -1808,8 +1868,13 @@ public Curve_Triquadratic_OutputUnitType OutputUnitType { get; set; } = (Curve_T
     
     [Description("Sets up curve information for minor loss and/or friction calculations in plant pr" +
         "essure simulations Expression: DeltaP = {K + f*(L/D)} * (rho * V^2) / 2")]
-    public class Curve_Functional_PressureDrop : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_Functional_PressureDrop : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("\"D\" in above expression, used to also calculate local velocity")]
@@ -1839,8 +1904,13 @@ public System.Nullable<float> FixedFrictionFactor { get; set; } = null;
     }
     
     [Description(@"Special curve type with two independent variables. Input for the fan total pressure rise curve consists of the curve name, the four coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = C1*Qfan**2+C2*Qfan+C3*Qfan*(Psm-Po)**0.5+C4*(Psm-Po) Po assumed to be zero See InputOut Reference for curve details")]
-    public class Curve_FanPressureRise : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_FanPressureRise : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_c1")]
@@ -1886,8 +1956,13 @@ public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
     }
     
     [Description(@"Exponential-modified skew normal curve with one independent variable. Input consists of the curve name, the four coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = see Input Output Reference")]
-    public class Curve_ExponentialSkewNormal : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_ExponentialSkewNormal : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_c1")]
@@ -1967,8 +2042,13 @@ public Curve_ExponentialSkewNormal_OutputUnitType OutputUnitType { get; set; } =
     }
     
     [Description(@"Sigmoid curve with one independent variable. Input consists of the curve name, the five coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = C1+C2/[1+exp((C3-x)/C4)]**C5")]
-    public class Curve_Sigmoid : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_Sigmoid : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_c1")]
@@ -2052,8 +2132,13 @@ public Curve_Sigmoid_OutputUnitType OutputUnitType { get; set; } = (Curve_Sigmoi
     }
     
     [Description(@"Rectangular hyperbola type 1 curve with one independent variable. Input consists of the curve name, the three coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = ((C1*x)/(C2+x))+C3")]
-    public class Curve_RectangularHyperbola1 : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_RectangularHyperbola1 : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_c1")]
@@ -2129,8 +2214,13 @@ public Curve_RectangularHyperbola1_OutputUnitType OutputUnitType { get; set; } =
     }
     
     [Description(@"Rectangular hyperbola type 2 curve with one independent variable. Input consists of the curve name, the three coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = ((C1*x)/(C2+x))+(C3*x)")]
-    public class Curve_RectangularHyperbola2 : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_RectangularHyperbola2 : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_c1")]
@@ -2206,8 +2296,13 @@ public Curve_RectangularHyperbola2_OutputUnitType OutputUnitType { get; set; } =
     }
     
     [Description(@"Exponential decay curve with one independent variable. Input consists of the curve name, the three coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = C1+C2*exp(C3*x)")]
-    public class Curve_ExponentialDecay : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_ExponentialDecay : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_c1")]
@@ -2283,8 +2378,13 @@ public Curve_ExponentialDecay_OutputUnitType OutputUnitType { get; set; } = (Cur
     }
     
     [Description(@"Double exponential decay curve with one independent variable. Input consists of the curve name, the five coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = C1+C2*exp(C3*x)+C4*exp(C5*x)")]
-    public class Curve_DoubleExponentialDecay : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_DoubleExponentialDecay : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_c1")]
@@ -2368,8 +2468,13 @@ public Curve_DoubleExponentialDecay_OutputUnitType OutputUnitType { get; set; } 
     }
     
     [Description(@"This chiller part-load performance curve has three independent variables. Input consists of the curve name, the twelve coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = C1 + C2*x + C3*x**2 + C4*y + C5*y**2 + C6*x*y + C7*x**3 + C8*y**3 + C9*x**2*y + C10*x*y**2 + C11*x**2*y**2 + C12*z*y**3 x = dT* = normalized fractional Lift = dT / dTref y = PLR = part load ratio (cooling load/steady state capacity) z = Tdev* = normalized Tdev = Tdev / dTref Where: dT = Lift = Leaving Condenser Water Temperature - Leaving Chilled Water Temperature dTref = dT at the reference condition Tdev = Leaving Chilled Water Temperature - Reference Chilled Water Temperature")]
-    public class Curve_ChillerPartLoadWithLift : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_ChillerPartLoadWithLift : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coefficient1_c1")]

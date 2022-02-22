@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     [Description("used for shading elements such as trees, other buildings, parts of this building " +
                  "not being modeled these items are relative to the current building and would mov" +
                  "e with relative geometry")]
-    public class Shading_Building_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Building_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Transmittance schedule for the shading device, defaults to zero (always opaque)")]

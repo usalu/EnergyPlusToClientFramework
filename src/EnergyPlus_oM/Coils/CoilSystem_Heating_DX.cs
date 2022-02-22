@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "s associated controls. This control object supports two different types of DX he" +
                  "ating coils and may be placed directly in an air loop branch or outdoor air equi" +
                  "pment list.")]
-    public class CoilSystem_Heating_DX : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoilSystem_Heating_DX : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

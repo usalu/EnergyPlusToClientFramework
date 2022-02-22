@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines the name of an air-to-air heat exchanger used in an air loop." +
                  "")]
-    public class AirflowNetwork_Distribution_Component_HeatExchanger : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_HeatExchanger : BHoMObject
     {
         
 

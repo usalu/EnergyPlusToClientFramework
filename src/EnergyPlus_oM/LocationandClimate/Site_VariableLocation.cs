@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Captures the scheduling of a moving/reorienting building, or more likely a vessel" +
                  "")]
-    public class Site_VariableLocation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_VariableLocation : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("The name of a schedule that defines the latitude of the building at any time. If " +

@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description("This constant COP chiller model provides a means of quickly specifying a Chiller " +
                  "where performance data is not available.")]
-    public class Chiller_ConstantCOP : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Chiller_ConstantCOP : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("nominal_capacity")]

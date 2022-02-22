@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
     [Description("Plant equipment operation scheme for component setpoint operation. Specifies one " +
                  "or pieces of equipment which are controlled to meet the temperature setpoint at " +
                  "the component outlet node.")]
-    public class PlantEquipmentOperation_ComponentSetpoint : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_ComponentSetpoint : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("equipment_1_object_type")]

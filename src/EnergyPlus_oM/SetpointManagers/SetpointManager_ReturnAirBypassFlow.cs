@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     [Description("This setpoint manager determines the required mass flow rate through a return air" +
                  " bypass duct to meet the specified temperature setpoint")]
-    public class SetpointManager_ReturnAirBypassFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_ReturnAirBypassFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("control_variable")]

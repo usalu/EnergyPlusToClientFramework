@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     [Description(@"Specifies the input needed to autosize plant loop flow rates and equipment capacities. This information is initially used by components that use water for heating or cooling such as hot or chilled water coils to calculate their maximum water flow rates. These flow rates are then summed for use in calculating the Plant Loop flow rates.")]
-    public class Sizing_Plant : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Sizing_Plant : BHoMObject
     {
         
 

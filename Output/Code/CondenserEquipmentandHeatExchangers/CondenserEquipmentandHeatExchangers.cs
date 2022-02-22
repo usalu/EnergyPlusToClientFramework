@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     
     
     [Description(@"This tower model is based on Merkel's theory, which is also the basis for the tower model in ASHRAE's HVAC1 Toolkit. The open wet cooling tower is modeled as a counter flow heat exchanger with a single-speed fan drawing air through the tower (induced-draft configuration). Added fluid bypass as an additional capacity control. 8/2008. For a multi-cell tower, the capacity and air/water flow rate inputs are for the entire tower.")]
-    public class CoolingTower_SingleSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoolingTower_SingleSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Name of tower water inlet node")]
@@ -323,8 +328,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     [Description(@"This tower model is based on Merkel's theory, which is also the basis for the tower model in ASHRAE's HVAC1 Toolkit. The open wet cooling tower is modeled as a counter flow heat exchanger with a two-speed fan drawing air through the tower (induced-draft configuration). For a multi-cell tower, the capacity and air/water flow rate inputs are for the entire tower.")]
-    public class CoolingTower_TwoSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoolingTower_TwoSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Name of tower Water Inlet Node")]
@@ -606,8 +616,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     [Description(@"This tower model is based on Merkel's theory, which is also the basis for the tower model in ASHRAE's HVAC1 Toolkit. The open wet cooling tower is modeled as a counter flow heat exchanger with a variable-speed fan drawing air through the tower (induced-draft configuration). For a multi-cell tower, the capacity and air/water flow rate inputs are for the entire tower.")]
-    public class CoolingTower_VariableSpeed_Merkel : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoolingTower_VariableSpeed_Merkel : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Name of tower water inlet node")]
@@ -895,8 +910,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     [Description(@"This open wet tower model is based on purely empirical algorithms derived from manufacturer's performance data or field measurements. The user can select from two existing algorithms (CoolTools or YorkCalc), or they can enter their own correlation for approach temperature by using a variable speed tower model coefficient object. For a multi-cell tower, the capacity and air/water flow rate inputs are for the entire tower.")]
-    public class CoolingTower_VariableSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoolingTower_VariableSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Name of tower water inlet node")]
@@ -1118,8 +1138,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     [Description("This object is used to define coefficients for the approach temperature correlati" +
         "on for a variable speed cooling tower when tower Model Type is specified as Cool" +
         "ToolsUserDefined in the object CoolingTower:VariableSpeed.")]
-    public class CoolingTowerPerformance_CoolTools : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoolingTowerPerformance_CoolTools : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Minimum valid inlet air wet-bulb temperature for this approach temperature correl" +
@@ -1307,8 +1332,13 @@ public System.Nullable<float> Coefficient35 { get; set; } = null;
     [Description("This object is used to define coefficients for the approach temperature correlati" +
         "on for a variable speed cooling tower when tower Model Type is specified as York" +
         "CalcUserDefined in the object CoolingTower:VariableSpeed.")]
-    public class CoolingTowerPerformance_YorkCalc : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoolingTowerPerformance_YorkCalc : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Minimum valid inlet air wet-bulb temperature for this approach temperature correl" +
@@ -1470,8 +1500,13 @@ public System.Nullable<float> Coefficient27 { get; set; } = null;
     [Description("This model is based on Merkel\'s theory, which is also the basis for the cooling t" +
         "ower model in EnergyPlus. The Evaporative fluid cooler is modeled as a counter f" +
         "low heat exchanger.")]
-    public class EvaporativeFluidCooler_SingleSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EvaporativeFluidCooler_SingleSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Name of Fluid Cooler water inlet node")]
@@ -1661,8 +1696,13 @@ public string SupplyWaterStorageTankName { get; set; } = "";
     [Description("This model is based on Merkel\'s theory, which is also the basis for the cooling t" +
         "ower model in EnergyPlus. The Evaporative fluid cooler is modeled as a counter f" +
         "low heat exchanger.")]
-    public class EvaporativeFluidCooler_TwoSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EvaporativeFluidCooler_TwoSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Name of fluid cooler water inlet node")]
@@ -1886,8 +1926,13 @@ public string SupplyWaterStorageTankName { get; set; } = "";
     
     [Description("The fluid cooler is modeled as a cross flow heat exchanger (both streams unmixed)" +
         " with single-speed fans (induced draft configuration).")]
-    public class FluidCooler_SingleSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FluidCooler_SingleSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Name of fluid cooler water inlet node")]
@@ -1971,8 +2016,13 @@ public string OutdoorAirInletNodeName { get; set; } = "";
     
     [Description("The fluid cooler is modeled as a cross flow heat exchanger (both streams unmixed)" +
         " with two-speed fans (induced draft configuration).")]
-    public class FluidCooler_TwoSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FluidCooler_TwoSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Name of fluid cooler water inlet node")]
@@ -2102,8 +2152,13 @@ public string OutdoorAirInletNodeName { get; set; } = "";
     [Description("Models vertical ground heat exchangers systems using the response factor approach" +
         " developed by Eskilson. Response factors are calculated using a finite line sour" +
         "ce model assuming uniform heat flux at the borehole wall.")]
-    public class GroundHeatExchanger_System : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatExchanger_System : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("inlet_node_name")]
@@ -2161,8 +2216,13 @@ public string VerticalWellLocations { get; set; } = "";
     }
     
     [Description("Properties for vertical ground heat exchanger systems")]
-    public class GroundHeatExchanger_Vertical_Properties : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatExchanger_Vertical_Properties : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("depth_of_top_of_borehole")]
@@ -2206,8 +2266,13 @@ public System.Nullable<float> UTubeDistance { get; set; } = null;
     }
     
     [Description(null)]
-    public class GroundHeatExchanger_Vertical_Array : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatExchanger_Vertical_Array : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("ghe_vertical_properties_object_name")]
@@ -2227,8 +2292,13 @@ public System.Nullable<float> BoreholeSpacing { get; set; } = null;
     }
     
     [Description(null)]
-    public class GroundHeatExchanger_Vertical_Single : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatExchanger_Vertical_Single : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("ghe_vertical_properties_object_name")]
@@ -2245,8 +2315,13 @@ public System.Nullable<float> YLocation { get; set; } = null;
     
     [Description("Response factor definitions from third-party tool, commonly referred to a \"g-func" +
         "tions\"")]
-    public class GroundHeatExchanger_ResponseFactors : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatExchanger_ResponseFactors : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("ghe_vertical_properties_object_name")]
@@ -2268,8 +2343,13 @@ public string GFunctions { get; set; } = "";
     [Description("A model of a shallow pond with immersed pipe loops. Typically used in hybrid geot" +
         "hermal systems and included in the condenser loop. This component may also be us" +
         "ed as a simple solar collector.")]
-    public class GroundHeatExchanger_Pond : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatExchanger_Pond : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("fluid_inlet_node_name")]
@@ -2313,8 +2393,13 @@ public System.Nullable<float> LengthOfEachTubingCircuit { get; set; } = null;
     }
     
     [Description(@"A hydronic surface/panel consisting of a multi-layer construction with embedded rows of tubes. Typically used in hybrid geothermal systems and included in the condenser loop. This component may also be used as a simple solar collector. The bottom surface may be defined as ground-coupled or exposed to wind (eg. bridge deck).")]
-    public class GroundHeatExchanger_Surface : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatExchanger_Surface : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("construction_name")]
@@ -2370,8 +2455,13 @@ public GroundHeatExchanger_Surface_LowerSurfaceEnvironment LowerSurfaceEnvironme
     [Description("This models a horizontal heat exchanger placed in a series of trenches The model " +
         "uses the PipingSystem:Underground underlying algorithms, but provides a more usa" +
         "ble input interface.")]
-    public class GroundHeatExchanger_HorizontalTrench : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatExchanger_HorizontalTrench : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("inlet_node_name")]
@@ -2478,8 +2568,13 @@ public System.Nullable<float> EvapotranspirationGroundCoverParameter { get; set;
     }
     
     [Description(@"This models a slinky horizontal heat exchanger placed in a series of trenches The model uses the model developed by: Xiong, Z., D.E. Fisher, and J.D. Spitler. 2015. Development and Validation of a Slinky Ground Heat Exchanger Model. Applied Energy 141: 57-69.")]
-    public class GroundHeatExchanger_Slinky : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatExchanger_Slinky : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("inlet_node_name")]
@@ -2604,8 +2699,13 @@ public System.Nullable<float> MaximumLengthOfSimulation { get; set; } = null;
     [Description("A fluid/fluid heat exchanger designed to couple the supply side of one loop to th" +
         "e demand side of another loop Loops can be either plant or condenser loops but n" +
         "o air side connections are allowed")]
-    public class HeatExchanger_FluidToFluid : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HeatExchanger_FluidToFluid : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

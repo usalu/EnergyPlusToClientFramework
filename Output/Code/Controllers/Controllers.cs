@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
     
     
     [Description(@"Controller for a water coil which is located directly in an air loop branch or outdoor air equipment list. Controls the coil water flow to meet the specified leaving air setpoint(s). Used with Coil:Heating:Water, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry, and CoilSystem:Cooling:Water:HeatexchangerAssisted.")]
-    public class Controller_WaterCoil : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Controller_WaterCoil : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("keys HumidityRatio or TemperatureAndHumidityRatio requires a ZoneControl:Humidist" +
@@ -145,8 +150,13 @@ public System.Nullable<float> MinimumActuatedFlow { get; set; } = (System.Nullab
     [Description("Controller to set the outdoor air flow rate for an air loop. Control options incl" +
         "ude fixed, proportional, scheduled, economizer, and demand-controlled ventilatio" +
         "n.")]
-    public class Controller_OutdoorAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Controller_OutdoorAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("relief_air_outlet_node_name")]
@@ -376,8 +386,13 @@ public Controller_OutdoorAir_HeatRecoveryBypassControlType HeatRecoveryBypassCon
     }
     
     [Description(@"This object is used in conjunction with Controller:OutdoorAir to specify outdoor ventilation air based on outdoor air specified in the DesignSpecification:OutdoorAir object The Controller:OutdoorAir object is associated with a specific air loop, so the outdoor air flow rates specified in Controller:MechanicalVentilation correspond to the zones attached to that specific air loop. Duplicate groups of Zone name, Design Specification Outdoor Air Object Name, and Design Specification Zone Air Distribution Object Name to increase allowable number of entries")]
-    public class Controller_MechanicalVentilation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Controller_MechanicalVentilation : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If this field is blank, the controller uses the values from the associated Contro" +
@@ -437,8 +452,13 @@ public string ZoneSpecifications { get; set; } = "";
     }
     
     [Description("List controllers in order of control sequence")]
-    public class AirLoopHVAC_ControllerList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_ControllerList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("controller_1_object_type")]

@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
     [Description("Used to allow users to combine specific variables and/or meters into \"custom\" met" +
                  "er configurations. To access these meters by name, one must first run a simulati" +
                  "on to generate the RDD/MDD files and names.")]
-    public class Meter_CustomDecrement : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Meter_CustomDecrement : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("resource_type")]

@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
     [Description("Adds a report to the eio output file which shows details for each construction, i" +
                  "ncluding overall properties, a list of material layers, and calculated results r" +
                  "elated to conduction transfer functions.")]
-    public class Output_Constructions : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Constructions : BHoMObject
     {
         
 

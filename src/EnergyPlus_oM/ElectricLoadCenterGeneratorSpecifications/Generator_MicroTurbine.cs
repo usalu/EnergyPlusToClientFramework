@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("MicroTurbine generators are small combustion turbines (e.g., 25kW to 500kW). The " +
                  "model calculates electrical power output, fuel use, standby and ancillary power." +
                  " Energy recovery from exhaust air can be used to heat water.")]
-    public class Generator_MicroTurbine : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Generator_MicroTurbine : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("reference_electrical_power_output")]

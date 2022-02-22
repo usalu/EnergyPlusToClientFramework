@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("Spectrum Data Type is followed by up to 107 sets of normal-incidence measured val" +
                  "ues of [wavelength, spectrum] for wavelengths covering the solar (0.25 to 2.5 mi" +
                  "crons) or visible spectrum (0.38 to 0.78 microns)")]
-    public class Site_SpectrumData : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_SpectrumData : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("spectrum_data_type")]

@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
     [Description("Specifies the input needed to perform sizing calculations for a central forced ai" +
                  "r system. System design air flow, heating capacity, and cooling capacity will be" +
                  " calculated using this input data.")]
-    public class Sizing_System : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Sizing_System : BHoMObject
     {
         
 

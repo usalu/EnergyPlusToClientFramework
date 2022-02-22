@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("Used to describe the electrical storage subsystem for a fuel cell power generator" +
                  ". The electrical storage model is a very simple \"constrained bucket\" model. Note" +
                  " that this electrical storage is embedded within the FC device.")]
-    public class Generator_FuelCell_ElectricalStorage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Generator_FuelCell_ElectricalStorage : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("choice_of_model")]

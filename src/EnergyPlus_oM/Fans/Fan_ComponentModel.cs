@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
     [Description("A detailed fan type for constant-air-volume (CAV) and variable-air-volume (VAV) s" +
                  "ystems. It includes inputs that describe the air-distribution system as well as " +
                  "the fan, drive belt (if used), motor, and variable-frequency-drive (if used).")]
-    public class Fan_ComponentModel : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Fan_ComponentModel : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("air_inlet_node_name")]

@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     [Description("Define the Thermostat settings for a zone or list of zones. If you use a ZoneList" +
                  " in the Zone or ZoneList name field then this definition applies to all the zone" +
                  "s in the ZoneList.")]
-    public class ZoneControl_Thermostat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneControl_Thermostat : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_or_zonelist_name")]

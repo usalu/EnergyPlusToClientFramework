@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     [Description("fluid properties for water/other fluid mixtures")]
-    public class FluidProperties_Concentration : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FluidProperties_Concentration : BHoMObject
     {
         
 

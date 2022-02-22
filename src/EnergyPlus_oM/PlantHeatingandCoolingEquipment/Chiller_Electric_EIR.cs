@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
     [Description("This chiller model is the empirical model from the DOE-2 building Energy simulati" +
                  "on program. Chiller performance at off-reference conditions is modeled using thr" +
                  "ee polynomial equations. Three curves objects are required.")]
-    public class Chiller_Electric_EIR : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Chiller_Electric_EIR : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("reference_capacity")]

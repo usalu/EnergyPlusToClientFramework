@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("Additional properties for moisture using EMPD procedure HeatBalanceAlgorithm choi" +
                  "ce=MoisturePenetrationDepthConductionTransferFunction only Has no effect with ot" +
                  "her HeatBalanceAlgorithm solution algorithms")]
-    public class MaterialProperty_MoisturePenetrationDepth_Settings : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_MoisturePenetrationDepth_Settings : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Ratio of water vapor permeability of stagnant air to water vapor permeability of " +

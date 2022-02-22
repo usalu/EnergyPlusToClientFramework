@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     [Description("Settings applied across all Kiva foundation calculations. Object is not required." +
                  " If not defined, defaults will be applied.")]
-    public class Foundation_Kiva_Settings : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Foundation_Kiva_Settings : BHoMObject
     {
         
 

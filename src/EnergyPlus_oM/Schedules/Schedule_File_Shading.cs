@@ -6,7 +6,8 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
 {
     [Description("A Schedule:File:Shading points to a CSV file that has 8760-8784 hours of sunlit f" +
                  "raction data for all or some of the exterior surfaces.")]
-    public class Schedule_File_Shading : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_File_Shading : BHoMObject
     {
         
 

@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Undisturbed ground temperature object using the Xing 2014 2 harmonic parameter mo" +
                  "del.")]
-    public class Site_GroundTemperature_Undisturbed_Xing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundTemperature_Undisturbed_Xing : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("soil_thermal_conductivity")]

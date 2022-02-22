@@ -7,8 +7,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
 {
     [Description("This object is used to scale the sizing of air terminal units.")]
-    public class DesignSpecification_AirTerminal_Sizing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DesignSpecification_AirTerminal_Sizing : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("The fraction of the design sensible cooling load to be met by this terminal unit." +

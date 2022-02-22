@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
                  "hours that occurs in different bins for a single specific output variable or met" +
                  "er. Two different types of binning are reported: by month and by hour of the day" +
                  ".")]
-    public class Output_Table_TimeBins : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Table_TimeBins : BHoMObject
     {
         
 

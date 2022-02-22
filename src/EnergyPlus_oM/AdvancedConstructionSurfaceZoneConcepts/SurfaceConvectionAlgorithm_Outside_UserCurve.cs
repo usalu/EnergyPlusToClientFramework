@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("Used to describe a custom model equation for surface convection heat transfer coe" +
                  "fficient If more than one curve is referenced they are all used and added togeth" +
                  "er.")]
-    public class SurfaceConvectionAlgorithm_Outside_UserCurve : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceConvectionAlgorithm_Outside_UserCurve : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("wind_speed_type_for_curve")]

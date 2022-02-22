@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     
     [Description("Chilled water cooling coil, NTU-effectiveness model, with inputs for design enter" +
         "ing and leaving conditions.")]
-    public class Coil_Cooling_Water : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_Water : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -171,8 +176,13 @@ public System.Nullable<float> DesignWaterTemperatureDifference { get; set; } = n
     
     [Description("Chilled water cooling coil, detailed flat fin coil model for continuous plate fin" +
         "s, with inputs for detailed coil geometry specifications.")]
-    public class Coil_Cooling_Water_DetailedGeometry : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_Water_DetailedGeometry : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -279,8 +289,13 @@ public System.Nullable<float> DesignWaterTemperatureDifference { get; set; } = n
     }
     
     [Description(@"New general DX cooling coil supporting on or more speeds and one or or operating  modes. Includes DX evaporator coil, compressor, and condenser. Object is currently only supported by the AIRLOOPHVAC:UNITARYSYSTEM object. Remaining Coil:Cooling:DX* objects will be deprecated at a future date, after which, this object will replace all other Coil:Cooling:DX* objects.")]
-    public class Coil_Cooling_DX : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("evaporator_inlet_node_name")]
@@ -328,8 +343,13 @@ public string EvaporativeCondenserSupplyWaterStorageTankName { get; set; } = "";
     [Description("DX cooling coil performance specification referencing one or more operating modes" +
         ". Mode 1 is always the base design operating mode. Additional modes are optional" +
         " states such as subcool reheat for humidity control.")]
-    public class Coil_Cooling_DX_CurveFit_Performance : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_CurveFit_Performance : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("crankcase_heater_capacity")]
@@ -439,8 +459,13 @@ public string AlternativeOperatingMode2 { get; set; } = "";
     
     [Description("DX cooling coil performance for a single operating mode which may have one or mor" +
         "e speeds.")]
-    public class Coil_Cooling_DX_CurveFit_OperatingMode : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_CurveFit_OperatingMode : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Total (sensible+latent) cooling capacity not accounting for the effect of supply air fan heat. Rating point: air entering the evaporator coil at 26.7 C dry-bulb/19.4 C wet-bulb, and air entering the condenser coil at 35 C dry-bulb/23.9 C wet-bulb. gross capacity excluding supply air fan heat")]
@@ -559,8 +584,13 @@ public string Speed10Name { get; set; } = "";
     }
     
     [Description("DX cooling coil performance for a single speed within a single operating mode.")]
-    public class Coil_Cooling_DX_CurveFit_Speed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_CurveFit_Speed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Ratio of capacity at this speed to the operating mode Rated Gross Total Cooling C" +
@@ -669,8 +699,13 @@ public string SensibleHeatRatioModifierFunctionOfFlowFractionCurveName { get; se
     [Description("Direct expansion (DX) cooling coil and condensing unit (includes electric compres" +
         "sor and condenser fan), single-speed. Optional inputs for moisture evaporation f" +
         "rom wet coil when compressor cycles off with continuous fan operation.")]
-    public class Coil_Cooling_DX_SingleSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_SingleSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -872,8 +907,13 @@ public string ZoneNameForCondenserPlacement { get; set; } = "";
     }
     
     [Description(@"Direct expansion (DX) cooling coil and condensing unit (includes electric compressor and condenser fan), two-speed (or variable-speed). Requires two sets of performance data and will interpolate between speeds. Modeled as a single coil (multi-speed compressor or multiple compressors with row split or intertwined coil).")]
-    public class Coil_Cooling_DX_TwoSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_TwoSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1099,8 +1139,13 @@ public string ZoneNameForCondenserPlacement { get; set; } = "";
     }
     
     [Description(@"Direct expansion (DX) cooling coil and condensing unit (includes electric or engine-driven compressor and condenser fan), multi-speed (or variable-speed). Optional moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Requires two to four sets of performance data and will interpolate between speeds. Modeled as a single coil (multi-speed compressor or multiple compressors with row split or intertwined coil).")]
-    public class Coil_Cooling_DX_MultiSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_MultiSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1671,8 +1716,13 @@ public string ZoneNameForCondenserPlacement { get; set; } = "";
     }
     
     [Description(@"Direct expansion (DX) cooling coil and condensing unit (includes electric compressor and condenser fan), variable-speed. Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Requires two to ten sets of performance data and will interpolate between speeds. Modeled as a single coil with variable-speed compressor.")]
-    public class Coil_Cooling_DX_VariableSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_VariableSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("indoor_air_inlet_node_name")]
@@ -2277,8 +2327,13 @@ public string Speed10EnergyInputRatioFunctionOfAirFlowFractionCurveName { get; s
     }
     
     [Description(@"Direct expansion (DX) cooling coil and condensing unit (includes electric compressor and condenser fan), two-stage with humidity control mode (e.g. sub-cool or hot gas reheat). Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Requires two to four sets of performance data, see CoilPerformance:DX:Cooling. Stages are modeled as a face-split coil.")]
-    public class Coil_Cooling_DX_TwoStageWithHumidityControlMode : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_TwoStageWithHumidityControlMode : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -2404,8 +2459,13 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
     }
     
     [Description(@"Used to specify DX cooling coil performance for one mode of operation for a Coil:Cooling:DX:TwoStageWithHumidityControlMode object which may reference one to four CoilPerformance:DX:Cooling objects depending on the specified number of stages and dehumidification modes. In nearly all cases, the Rated Air Flow Rate will be the same for all performance objects associated with a given coil. If bypass is specified, the Rated Air Flow Rate includes both the bypassed flow and the flow through the active part of the coil.")]
-    public class CoilPerformance_DX_Cooling : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoilPerformance_DX_Cooling : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Total cooling capacity not accounting for the effect of supply air fan heat gross capacity excluding supply air fan heat rating point: air entering the cooling coil at 26.7 C dry-bulb/19.4 C wet-bulb, and air entering the outdoor condenser coil at 35 C dry-bulb/23.9 C wet-bulb")]
@@ -2544,8 +2604,13 @@ public string SensibleHeatRatioFunctionOfFlowFractionCurveName { get; set; } = "
     [Description("Variable refrigerant flow (VRF) direct expansion (DX) cooling coil. Used with Zon" +
         "eHVAC:TerminalUnit:VariableRefrigerantFlow. Condensing unit is modeled separatel" +
         "y, see AirConditioner:VariableRefrigerantFlow.")]
-    public class Coil_Cooling_DX_VariableRefrigerantFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_VariableRefrigerantFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -2596,8 +2661,13 @@ public string NameOfWaterStorageTankForCondensateCollection { get; set; } = "";
     [Description("Variable refrigerant flow (VRF) direct expansion (DX) heating coil (air-to-air he" +
         "at pump). Used with ZoneHVAC:TerminalUnit:VariableRefrigerantFlow. Condensing un" +
         "it is modeled separately, see AirConditioner:VariableRefrigerantFlow.")]
-    public class Coil_Heating_DX_VariableRefrigerantFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_DX_VariableRefrigerantFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -2636,8 +2706,13 @@ public string HeatingCapacityModifierFunctionOfFlowFractionCurveName { get; set;
     }
     
     [Description(@"This is a key object in the new physics based VRF model applicable for Fluid Temperature Control. It describes the the indoor unit coil of the system at cooling mode. Used with ZoneHVAC:TerminalUnit:VariableRefrigerantFlow. Outdoor unit is modeled separately, see AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl or AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR")]
-    public class Coil_Cooling_DX_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a schedule that defines the availability of the coil Schedule v" +
@@ -2680,8 +2755,13 @@ public string NameOfWaterStorageTankForCondensateCollection { get; set; } = "";
     }
     
     [Description(@"This is a key object in the new physics based VRF model applicable for Fluid Temperature Control. It describes the the indoor unit coil of the system at heating mode. Used with ZoneHVAC:TerminalUnit:VariableRefrigerantFlow. Outdoor unit is modeled separately, see AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl or AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR")]
-    public class Coil_Heating_DX_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_DX_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a schedule that defines the availability of the coil Schedule v" +
@@ -2717,8 +2797,13 @@ public string IndoorUnitCondensingTemperatureFunctionOfSubcoolingCurveName { get
     [Description("Hot water heating coil, NTU-effectiveness model, assumes a cross-flow heat exchan" +
         "ger. Two options for capacity inputs: UA and water flow rate or capacity and des" +
         "ign temperatures.")]
-    public class Coil_Heating_Water : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_Water : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -2803,8 +2888,13 @@ public System.Nullable<float> DesignWaterTemperatureDifference { get; set; } = n
     
     [Description("Steam heating coil. Condenses and sub-cools steam at loop pressure and discharges" +
         " condensate through steam traps to low pressure condensate line.")]
-    public class Coil_Heating_Steam : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_Steam : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -2866,8 +2956,13 @@ public string TemperatureSetpointNodeName { get; set; } = "";
     }
     
     [Description(@"Electric heating coil. If the coil is located directly in an air loop branch or outdoor air equipment list, then it is controlled on leaving air temperature and the Temperature Setpoint Node Name must be specified. If the coil is contained within another component such as an air terminal unit, zone HVAC equipment, or unitary system, then the coil is controlled by the parent component and the setpoint node name is not entered.")]
-    public class Coil_Heating_Electric : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_Electric : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -2898,8 +2993,13 @@ public string TemperatureSetpointNodeName { get; set; } = "";
     }
     
     [Description(@"Electric heating coil, multi-stage. If the coil is located directly in an air loop branch or outdoor air equipment list, then it is controlled on leaving air temperature and the Temperature Setpoint Node Name must be specified. If the coil is contained within another component such as an air terminal unit, zone HVAC equipment, or unitary system, then the coil is controlled by the parent component and the setpoint node name is not entered.")]
-    public class Coil_Heating_Electric_MultiStage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_Electric_MultiStage : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -2959,8 +3059,13 @@ public string Stage4NominalCapacity { get; set; } = "";
     }
     
     [Description(@"Gas or other fuel heating coil. If the coil is located directly in an air loop branch or outdoor air equipment list, then it is controlled on leaving air temperature and the Temperature Setpoint Node Name must be specified. If the coil is contained within another component such as an air terminal unit, zone HVAC equipment, or unitary system, then the coil is controlled by the parent component and the setpoint node name is not entered.")]
-    public class Coil_Heating_Fuel : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_Fuel : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -3047,8 +3152,13 @@ public System.Nullable<float> ParasiticFuelLoad { get; set; } = null;
     }
     
     [Description(@"Gas heating coil, multi-stage. If the coil is located directly in an air loop branch or outdoor air equipment list, then it is controlled on leaving air temperature and the Temperature Setpoint Node Name must be specified. If the coil is contained within another component such as an air terminal unit, zone HVAC equipment, or unitary system, then the coil is controlled by the parent component and the setpoint node name is not entered.")]
-    public class Coil_Heating_Gas_MultiStage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_Gas_MultiStage : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -3147,8 +3257,13 @@ public System.Nullable<float> Stage4ParasiticElectricLoad { get; set; } = null;
     }
     
     [Description(@"Desuperheater air heating coil. The heating energy provided by this coil is reclaimed from the superheated refrigerant gas leaving a compressor and does not impact the performance of the compressor. If the coil is located directly in an air loop branch or outdoor air equipment list, then it is controlled on leaving air temperature and the Temperature Setpoint Node Name must be specified. If the coil is contained within another component such as a unitary system, then the coil is controlled by the parent component and the setpoint node name is not entered.")]
-    public class Coil_Heating_Desuperheater : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_Desuperheater : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -3221,8 +3336,13 @@ public System.Nullable<float> ParasiticElectricLoad { get; set; } = null;
     [Description("Direct expansion (DX) heating coil (air-to-air heat pump) and compressor unit (in" +
         "cludes electric compressor and outdoor fan), single-speed, with defrost controls" +
         ".")]
-    public class Coil_Heating_DX_SingleSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_DX_SingleSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -3409,8 +3529,13 @@ public string SensibleHeatRatioModifierFunctionOfFlowFractionCurveName { get; se
     }
     
     [Description(@"Direct expansion (DX) heating coil (air-to-air heat pump) and compressor unit (includes electric or engine-driven compressor and outdoor fan), multi-speed (or variable-speed), with defrost controls. Requires two to four sets of performance data and will interpolate between speeds.")]
-    public class Coil_Heating_DX_MultiSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_DX_MultiSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -3915,8 +4040,13 @@ public string Speed4SensibleHeatRatioModifierFunctionOfFlowFractionCurveName { g
         "cludes electric compressor and outdoor fan), variable-speed, with defrost contro" +
         "ls. Requires two to ten sets of performance data and will interpolate between sp" +
         "eeds.")]
-    public class Coil_Heating_DX_VariableSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_DX_VariableSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("indoor_air_inlet_node_name")]
@@ -4396,8 +4526,13 @@ public string Speed10EnergyInputRatioFunctionOfAirFlowFractionCurveName { get; s
     }
     
     [Description(@"Direct expansion (DX) cooling coil for water-to-air heat pump (includes electric compressor), single-speed, parameter estimation model. Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Parameter estimation model is a deterministic model that requires a consistent set of parameters to describe the operating conditions of the heat pump components.")]
-    public class Coil_Cooling_WaterToAirHeatPump_ParameterEstimation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_WaterToAirHeatPump_ParameterEstimation : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Parameters 1-5 are as named below. Parameters 6-10 depend on the type of compress" +
@@ -4547,8 +4682,13 @@ public System.Nullable<float> SourceSideHeatTransferResistance2 { get; set; } = 
     }
     
     [Description(@"Direct expansion (DX) heating coil for water-to-air heat pump (includes electric compressor), single-speed, parameter estimation model. Parameter estimation model is a deterministic model that requires a consistent set of parameters to describe the operating conditions of the heat pump components.")]
-    public class Coil_Heating_WaterToAirHeatPump_ParameterEstimation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_WaterToAirHeatPump_ParameterEstimation : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Parameters 1-4 are as named below. Parameters 5-9 depend on the type of compresso" +
@@ -4684,8 +4824,13 @@ public System.Nullable<float> SourceSideHeatTransferResistance2 { get; set; } = 
     }
     
     [Description(@"Direct expansion (DX) cooling coil for water-to-air heat pump (includes electric compressor), single-speed, equation-fit model. Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Equation-fit model uses normalized curves to describe the heat pump performance.")]
-    public class Coil_Cooling_WaterToAirHeatPump_EquationFit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_WaterToAirHeatPump_EquationFit : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("water_inlet_node_name")]
@@ -4748,8 +4893,13 @@ public System.Nullable<float> RatioOfInitialMoistureEvaporationRateAndSteadyStat
     }
     
     [Description(@"Direct expansion (DX) cooling coil for water-to-air heat pump (includes electric compressor), variable-speed, equation-fit model. Optional inputs for moisture evaporation from wet coil when compressor cycles off with continuous fan operation. Equation-fit model uses normalized curves to describe the heat pump performance. Requires two to ten sets of performance data and will interpolate between speeds. Modeled as a single coil with variable-speed compressor.")]
-    public class Coil_Cooling_WaterToAirHeatPump_VariableSpeedEquationFit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_WaterToAirHeatPump_VariableSpeedEquationFit : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("water_to_refrigerant_hx_water_inlet_node_name")]
@@ -5506,8 +5656,13 @@ public string Speed10WasteHeatFunctionOfTemperatureCurveName { get; set; } = "";
     [Description("Direct expansion (DX) heating coil for water-to-air heat pump (includes electric " +
         "compressor), single-speed, equation-fit model. Equation-fit model uses normalize" +
         "d curves to describe the heat pump performance.")]
-    public class Coil_Heating_WaterToAirHeatPump_EquationFit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_WaterToAirHeatPump_EquationFit : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("water_inlet_node_name")]
@@ -5552,8 +5707,13 @@ public string HeatingPowerConsumptionCurveName { get; set; } = "";
     }
     
     [Description(@"Direct expansion (DX) heating coil for water-to-air heat pump (includes electric compressor), variable-speed, equation-fit model. Equation-fit model uses normalized curves to describe the heat pump performance. Requires two to ten sets of performance data and will interpolate between speeds.")]
-    public class Coil_Heating_WaterToAirHeatPump_VariableSpeedEquationFit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_WaterToAirHeatPump_VariableSpeedEquationFit : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("water_to_refrigerant_hx_water_inlet_node_name")]
@@ -6257,8 +6417,13 @@ public string Speed10WasteHeatFunctionOfTemperatureCurveName { get; set; } = "";
         "stem which includes a water heating coil, evaporator air coil, evaporator fan, e" +
         "lectric compressor, and water pump. Part of a WaterHeater:HeatPump:PumpedCondens" +
         "er system.")]
-    public class Coil_WaterHeating_AirToWaterHeatPump_Pumped : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_WaterHeating_AirToWaterHeatPump_Pumped : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Heating capacity at the rated inlet air temperatures, rated condenser inlet water" +
@@ -6440,8 +6605,13 @@ public string PartLoadFractionCorrelationCurveName { get; set; } = "";
         "stem which includes a water heating coil, evaporator air coil, evaporator fan, e" +
         "lectric compressor, and water pump. Part of a WaterHeater:HeatPump:WrappedConden" +
         "ser system.")]
-    public class Coil_WaterHeating_AirToWaterHeatPump_Wrapped : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_WaterHeating_AirToWaterHeatPump_Wrapped : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Heating capacity at the rated inlet air temperatures, rated condenser inlet water" +
@@ -6563,8 +6733,13 @@ public string PartLoadFractionCorrelationCurveName { get; set; } = "";
     }
     
     [Description(@"vairlable-speed Heat pump water heater (VSHPWH) heating coil, air-to-water direct-expansion (DX) system which includes a variable-speed water heating coil, evaporator air coil, evaporator fan, electric compressor, and water pump. Part of a WaterHeater:HeatPump system.")]
-    public class Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_WaterHeating_AirToWaterHeatPump_VariableSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("number_of_speeds")]
@@ -7412,8 +7587,13 @@ public string Speed10CopFunctionOfWaterFlowFractionCurveName { get; set; } = "";
     }
     
     [Description(@"Desuperheater air heating coil. The heating energy provided by this coil is reclaimed from the superheated refrigerant gas leaving a compressor and does not impact the performance of the compressor. This coil must be used with a water heater tank, see Water Heater:Mixed.")]
-    public class Coil_WaterHeating_Desuperheater : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_WaterHeating_Desuperheater : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Availability schedule name for this system. Schedule value > 0 means the system is available. If this field is blank, the system is always available. Schedule values of 0 denote the desuperheater heating coil is off and the parasitic electric energy is also off.")]
@@ -7580,8 +7760,13 @@ public System.Nullable<float> OffCycleParasiticElectricLoad { get; set; } = (Sys
         " controls. This control object supports several different types of DX cooling co" +
         "ils and may be placed directly in an air loop branch or outdoor air equipment li" +
         "st.")]
-    public class CoilSystem_Cooling_DX : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoilSystem_Cooling_DX : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -7688,8 +7873,13 @@ public System.Nullable<float> OutdoorAirDxCoolingCoilLeavingMinimumAirTemperatur
         "s associated controls. This control object supports two different types of DX he" +
         "ating coils and may be placed directly in an air loop branch or outdoor air equi" +
         "pment list.")]
-    public class CoilSystem_Heating_DX : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoilSystem_Heating_DX : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -7718,8 +7908,13 @@ public string HeatingCoilName { get; set; } = "";
     }
     
     [Description(@"Virtual component consisting of a chilled-water cooling coil and an air-to-air heat exchanger. The air-to-air heat exchanger precools the air entering the cooling coil and reuses this energy to reheat the supply air leaving the cooling coil. This heat exchange process improves the latent removal performance of the cooling coil (lower sensible heat ratio).")]
-    public class CoilSystem_Cooling_Water_HeatExchangerAssisted : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoilSystem_Cooling_Water_HeatExchangerAssisted : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("heat_exchanger_object_type")]
@@ -7761,8 +7956,13 @@ public string CoolingCoilName { get; set; } = "";
     }
     
     [Description(@"Virtual component consisting of a direct expansion (DX) cooling coil and an air-to-air heat exchanger. The air-to-air heat exchanger precools the air entering the cooling coil and reuses this energy to reheat the supply air leaving the cooling coil. This heat exchange process improves the latent removal performance of the cooling coil (lower sensible heat ratio).")]
-    public class CoilSystem_Cooling_DX_HeatExchangerAssisted : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoilSystem_Cooling_DX_HeatExchangerAssisted : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("heat_exchanger_object_type")]
@@ -7808,8 +8008,13 @@ public string CoolingCoilName { get; set; } = "";
     
     [Description("This object is used for air-source integrated heat pump, a collection of its work" +
         "ing modes.")]
-    public class CoilSystem_IntegratedHeatPump_AirSource : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoilSystem_IntegratedHeatPump_AirSource : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("supply_hot_water_flow_sensor_node_name")]
@@ -7918,8 +8123,13 @@ public System.Nullable<float> MinimumSpeedLevelForShdwhMode { get; set; } = (Sys
     [Description("Direct expansion (DX) cooling coil and condensing unit (includes electric compres" +
         "sor and condenser fan), single-speed with packaged integrated thermal storage fo" +
         "r cooling.")]
-    public class Coil_Cooling_DX_SingleSpeed_ThermalStorage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_SingleSpeed_ThermalStorage : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

@@ -68,7 +68,8 @@ namespace BH.oM.Adapters.EnergyPlus.ComplianceObjects
     
     [Description("Building level inputs related to compliance to building standards, building codes" +
         ", and beyond energy code programs.")]
-    public class Compliance_Building : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Compliance_Building : BHoMObject
     {
         
 

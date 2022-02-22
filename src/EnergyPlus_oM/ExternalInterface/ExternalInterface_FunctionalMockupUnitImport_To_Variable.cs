@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
 {
     [Description("Declares Erl variable as having global scope No spaces allowed in names used for " +
                  "Erl variables")]
-    public class ExternalInterface_FunctionalMockupUnitImport_To_Variable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_FunctionalMockupUnitImport_To_Variable : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("fmu_file_name")]

@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
 {
     [Description("Defines a generic air system component for custom modeling using Energy Managemen" +
                  "t System or External Interface")]
-    public class Coil_UserDefined : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_UserDefined : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("overall_model_simulation_program_calling_manager_name")]

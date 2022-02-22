@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
     
     [Description("ScheduleTypeLimits specifies the data types and limits for the values contained i" +
         "n schedules")]
-    public class ScheduleTypeLimits : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ScheduleTypeLimits : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("lower limit (real or integer) for the Schedule Type. e.g. if fraction, this is 0." +
@@ -160,8 +165,13 @@ public ScheduleTypeLimits_UnitType UnitType { get; set; } = (ScheduleTypeLimits_
     }
     
     [Description("A Schedule:Day:Hourly contains 24 values for each hour of the day.")]
-    public class Schedule_Day_Hourly : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_Day_Hourly : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("schedule_type_limits_name")]
@@ -267,8 +277,13 @@ public System.Nullable<float> Hour24 { get; set; } = (System.Nullable<float>)Sin
     [Description("A Schedule:Day:Interval contains a full day of values with specified end times fo" +
         "r each value Currently, is set up to allow for 10 minute intervals for an entire" +
         " day.")]
-    public class Schedule_Day_Interval : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_Day_Interval : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("schedule_type_limits_name")]
@@ -303,8 +318,13 @@ public string Data { get; set; } = "";
     
     [Description("Schedule:Day:List will allow the user to list 24 hours worth of values, which can" +
         " be sub-hourly in nature.")]
-    public class Schedule_Day_List : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_Day_List : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("schedule_type_limits_name")]
@@ -344,8 +364,13 @@ public string Extensions { get; set; } = "";
     
     [Description("A Schedule:Week:Daily contains 12 Schedule:Day:Hourly objects, one for each day t" +
         "ype.")]
-    public class Schedule_Week_Daily : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_Week_Daily : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("sunday_schedule_day_name")]
@@ -397,8 +422,13 @@ public string Customday2ScheduleDayName { get; set; } = "";
     }
     
     [Description("Compact definition for Schedule:Day:List")]
-    public class Schedule_Week_Compact : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_Week_Compact : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("data")]
@@ -406,8 +436,13 @@ public string Data { get; set; } = "";
     }
     
     [Description("A Schedule:Year contains from 1 to 52 week schedules")]
-    public class Schedule_Year : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_Year : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("schedule_type_limits_name")]
@@ -419,8 +454,13 @@ public string ScheduleWeeks { get; set; } = "";
     }
     
     [Description(@"Irregular object. Does not follow the usual definition for fields. Fields A3... are: Through: Date For: Applicable days (ref: Schedule:Week:Compact) Interpolate: Average/Linear/No (ref: Schedule:Day:Interval) -- optional, if not used will be ""No"" Until: <Time> (ref: Schedule:Day:Interval) <numeric value> words ""Through"",""For"",""Interpolate"",""Until"" must be included.")]
-    public class Schedule_Compact : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_Compact : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("schedule_type_limits_name")]
@@ -432,8 +472,13 @@ public string Data { get; set; } = "";
     }
     
     [Description("Constant hourly value for entire year.")]
-    public class Schedule_Constant : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_Constant : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("schedule_type_limits_name")]
@@ -446,7 +491,8 @@ public System.Nullable<float> HourlyValue { get; set; } = (System.Nullable<float
     
     [Description("A Schedule:File:Shading points to a CSV file that has 8760-8784 hours of sunlit f" +
         "raction data for all or some of the exterior surfaces.")]
-    public class Schedule_File_Shading : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_File_Shading : BHoMObject
     {
         
 
@@ -456,8 +502,13 @@ public string FileName { get; set; } = "";
     }
     
     [Description("A Schedule:File points to a text computer file that has 8760-8784 hours of data.")]
-    public class Schedule_File : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_File : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("schedule_type_limits_name")]

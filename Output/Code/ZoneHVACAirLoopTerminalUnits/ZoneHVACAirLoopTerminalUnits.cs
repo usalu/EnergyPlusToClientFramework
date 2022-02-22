@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
     
     [Description("Central air system terminal unit, single duct, constant volume, with reheat coil " +
         "(hot water, electric, gas, or steam).")]
-    public class AirTerminal_SingleDuct_ConstantVolume_Reheat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_ConstantVolume_Reheat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -138,8 +143,13 @@ public System.Nullable<float> MaximumReheatAirTemperature { get; set; } = null;
     
     [Description("Central air system terminal unit, single duct, constant volume, without reheat co" +
         "il")]
-    public class AirTerminal_SingleDuct_ConstantVolume_NoReheat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_ConstantVolume_NoReheat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -192,8 +202,13 @@ public AirTerminal_SingleDuct_ConstantVolume_NoReheat_PerPersonVentilationRateMo
     
     [Description("Central air system terminal unit, single duct, variable volume, with no reheat co" +
         "il.")]
-    public class AirTerminal_SingleDuct_VAV_NoReheat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_VAV_NoReheat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -266,8 +281,13 @@ public string MinimumAirFlowTurndownScheduleName { get; set; } = "";
     
     [Description("Central air system terminal unit, single duct, variable volume, with reheat coil " +
         "(hot water, electric, gas, or steam).")]
-    public class AirTerminal_SingleDuct_VAV_Reheat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_VAV_Reheat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -428,8 +448,13 @@ public string MinimumAirFlowTurndownScheduleName { get; set; } = "";
     }
     
     [Description(@"Central air system terminal unit, single duct, variable volume, with reheat coil (hot water, electric, gas, or steam) and variable-speed fan. These units are usually employed in underfloor air distribution (UFAD) systems where the air is supplied at low static pressure through an underfloor plenum. The fan is used to control the flow of conditioned air that enters the space.")]
-    public class AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_VAV_Reheat_VariableSpeedFan : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -529,8 +554,13 @@ public string MinimumAirFlowTurndownScheduleName { get; set; } = "";
     
     [Description("Central air system terminal unit, single duct, variable volume for both cooling a" +
         "nd heating, with no reheat coil.")]
-    public class AirTerminal_SingleDuct_VAV_HeatAndCool_NoReheat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_VAV_HeatAndCool_NoReheat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -564,8 +594,13 @@ public string MinimumAirFlowTurndownScheduleName { get; set; } = "";
     
     [Description("Central air system terminal unit, single duct, variable volume for both cooling a" +
         "nd heating, with reheat coil (hot water, electric, gas, or steam).")]
-    public class AirTerminal_SingleDuct_VAV_HeatAndCool_Reheat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_VAV_HeatAndCool_Reheat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -653,8 +688,13 @@ public string MinimumAirFlowTurndownScheduleName { get; set; } = "";
     
     [Description("Central air system terminal unit, single duct, variable volume, series powered in" +
         "duction unit (PIU), with reheat coil (hot water, electric, gas, or steam).")]
-    public class AirTerminal_SingleDuct_SeriesPIU_Reheat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_SeriesPIU_Reheat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -741,8 +781,13 @@ public System.Nullable<float> ConvergenceTolerance { get; set; } = (System.Nulla
     
     [Description("Central air system terminal unit, single duct, variable volume, parallel powered " +
         "induction unit (PIU), with reheat coil (hot water, electric, gas, or steam).")]
-    public class AirTerminal_SingleDuct_ParallelPIU_Reheat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_ParallelPIU_Reheat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -835,8 +880,13 @@ public System.Nullable<float> ConvergenceTolerance { get; set; } = (System.Nulla
     
     [Description("Central air system terminal unit, single duct, variable volume, induction unit wi" +
         "th hot water reheat coil and chilled water recool coil.")]
-    public class AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -936,8 +986,13 @@ public string ZoneMixerName { get; set; } = "";
     [Description("Central air system terminal unit, single duct, constant volume, with heating and/" +
         "or cooling. Operates as two-pipe unit if heating or cooling water is omitted. He" +
         "ating and/or cooling can be scheduled off for dedicated ventilation.")]
-    public class AirTerminal_SingleDuct_ConstantVolume_FourPipeBeam : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_ConstantVolume_FourPipeBeam : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Primary air is supplied by central air handling unit and must be on for heating o" +
@@ -1083,8 +1138,13 @@ public string BeamHeatingCapacityHotWaterFlowModificationFactorCurveName { get; 
     
     [Description("Central air system terminal unit, single duct, constant volume, with cooled beam " +
         "(active or passive).")]
-    public class AirTerminal_SingleDuct_ConstantVolume_CooledBeam : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_ConstantVolume_CooledBeam : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1192,8 +1252,13 @@ public System.Nullable<float> LeavingPipeInsideDiameter { get; set; } = (System.
     }
     
     [Description(@"The mixer air terminal unit provides a means of supplying central system air to the air inlet or outlet side of a zoneHVAC equipment such as a four pipe fan coil unit. Normally the central air would be ventilation air from a dedicated outdoor air system (DOAS).")]
-    public class AirTerminal_SingleDuct_Mixer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_Mixer : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The type of ZoneHVAC equipment to which this terminal mixer will be connected.")]
@@ -1292,8 +1357,13 @@ public AirTerminal_SingleDuct_Mixer_PerPersonVentilationRateMode PerPersonVentil
     }
     
     [Description("Central air system terminal unit, dual duct, constant volume.")]
-    public class AirTerminal_DualDuct_ConstantVolume : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_DualDuct_ConstantVolume : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1320,8 +1390,13 @@ public string MaximumAirFlowRate { get; set; } = "";
     }
     
     [Description("Central air system terminal unit, dual duct, variable volume.")]
-    public class AirTerminal_DualDuct_VAV : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_DualDuct_VAV : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1365,8 +1440,13 @@ public string MinimumAirFlowTurndownScheduleName { get; set; } = "";
     [Description("Central air system terminal unit, dual duct, variable volume with special control" +
         "s. One VAV duct is controlled to supply ventilation air and the other VAV duct i" +
         "s controlled to meet the zone cooling load.")]
-    public class AirTerminal_DualDuct_VAV_OutdoorAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_DualDuct_VAV_OutdoorAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1419,8 +1499,13 @@ public AirTerminal_DualDuct_VAV_OutdoorAir_PerPersonVentilationRateMode PerPerso
     
     [Description("Central air system air distribution unit, serves as a wrapper for a specific type" +
         " of air terminal unit. This object is referenced in a ZoneHVAC:EquipmentList.")]
-    public class ZoneHVAC_AirDistributionUnit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_AirDistributionUnit : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("air_distribution_unit_outlet_node_name")]

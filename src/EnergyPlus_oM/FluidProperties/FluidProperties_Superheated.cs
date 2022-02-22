@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     [Description("fluid properties for the superheated region")]
-    public class FluidProperties_Superheated : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FluidProperties_Superheated : BHoMObject
     {
         
 

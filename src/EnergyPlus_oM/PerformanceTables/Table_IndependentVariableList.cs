@@ -5,8 +5,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
 {
     [Description("A sorted list of independent variables used by one or more Table:Lookup objects.")]
-    public class Table_IndependentVariableList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Table_IndependentVariableList : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("independent_variables")]

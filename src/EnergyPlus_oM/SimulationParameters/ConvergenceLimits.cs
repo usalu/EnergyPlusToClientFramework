@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Specifies limits on HVAC system simulation timesteps and iterations. This item is" +
                  " an advanced feature that should be used only with caution.")]
-    public class ConvergenceLimits : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ConvergenceLimits : BHoMObject
     {
         
 

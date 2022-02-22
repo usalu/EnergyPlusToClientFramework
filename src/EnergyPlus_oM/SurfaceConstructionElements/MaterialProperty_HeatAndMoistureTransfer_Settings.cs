@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
                  "ly. Additional material properties for surfaces. Has no effect with other HeatBa" +
                  "lanceAlgorithm solution algorithms")]
-    public class MaterialProperty_HeatAndMoistureTransfer_Settings : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_HeatAndMoistureTransfer_Settings : BHoMObject
     {
         
 

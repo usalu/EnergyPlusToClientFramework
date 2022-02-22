@@ -5,8 +5,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
 {
     [Description("Hardware portion of EMS used to set up actuators in the model")]
-    public class ExternalInterface_Actuator : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_Actuator : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("actuated_component_unique_name")]

@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Zone terminal unit, variable volume, reheat optional. For heating, this unit acti" +
                  "vates reheat coil first, then increases airflow (if reverse action specified).")]
-    public class HVACTemplate_Zone_VAV : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_VAV : BHoMObject
     {
         
 

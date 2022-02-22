@@ -10,8 +10,13 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
                  "smaller containers filled with water that are placed in a larger tank or series " +
                  "of tanks. The model uses polynomial equations to describe the system performance" +
                  ".")]
-    public class ThermalStorage_Ice_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermalStorage_Ice_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.VariableRefrigerantFlowEquipment
 {
     [Description(@"This is a key object in the new physics based VRF model applicable for Fluid Temperature Control It describes the Variable Refrigerant Flow system excluding the performance of indoor units Indoor units are modeled separately, see ZoneHVAC:TerminalUnit:VariableRefrigerantFlow")]
-    public class AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject
     {
         
 

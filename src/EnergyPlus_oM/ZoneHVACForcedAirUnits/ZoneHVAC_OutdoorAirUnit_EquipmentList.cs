@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     [Description("Equipment list for components in a ZoneHVAC:OutdoorAirUnit. Components are simula" +
                  "ted sequentially in the order given in the equipment list.")]
-    public class ZoneHVAC_OutdoorAirUnit_EquipmentList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_OutdoorAirUnit_EquipmentList : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("component_1_object_type")]

@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     [Description("This models a horizontal heat exchanger placed in a series of trenches The model " +
                  "uses the PipingSystem:Underground underlying algorithms, but provides a more usa" +
                  "ble input interface.")]
-    public class GroundHeatExchanger_HorizontalTrench : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatExchanger_HorizontalTrench : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("inlet_node_name")]

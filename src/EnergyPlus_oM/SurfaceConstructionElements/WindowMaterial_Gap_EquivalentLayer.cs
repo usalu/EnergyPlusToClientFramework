@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Gas material properties that are used in Windows Equivalent Layer References only" +
                  " WindowMaterial:Gas properties")]
-    public class WindowMaterial_Gap_EquivalentLayer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Gap_EquivalentLayer : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("gas_type")]

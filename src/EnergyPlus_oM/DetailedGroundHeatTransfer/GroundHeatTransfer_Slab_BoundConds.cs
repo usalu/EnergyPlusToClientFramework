@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("Supplies some of the boundary conditions used in the ground heat transfer calcula" +
                  "tions.")]
-    public class GroundHeatTransfer_Slab_BoundConds : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatTransfer_Slab_BoundConds : BHoMObject
     {
         
 

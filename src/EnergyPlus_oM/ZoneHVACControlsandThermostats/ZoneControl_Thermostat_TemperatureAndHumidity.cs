@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
 {
     [Description("This object modifies a ZoneControl:Thermostat object to effect temperature contro" +
                  "l based on zone air humidity conditions.")]
-    public class ZoneControl_Thermostat_TemperatureAndHumidity : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneControl_Thermostat_TemperatureAndHumidity : BHoMObject
     {
         
 

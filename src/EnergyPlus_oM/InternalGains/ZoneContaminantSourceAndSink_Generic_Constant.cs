@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("Sets internal generic contaminant gains and sinks in a zone with constant values." +
                  "")]
-    public class ZoneContaminantSourceAndSink_Generic_Constant : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneContaminantSourceAndSink_Generic_Constant : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_name")]

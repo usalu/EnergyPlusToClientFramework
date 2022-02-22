@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     [Description("Provides a simple method of altering the footprint geometry of a model. The inten" +
                  "t is to provide a single parameter that can be used to reshape the building desc" +
                  "ription contained in the rest of the input file.")]
-    public class GeometryTransform : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GeometryTransform : BHoMObject
     {
         
 

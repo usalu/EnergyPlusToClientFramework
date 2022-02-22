@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
     [Description("The Mixed Air Setpoint Manager is meant to be used in conjunction with a Controll" +
                  "er:OutdoorAir object. This setpoint manager is used to establish a temperature s" +
                  "etpoint at the mixed air node.")]
-    public class SetpointManager_MixedAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_MixedAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("control_variable")]

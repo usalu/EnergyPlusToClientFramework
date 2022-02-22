@@ -10,8 +10,13 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
                  "re of the air in the heating supply duct. Usually it is used in conjunction with" +
                  " a SetpointManager:Warmest resetting the temperature of the air in the cooling s" +
                  "upply duct.")]
-    public class SetpointManager_Coldest : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_Coldest : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("control_variable")]

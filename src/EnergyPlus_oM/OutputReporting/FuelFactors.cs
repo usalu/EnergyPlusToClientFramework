@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
     [Description("Provides Fuel Factors for Emissions as well as Source=>Site conversions. OtherFue" +
                  "l1, OtherFuel2 provide options for users who want to create and use fuels that m" +
                  "ay not be mainstream (biomass, wood, pellets).")]
-    public class FuelFactors : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FuelFactors : BHoMObject
     {
         
 

@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
 {
     [Description("Defines a central forced air system to provide dedicated outdoor air to multiple " +
                  "AirLoopHVACs.")]
-    public class AirLoopHVAC_DedicatedOutdoorAirSystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_DedicatedOutdoorAirSystem : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Enter the name of an AirLoopHVAC:OutdoorAirSystem object.")]

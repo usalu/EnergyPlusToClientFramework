@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
     [Description("Earth Tube is specified as a design level which is modified by a Schedule fractio" +
                  "n, temperature difference and wind speed: Earthtube=Edesign * Fschedule * (A + B" +
                  "*|(Tzone-Todb)| + C*WindSpd + D * WindSpd**2)")]
-    public class ZoneEarthtube : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneEarthtube : BHoMObject
     {
         
 

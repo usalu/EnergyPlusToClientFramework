@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     
     
     [Description("Regular materials described with full set of thermal properties")]
-    public class Material : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Material : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("roughness")]
@@ -128,8 +133,13 @@ public System.Nullable<float> VisibleAbsorptance { get; set; } = (System.Nullabl
     
     [Description("Regular materials properties described whose principal description is R (Thermal " +
         "Resistance)")]
-    public class Material_NoMass : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Material_NoMass : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("roughness")]
@@ -176,13 +186,23 @@ public System.Nullable<float> VisibleAbsorptance { get; set; } = (System.Nullabl
     }
     
     [Description(@"Special infrared transparent material. Similar to a Material:Nomass with low thermal resistance. High absorptance in both wavelengths. Area will be doubled internally to make internal radiant exchange accurate. Should be only material in single layer surface construction. All thermal properties are set internally. User needs only to supply name. Cannot be used with ConductionFiniteDifference solution algorithms")]
-    public class Material_InfraredTransparent : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Material_InfraredTransparent : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
     }
     
     [Description("Air Space in Opaque Construction")]
-    public class Material_AirGap : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Material_AirGap : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("thermal_resistance")]
@@ -190,8 +210,13 @@ public System.Nullable<float> ThermalResistance { get; set; } = null;
     }
     
     [Description(@"EcoRoof model, plant layer plus soil layer Implemented by Portland State University (Sailor et al., January, 2007) only one material must be referenced per simulation though the same EcoRoof material could be used in multiple constructions. New moisture redistribution scheme (2010) requires higher number of timesteps per hour (minimum 12 recommended).")]
-    public class Material_RoofVegetation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Material_RoofVegetation : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The ecoroof module is designed for short plants and shrubs.")]
@@ -323,8 +348,13 @@ public Material_RoofVegetation_MoistureDiffusionCalculationMethod MoistureDiffus
     
     [Description("Alternate method of describing windows This window material object is used to def" +
         "ine an entire glazing system using simple performance parameters.")]
-    public class WindowMaterial_SimpleGlazingSystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_SimpleGlazingSystem : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter U-Factor including film coefficients Note that the effective upper limit fo" +
@@ -345,8 +375,13 @@ public System.Nullable<float> VisibleTransmittance { get; set; } = null;
     
     [Description("Glass material properties for Windows or Glass Doors Transmittance/Reflectance in" +
         "put method.")]
-    public class WindowMaterial_Glazing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Glazing : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("optical_data_type")]
@@ -464,8 +499,13 @@ public string WindowGlassSpectralAndIncidentAngleBackReflectanceDataSetTableName
     }
     
     [Description("thermochromic glass at different temperatures")]
-    public class WindowMaterial_GlazingGroup_Thermochromic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_GlazingGroup_Thermochromic : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("temperature_data")]
@@ -474,8 +514,13 @@ public string TemperatureData { get; set; } = "";
     
     [Description("Glass material properties for Windows or Glass Doors Index of Refraction/Extincti" +
         "on Coefficient input method Not to be used for coated glass")]
-    public class WindowMaterial_Glazing_RefractionExtinctionMethod : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Glazing_RefractionExtinctionMethod : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("thickness")]
@@ -521,8 +566,13 @@ public EmptyNoYes SolarDiffusing { get; set; } = (EmptyNoYes)Enum.Parse(typeof(E
     }
     
     [Description("Gas material properties that are used in Windows or Glass Doors")]
-    public class WindowMaterial_Gas : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Gas : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("gas_type")]
@@ -609,8 +659,13 @@ public System.Nullable<float> SpecificHeatRatio { get; set; } = null;
     }
     
     [Description("used to define pillar geometry for support pillars")]
-    public class WindowGap_SupportPillar : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowGap_SupportPillar : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("spacing")]
@@ -624,8 +679,13 @@ public System.Nullable<float> Radius { get; set; } = (System.Nullable<float>)Sin
     [Description("Used to enter data describing deflection state of the gap. It is referenced from " +
         "WindowMaterial:Gap object only and it is used only when deflection model is set " +
         "to MeasuredDeflection, otherwise it is ignored.")]
-    public class WindowGap_DeflectionState : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowGap_DeflectionState : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If left blank will be considered that gap has no deflection.")]
@@ -642,8 +702,13 @@ public System.Nullable<float> InitialPressure { get; set; } = (System.Nullable<f
     }
     
     [Description("Gas mixtures that are used in Windows or Glass Doors")]
-    public class WindowMaterial_GasMixture : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_GasMixture : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("thickness")]
@@ -755,8 +820,13 @@ public System.Nullable<float> Gas4Fraction { get; set; } = null;
     }
     
     [Description(@"Used to define the gap between two layers in a complex fenestration system, where the Construction:ComplexFenestrationState object is used. It is referenced as a layer in the Construction:ComplexFenestrationState object. It cannot be referenced as a layer from the Construction object.")]
-    public class WindowMaterial_Gap : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Gap : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("thickness")]
@@ -784,8 +854,13 @@ public string SupportPillar { get; set; } = "";
     }
     
     [Description(@"Specifies the properties of window shade materials. Reflectance and emissivity properties are assumed to be the same on both sides of the shade. Shades are considered to be perfect diffusers (all transmitted and reflected radiation is hemispherically-diffuse) independent of angle of incidence.")]
-    public class WindowMaterial_Shade : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Shade : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Assumed independent of incidence angle")]
@@ -849,8 +924,13 @@ public System.Nullable<float> AirflowPermeability { get; set; } = (System.Nullab
     }
     
     [Description("Complex window shading layer thermal properties")]
-    public class WindowMaterial_ComplexShade : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_ComplexShade : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("layer_type")]
@@ -953,8 +1033,13 @@ public System.Nullable<float> SlatCurve { get; set; } = (System.Nullable<float>)
     }
     
     [Description("Window blind thermal properties")]
-    public class WindowMaterial_Blind : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Blind : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("slat_orientation")]
@@ -1108,8 +1193,13 @@ public System.Nullable<float> MaximumSlatAngle { get; set; } = (System.Nullable<
     
     [Description("Window screen physical properties. Can only be located on the exterior side of a " +
         "window construction.")]
-    public class WindowMaterial_Screen : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Screen : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Select the method used to account for the beam solar reflected off the material s" +
@@ -1209,8 +1299,13 @@ public string AngleOfResolutionForScreenTransmittanceOutputMap { get; set; } = (
         "sidered to be perfect diffusers (all transmitted and reflected radiation is hemi" +
         "spherically-diffuse) independent of angle of incidence. Shade represents roller " +
         "blinds.")]
-    public class WindowMaterial_Shade_EquivalentLayer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Shade_EquivalentLayer : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The beam-beam solar transmittance at normal incidence. This value is the same as " +
@@ -1284,8 +1379,13 @@ public System.Nullable<float> BackSideShadeMaterialInfraredEmissivity { get; set
     }
     
     [Description(@"Specifies the properties of equivalent layer drape fabric materials. Shades are considered to be perfect diffusers (all transmitted and reflected radiation is hemispherically-diffuse) independent of angle of incidence. unpleated drape fabric is treated as thin and flat layer.")]
-    public class WindowMaterial_Drape_EquivalentLayer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Drape_EquivalentLayer : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The beam-beam solar transmittance at normal incidence. This value is the same as " +
@@ -1377,8 +1477,13 @@ public System.Nullable<float> LengthOfPleatedFabric { get; set; } = (System.Null
         "mes that slats are thin and flat, applies correction empirical correlation to ac" +
         "count for curvature effect. Slats are assumed to transmit and reflect diffusely." +
         "")]
-    public class WindowMaterial_Blind_EquivalentLayer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Blind_EquivalentLayer : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("slat_orientation")]
@@ -1545,8 +1650,13 @@ public WindowMaterial_Blind_EquivalentLayer_SlatAngleControl SlatAngleControl { 
     
     [Description("Equivalent layer window screen physical properties. Can only be located on the ex" +
         "terior side of a window construction.")]
-    public class WindowMaterial_Screen_EquivalentLayer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Screen_EquivalentLayer : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"The beam-beam transmittance of the screen material at normal incidence. This input field is the same as the material openness area fraction and can be autocalculated from the wire spacing and wire and diameter. Assumed to be the same for both sides of the screen.")]
@@ -1613,8 +1723,13 @@ public System.Nullable<float> ScreenWireDiameter { get; set; } = (System.Nullabl
     
     [Description("Glass material properties for Windows or Glass Doors Transmittance/Reflectance in" +
         "put method.")]
-    public class WindowMaterial_Glazing_EquivalentLayer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Glazing_EquivalentLayer : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Spectral is not currently supported and SpectralAverage is the default.")]
@@ -1788,8 +1903,13 @@ public System.Nullable<float> ThermalResistance { get; set; } = (System.Nullable
     
     [Description("Gas material properties that are used in Windows Equivalent Layer References only" +
         " WindowMaterial:Gas properties")]
-    public class WindowMaterial_Gap_EquivalentLayer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Gap_EquivalentLayer : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("gas_type")]
@@ -1897,8 +2017,13 @@ public System.Nullable<float> SpecificHeatRatio { get; set; } = null;
     [Description("Additional properties for moisture using EMPD procedure HeatBalanceAlgorithm choi" +
         "ce=MoisturePenetrationDepthConductionTransferFunction only Has no effect with ot" +
         "her HeatBalanceAlgorithm solution algorithms")]
-    public class MaterialProperty_MoisturePenetrationDepth_Settings : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_MoisturePenetrationDepth_Settings : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Ratio of water vapor permeability of stagnant air to water vapor permeability of " +
@@ -1943,8 +2068,13 @@ public System.Nullable<float> CoatingLayerWaterVaporDiffusionResistanceFactor { 
     }
     
     [Description(@"Additional properties for temperature dependent thermal conductivity and enthalpy for Phase Change Materials (PCM) HeatBalanceAlgorithm = CondFD(ConductionFiniteDifference) solution algorithm only. Constructions with this should use the detailed CondFD process. Has no effect with other HeatBalanceAlgorithm solution algorithms")]
-    public class MaterialProperty_PhaseChange : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_PhaseChange : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The base temperature is 20C. This is the thermal conductivity change per degree e" +
@@ -2115,8 +2245,13 @@ public System.Nullable<float> Enthalpy16 { get; set; } = null;
     }
     
     [Description(@"Additional properties for temperature dependent thermal conductivity and enthalpy for Phase Change Materials (PCM) with separate melting and freezing curves. HeatBalanceAlgorithm = CondFD (ConductionFiniteDifference) solution algorithm only. Constructions with this should use the detailed CondFD process. Has no effect with other HeatBalanceAlgorithm solution algorithms.")]
-    public class MaterialProperty_PhaseChangeHysteresis : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_PhaseChangeHysteresis : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The total latent heat absorbed or rejected during the transition from solid to li" +
@@ -2190,8 +2325,13 @@ public System.Nullable<float> LowTemperatureDifferenceOfFreezingCurve { get; set
     }
     
     [Description(@"Additional properties for temperature dependent thermal conductivity using piecewise linear temperature-conductivity function. HeatBalanceAlgorithm = CondFD(ConductionFiniteDifference) solution algorithm only. Has no effect with other HeatBalanceAlgorithm solution algorithms")]
-    public class MaterialProperty_VariableThermalConductivity : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_VariableThermalConductivity : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("for Temperature-Thermal Conductivity function")]
@@ -2297,7 +2437,8 @@ public System.Nullable<float> ThermalConductivity10 { get; set; } = null;
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
         "ly. Additional material properties for surfaces. Has no effect with other HeatBa" +
         "lanceAlgorithm solution algorithms")]
-    public class MaterialProperty_HeatAndMoistureTransfer_Settings : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_HeatAndMoistureTransfer_Settings : BHoMObject
     {
         
 
@@ -2319,7 +2460,8 @@ public System.Nullable<float> InitialWaterContentRatio { get; set; } = (System.N
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
         "ly. Relationship between moisture content and relative humidity fraction. Has no" +
         " effect with other HeatBalanceAlgorithm solution algorithms")]
-    public class MaterialProperty_HeatAndMoistureTransfer_SorptionIsotherm : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_HeatAndMoistureTransfer_SorptionIsotherm : BHoMObject
     {
         
 
@@ -2561,7 +2703,8 @@ public System.Nullable<float> MoistureContent25 { get; set; } = null;
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
         "ly. Relationship between liquid suction transport coefficient and moisture conte" +
         "nt Has no effect with other HeatBalanceAlgorithm solution algorithms")]
-    public class MaterialProperty_HeatAndMoistureTransfer_Suction : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_HeatAndMoistureTransfer_Suction : BHoMObject
     {
         
 
@@ -2778,7 +2921,8 @@ public System.Nullable<float> LiquidTransportCoefficient25 { get; set; } = null;
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
         "ly. Relationship between liquid transport coefficient and moisture content Has n" +
         "o effect with other HeatBalanceAlgorithm solution algorithms")]
-    public class MaterialProperty_HeatAndMoistureTransfer_Redistribution : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_HeatAndMoistureTransfer_Redistribution : BHoMObject
     {
         
 
@@ -2995,7 +3139,8 @@ public System.Nullable<float> LiquidTransportCoefficient25 { get; set; } = null;
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
         "ly. Relationship between water vapor diffusion and relative humidity fraction Ha" +
         "s no effect with other HeatBalanceAlgorithm solution algorithms")]
-    public class MaterialProperty_HeatAndMoistureTransfer_Diffusion : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_HeatAndMoistureTransfer_Diffusion : BHoMObject
     {
         
 
@@ -3237,7 +3382,8 @@ public System.Nullable<float> WaterVaporDiffusionResistanceFactor25 { get; set; 
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
         "ly. Relationship between thermal conductivity and moisture content Has no effect" +
         " with other HeatBalanceAlgorithm solution algorithms")]
-    public class MaterialProperty_HeatAndMoistureTransfer_ThermalConductivity : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_HeatAndMoistureTransfer_ThermalConductivity : BHoMObject
     {
         
 
@@ -3454,8 +3600,13 @@ public System.Nullable<float> ThermalConductivity25 { get; set; } = null;
     [Description("Name is followed by up to 800 sets of normal-incidence measured values of [wavele" +
         "ngth, transmittance, front reflectance, back reflectance] for wavelengths coveri" +
         "ng the solar spectrum (from about 0.25 to 2.5 microns)")]
-    public class MaterialProperty_GlazingSpectralData : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_GlazingSpectralData : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("wavelength_1")]
@@ -3528,8 +3679,13 @@ public string Extensions { get; set; } = "";
     
     [Description("Start with outside layer and work your way to the inside layer Up to 10 layers to" +
         "tal, 8 for windows Enter the material name for each layer")]
-    public class Construction : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Construction : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("outside_layer")]
@@ -3573,8 +3729,13 @@ public string Layer10 { get; set; } = "";
     }
     
     [Description("Alternate method of describing underground wall constructions")]
-    public class Construction_CfactorUndergroundWall : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Construction_CfactorUndergroundWall : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter C-Factor without film coefficients or soil")]
@@ -3588,8 +3749,13 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Alternate method of describing slab-on-grade or underground floor constructions")]
-    public class Construction_FfactorGroundFloor : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Construction_FfactorGroundFloor : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("f_factor")]
@@ -3607,8 +3773,13 @@ public System.Nullable<float> Perimeterexposed { get; set; } = null;
     }
     
     [Description("Internal heat source to be attached to a construction layer")]
-    public class ConstructionProperty_InternalHeatSource : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ConstructionProperty_InternalHeatSource : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("construction_name")]
@@ -3642,8 +3813,13 @@ public System.Nullable<float> TwoDimensionalTemperatureCalculationPosition { get
     }
     
     [Description(@"Indicates an open boundary between two zones. It may be used for base surfaces and fenestration surfaces. The two adjacent zones are grouped together for solar, daylighting and radiant exchange. When this construction type is used, the Outside Boundary Condition of the surface (or the base surface of a fenestration surface) must be either Surface or Zone. A base surface with Construction:AirBoundary cannot hold any fenestration surfaces.")]
-    public class Construction_AirBoundary : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Construction_AirBoundary : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("This field controls how air exchange is modeled across this boundary.")]
@@ -3681,8 +3857,13 @@ public string SimpleMixingScheduleName { get; set; } = "";
     
     [Description("object is used to select which thermal model should be used in tarcog simulations" +
         "")]
-    public class WindowThermalModel_Params : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowThermalModel_Params : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("standard")]
@@ -3770,7 +3951,8 @@ public System.Nullable<float> InitialPressure { get; set; } = (System.Nullable<f
     }
     
     [Description(@"Describes which window model will be used in calculations. Built in windows model will use algorithms that are part of EnergyPlus, while ExternalWindowsModel will use Windows-CalcEngine library to perform optical and thermal performances of windows and doors.")]
-    public class WindowsCalculationEngine : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowsCalculationEngine : BHoMObject
     {
         
 
@@ -3794,8 +3976,13 @@ public WindowsCalculationEngine_WindowsEngine WindowsEngine { get; set; } = (Win
     
     [Description("Describes one state for a complex glazing system These input objects are typicall" +
         "y generated by using WINDOW software and export to IDF syntax")]
-    public class Construction_ComplexFenestrationState : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Construction_ComplexFenestrationState : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("basis_type")]
@@ -3977,8 +4164,13 @@ public string Layer5DirectionalBackAbsoptanceMatrixName { get; set; } = "";
     [Description("Start with outside layer and work your way to the inside Layer Up to 11 layers to" +
         "tal. Up to six solid layers and up to five gaps. Enter the material name for eac" +
         "h layer")]
-    public class Construction_WindowEquivalentLayer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Construction_WindowEquivalentLayer : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("outside_layer")]
@@ -4026,8 +4218,13 @@ public string Layer11 { get; set; } = "";
     }
     
     [Description("Initiates search of the Window data file for a window called Name.")]
-    public class Construction_WindowDataFile : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Construction_WindowDataFile : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("default file name is \"Window5DataFile.dat\" limit on this field is 100 characters." +

@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description(@"Determines which Heat Balance Algorithm will be used ie. CTF (Conduction Transfer Functions), EMPD (Effective Moisture Penetration Depth with Conduction Transfer Functions). Advanced/Research Usage: CondFD (Conduction Finite Difference) Advanced/Research Usage: ConductionFiniteDifferenceSimplified Advanced/Research Usage: HAMT (Combined Heat And Moisture Finite Element)")]
-    public class HeatBalanceAlgorithm : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HeatBalanceAlgorithm : BHoMObject
     {
         
 

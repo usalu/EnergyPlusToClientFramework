@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.VariableRefrigerantFlowEquipment
     [Description("List of variable refrigerant flow (VRF) terminal units served by a given VRF cond" +
                  "ensing unit. See ZoneHVAC:TerminalUnit:VariableRefrigerantFlow and AirConditione" +
                  "r:VariableRefrigerantFlow.")]
-    public class ZoneTerminalUnitList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneTerminalUnitList : BHoMObject
     {
         
 

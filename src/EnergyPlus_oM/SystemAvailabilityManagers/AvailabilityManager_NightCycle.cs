@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     [Description("Determines the availability of a loop or system: whether it is on or off. Dependi" +
                  "ng on zone temperatures, overrides Schedules and forces system Fans on.")]
-    public class AvailabilityManager_NightCycle : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_NightCycle : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("applicability_schedule_name")]

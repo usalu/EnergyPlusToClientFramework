@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACEquipmentConnections
     
     
     [Description(@"List equipment in simulation order. Note that an ZoneHVAC:AirDistributionUnit object must be listed in this statement if there is a forced air system serving the zone from the air loop. Equipment is simulated in the order specified by Zone Equipment Cooling Sequence and Zone Equipment Heating or No-Load Sequence, depending on the thermostat request. For equipment of similar type, assign sequence 1 to the first system intended to serve that type of load. For situations where one or more equipment types has limited capacity or limited control, order the sequence so that the most controllable piece of equipment runs last. For example, with a dedicated outdoor air system (DOAS), the air terminal for the DOAS should be assigned Heating Sequence = 1 and Cooling Sequence = 1. Any other equipment should be assigned sequence 2 or higher so that it will see the net load after the DOAS air is added to the zone.")]
-    public class ZoneHVAC_EquipmentList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_EquipmentList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("load_distribution_scheme")]
@@ -103,7 +108,8 @@ public string Equipment { get; set; } = "";
         " the zone air node, air inlet nodes, air exhaust nodes, and the air return node." +
         " A zone equipment list is referenced which lists all HVAC equipment connected to" +
         " the zone.")]
-    public class ZoneHVAC_EquipmentConnections : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_EquipmentConnections : BHoMObject
     {
         
 

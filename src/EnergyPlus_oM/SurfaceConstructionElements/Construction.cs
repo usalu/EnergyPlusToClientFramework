@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Start with outside layer and work your way to the inside layer Up to 10 layers to" +
                  "tal, 8 for windows Enter the material name for each layer")]
-    public class Construction : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Construction : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("outside_layer")]

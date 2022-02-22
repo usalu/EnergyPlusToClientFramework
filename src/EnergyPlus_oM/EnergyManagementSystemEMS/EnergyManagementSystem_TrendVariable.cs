@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     [Description("This object sets up an EMS trend variable from an Erl variable A trend variable l" +
                  "ogs values across timesteps")]
-    public class EnergyManagementSystem_TrendVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_TrendVariable : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("must be a global scope EMS variable")]

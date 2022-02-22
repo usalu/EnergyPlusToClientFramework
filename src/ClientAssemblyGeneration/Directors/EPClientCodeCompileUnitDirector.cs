@@ -48,7 +48,7 @@ namespace ClientAssemblyGeneration.Directors
 
             //Build main class
             _clientCodeCompileUnitBuilder.BuildClass(baseNamespaceName, ePJsonClassName, "Ultimate class that can be automatically (de)serialized and simulated.",
-                new CodeTypeReferenceCollection() { "BHoMObject", "IEnergyPlusClass" }); ;
+                new CodeTypeReferenceCollection() { "BHoMObject" }); ;
 
             //All enums that appear often inside EnergyPlus
             List<string[]> generalEnums = new List<string[]>();
@@ -85,16 +85,25 @@ namespace ClientAssemblyGeneration.Directors
                     EPObjectJsonSchemeProperty ePObjectJsonSchemeProperty = ePObject.Value;
 
                     string className = StripEPObjectNameToCamelCase(ePObject.Key);
-                    ////In the IDD this is field  is not \unique-object
-                    //if (ePObjectJsonSchemeProperty.MaxProperties!=1)
-                    //{
-                    //    className = className + "_" + "Properties";
-                    //}
+
+
+                    var typeReferences = new CodeTypeReferenceCollection() {"BHoMObject"};
+                    //In the IDD this is does mean the object does not have the tag: \unique-object
+                    if (ePObjectJsonSchemeProperty.EPName != null)
+                    {
+                        typeReferences.Add("IEnergyPlusNode");
+                    }
 
                     //_clientCodeCompileUnitBuilder.BuildClass(fullNamespaceName, className, ePObjectJsonSchemeProperty.EPMemo,new CodeTypeReferenceCollection() { "BHoMObject", "IEnergyPlusClass" }, new CodeAttributeDeclarationCollection() { GetJsonObjectAttributeDeclarations(ePObject.Key) }); ;
                     _clientCodeCompileUnitBuilder.BuildClass(fullNamespaceName, className, ePObjectJsonSchemeProperty.EPMemo,
-                        new CodeTypeReferenceCollection() { "BHoMObject", "IEnergyPlusClass" }); ;
+                        typeReferences, new CodeAttributeDeclarationCollection(){ GetOnlyDeclaredPropertiesAttributeDeclarations()}); ;
 
+                    //In the IDD this is does mean the object does not have the tag: \unique-object
+                    if (ePObjectJsonSchemeProperty.EPName!=null)
+                    {
+                        _clientCodeCompileUnitBuilder.BuildProperty(fullNamespaceName, className, "NodeName",
+                            new CodeTypeReference(typeof(string)), "", "This will be the main key of this instance.");
+                    }
 
                     //In the current tested schemas only these two pattern properties appear
                     var ePGroupProperties = (ePObjectJsonSchemeProperty.PatternProperties.NecessaryField != null) ? 
@@ -163,7 +172,7 @@ namespace ClientAssemblyGeneration.Directors
                     //Building Property in EPJson class
                     CodeTypeReference propertyType;
                     string propertyName;
-                    
+
                     if (ePObjectJsonSchemeProperty.MaxProperties == 1)
                     {
                         propertyType = new CodeTypeReference(fullNamespaceName + "." + className);
@@ -172,7 +181,7 @@ namespace ClientAssemblyGeneration.Directors
                     }
                     else
                     {
-                        
+
                         //Type: Dict<CLASSNAME>
 
                         //CodeTypeReference myClass = new CodeTypeReference(
@@ -185,11 +194,12 @@ namespace ClientAssemblyGeneration.Directors
 
                         propertyType = new CodeTypeReference(typeof(Dictionary<,>))
                         {
-                            TypeArguments = {typeof(string), fullNamespaceName + "." + className}
+                            TypeArguments = { typeof(string), fullNamespaceName + "." + className }
                         };
                         propertyName = className + "_Dictionary";
 
                     }
+
                     _clientCodeCompileUnitBuilder.BuildProperty(baseNamespaceName, ePJsonClassName, propertyName, propertyType, "","",
                         new CodeAttributeDeclarationCollection(){ GetJsonPropertyAttributeDeclarations(ePObject.Key)});
                 }
@@ -219,10 +229,10 @@ namespace ClientAssemblyGeneration.Directors
                 new CodeAttributeDeclaration("JsonProperty", new CodeAttributeArgument[]{new CodeAttributeArgument(new CodePrimitiveExpression(eObjectName))});
             
         }
-
-        public static CodeAttributeDeclaration GetJsonObjectAttributeDeclarations(string eObjectName)
+        public static CodeAttributeDeclaration GetOnlyDeclaredPropertiesAttributeDeclarations()
         {
-            return new CodeAttributeDeclaration("JsonObject", new CodeAttributeArgument(new CodePrimitiveExpression(eObjectName)));
+            return new CodeAttributeDeclaration("JsonObject", new CodeAttributeArgument[] { new CodeAttributeArgument(
+                new CodePropertyReferenceExpression(new CodeTypeReferenceExpression("Newtonsoft.Json.MemberSerialization"), "OptIn"))});
         }
 
         public static string StripEPFieldNameToCamelCase(string str)

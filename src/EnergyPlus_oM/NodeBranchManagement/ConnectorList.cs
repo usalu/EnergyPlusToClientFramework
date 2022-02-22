@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description("only two connectors allowed per loop if two entered, one must be Connector:Splitt" +
                  "er and one must be Connector:Mixer")]
-    public class ConnectorList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ConnectorList : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("connector_1_object_type")]

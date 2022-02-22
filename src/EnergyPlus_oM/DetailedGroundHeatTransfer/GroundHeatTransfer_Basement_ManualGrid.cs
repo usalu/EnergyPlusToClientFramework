@@ -5,7 +5,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("Manual Grid only necessary using manual gridding (not recommended)")]
-    public class GroundHeatTransfer_Basement_ManualGrid : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatTransfer_Basement_ManualGrid : BHoMObject
     {
         
 

@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object includes the outdoor air flow rate set by the Controller:OutdoorAir o" +
                  "bject in the airflow network.")]
-    public class AirflowNetwork_Distribution_Component_OutdoorAirFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_OutdoorAirFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("outdoor_air_mixer_name")]

@@ -10,8 +10,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
                  "coefficients, and is a function of temperature difference and wind speed: Infilt" +
                  "ration=FSchedule * SQRT( (c * Cs*|(Tzone-Todb)|**n)**2 + (c* Cw*(s * WindSpd)**2" +
                  "n)**2 )")]
-    public class ZoneInfiltration_FlowCoefficient : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneInfiltration_FlowCoefficient : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_name")]

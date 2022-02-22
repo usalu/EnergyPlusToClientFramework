@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     [Description("This object specifies the properties of a surface linkage through which air flows" +
                  ". Airflow Report: Node 1 as an inside face zone; Node 2 as an outside face zone " +
                  "or external node.")]
-    public class AirflowNetwork_MultiZone_Surface : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_Surface : BHoMObject
     {
         
 

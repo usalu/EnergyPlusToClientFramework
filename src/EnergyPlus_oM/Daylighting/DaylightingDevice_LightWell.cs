@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
     [Description("Applies only to exterior windows in daylighting-controlled zones or in zones that" +
                  " share an interior window with a daylighting-controlled  zone. Generally used wi" +
                  "th skylights.")]
-    public class DaylightingDevice_LightWell : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DaylightingDevice_LightWell : BHoMObject
     {
         
 

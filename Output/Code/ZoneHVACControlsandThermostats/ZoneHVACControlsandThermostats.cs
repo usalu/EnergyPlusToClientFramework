@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     
     [Description("Specifies zone relative humidity setpoint schedules for humidifying and dehumidif" +
         "ying.")]
-    public class ZoneControl_Humidistat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneControl_Humidistat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -89,8 +94,13 @@ public string DehumidifyingRelativeHumiditySetpointScheduleName { get; set; } = 
     [Description("Define the Thermostat settings for a zone or list of zones. If you use a ZoneList" +
         " in the Zone or ZoneList name field then this definition applies to all the zone" +
         "s in the ZoneList.")]
-    public class ZoneControl_Thermostat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneControl_Thermostat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_or_zonelist_name")]
@@ -225,7 +235,8 @@ public System.Nullable<float> TemperatureDifferenceBetweenCutoutAndSetpoint { ge
         "he zones on that list (but you won\'t be able to use the object list to pick only" +
         " one of those zones. Thermostat names are <Zone Name> <global Thermostat name> i" +
         "nternally.")]
-    public class ZoneControl_Thermostat_OperativeTemperature : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneControl_Thermostat_OperativeTemperature : BHoMObject
     {
         
 
@@ -299,8 +310,13 @@ public ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType Adap
     
     [Description("If you use a ZoneList in the Zone or ZoneList name field then this definition app" +
         "lies to all the zones in the ZoneList.")]
-    public class ZoneControl_Thermostat_ThermalComfort : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneControl_Thermostat_ThermalComfort : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_or_zonelist_name")]
@@ -458,7 +474,8 @@ public string ThermalComfortControl4Name { get; set; } = "";
     
     [Description("This object modifies a ZoneControl:Thermostat object to effect temperature contro" +
         "l based on zone air humidity conditions.")]
-    public class ZoneControl_Thermostat_TemperatureAndHumidity : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneControl_Thermostat_TemperatureAndHumidity : BHoMObject
     {
         
 
@@ -529,8 +546,13 @@ public System.Nullable<float> OvercoolControlRatio { get; set; } = (System.Nulla
     
     [Description("Used for a heating only thermostat. The setpoint can be scheduled and varied thro" +
         "ughout the simulation but only heating is allowed with this control type.")]
-    public class ThermostatSetpoint_SingleHeating : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermostatSetpoint_SingleHeating : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("setpoint_temperature_schedule_name")]
@@ -539,8 +561,13 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
     
     [Description("Used for a cooling only thermostat. The setpoint can be scheduled and varied thro" +
         "ughout the simulation but only cooling is allowed.")]
-    public class ThermostatSetpoint_SingleCooling : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermostatSetpoint_SingleCooling : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("setpoint_temperature_schedule_name")]
@@ -550,8 +577,13 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
     [Description("Used for a heating and cooling thermostat with a single setpoint. The setpoint ca" +
         "n be scheduled and varied throughout the simulation for both heating and cooling" +
         ".")]
-    public class ThermostatSetpoint_SingleHeatingOrCooling : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermostatSetpoint_SingleHeatingOrCooling : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("setpoint_temperature_schedule_name")]
@@ -560,8 +592,13 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
     
     [Description("Used for a heating and cooling thermostat with dual setpoints. The setpoints can " +
         "be scheduled and varied throughout the simulation for both heating and cooling.")]
-    public class ThermostatSetpoint_DualSetpoint : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermostatSetpoint_DualSetpoint : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("heating_setpoint_temperature_schedule_name")]
@@ -575,8 +612,13 @@ public string CoolingSetpointTemperatureScheduleName { get; set; } = "";
     [Description("Used for heating only thermal comfort control. The PMV setpoint can be scheduled " +
         "and varied throughout the simulation but only heating is allowed with this contr" +
         "ol type.")]
-    public class ThermostatSetpoint_ThermalComfort_Fanger_SingleHeating : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermostatSetpoint_ThermalComfort_Fanger_SingleHeating : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Schedule values should be Predicted Mean Vote (PMV)")]
@@ -587,8 +629,13 @@ public string FangerThermalComfortScheduleName { get; set; } = "";
     [Description("Used for cooling only thermal comfort control. The PMV setpoint can be scheduled " +
         "and varied throughout the simulation but only cooling is allowed with this contr" +
         "ol type.")]
-    public class ThermostatSetpoint_ThermalComfort_Fanger_SingleCooling : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermostatSetpoint_ThermalComfort_Fanger_SingleCooling : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Schedule values should be Predicted Mean Vote (PMV)")]
@@ -599,8 +646,13 @@ public string FangerThermalComfortScheduleName { get; set; } = "";
     [Description("Used for heating and cooling thermal comfort control with a single setpoint. The " +
         "PMV setpoint can be scheduled and varied throughout the simulation for both heat" +
         "ing and cooling.")]
-    public class ThermostatSetpoint_ThermalComfort_Fanger_SingleHeatingOrCooling : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermostatSetpoint_ThermalComfort_Fanger_SingleHeatingOrCooling : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Schedule values should be Predicted Mean Vote (PMV)")]
@@ -611,8 +663,13 @@ public string FangerThermalComfortScheduleName { get; set; } = "";
     [Description("Used for heating and cooling thermal comfort control with dual setpoints. The PMV" +
         " setpoints can be scheduled and varied throughout the simulation for both heatin" +
         "g and cooling.")]
-    public class ThermostatSetpoint_ThermalComfort_Fanger_DualSetpoint : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermostatSetpoint_ThermalComfort_Fanger_DualSetpoint : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Schedule values should be Predicted Mean Vote (PMV)")]
@@ -628,8 +685,13 @@ public string FangerThermalComfortCoolingScheduleName { get; set; } = "";
     [Description("Define the Thermostat StagedDualSetpoint settings for a zone or list of zones. If" +
         " you use a ZoneList in the Zone or ZoneList name field then this definition appl" +
         "ies to all the zones in the ZoneList.")]
-    public class ZoneControl_Thermostat_StagedDualSetpoint : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneControl_Thermostat_StagedDualSetpoint : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_or_zonelist_name")]
@@ -704,8 +766,13 @@ public System.Nullable<float> Stage4CoolingTemperatureOffset { get; set; } = nul
     
     [Description("Used to control a zone to a specified indoor level of CO2 or generic contaminants" +
         ", or to specify minimum CO2 concentration schedule name for a zone.")]
-    public class ZoneControl_ContaminantController : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneControl_ContaminantController : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]

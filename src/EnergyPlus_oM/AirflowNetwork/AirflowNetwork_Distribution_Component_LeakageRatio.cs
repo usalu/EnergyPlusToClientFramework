@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object is used to define supply and return air leaks with respect to the fan" +
                  "\'s maximum air flow rate.")]
-    public class AirflowNetwork_Distribution_Component_LeakageRatio : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_LeakageRatio : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Defined as a ratio of leak flow rate to the maximum flow rate.")]

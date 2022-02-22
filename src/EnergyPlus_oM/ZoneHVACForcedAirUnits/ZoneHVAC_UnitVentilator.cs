@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     [Description("Unit ventilator. Forced-convection ventilation unit with supply fan (constant-vol" +
                  "ume or variable-volume), optional chilled water cooling coil, optional heating c" +
                  "oil (gas, electric, hot water, or steam) and controllable outdoor air mixer.")]
-    public class ZoneHVAC_UnitVentilator : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_UnitVentilator : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

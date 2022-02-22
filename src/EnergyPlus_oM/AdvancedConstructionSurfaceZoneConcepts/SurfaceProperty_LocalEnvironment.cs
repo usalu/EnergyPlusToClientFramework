@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("This object defines the local environment properties of an exterior surface. One " +
                  "or more environment properties have to be defined and linked to the exterior sur" +
                  "face.")]
-    public class SurfaceProperty_LocalEnvironment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_LocalEnvironment : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Enter the name of an exterior surface object")]

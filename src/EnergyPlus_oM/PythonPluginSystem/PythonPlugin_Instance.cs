@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
     [Description("A single plugin to be executed during the simulation, which can contain multiple " +
                  "calling points for the same class instance by overriding multiple calling point " +
                  "methods.")]
-    public class PythonPlugin_Instance : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PythonPlugin_Instance : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("If this field is enabled, the plugin will be executed during warmup days, otherwi" +

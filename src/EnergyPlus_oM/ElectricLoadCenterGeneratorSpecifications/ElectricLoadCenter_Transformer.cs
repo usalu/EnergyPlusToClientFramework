@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("a list of meters that can be reported are available after a run on the meter dict" +
                  "ionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    public class ElectricLoadCenter_Transformer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ElectricLoadCenter_Transformer : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

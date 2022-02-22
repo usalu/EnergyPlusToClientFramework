@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
     [Description("This input object is used with WaterHeater:Mixed or with WaterHeater:Stratified t" +
                  "o autosize tank volume and heater capacity This object is not needed if water he" +
                  "aters are not autosized.")]
-    public class WaterHeater_Sizing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WaterHeater_Sizing : BHoMObject
     {
         
 

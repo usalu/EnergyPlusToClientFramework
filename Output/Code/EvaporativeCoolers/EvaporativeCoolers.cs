@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.EvaporativeCoolers
     
     [Description("Direct evaporative cooler with rigid media evaporative pad and recirculating wate" +
         "r pump. This model has no controls other than its availability schedule.")]
-    public class EvaporativeCooler_Direct_CelDekPad : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EvaporativeCooler_Direct_CelDekPad : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -110,8 +115,13 @@ public string WaterSupplyStorageTankName { get; set; } = "";
     [Description("Indirect evaporative cooler with rigid media evaporative pad, recirculating water" +
         " pump, and secondary air fan. This model has no controls other than its availabi" +
         "lity schedule.")]
-    public class EvaporativeCooler_Indirect_CelDekPad : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EvaporativeCooler_Indirect_CelDekPad : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -172,8 +182,13 @@ public string SecondaryAirInletNodeName { get; set; } = "";
     
     [Description("Indirect evaporative cooler with wetted coil, recirculating water pump, and secon" +
         "dary air fan. This model has no controls other than its availability schedule.")]
-    public class EvaporativeCooler_Indirect_WetCoil : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EvaporativeCooler_Indirect_WetCoil : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -231,8 +246,13 @@ public string SecondaryAirInletNodeName { get; set; } = "";
     [Description("Indirect evaporative cooler with user-specified effectiveness (can represent rigi" +
         "d pad or wetted coil), recirculating water pump, and secondary air fan. This mod" +
         "el is controlled to meet the primary air outlet temperature setpoint.")]
-    public class EvaporativeCooler_Indirect_ResearchSpecial : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EvaporativeCooler_Indirect_ResearchSpecial : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -374,8 +394,13 @@ public System.Nullable<float> DryOperationMaximumLimitOutdoorDrybulbTemperature 
     [Description("Direct evaporative cooler with user-specified effectiveness (can represent rigid " +
         "pad or similar media), and recirculating water pump, and secondary air fan. This" +
         " model is controlled to meet the primary air outlet temperature setpoint.")]
-    public class EvaporativeCooler_Direct_ResearchSpecial : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EvaporativeCooler_Direct_ResearchSpecial : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

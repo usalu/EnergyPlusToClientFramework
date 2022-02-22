@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("EquivAutoGrid necessary when EquivSizing=TRUE, TRUE is is the normal case.")]
-    public class GroundHeatTransfer_Basement_EquivAutoGrid : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatTransfer_Basement_EquivAutoGrid : BHoMObject
     {
         
 

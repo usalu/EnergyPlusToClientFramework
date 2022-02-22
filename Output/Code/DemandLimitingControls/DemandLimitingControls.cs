@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
     
     [Description("a list of meters that can be reported are available after a run on the meter dict" +
         "ionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    public class DemandManagerAssignmentList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DemandManagerAssignmentList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("meter_name")]
@@ -121,8 +126,13 @@ public string ManagerData { get; set; } = "";
     }
     
     [Description("used for demand limiting Exterior:Lights objects.")]
-    public class DemandManager_ExteriorLights : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DemandManager_ExteriorLights : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -188,8 +198,13 @@ public string Lights { get; set; } = "";
     }
     
     [Description("used for demand limiting Lights objects.")]
-    public class DemandManager_Lights : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DemandManager_Lights : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -255,8 +270,13 @@ public string Lights { get; set; } = "";
     }
     
     [Description("used for demand limiting ElectricEquipment objects.")]
-    public class DemandManager_ElectricEquipment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DemandManager_ElectricEquipment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -322,8 +342,13 @@ public string Equipment { get; set; } = "";
     }
     
     [Description("used for demand limiting ZoneControl:Thermostat objects.")]
-    public class DemandManager_Thermostats : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DemandManager_Thermostats : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -393,8 +418,13 @@ public string Thermostats { get; set; } = "";
     }
     
     [Description("used for demand limiting Controller:OutdoorAir objects.")]
-    public class DemandManager_Ventilation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DemandManager_Ventilation : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this demand manager. Schedule value > 0 means the " +

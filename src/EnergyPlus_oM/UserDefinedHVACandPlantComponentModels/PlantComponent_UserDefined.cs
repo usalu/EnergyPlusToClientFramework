@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
 {
     [Description("Defines a generic plant component for custom modeling using Energy Management Sys" +
                  "tem or External Interface")]
-    public class PlantComponent_UserDefined : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantComponent_UserDefined : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("main_model_program_calling_manager_name")]

@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines the connection between two nodes and a component used in the " +
                  "combination of RoomAir and AirflowNetwork model.")]
-    public class AirflowNetwork_IntraZone_Linkage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_IntraZone_Linkage : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Enter the name of zone or AirflowNetwork Node.")]

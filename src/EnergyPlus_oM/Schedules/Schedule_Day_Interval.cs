@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
     [Description("A Schedule:Day:Interval contains a full day of values with specified end times fo" +
                  "r each value Currently, is set up to allow for 10 minute intervals for an entire" +
                  " day.")]
-    public class Schedule_Day_Interval : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Schedule_Day_Interval : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("schedule_type_limits_name")]

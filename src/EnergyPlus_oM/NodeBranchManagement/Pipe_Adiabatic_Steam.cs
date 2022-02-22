@@ -5,8 +5,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description("Passes Inlet Node state variables to Outlet Node state variables")]
-    public class Pipe_Adiabatic_Steam : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Pipe_Adiabatic_Steam : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("inlet_node_name")]

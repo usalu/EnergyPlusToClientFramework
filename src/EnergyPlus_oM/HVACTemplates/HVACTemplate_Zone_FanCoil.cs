@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("4 pipe fan coil unit with optional outdoor air.")]
-    public class HVACTemplate_Zone_FanCoil : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_FanCoil : BHoMObject
     {
         
 

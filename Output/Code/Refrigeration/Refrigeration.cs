@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
     
     
     [Description(@"The Refrigeration Case object works in conjunction with a compressor rack, a refrigeration system, or a secondary loop to simulate the performance of a refrigerated case system. The object calculates the energy use for lights, fans and anti-sweat heaters and accounts for the sensible and latent heat exchange with the surrounding environment (termed ""case credits"") which impacts the temperature and humidity in the zone where the case is located.")]
-    public class Refrigeration_Case : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_Case : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -329,8 +334,13 @@ public string UnderCaseHvacReturnAirNodeName { get; set; } = "";
     }
     
     [Description(@"Works in conjunction with the refrigeration case and walk-in objects to simulate the performance of a refrigerated case system. This object models the electric consumption of the rack compressors and the condenser fans. Heat can be rejected either outdoors or to a zone. Compressor rack waste heat can also be reclaimed for use by an optional air- or water-heating coil (Coil:Heating:Desuperheater and Coil:WaterHeating:Desuperheater).")]
-    public class Refrigeration_CompressorRack : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_CompressorRack : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("heat_rejection_location")]
@@ -506,8 +516,13 @@ public string HeatRejectionZoneName { get; set; } = "";
     }
     
     [Description(@"Provides a list of all the refrigerated cases, walk in coolers, or air chillers cooled by a single refrigeration system. Note that the names of all cases, walk-ins ,air chillers, and CaseAndWalkInLists must be unique. That is, you cannot give a list the same name as one of list items. This list may contain a combination of case and walk-in names OR a list of air chiller names. Air chillers may not be included in any list that also includes cases or walk-ins.")]
-    public class Refrigeration_CaseAndWalkInList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_CaseAndWalkInList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("cases_and_walkins")]
@@ -515,8 +530,13 @@ public string CasesAndWalkins { get; set; } = "";
     }
     
     [Description("Air cooled condenser for a refrigeration system (Refrigeration:System).")]
-    public class Refrigeration_Condenser_AirCooled : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_Condenser_AirCooled : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Rating as per ARI 460 Be sure the rating corresponds to the correct refrigerant H" +
@@ -592,8 +612,13 @@ public System.Nullable<float> CondensatePipingRefrigerantInventory { get; set; }
     }
     
     [Description("Evaporative-cooled condenser for a refrigeration system (Refrigeration:System).")]
-    public class Refrigeration_Condenser_EvaporativeCooled : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_Condenser_EvaporativeCooled : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Rating as per ARI 490 Be sure the rating corresponds to the correct refrigerant")]
@@ -729,8 +754,13 @@ public System.Nullable<float> CondensatePipingRefrigerantInventory { get; set; }
     }
     
     [Description("Water cooled condenser for a refrigeration system (Refrigeration:System).")]
-    public class Refrigeration_Condenser_WaterCooled : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_Condenser_WaterCooled : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Rating as per ARI 450 Be sure the rating corresponds to the correct refrigerant n" +
@@ -826,8 +856,13 @@ public System.Nullable<float> CondensatePipingRefrigerantInventory { get; set; }
     }
     
     [Description(@"Cascade condenser for a refrigeration system (Refrigeration:System). The cascade condenser is unlike the other condenser options because it rejects heat to another, higher-temperature, refrigeration system. That is, the cascade condenser acts as a heat rejection object for one system, but acts as a refrigeration load for another system.")]
-    public class Refrigeration_Condenser_Cascade : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_Condenser_Cascade : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("This is the condensing temperature for the lower temperature secondary loop")]
@@ -882,8 +917,13 @@ public System.Nullable<float> CondensatePipingRefrigerantInventory { get; set; }
     
     [Description("The transcritical refrigeration system requires a single gas cooler to reject the" +
         " system heat.")]
-    public class Refrigeration_GasCooler_AirCooled : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_GasCooler_AirCooled : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Be sure the rating corresponds to the correct refrigerant (R744) HeatRejection(W)" +
@@ -979,8 +1019,13 @@ public System.Nullable<float> GasCoolerOutletPipingRefrigerantInventory { get; s
     }
     
     [Description(@"A refrigeration system may provide cooling to other, secondary, systems through either a secondary loop or a cascade condenser. If multiple transfer loads are served by a single primary system, use this list to group them together for reference by the primary system (see the field ""Refrigeration Transfer Load or TransferLoad List Name"" in the Refrigeration:System object).")]
-    public class Refrigeration_TransferLoadList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_TransferLoadList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("transfer_loads")]
@@ -988,8 +1033,13 @@ public string TransferLoads { get; set; } = "";
     }
     
     [Description(@"Two types of subcoolers are modeled by the detailed refrigeration system. The liquid suction heat exchanger uses cool suction gas to subcool the hot condensate after it leaves the condenser and before it reaches the thermal expansion valve. A mechanical subcooler is used to transfer cooling capacity from one refrigeration system to another.")]
-    public class Refrigeration_Subcooler : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_Subcooler : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("plan to add ambient subcoolers at future time")]
@@ -1044,8 +1094,13 @@ public System.Nullable<float> OutletControlTemperature { get; set; } = null;
     
     [Description("Refrigeration system compressor. Data is available for many compressors in the Re" +
         "frigerationCompressor.idf dataset")]
-    public class Refrigeration_Compressor : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_Compressor : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"the input order for the Curve:Bicubic does not match the ARI 540-2004 Eq. 1 coefficient order N1 is ARI_C1, N2 is ARI_C2, N3 is ARI_C4, N4 is ARI_C3, N5 is ARI_C6, N6 is ARI_C5, N7 is ARI_C7, N8 is ARI_C10, N9 is ARI_C8, N10 is ARI_C9, N11 is Minimum Suction dewpoint temperature, N12 is Maximum Suction dewpoint temperature, N13 is Minimum Discharge dewpoint temperature, N14 is Maximum Discharge dewpoint temperature")]
@@ -1115,8 +1170,13 @@ public string TranscriticalCompressorCapacityCurveName { get; set; } = "";
     }
     
     [Description(@"List of all the compressors included within a single refrigeration system (Refrigeration:System). Each list must contain at least one compressor. The order in which the individual compressors are listed here will be the order in which the compressors are dispatched to meet the system load. IMPORTANT: List compressor names in the order in which the compressors will be loaded Data is available for many compressors in the RefrigerationCompressor.idf dataset")]
-    public class Refrigeration_CompressorList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_CompressorList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("compressors")]
@@ -1126,8 +1186,13 @@ public string Compressors { get; set; } = "";
     [Description("Simulates the performance of a supermarket refrigeration system when used along w" +
         "ith other objects to define the refrigeration load(s), the compressor(s), and th" +
         "e condenser.")]
-    public class Refrigeration_System : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_System : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Enter the name of a Refrigeration:Case or Refrigeration:WalkIn object. If there is more than one refrigerated case or walk-in served by this system, enter the name of a Refrigeration:CaseAndWalkInList object. Only cases and walkins served directly by the system should be included in this list. Any cases served indirectly via a secondary chiller should NOT be included in this list")]
@@ -1242,8 +1307,13 @@ public string HighStageCompressorOrCompressorlistName { get; set; } = "";
         " supermarkets. The object allows for modeling either a single stage system with " +
         "medium-temperature loads or a two stage system with both medium- and low-tempera" +
         "ture loads.")]
-    public class Refrigeration_TranscriticalSystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_TranscriticalSystem : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("system_type")]
@@ -1327,8 +1397,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     [Description(@"Works in conjunction with refrigerated cases and walkins to simulate the performance of a secondary loop supermarket refrigeration system. Heat from the refrigeration loads served by the secondary loop is absorbed by a primary refrigeration system (Refrigeration:System). The SecondarySystem object simulates a heat exchanger that is an evaporator, or refrigeration load, on the primary refrigeration system.")]
-    public class Refrigeration_SecondarySystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_SecondarySystem : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a Refrigeration:Case or Refrigeration:WalkIn object. If there i" +
@@ -1485,8 +1560,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     [Description(@"Works in conjunction with a compressor rack, a refrigeration system, or a refrigeration secondary system to simulate the performance of a walk-in cooler. The walk-in cooler model uses information at rated conditions along with input descriptions for heat transfer surfaces facing multiple zones to determine performance.")]
-    public class Refrigeration_WalkIn : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_WalkIn : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1637,8 +1717,13 @@ public string ZoneData { get; set; } = "";
     }
     
     [Description(@"Works in conjunction with a refrigeration chiller set, compressor rack, a refrigeration system, or a refrigeration secondary system to simulate the performance of an air chiller, similar to one found in a refrigerated warehouse. Energy use for fans and heaters is modeled based on inputs for nominal power, schedules, and control type. The air chiller model accounts for the sensible and latent heat exchange with the surrounding environment.")]
-    public class Refrigeration_AirChiller : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_AirChiller : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1920,8 +2005,13 @@ public System.Nullable<float> AverageRefrigerantChargeInventory { get; set; } = 
     }
     
     [Description(@"Works in conjunction with one or multiple air chillers, compressor racks, refrigeration systems, or refrigeration secondary system objects to simulate the performance of a group of air chillers cooling a single zone. The chiller set model passes information about the zone conditions to determine the performance of individual chiller coils within the set, thus providing the sensible and latent heat exchange with the zone environment.")]
-    public class ZoneHVAC_RefrigerationChillerSet : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_RefrigerationChillerSet : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

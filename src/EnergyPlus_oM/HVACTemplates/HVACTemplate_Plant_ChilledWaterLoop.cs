@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Plant and condenser loops to serve all HVACTemplate chilled water coils, chillers" +
                  ", and towers.")]
-    public class HVACTemplate_Plant_ChilledWaterLoop : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_ChilledWaterLoop : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("If blank, always available Applies to both chilled water and condenser loop pumps" +

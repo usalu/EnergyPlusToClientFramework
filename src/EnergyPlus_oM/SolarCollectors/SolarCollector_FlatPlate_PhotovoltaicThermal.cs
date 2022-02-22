@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
     [Description("Models hybrid photovoltaic-thermal (PVT) solar collectors that convert incident s" +
                  "olar energy into both electricity and useful thermal energy by heating air or wa" +
                  "ter.")]
-    public class SolarCollector_FlatPlate_PhotovoltaicThermal : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SolarCollector_FlatPlate_PhotovoltaicThermal : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("surface_name")]

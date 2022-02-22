@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 {
     [Description("This object describes the fouling fault of boilers with water-based heat exchange" +
                  "rs")]
-    public class FaultModel_Fouling_Boiler : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_Fouling_Boiler : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("availability_schedule_name")]

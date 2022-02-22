@@ -69,8 +69,13 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
     [Description("Selects the type of room air model to be used in a given zone. If no RoomAirModel" +
         "Type object is specified then the default Mixing model (all zone air at the same" +
         " temperature) will be used.")]
-    public class RoomAirModelType : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAirModelType : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -135,8 +140,13 @@ public RoomAirModelType_AirTemperatureCouplingStrategy AirTemperatureCouplingStr
     [Description("Used to explicitly define temperature patterns that are to be applied to the mean" +
         " air temperature within a thermal zone. Used with RoomAirModelType = UserDefined" +
         ".")]
-    public class RoomAir_TemperaturePattern_UserDefined : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_TemperaturePattern_UserDefined : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -159,7 +169,8 @@ public string PatternControlScheduleName { get; set; } = "";
     
     [Description("Used to model room air with a fixed temperature gradient in the vertical directio" +
         "n. Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
-    public class RoomAir_TemperaturePattern_ConstantGradient : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_TemperaturePattern_ConstantGradient : BHoMObject
     {
         
 
@@ -194,7 +205,8 @@ public System.Nullable<float> TemperatureGradient { get; set; } = null;
     
     [Description("Used to model room air with two temperature gradients in the vertical direction. " +
         "Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
-    public class RoomAir_TemperaturePattern_TwoGradient : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_TemperaturePattern_TwoGradient : BHoMObject
     {
         
 
@@ -273,8 +285,13 @@ public System.Nullable<float> LowerHeatRateBound { get; set; } = null;
     }
     
     [Description(@"Defines a distribution pattern for air temperatures relative to the current mean air temperature as a function of height. The height, referred to as Zeta, is nondimensional by normalizing with the zone ceiling height. Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
-    public class RoomAir_TemperaturePattern_NondimensionalHeight : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_TemperaturePattern_NondimensionalHeight : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("this value should appear in as a schedule value")]
@@ -302,8 +319,13 @@ public string Pairs { get; set; } = "";
     }
     
     [Description(@"Defines a distribution pattern for the air temperatures adjacent to individual surfaces. This allows controlling the adjacent air temperature on a surface-by-surface basis rather than by height. This allows modeling different adjacent air temperatures on the opposite sides of the zone. Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
-    public class RoomAir_TemperaturePattern_SurfaceMapping : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_TemperaturePattern_SurfaceMapping : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("reference this entry in schedule")]
@@ -331,8 +353,13 @@ public string SurfaceDeltas { get; set; } = "";
     }
     
     [Description("Define an air node for some types of nodal room air models")]
-    public class RoomAir_Node : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_Node : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("node_type")]
@@ -455,7 +482,8 @@ public string Surface21Name { get; set; } = "";
     }
     
     [Description("The Mundt model for displacement ventilation")]
-    public class RoomAirSettings_OneNodeDisplacementVentilation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAirSettings_OneNodeDisplacementVentilation : BHoMObject
     {
         
 
@@ -472,7 +500,8 @@ public System.Nullable<float> FractionOfInfiltrationInternalLoadsAddedToFloorAir
     }
     
     [Description("The UCSD model for Displacement Ventilation")]
-    public class RoomAirSettings_ThreeNodeDisplacementVentilation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAirSettings_ThreeNodeDisplacementVentilation : BHoMObject
     {
         
 
@@ -511,7 +540,8 @@ public System.Nullable<float> TemperatureDifferenceThresholdForReporting { get; 
     }
     
     [Description(@"This UCSD Cross Ventilation Room Air Model provides a simple model for heat transfer and vertical temperature profile prediction in cross ventilated rooms. The model distinguishes two regions in the room, the main jet region and the recirculations, and predicts characteristic airflow velocities and average air temperatures. Used with RoomAirModelType = CrossVentilation.")]
-    public class RoomAirSettings_CrossVentilation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAirSettings_CrossVentilation : BHoMObject
     {
         
 
@@ -546,7 +576,8 @@ public RoomAirSettings_CrossVentilation_AirflowRegionUsedForThermalComfortEvalua
     }
     
     [Description(@"This Room Air Model is applicable to interior spaces that are served by an underfloor air distribution system. The dominant sources of heat gain should be from people, equipment, and other localized sources located in the occupied part of the room. The model should be used with caution in zones which have large heat gains or losses through exterior walls or windows or which have considerable direct solar gain. Used with RoomAirModelType = UnderFloorAirDistributionInterior.")]
-    public class RoomAirSettings_UnderFloorAirDistributionInterior : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAirSettings_UnderFloorAirDistributionInterior : BHoMObject
     {
         
 
@@ -651,7 +682,8 @@ public string CoefficientE { get; set; } = (System.String)"Autocalculate";
     }
     
     [Description(@"Applicable to exterior spaces that are served by an underfloor air distribution system. The dominant sources of heat gain should be from people, equipment, and other localized sources located in the occupied part of the room, as well as convective gain coming from a warm window. Used with RoomAirModelType = CrossVentilation.")]
-    public class RoomAirSettings_UnderFloorAirDistributionExterior : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAirSettings_UnderFloorAirDistributionExterior : BHoMObject
     {
         
 
@@ -750,8 +782,13 @@ public string CoefficientEInFormulaKcAGammaBCDGammaEGamma2 { get; set; } = (Syst
     }
     
     [Description("define an air node for some types of nodal air models")]
-    public class RoomAir_Node_AirflowNetwork : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_Node_AirflowNetwork : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -775,8 +812,13 @@ public string RoomairNodeAirflownetworkHvacequipmentName { get; set; } = "";
     }
     
     [Description(null)]
-    public class RoomAir_Node_AirflowNetwork_AdjacentSurfaceList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_Node_AirflowNetwork_AdjacentSurfaceList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("surfaces")]
@@ -784,8 +826,13 @@ public string Surfaces { get; set; } = "";
     }
     
     [Description("define the internal gains that are associated with one particular RoomAir:Node")]
-    public class RoomAir_Node_AirflowNetwork_InternalGains : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_Node_AirflowNetwork_InternalGains : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("gains")]
@@ -793,8 +840,13 @@ public string Gains { get; set; } = "";
     }
     
     [Description("define the zone equipment associated with one particular RoomAir:Node")]
-    public class RoomAir_Node_AirflowNetwork_HVACEquipment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_Node_AirflowNetwork_HVACEquipment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("equipment_fractions")]
@@ -802,8 +854,13 @@ public string EquipmentFractions { get; set; } = "";
     }
     
     [Description("RoomAir modeling using Airflow pressure network solver")]
-    public class RoomAirSettings_AirflowNetwork : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAirSettings_AirflowNetwork : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Name of Zone being described. Any existing zone name")]

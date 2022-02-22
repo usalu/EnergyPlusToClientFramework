@@ -67,7 +67,7 @@ namespace BH.oM.Adapters.EnergyPlus
     
     
     [Description("Ultimate class that can be automatically (de)serialized and simulated.")]
-    public class EnergyPlusJson : BHoMObject, IEnergyPlusClass
+    public class EnergyPlusJson : BHoMObject
     {
         
 

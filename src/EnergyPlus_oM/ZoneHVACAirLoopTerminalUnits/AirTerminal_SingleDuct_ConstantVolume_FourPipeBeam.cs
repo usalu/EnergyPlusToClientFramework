@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
     [Description("Central air system terminal unit, single duct, constant volume, with heating and/" +
                  "or cooling. Operates as two-pipe unit if heating or cooling water is omitted. He" +
                  "ating and/or cooling can be scheduled off for dedicated ventilation.")]
-    public class AirTerminal_SingleDuct_ConstantVolume_FourPipeBeam : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_ConstantVolume_FourPipeBeam : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Primary air is supplied by central air handling unit and must be on for heating o" +

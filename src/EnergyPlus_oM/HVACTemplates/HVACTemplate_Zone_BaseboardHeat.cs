@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Zone baseboard heating system.")]
-    public class HVACTemplate_Zone_BaseboardHeat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_BaseboardHeat : BHoMObject
     {
         
 

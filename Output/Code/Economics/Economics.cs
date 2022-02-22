@@ -68,7 +68,8 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     
     [Description("If CurrencyType is not specified, it will default to USD and produce $ in the rep" +
         "orts.")]
-    public class CurrencyType : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CurrencyType : BHoMObject
     {
         
 
@@ -421,7 +422,8 @@ public CurrencyType_MonetaryUnit MonetaryUnit { get; set; } = (CurrencyType_Mone
         "stimate for total project costs. This object allows extending the line item mode" +
         "l so that the overall costs of the project will reflect various profit and fees." +
         "")]
-    public class ComponentCost_Adjustments : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ComponentCost_Adjustments : BHoMObject
     {
         
 
@@ -457,7 +459,8 @@ public System.Nullable<float> RegionalAdjustmentFactor { get; set; } = null;
     }
     
     [Description(@"Used to allow comparing the current cost estimate to the results of a previous estimate for a reference building. This object parallels the ComponentCost:Adjustments object but adds a field for entering the cost line item model result for the reference building. The factors entered in this object are applied to the reference building while the factors listed in the ComponentCost:Adjustments object are applied to the current building model cost estimate.")]
-    public class ComponentCost_Reference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ComponentCost_Reference : BHoMObject
     {
         
 
@@ -499,8 +502,13 @@ public System.Nullable<float> ReferenceBuildingRegionalAdjustmentFactor { get; s
     
     [Description("Each instance of this object creates a cost line item and will contribute to the " +
         "total for a cost estimate.")]
-    public class ComponentCost_LineItem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ComponentCost_LineItem : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("type")]
@@ -593,8 +601,13 @@ public System.Nullable<float> Quantity { get; set; } = null;
     }
     
     [Description(@"Defines the name of a utility cost tariff, the type of tariff, and other details about the overall tariff. Each other object that is part of the tariff model references the tariff name. See UtilityCost:Charge:Simple, UtilityCost:Charge:Block, UtilityCost:Ratchet, UtilityCost:Qualify, UtilityCost:Variable and UtilityCost:Computation objects.")]
-    public class UtilityCost_Tariff : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class UtilityCost_Tariff : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The name of any standard meter or custom meter or but usually set to either Elect" +
@@ -756,7 +769,8 @@ public UtilityCost_Tariff_BuyOrSell BuyOrSell { get; set; } = (UtilityCost_Tarif
     }
     
     [Description(@"The qualify object allows only tariffs to be selected based on limits which may apply such as maximum or minimum demand requirements. If the results of the simulation fall outside of the range of qualifications, that tariff is still calculated but the ""Qualified"" entry will say ""No"" and the UtilityCost:Qualify that caused its exclusion is shown. Multiple UtilityCost:Qualify objects can appear for the same tariff and they can be based on any variable.")]
-    public class UtilityCost_Qualify : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class UtilityCost_Qualify : BHoMObject
     {
         
 
@@ -851,7 +865,8 @@ public System.Nullable<float> NumberOfMonths { get; set; } = null;
     }
     
     [Description(@"UtilityCost:Charge:Simple is one of the most often used objects for tariff calculation. It is used to compute energy and demand charges that are very simple. It may also be used for taxes, surcharges and any other charges that occur on a utility bill. Multiple UtilityCost:Charge:Simple objects may be defined for a single tariff and they will be added together.")]
-    public class UtilityCost_Charge_Simple : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class UtilityCost_Charge_Simple : BHoMObject
     {
         
 
@@ -948,7 +963,8 @@ public string CostPerUnitValueOrVariableName { get; set; } = "";
     [Description("Used to compute energy and demand charges (or any other charges) that are structu" +
         "red in blocks of charges. Multiple UtilityCost:Charge:Block objects may be defin" +
         "ed for a single tariff and they will be added together.")]
-    public class UtilityCost_Charge_Block : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class UtilityCost_Charge_Block : BHoMObject
     {
         
 
@@ -1216,8 +1232,13 @@ public string Block15CostPerUnitValueOrVariableName { get; set; } = "";
     }
     
     [Description(@"Allows the modeling of tariffs that include some type of seasonal ratcheting. Ratchets are most common when used with electric demand charges. A ratchet is when a utility requires that the demand charge for a month with a low demand may be increased to be more consistent with a month that set a higher demand charge.")]
-    public class UtilityCost_Ratchet : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class UtilityCost_Ratchet : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The name of the UtilityCost:Tariff that is associated with this UtilityCost:Ratch" +
@@ -1300,8 +1321,13 @@ public string OffsetValueOrVariableName { get; set; } = "";
     }
     
     [Description("Allows for the direct entry of monthly values into a utility tariff variable.")]
-    public class UtilityCost_Variable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class UtilityCost_Variable : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The name of the UtilityCost:Tariff that is associated with this UtilityCost:Varia" +
@@ -1383,8 +1409,13 @@ public System.Nullable<float> DecemberValue { get; set; } = null;
     }
     
     [Description(@"The object lists a series of computations that are used to perform the utility bill calculation. The object is only used for complex tariffs that cannot be modeled any other way. For most utility tariffs, UtilityCost:Computation is unnecessary and should be avoided. If UtilityCost:Computation is used, it must contain references to all objects involved in the rate in the order that they should be computed.")]
-    public class UtilityCost_Computation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class UtilityCost_Computation : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The name of the UtilityCost:Tariff that is associated with this UtilityCost:Varia" +
@@ -1516,8 +1547,13 @@ public string ComputeStep30 { get; set; } = "";
     }
     
     [Description(@"Provides inputs related to the overall life-cycle analysis. It establishes many of the assumptions used in computing the present value. It is important that when comparing the results of multiple simulations that the fields in the LifeCycleCost:Parameters objects are the same for all the simulations. When this object is present the tabular report file will contain the Life-Cycle Cost Report.")]
-    public class LifeCycleCost_Parameters : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class LifeCycleCost_Parameters : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The field specifies if the discounting of future costs should be computed as occu" +
@@ -1752,8 +1788,13 @@ public LifeCycleCost_Parameters_DepreciationMethod DepreciationMethod { get; set
     [Description("Recurring costs are costs that repeat over time on a regular schedule during the " +
         "study period. If costs associated with equipment do repeat but not on a regular " +
         "schedule, use LifeCycleCost:NonrecurringCost objects instead.")]
-    public class LifeCycleCost_RecurringCosts : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class LifeCycleCost_RecurringCosts : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("category")]
@@ -1850,8 +1891,13 @@ public System.Nullable<float> AnnualEscalationRate { get; set; } = null;
     [Description("A non-recurring cost happens only once during the study period. For costs that oc" +
         "cur more than once during the study period on a regular schedule, use the LifeCy" +
         "cleCost:RecurringCost object.")]
-    public class LifeCycleCost_NonrecurringCost : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class LifeCycleCost_NonrecurringCost : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("category")]
@@ -1914,7 +1960,8 @@ public System.Nullable<float> MonthsFromStart { get; set; } = null;
     [Description("Life cycle cost escalation factors. The values for this object may be found in th" +
         "e annual supplement to NIST Handbook 135 in Tables Ca-1 to Ca-5 and are included" +
         " in an EnergyPlus dataset file.")]
-    public class LifeCycleCost_UsePriceEscalation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class LifeCycleCost_UsePriceEscalation : BHoMObject
     {
         
 
@@ -2043,8 +2090,13 @@ public string Escalations { get; set; } = "";
     }
     
     [Description(@"Used by advanced users to adjust the energy or water use costs for future years. This should not be used for compensating for inflation but should only be used to increase the costs of energy or water based on assumed changes to the actual usage, such as anticipated changes in the future function of the building. The adjustments begin at the start of the service period.")]
-    public class LifeCycleCost_UseAdjustment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class LifeCycleCost_UseAdjustment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("resource")]

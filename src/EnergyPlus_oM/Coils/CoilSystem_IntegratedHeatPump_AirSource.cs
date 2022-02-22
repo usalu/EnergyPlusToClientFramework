@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description("This object is used for air-source integrated heat pump, a collection of its work" +
                  "ing modes.")]
-    public class CoilSystem_IntegratedHeatPump_AirSource : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoilSystem_IntegratedHeatPump_AirSource : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("supply_hot_water_flow_sensor_node_name")]

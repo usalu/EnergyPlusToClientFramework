@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
     
     
     [Description("This object describes outdoor air temperature sensor offset")]
-    public class FaultModel_TemperatureSensorOffset_OutdoorAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_TemperatureSensorOffset_OutdoorAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -100,8 +105,13 @@ public System.Nullable<float> TemperatureSensorOffset { get; set; } = (System.Nu
     }
     
     [Description("This object describes outdoor air humidity sensor offset")]
-    public class FaultModel_HumiditySensorOffset_OutdoorAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_HumiditySensorOffset_OutdoorAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -133,8 +143,13 @@ public System.Nullable<float> HumiditySensorOffset { get; set; } = (System.Nulla
     }
     
     [Description("This object describes outdoor air enthalpy sensor offset")]
-    public class FaultModel_EnthalpySensorOffset_OutdoorAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_EnthalpySensorOffset_OutdoorAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -166,8 +181,13 @@ public System.Nullable<float> EnthalpySensorOffset { get; set; } = (System.Nulla
     }
     
     [Description("This object describes return air temperature sensor offset")]
-    public class FaultModel_TemperatureSensorOffset_ReturnAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_TemperatureSensorOffset_ReturnAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -199,8 +219,13 @@ public System.Nullable<float> TemperatureSensorOffset { get; set; } = (System.Nu
     }
     
     [Description("This object describes return air enthalpy sensor offset")]
-    public class FaultModel_EnthalpySensorOffset_ReturnAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_EnthalpySensorOffset_ReturnAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -232,8 +257,13 @@ public System.Nullable<float> EnthalpySensorOffset { get; set; } = (System.Nulla
     }
     
     [Description("This object describes fault of chiller supply water temperature sensor offset")]
-    public class FaultModel_TemperatureSensorOffset_ChillerSupplyWater : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_TemperatureSensorOffset_ChillerSupplyWater : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -288,8 +318,13 @@ public System.Nullable<float> ReferenceSensorOffset { get; set; } = (System.Null
     }
     
     [Description("This object describes fault of coil supply air temperature sensor offset")]
-    public class FaultModel_TemperatureSensorOffset_CoilSupplyAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_TemperatureSensorOffset_CoilSupplyAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -356,8 +391,13 @@ public System.Nullable<float> ReferenceSensorOffset { get; set; } = (System.Null
     }
     
     [Description("This object describes fault of condenser supply water temperature sensor offset")]
-    public class FaultModel_TemperatureSensorOffset_CondenserSupplyWater : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_TemperatureSensorOffset_CondenserSupplyWater : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -400,8 +440,13 @@ public System.Nullable<float> ReferenceSensorOffset { get; set; } = (System.Null
     }
     
     [Description("This object describes fault of thermostat offset")]
-    public class FaultModel_ThermostatOffset : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_ThermostatOffset : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a ZoneControl:Thermostat object.")]
@@ -422,8 +467,13 @@ public System.Nullable<float> ReferenceThermostatOffset { get; set; } = (System.
     }
     
     [Description("This object describes fault of humidistat offset")]
-    public class FaultModel_HumidistatOffset : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_HumidistatOffset : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a ZoneControl:Humidistat object.")]
@@ -473,8 +523,13 @@ public string RelatedThermostatOffsetFaultName { get; set; } = "";
     }
     
     [Description("This object describes fault of dirty air filters")]
-    public class FaultModel_Fouling_AirFilter : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_Fouling_AirFilter : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Choose the type of the fan Support for Fan:SystemModel is pending")]
@@ -519,8 +574,13 @@ public string FanCurveName { get; set; } = "";
     
     [Description("This object describes the fouling fault of boilers with water-based heat exchange" +
         "rs")]
-    public class FaultModel_Fouling_Boiler : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_Fouling_Boiler : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -556,8 +616,13 @@ public System.Nullable<float> FoulingFactor { get; set; } = (System.Nullable<flo
     }
     
     [Description("This object describes the fouling fault of the wetted coil evaporative cooler")]
-    public class FaultModel_Fouling_EvaporativeCooler : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_Fouling_EvaporativeCooler : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -596,8 +661,13 @@ public System.Nullable<float> FoulingFactor { get; set; } = (System.Nullable<flo
     }
     
     [Description("This object describes the fouling fault of chillers with water-cooled condensers")]
-    public class FaultModel_Fouling_Chiller : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_Fouling_Chiller : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -650,8 +720,13 @@ public System.Nullable<float> FoulingFactor { get; set; } = (System.Nullable<flo
     }
     
     [Description("This object describes the fault of fouling cooling towers")]
-    public class FaultModel_Fouling_CoolingTower : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_Fouling_CoolingTower : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -694,8 +769,13 @@ public System.Nullable<float> ReferenceUaReductionFactor { get; set; } = null;
     }
     
     [Description("This object describes fouling water heating or cooling coils")]
-    public class FaultModel_Fouling_Coil : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FaultModel_Fouling_Coil : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("coil_name")]

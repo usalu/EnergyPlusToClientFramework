@@ -7,8 +7,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Central plant loop portion of a water source heat pump system.")]
-    public class HVACTemplate_Plant_MixedWaterLoop : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_MixedWaterLoop : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("If blank, always available Applies to both chilled water and condenser loop pumps" +

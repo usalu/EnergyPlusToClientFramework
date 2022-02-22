@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for simplified entry of exterior floors ignoring ground contact or interio" +
                  "r floors. View Factor to Ground is automatically calculated.")]
-    public class Floor_Adiabatic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Floor_Adiabatic : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("To be matched with a construction in this input file")]

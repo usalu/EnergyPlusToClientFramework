@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("Provides the information needed to simulate the inside boundary conditions for th" +
                  "e Basement preprocessor ground heat transfer simulation.")]
-    public class GroundHeatTransfer_Basement_Interior : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatTransfer_Basement_Interior : BHoMObject
     {
         
 

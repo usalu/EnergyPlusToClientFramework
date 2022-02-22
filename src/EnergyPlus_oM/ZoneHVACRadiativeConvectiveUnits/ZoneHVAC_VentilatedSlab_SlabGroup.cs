@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
                  "rfaces. Note that the flow fractions must sum up to 1.0. The number of surfaces " +
                  "can be expanded beyond 10, if necessary, by adding more groups to the end of the" +
                  " list")]
-    public class ZoneHVAC_VentilatedSlab_SlabGroup : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_VentilatedSlab_SlabGroup : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("data")]

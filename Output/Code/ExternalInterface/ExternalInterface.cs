@@ -67,7 +67,8 @@ namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
     
     
     [Description(@"This object activates the external interface of EnergyPlus. If the object ExternalInterface is present, then all ExtnernalInterface:* objects will receive their values from the BCVTB interface or from FMUs at each zone time step. If this object is not present, then the values of these objects will be fixed at the value declared in the ""initial value"" field of the corresponding object, and a warning will be written to the EnergyPlus error file.")]
-    public class ExternalInterface : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface : BHoMObject
     {
         
 
@@ -93,8 +94,13 @@ public ExternalInterface_NameOfExternalInterface NameOfExternalInterface { get; 
     
     [Description("A ExternalInterface:Schedule contains only one value, which is used during the wa" +
         "rm-up period and the system sizing.")]
-    public class ExternalInterface_Schedule : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_Schedule : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("schedule_type_limits_name")]
@@ -107,8 +113,13 @@ public System.Nullable<float> InitialValue { get; set; } = null;
     }
     
     [Description(@"This input object is similar to EnergyManagementSystem:GlobalVariable. However, at the beginning of each zone time step, its value is set to the value received from the external interface. During the warm-up period and the system sizing, its value is set to the value specified by the field ""initial value."" This object can be used to move data into Erl subroutines.")]
-    public class ExternalInterface_Variable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_Variable : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Used during warm-up and system sizing.")]
@@ -117,8 +128,13 @@ public System.Nullable<float> InitialValue { get; set; } = null;
     }
     
     [Description("Hardware portion of EMS used to set up actuators in the model")]
-    public class ExternalInterface_Actuator : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_Actuator : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("actuated_component_unique_name")]
@@ -141,7 +157,8 @@ public System.Nullable<float> OptionalInitialValue { get; set; } = null;
     }
     
     [Description("This object declares an FMU")]
-    public class ExternalInterface_FunctionalMockupUnitImport : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_FunctionalMockupUnitImport : BHoMObject
     {
         
 
@@ -159,7 +176,8 @@ public System.Nullable<float> FmuLoggingon { get; set; } = (System.Nullable<floa
     }
     
     [Description("This object declares an FMU input variable")]
-    public class ExternalInterface_FunctionalMockupUnitImport_From_Variable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_FunctionalMockupUnitImport_From_Variable : BHoMObject
     {
         
 
@@ -185,8 +203,13 @@ public string FmuVariableName { get; set; } = "";
     
     [Description("This objects contains only one value, which is used during the first call of Ener" +
         "gyPlus")]
-    public class ExternalInterface_FunctionalMockupUnitImport_To_Schedule : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_FunctionalMockupUnitImport_To_Schedule : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("schedule_type_limits_names")]
@@ -212,8 +235,13 @@ public System.Nullable<float> InitialValue { get; set; } = null;
     
     [Description("Hardware portion of EMS used to set up actuators in the model that are dynamicall" +
         "y updated from the FMU.")]
-    public class ExternalInterface_FunctionalMockupUnitImport_To_Actuator : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_FunctionalMockupUnitImport_To_Actuator : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("actuated_component_unique_name")]
@@ -247,8 +275,13 @@ public System.Nullable<float> InitialValue { get; set; } = null;
     
     [Description("Declares Erl variable as having global scope No spaces allowed in names used for " +
         "Erl variables")]
-    public class ExternalInterface_FunctionalMockupUnitImport_To_Variable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_FunctionalMockupUnitImport_To_Variable : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("fmu_file_name")]
@@ -269,7 +302,8 @@ public System.Nullable<float> InitialValue { get; set; } = null;
     }
     
     [Description("This object declares an FMU input variable")]
-    public class ExternalInterface_FunctionalMockupUnitExport_From_Variable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_FunctionalMockupUnitExport_From_Variable : BHoMObject
     {
         
 
@@ -287,7 +321,8 @@ public string FmuVariableName { get; set; } = "";
     
     [Description("This objects contains only one value, which is used during the first call of Ener" +
         "gyPlus")]
-    public class ExternalInterface_FunctionalMockupUnitExport_To_Schedule : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_FunctionalMockupUnitExport_To_Schedule : BHoMObject
     {
         
 
@@ -310,8 +345,13 @@ public System.Nullable<float> InitialValue { get; set; } = null;
     
     [Description("Hardware portion of EMS used to set up actuators in the model that are dynamicall" +
         "y updated from the FMU.")]
-    public class ExternalInterface_FunctionalMockupUnitExport_To_Actuator : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_FunctionalMockupUnitExport_To_Actuator : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("actuated_component_unique_name")]
@@ -337,8 +377,13 @@ public System.Nullable<float> InitialValue { get; set; } = null;
     
     [Description("Declares Erl variable as having global scope No spaces allowed in names used for " +
         "Erl variables")]
-    public class ExternalInterface_FunctionalMockupUnitExport_To_Variable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_FunctionalMockupUnitExport_To_Variable : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("fmu_variable_name")]

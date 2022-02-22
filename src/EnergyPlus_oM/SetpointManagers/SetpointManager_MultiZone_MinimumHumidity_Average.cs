@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
     [Description("This setpoint manager sets the average supply air minimum humidity ratio based on" +
                  " moisture load requirements of all controlled zones in an air loop served by a c" +
                  "entral air-conditioner.")]
-    public class SetpointManager_MultiZone_MinimumHumidity_Average : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_MultiZone_MinimumHumidity_Average : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Enter the name of an AirLoopHVAC object")]

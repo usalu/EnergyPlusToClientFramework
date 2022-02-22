@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
 {
     [Description("This object sets up a Python plugin trend variable from an Python plugin variable" +
                  " A trend variable logs values across timesteps")]
-    public class PythonPlugin_TrendVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PythonPlugin_TrendVariable : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("name_of_a_python_plugin_variable")]

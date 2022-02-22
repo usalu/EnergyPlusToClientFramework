@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Variable Air Volume (VAV) air loop with optional heating coil and optional prehea" +
                  "t.")]
-    public class HVACTemplate_System_VAV : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_VAV : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("If blank, always on; VAV System always on. Schedule is used in availability manag" +

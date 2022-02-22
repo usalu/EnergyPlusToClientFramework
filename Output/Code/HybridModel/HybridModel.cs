@@ -69,8 +69,13 @@ namespace BH.oM.Adapters.EnergyPlus.HybridModel
     [Description("Zones with measured air temperature data and a range of dates. If the range of te" +
         "mperature measurement dates includes a leap day, the weather data should include" +
         " a leap day.")]
-    public class HybridModel_Zone : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HybridModel_Zone : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]

@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object specifies the conditions under which the air mass flow coefficient wa" +
                  "s measured.")]
-    public class AirflowNetwork_MultiZone_ReferenceCrackConditions : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_ReferenceCrackConditions : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Enter the reference temperature under which the surface crack data were obtained." +

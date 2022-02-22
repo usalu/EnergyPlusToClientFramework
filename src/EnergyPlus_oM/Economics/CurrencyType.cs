@@ -1,7 +1,6 @@
 namespace BH.oM.Adapters.EnergyPlus.Economics
 {
     using System.ComponentModel;
-    using BH.oM.Adapters.EnergyPlus;
     using System;
     using Newtonsoft.Json;
     using BH.oM.Base;
@@ -67,7 +66,8 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     
     [Description("If CurrencyType is not specified, it will default to USD and produce $ in the rep" +
         "orts.")]
-    public class CurrencyType : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CurrencyType : BHoMObject
     {
         
 

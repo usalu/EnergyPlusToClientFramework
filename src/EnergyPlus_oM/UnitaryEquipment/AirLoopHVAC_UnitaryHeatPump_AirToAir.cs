@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
     [Description("Unitary heat pump system, heating and cooling, single-speed with supply fan, dire" +
                  "ct expansion (DX) cooling coil, DX heating coil (air-to-air heat pump), and supp" +
                  "lemental heating coil (gas, electric, hot water, or steam).")]
-    public class AirLoopHVAC_UnitaryHeatPump_AirToAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_UnitaryHeatPump_AirToAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description(@"Availability schedule name for this system. Schedule value > 0 means the system is available. If this field is blank, the system is always available. A schedule value greater than zero (usually 1 is used) indicates that the unit is available to operate as needed. A value less than or equal to zero (usually zero is used) denotes that the unit must be off.")]

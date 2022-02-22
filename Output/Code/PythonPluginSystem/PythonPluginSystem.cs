@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
     
     
     [Description(@"Add directories to the search path for Python plugin modules The directory containing the EnergyPlus executable file is automatically added so that the Python interpreter can find the packaged up pyenergyplus Python package. By default, the current working directory and input file directory are also added to the search path. However, this object allows modifying this behavior. With this object, searching these directories can be disabled, and users can add supplemental search paths that point to libraries of plugin scripts.")]
-    public class PythonPlugin_SearchPaths : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PythonPlugin_SearchPaths : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Adding the current working directory allows Python to find plugin scripts in the " +
@@ -92,8 +97,13 @@ public string PySearchPaths { get; set; } = "";
     [Description("A single plugin to be executed during the simulation, which can contain multiple " +
         "calling points for the same class instance by overriding multiple calling point " +
         "methods.")]
-    public class PythonPlugin_Instance : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PythonPlugin_Instance : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If this field is enabled, the plugin will be executed during warmup days, otherwi" +
@@ -117,8 +127,13 @@ public string PluginClassName { get; set; } = "";
     
     [Description("This object defines name identifiers for custom Python Plugin variable data that " +
         "should be shared among all running Python Plugins.")]
-    public class PythonPlugin_Variables : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PythonPlugin_Variables : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("global_py_vars")]
@@ -127,8 +142,13 @@ public string GlobalPyVars { get; set; } = "";
     
     [Description("This object sets up a Python plugin trend variable from an Python plugin variable" +
         " A trend variable logs values across timesteps")]
-    public class PythonPlugin_TrendVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PythonPlugin_TrendVariable : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("name_of_a_python_plugin_variable")]
@@ -140,8 +160,13 @@ public System.Nullable<float> NumberOfTimestepsToBeLogged { get; set; } = null;
     }
     
     [Description("This object sets up an EnergyPlus output variable from a Python Plugin variable")]
-    public class PythonPlugin_OutputVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PythonPlugin_OutputVariable : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Must be listed in the PythonPlugin:Variables object")]

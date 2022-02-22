@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
     [Description("This object models an air-to-air heat exchanger using effectiveness relationships" +
                  ". The heat exchanger can transfer sensible energy, latent energy, or both betwee" +
                  "n the supply (primary) and exhaust (secondary) air streams.")]
-    public class HeatExchanger_AirToAir_SensibleAndLatent : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HeatExchanger_AirToAir_SensibleAndLatent : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

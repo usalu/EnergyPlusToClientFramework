@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
 {
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
                  "roups to the end of the list.")]
-    public class ZoneHVAC_Baseboard_RadiantConvective_Steam : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_Baseboard_RadiantConvective_Steam : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("design_object")]

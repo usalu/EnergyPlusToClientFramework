@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     [Description("Models vertical ground heat exchangers systems using the response factor approach" +
                  " developed by Eskilson. Response factors are calculated using a finite line sour" +
                  "ce model assuming uniform heat flux at the borehole wall.")]
-    public class GroundHeatExchanger_System : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatExchanger_System : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("inlet_node_name")]

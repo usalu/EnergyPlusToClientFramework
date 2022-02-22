@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Glass material properties for Windows or Glass Doors Transmittance/Reflectance in" +
                  "put method.")]
-    public class WindowMaterial_Glazing_EquivalentLayer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Glazing_EquivalentLayer : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Spectral is not currently supported and SpectralAverage is the default.")]

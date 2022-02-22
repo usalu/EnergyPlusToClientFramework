@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
     
     [Description("The simplest Setpoint Manager simply uses a schedule to determine one or more set" +
         "points. Values of the nodes are not used as input.")]
-    public class SetpointManager_Scheduled : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_Scheduled : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -118,8 +123,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description("This setpoint manager places a high and low schedule value on one or more nodes.")]
-    public class SetpointManager_Scheduled_DualSetpoint : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_Scheduled_DualSetpoint : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -153,8 +163,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     [Description("This Setpoint Manager is used to place a setpoint temperature on system node acco" +
         "rding to the outdoor air temperature using a reset rule. The outdoor air tempera" +
         "ture is obtained from the weather information during the simulation.")]
-    public class SetpointManager_OutdoorAirReset : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_OutdoorAirReset : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -227,8 +242,13 @@ public System.Nullable<float> OutdoorHighTemperature2 { get; set; } = null;
     }
     
     [Description(@"This setpoint manager detects the control zone load, zone inlet node flow rate, and zone node temperature and calculates a setpoint temperature for the supply air that will satisfy the zone load (heating or cooling) for the control zone. This setpoint manager is not limited to reheat applications.")]
-    public class SetpointManager_SingleZone_Reheat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_SingleZone_Reheat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -272,8 +292,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This setpoint manager detects the control zone load to meet the current heating setpoint, zone inlet node flow rate, and zone node temperature, and calculates a setpoint temperature for the supply air that will satisfy the zone heating load for the control zone.")]
-    public class SetpointManager_SingleZone_Heating : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_SingleZone_Heating : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -317,8 +342,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This setpoint manager detects the control zone load to meet the current cooling setpoint, zone inlet node flow rate, and zone node temperature, and calculates a setpoint temperature for the supply air that will satisfy the zone cooling load for the control zone.")]
-    public class SetpointManager_SingleZone_Cooling : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_SingleZone_Cooling : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -364,8 +394,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     [Description("The Single Zone Minimum Humidity Setpoint Manager allows the control of a single " +
         "zone minimum humidity level. This setpoint manager can be used in conjunction wi" +
         "th object ZoneControl:Humidistat to detect humidity levels.")]
-    public class SetpointManager_SingleZone_Humidity_Minimum : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_SingleZone_Humidity_Minimum : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Node(s) at which humidity ratio setpoint will be set")]
@@ -381,8 +416,13 @@ public string ControlZoneAirNodeName { get; set; } = "";
     [Description("The Single Zone Maximum Humidity Setpoint Manager allows the control of a single " +
         "zone maximum humidity level. This setpoint manager can be used in conjunction wi" +
         "th object ZoneControl:Humidistat to detect humidity levels.")]
-    public class SetpointManager_SingleZone_Humidity_Maximum : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_SingleZone_Humidity_Maximum : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Node(s) at which humidity ratio setpoint will be set")]
@@ -398,8 +438,13 @@ public string ControlZoneAirNodeName { get; set; } = "";
     [Description("The Mixed Air Setpoint Manager is meant to be used in conjunction with a Controll" +
         "er:OutdoorAir object. This setpoint manager is used to establish a temperature s" +
         "etpoint at the mixed air node.")]
-    public class SetpointManager_MixedAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_MixedAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -455,8 +500,13 @@ public System.Nullable<float> MinimumTemperatureAtCoolingCoilOutletNode { get; s
     [Description("This setpoint manager determines the required conditions at the outdoor air strea" +
         "m node which will produce the reference setpoint condition at the mixed air node" +
         " when mixed with the return air stream")]
-    public class SetpointManager_OutdoorAirPretreat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_OutdoorAirPretreat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -531,8 +581,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     
     [Description("This SetpointManager resets the cooling supply air temperature of a central force" +
         "d air HVAC system according to the cooling demand of the warmest zone.")]
-    public class SetpointManager_Warmest : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_Warmest : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -587,8 +642,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
         "re of the air in the heating supply duct. Usually it is used in conjunction with" +
         " a SetpointManager:Warmest resetting the temperature of the air in the cooling s" +
         "upply duct.")]
-    public class SetpointManager_Coldest : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_Coldest : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -641,8 +701,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     
     [Description("This setpoint manager determines the required mass flow rate through a return air" +
         " bypass duct to meet the specified temperature setpoint")]
-    public class SetpointManager_ReturnAirBypassFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_ReturnAirBypassFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -671,8 +736,13 @@ public string TemperatureSetpointScheduleName { get; set; } = "";
     
     [Description("This setpoint manager sets both the supply air temperature and the supply air flo" +
         "w rate.")]
-    public class SetpointManager_WarmestTemperatureFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_WarmestTemperatureFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -733,8 +803,13 @@ public System.Nullable<float> MinimumTurndownRatio { get; set; } = (System.Nulla
     [Description("This setpoint manager sets the average supply air temperature based on the heatin" +
         "g load requirements of all controlled zones in an air loop served by a central a" +
         "ir-conditioner.")]
-    public class SetpointManager_MultiZone_Heating_Average : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_MultiZone_Heating_Average : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
@@ -758,8 +833,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     [Description("This setpoint manager sets the average supply air temperature based on the coolin" +
         "g load requirements of all controlled zones in an air loop served by a central a" +
         "ir-conditioner.")]
-    public class SetpointManager_MultiZone_Cooling_Average : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_MultiZone_Cooling_Average : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
@@ -783,8 +863,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     [Description("This setpoint manager sets the average supply air minimum humidity ratio based on" +
         " moisture load requirements of all controlled zones in an air loop served by a c" +
         "entral air-conditioner.")]
-    public class SetpointManager_MultiZone_MinimumHumidity_Average : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_MultiZone_MinimumHumidity_Average : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
@@ -808,8 +893,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     [Description("This setpoint manager sets the average supply air maximum humidity ratio based on" +
         " moisture load requirements of all controlled zones in an air loop served by a c" +
         "entral air-conditioner.")]
-    public class SetpointManager_MultiZone_MaximumHumidity_Average : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_MultiZone_MaximumHumidity_Average : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
@@ -831,8 +921,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This setpoint manager sets the minimum supply air humidity ratio based on humidification requirements of a controlled zone with critical humidity ratio setpoint (i.e., a zone with the highest humidity ratio setpoint) in an air loop served by a central air-conditioner.")]
-    public class SetpointManager_MultiZone_Humidity_Minimum : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_MultiZone_Humidity_Minimum : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
@@ -854,8 +949,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This setpoint manager sets the maximum supply air humidity ratio based on dehumidification requirements of a controlled zone with critical humidity ratio setpoint (i.e., a zone with the lowest humidity ratio setpoint) in an air loop served by a central air-conditioner.")]
-    public class SetpointManager_MultiZone_Humidity_Maximum : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_MultiZone_Humidity_Maximum : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
@@ -880,8 +980,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
         "at is derived from the current outdoor air environmental conditions. The outdoor" +
         " air conditions are obtained from the weather information during the simulation." +
         "")]
-    public class SetpointManager_FollowOutdoorAirTemperature : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_FollowOutdoorAirTemperature : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -941,8 +1046,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This setpoint manager is used to place a temperature setpoint on a system node that is derived from the current temperatures at a separate system node. The current value of the temperature at a reference node is obtained and used to generate setpoint on a second system node. If the reference node is also designated to be an outdoor air (intake) node, then this setpoint manager can be used to follow outdoor air conditions that are adjusted for altitude.")]
-    public class SetpointManager_FollowSystemNodeTemperature : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_FollowSystemNodeTemperature : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -1006,8 +1116,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This setpoint manager is used to place a temperature setpoint on a system node that is derived from a current ground temperature. The ground temperatures are specified in different Site:GroundTemperature:* objects and used during the simulation. This setpoint manager is primarily intended for condenser or plant loops using some type of ground heat exchanger.")]
-    public class SetpointManager_FollowGroundTemperature : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_FollowGroundTemperature : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -1072,8 +1187,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     [Description("This setpoint manager uses one curve to determine the optimum condenser entering " +
         "water temperature for a given timestep and two other curves to place boundary co" +
         "nditions on the setpoint value.")]
-    public class SetpointManager_CondenserEnteringReset : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_CondenserEnteringReset : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -1129,8 +1249,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     
     [Description("This setpoint manager determine the ideal optimum condenser entering water temper" +
         "ature setpoint for a given timestep.")]
-    public class SetpointManager_CondenserEnteringReset_Ideal : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_CondenserEnteringReset_Ideal : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_variable")]
@@ -1162,8 +1287,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This object can be used with CoilSystem:Cooling:DX to model on/off cycling control of single stage air systems. Setpoints are modulated to run coil full on or full off depending on zone conditions. Intended for use with ZoneControl:Thermostat:StagedDualSetpoint")]
-    public class SetpointManager_SingleZone_OneStageCooling : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_SingleZone_OneStageCooling : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("This is the setpoint value applied when cooling device is to cycle ON")]
@@ -1186,8 +1316,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This object can be used with CoilSystem:Heating:DX, Coil:Heating:Fuel, Coil:Heating:Electric to model on/off cycling control of single stage air systems. Setpoints are modulated to run coil full on or full off depending on zone conditions. Intended for use with ZoneControl:Thermostat:StagedDualSetpoint.")]
-    public class SetpointManager_SingleZone_OneStageHeating : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_SingleZone_OneStageHeating : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("This is the setpoint value applied when heating device is to cycle ON")]
@@ -1210,8 +1345,13 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
     [Description(@"This setpoint manager is used to place a temperature setpoint on a plant supply outlet node based on a target return water setpoint. The setpoint manager attempts to achieve the desired return water temperature by adjusting the supply temperature setpoint based on the plant conditions at each system time step.")]
-    public class SetpointManager_ReturnTemperature_ChilledWater : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_ReturnTemperature_ChilledWater : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"This is the name of the supply outlet node for the plant being controlled by this setpoint manager. Typically this is where the setpoint will be actuated for supply equipment to control to, but not necessarily. This setpoint manager will mine that information from the internal plant data structures.")]
@@ -1271,8 +1411,13 @@ public string ReturnTemperatureSetpointScheduleName { get; set; } = "";
     }
     
     [Description(@"This setpoint manager is used to place a temperature setpoint on a plant supply outlet node based on a target return water setpoint. The setpoint manager attempts to achieve the desired return water temperature by adjusting the supply temperature setpoint based on the plant conditions at each system time step.")]
-    public class SetpointManager_ReturnTemperature_HotWater : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_ReturnTemperature_HotWater : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"This is the name of the supply outlet node for the plant being controlled by this setpoint manager. Typically this is where the setpoint will be actuated for supply equipment to control to, but not necessarily. This setpoint manager will mine that information from the internal plant data structures.")]

@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     
     [Description("Specifies the building\'s location. Only one location is allowed. Weather data fil" +
         "e location, if it exists, will override this object.")]
-    public class Site_Location : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_Location : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("+ is North, - is South, degree minutes represented in decimal (i.e. 30 minutes is" +
@@ -96,8 +101,13 @@ public System.Nullable<float> Elevation { get; set; } = (System.Nullable<float>)
     
     [Description("Captures the scheduling of a moving/reorienting building, or more likely a vessel" +
         "")]
-    public class Site_VariableLocation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_VariableLocation : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The name of a schedule that defines the latitude of the building at any time. If " +
@@ -120,8 +130,13 @@ public string BuildingLocationOrientationSchedule { get; set; } = "";
     }
     
     [Description(@"The design day object creates the parameters for the program to create the 24 hour weather profile that can be used for sizing as well as running to test the other simulation parameters. Parameters in this include a date (month and day), a day type (which uses the appropriate schedules for either sizing or simple tests), min/max temperatures, wind speeds, and solar radiation values.")]
-    public class SizingPeriod_DesignDay : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SizingPeriod_DesignDay : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("month")]
@@ -410,8 +425,13 @@ public SizingPeriod_DesignDay_BeginEnvironmentResetMode BeginEnvironmentResetMod
     }
     
     [Description("Use a weather file period for design sizing calculations.")]
-    public class SizingPeriod_WeatherFileDays : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SizingPeriod_WeatherFileDays : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("begin_month")]
@@ -491,8 +511,13 @@ public EmptyNoYes UseWeatherFileRainAndSnowIndicators { get; set; } = (EmptyNoYe
     [Description("Use a weather file period for design sizing calculations. EPW weather files are c" +
         "reated with typical and extreme periods created heuristically from the weather f" +
         "ile data. For more details on these periods, see AuxiliaryPrograms document.")]
-    public class SizingPeriod_WeatherFileConditionType : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SizingPeriod_WeatherFileConditionType : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Following is a list of all possible types of Extreme and Typical periods that mig" +
@@ -615,8 +640,13 @@ public EmptyNoYes UseWeatherFileRainAndSnowIndicators { get; set; } = (EmptyNoYe
     
     [Description("Specify a range of dates and other parameters for a simulation. Multiple run peri" +
         "ods may be input, but they may not overlap.")]
-    public class RunPeriod : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RunPeriod : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("begin_month")]
@@ -718,8 +748,13 @@ public EmptyNoYes TreatWeatherAsActual { get; set; } = (EmptyNoYes)Enum.Parse(ty
     }
     
     [Description(@"This object sets up holidays/special days to be used during weather file run periods. (These are not used with SizingPeriod:* objects.) Depending on the value in the run period, days on the weather file may also be used. However, the weather file specification will take precedence over any specification shown here. (No error message on duplicate days or overlapping days).")]
-    public class RunPeriodControl_SpecialDays : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RunPeriodControl_SpecialDays : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Dates can be several formats: <number>/<number>  (month/day) <number> <Month> <Month> <number> <Nth> <Weekday> in <Month) Last <WeekDay> in <Month> <Month> can be January, February, March, April, May, June, July, August, September, October, November, December Months can be the first 3 letters of the month <Weekday> can be Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday <Nth> can be 1 or 1st, 2 or 2nd, etc. up to 5(?)")]
@@ -760,7 +795,8 @@ public RunPeriodControl_SpecialDays_SpecialDayType SpecialDayType { get; set; } 
     }
     
     [Description(@"This object sets up the daylight saving time period for any RunPeriod. Ignores any daylight saving time period on the weather file and uses this definition. These are not used with SizingPeriod:DesignDay objects. Use with SizingPeriod:WeatherFileDays object can be controlled in that object.")]
-    public class RunPeriodControl_DaylightSavingTime : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RunPeriodControl_DaylightSavingTime : BHoMObject
     {
         
 
@@ -774,8 +810,13 @@ public string EndDate { get; set; } = "";
     }
     
     [Description("This object is used to override internal sky temperature calculations.")]
-    public class WeatherProperty_SkyTemperature : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WeatherProperty_SkyTemperature : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The field indicates that the sky temperature will be imported from external sched" +
@@ -827,7 +868,8 @@ public EmptyNoYes UseWeatherFileHorizontalIr { get; set; } = (EmptyNoYes)Enum.Pa
     [Description("This object should only be used for non-standard weather data. Standard weather d" +
         "ata such as TMY2, IWEC, and ASHRAE design day data are all measured at the defau" +
         "lt conditions and do not require this object.")]
-    public class Site_WeatherStation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_WeatherStation : BHoMObject
     {
         
 
@@ -848,7 +890,8 @@ public System.Nullable<float> AirTemperatureSensorHeightAboveGround { get; set; 
     }
     
     [Description(@"This object is used if the user requires advanced control over height-dependent variations in wind speed and temperature. When this object is not present, the default model for temperature dependence on height is used, and the wind speed is modeled according to the Terrain field of the BUILDING object.")]
-    public class Site_HeightVariation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_HeightVariation : BHoMObject
     {
         
 
@@ -867,7 +910,8 @@ public System.Nullable<float> AirTemperatureGradientCoefficient { get; set; } = 
     }
     
     [Description(@"These temperatures are specifically for those surfaces that have the outside environment of ""Ground"". Documentation about what values these should be is located in the Auxiliary programs document (Ground Heat Transfer) as well as the InputOutput Reference. CAUTION - Do not use the ""undisturbed"" ground temperatures from the weather data. These values are too extreme for the soil under a conditioned building. For best results, use the Slab or Basement program to calculate custom monthly average ground temperatures (see Auxiliary Programs). For typical commercial buildings in the USA, a reasonable default value is 2C less than the average indoor space temperature.")]
-    public class Site_GroundTemperature_BuildingSurface : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundTemperature_BuildingSurface : BHoMObject
     {
         
 
@@ -922,7 +966,8 @@ public System.Nullable<float> DecemberGroundTemperature { get; set; } = (System.
     [Description("These temperatures are specifically for underground walls and ground floors defin" +
         "ed with the C-factor and F-factor methods, and should be close to the monthly av" +
         "erage outdoor air temperature delayed by 3 months for the location.")]
-    public class Site_GroundTemperature_FCfactorMethod : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundTemperature_FCfactorMethod : BHoMObject
     {
         
 
@@ -977,7 +1022,8 @@ public System.Nullable<float> DecemberGroundTemperature { get; set; } = (System.
     [Description("These temperatures are specifically for the Surface Ground Heat Exchanger and sho" +
         "uld probably be close to the average outdoor air temperature for the location. T" +
         "hey are not used in other models.")]
-    public class Site_GroundTemperature_Shallow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundTemperature_Shallow : BHoMObject
     {
         
 
@@ -1032,7 +1078,8 @@ public System.Nullable<float> DecemberSurfaceGroundTemperature { get; set; } = (
     [Description("These temperatures are specifically for the ground heat exchangers that would use" +
         " \"deep\" (3-4 m depth) ground temperatures for their heat source. They are not us" +
         "ed in other models.")]
-    public class Site_GroundTemperature_Deep : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundTemperature_Deep : BHoMObject
     {
         
 
@@ -1086,8 +1133,13 @@ public System.Nullable<float> DecemberDeepGroundTemperature { get; set; } = (Sys
     
     [Description("Undisturbed ground temperature object using a detailed finite difference 1-D mode" +
         "l")]
-    public class Site_GroundTemperature_Undisturbed_FiniteDifference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundTemperature_Undisturbed_FiniteDifference : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("soil_thermal_conductivity")]
@@ -1117,8 +1169,13 @@ public System.Nullable<float> EvapotranspirationGroundCoverParameter { get; set;
     
     [Description("Undisturbed ground temperature object using the Kusuda-Achenbach 1965 correlation" +
         ".")]
-    public class Site_GroundTemperature_Undisturbed_KusudaAchenbach : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundTemperature_Undisturbed_KusudaAchenbach : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("soil_thermal_conductivity")]
@@ -1154,8 +1211,13 @@ public System.Nullable<float> PhaseShiftOfMinimumSurfaceTemperature { get; set; 
     
     [Description("Undisturbed ground temperature object using the Xing 2014 2 harmonic parameter mo" +
         "del.")]
-    public class Site_GroundTemperature_Undisturbed_Xing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundTemperature_Undisturbed_Xing : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("soil_thermal_conductivity")]
@@ -1192,8 +1254,13 @@ public System.Nullable<float> PhaseShiftOfTemperatureAmplitude2 { get; set; } = 
     
     [Description("Ground-coupled slab model for on-grade and in-grade cases with or without insulat" +
         "ion.")]
-    public class Site_GroundDomain_Slab : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundDomain_Slab : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("ground_domain_depth")]
@@ -1363,8 +1430,13 @@ public System.Nullable<float> MeshDensityParameter { get; set; } = (System.Nulla
     
     [Description("Ground-coupled basement model for simulating basements or other underground zones" +
         ".")]
-    public class Site_GroundDomain_Basement : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundDomain_Basement : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The depth from ground surface to the deep ground boundary of the domain.")]
@@ -1518,7 +1590,8 @@ public System.Nullable<float> MeshDensityParameter { get; set; } = (System.Nulla
     [Description("Specifies the ground reflectance values used to calculate ground reflected solar." +
         " The ground reflectance can be further modified when snow is on the ground by Si" +
         "te:GroundReflectance:SnowModifier.")]
-    public class Site_GroundReflectance : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundReflectance : BHoMObject
     {
         
 
@@ -1573,7 +1646,8 @@ public System.Nullable<float> DecemberGroundReflectance { get; set; } = (System.
     [Description("Specifies ground reflectance multipliers when snow resident on the ground. These " +
         "multipliers are applied to the \"normal\" ground reflectances specified in Site:Gr" +
         "oundReflectance.")]
-    public class Site_GroundReflectance_SnowModifier : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundReflectance_SnowModifier : BHoMObject
     {
         
 
@@ -1590,7 +1664,8 @@ public System.Nullable<float> DaylightingGroundReflectedSolarModifier { get; set
     [Description("Used to calculate water mains temperatures delivered by underground water main pi" +
         "pes. Water mains temperatures are a function of outdoor climate conditions and v" +
         "ary with time of year.")]
-    public class Site_WaterMainsTemperature : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_WaterMainsTemperature : BHoMObject
     {
         
 
@@ -1635,7 +1710,8 @@ public System.Nullable<float> MaximumDifferenceInMonthlyAverageOutdoorAirTempera
     
     [Description("Used to describe the amount of water precipitation at the building site. Precipit" +
         "ation includes both rain and the equivalent water content of snow.")]
-    public class Site_Precipitation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_Precipitation : BHoMObject
     {
         
 
@@ -1668,7 +1744,8 @@ public System.Nullable<float> AverageTotalAnnualPrecipitation { get; set; } = nu
     
     [Description("Used to describe the amount of irrigation on the ecoroof surface over the course " +
         "of the simulation runperiod.")]
-    public class RoofIrrigation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoofIrrigation : BHoMObject
     {
         
 
@@ -1702,8 +1779,13 @@ public System.Nullable<float> IrrigationMaximumSaturationThreshold { get; set; }
     
     [Description("If this object is omitted, the default solar and visible spectrum data will be us" +
         "ed.")]
-    public class Site_SolarAndVisibleSpectrum : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_SolarAndVisibleSpectrum : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The method specifies which of the solar and visible spectrum data to use in the c" +
@@ -1738,8 +1820,13 @@ public string VisibleSpectrumDataObjectName { get; set; } = "";
     [Description("Spectrum Data Type is followed by up to 107 sets of normal-incidence measured val" +
         "ues of [wavelength, spectrum] for wavelengths covering the solar (0.25 to 2.5 mi" +
         "crons) or visible spectrum (0.38 to 0.78 microns)")]
-    public class Site_SpectrumData : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_SpectrumData : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("spectrum_data_type")]

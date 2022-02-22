@@ -70,8 +70,13 @@ namespace BH.oM.Adapters.EnergyPlus.VariableRefrigerantFlowEquipment
         "e or more electric compressors and outdoor fan). Serves one or more VRF zone ter" +
         "minal units. See ZoneHVAC:TerminalUnit:VariableRefrigerantFlow and ZoneTerminalU" +
         "nitList.")]
-    public class AirConditioner_VariableRefrigerantFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirConditioner_VariableRefrigerantFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Availability schedule name for this system. Schedule value > 0 means the system is available. If this field is blank, the system is always available. Enter the name of a schedule that defines the availability of the unit. Schedule values of 0 denote the unit is off. All other values denote the unit is available. If this field is left blank, the unit is available the entire simulation.")]
@@ -664,7 +669,8 @@ public System.Nullable<float> HeatRecoveryHeatingEnergyTimeConstant { get; set; 
     }
     
     [Description(@"This is a key object in the new physics based VRF model applicable for Fluid Temperature Control It describes the Variable Refrigerant Flow system excluding the performance of indoor units Indoor units are modeled separately, see ZoneHVAC:TerminalUnit:VariableRefrigerantFlow")]
-    public class AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl : BHoMObject
     {
         
 
@@ -940,8 +946,13 @@ public string LoadingIndices { get; set; } = "";
     }
     
     [Description(@"This is a key object in the new physics based VRF Heat Recovery (HR) model applicable for Fluid Temperature Control. It describes the VRF HR system excluding the performance of indoor units. Indoor units are modeled separately in the ZoneHVAC:TerminalUnit:VariableRefrigerantFlow object")]
-    public class AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirConditioner_VariableRefrigerantFlow_FluidTemperatureControl_HR : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a schedule that defines the availability of the unit Schedule v" +
@@ -1307,7 +1318,8 @@ public string LoadingIndices { get; set; } = "";
     [Description("List of variable refrigerant flow (VRF) terminal units served by a given VRF cond" +
         "ensing unit. See ZoneHVAC:TerminalUnit:VariableRefrigerantFlow and AirConditione" +
         "r:VariableRefrigerantFlow.")]
-    public class ZoneTerminalUnitList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneTerminalUnitList : BHoMObject
     {
         
 

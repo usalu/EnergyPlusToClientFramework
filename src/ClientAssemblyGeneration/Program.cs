@@ -13,9 +13,10 @@ using EnergyPlus_9_5_0_JsonSchema;
 using EnergyPlus_oM;
 using Microsoft.CSharp;
 using Newtonsoft.Json;
-using BH.oM.Adapters.EnergyPlus;
-using BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts;
-using BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment;
+//using BH.oM.Adapters.EnergyPlus;
+//using BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts;
+//using BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment;
+//using BH.oM.Adapters.EnergyPlus.SimulationParameters;
 
 namespace ClientAssemblyGeneration
 {
@@ -66,16 +67,26 @@ namespace ClientAssemblyGeneration
                 File.WriteAllText(ePNamespaceFolder + "\\" + ePNamespaceName + ".cs", "namespace" + ePNamespace);
             }
 
-            var epJsonTest = new EnergyPlusJson();
-            var testObjects = new Dictionary<string, Boiler_HotWater>();
-            var testProperty = new Boiler_HotWater();
-            //testProperty.ConstantInternalVaporTransferCoefficient = EmptyNoYes.Empty;
-            testProperty.BoilerFlowMode = Boiler_HotWater_BoilerFlowMode.Empty;
-            testObjects.Add("Main boiler1", testProperty);
-            epJsonTest.Boiler_HotWater_Dictionary = testObjects;
-            var settings = new JsonSerializerSettings() { ContractResolver = new NullToEmptyStringResolver() };
-            File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\Test.json", JsonConvert.SerializeObject(epJsonTest));
-            var B = JsonConvert.SerializeObject(epJsonTest, settings);
+            //var epJsonTest = new EnergyPlusJson();
+            //var building = new Building();
+            //building.Name = "Buildinggg X1";
+
+            //var testObjects = new Dictionary<string, Boiler_HotWater>();
+            //var testProperty = new Boiler_HotWater();
+            ////testProperty.ConstantInternalVaporTransferCoefficient = EmptyNoYes.Empty;
+            //testProperty.Name = "Main boiler1";
+            //testProperty.BoilerFlowMode = Boiler_HotWater_BoilerFlowMode.Empty;
+            //testObjects.Add("Main boiler1", testProperty);
+
+            //epJsonTest.Building = building;
+            //epJsonTest.Boiler_HotWater_Dictionary = testObjects;
+            //var settings = new JsonSerializerSettings()
+            //{
+            //    ContractResolver = new NullToEmptyStringResolver(),
+            //    Converters = new List<JsonConverter>() { new EnergyPlusNodeConverter() }
+            //};
+            //string serializedString = JsonConvert.SerializeObject(epJsonTest, settings); 
+            //File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\Test.json", serializedString);
 
         }
     }

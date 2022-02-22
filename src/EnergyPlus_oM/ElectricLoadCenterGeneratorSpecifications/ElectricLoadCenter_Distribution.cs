@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("Describes a subpanel a list of meters that can be reported are available after a " +
                  "run on the meter dictionary file (.mdd) if the Output:VariableDictionary has bee" +
                  "n requested.")]
-    public class ElectricLoadCenter_Distribution : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ElectricLoadCenter_Distribution : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Name of an ElectricLoadCenter:Generators object")]

@@ -7,8 +7,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     [Description("Determines the optimal start of HVAC systems before occupancy.")]
-    public class AvailabilityManager_OptimumStart : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_OptimumStart : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("applicability_schedule_name")]

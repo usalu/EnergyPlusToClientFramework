@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("This object is used to control details of the solar, shading, and daylighting mod" +
                  "els")]
-    public class ShadowCalculation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ShadowCalculation : BHoMObject
     {
         
 

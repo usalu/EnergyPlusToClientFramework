@@ -10,8 +10,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "stem which includes a water heating coil, evaporator air coil, evaporator fan, e" +
                  "lectric compressor, and water pump. Part of a WaterHeater:HeatPump:PumpedCondens" +
                  "er system.")]
-    public class Coil_WaterHeating_AirToWaterHeatPump_Pumped : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_WaterHeating_AirToWaterHeatPump_Pumped : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Heating capacity at the rated inlet air temperatures, rated condenser inlet water" +

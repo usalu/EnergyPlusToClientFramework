@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     
     
     [Description(@"Zone thermostat control. Referenced schedules must be defined elsewhere in the idf. Thermostat control type is dual setpoint with deadband. It is not necessary to create a thermostat object for every zone, only for each unique set of setpoint schedules. For example, an office building may have two thermostat objects, one for ""Office"" and one for ""Storage"".")]
-    public class HVACTemplate_Thermostat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Thermostat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Leave blank if constant setpoint specified below, must enter schedule or constant" +
@@ -94,7 +99,8 @@ public System.Nullable<float> ConstantCoolingSetpoint { get; set; } = null;
     }
     
     [Description("Zone with ideal air system that meets heating or cooling loads")]
-    public class HVACTemplate_Zone_IdealLoadsAirSystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_IdealLoadsAirSystem : BHoMObject
     {
         
 
@@ -406,7 +412,8 @@ public System.Nullable<float> LatentHeatRecoveryEffectiveness { get; set; } = (S
     }
     
     [Description("Zone baseboard heating system.")]
-    public class HVACTemplate_Zone_BaseboardHeat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_BaseboardHeat : BHoMObject
     {
         
 
@@ -518,7 +525,8 @@ public string DesignSpecificationZoneAirDistributionObjectName { get; set; } = "
     }
     
     [Description("4 pipe fan coil unit with optional outdoor air.")]
-    public class HVACTemplate_Zone_FanCoil : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_FanCoil : BHoMObject
     {
         
 
@@ -824,7 +832,8 @@ public string BaseboardHeatingCapacity { get; set; } = (System.String)"Autosize"
     }
     
     [Description("Packaged Terminal Air Conditioner")]
-    public class HVACTemplate_Zone_PTAC : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_PTAC : BHoMObject
     {
         
 
@@ -1167,7 +1176,8 @@ public HVACTemplate_Zone_PTAC_CapacityControlMethod CapacityControlMethod { get;
     }
     
     [Description("Packaged Terminal Heat Pump")]
-    public class HVACTemplate_Zone_PTHP : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_PTHP : BHoMObject
     {
         
 
@@ -1598,7 +1608,8 @@ public HVACTemplate_Zone_PTHP_CapacityControlMethod CapacityControlMethod { get;
     }
     
     [Description("Water to Air Heat Pump to be used with HVACTemplate:Plant:MixedWaterLoop")]
-    public class HVACTemplate_Zone_WaterToAirHeatPump : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_WaterToAirHeatPump : BHoMObject
     {
         
 
@@ -1980,7 +1991,8 @@ public string BaseboardHeatingCapacity { get; set; } = (System.String)"Autosize"
     [Description("Zone terminal unit with variable refrigerant flow (VRF) DX cooling and heating co" +
         "ils (air-to-air or water-to-air heat pump). The VRF terminal units are served by" +
         " an HVACTemplate:System:VRF system.")]
-    public class HVACTemplate_Zone_VRF : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_VRF : BHoMObject
     {
         
 
@@ -2339,7 +2351,8 @@ public string BaseboardHeatingCapacity { get; set; } = (System.String)"Autosize"
     }
     
     [Description("Zone terminal unit, constant volume, no controls.")]
-    public class HVACTemplate_Zone_Unitary : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_Unitary : BHoMObject
     {
         
 
@@ -2541,7 +2554,8 @@ public string DesignSpecificationZoneAirDistributionObjectName { get; set; } = "
     
     [Description("Zone terminal unit, variable volume, reheat optional. For heating, this unit acti" +
         "vates reheat coil first, then increases airflow (if reverse action specified).")]
-    public class HVACTemplate_Zone_VAV : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_VAV : BHoMObject
     {
         
 
@@ -2851,7 +2865,8 @@ public string DesignSpecificationZoneAirDistributionObjectName { get; set; } = "
     
     [Description("Zone terminal unit, fan powered variable volume, reheat optional. Referenced sche" +
         "dules must be defined elsewhere in the idf.")]
-    public class HVACTemplate_Zone_VAV_FanPowered : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_VAV_FanPowered : BHoMObject
     {
         
 
@@ -3133,7 +3148,8 @@ public string DesignSpecificationZoneAirDistributionObjectName { get; set; } = "
     
     [Description("VAV system with VAV for both heating and cooling and optional reheat coil. For he" +
         "ating, this unit increases airflow first, then activates reheat coil.")]
-    public class HVACTemplate_Zone_VAV_HeatAndCool : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_VAV_HeatAndCool : BHoMObject
     {
         
 
@@ -3373,7 +3389,8 @@ public System.Nullable<float> ZoneHeatingDesignSupplyAirTemperatureDifference { 
     
     [Description("Zone terminal unit, constant volume, reheat optional. Referenced schedules must b" +
         "e defined elsewhere in the idf.")]
-    public class HVACTemplate_Zone_ConstantVolume : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_ConstantVolume : BHoMObject
     {
         
 
@@ -3608,7 +3625,8 @@ public System.Nullable<float> ZoneHeatingDesignSupplyAirTemperatureDifference { 
     }
     
     [Description("Zone terminal unit, dual-duct, constant or variable volume.")]
-    public class HVACTemplate_Zone_DualDuct : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_DualDuct : BHoMObject
     {
         
 
@@ -3826,8 +3844,13 @@ public System.Nullable<float> ZoneHeatingDesignSupplyAirTemperatureDifference { 
     
     [Description("Variable refrigerant flow (VRF) heat pump condensing unit. Serves one or more VRF" +
         " zone terminal units (HVACTemplate:Zone:VRF).")]
-    public class HVACTemplate_System_VRF : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_VRF : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -4151,8 +4174,13 @@ public System.Nullable<float> MaximumOutdoorTemperatureInHeatRecoveryMode { get;
     }
     
     [Description("Unitary furnace with air conditioner")]
-    public class HVACTemplate_System_Unitary : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_Unitary : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If blank, always on; Unitary System always on. Schedule is used in availability m" +
@@ -4554,8 +4582,13 @@ public System.Nullable<float> ReturnFanMotorInAirStreamFraction { get; set; } = 
     }
     
     [Description("Unitary furnace with electric air-to-air heat pump")]
-    public class HVACTemplate_System_UnitaryHeatPump_AirToAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_UnitaryHeatPump_AirToAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If blank, always on; Unitary System always on. Schedule is used in availability m" +
@@ -5037,8 +5070,13 @@ public System.Nullable<float> ReturnFanMotorInAirStreamFraction { get; set; } = 
     [Description("Unitary HVAC system with optional cooling and heating. Supports DX and chilled wa" +
         "ter, cooling, gas, electric, and hot water heating, air-to-air and water-to-air " +
         "heat pumps.")]
-    public class HVACTemplate_System_UnitarySystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_UnitarySystem : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If blank, always available. Also see Supply Fan Operating Mode Schedule Name fiel" +
@@ -5698,8 +5736,13 @@ public System.Nullable<float> ReturnFanMotorInAirStreamFraction { get; set; } = 
     
     [Description("Variable Air Volume (VAV) air loop with optional heating coil and optional prehea" +
         "t.")]
-    public class HVACTemplate_System_VAV : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_VAV : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If blank, always on; VAV System always on. Schedule is used in availability manag" +
@@ -6286,8 +6329,13 @@ public HVACTemplate_System_VAV_ReturnFanPartLoadPowerCoefficients ReturnFanPartL
     
     [Description("Packaged Variable Air Volume (PVAV) air loop with optional heating coil and optio" +
         "nal preheat.")]
-    public class HVACTemplate_System_PackagedVAV : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_PackagedVAV : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If blank, always on; PVAV System always on. Schedule is used in availability mana" +
@@ -6855,8 +6903,13 @@ public HVACTemplate_System_PackagedVAV_ReturnFanPartLoadPowerCoefficients Return
     
     [Description("Constant Air Volume air loop with optional chilled water cooling coil, optional h" +
         "eating coil and optional preheat.")]
-    public class HVACTemplate_System_ConstantVolume : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_ConstantVolume : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If blank, always on;  Schedule is used in availability manager and fan scheduling" +
@@ -7449,8 +7502,13 @@ public System.Nullable<float> ReturnFanMotorInAirStreamFraction { get; set; } = 
     }
     
     [Description("Dual-duct constant volume or variable volume air loop")]
-    public class HVACTemplate_System_DualDuct : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_DualDuct : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If blank, always on;  Schedule is used in availability manager and fan scheduling" +
@@ -8311,8 +8369,13 @@ public HVACTemplate_System_DualDuct_ReturnFanPartLoadPowerCoefficients ReturnFan
     [Description("This object creates a dedicated outdoor air system that must be used with HVACTem" +
         "plate:Zone:* objects for BaseboardHeat FanCoil PTAC PTHP WaterToAirHeatPump and " +
         "VRF. Does not support HVACTemplate:Zone:VAV or other central multizone systems")]
-    public class HVACTemplate_System_DedicatedOutdoorAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_DedicatedOutdoorAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If blank, always on; DOAS System always on. Schedule is used in availability mana" +
@@ -8736,8 +8799,13 @@ public string HumidifierSetpointScheduleName { get; set; } = "";
     
     [Description("Plant and condenser loops to serve all HVACTemplate chilled water coils, chillers" +
         ", and towers.")]
-    public class HVACTemplate_Plant_ChilledWaterLoop : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_ChilledWaterLoop : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If blank, always available Applies to both chilled water and condenser loop pumps" +
@@ -9156,8 +9224,13 @@ public HVACTemplate_Plant_ChilledWaterLoop_CondenserWaterLoadDistributionScheme 
     }
     
     [Description("This object adds a chiller to an HVACTemplate:Plant:ChilledWaterLoop.")]
-    public class HVACTemplate_Plant_Chiller : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_Chiller : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("chiller_type")]
@@ -9257,8 +9330,13 @@ public System.Nullable<float> LeavingChilledWaterLowerTemperatureLimit { get; se
     [Description("This object references a detailed chiller object and adds it to an HVACTemplate:P" +
         "lant:ChilledWaterLoop. The user must create a complete detailed chiller object w" +
         "ith all required curve or performance objects.")]
-    public class HVACTemplate_Plant_Chiller_ObjectReference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_Chiller_ObjectReference : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("chiller_object_type")]
@@ -9292,8 +9370,13 @@ public System.Nullable<float> Priority { get; set; } = null;
     
     [Description("This object adds a cooling tower to an HVACTemplate:Plant:ChilledWaterLoop or Mix" +
         "edWaterLoop.")]
-    public class HVACTemplate_Plant_Tower : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_Tower : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("tower_type")]
@@ -9369,8 +9452,13 @@ public HVACTemplate_Plant_Tower_TemplatePlantLoopType TemplatePlantLoopType { ge
     [Description("This object references a detailed cooling tower object and adds it to an HVACTemp" +
         "late:Plant:ChilledWaterLoop or MixedWaterLoop. The user must create a complete d" +
         "etailed cooling tower object with all required curve or performance objects.")]
-    public class HVACTemplate_Plant_Tower_ObjectReference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_Tower_ObjectReference : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("cooling_tower_object_type")]
@@ -9425,8 +9513,13 @@ public HVACTemplate_Plant_Tower_ObjectReference_TemplatePlantLoopType TemplatePl
     }
     
     [Description("Plant loop to serve all HVACTemplate hot water coils and boilers.")]
-    public class HVACTemplate_Plant_HotWaterLoop : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_HotWaterLoop : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If blank, always available")]
@@ -9675,8 +9768,13 @@ public HVACTemplate_Plant_HotWaterLoop_LoadDistributionScheme LoadDistributionSc
     
     [Description("This object adds a boiler to an HVACTemplate:Plant:HotWaterLoop or MixedWaterLoop" +
         ".")]
-    public class HVACTemplate_Plant_Boiler : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_Boiler : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("boiler_type")]
@@ -9794,8 +9892,13 @@ public HVACTemplate_Plant_Boiler_TemplatePlantLoopType TemplatePlantLoopType { g
     [Description("This object references a detailed boiler object and adds it to an HVACTemplate:Pl" +
         "ant:HotWaterLoop or MixedWaterLoop. The user must create a complete detailed boi" +
         "ler object with all required curve or performance objects.")]
-    public class HVACTemplate_Plant_Boiler_ObjectReference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_Boiler_ObjectReference : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("boiler_object_type")]
@@ -9843,8 +9946,13 @@ public HVACTemplate_Plant_Boiler_ObjectReference_TemplatePlantLoopType TemplateP
     }
     
     [Description("Central plant loop portion of a water source heat pump system.")]
-    public class HVACTemplate_Plant_MixedWaterLoop : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_MixedWaterLoop : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("If blank, always available Applies to both chilled water and condenser loop pumps" +

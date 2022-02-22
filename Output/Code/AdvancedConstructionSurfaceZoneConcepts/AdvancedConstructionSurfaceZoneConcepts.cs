@@ -67,7 +67,8 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     
     
     [Description(@"Determines which Heat Balance Algorithm will be used for a specific surface Allows selectively overriding the global setting in HeatBalanceAlgorithm CTF (Conduction Transfer Functions), EMPD (Effective Moisture Penetration Depth with Conduction Transfer Functions). Advanced/Research Usage: CondFD (Conduction Finite Difference) Advanced/Research Usage: HAMT (Combined Heat And Moisture Finite Element)")]
-    public class SurfaceProperty_HeatTransferAlgorithm : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_HeatTransferAlgorithm : BHoMObject
     {
         
 
@@ -100,8 +101,13 @@ public SurfaceProperty_HeatTransferAlgorithm_Algorithm Algorithm { get; set; } =
     }
     
     [Description(@"Determines which Heat Balance Algorithm will be used for a group of surface types Allows selectively overriding the global setting in HeatBalanceAlgorithm CTF (Conduction Transfer Functions), EMPD (Effective Moisture Penetration Depth with Conduction Transfer Functions). Advanced/Research Usage: CondFD (Conduction Finite Difference) Advanced/Research Usage: HAMT (Combined Heat And Moisture Finite Element)")]
-    public class SurfaceProperty_HeatTransferAlgorithm_MultipleSurface : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_HeatTransferAlgorithm_MultipleSurface : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("surface_type")]
@@ -165,8 +171,13 @@ public SurfaceProperty_HeatTransferAlgorithm_MultipleSurface_Algorithm Algorithm
     }
     
     [Description(@"Determines which Heat Balance Algorithm will be used for a list of surfaces Allows selectively overriding the global setting in HeatBalanceAlgorithm CTF (Conduction Transfer Functions), EMPD (Effective Moisture Penetration Depth with Conduction Transfer Functions). Advanced/Research Usage: CondFD (Conduction Finite Difference) Advanced/Research Usage: HAMT (Combined Heat And Moisture Finite Element)")]
-    public class SurfaceProperty_HeatTransferAlgorithm_SurfaceList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_HeatTransferAlgorithm_SurfaceList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("algorithm")]
@@ -198,8 +209,13 @@ public string Surface { get; set; } = "";
     }
     
     [Description(@"Determines which Heat Balance Algorithm will be used for surfaces that have a specific type of construction Allows selectively overriding the global setting in HeatBalanceAlgorithm CTF (Conduction Transfer Functions), EMPD (Effective Moisture Penetration Depth with Conduction Transfer Functions). Advanced/Research Usage: CondFD (Conduction Finite Difference) Advanced/Research Usage: HAMT (Combined Heat And Moisture Finite Element)")]
-    public class SurfaceProperty_HeatTransferAlgorithm_Construction : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_HeatTransferAlgorithm_Construction : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("algorithm")]
@@ -233,7 +249,8 @@ public string ConstructionName { get; set; } = "";
     [Description("Allows an additional heat source term to be added to the inside or outside surfac" +
         "e boundary. A heat source can be added to either or both the inside and outside " +
         "of the same surface.")]
-    public class SurfaceProperty_HeatBalanceSourceTerm : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_HeatBalanceSourceTerm : BHoMObject
     {
         
 
@@ -252,7 +269,8 @@ public string OutsideFaceHeatSourceTermScheduleName { get; set; } = "";
     }
     
     [Description("Exterior or Interior Insulation on opaque surfaces")]
-    public class SurfaceControl_MovableInsulation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceControl_MovableInsulation : BHoMObject
     {
         
 
@@ -284,8 +302,13 @@ public string ScheduleName { get; set; } = "";
     }
     
     [Description("This object sets the other side conditions for a surface in a variety of ways.")]
-    public class SurfaceProperty_OtherSideCoefficients : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_OtherSideCoefficients : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"if>0, this field becomes the exterior convective/radiative film coefficient and the other fields are used to calculate the outdoor air temperature then exterior surface temperature based on outdoor air and specified coefficient if<=0, then remaining fields calculate the outside surface temperature The following fields are used in the equation: OtherSideTemp=N2*N3 + N4*OutdoorDry-bulb + N5*GroundTemp + N6*WindSpeed*OutdoorDry-bulb + N7*TempZone + N9*TempPrev")]
@@ -359,8 +382,13 @@ public System.Nullable<float> MaximumOtherSideTemperatureLimit { get; set; } = n
     
     [Description("This object sets up modifying the other side conditions for a surface from other " +
         "model results.")]
-    public class SurfaceProperty_OtherSideConditionsModel : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_OtherSideConditionsModel : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"GapConvectionRadiation provides boundary conditions for convection and linearized thermal radiation across a gap or cavity on the other side of the surface that are modeled separately. UndergroundPipingSystemSurface provides boundary conditions for surfaces in contact with PipingSystem:Underground domains GroundCoupledSurface provides boundary conditions for surfaces in contact with GroundDomain objects ConvectiveUnderwater provides a connection between a surface and an underwater boundary condition defined using a SurfaceProperty:Underwater object")]
@@ -391,8 +419,13 @@ public SurfaceProperty_OtherSideConditionsModel_TypeOfModeling TypeOfModeling { 
     [Description("This object sets up a convective water boundary condition for a surface The free " +
         "stream temperature and velocity are scheduled. If the free stream velocity is ze" +
         "ro, the surface will naturally convect with the surrounding water.")]
-    public class SurfaceProperty_Underwater : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_Underwater : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("This is the distance from the leading edge of the boundary layer development to t" +
@@ -413,8 +446,13 @@ public string FreeStreamWaterVelocitySchedule { get; set; } = "";
     [Description("Refined definition of the foundation surface construction used to inform two-dime" +
         "nsional heat transfer calculated using the Kiva ground heat transfer methodology" +
         ".")]
-    public class Foundation_Kiva : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Foundation_Kiva : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Indoor air temperature used for Kiva initialization (prior to warmup period) If l" +
@@ -503,7 +541,8 @@ public string Blocks { get; set; } = "";
     
     [Description("Settings applied across all Kiva foundation calculations. Object is not required." +
         " If not defined, defaults will be applied.")]
-    public class Foundation_Kiva_Settings : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Foundation_Kiva_Settings : BHoMObject
     {
         
 
@@ -587,7 +626,8 @@ public Foundation_Kiva_Settings_SimulationTimestep SimulationTimestep { get; set
     }
     
     [Description(@"Defines the perimeter of a foundation floor that is exposed to the exterior environment through the floor. User may either define the total exposed perimeter, fraction of perimeter exposed or individually define which segments of the floor surface perimeter are exposed.")]
-    public class SurfaceProperty_ExposedFoundationPerimeter : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_ExposedFoundationPerimeter : BHoMObject
     {
         
 
@@ -627,8 +667,13 @@ public string Surfaces { get; set; } = "";
     }
     
     [Description(@"Options to change the individual convection model equations for dynamic selection when using AdaptiveConvectiongAlgorithm This object is only needed to make changes to the default model selections for any or all of the surface categories. This object is for the inside face, the side of the surface facing a thermal zone.")]
-    public class SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceConvectionAlgorithm_Inside_AdaptiveModelSelections : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Applies to zone with no HVAC or when HVAC is off This is for vertical walls")]
@@ -2161,8 +2206,13 @@ public string MixedRegimeWindowEquationUserCurveName { get; set; } = "";
     }
     
     [Description(@"Options to change the individual convection model equations for dynamic selection when using AdaptiveConvectiongAlgorithm This object is only needed to make changes to the default model selections for any or all of the surface categories. This object is for the outside face, the side of the surface facing away from the thermal zone.")]
-    public class SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceConvectionAlgorithm_Outside_AdaptiveModelSelections : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("wind_convection_windward_vertical_wall_equation_source")]
@@ -2411,8 +2461,13 @@ public string NaturalConvectionUnstableHorizontalEquationUserCurveName { get; se
     [Description("Used to describe a custom model equation for surface convection heat transfer coe" +
         "fficient If more than one curve is referenced they are all used and added togeth" +
         "er.")]
-    public class SurfaceConvectionAlgorithm_Inside_UserCurve : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceConvectionAlgorithm_Inside_UserCurve : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Controls which temperature is differenced from surface temperature when using the" +
@@ -2464,8 +2519,13 @@ public string HcFunctionOfAirSystemVolumeFlowRateDividedByZonePerimeterLengthCur
     [Description("Used to describe a custom model equation for surface convection heat transfer coe" +
         "fficient If more than one curve is referenced they are all used and added togeth" +
         "er.")]
-    public class SurfaceConvectionAlgorithm_Outside_UserCurve : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceConvectionAlgorithm_Outside_UserCurve : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("wind_speed_type_for_curve")]
@@ -2511,7 +2571,8 @@ public string HnFunctionOfTemperatureDifferenceDividedByHeightCurveName { get; s
     }
     
     [Description(@"Allow user settable interior and/or exterior convection coefficients. Note that some other factors may limit the lower bounds for these values, such as for windows, the interior convection coefficient must be >.28, for trombe wall algorithm selection (zone), the interior convection coefficient must be >.1 for TARP interior convection, the lower limit is also .1 Minimum and maximum limits are set in HeatBalanceAlgorithm object. Defaults in HeatBalanceAlgorithm object are [.1,1000].")]
-    public class SurfaceProperty_ConvectionCoefficients : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_ConvectionCoefficients : BHoMObject
     {
         
 
@@ -2866,7 +2927,8 @@ public string ConvectionCoefficient2UserCurveName { get; set; } = "";
     }
     
     [Description(@"Allow user settable interior and/or exterior convection coefficients. Note that some other factors may limit the lower bounds for these values, such as for windows, the interior convection coefficient must be >.28, for trombe wall algorithm selection (zone), the interior convection coefficient must be >.1 for TARP interior convection, the lower limit is also .1 Minimum and maximum limits are set in HeatBalanceAlgorithm object. Defaults in HeatBalanceAlgorithm object are [.1,1000].")]
-    public class SurfaceProperty_ConvectionCoefficients_MultipleSurface : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_ConvectionCoefficients_MultipleSurface : BHoMObject
     {
         
 
@@ -3262,7 +3324,8 @@ public string ConvectionCoefficient2UserCurveName { get; set; } = "";
     }
     
     [Description(@"The interior and external vapor transfer coefficients. Normally these value are calculated using the heat convection coefficient values. Use this object to used fixed constant values. Units are kg/Pa.s.m2 This will only work with the CombinedHeatAndMoistureFiniteElement algorithm for surfaces. Other algorithms will ignore these coefficients")]
-    public class SurfaceProperties_VaporCoefficients : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperties_VaporCoefficients : BHoMObject
     {
         
 
@@ -3291,8 +3354,13 @@ public System.Nullable<float> InternalVaporCoefficientValue { get; set; } = (Sys
     [Description("Used to describe the decoupled layer, or baffle, and the characteristics of the c" +
         "avity and openings for naturally ventilated exterior surfaces. This object is al" +
         "so used in conjunction with the OtherSideConditionsModel.")]
-    public class SurfaceProperty_ExteriorNaturalVentedCavity : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_ExteriorNaturalVentedCavity : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a SurfaceProperty:OtherSideConditionsModel object")]
@@ -3368,8 +3436,13 @@ public string Surface { get; set; } = "";
     [Description("Used to provide incident solar radiation on the inside of the surface. Reference " +
         "surface-construction pair and if that pair is used in a simulation, then program" +
         " will use value provided in schedule instead of calculating it.")]
-    public class SurfaceProperty_SolarIncidentInside : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_SolarIncidentInside : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("surface_name")]
@@ -3388,8 +3461,13 @@ public string InsideSurfaceIncidentSunSolarRadiationScheduleName { get; set; } =
     [Description("This object defines the local environment properties of an exterior surface. One " +
         "or more environment properties have to be defined and linked to the exterior sur" +
         "face.")]
-    public class SurfaceProperty_LocalEnvironment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_LocalEnvironment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an exterior surface object")]
@@ -3414,8 +3492,13 @@ public string OutdoorAirNodeName { get; set; } = "";
     
     [Description("This object defines the local environment properties of a zone object. A correspo" +
         "nding outdoor air node should be defined and linked to the zone object.")]
-    public class ZoneProperty_LocalEnvironment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneProperty_LocalEnvironment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a zone object")]
@@ -3429,8 +3512,13 @@ public string OutdoorAirNodeName { get; set; } = "";
     }
     
     [Description("This object defines a list of surrounding surfaces for an exterior surface.")]
-    public class SurfaceProperty_SurroundingSurfaces : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_SurroundingSurfaces : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("optional")]
@@ -3460,8 +3548,13 @@ public string Surfaces { get; set; } = "";
     [Description("Used to provide solar radiation absorbed in fenestration layers. References surfa" +
         "ce-construction pair and if that pair is used in a simulation, then program will" +
         " use value provided in schedules instead of calculating it.")]
-    public class ComplexFenestrationProperty_SolarAbsorbedLayers : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ComplexFenestrationProperty_SolarAbsorbedLayers : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("fenestration_surface")]
@@ -3499,7 +3592,8 @@ public string Layer5SolarRadiationAbsorbedScheduleName { get; set; } = "";
     
     [Description("View factors for Surface to Surface in a zone. (Number of Surfaces)**2 are expect" +
         "ed. Any omitted surface pairs will be assumed to have a view factor of zero.")]
-    public class ZoneProperty_UserViewFactors_BySurfaceName : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneProperty_UserViewFactors_BySurfaceName : BHoMObject
     {
         
 

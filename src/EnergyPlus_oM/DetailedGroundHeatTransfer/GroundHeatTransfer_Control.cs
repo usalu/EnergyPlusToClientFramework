@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
     
     [Description("Object determines if the Slab and Basement preprocessors are going to be executed" +
         ".")]
-    public class GroundHeatTransfer_Control : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatTransfer_Control : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("run_basement_preprocessor")]

@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
     [Description("This setpoint manager uses one curve to determine the optimum condenser entering " +
                  "water temperature for a given timestep and two other curves to place boundary co" +
                  "nditions on the setpoint value.")]
-    public class SetpointManager_CondenserEnteringReset : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_CondenserEnteringReset : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("control_variable")]

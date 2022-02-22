@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     
     
     [Description(@"Ideal system used to calculate loads without modeling a full HVAC system. All that is required for the ideal system are zone controls, zone equipment configurations, and the ideal loads system component. This component can be thought of as an ideal unit that mixes zone air with the specified amount of outdoor air and then adds or removes heat and moisture at 100% efficiency in order to meet the specified controls. Energy use is reported as DistrictHeating and DistrictCooling.")]
-    public class ZoneHVAC_IdealLoadsAirSystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_IdealLoadsAirSystem : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -339,8 +344,13 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     [Description("Four pipe fan coil system. Forced-convection hydronic heating-cooling unit with s" +
         "upply fan, hot water heating coil, chilled water cooling coil, and fixed-positio" +
         "n outdoor air mixer.")]
-    public class ZoneHVAC_FourPipeFanCoil : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_FourPipeFanCoil : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -549,8 +559,13 @@ public string MaximumSupplyAirTemperatureInHeatingMode { get; set; } = (System.S
     
     [Description("Window air conditioner. Forced-convection cooling-only unit with supply fan, dire" +
         "ct expansion (DX) cooling coil, and fixed-position outdoor air mixer.")]
-    public class ZoneHVAC_WindowAirConditioner : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_WindowAirConditioner : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -676,8 +691,13 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     [Description("Packaged terminal air conditioner (PTAC). Forced-convection heating-cooling unit " +
         "with supply fan, direct expansion (DX) cooling coil, heating coil (gas, electric" +
         ", hot water, or steam) and fixed-position outdoor air mixer.")]
-    public class ZoneHVAC_PackagedTerminalAirConditioner : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_PackagedTerminalAirConditioner : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -892,8 +912,13 @@ public string MaximumSupplyAirTemperatureInHeatingMode { get; set; } = (System.S
     }
     
     [Description(@"Packaged terminal heat pump (PTHP). Forced-convection heating-cooling unit with supply fan, direct expansion (DX) cooling coil, DX heating coil (air-to-air heat pump), supplemental heating coil (gas, electric, hot water, or steam), and fixed-position outdoor air mixer.")]
-    public class ZoneHVAC_PackagedTerminalHeatPump : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_PackagedTerminalHeatPump : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1153,8 +1178,13 @@ public string MaximumSupplyAirTemperatureInHeatingMode { get; set; } = (System.S
     [Description("Water-to-air heat pump. Forced-convection heating-cooling unit with supply fan, w" +
         "ater-to-air cooling and heating coils, supplemental heating coil (gas, electric," +
         " hot water, or steam), and fixed-position outdoor air mixer.")]
-    public class ZoneHVAC_WaterToAirHeatPump : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_WaterToAirHeatPump : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1407,8 +1437,13 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     }
     
     [Description(@"This object calculates the performance of zone (room) air dehumidifiers. Meant to model conventional direct expansion (DX) cooling-based room air dehumidifiers (reject 100% of condenser heat to the zone air), but this object might be able to be used to model other room air dehumidifier types.")]
-    public class ZoneHVAC_Dehumidifier_DX : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_Dehumidifier_DX : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Availability schedule name for this system. Schedule value > 0 means the system is available. If this field is blank, the system is always available. Schedule values of 0 denote the unit is off. Schedule values >0.0 (usually 1.0) indicate that the dehumidifier is available to operate.")]
@@ -1482,8 +1517,13 @@ public string CondensateCollectionWaterStorageTankName { get; set; } = "";
     }
     
     [Description(@"This compound component models a stand-alone energy recovery ventilator (ERV) that conditions outdoor ventilation air and supplies that air directly to a zone. The ERV unit is modeled as a collection of components: air-to-air heat exchanger, supply air fan, exhaust air fan and an optional controller to avoid overheating of the supply air (economizer or free cooling operation).")]
-    public class ZoneHVAC_EnergyRecoveryVentilator : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_EnergyRecoveryVentilator : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1541,8 +1581,13 @@ public string AvailabilityManagerListName { get; set; } = "";
     
     [Description("This controller is used exclusively by the ZoneHVAC:EnergyRecoveryVentilator obje" +
         "ct to allow economizer (free cooling) operation when possible.")]
-    public class ZoneHVAC_EnergyRecoveryVentilator_Controller : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_EnergyRecoveryVentilator_Controller : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the maximum outdoor dry-bulb temperature limit for economizer operation. No" +
@@ -1646,8 +1691,13 @@ public EmptyNoYes ControlHighIndoorHumidityBasedOnOutdoorHumidityRatio { get; se
     [Description("Unit ventilator. Forced-convection ventilation unit with supply fan (constant-vol" +
         "ume or variable-volume), optional chilled water cooling coil, optional heating c" +
         "oil (gas, electric, hot water, or steam) and controllable outdoor air mixer.")]
-    public class ZoneHVAC_UnitVentilator : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_UnitVentilator : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1850,8 +1900,13 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     
     [Description("Unit heater. Forced-convection heating-only unit with supply fan, heating coil (g" +
         "as, electric, hot water, or steam) and fixed-position outdoor air mixer.")]
-    public class ZoneHVAC_UnitHeater : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_UnitHeater : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1971,8 +2026,13 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     
     [Description("Zone evaporative cooler. Forced-convection cooling-only unit with supply fan, 100" +
         "% outdoor air supply. Optional relief exhaust node")]
-    public class ZoneHVAC_EvaporativeCoolerUnit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_EvaporativeCoolerUnit : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -2142,8 +2202,13 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     }
     
     [Description(@"Hybrid Unitary HVAC. A black box model for multi-mode packaged forced air equipment. Independent variables include outdoor air conditions and indoor air conditions. Controlled inputs include operating mode, supply air flow rate, and outdoor air faction. Emperical lookup tables are required to map supply air temperature supply air humidity, electricity use, fuel uses, water use, fan electricity use, and external static pressure as a function of each indpednent varaible and each controlled input. In each timestep the model will choose one or more combinations of settings for mode, supply air flow rate, outdoor air faction, and part runtime fraction so as to satisfy zone requests for sensible cooling, heating, ventilation, and/or dehumidification with the least resource consumption. Equipment in this class may consume electricity, water, and up to two additional fuel types.")]
-    public class ZoneHVAC_HybridUnitaryHVAC : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_HybridUnitaryHVAC : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the availability schedule name for this system. Schedule value > 0 means th" +
@@ -2553,8 +2618,13 @@ public string Modes { get; set; } = "";
     [Description("The zone outdoor air unit models a single-zone dedicated outdoor air system (DOAS" +
         "). Forced-convection 100% outdoor air unit with supply fan and optional equipmen" +
         "t including exhaust fan, heating coil, cooling coil, and heat recovery.")]
-    public class ZoneHVAC_OutdoorAirUnit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_OutdoorAirUnit : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -2671,8 +2741,13 @@ public string AvailabilityManagerListName { get; set; } = "";
     
     [Description("Equipment list for components in a ZoneHVAC:OutdoorAirUnit. Components are simula" +
         "ted sequentially in the order given in the equipment list.")]
-    public class ZoneHVAC_OutdoorAirUnit_EquipmentList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_OutdoorAirUnit_EquipmentList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("component_1_object_type")]
@@ -3092,8 +3167,13 @@ public string Component8Name { get; set; } = "";
     }
     
     [Description(@"A terminal unit with variable refrigerant flow (VRF) DX cooling and heating coils (air-to-air heat pump). The VRF terminal units are served by an AirConditioner:VariableRefrigerantFlow or AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:* system. Terminal units can be configured as zone, air loop or outside air system equipment.")]
-    public class ZoneHVAC_TerminalUnit_VariableRefrigerantFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_TerminalUnit_VariableRefrigerantFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The unit is available the entire simulation if this field is left blank Schedule " +

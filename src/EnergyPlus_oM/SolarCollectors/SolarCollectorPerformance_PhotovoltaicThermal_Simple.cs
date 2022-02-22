@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
 {
     [Description("Thermal performance parameters for a hybrid photovoltaic-thermal (PVT) solar coll" +
                  "ector.")]
-    public class SolarCollectorPerformance_PhotovoltaicThermal_Simple : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SolarCollectorPerformance_PhotovoltaicThermal_Simple : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("fraction_of_surface_area_with_active_thermal_collector")]

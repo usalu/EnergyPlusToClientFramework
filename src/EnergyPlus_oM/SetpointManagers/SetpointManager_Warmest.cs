@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     [Description("This SetpointManager resets the cooling supply air temperature of a central force" +
                  "d air HVAC system according to the cooling demand of the warmest zone.")]
-    public class SetpointManager_Warmest : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_Warmest : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("control_variable")]

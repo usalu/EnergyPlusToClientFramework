@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Determines which contaminant concentration will be simulates.")]
-    public class ZoneAirContaminantBalance : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneAirContaminantBalance : BHoMObject
     {
         
 

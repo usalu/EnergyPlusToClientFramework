@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
     
     
     [Description("Defines a central forced air system.")]
-    public class AirLoopHVAC : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC:ControllerList object.")]
@@ -125,8 +130,13 @@ public System.Nullable<float> DesignReturnAirFlowFractionOfSupplyAirFlow { get; 
     }
     
     [Description("List equipment in simulation order")]
-    public class AirLoopHVAC_OutdoorAirSystem_EquipmentList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_OutdoorAirSystem_EquipmentList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("component_1_object_type")]
@@ -202,8 +212,13 @@ public string Component9Name { get; set; } = "";
     }
     
     [Description(@"Outdoor air subsystem for an AirLoopHVAC. Includes an outdoor air mixing box and optional outdoor air conditioning equipment such as heat recovery, preheat, and precool coils. From the perspective of the primary air loop the outdoor air system is treated as a single component.")]
-    public class AirLoopHVAC_OutdoorAirSystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_OutdoorAirSystem : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC:ControllerList object or blank if this object is" +
@@ -224,8 +239,13 @@ public string AvailabilityManagerListName { get; set; } = "";
     
     [Description("Outdoor air mixer. Node names cannot be duplicated within a single OutdoorAir:Mix" +
         "er object or across all outdoor air mixers.")]
-    public class OutdoorAir_Mixer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OutdoorAir_Mixer : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Name of Mixed Air Node")]
@@ -251,8 +271,13 @@ public string ReturnAirStreamNodeName { get; set; } = "";
     [Description("Split one air stream into N outlet streams (currently 500 per air loop, but exten" +
         "sible). Node names cannot be duplicated within a single zone splitter (AirLoopHV" +
         "AC:ZoneSplitter) list.")]
-    public class AirLoopHVAC_ZoneSplitter : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_ZoneSplitter : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("inlet_node_name")]
@@ -265,8 +290,13 @@ public string Nodes { get; set; } = "";
     
     [Description("Connects 1 zone inlet air stream, through zone supply plenum, to one or more outl" +
         "ets. Node names cannot be duplicated within a single supply plenum list.")]
-    public class AirLoopHVAC_SupplyPlenum : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_SupplyPlenum : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -287,8 +317,13 @@ public string Nodes { get; set; } = "";
     
     [Description("A supply path can only contain AirLoopHVAC:ZoneSplitter and AirLoopHVAC:SupplyPle" +
         "num objects which may be in series or parallel.")]
-    public class AirLoopHVAC_SupplyPath : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_SupplyPath : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("supply_air_path_inlet_node_name")]
@@ -302,8 +337,13 @@ public string Components { get; set; } = "";
     [Description("Mix N inlet air streams into one (currently 500 per air loop, but extensible). No" +
         "de names cannot be duplicated within a single zone mixer (AirLoopHVAC:ZoneMixer)" +
         " list.")]
-    public class AirLoopHVAC_ZoneMixer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_ZoneMixer : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("outlet_node_name")]
@@ -317,8 +357,13 @@ public string Nodes { get; set; } = "";
     [Description("Connects N zone inlet air streams, through zone return plenum, to outlet (current" +
         "ly 500 per air loop) Node names cannot be duplicated within a single plenum list" +
         ".")]
-    public class AirLoopHVAC_ReturnPlenum : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_ReturnPlenum : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -343,8 +388,13 @@ public string Nodes { get; set; } = "";
     
     [Description("A return air path can only contain one AirLoopHVAC:ZoneMixer and one or more AirL" +
         "oopHVAC:ReturnPlenum objects.")]
-    public class AirLoopHVAC_ReturnPath : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_ReturnPath : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("return_air_path_outlet_node_name")]
@@ -357,8 +407,13 @@ public string Components { get; set; } = "";
     
     [Description("Defines a central forced air system to provide dedicated outdoor air to multiple " +
         "AirLoopHVACs.")]
-    public class AirLoopHVAC_DedicatedOutdoorAirSystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_DedicatedOutdoorAirSystem : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC:OutdoorAirSystem object.")]
@@ -409,8 +464,13 @@ public string Airloophvacs { get; set; } = "";
     }
     
     [Description(@"Mix N inlet air streams from Relief Air Stream Node in OutdoorAir:Mixer objects served by AirLoopHVAC objects listed in AirLoopHVAC:DedicatedOutdoorAirSystem into one (currently 10 as default, but extensible). Node names cannot be duplicated within a single mixer list.")]
-    public class AirLoopHVAC_Mixer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_Mixer : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("outlet_node_name")]
@@ -422,8 +482,13 @@ public string Nodes { get; set; } = "";
     }
     
     [Description(@"Split one air stream from AirLoopHVAC:DedicatedOutdoorAirSystem outlet node into N outlet streams (currently 10 as default, but extensible). Node names should be Outdoor Air Stream Node Name in OutdoorAir:Mixer objects served by AirLoopHVAC objects listed in AirLoopHVAC:DedicatedOutdoorAirSystem.")]
-    public class AirLoopHVAC_Splitter : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_Splitter : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("inlet_node_name")]

@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("Specifies the surface and gravel thicknesses used for the Basement preprocessor g" +
                  "round heat transfer simulation.")]
-    public class GroundHeatTransfer_Basement_BldgData : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatTransfer_Basement_BldgData : BHoMObject
     {
         
 

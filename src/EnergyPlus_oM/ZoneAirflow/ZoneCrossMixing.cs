@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
 {
     [Description("ZoneCrossMixing exchanges an equal amount of air between two zones. Note that thi" +
                  "s statement affects the energy balance of both zones.")]
-    public class ZoneCrossMixing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneCrossMixing : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_name")]

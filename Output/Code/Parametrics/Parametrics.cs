@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.Parametrics
     
     
     [Description(@"Parametric objects allow a set of multiple simulations to be defined in a single idf file. The parametric preprocessor scans the idf for Parametric:* objects then creates and runs multiple idf files, one for each defined simulation. The core parametric object is Parametric:SetValueForRun which defines the name of a parameter and sets the parameter to different values depending on which run is being simulated.")]
-    public class Parametric_SetValueForRun : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Parametric_SetValueForRun : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("values")]
@@ -76,8 +81,13 @@ public string Values { get; set; } = "";
     }
     
     [Description(@"This object allows some types of objects to be included for some parametric cases and not for others. For example, you might want an overhang on a window in some parametric runs and not others. A single Parametric:Logic object is allowed per file. Consult the Input Output Reference for available commands and syntax.")]
-    public class Parametric_Logic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Parametric_Logic : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("lines")]
@@ -86,8 +96,13 @@ public string Lines { get; set; } = "";
     
     [Description("Controls which parametric runs are simulated. This object is optional. If it is n" +
         "ot included, then all parametric runs are performed.")]
-    public class Parametric_RunControl : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Parametric_RunControl : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("runs")]
@@ -97,8 +112,13 @@ public string Runs { get; set; } = "";
     [Description("Defines the suffixes to be appended to the idf and output file names for each par" +
         "ametric run. If this object is omitted, the suffix will default to the run numbe" +
         "r.")]
-    public class Parametric_FileNameSuffix : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Parametric_FileNameSuffix : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("suffixes")]

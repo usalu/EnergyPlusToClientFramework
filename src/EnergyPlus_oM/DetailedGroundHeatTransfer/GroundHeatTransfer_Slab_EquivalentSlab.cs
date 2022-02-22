@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
     [Description("Using an equivalent slab allows non-rectangular shapes to be modeled accurately. " +
                  "Object uses the area - perimeter (area/perimeter) ratio to determine the size of" +
                  " an equivalent rectangular slab. EnergyPlus users normally use this option.")]
-    public class GroundHeatTransfer_Slab_EquivalentSlab : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatTransfer_Slab_EquivalentSlab : BHoMObject
     {
         
 

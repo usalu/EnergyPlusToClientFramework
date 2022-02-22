@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     [Description("Determines the availability of a loop or system: only controls the turn off actio" +
                  "n. Schedule overrides fan/pump schedule.")]
-    public class AvailabilityManager_ScheduledOff : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_ScheduledOff : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("schedule_name")]

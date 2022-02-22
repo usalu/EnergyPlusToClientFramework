@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
 {
     [Description("Used to control a zone to a specified indoor level of CO2 or generic contaminants" +
                  ", or to specify minimum CO2 concentration schedule name for a zone.")]
-    public class ZoneControl_ContaminantController : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneControl_ContaminantController : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_name")]

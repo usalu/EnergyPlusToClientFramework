@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("This object describes air-cooled electric information technology equipment (ITE) " +
                  "which has variable power consumption as a function of loading and temperature.")]
-    public class ElectricEquipment_ITE_AirCooled : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ElectricEquipment_ITE_AirCooled : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_name")]

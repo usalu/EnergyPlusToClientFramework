@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object defines the name of the supply Air Fan used in an Air loop.")]
-    public class AirflowNetwork_Distribution_Component_Fan : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_Component_Fan : BHoMObject
     {
         
 

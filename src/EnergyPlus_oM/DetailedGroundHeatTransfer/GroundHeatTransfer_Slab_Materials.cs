@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("Object gives an overall description of the slab ground heat transfer model.")]
-    public class GroundHeatTransfer_Slab_Materials : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatTransfer_Slab_Materials : BHoMObject
     {
         
 

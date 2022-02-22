@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description("Buried Pipe model: For pipes buried at a depth less than one meter, this is an al" +
                  "ternative object to: HeatExchanger:Surface")]
-    public class Pipe_Underground : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Pipe_Underground : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("construction_name")]

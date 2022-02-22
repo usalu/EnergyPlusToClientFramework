@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Multiplier altering the relative capacitance of the air compared to an empty zone" +
                  "")]
-    public class ZoneCapacitanceMultiplier_ResearchSpecial : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneCapacitanceMultiplier_ResearchSpecial : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("If this field is left blank, the multipliers are applied to all the zones not spe" +

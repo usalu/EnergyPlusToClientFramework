@@ -10,8 +10,13 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
                  "re necessary correlations between the entries for this object and some entries i" +
                  "n the Site:WeatherStation and Site:HeightVariation objects, specifically the Ter" +
                  "rain field.")]
-    public class Building : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Building : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("degrees from true North")]

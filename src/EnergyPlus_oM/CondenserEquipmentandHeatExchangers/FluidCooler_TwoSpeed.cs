@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
 {
     [Description("The fluid cooler is modeled as a cross flow heat exchanger (both streams unmixed)" +
                  " with two-speed fans (induced draft configuration).")]
-    public class FluidCooler_TwoSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FluidCooler_TwoSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Name of fluid cooler water inlet node")]

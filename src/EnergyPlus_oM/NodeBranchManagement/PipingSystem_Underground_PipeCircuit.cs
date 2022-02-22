@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
     [Description("The pipe circuit object in an underground piping system. This object is simulated" +
                  " within an underground piping domain object and connected on a branch on a plant" +
                  " loop.")]
-    public class PipingSystem_Underground_PipeCircuit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PipingSystem_Underground_PipeCircuit : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("pipe_thermal_conductivity")]

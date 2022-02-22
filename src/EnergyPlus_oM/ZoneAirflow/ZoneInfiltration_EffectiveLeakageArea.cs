@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
                  "tack and wind coefficients, and is a function of temperature difference and wind" +
                  " speed: Infiltration=FSchedule * (AL /1000) SQRT(Cs*|(Tzone-Todb)| +  Cw*WindSpd" +
                  "**2 )")]
-    public class ZoneInfiltration_EffectiveLeakageArea : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneInfiltration_EffectiveLeakageArea : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_name")]

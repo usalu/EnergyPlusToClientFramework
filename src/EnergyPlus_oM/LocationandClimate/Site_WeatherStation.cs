@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("This object should only be used for non-standard weather data. Standard weather d" +
                  "ata such as TMY2, IWEC, and ASHRAE design day data are all measured at the defau" +
                  "lt conditions and do not require this object.")]
-    public class Site_WeatherStation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_WeatherStation : BHoMObject
     {
         
 

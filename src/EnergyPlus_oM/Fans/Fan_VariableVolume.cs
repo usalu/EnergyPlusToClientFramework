@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
 {
     [Description("Variable air volume fan where the electric power input varies according to a perf" +
                  "ormance curve as a function of flow fraction.")]
-    public class Fan_VariableVolume : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Fan_VariableVolume : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

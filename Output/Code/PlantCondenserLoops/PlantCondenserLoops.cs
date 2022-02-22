@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserLoops
     
     
     [Description("Defines a central plant loop.")]
-    public class PlantLoop : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantLoop : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("fluid_type")]
@@ -258,8 +263,13 @@ public System.Nullable<float> LoopCirculationTime { get; set; } = (System.Nullab
     [Description("Defines a central plant condenser loop. CondenserLoop and PlantLoop are nearly id" +
         "entical except some components and operation schemes are applicable to only one " +
         "loop type or the other.")]
-    public class CondenserLoop : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CondenserLoop : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("fluid_type")]

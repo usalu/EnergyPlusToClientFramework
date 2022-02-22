@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.EvaporativeCoolers
 {
     [Description("Indirect evaporative cooler with wetted coil, recirculating water pump, and secon" +
                  "dary air fan. This model has no controls other than its availability schedule.")]
-    public class EvaporativeCooler_Indirect_WetCoil : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EvaporativeCooler_Indirect_WetCoil : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

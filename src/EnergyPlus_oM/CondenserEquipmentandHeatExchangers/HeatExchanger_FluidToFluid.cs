@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     [Description("A fluid/fluid heat exchanger designed to couple the supply side of one loop to th" +
                  "e demand side of another loop Loops can be either plant or condenser loops but n" +
                  "o air side connections are allowed")]
-    public class HeatExchanger_FluidToFluid : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HeatExchanger_FluidToFluid : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("These temperatures are specifically for the Surface Ground Heat Exchanger and sho" +
                  "uld probably be close to the average outdoor air temperature for the location. T" +
                  "hey are not used in other models.")]
-    public class Site_GroundTemperature_Shallow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundTemperature_Shallow : BHoMObject
     {
         
 

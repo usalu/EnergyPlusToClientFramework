@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("Using an equivalent slab allows non-rectangular shapes to be modeled accurately. " +
                  "The simulation default should be EquivSizing=True")]
-    public class GroundHeatTransfer_Basement_EquivSlab : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatTransfer_Basement_EquivSlab : BHoMObject
     {
         
 

@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     [Description("Window air conditioner. Forced-convection cooling-only unit with supply fan, dire" +
                  "ct expansion (DX) cooling coil, and fixed-position outdoor air mixer.")]
-    public class ZoneHVAC_WindowAirConditioner : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_WindowAirConditioner : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

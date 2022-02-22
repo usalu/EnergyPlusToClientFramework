@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     [Description("Hot water heating coil, NTU-effectiveness model, assumes a cross-flow heat exchan" +
                  "ger. Two options for capacity inputs: UA and water flow rate or capacity and des" +
                  "ign temperatures.")]
-    public class Coil_Heating_Water : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_Water : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

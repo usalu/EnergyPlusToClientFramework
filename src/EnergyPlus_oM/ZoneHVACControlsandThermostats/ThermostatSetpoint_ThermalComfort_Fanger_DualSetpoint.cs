@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     [Description("Used for heating and cooling thermal comfort control with dual setpoints. The PMV" +
                  " setpoints can be scheduled and varied throughout the simulation for both heatin" +
                  "g and cooling.")]
-    public class ThermostatSetpoint_ThermalComfort_Fanger_DualSetpoint : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermostatSetpoint_ThermalComfort_Fanger_DualSetpoint : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Schedule values should be Predicted Mean Vote (PMV)")]

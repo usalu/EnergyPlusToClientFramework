@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     [Description("This model is based on Merkel\'s theory, which is also the basis for the cooling t" +
                  "ower model in EnergyPlus. The Evaporative fluid cooler is modeled as a counter f" +
                  "low heat exchanger.")]
-    public class EvaporativeFluidCooler_TwoSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EvaporativeFluidCooler_TwoSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Name of fluid cooler water inlet node")]

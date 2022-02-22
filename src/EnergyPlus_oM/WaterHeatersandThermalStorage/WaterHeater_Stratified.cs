@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
     [Description("Water heater with stratified, multi-node water tank. May be used to model a tankl" +
                  "ess water heater (small tank volume), a hot water storage tank (zero heater capa" +
                  "city), or a heat pump water heater (see WaterHeater:HeatPump:*.)")]
-    public class WaterHeater_Stratified : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WaterHeater_Stratified : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +

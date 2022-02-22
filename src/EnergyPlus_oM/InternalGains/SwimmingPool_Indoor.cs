@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("Specifies an indoor swimming pools linked to a floor surface. The pool is assumed" +
                  " to cover the entire floor to which it is linked.")]
-    public class SwimmingPool_Indoor : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SwimmingPool_Indoor : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Name of the floor surface where the pool is located.")]

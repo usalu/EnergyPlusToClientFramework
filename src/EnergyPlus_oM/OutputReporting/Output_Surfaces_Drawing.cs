@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description("Produces reports/files that are capable of rendering graphically or being importe" +
                  "d into other programs. Rendering does not alter the actual inputs/surfaces.")]
-    public class Output_Surfaces_Drawing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Surfaces_Drawing : BHoMObject
     {
         
 

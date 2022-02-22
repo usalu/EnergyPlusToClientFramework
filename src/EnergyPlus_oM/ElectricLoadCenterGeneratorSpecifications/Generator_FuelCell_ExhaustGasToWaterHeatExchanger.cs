@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("Describes the exhaust gas heat exchanger subsystem of a fuel cell power generator" +
                  " used to recovery thermal energy")]
-    public class Generator_FuelCell_ExhaustGasToWaterHeatExchanger : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Generator_FuelCell_ExhaustGasToWaterHeatExchanger : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("heat_recovery_water_inlet_node_name")]

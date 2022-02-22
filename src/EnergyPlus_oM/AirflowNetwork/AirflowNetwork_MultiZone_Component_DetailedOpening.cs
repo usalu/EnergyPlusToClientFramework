@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object specifies the properties of airflow through windows and doors (window" +
                  ", door and glass door heat transfer subsurfaces) when they are closed or open.")]
-    public class AirflowNetwork_MultiZone_Component_DetailedOpening : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_Component_DetailedOpening : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Defined at 1 Pa per meter of crack length. Enter the coefficient used in the foll" +

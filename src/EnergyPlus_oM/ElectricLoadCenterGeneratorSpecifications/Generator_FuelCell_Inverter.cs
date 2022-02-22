@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("Used to describe the power condition unit subsystem of a fuel cell power generato" +
                  "r. This object models an inverter system contained within a fuel cell system tha" +
                  "t converts from direct current (DC) to alternating current (AC).")]
-    public class Generator_FuelCell_Inverter : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Generator_FuelCell_Inverter : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("inverter_efficiency_calculation_mode")]

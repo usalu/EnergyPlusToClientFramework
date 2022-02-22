@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
     [Description("Declares EMS variable as a sensor a list of output variables and meters that can " +
         "be reported are available after a run on the report (.rdd) or meter dictionary f" +
         "ile (.mdd) if the Output:VariableDictionary has been requested.")]
-    public class EnergyManagementSystem_Sensor : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_Sensor : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("output_variable_or_output_meter_index_key_name")]

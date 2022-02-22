@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     [Description("Sets internal gains and contaminant rates for gas equipment in the zone. If you u" +
                  "se a ZoneList in the Zone name field then this definition applies to all those z" +
                  "ones.")]
-    public class GasEquipment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GasEquipment : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_or_zonelist_name")]

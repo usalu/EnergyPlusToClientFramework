@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     [Description("Variable refrigerant flow (VRF) direct expansion (DX) heating coil (air-to-air he" +
                  "at pump). Used with ZoneHVAC:TerminalUnit:VariableRefrigerantFlow. Condensing un" +
                  "it is modeled separately, see AirConditioner:VariableRefrigerantFlow.")]
-    public class Coil_Heating_DX_VariableRefrigerantFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_DX_VariableRefrigerantFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

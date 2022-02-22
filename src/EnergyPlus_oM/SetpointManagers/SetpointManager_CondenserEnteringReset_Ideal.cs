@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 {
     [Description("This setpoint manager determine the ideal optimum condenser entering water temper" +
                  "ature setpoint for a given timestep.")]
-    public class SetpointManager_CondenserEnteringReset_Ideal : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_CondenserEnteringReset_Ideal : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("control_variable")]

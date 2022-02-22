@@ -69,8 +69,13 @@ namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
     [Description("Declares EMS variable as a sensor a list of output variables and meters that can " +
         "be reported are available after a run on the report (.rdd) or meter dictionary f" +
         "ile (.mdd) if the Output:VariableDictionary has been requested.")]
-    public class EnergyManagementSystem_Sensor : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_Sensor : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("output_variable_or_output_meter_index_key_name")]
@@ -82,8 +87,13 @@ public string OutputVariableOrOutputMeterName { get; set; } = "";
     }
     
     [Description("Hardware portion of EMS used to set up actuators in the model")]
-    public class EnergyManagementSystem_Actuator : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_Actuator : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("actuated_component_unique_name")]
@@ -100,8 +110,13 @@ public string ActuatedComponentControlType { get; set; } = "";
     
     [Description("Input EMS program. a program needs a name a description of when it should be call" +
         "ed and then lines of program code for EMS Runtime language")]
-    public class EnergyManagementSystem_ProgramCallingManager : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_ProgramCallingManager : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("energyplus_model_calling_point")]
@@ -173,8 +188,13 @@ public string Programs { get; set; } = "";
     
     [Description("This input defines an Erl program Each field after the name is a line of EMS Runt" +
         "ime Language")]
-    public class EnergyManagementSystem_Program : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_Program : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("lines")]
@@ -183,8 +203,13 @@ public string Lines { get; set; } = "";
     
     [Description("This input defines an Erl program subroutine Each field after the name is a line " +
         "of EMS Runtime Language")]
-    public class EnergyManagementSystem_Subroutine : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_Subroutine : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("lines")]
@@ -193,7 +218,8 @@ public string Lines { get; set; } = "";
     
     [Description("Declares Erl variable as having global scope No spaces allowed in names used for " +
         "Erl variables")]
-    public class EnergyManagementSystem_GlobalVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_GlobalVariable : BHoMObject
     {
         
 
@@ -202,8 +228,13 @@ public string Variables { get; set; } = "";
     }
     
     [Description("This object sets up an EnergyPlus output variable from an Erl variable")]
-    public class EnergyManagementSystem_OutputVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_OutputVariable : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("must be an acceptable EMS variable")]
@@ -253,8 +284,13 @@ public string Units { get; set; } = "";
     }
     
     [Description("This object sets up an EnergyPlus output variable from an Erl variable")]
-    public class EnergyManagementSystem_MeteredOutputVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_MeteredOutputVariable : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("must be an acceptable EMS variable, no spaces")]
@@ -472,8 +508,13 @@ public string Units { get; set; } = "";
     
     [Description("This object sets up an EMS trend variable from an Erl variable A trend variable l" +
         "ogs values across timesteps")]
-    public class EnergyManagementSystem_TrendVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_TrendVariable : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("must be a global scope EMS variable")]
@@ -486,8 +527,13 @@ public System.Nullable<float> NumberOfTimestepsToBeLogged { get; set; } = null;
     }
     
     [Description("Declares EMS variable as an internal data variable")]
-    public class EnergyManagementSystem_InternalVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_InternalVariable : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("internal_data_index_key_name")]
@@ -499,8 +545,13 @@ public string InternalDataType { get; set; } = "";
     }
     
     [Description("Declares EMS variable that identifies a curve or table")]
-    public class EnergyManagementSystem_CurveOrTableIndexVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_CurveOrTableIndexVariable : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("curve_or_table_object_name")]
@@ -508,8 +559,13 @@ public string CurveOrTableObjectName { get; set; } = "";
     }
     
     [Description("Declares EMS variable that identifies a construction")]
-    public class EnergyManagementSystem_ConstructionIndexVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_ConstructionIndexVariable : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("construction_object_name")]

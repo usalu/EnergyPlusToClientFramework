@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     [Description("Life cycle cost escalation factors. The values for this object may be found in th" +
                  "e annual supplement to NIST Handbook 135 in Tables Ca-1 to Ca-5 and are included" +
                  " in an EnergyPlus dataset file.")]
-    public class LifeCycleCost_UsePriceEscalation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class LifeCycleCost_UsePriceEscalation : BHoMObject
     {
         
 

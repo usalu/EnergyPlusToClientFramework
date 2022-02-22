@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Used to describe the amount of irrigation on the ecoroof surface over the course " +
                  "of the simulation runperiod.")]
-    public class RoofIrrigation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoofIrrigation : BHoMObject
     {
         
 

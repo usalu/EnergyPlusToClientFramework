@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Undisturbed ground temperature object using a detailed finite difference 1-D mode" +
                  "l")]
-    public class Site_GroundTemperature_Undisturbed_FiniteDifference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundTemperature_Undisturbed_FiniteDifference : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("soil_thermal_conductivity")]

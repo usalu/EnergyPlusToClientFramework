@@ -69,8 +69,13 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     [Description("Sets internal gains and contaminant rates for occupants in the zone. If you use a" +
         " ZoneList in the Zone or ZoneList name field then this definition applies to all" +
         " the zones in the ZoneList.")]
-    public class People : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class People : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_or_zonelist_name")]
@@ -445,8 +450,13 @@ public string AnkleLevelAirVelocityScheduleName { get; set; } = "";
     }
     
     [Description("Used to specify radiant view factors for thermal comfort calculations.")]
-    public class ComfortViewFactorAngles : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ComfortViewFactorAngles : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -616,8 +626,13 @@ public System.Nullable<float> AngleFactor20 { get; set; } = null;
     [Description("Sets internal gains for lights in the zone. If you use a ZoneList in the Zone or " +
         "ZoneList name field then this definition applies to all the zones in the ZoneLis" +
         "t.")]
-    public class Lights : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Lights : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_or_zonelist_name")]
@@ -717,8 +732,13 @@ public string ReturnAirHeatGainNodeName { get; set; } = "";
     [Description("Sets internal gains for electric equipment in the zone. If you use a ZoneList in " +
         "the Zone or ZoneList name field then this definition applies to all the zones in" +
         " the ZoneList.")]
-    public class ElectricEquipment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ElectricEquipment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_or_zonelist_name")]
@@ -786,8 +806,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     [Description("Sets internal gains and contaminant rates for gas equipment in the zone. If you u" +
         "se a ZoneList in the Zone name field then this definition applies to all those z" +
         "ones.")]
-    public class GasEquipment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GasEquipment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_or_zonelist_name")]
@@ -865,8 +890,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     
     [Description("Sets internal gains for hot water equipment in the zone. If you use a ZoneList in" +
         " the Zone name field then this definition applies to all those zones.")]
-    public class HotWaterEquipment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HotWaterEquipment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_or_zonelist_name")]
@@ -938,8 +968,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     [Description("Sets internal gains for steam equipment in the zone.")]
-    public class SteamEquipment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SteamEquipment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_or_zonelist_name")]
@@ -1011,8 +1046,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     [Description("Sets internal gains or losses for \"other\" equipment in the zone.")]
-    public class OtherEquipment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OtherEquipment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("fuel_type")]
@@ -1145,8 +1185,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     
     [Description("This object describes air-cooled electric information technology equipment (ITE) " +
         "which has variable power consumption as a function of loading and temperature.")]
-    public class ElectricEquipment_ITE_AirCooled : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ElectricEquipment_ITE_AirCooled : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -1394,8 +1439,13 @@ public string ReturnTemperatureDifferenceSchedule { get; set; } = "";
     }
     
     [Description("Specifies outside temperature-controlled electric baseboard heating.")]
-    public class ZoneBaseboard_OutdoorTemperatureControlled : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneBaseboard_OutdoorTemperatureControlled : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -1436,8 +1486,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     
     [Description("Specifies an indoor swimming pools linked to a floor surface. The pool is assumed" +
         " to cover the entire floor to which it is linked.")]
-    public class SwimmingPool_Indoor : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SwimmingPool_Indoor : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Name of the floor surface where the pool is located.")]
@@ -1511,8 +1566,13 @@ public string PeopleHeatGainSchedule { get; set; } = "";
     }
     
     [Description("Represents internal CO2 gains and sinks in the zone.")]
-    public class ZoneContaminantSourceAndSink_CarbonDioxide : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneContaminantSourceAndSink_CarbonDioxide : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -1532,8 +1592,13 @@ public string ScheduleName { get; set; } = "";
     
     [Description("Sets internal generic contaminant gains and sinks in a zone with constant values." +
         "")]
-    public class ZoneContaminantSourceAndSink_Generic_Constant : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneContaminantSourceAndSink_Generic_Constant : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -1564,8 +1629,13 @@ public string RemovalScheduleName { get; set; } = "";
     
     [Description("Simulate generic contaminant source driven by the pressure difference across a su" +
         "rface.")]
-    public class SurfaceContaminantSourceAndSink_Generic_PressureDriven : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceContaminantSourceAndSink_Generic_PressureDriven : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("surface_name")]
@@ -1587,8 +1657,13 @@ public System.Nullable<float> GenerationExponent { get; set; } = null;
     }
     
     [Description("Simulate generic contaminant source driven by the cutoff concentration model.")]
-    public class ZoneContaminantSourceAndSink_Generic_CutoffModel : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneContaminantSourceAndSink_Generic_CutoffModel : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -1612,8 +1687,13 @@ public System.Nullable<float> CutoffGenericContaminantAtWhichEmissionCeases { ge
     }
     
     [Description("Simulate generic contaminant source driven by the cutoff concentration model.")]
-    public class ZoneContaminantSourceAndSink_Generic_DecaySource : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneContaminantSourceAndSink_Generic_DecaySource : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -1637,8 +1717,13 @@ public System.Nullable<float> DelayTimeConstant { get; set; } = null;
     
     [Description("Simulate generic contaminant source driven by the boundary layer diffusion contro" +
         "lled model.")]
-    public class SurfaceContaminantSourceAndSink_Generic_BoundaryLayerDiffusion : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceContaminantSourceAndSink_Generic_BoundaryLayerDiffusion : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("surface_name")]
@@ -1662,8 +1747,13 @@ public System.Nullable<float> HenryAdsorptionConstantOrPartitionCoefficient { ge
     
     [Description("Simulate generic contaminant source driven by the boundary layer diffusion contro" +
         "lled model.")]
-    public class SurfaceContaminantSourceAndSink_Generic_DepositionVelocitySink : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceContaminantSourceAndSink_Generic_DepositionVelocitySink : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("surface_name")]
@@ -1683,8 +1773,13 @@ public string ScheduleName { get; set; } = "";
     
     [Description("Simulate generic contaminant source driven by the boundary layer diffusion contro" +
         "lled model.")]
-    public class ZoneContaminantSourceAndSink_Generic_DepositionRateSink : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneContaminantSourceAndSink_Generic_DepositionRateSink : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]

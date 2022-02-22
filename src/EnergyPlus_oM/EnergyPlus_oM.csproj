@@ -582,6 +582,7 @@
     <Compile Include="EnergyManagementSystemEMS\EnergyManagementSystem_ProgramCallingManager_EnergyplusModelCallingPoint.cs" />
     <Compile Include="EnergyManagementSystemEMS\EnergyManagementSystem_Subroutine.cs" />
     <Compile Include="EnergyManagementSystemEMS\EnergyManagementSystem_TrendVariable.cs" />
+    <Compile Include="EnergyPlusNodeConverter.cs" />
     <Compile Include="EnergyPlus\EmptyNoYes.cs" />
     <Compile Include="EnergyPlus\EnergyPlusJson.cs" />
     <Compile Include="EvaporativeCoolers\EvaporativeCooler_Direct_CelDekPad.cs" />
@@ -958,6 +959,7 @@
     <Compile Include="HVACTemplates\HVACTemplate_Zone_WaterToAirHeatPump_ZoneCoolingDesignSupplyAirTemperatureInputMethod.cs" />
     <Compile Include="HVACTemplates\HVACTemplate_Zone_WaterToAirHeatPump_ZoneHeatingDesignSupplyAirTemperatureInputMethod.cs" />
     <Compile Include="HybridModel\HybridModel_Zone.cs" />
+    <Compile Include="IEnergyPlusClass.cs" />
     <Compile Include="InternalGains\ComfortViewFactorAngles.cs" />
     <Compile Include="InternalGains\ElectricEquipment.cs" />
     <Compile Include="InternalGains\ElectricEquipment_DesignLevelCalculationMethod.cs" />
@@ -1080,7 +1082,7 @@
     <Compile Include="NonZoneEquipment\LoadProfile_Plant.cs" />
     <Compile Include="NullToEmptyStringResolver.cs" />
     <Compile Include="EsoFile.cs" />
-    <Compile Include="IEnergyPlusClass.cs" />
+    <Compile Include="IEnergyPlusNode.cs" />
     <Compile Include="NullToEmptyStringValueProvider.cs" />
     <Compile Include="OperationalFaults\FaultModel_EnthalpySensorOffset_OutdoorAir.cs" />
     <Compile Include="OperationalFaults\FaultModel_EnthalpySensorOffset_OutdoorAir_ControllerObjectType.cs" />
@@ -2185,8 +2187,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-xcopy "$(TargetDir)$(TargetFileName)"  "C:\ProgramData\BHoM\Assemblies" /C /Y
+    <PostBuildEvent>xcopy "$(TargetDir)$(TargetFileName)"  "C:\ProgramData\BHoM\Assemblies" /C /Y
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

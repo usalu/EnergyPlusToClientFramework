@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Zone terminal unit, constant volume, reheat optional. Referenced schedules must b" +
                  "e defined elsewhere in the idf.")]
-    public class HVACTemplate_Zone_ConstantVolume : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_ConstantVolume : BHoMObject
     {
         
 

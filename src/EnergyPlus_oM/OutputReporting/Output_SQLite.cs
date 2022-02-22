@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description("Output from EnergyPlus can be written to an SQLite format file.")]
-    public class Output_SQLite : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_SQLite : BHoMObject
     {
         
 

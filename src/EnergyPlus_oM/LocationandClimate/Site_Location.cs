@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     
     [Description("Specifies the building\'s location. Only one location is allowed. Weather data fil" +
         "e location, if it exists, will override this object.")]
-    public class Site_Location : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_Location : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("+ is North, - is South, degree minutes represented in decimal (i.e. 30 minutes is" +

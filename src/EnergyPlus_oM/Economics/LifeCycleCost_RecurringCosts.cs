@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     [Description("Recurring costs are costs that repeat over time on a regular schedule during the " +
                  "study period. If costs associated with equipment do repeat but not on a regular " +
                  "schedule, use LifeCycleCost:NonrecurringCost objects instead.")]
-    public class LifeCycleCost_RecurringCosts : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class LifeCycleCost_RecurringCosts : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("category")]

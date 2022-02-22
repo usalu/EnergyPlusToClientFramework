@@ -7,8 +7,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     [Description("Air cooled condenser for a refrigeration system (Refrigeration:System).")]
-    public class Refrigeration_Condenser_AirCooled : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_Condenser_AirCooled : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Rating as per ARI 460 Be sure the rating corresponds to the correct refrigerant H" +

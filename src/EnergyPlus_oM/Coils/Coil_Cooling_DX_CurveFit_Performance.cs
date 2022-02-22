@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     [Description("DX cooling coil performance specification referencing one or more operating modes" +
                  ". Mode 1 is always the base design operating mode. Additional modes are optional" +
                  " states such as subcool reheat for humidity control.")]
-    public class Coil_Cooling_DX_CurveFit_Performance : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Cooling_DX_CurveFit_Performance : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("crankcase_heater_capacity")]

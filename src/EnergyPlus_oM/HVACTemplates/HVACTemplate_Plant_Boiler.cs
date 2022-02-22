@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("This object adds a boiler to an HVACTemplate:Plant:HotWaterLoop or MixedWaterLoop" +
                  ".")]
-    public class HVACTemplate_Plant_Boiler : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_Boiler : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("boiler_type")]

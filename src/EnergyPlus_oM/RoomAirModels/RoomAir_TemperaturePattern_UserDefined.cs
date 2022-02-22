@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
     [Description("Used to explicitly define temperature patterns that are to be applied to the mean" +
                  " air temperature within a thermal zone. Used with RoomAirModelType = UserDefined" +
                  ".")]
-    public class RoomAir_TemperaturePattern_UserDefined : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_TemperaturePattern_UserDefined : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_name")]

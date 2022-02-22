@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
     [Description("Plant equipment operation scheme for outdoor relative humidity range operation. S" +
                  "pecifies one or more groups of equipment which are available to operate for succ" +
                  "essive outdoor relative humidity ranges.")]
-    public class PlantEquipmentOperation_OutdoorRelativeHumidity : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_OutdoorRelativeHumidity : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("relative_humidity_range_1_lower_limit")]

@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     [Description("Four pipe fan coil system. Forced-convection hydronic heating-cooling unit with s" +
                  "upply fan, hot water heating coil, chilled water cooling coil, and fixed-positio" +
                  "n outdoor air mixer.")]
-    public class ZoneHVAC_FourPipeFanCoil : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_FourPipeFanCoil : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
     
     [Description("Flat plate air-to-air heat exchanger, typically used for exhaust or relief air he" +
         "at recovery.")]
-    public class HeatExchanger_AirToAir_FlatPlate : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HeatExchanger_AirToAir_FlatPlate : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -151,8 +156,13 @@ public string SecondaryAirOutletNodeName { get; set; } = "";
     [Description("This object models an air-to-air heat exchanger using effectiveness relationships" +
         ". The heat exchanger can transfer sensible energy, latent energy, or both betwee" +
         "n the supply (primary) and exhaust (secondary) air streams.")]
-    public class HeatExchanger_AirToAir_SensibleAndLatent : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HeatExchanger_AirToAir_SensibleAndLatent : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -293,8 +303,13 @@ public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeo
     }
     
     [Description(@"This object models a balanced desiccant heat exchanger. The heat exchanger transfers both sensible and latent energy between the process and regeneration air streams. The air flow rate and face velocity are assumed to be the same on both the process and regeneration sides of the heat exchanger.")]
-    public class HeatExchanger_Desiccant_BalancedFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HeatExchanger_Desiccant_BalancedFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -346,8 +361,13 @@ public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeo
     }
     
     [Description(@"RTO = B1 + B2*RWI + B3*RTI + B4*(RWI/RTI) + B5*PWI + B6*PTI + B7*(PWI/PTI) + B8*RFV RWO = C1 + C2*RWI + C3*RTI + C4*(RWI/RTI) + C5*PWI + C6*PTI + C7*(PWI/PTI) + C8*RFV where, RTO = Dry-bulb temperature of the regeneration outlet air (C) RWO = Humidity ratio of the regeneration outlet air (kgWater/kgDryAir) RWI = Humidity ratio of the regeneration inlet air (kgWater/kgDryAir) RTI = Dry-bulb temperature of the regeneration inlet air (C) PWI = Humidity ratio of the process inlet air (kgWater/kgDryAir) PTI = Dry-bulb temperature of the process inlet air (C) RFV = Regeneration Face Velocity (m/s)")]
-    public class HeatExchanger_Desiccant_BalancedFlow_PerformanceDataType1 : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HeatExchanger_Desiccant_BalancedFlow_PerformanceDataType1 : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Air flow rate at nominal conditions (assumed to be the same for both sides of the" +

@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("Describes performance input data needed for specific makes and models of producti" +
                  "on PV panels using the empirical coefficients assembled by Sandia National Labor" +
                  "atory.")]
-    public class PhotovoltaicPerformance_Sandia : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PhotovoltaicPerformance_Sandia : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("(m2, single module)")]

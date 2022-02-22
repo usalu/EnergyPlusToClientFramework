@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
     [Description("Used to compute energy and demand charges (or any other charges) that are structu" +
                  "red in blocks of charges. Multiple UtilityCost:Charge:Block objects may be defin" +
                  "ed for a single tariff and they will be added together.")]
-    public class UtilityCost_Charge_Block : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class UtilityCost_Charge_Block : BHoMObject
     {
         
 

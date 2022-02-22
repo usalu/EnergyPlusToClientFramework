@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("Used to provide solar radiation absorbed in fenestration layers. References surfa" +
                  "ce-construction pair and if that pair is used in a simulation, then program will" +
                  " use value provided in schedules instead of calculating it.")]
-    public class ComplexFenestrationProperty_SolarAbsorbedLayers : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ComplexFenestrationProperty_SolarAbsorbedLayers : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("fenestration_surface")]

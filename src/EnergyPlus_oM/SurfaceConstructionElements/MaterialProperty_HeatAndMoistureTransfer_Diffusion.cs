@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
                  "ly. Relationship between water vapor diffusion and relative humidity fraction Ha" +
                  "s no effect with other HeatBalanceAlgorithm solution algorithms")]
-    public class MaterialProperty_HeatAndMoistureTransfer_Diffusion : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_HeatAndMoistureTransfer_Diffusion : BHoMObject
     {
         
 

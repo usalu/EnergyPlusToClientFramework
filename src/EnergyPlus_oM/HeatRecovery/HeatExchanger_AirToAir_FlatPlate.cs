@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
     
     [Description("Flat plate air-to-air heat exchanger, typically used for exhaust or relief air he" +
         "at recovery.")]
-    public class HeatExchanger_AirToAir_FlatPlate : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HeatExchanger_AirToAir_FlatPlate : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

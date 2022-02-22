@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
                  "rflowNetwork model. The specified pressure setpoint is used to control the zone " +
                  "exhaust fan flow rate in a controlled zone or the relief air flow rate in an air" +
                  " loop.")]
-    public class AirflowNetwork_ZoneControl_PressureController : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_ZoneControl_PressureController : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("control_zone_name")]

@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("Used to describe the decoupled layer, or baffle, and the characteristics of the c" +
                  "avity and openings for naturally ventilated exterior surfaces. This object is al" +
                  "so used in conjunction with the OtherSideConditionsModel.")]
-    public class SurfaceProperty_ExteriorNaturalVentedCavity : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_ExteriorNaturalVentedCavity : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Enter the name of a SurfaceProperty:OtherSideConditionsModel object")]

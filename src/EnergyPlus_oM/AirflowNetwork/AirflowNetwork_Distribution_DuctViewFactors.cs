@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object is used to allow user-defined view factors to be used for duct-surfac" +
                  "e radiation calculations.")]
-    public class AirflowNetwork_Distribution_DuctViewFactors : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_DuctViewFactors : BHoMObject
     {
         
 

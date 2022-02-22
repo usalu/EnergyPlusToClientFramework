@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.WaterSystems
     [Description("Used for harvesting rainwater falling on building surfaces. The rainwater is sent" +
                  " to a WaterUse:Storage object. In order to use this object it is necessary to al" +
                  "so include a Site:Precipitation object to describe the rates of rainfall.")]
-    public class WaterUse_RainCollector : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WaterUse_RainCollector : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("storage_tank_name")]

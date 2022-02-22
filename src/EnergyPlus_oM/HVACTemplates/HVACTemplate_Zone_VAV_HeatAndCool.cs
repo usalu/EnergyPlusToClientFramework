@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("VAV system with VAV for both heating and cooling and optional reheat coil. For he" +
                  "ating, this unit increases airflow first, then activates reheat coil.")]
-    public class HVACTemplate_Zone_VAV_HeatAndCool : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_VAV_HeatAndCool : BHoMObject
     {
         
 

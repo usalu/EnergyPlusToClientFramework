@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Alternate method of describing windows This window material object is used to def" +
                  "ine an entire glazing system using simple performance parameters.")]
-    public class WindowMaterial_SimpleGlazingSystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_SimpleGlazingSystem : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Enter U-Factor including film coefficients Note that the effective upper limit fo" +

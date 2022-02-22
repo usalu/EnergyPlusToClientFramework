@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
     [Description("Simulates the performance of a supermarket refrigeration system when used along w" +
                  "ith other objects to define the refrigeration load(s), the compressor(s), and th" +
                  "e condenser.")]
-    public class Refrigeration_System : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_System : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description(@"Enter the name of a Refrigeration:Case or Refrigeration:WalkIn object. If there is more than one refrigerated case or walk-in served by this system, enter the name of a Refrigeration:CaseAndWalkInList object. Only cases and walkins served directly by the system should be included in this list. Any cases served indirectly via a secondary chiller should NOT be included in this list")]

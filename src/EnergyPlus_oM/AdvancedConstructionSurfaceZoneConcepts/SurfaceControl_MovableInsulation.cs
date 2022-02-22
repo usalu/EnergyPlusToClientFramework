@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     [Description("Exterior or Interior Insulation on opaque surfaces")]
-    public class SurfaceControl_MovableInsulation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceControl_MovableInsulation : BHoMObject
     {
         
 

@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description("Conditionally turn on/off output from EnergyPlus.")]
-    public class OutputControl_Files : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OutputControl_Files : BHoMObject
     {
         
 

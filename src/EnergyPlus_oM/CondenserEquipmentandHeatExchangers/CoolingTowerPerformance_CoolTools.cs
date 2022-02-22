@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.CondenserEquipmentandHeatExchangers
     [Description("This object is used to define coefficients for the approach temperature correlati" +
                  "on for a variable speed cooling tower when tower Model Type is specified as Cool" +
                  "ToolsUserDefined in the object CoolingTower:VariableSpeed.")]
-    public class CoolingTowerPerformance_CoolTools : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CoolingTowerPerformance_CoolTools : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Minimum valid inlet air wet-bulb temperature for this approach temperature correl" +

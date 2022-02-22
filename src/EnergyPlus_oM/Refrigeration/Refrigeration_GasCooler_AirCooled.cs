@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
 {
     [Description("The transcritical refrigeration system requires a single gas cooler to reject the" +
                  " system heat.")]
-    public class Refrigeration_GasCooler_AirCooled : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_GasCooler_AirCooled : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Be sure the rating corresponds to the correct refrigerant (R744) HeatRejection(W)" +

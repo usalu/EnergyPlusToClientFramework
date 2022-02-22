@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description("This is used to Automatically report the facility meters and turn on the Environm" +
                  "ental Impact Report calculations for all of the Environmental Factors.")]
-    public class Output_EnvironmentalImpactFactors : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_EnvironmentalImpactFactors : BHoMObject
     {
         
 

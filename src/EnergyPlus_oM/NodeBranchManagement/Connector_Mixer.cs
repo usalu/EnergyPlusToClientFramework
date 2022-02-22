@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
 {
     [Description("Mix N inlet air/water streams into one. Branch names cannot be duplicated within " +
                  "a single mixer list.")]
-    public class Connector_Mixer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Connector_Mixer : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("outlet_branch_name")]

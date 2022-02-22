@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     [Description("This object sets up a convective water boundary condition for a surface The free " +
                  "stream temperature and velocity are scheduled. If the free stream velocity is ze" +
                  "ro, the surface will naturally convect with the surrounding water.")]
-    public class SurfaceProperty_Underwater : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_Underwater : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("This is the distance from the leading edge of the boundary layer development to t" +

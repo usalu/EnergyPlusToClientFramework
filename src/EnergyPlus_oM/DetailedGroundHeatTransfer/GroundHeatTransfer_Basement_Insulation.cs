@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("Describes the insulation used on an exterior basement wall for the Basement prepr" +
                  "ocessor ground heat transfer simulation.")]
-    public class GroundHeatTransfer_Basement_Insulation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatTransfer_Basement_Insulation : BHoMObject
     {
         
 

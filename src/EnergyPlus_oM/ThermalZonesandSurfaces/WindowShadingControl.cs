@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     [Description("Specifies the type, location, and controls for window shades, window blinds, and " +
                  "switchable glazing. Referencing the surface objects for exterior windows and gla" +
                  "ss doors (ref: FenestrationSurface:Detailed, Window, and GlazedDoor).")]
-    public class WindowShadingControl : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowShadingControl : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_name")]

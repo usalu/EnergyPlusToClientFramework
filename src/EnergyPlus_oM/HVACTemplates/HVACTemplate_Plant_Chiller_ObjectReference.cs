@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("This object references a detailed chiller object and adds it to an HVACTemplate:P" +
                  "lant:ChilledWaterLoop. The user must create a complete detailed chiller object w" +
                  "ith all required curve or performance objects.")]
-    public class HVACTemplate_Plant_Chiller_ObjectReference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_Chiller_ObjectReference : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("chiller_object_type")]

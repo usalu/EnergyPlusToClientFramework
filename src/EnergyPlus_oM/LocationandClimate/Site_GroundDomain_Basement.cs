@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Ground-coupled basement model for simulating basements or other underground zones" +
                  ".")]
-    public class Site_GroundDomain_Basement : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundDomain_Basement : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("The depth from ground surface to the deep ground boundary of the domain.")]

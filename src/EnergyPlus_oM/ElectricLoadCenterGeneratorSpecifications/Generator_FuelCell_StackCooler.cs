@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 {
     [Description("This object is optional and is used to define details needed to model the stack c" +
                  "ooler on PEMFC.")]
-    public class Generator_FuelCell_StackCooler : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Generator_FuelCell_StackCooler : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("heat_recovery_water_inlet_node_name")]

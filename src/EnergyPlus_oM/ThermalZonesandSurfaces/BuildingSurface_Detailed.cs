@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("Allows for detailed entry of building heat transfer surfaces. Does not include su" +
                  "bsurfaces such as windows or doors.")]
-    public class BuildingSurface_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class BuildingSurface_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("surface_type")]

@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
 {
     [Description("used For fins, overhangs, elements that shade the building, are attached to the b" +
                  "uilding but are not part of the heat transfer calculations")]
-    public class Shading_Zone_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Zone_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("base_surface_name")]

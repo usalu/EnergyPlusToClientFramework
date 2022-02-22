@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.UnitaryEquipment
     [Description("Unitary system, heating-only with constant volume supply fan (continuous or cycli" +
                  "ng) and heating coil (gas, electric, hot water, or steam). Identical to AirLoopH" +
                  "VAC:Unitary:Furnace:HeatOnly.")]
-    public class AirLoopHVAC_UnitaryHeatOnly : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_UnitaryHeatOnly : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

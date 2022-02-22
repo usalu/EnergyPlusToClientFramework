@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Glass material properties for Windows or Glass Doors Index of Refraction/Extincti" +
                  "on Coefficient input method Not to be used for coated glass")]
-    public class WindowMaterial_Glazing_RefractionExtinctionMethod : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Glazing_RefractionExtinctionMethod : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("thickness")]

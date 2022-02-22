@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
     [Description("The pipe segment to be used in an underground piping system This object represent" +
                  "s a single pipe leg positioned axially in the local z-direction, at a given x, y" +
                  " location in the domain")]
-    public class PipingSystem_Underground_PipeSegment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PipingSystem_Underground_PipeSegment : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("This segment will be centered at this distance from the x=0 domain surface or the" +

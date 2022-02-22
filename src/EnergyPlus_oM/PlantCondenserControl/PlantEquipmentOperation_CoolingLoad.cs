@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
     [Description("Plant equipment operation scheme for cooling load range operation. Specifies one " +
                  "or more groups of equipment which are available to operate for successive coolin" +
                  "g load ranges.")]
-    public class PlantEquipmentOperation_CoolingLoad : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_CoolingLoad : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("load_range_1_lower_limit")]

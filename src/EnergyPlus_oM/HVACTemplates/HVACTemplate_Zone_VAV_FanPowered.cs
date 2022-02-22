@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Zone terminal unit, fan powered variable volume, reheat optional. Referenced sche" +
                  "dules must be defined elsewhere in the idf.")]
-    public class HVACTemplate_Zone_VAV_FanPowered : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_VAV_FanPowered : BHoMObject
     {
         
 

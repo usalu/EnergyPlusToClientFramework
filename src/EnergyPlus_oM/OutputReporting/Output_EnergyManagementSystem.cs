@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description("This object is used to control the output produced by the Energy Management Syste" +
                  "m")]
-    public class Output_EnergyManagementSystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_EnergyManagementSystem : BHoMObject
     {
         
 

@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Used to describe the amount of water precipitation at the building site. Precipit" +
                  "ation includes both rain and the equivalent water content of snow.")]
-    public class Site_Precipitation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_Precipitation : BHoMObject
     {
         
 

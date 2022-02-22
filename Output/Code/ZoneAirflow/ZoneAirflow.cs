@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneAirflow
     
     
     [Description(@"Infiltration is specified as a design level which is modified by a Schedule fraction, temperature difference and wind speed: Infiltration=Idesign * FSchedule * (A + B*|(Tzone-Todb)| + C*WindSpd + D * WindSpd**2) If you use a ZoneList in the Zone or ZoneList name field then this definition applies to all the zones in the ZoneList.")]
-    public class ZoneInfiltration_DesignFlowRate : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneInfiltration_DesignFlowRate : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_or_zonelist_name")]
@@ -149,8 +154,13 @@ public System.Nullable<float> VelocitySquaredTermCoefficient { get; set; } = (Sy
         "tack and wind coefficients, and is a function of temperature difference and wind" +
         " speed: Infiltration=FSchedule * (AL /1000) SQRT(Cs*|(Tzone-Todb)| +  Cw*WindSpd" +
         "**2 )")]
-    public class ZoneInfiltration_EffectiveLeakageArea : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneInfiltration_EffectiveLeakageArea : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -180,8 +190,13 @@ public System.Nullable<float> WindCoefficient { get; set; } = null;
         "coefficients, and is a function of temperature difference and wind speed: Infilt" +
         "ration=FSchedule * SQRT( (c * Cs*|(Tzone-Todb)|**n)**2 + (c* Cw*(s * WindSpd)**2" +
         "n)**2 )")]
-    public class ZoneInfiltration_FlowCoefficient : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneInfiltration_FlowCoefficient : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -218,8 +233,13 @@ public System.Nullable<float> ShelterFactor { get; set; } = null;
     }
     
     [Description(@"Ventilation is specified as a design level which is modified by a schedule fraction, temperature difference and wind speed: Ventilation=Vdesign * Fschedule * (A + B*|(Tzone-Todb)| + C*WindSpd + D * WindSpd**2) If you use a ZoneList in the Zone or ZoneList name field then this definition applies to all the zones in the ZoneList.")]
-    public class ZoneVentilation_DesignFlowRate : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneVentilation_DesignFlowRate : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_or_zonelist_name")]
@@ -385,8 +405,13 @@ public System.Nullable<float> MaximumWindSpeed { get; set; } = (System.Nullable<
     }
     
     [Description(@"This object is specified as natural ventilation driven by wind and stack effect only: Ventilation Wind = Cw * Opening Area * Schedule * WindSpd Ventilation Stack = Cd * Opening Area * Schedule * SQRT(2*g*DH*(|(Tzone-Todb)|/Tzone)) Total Ventilation = SQRT((Ventilation Wind)^2 + (Ventilation Stack)^2)")]
-    public class ZoneVentilation_WindandStackOpenArea : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneVentilation_WindandStackOpenArea : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -492,8 +517,13 @@ public System.Nullable<float> MaximumWindSpeed { get; set; } = (System.Nullable<
     }
     
     [Description(@"Provide a combined zone outdoor air flow by including interactions between mechanical ventilation, infiltration and duct leakage. This object will combine outdoor flows from all ZoneInfiltration and ZoneVentilation objects in the same zone. Balanced flows will be summed, while unbalanced flows will be added in quadrature.")]
-    public class ZoneAirBalance_OutdoorAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneAirBalance_OutdoorAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -531,8 +561,13 @@ public string InducedOutdoorAirScheduleName { get; set; } = "";
     }
     
     [Description(@"ZoneMixing is a simple air exchange from one zone to another. Note that this statement only affects the energy balance of the ""receiving"" zone and will not produce any effect on the ""source"" zone. Mixing statements can be complementary and include multiple zones, but the balancing of flows between zones is left to the user's discretion.")]
-    public class ZoneMixing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneMixing : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -638,8 +673,13 @@ public string MaximumOutdoorTemperatureScheduleName { get; set; } = "";
     
     [Description("ZoneCrossMixing exchanges an equal amount of air between two zones. Note that thi" +
         "s statement affects the energy balance of both zones.")]
-    public class ZoneCrossMixing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneCrossMixing : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -745,8 +785,13 @@ public string MaximumOutdoorTemperatureScheduleName { get; set; } = "";
     }
     
     [Description(@"Refrigeration Door Mixing is used for an opening between two zones that are at the same elevation but have different air temperatures. In this case, the mixing air flow between the two zones is determined by the density difference between the two zones. This would typically be used between two zones in a refrigerated warehouse that are controlled at different temperatures. It could also be used to model a door to a walk-in refrigerated space if that space were modeled as a zone instead of using the object Refrigeration:WalkIn.")]
-    public class ZoneRefrigerationDoorMixing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneRefrigerationDoorMixing : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_1_name")]
@@ -797,7 +842,8 @@ public ZoneRefrigerationDoorMixing_DoorProtectionType DoorProtectionType { get; 
     [Description("Earth Tube is specified as a design level which is modified by a Schedule fractio" +
         "n, temperature difference and wind speed: Earthtube=Edesign * Fschedule * (A + B" +
         "*|(Tzone-Todb)| + C*WindSpd + D * WindSpd**2)")]
-    public class ZoneEarthtube : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneEarthtube : BHoMObject
     {
         
 
@@ -937,8 +983,13 @@ public System.Nullable<float> VelocitySquaredTermFlowCoefficient { get; set; } =
     }
     
     [Description(@"A cooltower (sometimes referred to as a wind tower or a shower cooling tower) models passive downdraught evaporative cooling (PDEC) that is designed to capture the wind at the top of a tower and cool the outdoor air using water evaporation before delivering it to a space.")]
-    public class ZoneCoolTower_Shower : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneCoolTower_Shower : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1021,8 +1072,13 @@ public System.Nullable<float> RatedPowerConsumption { get; set; } = null;
     [Description("A thermal chimney is a vertical shaft utilizing solar radiation to enhance natura" +
         "l ventilation. It consists of an absorber wall, air gap and glass cover with hig" +
         "h solar transmissivity.")]
-    public class ZoneThermalChimney : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneThermalChimney : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Name of zone that is the thermal chimney")]

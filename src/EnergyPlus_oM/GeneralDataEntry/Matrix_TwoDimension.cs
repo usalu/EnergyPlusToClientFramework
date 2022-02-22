@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.GeneralDataEntry
     
     [Description("matrix data in row-major order list each row keeping the columns in order number " +
         "of values must equal N1 x N2")]
-    public class Matrix_TwoDimension : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Matrix_TwoDimension : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("number_of_rows")]

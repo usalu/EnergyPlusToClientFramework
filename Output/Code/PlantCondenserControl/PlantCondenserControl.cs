@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
     
     
     [Description(@"List plant equipment in order of operating priority, 1st in list will be used 1st, etc Use only plant equipment in this list. If no equipment object types and equipment names are specified, then the corresponding PlantEquipmentOperation:* object will assume all available plant equipment for the loop should be OFF (not operate) within the specified lower/upper limit.")]
-    public class PlantEquipmentList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("equipment")]
@@ -76,8 +81,13 @@ public string Equipment { get; set; } = "";
     }
     
     [Description(@"List condenser equipment in order of operating priority, 1st in list will be used 1st, etc Use only condenser equipment in this list. If no equipment object types and equipment names are specified, then the corresponding PlantEquipmentOperation:* object will assume all available condenser equipment for the loop should be OFF (not operate) within the specified lower/upper limit.")]
-    public class CondenserEquipmentList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CondenserEquipmentList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("equipment")]
@@ -87,8 +97,13 @@ public string Equipment { get; set; } = "";
     [Description("Plant equipment operation scheme for uncontrolled operation. Specifies a group of" +
         " equipment that runs if the loop is active, unless turned off by the loop flow r" +
         "esolver to maintain continuity in the fluid loop.")]
-    public class PlantEquipmentOperation_Uncontrolled : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_Uncontrolled : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("equipment_list_name")]
@@ -98,8 +113,13 @@ public string EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for cooling load range operation. Specifies one " +
         "or more groups of equipment which are available to operate for successive coolin" +
         "g load ranges.")]
-    public class PlantEquipmentOperation_CoolingLoad : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_CoolingLoad : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("load_range_1_lower_limit")]
@@ -225,8 +245,13 @@ public string Range10EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for heating load range operation. Specifies one " +
         "or more groups of equipment which are available to operate for successive heatin" +
         "g load ranges.")]
-    public class PlantEquipmentOperation_HeatingLoad : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_HeatingLoad : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("load_range_1_lower_limit")]
@@ -352,8 +377,13 @@ public string Range10EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for outdoor dry-bulb temperature range operation" +
         ". Specifies one or more groups of equipment which are available to operate for s" +
         "uccessive outdoor dry-bulb temperature ranges.")]
-    public class PlantEquipmentOperation_OutdoorDryBulb : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_OutdoorDryBulb : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("dry_bulb_temperature_range_1_lower_limit")]
@@ -479,8 +509,13 @@ public string Range10EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for outdoor wet-bulb temperature range operation" +
         ". Specifies one or more groups of equipment which are available to operate for s" +
         "uccessive outdoor wet-bulb temperature ranges.")]
-    public class PlantEquipmentOperation_OutdoorWetBulb : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_OutdoorWetBulb : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("wet_bulb_temperature_range_1_lower_limit")]
@@ -606,8 +641,13 @@ public string Range10EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for outdoor relative humidity range operation. S" +
         "pecifies one or more groups of equipment which are available to operate for succ" +
         "essive outdoor relative humidity ranges.")]
-    public class PlantEquipmentOperation_OutdoorRelativeHumidity : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_OutdoorRelativeHumidity : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("relative_humidity_range_1_lower_limit")]
@@ -733,8 +773,13 @@ public string Range10EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for outdoor dewpoint temperature range operation" +
         ". Specifies one or more groups of equipment which are available to operate for s" +
         "uccessive outdoor dewpoint temperature ranges.")]
-    public class PlantEquipmentOperation_OutdoorDewpoint : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_OutdoorDewpoint : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("dewpoint_temperature_range_1_lower_limit")]
@@ -860,8 +905,13 @@ public string Range10EquipmentListName { get; set; } = "";
     [Description("Plant equipment operation scheme for component setpoint operation. Specifies one " +
         "or pieces of equipment which are controlled to meet the temperature setpoint at " +
         "the component outlet node.")]
-    public class PlantEquipmentOperation_ComponentSetpoint : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_ComponentSetpoint : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("equipment_1_object_type")]
@@ -1247,8 +1297,13 @@ public PlantEquipmentOperation_ComponentSetpoint_Operation10Type Operation10Type
     [Description("Plant equipment operation scheme for simpler input to control thermal (ice) energ" +
         "y storage systems. It replaces a host of setpoint managers with simple, single i" +
         "nput values. For more complex controls, use the ComponentSetpoint scheme.")]
-    public class PlantEquipmentOperation_ThermalEnergyStorage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_ThermalEnergyStorage : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("on_peak_schedule")]
@@ -2013,8 +2068,13 @@ public PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType Com
     }
     
     [Description(@"Plant equipment operation scheme for outdoor dry-bulb temperature difference operation. Specifies one or more groups of equipment which are available to operate for successive ranges based the difference between a reference node temperature and the outdoor dry-bulb temperature.")]
-    public class PlantEquipmentOperation_OutdoorDryBulbDifference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_OutdoorDryBulbDifference : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("reference_temperature_node_name")]
@@ -2142,8 +2202,13 @@ public string Range10EquipmentListName { get; set; } = "";
     }
     
     [Description(@"Plant equipment operation scheme for outdoor wet-bulb temperature difference operation. Specifies one or more groups of equipment which are available to operate for successive ranges based the difference between a reference node temperature and the outdoor wet-bulb temperature.")]
-    public class PlantEquipmentOperation_OutdoorWetBulbDifference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_OutdoorWetBulbDifference : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("reference_temperature_node_name")]
@@ -2271,8 +2336,13 @@ public string Range10EquipmentListName { get; set; } = "";
     }
     
     [Description(@"Plant equipment operation scheme for outdoor dewpoint temperature difference operation. Specifies one or more groups of equipment which are available to operate for successive ranges based the difference between a reference node temperature and the outdoor dewpoint temperature.")]
-    public class PlantEquipmentOperation_OutdoorDewpointDifference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_OutdoorDewpointDifference : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("reference_temperature_node_name")]
@@ -2400,8 +2470,13 @@ public string Range10EquipmentListName { get; set; } = "";
     }
     
     [Description(@"Operation schemes are listed in ""priority"" order. Note that each scheme must address the entire load and/or condition ranges for the simulation. The actual one selected for use will be the first that is ""Scheduled"" on. That is, if control scheme 1 is not ""on"" and control scheme 2 is -- then control scheme 2 is selected. Only plant equipment should be listed on a Control Scheme for this item.")]
-    public class PlantEquipmentOperationSchemes : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperationSchemes : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_1_object_type")]
@@ -2853,8 +2928,13 @@ public string ControlScheme8ScheduleName { get; set; } = "";
     }
     
     [Description(@"Operation schemes are listed in ""priority"" order. Note that each scheme must address the entire load and/or condition ranges for the simulation. The actual one selected for use will be the first that is ""Scheduled"" on. That is, if control scheme 1 is not ""on"" and control scheme 2 is -- then control scheme 2 is selected. Only condenser equipment should be listed on a Control Scheme for this item.")]
-    public class CondenserEquipmentOperationSchemes : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CondenserEquipmentOperationSchemes : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("control_scheme_1_object_type")]

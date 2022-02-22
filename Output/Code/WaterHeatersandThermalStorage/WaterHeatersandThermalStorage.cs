@@ -69,8 +69,13 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
     [Description("Water heater with well-mixed, single-node water tank. May be used to model a tank" +
         "less water heater (small tank volume), a hot water storage tank (zero heater cap" +
         "acity), or a heat pump water heater (see WaterHeater:HeatPump:PumpedCondenser.)")]
-    public class WaterHeater_Mixed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WaterHeater_Mixed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("tank_volume")]
@@ -422,8 +427,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     [Description("Water heater with stratified, multi-node water tank. May be used to model a tankl" +
         "ess water heater (small tank volume), a hot water storage tank (zero heater capa" +
         "city), or a heat pump water heater (see WaterHeater:HeatPump:*.)")]
-    public class WaterHeater_Stratified : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WaterHeater_Stratified : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
@@ -912,7 +922,8 @@ public string IndirectAlternateSetpointTemperatureScheduleName { get; set; } = "
     [Description("This input object is used with WaterHeater:Mixed or with WaterHeater:Stratified t" +
         "o autosize tank volume and heater capacity This object is not needed if water he" +
         "aters are not autosized.")]
-    public class WaterHeater_Sizing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WaterHeater_Sizing : BHoMObject
     {
         
 
@@ -1019,8 +1030,13 @@ public System.Nullable<float> HeightAspectRatio { get; set; } = null;
     }
     
     [Description(@"This object models an air-source heat pump for water heating where the water is pumped out of the tank, through a heating coil and returned to the tank. For wrapped condenser HPWHs, see WaterHeater:HeatPump:WrappedCondenser. WaterHeater:HeatPump:PumpedCondenser is a compound object that references other component objects - Coil:WaterHeating:AirToWaterHeatPump:*, Fan:OnOff, WaterHeater:Mixed or WaterHeater:Stratified")]
-    public class WaterHeater_HeatPump_PumpedCondenser : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WaterHeater_HeatPump_PumpedCondenser : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Availability schedule name for this system. Schedule value > 0 means the system is available. If this field is blank, the system is always available. Schedule values of 0 denote the heat pump compressor is off and the parasitic electric energy is also off.")]
@@ -1376,8 +1392,13 @@ public System.Nullable<float> ControlSensor2HeightInStratifiedTank { get; set; }
     }
     
     [Description(@"This object models an air-source heat pump for water heating where the heating coil is wrapped around the tank, which is typical of residential HPWHs. For pumped condenser HPWHs, see WaterHeater:HeatPump:PumpedCondenser. WaterHeater:HeatPump:WrappedCondenser is a compound object that references other component objects - Coil:WaterHeating:AirToWaterHeatPump:Pumped, Fan:OnOff, WaterHeater:Mixed")]
-    public class WaterHeater_HeatPump_WrappedCondenser : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WaterHeater_HeatPump_WrappedCondenser : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Availability schedule name for this system. Schedule value > 0 means the system is available. If this field is blank, the system is always available. Schedule values of 0 denote the heat pump compressor is off and the parasitic electric energy is also off.")]
@@ -1713,8 +1734,13 @@ public System.Nullable<float> ControlSensor2HeightInStratifiedTank { get; set; }
     }
     
     [Description(@"This ice storage model is a simplified model It requires a setpoint placed on the Chilled Water Side Outlet Node It should be placed in the chilled water supply side outlet branch followed by a pipe. Use the PlantEquipmentOperation:ComponentSetpoint plant operation scheme.")]
-    public class ThermalStorage_Ice_Simple : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermalStorage_Ice_Simple : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("IceOnCoilInternal = Ice-on-Coil, internal melt IceOnCoilExternal = Ice-on-Coil, e" +
@@ -1750,8 +1776,13 @@ public string OutletNodeName { get; set; } = "";
         "smaller containers filled with water that are placed in a larger tank or series " +
         "of tanks. The model uses polynomial equations to describe the system performance" +
         ".")]
-    public class ThermalStorage_Ice_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermalStorage_Ice_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1870,8 +1901,13 @@ public ThermalStorage_Ice_Detailed_ThawProcessIndicator ThawProcessIndicator { g
     [Description("Chilled water storage with a well-mixed, single-node tank. The chilled water is \"" +
         "used\" by drawing from the \"Use Side\" of the water tank. The tank is indirectly c" +
         "harged by circulating cold water through the \"Source Side\" of the water tank.")]
-    public class ThermalStorage_ChilledWater_Mixed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermalStorage_ChilledWater_Mixed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("tank_volume")]
@@ -1982,8 +2018,13 @@ public System.Nullable<float> TankRecoveryTime { get; set; } = (System.Nullable<
     [Description("Chilled water storage with a stratified, multi-node tank. The chilled water is \"u" +
         "sed\" by drawing from the \"Use Side\" of the water tank. The tank is indirectly ch" +
         "arged by circulating cold water through the \"Source Side\" of the water tank.")]
-    public class ThermalStorage_ChilledWater_Stratified : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermalStorage_ChilledWater_Stratified : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("tank_volume")]

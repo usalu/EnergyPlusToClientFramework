@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
     [Description("Plant equipment operation scheme for simpler input to control thermal (ice) energ" +
                  "y storage systems. It replaces a host of setpoint managers with simple, single i" +
                  "nput values. For more complex controls, use the ComponentSetpoint scheme.")]
-    public class PlantEquipmentOperation_ThermalEnergyStorage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_ThermalEnergyStorage : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("on_peak_schedule")]

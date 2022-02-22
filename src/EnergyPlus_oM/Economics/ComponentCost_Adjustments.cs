@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
                  "stimate for total project costs. This object allows extending the line item mode" +
                  "l so that the overall costs of the project will reflect various profit and fees." +
                  "")]
-    public class ComponentCost_Adjustments : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ComponentCost_Adjustments : BHoMObject
     {
         
 

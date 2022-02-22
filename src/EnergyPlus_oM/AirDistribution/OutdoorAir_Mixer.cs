@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
 {
     [Description("Outdoor air mixer. Node names cannot be duplicated within a single OutdoorAir:Mix" +
                  "er object or across all outdoor air mixers.")]
-    public class OutdoorAir_Mixer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OutdoorAir_Mixer : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Name of Mixed Air Node")]

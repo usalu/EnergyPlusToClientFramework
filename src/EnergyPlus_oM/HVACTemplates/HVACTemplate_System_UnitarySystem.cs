@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("Unitary HVAC system with optional cooling and heating. Supports DX and chilled wa" +
                  "ter, cooling, gas, electric, and hot water heating, air-to-air and water-to-air " +
                  "heat pumps.")]
-    public class HVACTemplate_System_UnitarySystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_UnitarySystem : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("If blank, always available. Also see Supply Fan Operating Mode Schedule Name fiel" +

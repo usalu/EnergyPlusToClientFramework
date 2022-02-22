@@ -68,7 +68,8 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     
     [Description("Specifies the geometric rules used to describe the input of surface vertices and " +
         "daylighting reference points.")]
-    public class GlobalGeometryRules : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GlobalGeometryRules : BHoMObject
     {
         
 
@@ -171,7 +172,8 @@ public GlobalGeometryRules_RectangularSurfaceCoordinateSystem RectangularSurface
     [Description("Provides a simple method of altering the footprint geometry of a model. The inten" +
         "t is to provide a single parameter that can be used to reshape the building desc" +
         "ription contained in the rest of the input file.")]
-    public class GeometryTransform : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GeometryTransform : BHoMObject
     {
         
 
@@ -202,8 +204,13 @@ public System.Nullable<float> NewAspectRatio { get; set; } = null;
     }
     
     [Description("Defines a thermal zone of the building.")]
-    public class Zone : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Zone : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("direction_of_relative_north")]
@@ -314,8 +321,13 @@ public EmptyNoYes PartOfTotalFloorArea { get; set; } = (EmptyNoYes)Enum.Parse(ty
     }
     
     [Description(@"Defines a list of thermal zones which can be referenced as a group. The ZoneList name may be used elsewhere in the input to apply a parameter to all zones in the list. ZoneLists can be used effectively with the following objects: People, Lights, ElectricEquipment, GasEquipment, HotWaterEquipment, ZoneInfiltration:DesignFlowRate, ZoneVentilation:DesignFlowRate, Sizing:Zone, ZoneControl:Thermostat, and others.")]
-    public class ZoneList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zones")]
@@ -325,8 +337,13 @@ public string Zones { get; set; } = "";
     [Description("Adds a multiplier to a ZoneList. This can be used to reduce the amount of input n" +
         "ecessary for simulating repetitive structures, such as the identical floors of a" +
         " multi-story building.")]
-    public class ZoneGroup : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneGroup : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_list_name")]
@@ -339,8 +356,13 @@ public System.Nullable<float> ZoneListMultiplier { get; set; } = (System.Nullabl
     
     [Description("Allows for detailed entry of building heat transfer surfaces. Does not include su" +
         "bsurfaces such as windows or doors.")]
-    public class BuildingSurface_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class BuildingSurface_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("surface_type")]
@@ -487,8 +509,13 @@ public string Vertices { get; set; } = "";
     }
     
     [Description("Allows for detailed entry of wall heat transfer surfaces.")]
-    public class Wall_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Wall_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -614,8 +641,13 @@ public string Vertices { get; set; } = "";
     }
     
     [Description("Allows for detailed entry of roof/ceiling heat transfer surfaces.")]
-    public class RoofCeiling_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoofCeiling_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -735,8 +767,13 @@ public string Vertices { get; set; } = "";
     }
     
     [Description("Allows for detailed entry of floor heat transfer surfaces.")]
-    public class Floor_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Floor_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -863,8 +900,13 @@ public string Vertices { get; set; } = "";
     
     [Description("Allows for simplified entry of exterior walls. View Factor to Ground is automatic" +
         "ally calculated.")]
-    public class Wall_Exterior : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Wall_Exterior : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -909,8 +951,13 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of interior walls.")]
-    public class Wall_Adiabatic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Wall_Adiabatic : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -955,8 +1002,13 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of underground walls.")]
-    public class Wall_Underground : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Wall_Underground : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file. If the construction is type" +
@@ -1003,8 +1055,13 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of interzone walls (walls between zones).")]
-    public class Wall_Interzone : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Wall_Interzone : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -1057,8 +1114,13 @@ public System.Nullable<float> Height { get; set; } = null;
     
     [Description("Allows for simplified entry of roofs (exterior). View Factor to Ground is automat" +
         "ically calculated.")]
-    public class Roof : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Roof : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -1105,8 +1167,13 @@ public System.Nullable<float> Width { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of interior ceilings.")]
-    public class Ceiling_Adiabatic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Ceiling_Adiabatic : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -1154,8 +1221,13 @@ public System.Nullable<float> Width { get; set; } = null;
     
     [Description("Allows for simplified entry of ceilings using adjacent zone (interzone) heat tran" +
         "sfer - adjacent surface should be a floor")]
-    public class Ceiling_Interzone : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Ceiling_Interzone : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -1210,8 +1282,13 @@ public System.Nullable<float> Width { get; set; } = null;
     
     [Description("Allows for simplified entry of exterior floors with ground contact. View Factors " +
         "to Ground is automatically calculated.")]
-    public class Floor_GroundContact : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Floor_GroundContact : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file If the construction is type " +
@@ -1259,8 +1336,13 @@ public System.Nullable<float> Width { get; set; } = null;
     
     [Description("Allows for simplified entry of exterior floors ignoring ground contact or interio" +
         "r floors. View Factor to Ground is automatically calculated.")]
-    public class Floor_Adiabatic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Floor_Adiabatic : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -1307,8 +1389,13 @@ public System.Nullable<float> Width { get; set; } = null;
     
     [Description("Allows for simplified entry of floors using adjacent zone (interzone) heat transf" +
         "er - adjacent surface should be a ceiling.")]
-    public class Floor_Interzone : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Floor_Interzone : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -1362,8 +1449,13 @@ public System.Nullable<float> Width { get; set; } = null;
     
     [Description("Allows for detailed entry of subsurfaces (windows, doors, glass doors, tubular da" +
         "ylighting devices).")]
-    public class FenestrationSurface_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FenestrationSurface_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("surface_type")]
@@ -1477,8 +1569,13 @@ public System.Nullable<float> Vertex4ZCoordinate { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of Windows.")]
-    public class Window : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Window : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -1522,8 +1619,13 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of opaque Doors.")]
-    public class Door : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Door : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -1562,8 +1664,13 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of glass Doors.")]
-    public class GlazedDoor : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GlazedDoor : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -1607,8 +1714,13 @@ public System.Nullable<float> Height { get; set; } = null;
     }
     
     [Description("Allows for simplified entry of interzone windows (adjacent to other zones).")]
-    public class Window_Interzone : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Window_Interzone : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -1653,8 +1765,13 @@ public System.Nullable<float> Height { get; set; } = null;
     
     [Description("Allows for simplified entry of interzone (opaque interior) doors (adjacent to oth" +
         "er zones).")]
-    public class Door_Interzone : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Door_Interzone : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -1699,8 +1816,13 @@ public System.Nullable<float> Height { get; set; } = null;
     
     [Description("Allows for simplified entry of interzone (glass interior) doors (adjacent to othe" +
         "r zones).")]
-    public class GlazedDoor_Interzone : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GlazedDoor_Interzone : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -1746,8 +1868,13 @@ public System.Nullable<float> Height { get; set; } = null;
     [Description("Specifies the type, location, and controls for window shades, window blinds, and " +
         "switchable glazing. Referencing the surface objects for exterior windows and gla" +
         "ss doors (ref: FenestrationSurface:Detailed, Window, and GlazedDoor).")]
-    public class WindowShadingControl : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowShadingControl : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -1968,8 +2095,13 @@ public string FenestrationSurfaces { get; set; } = "";
     [Description("Specifies the dimensions of a window frame, dividers, and inside reveal surfaces." +
         " Referenced by the surface objects for exterior windows and glass doors (ref: Fe" +
         "nestrationSurface:Detailed, Window, and GlazedDoor).")]
-    public class WindowProperty_FrameAndDivider : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowProperty_FrameAndDivider : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Width of frame in plane of window Frame width assumed the same on all sides of wi" +
@@ -2108,8 +2240,13 @@ public System.Nullable<float> InsideRevealSolarAbsorptance { get; set; } = (Syst
     }
     
     [Description("Used to control forced airflow through a gap between glass layers")]
-    public class WindowProperty_AirflowControl : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowProperty_AirflowControl : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("airflow_source")]
@@ -2202,7 +2339,8 @@ public string AirflowReturnAirNodeName { get; set; } = "";
     
     [Description("This is a movable exterior glass layer that is usually applied in the winter and " +
         "removed in the summer.")]
-    public class WindowProperty_StormWindow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowProperty_StormWindow : BHoMObject
     {
         
 
@@ -2241,8 +2379,13 @@ public System.Nullable<float> DayOfMonthThatStormGlassLayerIsTakenOff { get; set
     }
     
     [Description(@"Used to describe internal zone surface area that does not need to be part of geometric representation. This should be the total surface area exposed to the zone air. If you use a ZoneList in the Zone or ZoneList name field then this definition applies to all the zones in the ZoneList.")]
-    public class InternalMass : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class InternalMass : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("To be matched with a construction in this input file")]
@@ -2261,8 +2404,13 @@ public System.Nullable<float> SurfaceArea { get; set; } = null;
     
     [Description("used for shading elements such as trees these items are fixed in space and would " +
         "not move with relative geometry")]
-    public class Shading_Site : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Site : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Facing direction of outside of shading device (S=180,N=0,E=90,W=270)")]
@@ -2298,8 +2446,13 @@ public System.Nullable<float> Height { get; set; } = null;
     [Description("used for shading elements such as trees, other buildings, parts of this building " +
         "not being modeled these items are relative to the current building and would mov" +
         "e with relative geometry")]
-    public class Shading_Building : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Building : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Facing direction of outside of shading device (S=180,N=0,E=90,W=270)")]
@@ -2334,8 +2487,13 @@ public System.Nullable<float> Height { get; set; } = null;
     
     [Description("used for shading elements such as trees these items are fixed in space and would " +
         "not move with relative geometry")]
-    public class Shading_Site_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Site_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Transmittance schedule for the shading device, defaults to zero (always opaque)")]
@@ -2357,8 +2515,13 @@ public string Vertices { get; set; } = "";
     [Description("used for shading elements such as trees, other buildings, parts of this building " +
         "not being modeled these items are relative to the current building and would mov" +
         "e with relative geometry")]
-    public class Shading_Building_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Building_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Transmittance schedule for the shading device, defaults to zero (always opaque)")]
@@ -2379,8 +2542,13 @@ public string Vertices { get; set; } = "";
     }
     
     [Description("Overhangs are usually flat shading surfaces that reference a window or door.")]
-    public class Shading_Overhang : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Overhang : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("window_or_door_name")]
@@ -2409,8 +2577,13 @@ public System.Nullable<float> Depth { get; set; } = null;
     }
     
     [Description("Overhangs are typically flat shading surfaces that reference a window or door.")]
-    public class Shading_Overhang_Projection : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Overhang_Projection : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("window_or_door_name")]
@@ -2439,8 +2612,13 @@ public System.Nullable<float> DepthAsFractionOfWindowDoorHeight { get; set; } = 
     }
     
     [Description("Fins are usually shading surfaces that are perpendicular to a window or door.")]
-    public class Shading_Fin : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Fin : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("window_or_door_name")]
@@ -2490,8 +2668,13 @@ public System.Nullable<float> RightDepth { get; set; } = null;
     }
     
     [Description("Fins are usually shading surfaces that are perpendicular to a window or door.")]
-    public class Shading_Fin_Projection : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Fin_Projection : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("window_or_door_name")]
@@ -2542,8 +2725,13 @@ public System.Nullable<float> RightDepthAsFractionOfWindowDoorWidth { get; set; 
     
     [Description("used For fins, overhangs, elements that shade the building, are attached to the b" +
         "uilding but are not part of the heat transfer calculations")]
-    public class Shading_Zone_Detailed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Zone_Detailed : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("base_surface_name")]
@@ -2566,7 +2754,8 @@ public string Vertices { get; set; } = "";
     
     [Description("If this object is not defined for a shading surface the default values listed in " +
         "following fields will be used in the solar reflection calculation.")]
-    public class ShadingProperty_Reflectance : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ShadingProperty_Reflectance : BHoMObject
     {
         
 

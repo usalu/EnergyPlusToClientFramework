@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
 {
     [Description("Overrides fan/pump schedules depending on temperature difference between two node" +
                  "s.")]
-    public class AvailabilityManager_DifferentialThermostat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManager_DifferentialThermostat : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("hot_node_name")]

@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
 {
     [Description("Direct fired gas absorption chiller-heater using performance curves similar to DO" +
                  "E-2")]
-    public class ChillerHeater_Absorption_DirectFired : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ChillerHeater_Absorption_DirectFired : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("nominal_cooling_capacity")]

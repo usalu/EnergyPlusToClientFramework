@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Constant Air Volume air loop with optional chilled water cooling coil, optional h" +
                  "eating coil and optional preheat.")]
-    public class HVACTemplate_System_ConstantVolume : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_ConstantVolume : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("If blank, always on;  Schedule is used in availability manager and fan scheduling" +

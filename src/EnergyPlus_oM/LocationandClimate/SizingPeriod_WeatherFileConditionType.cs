@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("Use a weather file period for design sizing calculations. EPW weather files are c" +
                  "reated with typical and extreme periods created heuristically from the weather f" +
                  "ile data. For more details on these periods, see AuxiliaryPrograms document.")]
-    public class SizingPeriod_WeatherFileConditionType : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SizingPeriod_WeatherFileConditionType : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Following is a list of all possible types of Extreme and Typical periods that mig" +

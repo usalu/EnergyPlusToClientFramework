@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("Specifies ground reflectance multipliers when snow resident on the ground. These " +
                  "multipliers are applied to the \"normal\" ground reflectances specified in Site:Gr" +
                  "oundReflectance.")]
-    public class Site_GroundReflectance_SnowModifier : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundReflectance_SnowModifier : BHoMObject
     {
         
 

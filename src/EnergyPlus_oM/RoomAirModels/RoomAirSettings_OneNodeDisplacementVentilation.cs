@@ -5,7 +5,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
 {
     [Description("The Mundt model for displacement ventilation")]
-    public class RoomAirSettings_OneNodeDisplacementVentilation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAirSettings_OneNodeDisplacementVentilation : BHoMObject
     {
         
 

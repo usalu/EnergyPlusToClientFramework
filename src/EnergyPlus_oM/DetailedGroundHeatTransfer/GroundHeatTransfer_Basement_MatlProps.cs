@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
     [Description("Specifies the material properties for the Basement preprocessor ground heat trans" +
                  "fer simulation. Only the Foundation Wall, Floor Slab, Soil, and Gravel propertie" +
                  "s are currently used.")]
-    public class GroundHeatTransfer_Basement_MatlProps : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatTransfer_Basement_MatlProps : BHoMObject
     {
         
 

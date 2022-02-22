@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
     [Description("Defines a daylighting which can have an inside shelf, an outside shelf, or both. " +
                  "The inside shelf is defined as a building surface and the outside shelf is defin" +
                  "ed as a shading surface.")]
-    public class DaylightingDevice_Shelf : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DaylightingDevice_Shelf : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("window_name")]

@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
 {
     [Description("Thermal and optical performance parameters for a single glazed solar collector wi" +
                  "th integral storage unit.")]
-    public class SolarCollectorPerformance_IntegralCollectorStorage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SolarCollectorPerformance_IntegralCollectorStorage : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Currently only RectangularTank ICS collector type is available.")]

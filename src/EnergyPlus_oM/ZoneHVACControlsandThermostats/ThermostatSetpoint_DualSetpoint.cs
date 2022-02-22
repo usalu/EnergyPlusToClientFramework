@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
 {
     [Description("Used for a heating and cooling thermostat with dual setpoints. The setpoints can " +
                  "be scheduled and varied throughout the simulation for both heating and cooling.")]
-    public class ThermostatSetpoint_DualSetpoint : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermostatSetpoint_DualSetpoint : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("heating_setpoint_temperature_schedule_name")]

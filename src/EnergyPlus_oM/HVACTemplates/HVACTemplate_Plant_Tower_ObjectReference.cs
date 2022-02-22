@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("This object references a detailed cooling tower object and adds it to an HVACTemp" +
                  "late:Plant:ChilledWaterLoop or MixedWaterLoop. The user must create a complete d" +
                  "etailed cooling tower object with all required curve or performance objects.")]
-    public class HVACTemplate_Plant_Tower_ObjectReference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Plant_Tower_ObjectReference : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("cooling_tower_object_type")]

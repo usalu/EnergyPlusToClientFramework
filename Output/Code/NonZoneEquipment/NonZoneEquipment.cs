@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.NonZoneEquipment
     
     
     [Description(@"Used to simulate a scheduled plant loop demand profile. Load and flow rate are specified using schedules. Positive values are heating loads, and negative values are cooling loads. The actual load met is dependent on the performance of the supply loop components.")]
-    public class LoadProfile_Plant : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class LoadProfile_Plant : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("inlet_node_name")]

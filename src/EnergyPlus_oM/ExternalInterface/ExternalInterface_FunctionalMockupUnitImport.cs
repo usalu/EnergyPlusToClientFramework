@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
 {
     [Description("This object declares an FMU")]
-    public class ExternalInterface_FunctionalMockupUnitImport : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_FunctionalMockupUnitImport : BHoMObject
     {
         
 

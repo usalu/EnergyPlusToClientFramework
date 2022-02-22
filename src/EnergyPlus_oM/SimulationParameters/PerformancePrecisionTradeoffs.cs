@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("This object enables users to choose certain options that speed up EnergyPlus simu" +
                  "lation, but may lead to small decreases in accuracy of results.")]
-    public class PerformancePrecisionTradeoffs : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PerformancePrecisionTradeoffs : BHoMObject
     {
         
 

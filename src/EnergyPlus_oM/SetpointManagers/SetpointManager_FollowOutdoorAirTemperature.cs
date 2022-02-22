@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
                  "at is derived from the current outdoor air environmental conditions. The outdoor" +
                  " air conditions are obtained from the weather information during the simulation." +
                  "")]
-    public class SetpointManager_FollowOutdoorAirTemperature : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SetpointManager_FollowOutdoorAirTemperature : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("control_variable")]

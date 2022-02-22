@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("Zone terminal unit with variable refrigerant flow (VRF) DX cooling and heating co" +
                  "ils (air-to-air or water-to-air heat pump). The VRF terminal units are served by" +
                  " an HVACTemplate:System:VRF system.")]
-    public class HVACTemplate_Zone_VRF : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_VRF : BHoMObject
     {
         
 

@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("Ground-coupled slab model for on-grade and in-grade cases with or without insulat" +
                  "ion.")]
-    public class Site_GroundDomain_Slab : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundDomain_Slab : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("ground_domain_depth")]

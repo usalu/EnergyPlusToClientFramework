@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACAirLoopTerminalUnits
 {
     [Description("Central air system air distribution unit, serves as a wrapper for a specific type" +
                  " of air terminal unit. This object is referenced in a ZoneHVAC:EquipmentList.")]
-    public class ZoneHVAC_AirDistributionUnit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_AirDistributionUnit : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("air_distribution_unit_outlet_node_name")]

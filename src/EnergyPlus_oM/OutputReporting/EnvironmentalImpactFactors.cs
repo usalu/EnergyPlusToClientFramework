@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
 {
     [Description("Used to help convert district and ideal energy use to a fuel type and provide tot" +
                  "al carbon equivalent with coefficients Also used in Source=>Site conversions.")]
-    public class EnvironmentalImpactFactors : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnvironmentalImpactFactors : BHoMObject
     {
         
 

@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
 {
     [Description("Defines a generic plant operation scheme for custom supervisory control using Ene" +
                  "rgy Management System or External Interface to dispatch loads")]
-    public class PlantEquipmentOperation_UserDefined : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_UserDefined : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("main_model_program_calling_manager_name")]

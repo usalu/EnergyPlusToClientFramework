@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
     
     
     [Description(null)]
-    public class ZoneHVAC_Baseboard_RadiantConvective_Water_Design : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_Baseboard_RadiantConvective_Water_Design : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Enter the method used to determine the heating design capacity. HeatingDesignCapacity = > selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea = > selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity = > is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
@@ -120,8 +125,13 @@ public System.Nullable<float> FractionOfRadiantEnergyIncidentOnPeople { get; set
     
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
         "roups to the end of the list")]
-    public class ZoneHVAC_Baseboard_RadiantConvective_Water : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_Baseboard_RadiantConvective_Water : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("design_object")]
@@ -167,8 +177,13 @@ public string SurfaceFractions { get; set; } = "";
     }
     
     [Description(null)]
-    public class ZoneHVAC_Baseboard_RadiantConvective_Steam_Design : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_Baseboard_RadiantConvective_Steam_Design : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Enter the method used to determine the heating design capacity. HeatingDesignCapacity is selected when the design heating capacity value or autosize is specified. CapacityPerFloorArea is selected when the design heating capacity is determine from user specified heating capacity per floor area and zone floor area. FractionOfAutosizedHeatingCapacity is selected when the design heating capacity is determined from a user specified fraction and the auto-sized design heating capacity.")]
@@ -220,8 +235,13 @@ public System.Nullable<float> FractionOfRadiantEnergyIncidentOnPeople { get; set
     
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
         "roups to the end of the list.")]
-    public class ZoneHVAC_Baseboard_RadiantConvective_Steam : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_Baseboard_RadiantConvective_Steam : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("design_object")]
@@ -262,8 +282,13 @@ public string SurfaceFractions { get; set; } = "";
     
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
         "roups to the end of the list")]
-    public class ZoneHVAC_Baseboard_RadiantConvective_Electric : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_Baseboard_RadiantConvective_Electric : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -331,8 +356,13 @@ public string SurfaceFractions { get; set; } = "";
     
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
         "roups to the end of the list")]
-    public class ZoneHVAC_CoolingPanel_RadiantConvective_Water : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_CoolingPanel_RadiantConvective_Water : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("availability_schedule_name")]
@@ -488,8 +518,13 @@ public string SurfaceFractions { get; set; } = "";
     
     [Description("Hot water baseboard heater, convection-only. Natural convection hydronic heating " +
         "unit.")]
-    public class ZoneHVAC_Baseboard_Convective_Water : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_Baseboard_Convective_Water : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -561,8 +596,13 @@ public System.Nullable<float> ConvergenceTolerance { get; set; } = (System.Nulla
     
     [Description("Electric baseboard heater, convection-only. Natural convection electric heating u" +
         "nit.")]
-    public class ZoneHVAC_Baseboard_Convective_Electric : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_Baseboard_Convective_Electric : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -619,8 +659,13 @@ public System.Nullable<float> Efficiency { get; set; } = (System.Nullable<float>
     [Description("Low temperature hydronic radiant heating and/or cooling system embedded in a buil" +
         "ding surface (wall, ceiling, or floor). Controlled by varying the hot or chilled" +
         " water flow to the unit.")]
-    public class ZoneHVAC_LowTemperatureRadiant_VariableFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_LowTemperatureRadiant_VariableFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("design_object")]
@@ -709,8 +754,13 @@ public System.Nullable<float> CircuitLength { get; set; } = (System.Nullable<flo
     }
     
     [Description(null)]
-    public class ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"This parameter identifies how the heat transfer between fluid being circulated through the radiant system and the radiant system (slab) is modeled. ConvectionOnly means that only convection between the fluid and the inside surface of the pipe is modeled using a conventional equation for flow inside a pipe. ISOStandard models convection between the fluid and the inside of of the pipe and conduction through the pipe material using equations specific to ISO Standard 11855-2.")]
@@ -922,8 +972,13 @@ public string ChangeoverDelayTimePeriodSchedule { get; set; } = "";
     [Description("Low temperature hydronic radiant heating and/or cooling system embedded in a buil" +
         "ding surface (wall, ceiling, or floor). Controlled by varying the hot or chilled" +
         " water temperature circulating through the unit.")]
-    public class ZoneHVAC_LowTemperatureRadiant_ConstantFlow : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_LowTemperatureRadiant_ConstantFlow : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("design_object")]
@@ -1045,8 +1100,13 @@ public System.Nullable<float> CircuitLength { get; set; } = (System.Nullable<flo
     }
     
     [Description(null)]
-    public class ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"This parameter identifies how the heat transfer between fluid being circulated through the radiant system and the radiant system (slab) is modeled. ConvectionOnly means that only convection between the fluid and the inside surface of the pipe is modeled using a conventional equation for flow inside a pipe. ISOStandard models convection between the fluid and the inside of of the pipe and conduction through the pipe material using equations specific to ISO Standard 11855-2.")]
@@ -1164,8 +1224,13 @@ public string ChangeoverDelayTimePeriodSchedule { get; set; } = "";
     }
     
     [Description("Electric resistance low temperature radiant system")]
-    public class ZoneHVAC_LowTemperatureRadiant_Electric : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_LowTemperatureRadiant_Electric : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1292,8 +1357,13 @@ public string HeatingSetpointTemperatureScheduleName { get; set; } = "";
         "Note that the following flow fractions must sum up to 1.0 The number of surfaces" +
         " can be expanded beyond 100, if necessary, by adding more groups to the end of t" +
         "he list")]
-    public class ZoneHVAC_LowTemperatureRadiant_SurfaceGroup : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_LowTemperatureRadiant_SurfaceGroup : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("surface_fractions")]
@@ -1302,8 +1372,13 @@ public string SurfaceFractions { get; set; } = "";
     
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
         "roups to the end of the list")]
-    public class ZoneHVAC_HighTemperatureRadiant : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_HighTemperatureRadiant : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1446,8 +1521,13 @@ public string SurfaceFractions { get; set; } = "";
     
     [Description("Ventilated slab system where outdoor air flows through hollow cores in a building" +
         " surface (wall, ceiling, or floor).")]
-    public class ZoneHVAC_VentilatedSlab : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_VentilatedSlab : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -1746,8 +1826,13 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
         "rfaces. Note that the flow fractions must sum up to 1.0. The number of surfaces " +
         "can be expanded beyond 10, if necessary, by adding more groups to the end of the" +
         " list")]
-    public class ZoneHVAC_VentilatedSlab_SlabGroup : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_VentilatedSlab_SlabGroup : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("data")]

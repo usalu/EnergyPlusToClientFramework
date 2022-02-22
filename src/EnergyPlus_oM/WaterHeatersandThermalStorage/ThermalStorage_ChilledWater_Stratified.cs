@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
     [Description("Chilled water storage with a stratified, multi-node tank. The chilled water is \"u" +
                  "sed\" by drawing from the \"Use Side\" of the water tank. The tank is indirectly ch" +
                  "arged by circulating cold water through the \"Source Side\" of the water tank.")]
-    public class ThermalStorage_ChilledWater_Stratified : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ThermalStorage_ChilledWater_Stratified : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("tank_volume")]

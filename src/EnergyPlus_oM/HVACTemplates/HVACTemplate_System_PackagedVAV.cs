@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Packaged Variable Air Volume (PVAV) air loop with optional heating coil and optio" +
                  "nal preheat.")]
-    public class HVACTemplate_System_PackagedVAV : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_PackagedVAV : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("If blank, always on; PVAV System always on. Schedule is used in availability mana" +

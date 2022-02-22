@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     [Description("This object creates a dedicated outdoor air system that must be used with HVACTem" +
                  "plate:Zone:* objects for BaseboardHeat FanCoil PTAC PTHP WaterToAirHeatPump and " +
                  "VRF. Does not support HVACTemplate:Zone:VAV or other central multizone systems")]
-    public class HVACTemplate_System_DedicatedOutdoorAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_System_DedicatedOutdoorAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("If blank, always on; DOAS System always on. Schedule is used in availability mana" +

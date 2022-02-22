@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
     
     [Description("This object is used to describe general outdoor air requirements which are refere" +
         "nced by other objects.")]
-    public class DesignSpecification_OutdoorAir : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DesignSpecification_OutdoorAir : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Flow/Person => Outdoor Air Flow per Person * Occupancy = Design Flow Rate, Flow/Area => Outdoor Air Flow per Zone Floor Area * Zone Floor Area = Design Flow Rate, Flow/Zone => Outdoor Air Flow per Zone = Design Flow Rate, AirChanges/Hour => Outdoor Air Flow Air Changes per Hour * Zone Volume adjusted for m3/s = Design Flow Rate")]
@@ -150,8 +155,13 @@ public string ProportionalControlMinimumOutdoorAirFlowRateScheduleName { get; se
     [Description("This object is used to describe zone air distribution in terms of air distributio" +
         "n effectiveness and secondary recirculation fraction. It is referenced by Sizing" +
         ":Zone and Controller:MechanicalVentilation objects")]
-    public class DesignSpecification_ZoneAirDistribution : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DesignSpecification_ZoneAirDistribution : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_air_distribution_effectiveness_in_cooling_mode")]
@@ -177,7 +187,8 @@ public System.Nullable<float> MinimumZoneVentilationEfficiency { get; set; } = (
     }
     
     [Description(@"Specifies global heating and cooling sizing factors/ratios. These ratios are applied at the zone level to all of the zone heating and cooling loads and air flow rates. Then these new loads and air flow rates are used to calculate the system level flow rates and capacities and are used in all component sizing calculations. Specifies the width (in load timesteps) of a moving average window which is used to smooth the peak load across more than one timestep.")]
-    public class Sizing_Parameters : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Sizing_Parameters : BHoMObject
     {
         
 
@@ -197,7 +208,8 @@ public System.Nullable<float> TimestepsInAveragingWindow { get; set; } = null;
     }
     
     [Description(@"Specifies the data needed to perform a zone design air flow calculation. The calculation is done for every sizing period included in the input. The maximum cooling and heating load and cooling, heating, and ventilation air flows are then saved for system level and zone component design calculations.")]
-    public class Sizing_Zone : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Sizing_Zone : BHoMObject
     {
         
 
@@ -420,8 +432,13 @@ public string DedicatedOutdoorAirHighSetpointTemperatureForDesign { get; set; } 
     
     [Description("This object is used to describe general scalable zone HVAC equipment sizing which" +
         " are referenced by other objects.")]
-    public class DesignSpecification_ZoneHVAC_Sizing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DesignSpecification_ZoneHVAC_Sizing : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Enter the method used to determine the cooling supply air volume flow rate. None is used when a cooling coil is not included in the Zone HVAC Equip or this field may be blank. SupplyAirFlowRate => selected when the magnitude of the supply air volume flow rate is specified. FlowPerFloorArea => selected when the supply air volume flow rate is determined from total floor area served by the Zone HVAC unit and Flow Per Floor Area value specified. FractionOfAutosizedCoolingAirflow => is selected when the supply air volume is determined from a user specified fraction and the autosized cooling supply air flow rate value determined by the simulation. FlowPerCoolingCapacity => is selected when the supply air volume is determined from user specified flow per Cooling Capacity and Cooling Capacity determined by the simulation.")]
@@ -678,8 +695,13 @@ public System.Nullable<float> FractionOfAutosizedHeatingDesignCapacity { get; se
     }
     
     [Description("This object is used to scale the sizing of air terminal units.")]
-    public class DesignSpecification_AirTerminal_Sizing : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DesignSpecification_AirTerminal_Sizing : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("The fraction of the design sensible cooling load to be met by this terminal unit." +
@@ -717,7 +739,8 @@ public System.Nullable<float> FractionOfMinimumOutdoorAirFlow { get; set; } = (S
     [Description("Specifies the input needed to perform sizing calculations for a central forced ai" +
         "r system. System design air flow, heating capacity, and cooling capacity will be" +
         " calculated using this input data.")]
-    public class Sizing_System : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Sizing_System : BHoMObject
     {
         
 
@@ -1067,7 +1090,8 @@ public Sizing_System_CentralCoolingCapacityControlMethod CentralCoolingCapacityC
     }
     
     [Description(@"Specifies the input needed to autosize plant loop flow rates and equipment capacities. This information is initially used by components that use water for heating or cooling such as hot or chilled water coils to calculate their maximum water flow rates. These flow rates are then summed for use in calculating the Plant Loop flow rates.")]
-    public class Sizing_Plant : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Sizing_Plant : BHoMObject
     {
         
 
@@ -1159,7 +1183,8 @@ public Sizing_Plant_CoincidentSizingFactorMode CoincidentSizingFactorMode { get;
         "ng into spreadsheet programs such as Excel(tm) but not so well for word processi" +
         "ng programs -- there tab may be a better choice. Fixed puts spaces between the \"" +
         "columns\"")]
-    public class OutputControl_Sizing_Style : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OutputControl_Sizing_Style : BHoMObject
     {
         
 

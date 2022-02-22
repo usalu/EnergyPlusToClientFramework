@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Determines settings for the Conduction Finite Difference algorithm for surface he" +
                  "at transfer modeling.")]
-    public class HeatBalanceSettings_ConductionFiniteDifference : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HeatBalanceSettings_ConductionFiniteDifference : BHoMObject
     {
         
 

@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.ExteriorEquipment
     
     
     [Description("only used for Meter type reporting, does not affect building loads")]
-    public class Exterior_Lights : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Exterior_Lights : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("units in schedule should be fraction applied to capacity of the exterior lights e" +
@@ -104,8 +109,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     [Description("only used for Meter type reporting, does not affect building loads")]
-    public class Exterior_FuelEquipment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Exterior_FuelEquipment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("fuel_use_type")]
@@ -176,8 +186,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     [Description("only used for Meter type reporting, does not affect building loads")]
-    public class Exterior_WaterEquipment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Exterior_WaterEquipment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("fuel_use_type")]

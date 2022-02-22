@@ -67,7 +67,8 @@ namespace BH.oM.Adapters.EnergyPlus.FluidProperties
     
     
     [Description("potential fluid name/type in the input file repeat this object for each fluid")]
-    public class FluidProperties_Name : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FluidProperties_Name : BHoMObject
     {
         
 
@@ -91,8 +92,13 @@ public FluidProperties_Name_FluidType FluidType { get; set; } = (FluidProperties
     }
     
     [Description("glycol and what concentration it is")]
-    public class FluidProperties_GlycolConcentration : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FluidProperties_GlycolConcentration : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("or UserDefined Fluid (must show up as a glycol in FluidProperties:Name object)")]
@@ -123,8 +129,13 @@ public System.Nullable<float> GlycolConcentration { get; set; } = null;
     }
     
     [Description(@"property values for fluid properties list of up to 250 temperatures, note that number of property values must match the number of properties in other words, there must be a one-to-one correspondence between the property values in this list and the actual properties list in other syntax degrees C (for all temperature inputs)")]
-    public class FluidProperties_Temperatures : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FluidProperties_Temperatures : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("temperature_1")]
@@ -1128,7 +1139,8 @@ public System.Nullable<float> Temperature250 { get; set; } = null;
     }
     
     [Description("fluid properties for the saturated region")]
-    public class FluidProperties_Saturated : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FluidProperties_Saturated : BHoMObject
     {
         
 
@@ -2181,7 +2193,8 @@ public System.Nullable<float> PropertyValue250 { get; set; } = null;
     }
     
     [Description("fluid properties for the superheated region")]
-    public class FluidProperties_Superheated : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FluidProperties_Superheated : BHoMObject
     {
         
 
@@ -3216,7 +3229,8 @@ public System.Nullable<float> PropertyValue250 { get; set; } = null;
     }
     
     [Description("fluid properties for water/other fluid mixtures")]
-    public class FluidProperties_Concentration : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FluidProperties_Concentration : BHoMObject
     {
         
 

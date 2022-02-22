@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("Electric power inverter to convert from direct current (DC) to alternating curren" +
                  "t (AC) in an electric load center that contains Generator:PVWatts objects. It im" +
                  "plements the PVWatts inverter performance curves.")]
-    public class ElectricLoadCenter_Inverter_PVWatts : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ElectricLoadCenter_Inverter_PVWatts : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("dc_to_ac_size_ratio")]

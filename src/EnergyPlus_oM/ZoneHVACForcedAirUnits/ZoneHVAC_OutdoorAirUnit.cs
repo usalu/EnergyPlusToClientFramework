@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     [Description("The zone outdoor air unit models a single-zone dedicated outdoor air system (DOAS" +
                  "). Forced-convection 100% outdoor air unit with supply fan and optional equipmen" +
                  "t including exhaust fan, heating coil, cooling coil, and heat recovery.")]
-    public class ZoneHVAC_OutdoorAirUnit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_OutdoorAirUnit : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

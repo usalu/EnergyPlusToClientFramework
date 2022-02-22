@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
                  "he zones on that list (but you won\'t be able to use the object list to pick only" +
                  " one of those zones. Thermostat names are <Zone Name> <global Thermostat name> i" +
                  "nternally.")]
-    public class ZoneControl_Thermostat_OperativeTemperature : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneControl_Thermostat_OperativeTemperature : BHoMObject
     {
         
 

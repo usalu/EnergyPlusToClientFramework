@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
     
     [Description("a list of meters that can be reported are available after a run on the meter dict" +
         "ionary file (.mdd) if the Output:VariableDictionary has been requested.")]
-    public class DemandManagerAssignmentList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DemandManagerAssignmentList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("meter_name")]

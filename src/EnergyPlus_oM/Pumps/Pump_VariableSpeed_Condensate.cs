@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.Pumps
 {
     [Description("This pump model is described in the ASHRAE secondary HVAC toolkit. Variable Speed" +
                  " Condensate pump for Steam Systems")]
-    public class Pump_VariableSpeed_Condensate : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Pump_VariableSpeed_Condensate : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("inlet_node_name")]

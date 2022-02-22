@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
 {
     [Description("Hardware portion of EMS used to set up actuators in the model that are dynamicall" +
                  "y updated from the FMU.")]
-    public class ExternalInterface_FunctionalMockupUnitImport_To_Actuator : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ExternalInterface_FunctionalMockupUnitImport_To_Actuator : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("actuated_component_unique_name")]

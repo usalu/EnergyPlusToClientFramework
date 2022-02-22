@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("Electric power inverter to convert from direct current (DC) to alternating curren" +
                  "t (AC) in an electric load center that contains photovoltaic modules. This input" +
                  " object is for the simplest inverter model and uses a fixed efficiency.")]
-    public class ElectricLoadCenter_Inverter_Simple : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ElectricLoadCenter_Inverter_Simple : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

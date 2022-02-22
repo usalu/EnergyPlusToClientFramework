@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
                  "t (AC) in an electric load center that contains photovoltaic modules. This input" +
                  " object is for an inverter model where efficiency is a function of normalized po" +
                  "wer.")]
-    public class ElectricLoadCenter_Inverter_FunctionOfPower : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ElectricLoadCenter_Inverter_FunctionOfPower : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

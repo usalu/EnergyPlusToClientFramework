@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     [Description("Define the Thermostat StagedDualSetpoint settings for a zone or list of zones. If" +
                  " you use a ZoneList in the Zone or ZoneList name field then this definition appl" +
                  "ies to all the zones in the ZoneList.")]
-    public class ZoneControl_Thermostat_StagedDualSetpoint : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneControl_Thermostat_StagedDualSetpoint : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_or_zonelist_name")]

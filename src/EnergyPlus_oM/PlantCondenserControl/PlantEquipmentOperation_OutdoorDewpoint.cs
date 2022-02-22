@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
     [Description("Plant equipment operation scheme for outdoor dewpoint temperature range operation" +
                  ". Specifies one or more groups of equipment which are available to operate for s" +
                  "uccessive outdoor dewpoint temperature ranges.")]
-    public class PlantEquipmentOperation_OutdoorDewpoint : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_OutdoorDewpoint : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("dewpoint_temperature_range_1_lower_limit")]

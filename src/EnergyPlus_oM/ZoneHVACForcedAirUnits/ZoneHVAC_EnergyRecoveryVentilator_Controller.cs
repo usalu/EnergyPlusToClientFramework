@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
 {
     [Description("This controller is used exclusively by the ZoneHVAC:EnergyRecoveryVentilator obje" +
                  "ct to allow economizer (free cooling) operation when possible.")]
-    public class ZoneHVAC_EnergyRecoveryVentilator_Controller : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_EnergyRecoveryVentilator_Controller : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Enter the maximum outdoor dry-bulb temperature limit for economizer operation. No" +

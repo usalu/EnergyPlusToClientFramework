@@ -65,8 +65,13 @@ namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
     
     
     [Description(@"Zone thermostat control. Referenced schedules must be defined elsewhere in the idf. Thermostat control type is dual setpoint with deadband. It is not necessary to create a thermostat object for every zone, only for each unique set of setpoint schedules. For example, an office building may have two thermostat objects, one for ""Office"" and one for ""Storage"".")]
-    public class HVACTemplate_Thermostat : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Thermostat : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Leave blank if constant setpoint specified below, must enter schedule or constant" +

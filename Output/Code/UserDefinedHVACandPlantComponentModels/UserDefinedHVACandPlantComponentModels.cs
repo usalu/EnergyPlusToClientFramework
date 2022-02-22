@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
     
     [Description("Defines a generic zone air unit for custom modeling using Energy Management Syste" +
         "m or External Interface")]
-    public class ZoneHVAC_ForcedAir_UserDefined : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_ForcedAir_UserDefined : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("overall_model_simulation_program_calling_manager_name")]
@@ -145,8 +150,13 @@ public string AmbientZoneName { get; set; } = "";
     
     [Description("Defines a generic single duct air terminal unit for custom modeling using Energy " +
         "Management System or External Interface")]
-    public class AirTerminal_SingleDuct_UserDefined : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirTerminal_SingleDuct_UserDefined : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("overall_model_simulation_program_calling_manager_name")]
@@ -214,8 +224,13 @@ public string AmbientZoneName { get; set; } = "";
     
     [Description("Defines a generic air system component for custom modeling using Energy Managemen" +
         "t System or External Interface")]
-    public class Coil_UserDefined : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_UserDefined : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("overall_model_simulation_program_calling_manager_name")]
@@ -290,8 +305,13 @@ public string AmbientZoneName { get; set; } = "";
     
     [Description("Defines a generic plant component for custom modeling using Energy Management Sys" +
         "tem or External Interface")]
-    public class PlantComponent_UserDefined : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantComponent_UserDefined : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("main_model_program_calling_manager_name")]
@@ -561,8 +581,13 @@ public string AmbientZoneName { get; set; } = "";
     
     [Description("Defines a generic plant operation scheme for custom supervisory control using Ene" +
         "rgy Management System or External Interface to dispatch loads")]
-    public class PlantEquipmentOperation_UserDefined : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentOperation_UserDefined : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("main_model_program_calling_manager_name")]

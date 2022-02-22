@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
 {
     [Description("If this object is omitted, the default solar and visible spectrum data will be us" +
                  "ed.")]
-    public class Site_SolarAndVisibleSpectrum : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_SolarAndVisibleSpectrum : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("The method specifies which of the solar and visible spectrum data to use in the c" +

@@ -1,7 +1,6 @@
 namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
 {
     using System.ComponentModel;
-    using BH.oM.Adapters.EnergyPlus;
     using System;
     using Newtonsoft.Json;
     using BH.oM.Base;
@@ -66,7 +65,8 @@ namespace BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts
     
     
     [Description(@"Determines which Heat Balance Algorithm will be used for a specific surface Allows selectively overriding the global setting in HeatBalanceAlgorithm CTF (Conduction Transfer Functions), EMPD (Effective Moisture Penetration Depth with Conduction Transfer Functions). Advanced/Research Usage: CondFD (Conduction Finite Difference) Advanced/Research Usage: HAMT (Combined Heat And Moisture Finite Element)")]
-    public class SurfaceProperty_HeatTransferAlgorithm : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_HeatTransferAlgorithm : BHoMObject
     {
         
 

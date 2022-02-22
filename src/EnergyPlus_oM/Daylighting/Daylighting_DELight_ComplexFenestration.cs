@@ -7,8 +7,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.Daylighting
 {
     [Description("Used for DElight Complex Fenestration of all types")]
-    public class Daylighting_DELight_ComplexFenestration : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Daylighting_DELight_ComplexFenestration : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Used to select the appropriate Complex Fenestration BTDF data")]

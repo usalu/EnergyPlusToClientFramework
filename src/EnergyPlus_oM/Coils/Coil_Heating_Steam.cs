@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
 {
     [Description("Steam heating coil. Condenses and sub-cools steam at loop pressure and discharges" +
                  " condensate through steam traps to low pressure condensate line.")]
-    public class Coil_Heating_Steam : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_Steam : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

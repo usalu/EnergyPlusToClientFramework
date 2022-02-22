@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
 {
     [Description("Window screen physical properties. Can only be located on the exterior side of a " +
                  "window construction.")]
-    public class WindowMaterial_Screen : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Screen : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Select the method used to account for the beam solar reflected off the material s" +

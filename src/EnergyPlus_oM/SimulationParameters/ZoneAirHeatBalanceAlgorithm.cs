@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Determines which algorithm will be used to solve the zone air heat balance.")]
-    public class ZoneAirHeatBalanceAlgorithm : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneAirHeatBalanceAlgorithm : BHoMObject
     {
         
 

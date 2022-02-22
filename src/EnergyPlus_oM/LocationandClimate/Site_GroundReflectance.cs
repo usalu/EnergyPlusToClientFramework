@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     [Description("Specifies the ground reflectance values used to calculate ground reflected solar." +
                  " The ground reflectance can be further modified when snow is on the ground by Si" +
                  "te:GroundReflectance:SnowModifier.")]
-    public class Site_GroundReflectance : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_GroundReflectance : BHoMObject
     {
         
 

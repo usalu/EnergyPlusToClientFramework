@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object is used to simultaneously control a thermal zone\'s window and door op" +
                  "enings, both exterior and interior.")]
-    public class AirflowNetwork_MultiZone_Zone : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_MultiZone_Zone : BHoMObject
     {
         
 

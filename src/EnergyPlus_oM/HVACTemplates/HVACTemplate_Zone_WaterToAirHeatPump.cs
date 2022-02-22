@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.HVACTemplates
 {
     [Description("Water to Air Heat Pump to be used with HVACTemplate:Plant:MixedWaterLoop")]
-    public class HVACTemplate_Zone_WaterToAirHeatPump : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class HVACTemplate_Zone_WaterToAirHeatPump : BHoMObject
     {
         
 

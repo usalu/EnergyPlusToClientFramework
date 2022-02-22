@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
 {
     [Description("This object represents a node in a zone in the combination of RoomAir and Airflow" +
                  "Network model.")]
-    public class AirflowNetwork_IntraZone_Node : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_IntraZone_Node : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Enter the name of a RoomAir:Node object defined in a RoomAirSettings:AirflowNetwo" +

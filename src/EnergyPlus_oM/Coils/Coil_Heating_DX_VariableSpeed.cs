@@ -10,8 +10,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
                  "cludes electric compressor and outdoor fan), variable-speed, with defrost contro" +
                  "ls. Requires two to ten sets of performance data and will interpolate between sp" +
                  "eeds.")]
-    public class Coil_Heating_DX_VariableSpeed : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_DX_VariableSpeed : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("indoor_air_inlet_node_name")]

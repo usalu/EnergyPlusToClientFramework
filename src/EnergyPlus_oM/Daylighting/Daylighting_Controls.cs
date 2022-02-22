@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
     
     [Description("Dimming of overhead electric lighting is determined from each reference point. Gl" +
         "are from daylighting is also calculated.")]
-    public class Daylighting_Controls : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Daylighting_Controls : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]

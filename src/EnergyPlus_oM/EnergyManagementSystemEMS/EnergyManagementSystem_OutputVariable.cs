@@ -6,8 +6,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.EnergyManagementSystemEMS
 {
     [Description("This object sets up an EnergyPlus output variable from an Erl variable")]
-    public class EnergyManagementSystem_OutputVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class EnergyManagementSystem_OutputVariable : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("must be an acceptable EMS variable")]

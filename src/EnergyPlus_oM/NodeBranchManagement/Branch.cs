@@ -66,8 +66,13 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
     
     [Description("List components on the branch in simulation and connection order Note: this shoul" +
         "d NOT include splitters or mixers which define endpoints of branches")]
-    public class Branch : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Branch : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Optional field to include this branch in plant pressure drop calculations This field is only relevant for branches in PlantLoops and CondenserLoops Air loops do not account for pressure drop using this field Valid curve types are: Curve:Functional:PressureDrop or one of Curve:{Linear,Quadratic,Cubic,Exponent}')")]

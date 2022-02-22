@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Default indoor surface heat transfer convection algorithm to be used for all zone" +
                  "s")]
-    public class SurfaceConvectionAlgorithm_Inside : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceConvectionAlgorithm_Inside : BHoMObject
     {
         
 

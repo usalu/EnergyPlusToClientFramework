@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 {
     [Description("Sets up curve information for minor loss and/or friction calculations in plant pr" +
                  "essure simulations Expression: DeltaP = {K + f*(L/D)} * (rho * V^2) / 2")]
-    public class Curve_Functional_PressureDrop : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Curve_Functional_PressureDrop : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("\"D\" in above expression, used to also calculate local velocity")]

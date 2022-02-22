@@ -8,7 +8,8 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 {
     [Description("Specifies the soil surface properties for the Basement preprocessor ground heat t" +
                  "ransfer simulation.")]
-    public class GroundHeatTransfer_Basement_SurfaceProps : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class GroundHeatTransfer_Basement_SurfaceProps : BHoMObject
     {
         
 

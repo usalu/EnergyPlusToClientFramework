@@ -8,8 +8,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("Used to provide details of the water supply subsystem for a fuel cell power gener" +
                  "ator. This water is used for steam reforming of the fuel and is not the same as " +
                  "the water used for thermal heat recovery.")]
-    public class Generator_FuelCell_WaterSupply : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Generator_FuelCell_WaterSupply : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("reformer_water_flow_rate_function_of_fuel_rate_curve_name")]

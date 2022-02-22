@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     [Description("Sets internal gains for lights in the zone. If you use a ZoneList in the Zone or " +
                  "ZoneList name field then this definition applies to all the zones in the ZoneLis" +
                  "t.")]
-    public class Lights : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Lights : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_or_zonelist_name")]

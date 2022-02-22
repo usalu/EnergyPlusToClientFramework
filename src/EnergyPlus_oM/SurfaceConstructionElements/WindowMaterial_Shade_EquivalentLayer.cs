@@ -10,8 +10,13 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
                  "sidered to be perfect diffusers (all transmitted and reflected radiation is hemi" +
                  "spherically-diffuse) independent of angle of incidence. Shade represents roller " +
                  "blinds.")]
-    public class WindowMaterial_Shade_EquivalentLayer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_Shade_EquivalentLayer : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("The beam-beam solar transmittance at normal incidence. This value is the same as " +

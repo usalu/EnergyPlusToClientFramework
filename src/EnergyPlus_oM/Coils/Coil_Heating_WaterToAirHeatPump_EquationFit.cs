@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.Coils
     [Description("Direct expansion (DX) heating coil for water-to-air heat pump (includes electric " +
                  "compressor), single-speed, equation-fit model. Equation-fit model uses normalize" +
                  "d curves to describe the heat pump performance.")]
-    public class Coil_Heating_WaterToAirHeatPump_EquationFit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Coil_Heating_WaterToAirHeatPump_EquationFit : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("water_inlet_node_name")]

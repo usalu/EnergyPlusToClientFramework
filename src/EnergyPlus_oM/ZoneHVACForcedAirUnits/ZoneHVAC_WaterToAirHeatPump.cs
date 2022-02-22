@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACForcedAirUnits
     [Description("Water-to-air heat pump. Forced-convection heating-cooling unit with supply fan, w" +
                  "ater-to-air cooling and heating coils, supplemental heating coil (gas, electric," +
                  " hot water, or steam), and fixed-position outdoor air mixer.")]
-    public class ZoneHVAC_WaterToAirHeatPump : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_WaterToAirHeatPump : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +

@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
     
     
     [Description(@"Versatile simple fan that can be used in variable air volume, constant volume, on-off cycling, two-speed or multi-speed applications. Performance at different flow rates, or speed levels, is determined using separate performance curve or table or prescribed power fractions at discrete speed levels for two-speed or multi-speed fans.")]
-    public class Fan_SystemModel : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Fan_SystemModel : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this fan. Schedule value > 0 means the fan is avai" +
@@ -210,8 +215,13 @@ public string SpeedFractions { get; set; } = "";
     [Description("Constant volume fan that is intended to operate continuously based on a time sche" +
         "dule. This fan will not cycle on and off based on cooling/heating load or other " +
         "control signals.")]
-    public class Fan_ConstantVolume : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Fan_ConstantVolume : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -257,8 +267,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     
     [Description("Variable air volume fan where the electric power input varies according to a perf" +
         "ormance curve as a function of flow fraction.")]
-    public class Fan_VariableVolume : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Fan_VariableVolume : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -353,8 +368,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     [Description("Constant volume fan that is intended to cycle on and off based on cooling/heating" +
         " load or other control signals. This fan can also operate continuously like Fan:" +
         "ConstantVolume.")]
-    public class Fan_OnOff : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Fan_OnOff : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -407,8 +427,13 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     [Description("Models a fan that exhausts air from a zone.")]
-    public class Fan_ZoneExhaust : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Fan_ZoneExhaust : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
@@ -482,7 +507,8 @@ public string BalancedExhaustFractionScheduleName { get; set; } = "";
     }
     
     [Description(@"Specifies an alternate set of performance parameters for a fan. These alternate parameters are used when a system manager (such as AvailabilityManager:NightVentilation) sets a specified flow rate. May be used with Fan:ConstantVolume, Fan:VariableVolume and Fan:ComponentModel. If the fan model senses that a fixed flow rate has been set, it will use these alternate performance parameters. It is assumed that the fan will run at a fixed speed in the alternate mode.")]
-    public class FanPerformance_NightVentilation : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FanPerformance_NightVentilation : BHoMObject
     {
         
 
@@ -514,8 +540,13 @@ public System.Nullable<float> MotorInAirstreamFraction { get; set; } = (System.N
     [Description("A detailed fan type for constant-air-volume (CAV) and variable-air-volume (VAV) s" +
         "ystems. It includes inputs that describe the air-distribution system as well as " +
         "the fan, drive belt (if used), motor, and variable-frequency-drive (if used).")]
-    public class Fan_ComponentModel : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Fan_ComponentModel : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("air_inlet_node_name")]

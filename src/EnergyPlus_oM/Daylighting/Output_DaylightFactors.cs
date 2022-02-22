@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
 {
     [Description("Reports hourly daylight factors for each exterior window for four sky types (clea" +
                  "r, turbid clear, intermediate, and overcast).")]
-    public class Output_DaylightFactors : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_DaylightFactors : BHoMObject
     {
         
 

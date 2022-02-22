@@ -9,8 +9,13 @@ namespace BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces
     [Description("Specifies the dimensions of a window frame, dividers, and inside reveal surfaces." +
                  " Referenced by the surface objects for exterior windows and glass doors (ref: Fe" +
                  "nestrationSurface:Detailed, Window, and GlazedDoor).")]
-    public class WindowProperty_FrameAndDivider : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowProperty_FrameAndDivider : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Width of frame in plane of window Frame width assumed the same on all sides of wi" +

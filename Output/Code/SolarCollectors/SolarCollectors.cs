@@ -67,8 +67,13 @@ namespace BH.oM.Adapters.EnergyPlus.SolarCollectors
     
     
     [Description(@"Thermal and optical performance parameters for a single flat plate solar collector module. These parameters are based on the testing methodologies described in ASHRAE Standards 93 and 96 which are used Solar Rating and Certification Corporation (SRCC) Directory of SRCC Certified Solar Collector Ratings. See EnergyPlus DataSets file SolarCollectors.idf.")]
-    public class SolarCollectorPerformance_FlatPlate : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SolarCollectorPerformance_FlatPlate : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("gross_area")]
@@ -138,8 +143,13 @@ public System.Nullable<float> Coefficient3OfIncidentAngleModifier { get; set; } 
     }
     
     [Description(@"Flat plate water solar collector (single glazed, unglazed, or evacuated tube). Thermal and optical properties are taken from the referenced SolarCollectorPerformance:FlatPlate object. Collector tilt, azimuth, and gross area are taken from the referenced building surface or shading surface. The collector surface participates normally in all shading calculations.")]
-    public class SolarCollector_FlatPlate_Water : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SolarCollector_FlatPlate_Water : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("solarcollectorperformance_name")]
@@ -165,8 +175,13 @@ public System.Nullable<float> MaximumFlowRate { get; set; } = null;
     [Description("Models hybrid photovoltaic-thermal (PVT) solar collectors that convert incident s" +
         "olar energy into both electricity and useful thermal energy by heating air or wa" +
         "ter.")]
-    public class SolarCollector_FlatPlate_PhotovoltaicThermal : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SolarCollector_FlatPlate_PhotovoltaicThermal : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("surface_name")]
@@ -219,8 +234,13 @@ public string DesignFlowRate { get; set; } = "";
     
     [Description("Thermal performance parameters for a hybrid photovoltaic-thermal (PVT) solar coll" +
         "ector.")]
-    public class SolarCollectorPerformance_PhotovoltaicThermal_Simple : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SolarCollectorPerformance_PhotovoltaicThermal_Simple : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("fraction_of_surface_area_with_active_thermal_collector")]
@@ -256,8 +276,13 @@ public System.Nullable<float> FrontSurfaceEmittance { get; set; } = (System.Null
     }
     
     [Description(@"Glazed solar collector with integral storage unit. Thermal and optical properties are taken from the referenced SolarCollectorPerformance:IntegralCollectorStorage object. Collector tilt, azimuth, and gross area are taken from the referenced building surface or shading surface. The collector surface participates normally in all shading calculations.")]
-    public class SolarCollector_IntegralCollectorStorage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SolarCollector_IntegralCollectorStorage : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("integralcollectorstorageparameters_name")]
@@ -307,8 +332,13 @@ public System.Nullable<float> MaximumFlowRate { get; set; } = null;
     
     [Description("Thermal and optical performance parameters for a single glazed solar collector wi" +
         "th integral storage unit.")]
-    public class SolarCollectorPerformance_IntegralCollectorStorage : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SolarCollectorPerformance_IntegralCollectorStorage : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Currently only RectangularTank ICS collector type is available.")]
@@ -422,8 +452,13 @@ public System.Nullable<float> EmissivityOfAbsorberPlate { get; set; } = (System.
     }
     
     [Description(@"Unglazed transpired solar collector (UTSC) used to condition outdoor air. This type of collector is generally used to heat air drawn through perforated absorbers and also recover heat conducted out through the underlying surface. This object represents a single collector attached to one or more building or shading surfaces and to one or more outdoor air systems.")]
-    public class SolarCollector_UnglazedTranspired : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SolarCollector_UnglazedTranspired : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a SurfaceProperty:OtherSideConditionsModel object")]
@@ -583,7 +618,8 @@ public string Surfaces { get; set; } = "";
     
     [Description("quad-tuples of inlet, outlet, control, and zone nodes for multiple different outd" +
         "oor air systems attached to same collector")]
-    public class SolarCollector_UnglazedTranspired_Multisystem : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SolarCollector_UnglazedTranspired_Multisystem : BHoMObject
     {
         
 

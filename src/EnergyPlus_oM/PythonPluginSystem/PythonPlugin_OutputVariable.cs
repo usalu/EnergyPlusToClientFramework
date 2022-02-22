@@ -6,8 +6,13 @@ using Newtonsoft.Json;
 namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
 {
     [Description("This object sets up an EnergyPlus output variable from a Python Plugin variable")]
-    public class PythonPlugin_OutputVariable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PythonPlugin_OutputVariable : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Must be listed in the PythonPlugin:Variables object")]

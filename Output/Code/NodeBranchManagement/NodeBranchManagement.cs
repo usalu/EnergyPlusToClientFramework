@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
     
     [Description("List components on the branch in simulation and connection order Note: this shoul" +
         "d NOT include splitters or mixers which define endpoints of branches")]
-    public class Branch : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Branch : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description(@"Optional field to include this branch in plant pressure drop calculations This field is only relevant for branches in PlantLoops and CondenserLoops Air loops do not account for pressure drop using this field Valid curve types are: Curve:Functional:PressureDrop or one of Curve:{Linear,Quadratic,Cubic,Exponent}')")]
@@ -84,8 +89,13 @@ public string Components { get; set; } = "";
     [Description("Branches MUST be listed in Flow order: Inlet branch, then parallel branches, then" +
         " Outlet branch. Branches are simulated in the order listed. Branch names cannot " +
         "be duplicated within a single branch list.")]
-    public class BranchList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class BranchList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("branches")]
@@ -94,8 +104,13 @@ public string Branches { get; set; } = "";
     
     [Description("Split one air/water stream into N outlet streams. Branch names cannot be duplicat" +
         "ed within a single Splitter list.")]
-    public class Connector_Splitter : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Connector_Splitter : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("inlet_branch_name")]
@@ -108,8 +123,13 @@ public string Branches { get; set; } = "";
     
     [Description("Mix N inlet air/water streams into one. Branch names cannot be duplicated within " +
         "a single mixer list.")]
-    public class Connector_Mixer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Connector_Mixer : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("outlet_branch_name")]
@@ -122,8 +142,13 @@ public string Branches { get; set; } = "";
     
     [Description("only two connectors allowed per loop if two entered, one must be Connector:Splitt" +
         "er and one must be Connector:Mixer")]
-    public class ConnectorList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ConnectorList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("connector_1_object_type")]
@@ -166,8 +191,13 @@ public string Connector2Name { get; set; } = "";
     
     [Description("This object is used in places where lists of nodes may be needed, e.g. ZoneHVAC:E" +
         "quipmentConnections field Zone Air Inlet Node or NodeList Name")]
-    public class NodeList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class NodeList : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("nodes")]
@@ -175,8 +205,13 @@ public string Nodes { get; set; } = "";
     }
     
     [Description(@"This object sets the temperature and humidity conditions for an outdoor air node. It allows the height above ground to be specified. This object may be used more than once. The same node name may not appear in both an OutdoorAir:Node object and an OutdoorAir:NodeList object. This object defines local outdoor air environmental conditions.")]
-    public class OutdoorAir_Node : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OutdoorAir_Node : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("A value less than zero indicates that the height will be ignored and the weather " +
@@ -242,7 +277,8 @@ public OutdoorAir_Node_WindAngleType WindAngleType { get; set; } = (OutdoorAir_N
     }
     
     [Description(@"This object sets the temperature and humidity conditions for an outdoor air node using the weather data values. to vary outdoor air node conditions with height above ground use OutdoorAir:Node instead of this object. This object may be used more than once. The same node name may not appear in both an OutdoorAir:Node object and an OutdoorAir:NodeList object.")]
-    public class OutdoorAir_NodeList : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OutdoorAir_NodeList : BHoMObject
     {
         
 
@@ -251,8 +287,13 @@ public string Nodes { get; set; } = "";
     }
     
     [Description("Passes Inlet Node state variables to Outlet Node state variables")]
-    public class Pipe_Adiabatic : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Pipe_Adiabatic : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("inlet_node_name")]
@@ -264,8 +305,13 @@ public string OutletNodeName { get; set; } = "";
     }
     
     [Description("Passes Inlet Node state variables to Outlet Node state variables")]
-    public class Pipe_Adiabatic_Steam : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Pipe_Adiabatic_Steam : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("inlet_node_name")]
@@ -277,8 +323,13 @@ public string OutletNodeName { get; set; } = "";
     }
     
     [Description("Pipe model with transport delay and heat transfer to the environment.")]
-    public class Pipe_Indoor : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Pipe_Indoor : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("construction_name")]
@@ -332,8 +383,13 @@ public System.Nullable<float> PipeLength { get; set; } = null;
     }
     
     [Description("Pipe model with transport delay and heat transfer to the environment.")]
-    public class Pipe_Outdoor : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Pipe_Outdoor : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("construction_name")]
@@ -362,8 +418,13 @@ public System.Nullable<float> PipeLength { get; set; } = null;
     
     [Description("Buried Pipe model: For pipes buried at a depth less than one meter, this is an al" +
         "ternative object to: HeatExchanger:Surface")]
-    public class Pipe_Underground : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Pipe_Underground : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("construction_name")]
@@ -429,8 +490,13 @@ public string UndisturbedGroundTemperatureModelName { get; set; } = "";
     }
     
     [Description("The ground domain object for underground piping system simulation.")]
-    public class PipingSystem_Underground_Domain : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PipingSystem_Underground_Domain : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Domain extent in the local \'X\' direction")]
@@ -634,8 +700,13 @@ public string PipeCircuits { get; set; } = "";
     [Description("The pipe circuit object in an underground piping system. This object is simulated" +
         " within an underground piping domain object and connected on a branch on a plant" +
         " loop.")]
-    public class PipingSystem_Underground_PipeCircuit : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PipingSystem_Underground_PipeCircuit : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("pipe_thermal_conductivity")]
@@ -699,8 +770,13 @@ public string PipeSegments { get; set; } = "";
     [Description("The pipe segment to be used in an underground piping system This object represent" +
         "s a single pipe leg positioned axially in the local z-direction, at a given x, y" +
         " location in the domain")]
-    public class PipingSystem_Underground_PipeSegment : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PipingSystem_Underground_PipeSegment : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("This segment will be centered at this distance from the x=0 domain surface or the" +
@@ -734,8 +810,13 @@ public PipingSystem_Underground_PipeSegment_FlowDirection FlowDirection { get; s
     }
     
     [Description("Passes inlet node state variables to outlet node state variables")]
-    public class Duct : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Duct : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("inlet_node_name")]

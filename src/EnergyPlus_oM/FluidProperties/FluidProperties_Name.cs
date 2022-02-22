@@ -1,7 +1,6 @@
 namespace BH.oM.Adapters.EnergyPlus.FluidProperties
 {
     using System.ComponentModel;
-    using BH.oM.Adapters.EnergyPlus;
     using System;
     using System.Globalization;
     using Newtonsoft.Json;
@@ -67,7 +66,8 @@ namespace BH.oM.Adapters.EnergyPlus.FluidProperties
     
     
     [Description("potential fluid name/type in the input file repeat this object for each fluid")]
-    public class FluidProperties_Name : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class FluidProperties_Name : BHoMObject
     {
         
 

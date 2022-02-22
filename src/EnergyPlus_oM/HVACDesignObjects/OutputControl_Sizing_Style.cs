@@ -9,7 +9,8 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
                  "ng into spreadsheet programs such as Excel(tm) but not so well for word processi" +
                  "ng programs -- there tab may be a better choice. Fixed puts spaces between the \"" +
                  "columns\"")]
-    public class OutputControl_Sizing_Style : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OutputControl_Sizing_Style : BHoMObject
     {
         
 

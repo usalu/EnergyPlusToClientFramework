@@ -68,8 +68,13 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
     
     [Description("Dimming of overhead electric lighting is determined from each reference point. Gl" +
         "are from daylighting is also calculated.")]
-    public class Daylighting_Controls : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Daylighting_Controls : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -163,8 +168,13 @@ public string ControlData { get; set; } = "";
     [Description("Used by Daylighting:Controls to identify the reference point coordinates for each" +
         " sensor. Reference points are given in coordinates specified in the GlobalGeomet" +
         "ryRules object Daylighting Reference Point CoordinateSystem field")]
-    public class Daylighting_ReferencePoint : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Daylighting_ReferencePoint : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -184,8 +194,13 @@ public System.Nullable<float> ZCoordinateOfReferencePoint { get; set; } = (Syste
     }
     
     [Description("Used for DElight Complex Fenestration of all types")]
-    public class Daylighting_DELight_ComplexFenestration : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Daylighting_DELight_ComplexFenestration : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("Used to select the appropriate Complex Fenestration BTDF data")]
@@ -215,8 +230,13 @@ public System.Nullable<float> FenestrationRotation { get; set; } = (System.Nulla
     [Description("Defines a tubular daylighting device (TDD) consisting of three components: a dome" +
         ", a pipe, and a diffuser. The dome and diffuser are defined separately using the" +
         " FenestrationSurface:Detailed object.")]
-    public class DaylightingDevice_Tubular : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DaylightingDevice_Tubular : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [Description("This must refer to a subsurface object of type TubularDaylightDome")]
@@ -256,8 +276,13 @@ public string TransitionLengths { get; set; } = "";
     [Description("Defines a daylighting which can have an inside shelf, an outside shelf, or both. " +
         "The inside shelf is defined as a building surface and the outside shelf is defin" +
         "ed as a shading surface.")]
-    public class DaylightingDevice_Shelf : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DaylightingDevice_Shelf : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("window_name")]
@@ -287,7 +312,8 @@ public System.Nullable<float> ViewFactorToOutsideShelf { get; set; } = null;
     [Description("Applies only to exterior windows in daylighting-controlled zones or in zones that" +
         " share an interior window with a daylighting-controlled  zone. Generally used wi" +
         "th skylights.")]
-    public class DaylightingDevice_LightWell : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DaylightingDevice_LightWell : BHoMObject
     {
         
 
@@ -314,7 +340,8 @@ public System.Nullable<float> VisibleReflectanceOfWellWalls { get; set; } = null
     
     [Description("Reports hourly daylight factors for each exterior window for four sky types (clea" +
         "r, turbid clear, intermediate, and overcast).")]
-    public class Output_DaylightFactors : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_DaylightFactors : BHoMObject
     {
         
 
@@ -335,8 +362,13 @@ public Output_DaylightFactors_ReportingDays ReportingDays { get; set; } = (Outpu
     
     [Description("reference points are given in coordinates specified in the GlobalGeometryRules ob" +
         "ject Daylighting Reference Point CoordinateSystem field")]
-    public class Output_IlluminanceMap : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_IlluminanceMap : BHoMObject, IEnergyPlusNode
     {
+        
+
+[Description("This will be the main key of this instance.")]
+public string NodeName { get; set; } = "";
         
 
 [JsonProperty("zone_name")]
@@ -374,7 +406,8 @@ public System.Nullable<float> NumberOfYGridPoints { get; set; } = (System.Nullab
     }
     
     [Description(@"default style for the Daylighting Illuminance Map is comma -- this works well for importing into spreadsheet programs such as Excel(tm) but not so well for word processing programs -- there tab may be a better choice. fixed puts spaces between the ""columns""")]
-    public class OutputControl_IlluminanceMap_Style : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class OutputControl_IlluminanceMap_Style : BHoMObject
     {
         
 

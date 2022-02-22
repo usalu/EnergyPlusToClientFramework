@@ -7,7 +7,8 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
 {
     [Description("Default outside surface heat transfer convection algorithm to be used for all zon" +
                  "es")]
-    public class SurfaceConvectionAlgorithm_Outside : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceConvectionAlgorithm_Outside : BHoMObject
     {
         
 

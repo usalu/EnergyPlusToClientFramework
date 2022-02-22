@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     [Description("Start with outside layer and work your way to the inside Layer Up to 11 layers to" +
                  "tal. Up to six solid layers and up to five gaps. Enter the material name for eac" +
                  "h layer")]
-    public class Construction_WindowEquivalentLayer : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Construction_WindowEquivalentLayer : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("outside_layer")]

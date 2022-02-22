@@ -6,8 +6,13 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
 {
     [Description("Simulate generic contaminant source driven by the boundary layer diffusion contro" +
                  "lled model.")]
-    public class ZoneContaminantSourceAndSink_Generic_DepositionRateSink : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneContaminantSourceAndSink_Generic_DepositionRateSink : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [JsonProperty("zone_name")]

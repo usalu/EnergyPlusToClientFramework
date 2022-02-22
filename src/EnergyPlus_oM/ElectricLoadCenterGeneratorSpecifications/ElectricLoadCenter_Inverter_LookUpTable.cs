@@ -7,8 +7,13 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
     [Description("California Energy Commission tests and publishes data on inverters This inverter " +
                  "model interpolates using CEC test data Input data are at http://www.gosolarcalif" +
                  "ornia.org/equipment/inverter_tests/summaries")]
-    public class ElectricLoadCenter_Inverter_LookUpTable : BHoMObject, IEnergyPlusClass
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ElectricLoadCenter_Inverter_LookUpTable : BHoMObject, IEnergyPlusNode
     {
+        
+
+        [Description("This will be the main key of this instance.")]
+        public string NodeName { get; set; } = "";
         
 
         [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
