@@ -74,72 +74,71 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("zone_name")]
+[JsonProperty(PropertyName="zone_name")]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty("daylighting_method")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="daylighting_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Daylighting_Controls_DaylightingMethod DaylightingMethod { get; set; } = (Daylighting_Controls_DaylightingMethod)Enum.Parse(typeof(Daylighting_Controls_DaylightingMethod), "SplitFlux");
         
 
-[JsonProperty("availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name")]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty("lighting_control_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="lighting_control_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Daylighting_Controls_LightingControlType LightingControlType { get; set; } = (Daylighting_Controls_LightingControlType)Enum.Parse(typeof(Daylighting_Controls_LightingControlType), "Continuous");
         
 
-[JsonProperty("minimum_input_power_fraction_for_continuous_or_continuousoff_dimming_control")]
+[JsonProperty(PropertyName="minimum_input_power_fraction_for_continuous_or_continuousoff_dimming_control")]
 public System.Nullable<float> MinimumInputPowerFractionForContinuousOrContinuousoffDimmingControl { get; set; } = (System.Nullable<float>)Single.Parse("0.3", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("minimum_light_output_fraction_for_continuous_or_continuousoff_dimming_control")]
+[JsonProperty(PropertyName="minimum_light_output_fraction_for_continuous_or_continuousoff_dimming_control")]
 public System.Nullable<float> MinimumLightOutputFractionForContinuousOrContinuousoffDimmingControl { get; set; } = (System.Nullable<float>)Single.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [Description("The number of steps, excluding off, in a stepped lighting control system. If Ligh" +
     "ting Control Type is Stepped, this field must be greater than zero. The steps ar" +
     "e assumed to be equally spaced.")]
-[JsonProperty("number_of_stepped_control_steps")]
+[JsonProperty(PropertyName="number_of_stepped_control_steps")]
 public System.Nullable<float> NumberOfSteppedControlSteps { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("probability_lighting_will_be_reset_when_needed_in_manual_stepped_control")]
+[JsonProperty(PropertyName="probability_lighting_will_be_reset_when_needed_in_manual_stepped_control")]
 public System.Nullable<float> ProbabilityLightingWillBeResetWhenNeededInManualSteppedControl { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("glare_calculation_daylighting_reference_point_name")]
+[JsonProperty(PropertyName="glare_calculation_daylighting_reference_point_name")]
 public string GlareCalculationDaylightingReferencePointName { get; set; } = "";
         
 
-[JsonProperty("glare_calculation_azimuth_angle_of_view_direction_clockwise_from_zone_y_axis")]
+[JsonProperty(PropertyName="glare_calculation_azimuth_angle_of_view_direction_clockwise_from_zone_y_axis")]
 public System.Nullable<float> GlareCalculationAzimuthAngleOfViewDirectionClockwiseFromZoneYAxis { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The default is for general office work")]
-[JsonProperty("maximum_allowable_discomfort_glare_index")]
+[JsonProperty(PropertyName="maximum_allowable_discomfort_glare_index")]
 public System.Nullable<float> MaximumAllowableDiscomfortGlareIndex { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description(@"Maximum surface area for nodes in gridding all surfaces in the DElight zone. All reflective and transmitting surfaces will be subdivided into approximately square nodes that do not exceed this maximum. Higher resolution subdivisions require greater calculation times, but generally produce more accurate results.")]
-[JsonProperty("delight_gridding_resolution")]
+[JsonProperty(PropertyName="delight_gridding_resolution")]
 public System.Nullable<float> DelightGriddingResolution { get; set; } = null;
         
 
-[JsonProperty("control_data")]
+[JsonProperty(PropertyName="control_data")]
 public string ControlData { get; set; } = "";
     }
     
     public enum Daylighting_Controls_DaylightingMethod
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="DElight")]
@@ -152,7 +151,7 @@ public string ControlData { get; set; } = "";
     public enum Daylighting_Controls_LightingControlType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Continuous")]
@@ -174,22 +173,23 @@ public string ControlData { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("zone_name")]
+[JsonProperty(PropertyName="zone_name")]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty("x_coordinate_of_reference_point")]
+[JsonProperty(PropertyName="x_coordinate_of_reference_point")]
 public System.Nullable<float> XCoordinateOfReferencePoint { get; set; } = null;
         
 
-[JsonProperty("y_coordinate_of_reference_point")]
+[JsonProperty(PropertyName="y_coordinate_of_reference_point")]
 public System.Nullable<float> YCoordinateOfReferencePoint { get; set; } = null;
         
 
-[JsonProperty("z_coordinate_of_reference_point")]
+[JsonProperty(PropertyName="z_coordinate_of_reference_point")]
 public System.Nullable<float> ZCoordinateOfReferencePoint { get; set; } = (System.Nullable<float>)Single.Parse("0.8", CultureInfo.InvariantCulture);
     }
     
@@ -200,30 +200,31 @@ public System.Nullable<float> ZCoordinateOfReferencePoint { get; set; } = (Syste
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Used to select the appropriate Complex Fenestration BTDF data")]
-[JsonProperty("complex_fenestration_type")]
+[JsonProperty(PropertyName="complex_fenestration_type")]
 public string ComplexFenestrationType { get; set; } = "";
         
 
 [Description("This is a reference to a valid surface object (such as BuildingSurface:Detailed) " +
     "hosting this complex fenestration, analogous to the base surface Name field for " +
     "subsurfaces such as Windows.")]
-[JsonProperty("building_surface_name")]
+[JsonProperty(PropertyName="building_surface_name")]
 public string BuildingSurfaceName { get; set; } = "";
         
 
 [Description("This is a reference to a valid FenestrationSurface:Detailed window object used to" +
     " account for the geometry, and the solar and thermal gains/losses, of the Comple" +
     "x Fenestration")]
-[JsonProperty("window_name")]
+[JsonProperty(PropertyName="window_name")]
 public string WindowName { get; set; } = "";
         
 
 [Description(@"In-plane counter-clockwise rotation angle of the Complex Fenestration optical reference direction and the base edge of the Complex Fenestration. The Rotation will typically be zero when the host and CFS surfaces are rectangular and height and width edges are aligned.")]
-[JsonProperty("fenestration_rotation")]
+[JsonProperty(PropertyName="fenestration_rotation")]
 public System.Nullable<float> FenestrationRotation { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
     }
     
@@ -236,40 +237,41 @@ public System.Nullable<float> FenestrationRotation { get; set; } = (System.Nulla
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("This must refer to a subsurface object of type TubularDaylightDome")]
-[JsonProperty("dome_name")]
+[JsonProperty(PropertyName="dome_name")]
 public string DomeName { get; set; } = "";
         
 
 [Description("This must refer to a subsurface object of type TubularDaylightDiffuser Delivery z" +
     "one is specified in the diffuser object")]
-[JsonProperty("diffuser_name")]
+[JsonProperty(PropertyName="diffuser_name")]
 public string DiffuserName { get; set; } = "";
         
 
-[JsonProperty("construction_name")]
+[JsonProperty(PropertyName="construction_name")]
 public string ConstructionName { get; set; } = "";
         
 
-[JsonProperty("diameter")]
+[JsonProperty(PropertyName="diameter")]
 public System.Nullable<float> Diameter { get; set; } = null;
         
 
 [Description("The exterior exposed length is the difference between total and sum of zone lengt" +
     "hs")]
-[JsonProperty("total_length")]
+[JsonProperty(PropertyName="total_length")]
 public System.Nullable<float> TotalLength { get; set; } = null;
         
 
 [Description("R value between TubularDaylightDome and TubularDaylightDiffuser")]
-[JsonProperty("effective_thermal_resistance")]
+[JsonProperty(PropertyName="effective_thermal_resistance")]
 public System.Nullable<float> EffectiveThermalResistance { get; set; } = (System.Nullable<float>)Single.Parse("0.28", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("transition_lengths")]
+[JsonProperty(PropertyName="transition_lengths")]
 public string TransitionLengths { get; set; } = "";
     }
     
@@ -282,30 +284,31 @@ public string TransitionLengths { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("window_name")]
+[JsonProperty(PropertyName="window_name")]
 public string WindowName { get; set; } = "";
         
 
 [Description("This must refer to a BuildingSurface:Detailed or equivalent object This surface m" +
     "ust be its own Surface for other side boundary conditions.")]
-[JsonProperty("inside_shelf_name")]
+[JsonProperty(PropertyName="inside_shelf_name")]
 public string InsideShelfName { get; set; } = "";
         
 
 [Description("This must refer to a Shading:Zone:Detailed object")]
-[JsonProperty("outside_shelf_name")]
+[JsonProperty(PropertyName="outside_shelf_name")]
 public string OutsideShelfName { get; set; } = "";
         
 
 [Description("Required if outside shelf is specified")]
-[JsonProperty("outside_shelf_construction_name")]
+[JsonProperty(PropertyName="outside_shelf_construction_name")]
 public string OutsideShelfConstructionName { get; set; } = "";
         
 
-[JsonProperty("view_factor_to_outside_shelf")]
+[JsonProperty(PropertyName="view_factor_to_outside_shelf")]
 public System.Nullable<float> ViewFactorToOutsideShelf { get; set; } = null;
     }
     
@@ -317,24 +320,24 @@ public System.Nullable<float> ViewFactorToOutsideShelf { get; set; } = null;
     {
         
 
-[JsonProperty("exterior_window_name")]
+[JsonProperty(PropertyName="exterior_window_name")]
 public string ExteriorWindowName { get; set; } = "";
         
 
 [Description("Distance from Bottom of Window to Bottom of Well")]
-[JsonProperty("height_of_well")]
+[JsonProperty(PropertyName="height_of_well")]
 public System.Nullable<float> HeightOfWell { get; set; } = null;
         
 
-[JsonProperty("perimeter_of_bottom_of_well")]
+[JsonProperty(PropertyName="perimeter_of_bottom_of_well")]
 public System.Nullable<float> PerimeterOfBottomOfWell { get; set; } = null;
         
 
-[JsonProperty("area_of_bottom_of_well")]
+[JsonProperty(PropertyName="area_of_bottom_of_well")]
 public System.Nullable<float> AreaOfBottomOfWell { get; set; } = null;
         
 
-[JsonProperty("visible_reflectance_of_well_walls")]
+[JsonProperty(PropertyName="visible_reflectance_of_well_walls")]
 public System.Nullable<float> VisibleReflectanceOfWellWalls { get; set; } = null;
     }
     
@@ -345,8 +348,7 @@ public System.Nullable<float> VisibleReflectanceOfWellWalls { get; set; } = null
     {
         
 
-[JsonProperty("reporting_days")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="reporting_days", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_DaylightFactors_ReportingDays ReportingDays { get; set; } = (Output_DaylightFactors_ReportingDays)Enum.Parse(typeof(Output_DaylightFactors_ReportingDays), "AllShadowCalculationDays");
     }
     
@@ -368,40 +370,41 @@ public Output_DaylightFactors_ReportingDays ReportingDays { get; set; } = (Outpu
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("zone_name")]
+[JsonProperty(PropertyName="zone_name")]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty("z_height")]
+[JsonProperty(PropertyName="z_height")]
 public System.Nullable<float> ZHeight { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("x_minimum_coordinate")]
+[JsonProperty(PropertyName="x_minimum_coordinate")]
 public System.Nullable<float> XMinimumCoordinate { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("x_maximum_coordinate")]
+[JsonProperty(PropertyName="x_maximum_coordinate")]
 public System.Nullable<float> XMaximumCoordinate { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Maximum number of total grid points must be <= 2500 (X*Y)")]
-[JsonProperty("number_of_x_grid_points")]
+[JsonProperty(PropertyName="number_of_x_grid_points")]
 public System.Nullable<float> NumberOfXGridPoints { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("y_minimum_coordinate")]
+[JsonProperty(PropertyName="y_minimum_coordinate")]
 public System.Nullable<float> YMinimumCoordinate { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("y_maximum_coordinate")]
+[JsonProperty(PropertyName="y_maximum_coordinate")]
 public System.Nullable<float> YMaximumCoordinate { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Maximum number of total grid points must be <= 2500 (X*Y)")]
-[JsonProperty("number_of_y_grid_points")]
+[JsonProperty(PropertyName="number_of_y_grid_points")]
 public System.Nullable<float> NumberOfYGridPoints { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
     }
     
@@ -411,15 +414,14 @@ public System.Nullable<float> NumberOfYGridPoints { get; set; } = (System.Nullab
     {
         
 
-[JsonProperty("column_separator")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="column_separator", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_IlluminanceMap_Style_ColumnSeparator ColumnSeparator { get; set; } = (OutputControl_IlluminanceMap_Style_ColumnSeparator)Enum.Parse(typeof(OutputControl_IlluminanceMap_Style_ColumnSeparator), "Comma");
     }
     
     public enum OutputControl_IlluminanceMap_Style_ColumnSeparator
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Comma")]

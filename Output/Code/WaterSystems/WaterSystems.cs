@@ -73,50 +73,51 @@ namespace BH.oM.Adapters.EnergyPlus.WaterSystems
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
-[JsonProperty("end_use_subcategory")]
+[JsonProperty(PropertyName="end_use_subcategory")]
 public string EndUseSubcategory { get; set; } = (System.String)"General";
         
 
-[JsonProperty("peak_flow_rate")]
+[JsonProperty(PropertyName="peak_flow_rate")]
 public System.Nullable<float> PeakFlowRate { get; set; } = null;
         
 
 [Description("Defaults to 1.0 at all times")]
-[JsonProperty("flow_rate_fraction_schedule_name")]
+[JsonProperty(PropertyName="flow_rate_fraction_schedule_name")]
 public string FlowRateFractionScheduleName { get; set; } = "";
         
 
 [Description("Defaults to hot water supply temperature")]
-[JsonProperty("target_temperature_schedule_name")]
+[JsonProperty(PropertyName="target_temperature_schedule_name")]
 public string TargetTemperatureScheduleName { get; set; } = "";
         
 
 [Description("Defaults to cold water supply temperature")]
-[JsonProperty("hot_water_supply_temperature_schedule_name")]
+[JsonProperty(PropertyName="hot_water_supply_temperature_schedule_name")]
 public string HotWaterSupplyTemperatureScheduleName { get; set; } = "";
         
 
 [Description("Defaults to water temperatures calculated by Site:WaterMainsTemperature object")]
-[JsonProperty("cold_water_supply_temperature_schedule_name")]
+[JsonProperty(PropertyName="cold_water_supply_temperature_schedule_name")]
 public string ColdWaterSupplyTemperatureScheduleName { get; set; } = "";
         
 
-[JsonProperty("zone_name")]
+[JsonProperty(PropertyName="zone_name")]
 public string ZoneName { get; set; } = "";
         
 
 [Description("Defaults to 0.0 at all times")]
-[JsonProperty("sensible_fraction_schedule_name")]
+[JsonProperty(PropertyName="sensible_fraction_schedule_name")]
 public string SensibleFractionScheduleName { get; set; } = "";
         
 
 [Description("Defaults to 0.0 at all times")]
-[JsonProperty("latent_fraction_schedule_name")]
+[JsonProperty(PropertyName="latent_fraction_schedule_name")]
 public string LatentFractionScheduleName { get; set; } = "";
     }
     
@@ -127,58 +128,57 @@ public string LatentFractionScheduleName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("inlet_node_name")]
+[JsonProperty(PropertyName="inlet_node_name")]
 public string InletNodeName { get; set; } = "";
         
 
-[JsonProperty("outlet_node_name")]
+[JsonProperty(PropertyName="outlet_node_name")]
 public string OutletNodeName { get; set; } = "";
         
 
 [Description("If blank, or tank is empty, defaults to fresh water from the mains")]
-[JsonProperty("supply_water_storage_tank_name")]
+[JsonProperty(PropertyName="supply_water_storage_tank_name")]
 public string SupplyWaterStorageTankName { get; set; } = "";
         
 
-[JsonProperty("reclamation_water_storage_tank_name")]
+[JsonProperty(PropertyName="reclamation_water_storage_tank_name")]
 public string ReclamationWaterStorageTankName { get; set; } = "";
         
 
 [Description("Defaults to cold water supply temperature")]
-[JsonProperty("hot_water_supply_temperature_schedule_name")]
+[JsonProperty(PropertyName="hot_water_supply_temperature_schedule_name")]
 public string HotWaterSupplyTemperatureScheduleName { get; set; } = "";
         
 
 [Description("Defaults to water temperatures calculated by Site:WaterMainsTemperature object")]
-[JsonProperty("cold_water_supply_temperature_schedule_name")]
+[JsonProperty(PropertyName="cold_water_supply_temperature_schedule_name")]
 public string ColdWaterSupplyTemperatureScheduleName { get; set; } = "";
         
 
-[JsonProperty("drain_water_heat_exchanger_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drain_water_heat_exchanger_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_Connections_DrainWaterHeatExchangerType DrainWaterHeatExchangerType { get; set; } = (WaterUse_Connections_DrainWaterHeatExchangerType)Enum.Parse(typeof(WaterUse_Connections_DrainWaterHeatExchangerType), "None");
         
 
-[JsonProperty("drain_water_heat_exchanger_destination")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drain_water_heat_exchanger_destination", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_Connections_DrainWaterHeatExchangerDestination DrainWaterHeatExchangerDestination { get; set; } = (WaterUse_Connections_DrainWaterHeatExchangerDestination)Enum.Parse(typeof(WaterUse_Connections_DrainWaterHeatExchangerDestination), "Plant");
         
 
-[JsonProperty("drain_water_heat_exchanger_u_factor_times_area")]
+[JsonProperty(PropertyName="drain_water_heat_exchanger_u_factor_times_area")]
 public System.Nullable<float> DrainWaterHeatExchangerUFactorTimesArea { get; set; } = null;
         
 
-[JsonProperty("connections")]
+[JsonProperty(PropertyName="connections")]
 public string Connections { get; set; } = "";
     }
     
     public enum WaterUse_Connections_DrainWaterHeatExchangerType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="CounterFlow")]
@@ -197,7 +197,7 @@ public string Connections { get; set; } = "";
     public enum WaterUse_Connections_DrainWaterHeatExchangerDestination
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Equipment")]
@@ -217,93 +217,91 @@ public string Connections { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("water_quality_subcategory")]
+[JsonProperty(PropertyName="water_quality_subcategory")]
 public string WaterQualitySubcategory { get; set; } = "";
         
 
 [Description("Defaults to unlimited capacity.")]
-[JsonProperty("maximum_capacity")]
+[JsonProperty(PropertyName="maximum_capacity")]
 public System.Nullable<float> MaximumCapacity { get; set; } = null;
         
 
-[JsonProperty("initial_volume")]
+[JsonProperty(PropertyName="initial_volume")]
 public System.Nullable<float> InitialVolume { get; set; } = null;
         
 
 [Description("Defaults to unlimited flow.")]
-[JsonProperty("design_in_flow_rate")]
+[JsonProperty(PropertyName="design_in_flow_rate")]
 public System.Nullable<float> DesignInFlowRate { get; set; } = null;
         
 
 [Description("Defaults to unlimited flow.")]
-[JsonProperty("design_out_flow_rate")]
+[JsonProperty(PropertyName="design_out_flow_rate")]
 public System.Nullable<float> DesignOutFlowRate { get; set; } = null;
         
 
 [Description("If blank, overflow is discarded")]
-[JsonProperty("overflow_destination")]
+[JsonProperty(PropertyName="overflow_destination")]
 public string OverflowDestination { get; set; } = "";
         
 
-[JsonProperty("type_of_supply_controlled_by_float_valve")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="type_of_supply_controlled_by_float_valve", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_Storage_TypeOfSupplyControlledByFloatValve TypeOfSupplyControlledByFloatValve { get; set; } = (WaterUse_Storage_TypeOfSupplyControlledByFloatValve)Enum.Parse(typeof(WaterUse_Storage_TypeOfSupplyControlledByFloatValve), "GroundwaterWell");
         
 
 [Description("Lower range of target storage level e.g. float valve kicks on")]
-[JsonProperty("float_valve_on_capacity")]
+[JsonProperty(PropertyName="float_valve_on_capacity")]
 public System.Nullable<float> FloatValveOnCapacity { get; set; } = null;
         
 
 [Description("Upper range of target storage level e.g. float valve kicks off")]
-[JsonProperty("float_valve_off_capacity")]
+[JsonProperty(PropertyName="float_valve_off_capacity")]
 public System.Nullable<float> FloatValveOffCapacity { get; set; } = null;
         
 
 [Description("Lower range of secondary target storage level used to keep tanks at a minimum lev" +
     "el using mains water if well can\'t keep up")]
-[JsonProperty("backup_mains_capacity")]
+[JsonProperty(PropertyName="backup_mains_capacity")]
 public System.Nullable<float> BackupMainsCapacity { get; set; } = null;
         
 
-[JsonProperty("other_tank_name")]
+[JsonProperty(PropertyName="other_tank_name")]
 public string OtherTankName { get; set; } = "";
         
 
-[JsonProperty("water_thermal_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="water_thermal_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_Storage_WaterThermalMode WaterThermalMode { get; set; } = (WaterUse_Storage_WaterThermalMode)Enum.Parse(typeof(WaterUse_Storage_WaterThermalMode), "ScheduledTemperature");
         
 
-[JsonProperty("water_temperature_schedule_name")]
+[JsonProperty(PropertyName="water_temperature_schedule_name")]
 public string WaterTemperatureScheduleName { get; set; } = "";
         
 
-[JsonProperty("ambient_temperature_indicator")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="ambient_temperature_indicator", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_Storage_AmbientTemperatureIndicator AmbientTemperatureIndicator { get; set; } = (WaterUse_Storage_AmbientTemperatureIndicator)Enum.Parse(typeof(WaterUse_Storage_AmbientTemperatureIndicator), "Outdoors");
         
 
-[JsonProperty("ambient_temperature_schedule_name")]
+[JsonProperty(PropertyName="ambient_temperature_schedule_name")]
 public string AmbientTemperatureScheduleName { get; set; } = "";
         
 
-[JsonProperty("zone_name")]
+[JsonProperty(PropertyName="zone_name")]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty("tank_surface_area")]
+[JsonProperty(PropertyName="tank_surface_area")]
 public System.Nullable<float> TankSurfaceArea { get; set; } = null;
         
 
-[JsonProperty("tank_u_value")]
+[JsonProperty(PropertyName="tank_u_value")]
 public System.Nullable<float> TankUValue { get; set; } = null;
         
 
-[JsonProperty("tank_outside_surface_material_name")]
+[JsonProperty(PropertyName="tank_outside_surface_material_name")]
 public string TankOutsideSurfaceMaterialName { get; set; } = "";
     }
     
@@ -353,51 +351,51 @@ public string TankOutsideSurfaceMaterialName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("storage_tank_name")]
+[JsonProperty(PropertyName="storage_tank_name")]
 public string StorageTankName { get; set; } = "";
         
 
-[JsonProperty("pump_depth")]
+[JsonProperty(PropertyName="pump_depth")]
 public System.Nullable<float> PumpDepth { get; set; } = null;
         
 
-[JsonProperty("pump_rated_flow_rate")]
+[JsonProperty(PropertyName="pump_rated_flow_rate")]
 public System.Nullable<float> PumpRatedFlowRate { get; set; } = null;
         
 
-[JsonProperty("pump_rated_head")]
+[JsonProperty(PropertyName="pump_rated_head")]
 public System.Nullable<float> PumpRatedHead { get; set; } = null;
         
 
-[JsonProperty("pump_rated_power_consumption")]
+[JsonProperty(PropertyName="pump_rated_power_consumption")]
 public System.Nullable<float> PumpRatedPowerConsumption { get; set; } = null;
         
 
-[JsonProperty("pump_efficiency")]
+[JsonProperty(PropertyName="pump_efficiency")]
 public System.Nullable<float> PumpEfficiency { get; set; } = null;
         
 
-[JsonProperty("well_recovery_rate")]
+[JsonProperty(PropertyName="well_recovery_rate")]
 public System.Nullable<float> WellRecoveryRate { get; set; } = null;
         
 
-[JsonProperty("nominal_well_storage_volume")]
+[JsonProperty(PropertyName="nominal_well_storage_volume")]
 public System.Nullable<float> NominalWellStorageVolume { get; set; } = null;
         
 
-[JsonProperty("water_table_depth_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="water_table_depth_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_Well_WaterTableDepthMode WaterTableDepthMode { get; set; } = (WaterUse_Well_WaterTableDepthMode)Enum.Parse(typeof(WaterUse_Well_WaterTableDepthMode), "Constant");
         
 
-[JsonProperty("water_table_depth")]
+[JsonProperty(PropertyName="water_table_depth")]
 public System.Nullable<float> WaterTableDepth { get; set; } = null;
         
 
-[JsonProperty("water_table_depth_schedule_name")]
+[JsonProperty(PropertyName="water_table_depth_schedule_name")]
 public string WaterTableDepthScheduleName { get; set; } = "";
     }
     
@@ -420,34 +418,34 @@ public string WaterTableDepthScheduleName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("storage_tank_name")]
+[JsonProperty(PropertyName="storage_tank_name")]
 public string StorageTankName { get; set; } = "";
         
 
-[JsonProperty("loss_factor_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="loss_factor_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WaterUse_RainCollector_LossFactorMode LossFactorMode { get; set; } = (WaterUse_RainCollector_LossFactorMode)Enum.Parse(typeof(WaterUse_RainCollector_LossFactorMode), "Constant");
         
 
 [Description("this is the portion of rain that is lost in the process of collecting it the rain" +
     " collected is one minus this factor")]
-[JsonProperty("collection_loss_factor")]
+[JsonProperty(PropertyName="collection_loss_factor")]
 public System.Nullable<float> CollectionLossFactor { get; set; } = null;
         
 
-[JsonProperty("collection_loss_factor_schedule_name")]
+[JsonProperty(PropertyName="collection_loss_factor_schedule_name")]
 public string CollectionLossFactorScheduleName { get; set; } = "";
         
 
 [Description("Defaults to unlimited flow.")]
-[JsonProperty("maximum_collection_rate")]
+[JsonProperty(PropertyName="maximum_collection_rate")]
 public System.Nullable<float> MaximumCollectionRate { get; set; } = null;
         
 
-[JsonProperty("surfaces")]
+[JsonProperty(PropertyName="surfaces")]
 public string Surfaces { get; set; } = "";
     }
     

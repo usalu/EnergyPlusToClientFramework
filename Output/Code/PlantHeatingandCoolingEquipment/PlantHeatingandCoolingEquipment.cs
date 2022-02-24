@@ -73,79 +73,77 @@ namespace BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("fuel_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fuel_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Boiler_HotWater_FuelType FuelType { get; set; } = (Boiler_HotWater_FuelType)Enum.Parse(typeof(Boiler_HotWater_FuelType), "Coal");
         
 
-[JsonProperty("nominal_capacity")]
-public string NominalCapacity { get; set; } = "";
+[JsonProperty(PropertyName="nominal_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalCapacity { get; set; } = null;
         
 
 [Description("Based on the higher heating value of fuel.")]
-[JsonProperty("nominal_thermal_efficiency")]
+[JsonProperty(PropertyName="nominal_thermal_efficiency")]
 public System.Nullable<float> NominalThermalEfficiency { get; set; } = null;
         
 
-[JsonProperty("efficiency_curve_temperature_evaluation_variable")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="efficiency_curve_temperature_evaluation_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Boiler_HotWater_EfficiencyCurveTemperatureEvaluationVariable EfficiencyCurveTemperatureEvaluationVariable { get; set; } = (Boiler_HotWater_EfficiencyCurveTemperatureEvaluationVariable)Enum.Parse(typeof(Boiler_HotWater_EfficiencyCurveTemperatureEvaluationVariable), "EnteringBoiler");
         
 
 [Description(@"Linear, Quadratic and Cubic efficiency curves are solely a function of PLR. All other efficiency curve types are a function of PLR and boiler water temperature. Linear = C1 + C2*PLR Quadratic = C1 + C2*PLR + C3*PLR^2 Cubic = C1 + C2*PLR + C3*PLR^2 + C4*PLR^3 Biquadratic = C1 + C2*PLR + C3*PLR^2 + C4*T + C5*T^2 + C6*PLR*T QuadraticLinear = C1 + C2*PLR + C3*PLR^2 + (C4 + C5*PLR + C6*PLR^2)*T BiCubic = C1+C2*PLR+C3*PLR^2+C4*T+C5*T^2+C6*PLR*T+C7*PLR^3+C8*T^3+C9*PLR^2*T+C10*PLR*T^2 TriQuadratic curves are not allowed. PLR = part-load ratio T = boiler water temperature (either entering or leaving).")]
-[JsonProperty("normalized_boiler_efficiency_curve_name")]
+[JsonProperty(PropertyName="normalized_boiler_efficiency_curve_name")]
 public string NormalizedBoilerEfficiencyCurveName { get; set; } = "";
         
 
-[JsonProperty("design_water_flow_rate")]
-public string DesignWaterFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="design_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("boiler_water_inlet_node_name")]
+[JsonProperty(PropertyName="boiler_water_inlet_node_name")]
 public string BoilerWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("boiler_water_outlet_node_name")]
+[JsonProperty(PropertyName="boiler_water_outlet_node_name")]
 public string BoilerWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("water_outlet_upper_temperature_limit")]
+[JsonProperty(PropertyName="water_outlet_upper_temperature_limit")]
 public System.Nullable<float> WaterOutletUpperTemperatureLimit { get; set; } = (System.Nullable<float>)Single.Parse("99.9", CultureInfo.InvariantCulture);
         
 
 [Description(@"Select operating mode for fluid flow through the boiler. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by boiler to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by boiler to vary flow to target a leaving temperature setpoint.")]
-[JsonProperty("boiler_flow_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="boiler_flow_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Boiler_HotWater_BoilerFlowMode BoilerFlowMode { get; set; } = (Boiler_HotWater_BoilerFlowMode)Enum.Parse(typeof(Boiler_HotWater_BoilerFlowMode), "NotModulated");
         
 
-[JsonProperty("parasitic_electric_load")]
+[JsonProperty(PropertyName="parasitic_electric_load")]
 public System.Nullable<float> ParasiticElectricLoad { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
-[JsonProperty("end_use_subcategory")]
+[JsonProperty(PropertyName="end_use_subcategory")]
 public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
@@ -196,7 +194,7 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Boiler_HotWater_BoilerFlowMode
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
@@ -216,70 +214,70 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("fuel_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fuel_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Boiler_Steam_FuelType FuelType { get; set; } = (Boiler_Steam_FuelType)Enum.Parse(typeof(Boiler_Steam_FuelType), "Coal");
         
 
-[JsonProperty("maximum_operating_pressure")]
+[JsonProperty(PropertyName="maximum_operating_pressure")]
 public System.Nullable<float> MaximumOperatingPressure { get; set; } = (System.Nullable<float>)Single.Parse("160000", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("theoretical_efficiency")]
+[JsonProperty(PropertyName="theoretical_efficiency")]
 public System.Nullable<float> TheoreticalEfficiency { get; set; } = (System.Nullable<float>)Single.Parse("0.8", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("design_outlet_steam_temperature")]
+[JsonProperty(PropertyName="design_outlet_steam_temperature")]
 public System.Nullable<float> DesignOutletSteamTemperature { get; set; } = (System.Nullable<float>)Single.Parse("100", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("nominal_capacity")]
-public string NominalCapacity { get; set; } = "";
+[JsonProperty(PropertyName="nominal_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalCapacity { get; set; } = null;
         
 
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_fuel_use_function_of_part_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_fuel_use_function_of_part_load_ratio_curve")]
 public System.Nullable<float> Coefficient1OfFuelUseFunctionOfPartLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_fuel_use_function_of_part_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_fuel_use_function_of_part_load_ratio_curve")]
 public System.Nullable<float> Coefficient2OfFuelUseFunctionOfPartLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_fuel_use_function_of_part_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_fuel_use_function_of_part_load_ratio_curve")]
 public System.Nullable<float> Coefficient3OfFuelUseFunctionOfPartLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("water_inlet_node_name")]
+[JsonProperty(PropertyName="water_inlet_node_name")]
 public string WaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("steam_outlet_node_name")]
+[JsonProperty(PropertyName="steam_outlet_node_name")]
 public string SteamOutletNodeName { get; set; } = "";
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
-[JsonProperty("end_use_subcategory")]
+[JsonProperty(PropertyName="end_use_subcategory")]
 public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
@@ -326,192 +324,191 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("reference_capacity")]
-public string ReferenceCapacity { get; set; } = "";
+[JsonProperty(PropertyName="reference_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceCapacity { get; set; } = null;
         
 
 [Description("Efficiency of the chiller compressor (cooling output/compressor energy input). Co" +
     "ndenser fan power should not be included here.")]
-[JsonProperty("reference_cop")]
+[JsonProperty(PropertyName="reference_cop")]
 public System.Nullable<float> ReferenceCop { get; set; } = null;
         
 
-[JsonProperty("reference_leaving_chilled_water_temperature")]
+[JsonProperty(PropertyName="reference_leaving_chilled_water_temperature")]
 public System.Nullable<float> ReferenceLeavingChilledWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("6.67", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("reference_entering_condenser_fluid_temperature")]
+[JsonProperty(PropertyName="reference_entering_condenser_fluid_temperature")]
 public System.Nullable<float> ReferenceEnteringCondenserFluidTemperature { get; set; } = (System.Nullable<float>)Single.Parse("29.4", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("reference_chilled_water_flow_rate")]
-public string ReferenceChilledWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="reference_chilled_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceChilledWaterFlowRate { get; set; } = null;
         
 
 [Description("This field is only used for Condenser Type = AirCooled or EvaporativelyCooled whe" +
     "n Heat Recovery is specified")]
-[JsonProperty("reference_condenser_fluid_flow_rate")]
-public string ReferenceCondenserFluidFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="reference_condenser_fluid_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceCondenserFluidFlowRate { get; set; } = null;
         
 
 [Description("Cooling capacity as a function of CW supply temp and entering condenser temp curv" +
     "e = a + b*CWS + c*CWS**2 + d*ECT + e*ECT**2 + f*CWS*ECT CWS = supply (leaving) c" +
     "hilled water temperature(C) ECT = entering condenser fluid temperature(C)")]
-[JsonProperty("cooling_capacity_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="cooling_capacity_function_of_temperature_curve_name")]
 public string CoolingCapacityFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description("Electric Input Ratio (EIR) as a function of temperature EIR = 1/COP curve = a + b" +
     "*CWS + c*CWS**2 + d*ECT + e*ECT**2 + f*CWS*ECT CWS = supply (leaving) chilled wa" +
     "ter temperature(C) ECT = entering condenser fluid temperature(C)")]
-[JsonProperty("electric_input_to_cooling_output_ratio_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="electric_input_to_cooling_output_ratio_function_of_temperature_curve_name")]
 public string ElectricInputToCoolingOutputRatioFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description("Electric Input Ratio (EIR) as a function of Part Load Ratio (PLR) EIR = 1/COP qua" +
     "dratic curve = a + b*PLR + c*PLR**2 is typical, other univariate curves may be u" +
     "sed PLR = part load ratio (cooling load/steady state capacity)")]
-[JsonProperty("electric_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="electric_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_name")]
 public string ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
 
 [Description("Part load ratio below which the chiller starts cycling on/off to meet the load. M" +
     "ust be less than or equal to Maximum Part Load Ratio.")]
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [Description("Maximum allowable part load ratio. Must be greater than or equal to Minimum Part " +
     "Load Ratio.")]
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Optimum part load ratio where the chiller is most efficient. Must be greater than" +
     " or equal to the Minimum Part Load Ratio and less than or equal to the Maximum P" +
     "art Load Ratio.")]
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Part load ratio where the chiller can no longer unload and false loading begins. " +
     "Minimum unloading ratio must be greater than or equal to the Minimum Part Load R" +
     "atio and less than or equal to the Maximum Part Load Ratio.")]
-[JsonProperty("minimum_unloading_ratio")]
+[JsonProperty(PropertyName="minimum_unloading_ratio")]
 public System.Nullable<float> MinimumUnloadingRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.2", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chilled_water_inlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_inlet_node_name")]
 public string ChilledWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("chilled_water_outlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_outlet_node_name")]
 public string ChilledWaterOutletNodeName { get; set; } = "";
         
 
 [Description("Not required if air-cooled or evaporatively-cooled")]
-[JsonProperty("condenser_inlet_node_name")]
+[JsonProperty(PropertyName="condenser_inlet_node_name")]
 public string CondenserInletNodeName { get; set; } = "";
         
 
 [Description("Not required if air-cooled or evaporatively-cooled")]
-[JsonProperty("condenser_outlet_node_name")]
+[JsonProperty(PropertyName="condenser_outlet_node_name")]
 public string CondenserOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="condenser_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_Electric_EIR_CondenserType CondenserType { get; set; } = (Chiller_Electric_EIR_CondenserType)Enum.Parse(typeof(Chiller_Electric_EIR_CondenserType), "WaterCooled");
         
 
 [Description("Use for air-cooled or evaporatively-cooled condensers. Ratio of condenser fan pow" +
     "er to reference chiller capacity")]
-[JsonProperty("condenser_fan_power_ratio")]
+[JsonProperty(PropertyName="condenser_fan_power_ratio")]
 public System.Nullable<float> CondenserFanPowerRatio { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"Fraction of compressor electrical energy that must be rejected by the condenser. Enter a value of 1.0 when modeling hermetic chillers. For open chillers, enter the compressor motor efficiency. This value should be greater than 0.6 for practical applications.")]
-[JsonProperty("fraction_of_compressor_electric_consumption_rejected_by_condenser")]
+[JsonProperty(PropertyName="fraction_of_compressor_electric_consumption_rejected_by_condenser")]
 public System.Nullable<float> FractionOfCompressorElectricConsumptionRejectedByCondenser { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("leaving_chilled_water_lower_temperature_limit")]
+[JsonProperty(PropertyName="leaving_chilled_water_lower_temperature_limit")]
 public System.Nullable<float> LeavingChilledWaterLowerTemperatureLimit { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
-[JsonProperty("chiller_flow_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_flow_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_Electric_EIR_ChillerFlowMode ChillerFlowMode { get; set; } = (Chiller_Electric_EIR_ChillerFlowMode)Enum.Parse(typeof(Chiller_Electric_EIR_ChillerFlowMode), "NotModulated");
         
 
 [Description("If non-zero, then the heat recovery inlet and outlet node names must be entered. " +
     "Heat recovery is only available with Condenser Type = WaterCooled.")]
-[JsonProperty("design_heat_recovery_water_flow_rate")]
-public string DesignHeatRecoveryWaterFlowRate { get; set; } = (System.String)"0";
+[JsonProperty(PropertyName="design_heat_recovery_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignHeatRecoveryWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("heat_recovery_inlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_inlet_node_name")]
 public string HeatRecoveryInletNodeName { get; set; } = "";
         
 
-[JsonProperty("heat_recovery_outlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_outlet_node_name")]
 public string HeatRecoveryOutletNodeName { get; set; } = "";
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for Condenser Type = EvaporativelyCooled and for periods when the basin heater is available (field Basin Heater Operating Schedule Name). For this situation, the heater maintains the basin water temperature at the basin heater setpoint temperature when the outdoor air temperature falls below the setpoint temperature. The basin heater only operates when the chiller is not operating.")]
-[JsonProperty("basin_heater_capacity")]
+[JsonProperty(PropertyName="basin_heater_capacity")]
 public System.Nullable<float> BasinHeaterCapacity { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field is only used for Condenser Type = EvaporativelyCooled. Enter the outdo" +
     "or dry-bulb temperature when the basin heater turns on.")]
-[JsonProperty("basin_heater_setpoint_temperature")]
+[JsonProperty(PropertyName="basin_heater_setpoint_temperature")]
 public System.Nullable<float> BasinHeaterSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for Condenser Type = EvaporativelyCooled. Schedule values greater than 0 allow the basin heater to operate whenever the outdoor air dry-bulb temperature is below the basin heater setpoint temperature. If a schedule name is not entered, the basin heater is allowed to operate throughout the entire simulation.")]
-[JsonProperty("basin_heater_operating_schedule_name")]
+[JsonProperty(PropertyName="basin_heater_operating_schedule_name")]
 public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [Description("This optional field is the fraction of total rejected heat that can be recovered " +
     "at full load")]
-[JsonProperty("condenser_heat_recovery_relative_capacity_fraction")]
+[JsonProperty(PropertyName="condenser_heat_recovery_relative_capacity_fraction")]
 public System.Nullable<float> CondenserHeatRecoveryRelativeCapacityFraction { get; set; } = null;
         
 
 [Description("This optional schedule of temperatures will turn off heat recovery if inlet excee" +
     "ds the value")]
-[JsonProperty("heat_recovery_inlet_high_temperature_limit_schedule_name")]
+[JsonProperty(PropertyName="heat_recovery_inlet_high_temperature_limit_schedule_name")]
 public string HeatRecoveryInletHighTemperatureLimitScheduleName { get; set; } = "";
         
 
 [Description("This optional field provides control over the heat recovery Using this triggers a" +
     " model more suited to series bundle and chillers with higher temperature heat re" +
     "covery If this field is not used, the bundles are modeled as being in parallel")]
-[JsonProperty("heat_recovery_leaving_temperature_setpoint_node_name")]
+[JsonProperty(PropertyName="heat_recovery_leaving_temperature_setpoint_node_name")]
 public string HeatRecoveryLeavingTemperatureSetpointNodeName { get; set; } = "";
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
-[JsonProperty("end_use_subcategory")]
+[JsonProperty(PropertyName="end_use_subcategory")]
 public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     public enum Chiller_Electric_EIR_CondenserType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
@@ -527,7 +524,7 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Chiller_Electric_EIR_ChillerFlowMode
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
@@ -547,160 +544,159 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("reference_capacity")]
-public string ReferenceCapacity { get; set; } = "";
+[JsonProperty(PropertyName="reference_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceCapacity { get; set; } = null;
         
 
 [Description("Efficiency of the chiller compressor (cooling output/compressor energy input). Co" +
     "ndenser fan power should not be included here.")]
-[JsonProperty("reference_cop")]
+[JsonProperty(PropertyName="reference_cop")]
 public System.Nullable<float> ReferenceCop { get; set; } = null;
         
 
-[JsonProperty("reference_leaving_chilled_water_temperature")]
+[JsonProperty(PropertyName="reference_leaving_chilled_water_temperature")]
 public System.Nullable<float> ReferenceLeavingChilledWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("6.67", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("reference_leaving_condenser_water_temperature")]
+[JsonProperty(PropertyName="reference_leaving_condenser_water_temperature")]
 public System.Nullable<float> ReferenceLeavingCondenserWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("35", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("reference_chilled_water_flow_rate")]
-public string ReferenceChilledWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="reference_chilled_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceChilledWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("reference_condenser_water_flow_rate")]
-public string ReferenceCondenserWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="reference_condenser_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceCondenserWaterFlowRate { get; set; } = null;
         
 
 [Description(@"Cooling capacity as a function of supply (leaving) chilled water temperature and leaving condenser fluid temperature curve = a + b*CWS + c*CWS**2 + d*LCT + e*LCT**2 + f*CWS*LCT CWS = supply (leaving) chilled water temperature(C) LCT = leaving condenser fluid temperature(C)")]
-[JsonProperty("cooling_capacity_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="cooling_capacity_function_of_temperature_curve_name")]
 public string CoolingCapacityFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"Electric Input Ratio (EIR) as a function of supply (leaving) chilled water temperature and leaving condenser fluid temperature. EIR = 1/COP. curve = a + b*CWS + c*CWS**2 + d*LCT + e*LCT**2 + f*CWS*LCT CWS = supply (leaving) chilled water temperature(C) LCT = leaving condenser fluid temperature(C)")]
-[JsonProperty("electric_input_to_cooling_output_ratio_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="electric_input_to_cooling_output_ratio_function_of_temperature_curve_name")]
 public string ElectricInputToCoolingOutputRatioFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"Two curve types are available: Type LeavingCondenserWaterTemperature: based on the leaving condenser water temperature. Type Lift: based on the normalized lift, which is the temperature difference between the leaving condenser water temperature and the leaving evaporator water temperature.")]
-[JsonProperty("electric_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="electric_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_Electric_ReformulatedEIR_ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveType ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveType { get; set; } = (Chiller_Electric_ReformulatedEIR_ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveType)Enum.Parse(typeof(Chiller_Electric_ReformulatedEIR_ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveType), "LeavingCondenserWaterTemperature");
         
 
 [Description(@"Electric Input Ratio (EIR) as a function of Part Load Ratio (PLR) EIR = 1/COP The form of this curve is based on the input for Electric Input to Cooling Output RatioFunction of Part Load Ratio Curve Type Type=LeavingCondenserWaterTemperature: Calculated based on LCT and PLR Curve object type should be Curve:Bicubic or Table:Lookup Bicubic curve = a + b*LCT + c*LCT**2 + d*PLR + e*PLR**2 + f*LCT*PLR + g*0 + h*PLR**3 + i*0 + j*0 PLR = part load ratio (cooling load/steady state capacity) LCT = leaving condenser fluid temperature(C) Type=Lift: Calculated based on dT*, Tdev* and PLR Curve object type should be Curve:ChillerPartLoadWithLiftCurves or Table:Lookup ChillerPartLoadWithLiftCurves curve = a + b*(dT*) + c*(dT*)**2 + d*PLR + e*PLR**2 + f*(dT*)*PLR + g*(dT*)**3 + h*PLR**3 + i*(dT*)**2*PLR + j*(dT*)*PLR**2 + k*(dT*)**2*PLR**2 + l*(Tdev*)*PLR**3 x = dT* = normalized fractional Lift = dT / dTref y = PLR = part load ratio (cooling load/steady state capacity) z = Tdev* = normalized Tdev = Tdev / dTref Where: dT = Lift = Leaving Condenser Water Temperature - Leaving Chilled Water Temperature dTref = dT at the reference condition Tdev = Leaving Chilled Water Temperature - Reference Chilled Water Temperature")]
-[JsonProperty("electric_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="electric_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_name")]
 public string ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
 
 [Description("Part load ratio below which the chiller starts cycling on/off to meet the load. M" +
     "ust be less than or equal to Maximum Part Load Ratio.")]
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [Description("Maximum allowable part load ratio. Must be greater than or equal to Minimum Part " +
     "Load Ratio.")]
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Optimum part load ratio where the chiller is most efficient. Must be greater than" +
     " or equal to the Minimum Part Load Ratio and less than or equal to the Maximum P" +
     "art Load Ratio.")]
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Part load ratio where the chiller can no longer unload and false loading begins. " +
     "Minimum unloading ratio must be greater than or equal to the Minimum Part Load R" +
     "atio and less than or equal to the Maximum Part Load Ratio.")]
-[JsonProperty("minimum_unloading_ratio")]
+[JsonProperty(PropertyName="minimum_unloading_ratio")]
 public System.Nullable<float> MinimumUnloadingRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.2", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chilled_water_inlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_inlet_node_name")]
 public string ChilledWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("chilled_water_outlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_outlet_node_name")]
 public string ChilledWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_inlet_node_name")]
+[JsonProperty(PropertyName="condenser_inlet_node_name")]
 public string CondenserInletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_outlet_node_name")]
+[JsonProperty(PropertyName="condenser_outlet_node_name")]
 public string CondenserOutletNodeName { get; set; } = "";
         
 
 [Description(@"Fraction of compressor electrical energy that must be rejected by the condenser. Enter a value of 1.0 when modeling hermetic chillers. For open chillers, enter the compressor motor efficiency. This value should be greater than 0.6 for practical applications.")]
-[JsonProperty("fraction_of_compressor_electric_consumption_rejected_by_condenser")]
+[JsonProperty(PropertyName="fraction_of_compressor_electric_consumption_rejected_by_condenser")]
 public System.Nullable<float> FractionOfCompressorElectricConsumptionRejectedByCondenser { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("leaving_chilled_water_lower_temperature_limit")]
+[JsonProperty(PropertyName="leaving_chilled_water_lower_temperature_limit")]
 public System.Nullable<float> LeavingChilledWaterLowerTemperatureLimit { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
-[JsonProperty("chiller_flow_mode_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_flow_mode_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_Electric_ReformulatedEIR_ChillerFlowModeType ChillerFlowModeType { get; set; } = (Chiller_Electric_ReformulatedEIR_ChillerFlowModeType)Enum.Parse(typeof(Chiller_Electric_ReformulatedEIR_ChillerFlowModeType), "NotModulated");
         
 
 [Description("If non-zero, then the heat recovery inlet and outlet node names must be entered.")]
-[JsonProperty("design_heat_recovery_water_flow_rate")]
-public string DesignHeatRecoveryWaterFlowRate { get; set; } = (System.String)"0";
+[JsonProperty(PropertyName="design_heat_recovery_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignHeatRecoveryWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("heat_recovery_inlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_inlet_node_name")]
 public string HeatRecoveryInletNodeName { get; set; } = "";
         
 
-[JsonProperty("heat_recovery_outlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_outlet_node_name")]
 public string HeatRecoveryOutletNodeName { get; set; } = "";
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("This optional field is the fraction of total rejected heat that can be recovered " +
     "at full load")]
-[JsonProperty("condenser_heat_recovery_relative_capacity_fraction")]
+[JsonProperty(PropertyName="condenser_heat_recovery_relative_capacity_fraction")]
 public System.Nullable<float> CondenserHeatRecoveryRelativeCapacityFraction { get; set; } = null;
         
 
 [Description("This optional schedule of temperatures will turn off heat recovery if inlet excee" +
     "ds the value")]
-[JsonProperty("heat_recovery_inlet_high_temperature_limit_schedule_name")]
+[JsonProperty(PropertyName="heat_recovery_inlet_high_temperature_limit_schedule_name")]
 public string HeatRecoveryInletHighTemperatureLimitScheduleName { get; set; } = "";
         
 
 [Description("This optional field provides control over the heat recovery Using this triggers a" +
     " model more suited to series bundle and chillers with higher temperature heat re" +
     "covery If this field is not used, the bundles are modeled as being in parallel")]
-[JsonProperty("heat_recovery_leaving_temperature_setpoint_node_name")]
+[JsonProperty(PropertyName="heat_recovery_leaving_temperature_setpoint_node_name")]
 public string HeatRecoveryLeavingTemperatureSetpointNodeName { get; set; } = "";
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
-[JsonProperty("end_use_subcategory")]
+[JsonProperty(PropertyName="end_use_subcategory")]
 public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     public enum Chiller_Electric_ReformulatedEIR_ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="LeavingCondenserWaterTemperature")]
@@ -713,7 +709,7 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Chiller_Electric_ReformulatedEIR_ChillerFlowModeType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
@@ -736,184 +732,183 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="condenser_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_Electric_CondenserType CondenserType { get; set; } = (Chiller_Electric_CondenserType)Enum.Parse(typeof(Chiller_Electric_CondenserType), "AirCooled");
         
 
-[JsonProperty("nominal_capacity")]
-public string NominalCapacity { get; set; } = "";
+[JsonProperty(PropertyName="nominal_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalCapacity { get; set; } = null;
         
 
-[JsonProperty("nominal_cop")]
+[JsonProperty(PropertyName="nominal_cop")]
 public System.Nullable<float> NominalCop { get; set; } = null;
         
 
-[JsonProperty("chilled_water_inlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_inlet_node_name")]
 public string ChilledWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("chilled_water_outlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_outlet_node_name")]
 public string ChilledWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_inlet_node_name")]
+[JsonProperty(PropertyName="condenser_inlet_node_name")]
 public string CondenserInletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_outlet_node_name")]
+[JsonProperty(PropertyName="condenser_outlet_node_name")]
 public string CondenserOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("design_condenser_inlet_temperature")]
+[JsonProperty(PropertyName="design_condenser_inlet_temperature")]
 public System.Nullable<float> DesignCondenserInletTemperature { get; set; } = null;
         
 
-[JsonProperty("temperature_rise_coefficient")]
+[JsonProperty(PropertyName="temperature_rise_coefficient")]
 public System.Nullable<float> TemperatureRiseCoefficient { get; set; } = null;
         
 
-[JsonProperty("design_chilled_water_outlet_temperature")]
+[JsonProperty(PropertyName="design_chilled_water_outlet_temperature")]
 public System.Nullable<float> DesignChilledWaterOutletTemperature { get; set; } = null;
         
 
 [Description("For variable volume this is the maximum flow & for constant flow this is the flow" +
     ".")]
-[JsonProperty("design_chilled_water_flow_rate")]
-public string DesignChilledWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_chilled_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignChilledWaterFlowRate { get; set; } = null;
         
 
 [Description("This field is only used for Condenser Type = AirCooled or EvaporativelyCooled whe" +
     "n Heat Recovery is specified")]
-[JsonProperty("design_condenser_fluid_flow_rate")]
-public string DesignCondenserFluidFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_condenser_fluid_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignCondenserFluidFlowRate { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_capacity_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_capacity_ratio_curve")]
 public System.Nullable<float> Coefficient1OfCapacityRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_capacity_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_capacity_ratio_curve")]
 public System.Nullable<float> Coefficient2OfCapacityRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_capacity_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_capacity_ratio_curve")]
 public System.Nullable<float> Coefficient3OfCapacityRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_power_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_power_ratio_curve")]
 public System.Nullable<float> Coefficient1OfPowerRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_power_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_power_ratio_curve")]
 public System.Nullable<float> Coefficient2OfPowerRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_power_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_power_ratio_curve")]
 public System.Nullable<float> Coefficient3OfPowerRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_full_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_full_load_ratio_curve")]
 public System.Nullable<float> Coefficient1OfFullLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_full_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_full_load_ratio_curve")]
 public System.Nullable<float> Coefficient2OfFullLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_full_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_full_load_ratio_curve")]
 public System.Nullable<float> Coefficient3OfFullLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("chilled_water_outlet_temperature_lower_limit")]
+[JsonProperty(PropertyName="chilled_water_outlet_temperature_lower_limit")]
 public System.Nullable<float> ChilledWaterOutletTemperatureLowerLimit { get; set; } = null;
         
 
 [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
-[JsonProperty("chiller_flow_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_flow_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_Electric_ChillerFlowMode ChillerFlowMode { get; set; } = (Chiller_Electric_ChillerFlowMode)Enum.Parse(typeof(Chiller_Electric_ChillerFlowMode), "NotModulated");
         
 
 [Description("If non-zero, then the heat recovery inlet and outlet node names must be entered. " +
     "Heat recovery is only available with Condenser Type = WaterCooled.")]
-[JsonProperty("design_heat_recovery_water_flow_rate")]
-public string DesignHeatRecoveryWaterFlowRate { get; set; } = (System.String)"0";
+[JsonProperty(PropertyName="design_heat_recovery_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignHeatRecoveryWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("heat_recovery_inlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_inlet_node_name")]
 public string HeatRecoveryInletNodeName { get; set; } = "";
         
 
-[JsonProperty("heat_recovery_outlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_outlet_node_name")]
 public string HeatRecoveryOutletNodeName { get; set; } = "";
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for Condenser Type = EvaporativelyCooled and for periods when the basin heater is available (field Basin Heater Operating Schedule Name). For this situation, the heater maintains the basin water temperature at the basin heater setpoint temperature when the outdoor air temperature falls below the setpoint temperature. The basin heater only operates when the chiller is not operating.")]
-[JsonProperty("basin_heater_capacity")]
+[JsonProperty(PropertyName="basin_heater_capacity")]
 public System.Nullable<float> BasinHeaterCapacity { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field is only used for Condenser Type = EvaporativelyCooled. Enter the outdo" +
     "or dry-bulb temperature when the basin heater turns on.")]
-[JsonProperty("basin_heater_setpoint_temperature")]
+[JsonProperty(PropertyName="basin_heater_setpoint_temperature")]
 public System.Nullable<float> BasinHeaterSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for Condenser Type = EvaporativelyCooled. Schedule values greater than 0 allow the basin heater to operate whenever the outdoor air dry-bulb temperature is below the basin heater setpoint temperature. If a schedule name is not entered, the basin heater is allowed to operate throughout the entire simulation.")]
-[JsonProperty("basin_heater_operating_schedule_name")]
+[JsonProperty(PropertyName="basin_heater_operating_schedule_name")]
 public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [Description("This optional field is the fraction of total rejected heat that can be recovered " +
     "at full load")]
-[JsonProperty("condenser_heat_recovery_relative_capacity_fraction")]
+[JsonProperty(PropertyName="condenser_heat_recovery_relative_capacity_fraction")]
 public System.Nullable<float> CondenserHeatRecoveryRelativeCapacityFraction { get; set; } = null;
         
 
 [Description("This optional schedule of temperatures will turn off heat recovery if inlet excee" +
     "ds the value")]
-[JsonProperty("heat_recovery_inlet_high_temperature_limit_schedule_name")]
+[JsonProperty(PropertyName="heat_recovery_inlet_high_temperature_limit_schedule_name")]
 public string HeatRecoveryInletHighTemperatureLimitScheduleName { get; set; } = "";
         
 
 [Description("This optional field provides control over the heat recovery Using this triggers a" +
     " model more suited to series bundle and chillers with higher temperature heat re" +
     "covery If this field is not used, the bundles are modeled as being in parallel")]
-[JsonProperty("heat_recovery_leaving_temperature_setpoint_node_name")]
+[JsonProperty(PropertyName="heat_recovery_leaving_temperature_setpoint_node_name")]
 public string HeatRecoveryLeavingTemperatureSetpointNodeName { get; set; } = "";
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
-[JsonProperty("end_use_subcategory")]
+[JsonProperty(PropertyName="end_use_subcategory")]
 public string EndUseSubcategory { get; set; } = (System.String)"General";
     }
     
     public enum Chiller_Electric_CondenserType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
@@ -929,7 +924,7 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     public enum Chiller_Electric_ChillerFlowMode
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
@@ -949,166 +944,165 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("nominal_capacity")]
-public string NominalCapacity { get; set; } = "";
+[JsonProperty(PropertyName="nominal_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalCapacity { get; set; } = null;
         
 
-[JsonProperty("nominal_pumping_power")]
-public string NominalPumpingPower { get; set; } = "";
+[JsonProperty(PropertyName="nominal_pumping_power", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalPumpingPower { get; set; } = null;
         
 
-[JsonProperty("chilled_water_inlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_inlet_node_name")]
 public string ChilledWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("chilled_water_outlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_outlet_node_name")]
 public string ChilledWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_inlet_node_name")]
+[JsonProperty(PropertyName="condenser_inlet_node_name")]
 public string CondenserInletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_outlet_node_name")]
+[JsonProperty(PropertyName="condenser_outlet_node_name")]
 public string CondenserOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = null;
         
 
 [Description("Used only when condenser flow rate is autosized.")]
-[JsonProperty("design_condenser_inlet_temperature")]
+[JsonProperty(PropertyName="design_condenser_inlet_temperature")]
 public System.Nullable<float> DesignCondenserInletTemperature { get; set; } = (System.Nullable<float>)Single.Parse("30", CultureInfo.InvariantCulture);
         
 
 [Description("Provides warnings when entering condenser temperature is below minimum. Capacity " +
     "is not adjusted when entering condenser temperature is below minimum.")]
-[JsonProperty("condenser_inlet_temperature_lower_limit")]
+[JsonProperty(PropertyName="condenser_inlet_temperature_lower_limit")]
 public System.Nullable<float> CondenserInletTemperatureLowerLimit { get; set; } = (System.Nullable<float>)Single.Parse("15", CultureInfo.InvariantCulture);
         
 
 [Description("Capacity is adjusted when leaving chilled water temperature is below minimum.")]
-[JsonProperty("chilled_water_outlet_temperature_lower_limit")]
+[JsonProperty(PropertyName="chilled_water_outlet_temperature_lower_limit")]
 public System.Nullable<float> ChilledWaterOutletTemperatureLowerLimit { get; set; } = (System.Nullable<float>)Single.Parse("5", CultureInfo.InvariantCulture);
         
 
 [Description("For variable flow this is the max flow & for constant flow this is the flow.")]
-[JsonProperty("design_chilled_water_flow_rate")]
-public string DesignChilledWaterFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="design_chilled_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignChilledWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("design_condenser_water_flow_rate")]
-public string DesignCondenserWaterFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="design_condenser_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignCondenserWaterFlowRate { get; set; } = null;
         
 
 [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
-[JsonProperty("chiller_flow_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_flow_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_Absorption_Indirect_ChillerFlowMode ChillerFlowMode { get; set; } = (Chiller_Absorption_Indirect_ChillerFlowMode)Enum.Parse(typeof(Chiller_Absorption_Indirect_ChillerFlowMode), "NotModulated");
         
 
-[JsonProperty("generator_heat_input_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="generator_heat_input_function_of_part_load_ratio_curve_name")]
 public string GeneratorHeatInputFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
 
-[JsonProperty("pump_electric_input_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="pump_electric_input_function_of_part_load_ratio_curve_name")]
 public string PumpElectricInputFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
 
 [Description("Enter the generator inlet node name which connects this chiller to a steam or hot" +
     " water plant, otherwise leave this field blank. Generator nodes are used to mode" +
     "l heat input to the chiller.")]
-[JsonProperty("generator_inlet_node_name")]
+[JsonProperty(PropertyName="generator_inlet_node_name")]
 public string GeneratorInletNodeName { get; set; } = "";
         
 
 [Description("Enter the generator outlet node name which connects this chiller to a steam or ho" +
     "t water plant, otherwise leave this field blank. Generator nodes are used to mod" +
     "el heat input to the chiller.")]
-[JsonProperty("generator_outlet_node_name")]
+[JsonProperty(PropertyName="generator_outlet_node_name")]
 public string GeneratorOutletNodeName { get; set; } = "";
         
 
 [Description("Curve which shows the change in normalized capacity to changes in condenser tempe" +
     "rature.")]
-[JsonProperty("capacity_correction_function_of_condenser_temperature_curve_name")]
+[JsonProperty(PropertyName="capacity_correction_function_of_condenser_temperature_curve_name")]
 public string CapacityCorrectionFunctionOfCondenserTemperatureCurveName { get; set; } = "";
         
 
 [Description("Curve which shows the change in normalized capacity to changes in leaving chilled" +
     " water temperature.")]
-[JsonProperty("capacity_correction_function_of_chilled_water_temperature_curve_name")]
+[JsonProperty(PropertyName="capacity_correction_function_of_chilled_water_temperature_curve_name")]
 public string CapacityCorrectionFunctionOfChilledWaterTemperatureCurveName { get; set; } = "";
         
 
 [Description("Used when generator fluid type is hot water Curve which shows the change in norma" +
     "lized capacity to changes in generator temperature.")]
-[JsonProperty("capacity_correction_function_of_generator_temperature_curve_name")]
+[JsonProperty(PropertyName="capacity_correction_function_of_generator_temperature_curve_name")]
 public string CapacityCorrectionFunctionOfGeneratorTemperatureCurveName { get; set; } = "";
         
 
 [Description("Curve which shows the change in normalized heat input to changes in condenser tem" +
     "perature.")]
-[JsonProperty("generator_heat_input_correction_function_of_condenser_temperature_curve_name")]
+[JsonProperty(PropertyName="generator_heat_input_correction_function_of_condenser_temperature_curve_name")]
 public string GeneratorHeatInputCorrectionFunctionOfCondenserTemperatureCurveName { get; set; } = "";
         
 
 [Description("Curve which shows the change in normalized heat input to changes in leaving chill" +
     "ed water temperature.")]
-[JsonProperty("generator_heat_input_correction_function_of_chilled_water_temperature_curve_name")]
+[JsonProperty(PropertyName="generator_heat_input_correction_function_of_chilled_water_temperature_curve_name")]
 public string GeneratorHeatInputCorrectionFunctionOfChilledWaterTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"The Generator side of the chiller can be connected to a hot water or steam plant where the generator inlet and outlet nodes are connected to a plant loop. If the generator is not connected to a plant loop, and the generator inlet/outlet nodes are not used, this field should be specified as steam or left blank. When a plant is not used, the model assumes steam as the heat source.")]
-[JsonProperty("generator_heat_source_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="generator_heat_source_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_Absorption_Indirect_GeneratorHeatSourceType GeneratorHeatSourceType { get; set; } = (Chiller_Absorption_Indirect_GeneratorHeatSourceType)Enum.Parse(typeof(Chiller_Absorption_Indirect_GeneratorHeatSourceType), "Steam");
         
 
 [Description("For variable flow this is the max flow and for constant flow this is the flow.")]
-[JsonProperty("design_generator_fluid_flow_rate")]
-public string DesignGeneratorFluidFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_generator_fluid_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignGeneratorFluidFlowRate { get; set; } = null;
         
 
 [Description("Provides warnings when entering generator temperature is below minimum. Capacity " +
     "is not adjusted when entering generator temperature is below minimum.")]
-[JsonProperty("temperature_lower_limit_generator_inlet")]
+[JsonProperty(PropertyName="temperature_lower_limit_generator_inlet")]
 public System.Nullable<float> TemperatureLowerLimitGeneratorInlet { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field is not used when the generator inlet/outlet nodes are not specified or" +
     " the generator is connected to a hot water loop.")]
-[JsonProperty("degree_of_subcooling_in_steam_generator")]
+[JsonProperty(PropertyName="degree_of_subcooling_in_steam_generator")]
 public System.Nullable<float> DegreeOfSubcoolingInSteamGenerator { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("This field is not used when the generator inlet/outlet nodes are not specified or" +
     " the generator is connected to a hot water loop.")]
-[JsonProperty("degree_of_subcooling_in_steam_condensate_loop")]
+[JsonProperty(PropertyName="degree_of_subcooling_in_steam_condensate_loop")]
 public System.Nullable<float> DegreeOfSubcoolingInSteamCondensateLoop { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum Chiller_Absorption_Indirect_ChillerFlowMode
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
@@ -1124,7 +1118,7 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
     public enum Chiller_Absorption_Indirect_GeneratorHeatSourceType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="HotWater")]
@@ -1141,129 +1135,128 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("nominal_capacity")]
-public string NominalCapacity { get; set; } = "";
+[JsonProperty(PropertyName="nominal_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalCapacity { get; set; } = null;
         
 
-[JsonProperty("nominal_pumping_power")]
-public string NominalPumpingPower { get; set; } = "";
+[JsonProperty(PropertyName="nominal_pumping_power", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalPumpingPower { get; set; } = null;
         
 
-[JsonProperty("chilled_water_inlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_inlet_node_name")]
 public string ChilledWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("chilled_water_outlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_outlet_node_name")]
 public string ChilledWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_inlet_node_name")]
+[JsonProperty(PropertyName="condenser_inlet_node_name")]
 public string CondenserInletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_outlet_node_name")]
+[JsonProperty(PropertyName="condenser_outlet_node_name")]
 public string CondenserOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("design_condenser_inlet_temperature")]
+[JsonProperty(PropertyName="design_condenser_inlet_temperature")]
 public System.Nullable<float> DesignCondenserInletTemperature { get; set; } = null;
         
 
 [Description("For variable volume this is the max flow & for constant flow this is the flow.")]
-[JsonProperty("design_chilled_water_flow_rate")]
-public string DesignChilledWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_chilled_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignChilledWaterFlowRate { get; set; } = null;
         
 
 [Description("The steam use coefficients below specify the steam use as a fraction of chiller o" +
     "perating capacity")]
-[JsonProperty("design_condenser_water_flow_rate")]
-public string DesignCondenserWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_condenser_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignCondenserWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_the_hot_water_or_steam_use_part_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_the_hot_water_or_steam_use_part_load_ratio_curve")]
 public System.Nullable<float> Coefficient1OfTheHotWaterOrSteamUsePartLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_the_hot_water_or_steam_use_part_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_the_hot_water_or_steam_use_part_load_ratio_curve")]
 public System.Nullable<float> Coefficient2OfTheHotWaterOrSteamUsePartLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_the_hot_water_or_steam_use_part_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_the_hot_water_or_steam_use_part_load_ratio_curve")]
 public System.Nullable<float> Coefficient3OfTheHotWaterOrSteamUsePartLoadRatioCurve { get; set; } = null;
         
 
 [Description("The pump electric use coefficients specify the pumping power as a Fraction of Nom" +
     "inal pumping power")]
-[JsonProperty("coefficient_1_of_the_pump_electric_use_part_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_the_pump_electric_use_part_load_ratio_curve")]
 public System.Nullable<float> Coefficient1OfThePumpElectricUsePartLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_the_pump_electric_use_part_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_the_pump_electric_use_part_load_ratio_curve")]
 public System.Nullable<float> Coefficient2OfThePumpElectricUsePartLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_the_pump_electric_use_part_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_the_pump_electric_use_part_load_ratio_curve")]
 public System.Nullable<float> Coefficient3OfThePumpElectricUsePartLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("chilled_water_outlet_temperature_lower_limit")]
+[JsonProperty(PropertyName="chilled_water_outlet_temperature_lower_limit")]
 public System.Nullable<float> ChilledWaterOutletTemperatureLowerLimit { get; set; } = null;
         
 
-[JsonProperty("generator_inlet_node_name")]
+[JsonProperty(PropertyName="generator_inlet_node_name")]
 public string GeneratorInletNodeName { get; set; } = "";
         
 
-[JsonProperty("generator_outlet_node_name")]
+[JsonProperty(PropertyName="generator_outlet_node_name")]
 public string GeneratorOutletNodeName { get; set; } = "";
         
 
 [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
-[JsonProperty("chiller_flow_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_flow_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_Absorption_ChillerFlowMode ChillerFlowMode { get; set; } = (Chiller_Absorption_ChillerFlowMode)Enum.Parse(typeof(Chiller_Absorption_ChillerFlowMode), "NotModulated");
         
 
 [Description(@"The Generator side of the chiller can be connected to a hot water or steam plant where the generator inlet and outlet nodes are connected to a plant loop. If the generator is not connected to a plant loop, and the generator inlet/outlet nodes are not used, this field should be specified as steam or left blank. When a plant is not used, the model assumes steam as the heat source.")]
-[JsonProperty("generator_heat_source_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="generator_heat_source_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_Absorption_GeneratorHeatSourceType GeneratorHeatSourceType { get; set; } = (Chiller_Absorption_GeneratorHeatSourceType)Enum.Parse(typeof(Chiller_Absorption_GeneratorHeatSourceType), "Steam");
         
 
-[JsonProperty("design_generator_fluid_flow_rate")]
-public string DesignGeneratorFluidFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_generator_fluid_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignGeneratorFluidFlowRate { get; set; } = null;
         
 
 [Description("This field is not used when the generator inlet/outlet nodes are not specified or" +
     " the generator is connected to a hot water loop.")]
-[JsonProperty("degree_of_subcooling_in_steam_generator")]
+[JsonProperty(PropertyName="degree_of_subcooling_in_steam_generator")]
 public System.Nullable<float> DegreeOfSubcoolingInSteamGenerator { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum Chiller_Absorption_ChillerFlowMode
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
@@ -1279,7 +1272,7 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
     public enum Chiller_Absorption_GeneratorHeatSourceType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="HotWater")]
@@ -1297,80 +1290,79 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("nominal_capacity")]
-public string NominalCapacity { get; set; } = "";
+[JsonProperty(PropertyName="nominal_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalCapacity { get; set; } = null;
         
 
-[JsonProperty("nominal_cop")]
+[JsonProperty(PropertyName="nominal_cop")]
 public System.Nullable<float> NominalCop { get; set; } = null;
         
 
 [Description("For variable volume this is the maximum flow and for constant flow this is the fl" +
     "ow.")]
-[JsonProperty("design_chilled_water_flow_rate")]
-public string DesignChilledWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_chilled_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignChilledWaterFlowRate { get; set; } = null;
         
 
 [Description("This field is not used for Condenser Type = AirCooled or EvaporativelyCooled")]
-[JsonProperty("design_condenser_water_flow_rate")]
-public string DesignCondenserWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_condenser_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignCondenserWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("chilled_water_inlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_inlet_node_name")]
 public string ChilledWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("chilled_water_outlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_outlet_node_name")]
 public string ChilledWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_inlet_node_name")]
+[JsonProperty(PropertyName="condenser_inlet_node_name")]
 public string CondenserInletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_outlet_node_name")]
+[JsonProperty(PropertyName="condenser_outlet_node_name")]
 public string CondenserOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="condenser_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_ConstantCOP_CondenserType CondenserType { get; set; } = (Chiller_ConstantCOP_CondenserType)Enum.Parse(typeof(Chiller_ConstantCOP_CondenserType), "AirCooled");
         
 
 [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
-[JsonProperty("chiller_flow_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_flow_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_ConstantCOP_ChillerFlowMode ChillerFlowMode { get; set; } = (Chiller_ConstantCOP_ChillerFlowMode)Enum.Parse(typeof(Chiller_ConstantCOP_ChillerFlowMode), "NotModulated");
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for Condenser Type = EvaporativelyCooled and for periods when the basin heater is available (field Basin Heater Operating Schedule Name). For this situation, the heater maintains the basin water temperature at the basin heater setpoint temperature when the outdoor air temperature falls below the setpoint temperature. The basin heater only operates when the chiller is not operating.")]
-[JsonProperty("basin_heater_capacity")]
+[JsonProperty(PropertyName="basin_heater_capacity")]
 public System.Nullable<float> BasinHeaterCapacity { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field is only used for Condenser Type = EvaporativelyCooled. Enter the outdo" +
     "or dry-bulb temperature when the basin heater turns on.")]
-[JsonProperty("basin_heater_setpoint_temperature")]
+[JsonProperty(PropertyName="basin_heater_setpoint_temperature")]
 public System.Nullable<float> BasinHeaterSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for Condenser Type = EvaporativelyCooled. Schedule values greater than 0 allow the basin heater to operate whenever the outdoor air dry-bulb temperature is below the basin heater setpoint temperature. If a schedule name is not entered, the basin heater is allowed to operate throughout the entire simulation.")]
-[JsonProperty("basin_heater_operating_schedule_name")]
+[JsonProperty(PropertyName="basin_heater_operating_schedule_name")]
 public string BasinHeaterOperatingScheduleName { get; set; } = "";
     }
     
     public enum Chiller_ConstantCOP_CondenserType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
@@ -1386,7 +1378,7 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
     public enum Chiller_ConstantCOP_ChillerFlowMode
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
@@ -1409,227 +1401,225 @@ public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="condenser_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_EngineDriven_CondenserType CondenserType { get; set; } = (Chiller_EngineDriven_CondenserType)Enum.Parse(typeof(Chiller_EngineDriven_CondenserType), "AirCooled");
         
 
-[JsonProperty("nominal_capacity")]
-public string NominalCapacity { get; set; } = "";
+[JsonProperty(PropertyName="nominal_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalCapacity { get; set; } = null;
         
 
 [Description("Nominal Refrigeration Cycle COP")]
-[JsonProperty("nominal_cop")]
+[JsonProperty(PropertyName="nominal_cop")]
 public System.Nullable<float> NominalCop { get; set; } = null;
         
 
-[JsonProperty("chilled_water_inlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_inlet_node_name")]
 public string ChilledWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("chilled_water_outlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_outlet_node_name")]
 public string ChilledWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_inlet_node_name")]
+[JsonProperty(PropertyName="condenser_inlet_node_name")]
 public string CondenserInletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_outlet_node_name")]
+[JsonProperty(PropertyName="condenser_outlet_node_name")]
 public string CondenserOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("design_condenser_inlet_temperature")]
+[JsonProperty(PropertyName="design_condenser_inlet_temperature")]
 public System.Nullable<float> DesignCondenserInletTemperature { get; set; } = null;
         
 
-[JsonProperty("temperature_rise_coefficient")]
+[JsonProperty(PropertyName="temperature_rise_coefficient")]
 public System.Nullable<float> TemperatureRiseCoefficient { get; set; } = null;
         
 
-[JsonProperty("design_chilled_water_outlet_temperature")]
+[JsonProperty(PropertyName="design_chilled_water_outlet_temperature")]
 public System.Nullable<float> DesignChilledWaterOutletTemperature { get; set; } = null;
         
 
 [Description("For variable volume this is the maximum flow and for constant flow this is the fl" +
     "ow.")]
-[JsonProperty("design_chilled_water_flow_rate")]
-public string DesignChilledWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_chilled_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignChilledWaterFlowRate { get; set; } = null;
         
 
 [Description("This field is not used for Condenser Type = AirCooled or EvaporativelyCooled")]
-[JsonProperty("design_condenser_water_flow_rate")]
-public string DesignCondenserWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_condenser_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignCondenserWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_capacity_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_capacity_ratio_curve")]
 public System.Nullable<float> Coefficient1OfCapacityRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_capacity_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_capacity_ratio_curve")]
 public System.Nullable<float> Coefficient2OfCapacityRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_capacity_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_capacity_ratio_curve")]
 public System.Nullable<float> Coefficient3OfCapacityRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_power_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_power_ratio_curve")]
 public System.Nullable<float> Coefficient1OfPowerRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_power_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_power_ratio_curve")]
 public System.Nullable<float> Coefficient2OfPowerRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_power_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_power_ratio_curve")]
 public System.Nullable<float> Coefficient3OfPowerRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_full_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_full_load_ratio_curve")]
 public System.Nullable<float> Coefficient1OfFullLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_full_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_full_load_ratio_curve")]
 public System.Nullable<float> Coefficient2OfFullLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_full_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_full_load_ratio_curve")]
 public System.Nullable<float> Coefficient3OfFullLoadRatioCurve { get; set; } = null;
         
 
 [Description("Special EngineDriven Chiller Parameters Below")]
-[JsonProperty("chilled_water_outlet_temperature_lower_limit")]
+[JsonProperty(PropertyName="chilled_water_outlet_temperature_lower_limit")]
 public System.Nullable<float> ChilledWaterOutletTemperatureLowerLimit { get; set; } = null;
         
 
 [Description("Curve is a function of Part Load Ratio (PLR) curve = a + b*PLR + c*PLR**2 PLR = R" +
     "atio of evaporator heat transfer rate to nominal capacity")]
-[JsonProperty("fuel_use_curve_name")]
+[JsonProperty(PropertyName="fuel_use_curve_name")]
 public string FuelUseCurveName { get; set; } = "";
         
 
 [Description("Curve is a function of Part Load Ratio (PLR) curve = a + b*PLR + c*PLR**2 PLR = R" +
     "atio of evaporator heat transfer rate to nominal capacity")]
-[JsonProperty("jacket_heat_recovery_curve_name")]
+[JsonProperty(PropertyName="jacket_heat_recovery_curve_name")]
 public string JacketHeatRecoveryCurveName { get; set; } = "";
         
 
 [Description("Curve is a function of Part Load Ratio (PLR) curve = a + b*PLR + c*PLR**2 PLR = R" +
     "atio of evaporator heat transfer rate to nominal capacity")]
-[JsonProperty("lube_heat_recovery_curve_name")]
+[JsonProperty(PropertyName="lube_heat_recovery_curve_name")]
 public string LubeHeatRecoveryCurveName { get; set; } = "";
         
 
 [Description("Curve is a function of Part Load Ratio (PLR) curve = a + b*PLR + c*PLR**2 PLR = R" +
     "atio of evaporator heat transfer rate to nominal capacity")]
-[JsonProperty("total_exhaust_energy_curve_name")]
+[JsonProperty(PropertyName="total_exhaust_energy_curve_name")]
 public string TotalExhaustEnergyCurveName { get; set; } = "";
         
 
 [Description("Curve is a function of Part Load Ratio (PLR) curve = a + b*PLR + c*PLR**2 PLR = R" +
     "atio of evaporator heat transfer rate to nominal capacity")]
-[JsonProperty("exhaust_temperature_curve_name")]
+[JsonProperty(PropertyName="exhaust_temperature_curve_name")]
 public string ExhaustTemperatureCurveName { get; set; } = "";
         
 
 [Description("curve = C1 * (nominal capacity)**C2")]
-[JsonProperty("coefficient_1_of_u_factor_times_area_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_u_factor_times_area_curve")]
 public System.Nullable<float> Coefficient1OfUFactorTimesAreaCurve { get; set; } = null;
         
 
 [Description("curve = C1 * (nominal capacity)**C2 typical value .9")]
-[JsonProperty("coefficient_2_of_u_factor_times_area_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_u_factor_times_area_curve")]
 public System.Nullable<float> Coefficient2OfUFactorTimesAreaCurve { get; set; } = null;
         
 
-[JsonProperty("maximum_exhaust_flow_per_unit_of_power_output")]
+[JsonProperty(PropertyName="maximum_exhaust_flow_per_unit_of_power_output")]
 public System.Nullable<float> MaximumExhaustFlowPerUnitOfPowerOutput { get; set; } = null;
         
 
-[JsonProperty("design_minimum_exhaust_temperature")]
+[JsonProperty(PropertyName="design_minimum_exhaust_temperature")]
 public System.Nullable<float> DesignMinimumExhaustTemperature { get; set; } = null;
         
 
-[JsonProperty("fuel_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fuel_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_EngineDriven_FuelType FuelType { get; set; } = (Chiller_EngineDriven_FuelType)Enum.Parse(typeof(Chiller_EngineDriven_FuelType), "Diesel");
         
 
-[JsonProperty("fuel_higher_heating_value")]
+[JsonProperty(PropertyName="fuel_higher_heating_value")]
 public System.Nullable<float> FuelHigherHeatingValue { get; set; } = null;
         
 
 [Description("If non-zero, then the heat recovery inlet and outlet node names must be entered.")]
-[JsonProperty("design_heat_recovery_water_flow_rate")]
-public string DesignHeatRecoveryWaterFlowRate { get; set; } = (System.String)"0";
+[JsonProperty(PropertyName="design_heat_recovery_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignHeatRecoveryWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("heat_recovery_inlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_inlet_node_name")]
 public string HeatRecoveryInletNodeName { get; set; } = "";
         
 
-[JsonProperty("heat_recovery_outlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_outlet_node_name")]
 public string HeatRecoveryOutletNodeName { get; set; } = "";
         
 
 [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
-[JsonProperty("chiller_flow_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_flow_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_EngineDriven_ChillerFlowMode ChillerFlowMode { get; set; } = (Chiller_EngineDriven_ChillerFlowMode)Enum.Parse(typeof(Chiller_EngineDriven_ChillerFlowMode), "NotModulated");
         
 
-[JsonProperty("maximum_temperature_for_heat_recovery_at_heat_recovery_outlet_node")]
+[JsonProperty(PropertyName="maximum_temperature_for_heat_recovery_at_heat_recovery_outlet_node")]
 public System.Nullable<float> MaximumTemperatureForHeatRecoveryAtHeatRecoveryOutletNode { get; set; } = (System.Nullable<float>)Single.Parse("60", CultureInfo.InvariantCulture);
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for Condenser Type = EvaporativelyCooled and for periods when the basin heater is available (field Basin Heater Operating Schedule Name). For this situation, the heater maintains the basin water temperature at the basin heater setpoint temperature when the outdoor air temperature falls below the setpoint temperature. The basin heater only operates when the chiller is not operating.")]
-[JsonProperty("basin_heater_capacity")]
+[JsonProperty(PropertyName="basin_heater_capacity")]
 public System.Nullable<float> BasinHeaterCapacity { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field is only used for Condenser Type = EvaporativelyCooled. Enter the outdo" +
     "or dry-bulb temperature when the basin heater turns on.")]
-[JsonProperty("basin_heater_setpoint_temperature")]
+[JsonProperty(PropertyName="basin_heater_setpoint_temperature")]
 public System.Nullable<float> BasinHeaterSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for Condenser Type = EvaporativelyCooled. Schedule values greater than 0 allow the basin heater to operate whenever the outdoor air dry-bulb temperature is below the basin heater setpoint temperature. If a schedule name is not entered, the basin heater is allowed to operate throughout the entire simulation.")]
-[JsonProperty("basin_heater_operating_schedule_name")]
+[JsonProperty(PropertyName="basin_heater_operating_schedule_name")]
 public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [Description("This optional field is the fraction of total rejected heat that can be recovered " +
     "at full load. Also used to autosize Design Heat Recovery Water Flow Rate as a fr" +
     "action of Design Condenser Water Flow Rate.")]
-[JsonProperty("condenser_heat_recovery_relative_capacity_fraction")]
+[JsonProperty(PropertyName="condenser_heat_recovery_relative_capacity_fraction")]
 public System.Nullable<float> CondenserHeatRecoveryRelativeCapacityFraction { get; set; } = null;
     }
     
     public enum Chiller_EngineDriven_CondenserType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
@@ -1673,7 +1663,7 @@ public System.Nullable<float> CondenserHeatRecoveryRelativeCapacityFraction { ge
     public enum Chiller_EngineDriven_ChillerFlowMode
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
@@ -1696,276 +1686,274 @@ public System.Nullable<float> CondenserHeatRecoveryRelativeCapacityFraction { ge
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="condenser_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_CombustionTurbine_CondenserType CondenserType { get; set; } = (Chiller_CombustionTurbine_CondenserType)Enum.Parse(typeof(Chiller_CombustionTurbine_CondenserType), "AirCooled");
         
 
-[JsonProperty("nominal_capacity")]
-public string NominalCapacity { get; set; } = "";
+[JsonProperty(PropertyName="nominal_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalCapacity { get; set; } = null;
         
 
-[JsonProperty("nominal_cop")]
+[JsonProperty(PropertyName="nominal_cop")]
 public System.Nullable<float> NominalCop { get; set; } = null;
         
 
-[JsonProperty("chilled_water_inlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_inlet_node_name")]
 public string ChilledWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("chilled_water_outlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_outlet_node_name")]
 public string ChilledWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_inlet_node_name")]
+[JsonProperty(PropertyName="condenser_inlet_node_name")]
 public string CondenserInletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_outlet_node_name")]
+[JsonProperty(PropertyName="condenser_outlet_node_name")]
 public string CondenserOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("design_condenser_inlet_temperature")]
+[JsonProperty(PropertyName="design_condenser_inlet_temperature")]
 public System.Nullable<float> DesignCondenserInletTemperature { get; set; } = null;
         
 
-[JsonProperty("temperature_rise_coefficient")]
+[JsonProperty(PropertyName="temperature_rise_coefficient")]
 public System.Nullable<float> TemperatureRiseCoefficient { get; set; } = null;
         
 
-[JsonProperty("design_chilled_water_outlet_temperature")]
+[JsonProperty(PropertyName="design_chilled_water_outlet_temperature")]
 public System.Nullable<float> DesignChilledWaterOutletTemperature { get; set; } = null;
         
 
 [Description("For variable volume this is the max flow & for constant flow this is the flow.")]
-[JsonProperty("design_chilled_water_flow_rate")]
-public string DesignChilledWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_chilled_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignChilledWaterFlowRate { get; set; } = null;
         
 
 [Description("This field is not used for Condenser Type = AirCooled or EvaporativelyCooled")]
-[JsonProperty("design_condenser_water_flow_rate")]
-public string DesignCondenserWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_condenser_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignCondenserWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_capacity_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_capacity_ratio_curve")]
 public System.Nullable<float> Coefficient1OfCapacityRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_capacity_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_capacity_ratio_curve")]
 public System.Nullable<float> Coefficient2OfCapacityRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_capacity_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_capacity_ratio_curve")]
 public System.Nullable<float> Coefficient3OfCapacityRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_power_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_power_ratio_curve")]
 public System.Nullable<float> Coefficient1OfPowerRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_power_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_power_ratio_curve")]
 public System.Nullable<float> Coefficient2OfPowerRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_power_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_power_ratio_curve")]
 public System.Nullable<float> Coefficient3OfPowerRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_full_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_full_load_ratio_curve")]
 public System.Nullable<float> Coefficient1OfFullLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_full_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_full_load_ratio_curve")]
 public System.Nullable<float> Coefficient2OfFullLoadRatioCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_full_load_ratio_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_full_load_ratio_curve")]
 public System.Nullable<float> Coefficient3OfFullLoadRatioCurve { get; set; } = null;
         
 
 [Description("Special Gas Turbine Chiller Parameters Below")]
-[JsonProperty("chilled_water_outlet_temperature_lower_limit")]
+[JsonProperty(PropertyName="chilled_water_outlet_temperature_lower_limit")]
 public System.Nullable<float> ChilledWaterOutletTemperatureLowerLimit { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_fuel_input_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_fuel_input_curve")]
 public System.Nullable<float> Coefficient1OfFuelInputCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_fuel_input_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_fuel_input_curve")]
 public System.Nullable<float> Coefficient2OfFuelInputCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_fuel_input_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_fuel_input_curve")]
 public System.Nullable<float> Coefficient3OfFuelInputCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_temperature_based_fuel_input_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_temperature_based_fuel_input_curve")]
 public System.Nullable<float> Coefficient1OfTemperatureBasedFuelInputCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_temperature_based_fuel_input_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_temperature_based_fuel_input_curve")]
 public System.Nullable<float> Coefficient2OfTemperatureBasedFuelInputCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_temperature_based_fuel_input_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_temperature_based_fuel_input_curve")]
 public System.Nullable<float> Coefficient3OfTemperatureBasedFuelInputCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_exhaust_flow_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_exhaust_flow_curve")]
 public System.Nullable<float> Coefficient1OfExhaustFlowCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_exhaust_flow_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_exhaust_flow_curve")]
 public System.Nullable<float> Coefficient2OfExhaustFlowCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_exhaust_flow_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_exhaust_flow_curve")]
 public System.Nullable<float> Coefficient3OfExhaustFlowCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_exhaust_gas_temperature_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_exhaust_gas_temperature_curve")]
 public System.Nullable<float> Coefficient1OfExhaustGasTemperatureCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_exhaust_gas_temperature_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_exhaust_gas_temperature_curve")]
 public System.Nullable<float> Coefficient2OfExhaustGasTemperatureCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_exhaust_gas_temperature_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_exhaust_gas_temperature_curve")]
 public System.Nullable<float> Coefficient3OfExhaustGasTemperatureCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_temperature_based_exhaust_gas_temperature_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_temperature_based_exhaust_gas_temperature_curve")]
 public System.Nullable<float> Coefficient1OfTemperatureBasedExhaustGasTemperatureCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_temperature_based_exhaust_gas_temperature_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_temperature_based_exhaust_gas_temperature_curve")]
 public System.Nullable<float> Coefficient2OfTemperatureBasedExhaustGasTemperatureCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_temperature_based_exhaust_gas_temperature_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_temperature_based_exhaust_gas_temperature_curve")]
 public System.Nullable<float> Coefficient3OfTemperatureBasedExhaustGasTemperatureCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_recovery_lube_heat_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_recovery_lube_heat_curve")]
 public System.Nullable<float> Coefficient1OfRecoveryLubeHeatCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_2_of_recovery_lube_heat_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_recovery_lube_heat_curve")]
 public System.Nullable<float> Coefficient2OfRecoveryLubeHeatCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_3_of_recovery_lube_heat_curve")]
+[JsonProperty(PropertyName="coefficient_3_of_recovery_lube_heat_curve")]
 public System.Nullable<float> Coefficient3OfRecoveryLubeHeatCurve { get; set; } = null;
         
 
-[JsonProperty("coefficient_1_of_u_factor_times_area_curve")]
+[JsonProperty(PropertyName="coefficient_1_of_u_factor_times_area_curve")]
 public System.Nullable<float> Coefficient1OfUFactorTimesAreaCurve { get; set; } = null;
         
 
 [Description("typical value .9")]
-[JsonProperty("coefficient_2_of_u_factor_times_area_curve")]
+[JsonProperty(PropertyName="coefficient_2_of_u_factor_times_area_curve")]
 public System.Nullable<float> Coefficient2OfUFactorTimesAreaCurve { get; set; } = null;
         
 
-[JsonProperty("gas_turbine_engine_capacity")]
-public string GasTurbineEngineCapacity { get; set; } = "";
+[JsonProperty(PropertyName="gas_turbine_engine_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> GasTurbineEngineCapacity { get; set; } = null;
         
 
-[JsonProperty("maximum_exhaust_flow_per_unit_of_power_output")]
+[JsonProperty(PropertyName="maximum_exhaust_flow_per_unit_of_power_output")]
 public System.Nullable<float> MaximumExhaustFlowPerUnitOfPowerOutput { get; set; } = null;
         
 
-[JsonProperty("design_steam_saturation_temperature")]
+[JsonProperty(PropertyName="design_steam_saturation_temperature")]
 public System.Nullable<float> DesignSteamSaturationTemperature { get; set; } = null;
         
 
-[JsonProperty("fuel_higher_heating_value")]
+[JsonProperty(PropertyName="fuel_higher_heating_value")]
 public System.Nullable<float> FuelHigherHeatingValue { get; set; } = null;
         
 
 [Description("If non-zero, then the heat recovery inlet and outlet node names must be entered.")]
-[JsonProperty("design_heat_recovery_water_flow_rate")]
-public string DesignHeatRecoveryWaterFlowRate { get; set; } = (System.String)"0";
+[JsonProperty(PropertyName="design_heat_recovery_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignHeatRecoveryWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("heat_recovery_inlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_inlet_node_name")]
 public string HeatRecoveryInletNodeName { get; set; } = "";
         
 
-[JsonProperty("heat_recovery_outlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_outlet_node_name")]
 public string HeatRecoveryOutletNodeName { get; set; } = "";
         
 
 [Description(@"Select operating mode for fluid flow through the chiller. ""NotModulated"" is for either variable or constant pumping with flow controlled by the external plant system. ""ConstantFlow"" is for constant pumping with flow controlled by chiller to operate at full design flow rate. ""LeavingSetpointModulated"" is for variable pumping with flow controlled by chiller to vary flow to target a leaving temperature setpoint.")]
-[JsonProperty("chiller_flow_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_flow_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_CombustionTurbine_ChillerFlowMode ChillerFlowMode { get; set; } = (Chiller_CombustionTurbine_ChillerFlowMode)Enum.Parse(typeof(Chiller_CombustionTurbine_ChillerFlowMode), "NotModulated");
         
 
-[JsonProperty("fuel_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fuel_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Chiller_CombustionTurbine_FuelType FuelType { get; set; } = (Chiller_CombustionTurbine_FuelType)Enum.Parse(typeof(Chiller_CombustionTurbine_FuelType), "NaturalGas");
         
 
-[JsonProperty("heat_recovery_maximum_temperature")]
+[JsonProperty(PropertyName="heat_recovery_maximum_temperature")]
 public System.Nullable<float> HeatRecoveryMaximumTemperature { get; set; } = (System.Nullable<float>)Single.Parse("80", CultureInfo.InvariantCulture);
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for Condenser Type = EvaporativelyCooled and for periods when the basin heater is available (field Basin Heater Operating Schedule Name). For this situation, The heater maintains the basin water temperature at the basin heater setpoint temperature when the outdoor air temperature falls below the setpoint temperature. The basin heater only operates when the chiller is not operating.")]
-[JsonProperty("basin_heater_capacity")]
+[JsonProperty(PropertyName="basin_heater_capacity")]
 public System.Nullable<float> BasinHeaterCapacity { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field is only used for Condenser Type = EvaporativelyCooled. Enter the outdo" +
     "or dry-bulb temperature when the basin heater turns on.")]
-[JsonProperty("basin_heater_setpoint_temperature")]
+[JsonProperty(PropertyName="basin_heater_setpoint_temperature")]
 public System.Nullable<float> BasinHeaterSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for Condenser Type = EvaporativelyCooled. Schedule values greater than 0 allow the basin heater to operate whenever the outdoor air dry-bulb temperature is below the basin heater setpoint temperature. If a schedule name is not entered, the basin heater is allowed to operate throughout the entire simulation.")]
-[JsonProperty("basin_heater_operating_schedule_name")]
+[JsonProperty(PropertyName="basin_heater_operating_schedule_name")]
 public string BasinHeaterOperatingScheduleName { get; set; } = "";
         
 
 [Description("This optional field is the fraction of total rejected heat that can be recovered " +
     "at full load. Also used to autosize Design Heat Recovery Water Flow Rate as a fr" +
     "action of Design Condenser Water Flow Rate.")]
-[JsonProperty("condenser_heat_recovery_relative_capacity_fraction")]
+[JsonProperty(PropertyName="condenser_heat_recovery_relative_capacity_fraction")]
 public System.Nullable<float> CondenserHeatRecoveryRelativeCapacityFraction { get; set; } = null;
         
 
 [Description("This optional field is the nominal turbine engine efficiency and is used when Gas" +
     " Turbine Engine Capacity is set to Autosize")]
-[JsonProperty("turbine_engine_efficiency")]
+[JsonProperty(PropertyName="turbine_engine_efficiency")]
 public System.Nullable<float> TurbineEngineEfficiency { get; set; } = (System.Nullable<float>)Single.Parse("0.35", CultureInfo.InvariantCulture);
     }
     
     public enum Chiller_CombustionTurbine_CondenserType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
@@ -1981,7 +1969,7 @@ public System.Nullable<float> TurbineEngineEfficiency { get; set; } = (System.Nu
     public enum Chiller_CombustionTurbine_ChillerFlowMode
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
@@ -1997,7 +1985,7 @@ public System.Nullable<float> TurbineEngineEfficiency { get; set; } = (System.Nu
     public enum Chiller_CombustionTurbine_FuelType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Diesel")]
@@ -2033,188 +2021,186 @@ public System.Nullable<float> TurbineEngineEfficiency { get; set; } = (System.Nu
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("nominal_cooling_capacity")]
-public string NominalCoolingCapacity { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="nominal_cooling_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalCoolingCapacity { get; set; } = null;
         
 
 [Description("A positive fraction that represents the ratio of the heating capacity divided by " +
     "the cooling capacity at rated conditions.")]
-[JsonProperty("heating_to_cooling_capacity_ratio")]
+[JsonProperty(PropertyName="heating_to_cooling_capacity_ratio")]
 public System.Nullable<float> HeatingToCoolingCapacityRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.8", CultureInfo.InvariantCulture);
         
 
 [Description("The positive fraction that represents the ratio of the instantaneous fuel used di" +
     "vided by the cooling capacity at rated conditions.")]
-[JsonProperty("fuel_input_to_cooling_output_ratio")]
+[JsonProperty(PropertyName="fuel_input_to_cooling_output_ratio")]
 public System.Nullable<float> FuelInputToCoolingOutputRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.97", CultureInfo.InvariantCulture);
         
 
 [Description("The positive fraction that represents the ratio of the instantaneous fuel used di" +
     "vided by the nominal heating capacity.")]
-[JsonProperty("fuel_input_to_heating_output_ratio")]
+[JsonProperty(PropertyName="fuel_input_to_heating_output_ratio")]
 public System.Nullable<float> FuelInputToHeatingOutputRatio { get; set; } = (System.Nullable<float>)Single.Parse("1.25", CultureInfo.InvariantCulture);
         
 
 [Description("The positive fraction that represents the ratio of the instantaneous electricity " +
     "used divided by the cooling capacity at rated conditions. If the chiller is both" +
     " heating and cooling only the cooling electricity is used.")]
-[JsonProperty("electric_input_to_cooling_output_ratio")]
+[JsonProperty(PropertyName="electric_input_to_cooling_output_ratio")]
 public System.Nullable<float> ElectricInputToCoolingOutputRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.01", CultureInfo.InvariantCulture);
         
 
 [Description("The positive fraction that represents the ratio of the instantaneous electricity " +
     "used divided by the nominal heating capacity. If the chiller is both heating and" +
     " cooling only the cooling electricity is used.")]
-[JsonProperty("electric_input_to_heating_output_ratio")]
+[JsonProperty(PropertyName="electric_input_to_heating_output_ratio")]
 public System.Nullable<float> ElectricInputToHeatingOutputRatio { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chilled_water_inlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_inlet_node_name")]
 public string ChilledWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("chilled_water_outlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_outlet_node_name")]
 public string ChilledWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_inlet_node_name")]
+[JsonProperty(PropertyName="condenser_inlet_node_name")]
 public string CondenserInletNodeName { get; set; } = "";
         
 
 [Description("Not required if air-cooled")]
-[JsonProperty("condenser_outlet_node_name")]
+[JsonProperty(PropertyName="condenser_outlet_node_name")]
 public string CondenserOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("hot_water_inlet_node_name")]
+[JsonProperty(PropertyName="hot_water_inlet_node_name")]
 public string HotWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("hot_water_outlet_node_name")]
+[JsonProperty(PropertyName="hot_water_outlet_node_name")]
 public string HotWaterOutletNodeName { get; set; } = "";
         
 
 [Description(@"The positive fraction that represents the minimum cooling output possible when operated continually at rated temperature conditions divided by the nominal cooling capacity at those same conditions. If the load on the chiller is below this fraction the chiller will cycle.")]
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [Description(@"The positive fraction that represents the maximum cooling output possible at rated temperature conditions divided by the nominal cooling capacity at those same conditions. If greater than 1.0, the chiller is typically thought of as capable of being overloaded.")]
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("The positive fraction that represents the optimal cooling output at rated tempera" +
     "ture conditions divided by the nominal cooling capacity at those same conditions" +
     ". It represents the most desirable operating point for the chiller.")]
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("The temperature of the water entering the condenser of the chiller when operating" +
     " at design conditions. This is usually based on the temperature delivered by the" +
     " cooling tower in a water cooled application.")]
-[JsonProperty("design_entering_condenser_water_temperature")]
+[JsonProperty(PropertyName="design_entering_condenser_water_temperature")]
 public System.Nullable<float> DesignEnteringCondenserWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("29", CultureInfo.InvariantCulture);
         
 
 [Description("The temperature of the water leaving the evaporator of the chiller when operating" +
     " at design conditions also called the chilled water supply temperature or leavin" +
     "g chilled water temperature.")]
-[JsonProperty("design_leaving_chilled_water_temperature")]
+[JsonProperty(PropertyName="design_leaving_chilled_water_temperature")]
 public System.Nullable<float> DesignLeavingChilledWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("7", CultureInfo.InvariantCulture);
         
 
 [Description("For variable volume this is the max flow & for constant flow this is the flow.")]
-[JsonProperty("design_chilled_water_flow_rate")]
-public string DesignChilledWaterFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="design_chilled_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignChilledWaterFlowRate { get; set; } = null;
         
 
 [Description("The water flow rate at design conditions through the condenser. This field is not" +
     " used for Condenser Type = AirCooled")]
-[JsonProperty("design_condenser_water_flow_rate")]
-public string DesignCondenserWaterFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="design_condenser_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignCondenserWaterFlowRate { get; set; } = null;
         
 
 [Description("The water flow rate at design conditions through the heater side.")]
-[JsonProperty("design_hot_water_flow_rate")]
-public string DesignHotWaterFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="design_hot_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignHotWaterFlowRate { get; set; } = null;
         
 
 [Description(@"The CoolCapFT curve represents the fraction of the cooling capacity of the chiller as it varies by temperature. The curve is normalized so that at design conditions the value of the curve should be 1.0. This is a biquadratic curve with the input variables being the leaving chilled water temperature and either the entering or leaving condenser water temperature.")]
-[JsonProperty("cooling_capacity_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="cooling_capacity_function_of_temperature_curve_name")]
 public string CoolingCapacityFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"The curve represents the fraction of the fuel input to the chiller at full load as it varies by temperature. The curve is normalized so that at design conditions the value of the curve should be 1.0. This is a biquadratic curve with the input variables being the leaving chilled water temperature and either the entering or leaving condenser water temperature.")]
-[JsonProperty("fuel_input_to_cooling_output_ratio_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="fuel_input_to_cooling_output_ratio_function_of_temperature_curve_name")]
 public string FuelInputToCoolingOutputRatioFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"The curve represents the fraction of the fuel input to the chiller as the load on the chiller varies but the operating temperatures remain at the design values. The curve is normalized so that at full load the value of the curve should be 1.0. The curve is usually linear or quadratic.")]
-[JsonProperty("fuel_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="fuel_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_name")]
 public string FuelInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
 
 [Description(@"The curve represents the fraction of the electricity to the chiller at full load as it varies by temperature. The curve is normalized so that at design conditions the value of the curve should be 1.0. This is a biquadratic curve with the input variables being the leaving chilled water temperature and either the entering or leaving condenser water temperature.")]
-[JsonProperty("electric_input_to_cooling_output_ratio_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="electric_input_to_cooling_output_ratio_function_of_temperature_curve_name")]
 public string ElectricInputToCoolingOutputRatioFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"The curve represents the fraction of the electricity to the chiller as the load on the chiller varies but the operating temperatures remain at the design values. The curve is normalized so that at full load the value of the curve should be 1.0. The curve is usually linear or quadratic.")]
-[JsonProperty("electric_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="electric_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_name")]
 public string ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
 
 [Description(@"The curve represents how the heating capacity of the chiller varies with cooling capacity when the chiller is simultaneous heating and cooling. The curve is normalized so an input of 1.0 represents the nominal cooling capacity and an output of 1.0 represents the full heating capacity (see the Heating to cooling capacity ratio input) The curve is usually linear or quadratic.")]
-[JsonProperty("heating_capacity_function_of_cooling_capacity_curve_name")]
+[JsonProperty(PropertyName="heating_capacity_function_of_cooling_capacity_curve_name")]
 public string HeatingCapacityFunctionOfCoolingCapacityCurveName { get; set; } = "";
         
 
 [Description(@"When the chiller is operating as only a heater, this curve is used to represent the fraction of fuel used as the heating load varies. It is normalized so that a value of 1.0 is the full heating capacity. The curve is usually linear or quadratic and will probably be similar to a boiler curve for most chillers.")]
-[JsonProperty("fuel_input_to_heat_output_ratio_during_heating_only_operation_curve_name")]
+[JsonProperty(PropertyName="fuel_input_to_heat_output_ratio_during_heating_only_operation_curve_name")]
 public string FuelInputToHeatOutputRatioDuringHeatingOnlyOperationCurveName { get; set; } = "";
         
 
 [Description(@"Sets the second independent variable in the three temperature dependent performance curves to either the leaving or entering condenser water temperature. Manufacturers express the performance of their chillers using either the leaving condenser water temperature (to the tower) or the entering condenser water temperature (from the tower).")]
-[JsonProperty("temperature_curve_input_variable")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="temperature_curve_input_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ChillerHeater_Absorption_DirectFired_TemperatureCurveInputVariable TemperatureCurveInputVariable { get; set; } = (ChillerHeater_Absorption_DirectFired_TemperatureCurveInputVariable)Enum.Parse(typeof(ChillerHeater_Absorption_DirectFired_TemperatureCurveInputVariable), "EnteringCondenser");
         
 
 [Description("The condenser can either be air cooled or connected to a cooling tower.")]
-[JsonProperty("condenser_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="condenser_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ChillerHeater_Absorption_DirectFired_CondenserType CondenserType { get; set; } = (ChillerHeater_Absorption_DirectFired_CondenserType)Enum.Parse(typeof(ChillerHeater_Absorption_DirectFired_CondenserType), "WaterCooled");
         
 
 [Description("The chilled water supply temperature below which the chiller will shut off.")]
-[JsonProperty("chilled_water_temperature_lower_limit")]
+[JsonProperty(PropertyName="chilled_water_temperature_lower_limit")]
 public System.Nullable<float> ChilledWaterTemperatureLowerLimit { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description("Not currently used.")]
-[JsonProperty("fuel_higher_heating_value")]
+[JsonProperty(PropertyName="fuel_higher_heating_value")]
 public System.Nullable<float> FuelHigherHeatingValue { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("fuel_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fuel_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ChillerHeater_Absorption_DirectFired_FuelType FuelType { get; set; } = (ChillerHeater_Absorption_DirectFired_FuelType)Enum.Parse(typeof(ChillerHeater_Absorption_DirectFired_FuelType), "NaturalGas");
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum ChillerHeater_Absorption_DirectFired_TemperatureCurveInputVariable
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="EnteringCondenser")]
@@ -2227,7 +2213,7 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
     public enum ChillerHeater_Absorption_DirectFired_CondenserType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
@@ -2240,7 +2226,7 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
     public enum ChillerHeater_Absorption_DirectFired_FuelType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Diesel")]
@@ -2276,187 +2262,185 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("nominal_cooling_capacity")]
-public string NominalCoolingCapacity { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="nominal_cooling_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalCoolingCapacity { get; set; } = null;
         
 
 [Description("A positive fraction that represents the ratio of the heating capacity divided by " +
     "the cooling capacity at rated conditions.")]
-[JsonProperty("heating_to_cooling_capacity_ratio")]
+[JsonProperty(PropertyName="heating_to_cooling_capacity_ratio")]
 public System.Nullable<float> HeatingToCoolingCapacityRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.8", CultureInfo.InvariantCulture);
         
 
 [Description("The positive fraction that represents the ratio of the instantaneous fuel used di" +
     "vided by the cooling capacity at rated conditions.")]
-[JsonProperty("thermal_energy_input_to_cooling_output_ratio")]
+[JsonProperty(PropertyName="thermal_energy_input_to_cooling_output_ratio")]
 public System.Nullable<float> ThermalEnergyInputToCoolingOutputRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.97", CultureInfo.InvariantCulture);
         
 
 [Description("The positive fraction that represents the ratio of the instantaneous fuel used di" +
     "vided by the nominal heating capacity.")]
-[JsonProperty("thermal_energy_input_to_heating_output_ratio")]
+[JsonProperty(PropertyName="thermal_energy_input_to_heating_output_ratio")]
 public System.Nullable<float> ThermalEnergyInputToHeatingOutputRatio { get; set; } = (System.Nullable<float>)Single.Parse("1.25", CultureInfo.InvariantCulture);
         
 
 [Description("The positive fraction that represents the ratio of the instantaneous electricity " +
     "used divided by the cooling capacity at rated conditions. If the chiller is both" +
     " heating and cooling only the cooling electricity is used.")]
-[JsonProperty("electric_input_to_cooling_output_ratio")]
+[JsonProperty(PropertyName="electric_input_to_cooling_output_ratio")]
 public System.Nullable<float> ElectricInputToCoolingOutputRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.01", CultureInfo.InvariantCulture);
         
 
 [Description("The positive fraction that represents the ratio of the instantaneous electricity " +
     "used divided by the nominal heating capacity. If the chiller is both heating and" +
     " cooling only the cooling electricity is used.")]
-[JsonProperty("electric_input_to_heating_output_ratio")]
+[JsonProperty(PropertyName="electric_input_to_heating_output_ratio")]
 public System.Nullable<float> ElectricInputToHeatingOutputRatio { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chilled_water_inlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_inlet_node_name")]
 public string ChilledWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("chilled_water_outlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_outlet_node_name")]
 public string ChilledWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_inlet_node_name")]
+[JsonProperty(PropertyName="condenser_inlet_node_name")]
 public string CondenserInletNodeName { get; set; } = "";
         
 
 [Description("Not required if air-cooled")]
-[JsonProperty("condenser_outlet_node_name")]
+[JsonProperty(PropertyName="condenser_outlet_node_name")]
 public string CondenserOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("hot_water_inlet_node_name")]
+[JsonProperty(PropertyName="hot_water_inlet_node_name")]
 public string HotWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("hot_water_outlet_node_name")]
+[JsonProperty(PropertyName="hot_water_outlet_node_name")]
 public string HotWaterOutletNodeName { get; set; } = "";
         
 
 [Description(@"The positive fraction that represents the minimum cooling output possible when operated continually at rated temperature conditions divided by the nominal cooling capacity at those same conditions. If the load on the chiller is below this fraction the chiller will cycle.")]
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [Description(@"The positive fraction that represents the maximum cooling output possible at rated temperature conditions divided by the nominal cooling capacity at those same conditions. If greater than 1.0, the chiller is typically thought of as capable of being overloaded.")]
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("The positive fraction that represents the optimal cooling output at rated tempera" +
     "ture conditions divided by the nominal cooling capacity at those same conditions" +
     ". It represents the most desirable operating point for the chiller.")]
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("The temperature of the water entering the condenser of the chiller when operating" +
     " at design conditions. This is usually based on the temperature delivered by the" +
     " cooling tower in a water cooled application.")]
-[JsonProperty("design_entering_condenser_water_temperature")]
+[JsonProperty(PropertyName="design_entering_condenser_water_temperature")]
 public System.Nullable<float> DesignEnteringCondenserWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("29", CultureInfo.InvariantCulture);
         
 
 [Description("The temperature of the water leaving the evaporator of the chiller when operating" +
     " at design conditions also called the chilled water supply temperature or leavin" +
     "g chilled water temperature.")]
-[JsonProperty("design_leaving_chilled_water_temperature")]
+[JsonProperty(PropertyName="design_leaving_chilled_water_temperature")]
 public System.Nullable<float> DesignLeavingChilledWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("7", CultureInfo.InvariantCulture);
         
 
 [Description("For variable volume this is the max flow & for constant flow this is the flow.")]
-[JsonProperty("design_chilled_water_flow_rate")]
-public string DesignChilledWaterFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="design_chilled_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignChilledWaterFlowRate { get; set; } = null;
         
 
 [Description("The water flow rate at design conditions through the condenser. This field is not" +
     " used for Condenser Type = AirCooled")]
-[JsonProperty("design_condenser_water_flow_rate")]
-public string DesignCondenserWaterFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="design_condenser_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignCondenserWaterFlowRate { get; set; } = null;
         
 
 [Description("The water flow rate at design conditions through the heater side.")]
-[JsonProperty("design_hot_water_flow_rate")]
-public string DesignHotWaterFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="design_hot_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignHotWaterFlowRate { get; set; } = null;
         
 
 [Description(@"The CoolCapFT curve represents the fraction of the cooling capacity of the chiller as it varies by temperature. The curve is normalized so that at design conditions the value of the curve should be 1.0. This is a biquadratic curve with the input variables being the leaving chilled water temperature and either the entering or leaving condenser water temperature.")]
-[JsonProperty("cooling_capacity_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="cooling_capacity_function_of_temperature_curve_name")]
 public string CoolingCapacityFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"The curve represents the fraction of the fuel input to the chiller at full load as it varies by temperature. The curve is normalized so that at design conditions the value of the curve should be 1.0. This is a biquadratic curve with the input variables being the leaving chilled water temperature and either the entering or leaving condenser water temperature.")]
-[JsonProperty("fuel_input_to_cooling_output_ratio_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="fuel_input_to_cooling_output_ratio_function_of_temperature_curve_name")]
 public string FuelInputToCoolingOutputRatioFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"The curve represents the fraction of the fuel input to the chiller as the load on the chiller varies but the operating temperatures remain at the design values. The curve is normalized so that at full load the value of the curve should be 1.0. The curve is usually linear or quadratic.")]
-[JsonProperty("fuel_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="fuel_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_name")]
 public string FuelInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
 
 [Description(@"The curve represents the fraction of the electricity to the chiller at full load as it varies by temperature. The curve is normalized so that at design conditions the value of the curve should be 1.0. This is a biquadratic curve with the input variables being the leaving chilled water temperature and either the entering or leaving condenser water temperature.")]
-[JsonProperty("electric_input_to_cooling_output_ratio_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="electric_input_to_cooling_output_ratio_function_of_temperature_curve_name")]
 public string ElectricInputToCoolingOutputRatioFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"The curve represents the fraction of the electricity to the chiller as the load on the chiller varies but the operating temperatures remain at the design values. The curve is normalized so that at full load the value of the curve should be 1.0. The curve is usually linear or quadratic.")]
-[JsonProperty("electric_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="electric_input_to_cooling_output_ratio_function_of_part_load_ratio_curve_name")]
 public string ElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
 
 [Description(@"The curve represents how the heating capacity of the chiller varies with cooling capacity when the chiller is simultaneous heating and cooling. The curve is normalized so an input of 1.0 represents the nominal cooling capacity and an output of 1.0 represents the full heating capacity (see the Heating to cooling capacity ratio input) The curve is usually linear or quadratic.")]
-[JsonProperty("heating_capacity_function_of_cooling_capacity_curve_name")]
+[JsonProperty(PropertyName="heating_capacity_function_of_cooling_capacity_curve_name")]
 public string HeatingCapacityFunctionOfCoolingCapacityCurveName { get; set; } = "";
         
 
 [Description(@"When the chiller is operating as only a heater, this curve is used to represent the fraction of fuel used as the heating load varies. It is normalized so that a value of 1.0 is the full heating capacity. The curve is usually linear or quadratic and will probably be similar to a boiler curve for most chillers.")]
-[JsonProperty("fuel_input_to_heat_output_ratio_during_heating_only_operation_curve_name")]
+[JsonProperty(PropertyName="fuel_input_to_heat_output_ratio_during_heating_only_operation_curve_name")]
 public string FuelInputToHeatOutputRatioDuringHeatingOnlyOperationCurveName { get; set; } = "";
         
 
 [Description(@"Sets the second independent variable in the three temperature dependent performance curves to either the leaving or entering condenser water temperature. Manufacturers express the performance of their chillers using either the leaving condenser water temperature (to the tower) or the entering condenser water temperature (from the tower).")]
-[JsonProperty("temperature_curve_input_variable")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="temperature_curve_input_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ChillerHeater_Absorption_DoubleEffect_TemperatureCurveInputVariable TemperatureCurveInputVariable { get; set; } = (ChillerHeater_Absorption_DoubleEffect_TemperatureCurveInputVariable)Enum.Parse(typeof(ChillerHeater_Absorption_DoubleEffect_TemperatureCurveInputVariable), "EnteringCondenser");
         
 
 [Description("The condenser can either be air cooled or connected to a cooling tower.")]
-[JsonProperty("condenser_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="condenser_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ChillerHeater_Absorption_DoubleEffect_CondenserType CondenserType { get; set; } = (ChillerHeater_Absorption_DoubleEffect_CondenserType)Enum.Parse(typeof(ChillerHeater_Absorption_DoubleEffect_CondenserType), "WaterCooled");
         
 
 [Description("The chilled water supply temperature below which the chiller will shut off.")]
-[JsonProperty("chilled_water_temperature_lower_limit")]
+[JsonProperty(PropertyName="chilled_water_temperature_lower_limit")]
 public System.Nullable<float> ChilledWaterTemperatureLowerLimit { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("exhaust_source_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="exhaust_source_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ChillerHeater_Absorption_DoubleEffect_ExhaustSourceObjectType ExhaustSourceObjectType { get; set; } = (ChillerHeater_Absorption_DoubleEffect_ExhaustSourceObjectType)Enum.Parse(typeof(ChillerHeater_Absorption_DoubleEffect_ExhaustSourceObjectType), "GeneratorMicroTurbine");
         
 
-[JsonProperty("exhaust_source_object_name")]
+[JsonProperty(PropertyName="exhaust_source_object_name")]
 public string ExhaustSourceObjectName { get; set; } = "";
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum ChillerHeater_Absorption_DoubleEffect_TemperatureCurveInputVariable
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="EnteringCondenser")]
@@ -2469,7 +2453,7 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
     public enum ChillerHeater_Absorption_DoubleEffect_CondenserType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
@@ -2493,57 +2477,57 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("load_side_inlet_node_name")]
+[JsonProperty(PropertyName="load_side_inlet_node_name")]
 public string LoadSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty("load_side_outlet_node_name")]
+[JsonProperty(PropertyName="load_side_outlet_node_name")]
 public string LoadSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="condenser_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatPump_PlantLoop_EIR_Cooling_CondenserType CondenserType { get; set; } = (HeatPump_PlantLoop_EIR_Cooling_CondenserType)Enum.Parse(typeof(HeatPump_PlantLoop_EIR_Cooling_CondenserType), "WaterSource");
         
 
-[JsonProperty("source_side_inlet_node_name")]
+[JsonProperty(PropertyName="source_side_inlet_node_name")]
 public string SourceSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty("source_side_outlet_node_name")]
+[JsonProperty(PropertyName="source_side_outlet_node_name")]
 public string SourceSideOutletNodeName { get; set; } = "";
         
 
 [Description("This field allows the user to specify a companion heating object for this cooling" +
     " object. The companion is used in sizing the heat pump as well as to allow check" +
     "s for unexpected simultaneous operation of the two objects.")]
-[JsonProperty("companion_heat_pump_name")]
+[JsonProperty(PropertyName="companion_heat_pump_name")]
 public string CompanionHeatPumpName { get; set; } = "";
         
 
 [Description("This component is currently a constant-flow device, meaning it will always try to" +
     " request the full design flow from the central plant manager.")]
-[JsonProperty("load_side_reference_flow_rate")]
-public string LoadSideReferenceFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="load_side_reference_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> LoadSideReferenceFlowRate { get; set; } = null;
         
 
-[JsonProperty("source_side_reference_flow_rate")]
-public string SourceSideReferenceFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="source_side_reference_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> SourceSideReferenceFlowRate { get; set; } = null;
         
 
-[JsonProperty("reference_capacity")]
-public string ReferenceCapacity { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="reference_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceCapacity { get; set; } = null;
         
 
-[JsonProperty("reference_coefficient_of_performance")]
+[JsonProperty(PropertyName="reference_coefficient_of_performance")]
 public System.Nullable<float> ReferenceCoefficientOfPerformance { get; set; } = (System.Nullable<float>)Single.Parse("7.5", CultureInfo.InvariantCulture);
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
@@ -2551,28 +2535,28 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
     "temp curve = a + b*CWS + c*CWS**2 + d*ECT + e*ECT**2 + f*CWS*ECT CWS = supply (l" +
     "eaving) chilled water temperature(C) ECT = entering condenser fluid temperature(" +
     "C)")]
-[JsonProperty("capacity_modifier_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="capacity_modifier_function_of_temperature_curve_name")]
 public string CapacityModifierFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description("Electric Input Ratio (EIR) modifier as a function of temperature EIR = 1/COP curv" +
     "e = a + b*CWS + c*CWS**2 + d*ECT + e*ECT**2 + f*CWS*ECT CWS = supply (leaving) c" +
     "hilled water temperature(C) ECT = entering condenser fluid temperature(C)")]
-[JsonProperty("electric_input_to_output_ratio_modifier_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="electric_input_to_output_ratio_modifier_function_of_temperature_curve_name")]
 public string ElectricInputToOutputRatioModifierFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description("Electric Input Ratio (EIR) modifier as a function of Part Load Ratio (PLR) EIR = " +
     "1/COP quadratic curve = a + b*PLR + c*PLR**2 is typical, other univariate curves" +
     " may be used PLR = part load ratio (cooling load/steady state capacity)")]
-[JsonProperty("electric_input_to_output_ratio_modifier_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="electric_input_to_output_ratio_modifier_function_of_part_load_ratio_curve_name")]
 public string ElectricInputToOutputRatioModifierFunctionOfPartLoadRatioCurveName { get; set; } = "";
     }
     
     public enum HeatPump_PlantLoop_EIR_Cooling_CondenserType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="AirSource")]
@@ -2589,85 +2573,85 @@ public string ElectricInputToOutputRatioModifierFunctionOfPartLoadRatioCurveName
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("load_side_inlet_node_name")]
+[JsonProperty(PropertyName="load_side_inlet_node_name")]
 public string LoadSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty("load_side_outlet_node_name")]
+[JsonProperty(PropertyName="load_side_outlet_node_name")]
 public string LoadSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("condenser_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="condenser_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatPump_PlantLoop_EIR_Heating_CondenserType CondenserType { get; set; } = (HeatPump_PlantLoop_EIR_Heating_CondenserType)Enum.Parse(typeof(HeatPump_PlantLoop_EIR_Heating_CondenserType), "WaterSource");
         
 
-[JsonProperty("source_side_inlet_node_name")]
+[JsonProperty(PropertyName="source_side_inlet_node_name")]
 public string SourceSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty("source_side_outlet_node_name")]
+[JsonProperty(PropertyName="source_side_outlet_node_name")]
 public string SourceSideOutletNodeName { get; set; } = "";
         
 
 [Description("This field allows the user to specify a companion cooling object for this heating" +
     " object. The companion is used in sizing the heat pump as well as to allow check" +
     "s for unexpected simultaneous operation of the two objects.")]
-[JsonProperty("companion_heat_pump_name")]
+[JsonProperty(PropertyName="companion_heat_pump_name")]
 public string CompanionHeatPumpName { get; set; } = "";
         
 
 [Description("This component is currently a constant-flow device, meaning it will always try to" +
     " request the full design flow from the central plant manager.")]
-[JsonProperty("load_side_reference_flow_rate")]
-public string LoadSideReferenceFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="load_side_reference_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> LoadSideReferenceFlowRate { get; set; } = null;
         
 
-[JsonProperty("source_side_reference_flow_rate")]
-public string SourceSideReferenceFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="source_side_reference_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> SourceSideReferenceFlowRate { get; set; } = null;
         
 
-[JsonProperty("reference_capacity")]
-public string ReferenceCapacity { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="reference_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceCapacity { get; set; } = null;
         
 
-[JsonProperty("reference_coefficient_of_performance")]
+[JsonProperty(PropertyName="reference_coefficient_of_performance")]
 public System.Nullable<float> ReferenceCoefficientOfPerformance { get; set; } = (System.Nullable<float>)Single.Parse("7.5", CultureInfo.InvariantCulture);
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Heating capacity modifier as a function of CW supply temp and entering condenser " +
     "temp curve = a + b*CWS + c*CWS**2 + d*ECT + e*ECT**2 + f*CWS*ECT CWS = supply (l" +
     "eaving) hot water temperature(C) ECT = entering condenser fluid temperature(C)")]
-[JsonProperty("capacity_modifier_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="capacity_modifier_function_of_temperature_curve_name")]
 public string CapacityModifierFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description("Electric Input Ratio (EIR) modifier as a function of temperature EIR = 1/COP curv" +
     "e = a + b*CWS + c*CWS**2 + d*ECT + e*ECT**2 + f*CWS*ECT CWS = supply (leaving) h" +
     "ot water temperature(C) ECT = entering condenser fluid temperature(C)")]
-[JsonProperty("electric_input_to_output_ratio_modifier_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="electric_input_to_output_ratio_modifier_function_of_temperature_curve_name")]
 public string ElectricInputToOutputRatioModifierFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description("Electric Input Ratio (EIR) modifier as a function of Part Load Ratio (PLR) EIR = " +
     "1/COP quadratic curve = a + b*PLR + c*PLR**2 is typical, other univariate curves" +
     " may be used PLR = part load ratio (hot load/steady state capacity)")]
-[JsonProperty("electric_input_to_output_ratio_modifier_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="electric_input_to_output_ratio_modifier_function_of_part_load_ratio_curve_name")]
 public string ElectricInputToOutputRatioModifierFunctionOfPartLoadRatioCurveName { get; set; } = "";
     }
     
     public enum HeatPump_PlantLoop_EIR_Heating_CondenserType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="AirSource")]
@@ -2684,61 +2668,62 @@ public string ElectricInputToOutputRatioModifierFunctionOfPartLoadRatioCurveName
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("source_side_inlet_node_name")]
+[JsonProperty(PropertyName="source_side_inlet_node_name")]
 public string SourceSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty("source_side_outlet_node_name")]
+[JsonProperty(PropertyName="source_side_outlet_node_name")]
 public string SourceSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("load_side_inlet_node_name")]
+[JsonProperty(PropertyName="load_side_inlet_node_name")]
 public string LoadSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty("load_side_outlet_node_name")]
+[JsonProperty(PropertyName="load_side_outlet_node_name")]
 public string LoadSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("reference_load_side_flow_rate")]
-public string ReferenceLoadSideFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="reference_load_side_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceLoadSideFlowRate { get; set; } = null;
         
 
-[JsonProperty("reference_source_side_flow_rate")]
-public string ReferenceSourceSideFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="reference_source_side_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceSourceSideFlowRate { get; set; } = null;
         
 
-[JsonProperty("reference_heating_capacity")]
-public string ReferenceHeatingCapacity { get; set; } = "";
+[JsonProperty(PropertyName="reference_heating_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceHeatingCapacity { get; set; } = null;
         
 
-[JsonProperty("reference_heating_power_consumption")]
-public string ReferenceHeatingPowerConsumption { get; set; } = "";
+[JsonProperty(PropertyName="reference_heating_power_consumption", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceHeatingPowerConsumption { get; set; } = null;
         
 
-[JsonProperty("heating_capacity_curve_name")]
+[JsonProperty(PropertyName="heating_capacity_curve_name")]
 public string HeatingCapacityCurveName { get; set; } = "";
         
 
-[JsonProperty("heating_compressor_power_curve_name")]
+[JsonProperty(PropertyName="heating_compressor_power_curve_name")]
 public string HeatingCompressorPowerCurveName { get; set; } = "";
         
 
 [Description("This optional field is used to autosize Reference Heating Power Consumption COP =" +
     " Reference Heating Capacity / Reference Heating Power Consumption")]
-[JsonProperty("reference_coefficient_of_performance")]
+[JsonProperty(PropertyName="reference_coefficient_of_performance")]
 public System.Nullable<float> ReferenceCoefficientOfPerformance { get; set; } = (System.Nullable<float>)Single.Parse("7.5", CultureInfo.InvariantCulture);
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("companion_cooling_heat_pump_name")]
+[JsonProperty(PropertyName="companion_cooling_heat_pump_name")]
 public string CompanionCoolingHeatPumpName { get; set; } = "";
     }
     
@@ -2749,63 +2734,64 @@ public string CompanionCoolingHeatPumpName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("source_side_inlet_node_name")]
+[JsonProperty(PropertyName="source_side_inlet_node_name")]
 public string SourceSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty("source_side_outlet_node_name")]
+[JsonProperty(PropertyName="source_side_outlet_node_name")]
 public string SourceSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("load_side_inlet_node_name")]
+[JsonProperty(PropertyName="load_side_inlet_node_name")]
 public string LoadSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty("load_side_outlet_node_name")]
+[JsonProperty(PropertyName="load_side_outlet_node_name")]
 public string LoadSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("reference_load_side_flow_rate")]
-public string ReferenceLoadSideFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="reference_load_side_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceLoadSideFlowRate { get; set; } = null;
         
 
-[JsonProperty("reference_source_side_flow_rate")]
-public string ReferenceSourceSideFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="reference_source_side_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceSourceSideFlowRate { get; set; } = null;
         
 
-[JsonProperty("reference_cooling_capacity")]
-public string ReferenceCoolingCapacity { get; set; } = "";
+[JsonProperty(PropertyName="reference_cooling_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceCoolingCapacity { get; set; } = null;
         
 
-[JsonProperty("reference_cooling_power_consumption")]
-public string ReferenceCoolingPowerConsumption { get; set; } = "";
+[JsonProperty(PropertyName="reference_cooling_power_consumption", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceCoolingPowerConsumption { get; set; } = null;
         
 
-[JsonProperty("cooling_capacity_curve_name")]
+[JsonProperty(PropertyName="cooling_capacity_curve_name")]
 public string CoolingCapacityCurveName { get; set; } = "";
         
 
-[JsonProperty("cooling_compressor_power_curve_name")]
+[JsonProperty(PropertyName="cooling_compressor_power_curve_name")]
 public string CoolingCompressorPowerCurveName { get; set; } = "";
         
 
 [Description("This optional field is used to autosize Reference Cooling Power Consumption COP =" +
     " Rated Cooling Capacity / Rated Cooling Power Consumption")]
-[JsonProperty("reference_coefficient_of_performance")]
+[JsonProperty(PropertyName="reference_coefficient_of_performance")]
 public System.Nullable<float> ReferenceCoefficientOfPerformance { get; set; } = (System.Nullable<float>)Single.Parse("8", CultureInfo.InvariantCulture);
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("This optional field is used to coordinate sizing calculations between heating and" +
     " cooling modes.")]
-[JsonProperty("companion_heating_heat_pump_name")]
+[JsonProperty(PropertyName="companion_heating_heat_pump_name")]
 public string CompanionHeatingHeatPumpName { get; set; } = "";
     }
     
@@ -2816,92 +2802,93 @@ public string CompanionHeatingHeatPumpName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("source_side_inlet_node_name")]
+[JsonProperty(PropertyName="source_side_inlet_node_name")]
 public string SourceSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty("source_side_outlet_node_name")]
+[JsonProperty(PropertyName="source_side_outlet_node_name")]
 public string SourceSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("load_side_inlet_node_name")]
+[JsonProperty(PropertyName="load_side_inlet_node_name")]
 public string LoadSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty("load_side_outlet_node_name")]
+[JsonProperty(PropertyName="load_side_outlet_node_name")]
 public string LoadSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("nominal_cop")]
+[JsonProperty(PropertyName="nominal_cop")]
 public System.Nullable<float> NominalCop { get; set; } = null;
         
 
-[JsonProperty("nominal_capacity")]
+[JsonProperty(PropertyName="nominal_capacity")]
 public System.Nullable<float> NominalCapacity { get; set; } = null;
         
 
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("load_side_flow_rate")]
+[JsonProperty(PropertyName="load_side_flow_rate")]
 public System.Nullable<float> LoadSideFlowRate { get; set; } = null;
         
 
-[JsonProperty("source_side_flow_rate")]
+[JsonProperty(PropertyName="source_side_flow_rate")]
 public System.Nullable<float> SourceSideFlowRate { get; set; } = null;
         
 
-[JsonProperty("load_side_heat_transfer_coefficient")]
+[JsonProperty(PropertyName="load_side_heat_transfer_coefficient")]
 public System.Nullable<float> LoadSideHeatTransferCoefficient { get; set; } = null;
         
 
-[JsonProperty("source_side_heat_transfer_coefficient")]
+[JsonProperty(PropertyName="source_side_heat_transfer_coefficient")]
 public System.Nullable<float> SourceSideHeatTransferCoefficient { get; set; } = null;
         
 
-[JsonProperty("piston_displacement")]
+[JsonProperty(PropertyName="piston_displacement")]
 public System.Nullable<float> PistonDisplacement { get; set; } = null;
         
 
-[JsonProperty("compressor_clearance_factor")]
+[JsonProperty(PropertyName="compressor_clearance_factor")]
 public System.Nullable<float> CompressorClearanceFactor { get; set; } = null;
         
 
-[JsonProperty("compressor_suction_and_discharge_pressure_drop")]
+[JsonProperty(PropertyName="compressor_suction_and_discharge_pressure_drop")]
 public System.Nullable<float> CompressorSuctionAndDischargePressureDrop { get; set; } = null;
         
 
-[JsonProperty("superheating")]
+[JsonProperty(PropertyName="superheating")]
 public System.Nullable<float> Superheating { get; set; } = null;
         
 
-[JsonProperty("constant_part_of_electromechanical_power_losses")]
+[JsonProperty(PropertyName="constant_part_of_electromechanical_power_losses")]
 public System.Nullable<float> ConstantPartOfElectromechanicalPowerLosses { get; set; } = null;
         
 
 [Description("Used to define electromechanical loss that is proportional to the theoretical pow" +
     "er %")]
-[JsonProperty("loss_factor")]
+[JsonProperty(PropertyName="loss_factor")]
 public System.Nullable<float> LossFactor { get; set; } = null;
         
 
-[JsonProperty("high_pressure_cut_off")]
+[JsonProperty(PropertyName="high_pressure_cut_off")]
 public System.Nullable<float> HighPressureCutOff { get; set; } = (System.Nullable<float>)Single.Parse("500000000", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("low_pressure_cut_off")]
+[JsonProperty(PropertyName="low_pressure_cut_off")]
 public System.Nullable<float> LowPressureCutOff { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
     }
     
@@ -2912,92 +2899,93 @@ public System.Nullable<float> LowPressureCutOff { get; set; } = (System.Nullable
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("source_side_inlet_node_name")]
+[JsonProperty(PropertyName="source_side_inlet_node_name")]
 public string SourceSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty("source_side_outlet_node_name")]
+[JsonProperty(PropertyName="source_side_outlet_node_name")]
 public string SourceSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("load_side_inlet_node_name")]
+[JsonProperty(PropertyName="load_side_inlet_node_name")]
 public string LoadSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty("load_side_outlet_node_name")]
+[JsonProperty(PropertyName="load_side_outlet_node_name")]
 public string LoadSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("nominal_cop")]
+[JsonProperty(PropertyName="nominal_cop")]
 public System.Nullable<float> NominalCop { get; set; } = null;
         
 
-[JsonProperty("nominal_capacity")]
+[JsonProperty(PropertyName="nominal_capacity")]
 public System.Nullable<float> NominalCapacity { get; set; } = null;
         
 
-[JsonProperty("minimum_part_load_ratio")]
+[JsonProperty(PropertyName="minimum_part_load_ratio")]
 public System.Nullable<float> MinimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("maximum_part_load_ratio")]
+[JsonProperty(PropertyName="maximum_part_load_ratio")]
 public System.Nullable<float> MaximumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("optimum_part_load_ratio")]
+[JsonProperty(PropertyName="optimum_part_load_ratio")]
 public System.Nullable<float> OptimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty("load_side_flow_rate")]
+[JsonProperty(PropertyName="load_side_flow_rate")]
 public System.Nullable<float> LoadSideFlowRate { get; set; } = null;
         
 
-[JsonProperty("source_side_flow_rate")]
+[JsonProperty(PropertyName="source_side_flow_rate")]
 public System.Nullable<float> SourceSideFlowRate { get; set; } = null;
         
 
-[JsonProperty("load_side_heat_transfer_coefficient")]
+[JsonProperty(PropertyName="load_side_heat_transfer_coefficient")]
 public System.Nullable<float> LoadSideHeatTransferCoefficient { get; set; } = null;
         
 
-[JsonProperty("source_side_heat_transfer_coefficient")]
+[JsonProperty(PropertyName="source_side_heat_transfer_coefficient")]
 public System.Nullable<float> SourceSideHeatTransferCoefficient { get; set; } = null;
         
 
-[JsonProperty("piston_displacement")]
+[JsonProperty(PropertyName="piston_displacement")]
 public System.Nullable<float> PistonDisplacement { get; set; } = null;
         
 
-[JsonProperty("compressor_clearance_factor")]
+[JsonProperty(PropertyName="compressor_clearance_factor")]
 public System.Nullable<float> CompressorClearanceFactor { get; set; } = null;
         
 
-[JsonProperty("compressor_suction_and_discharge_pressure_drop")]
+[JsonProperty(PropertyName="compressor_suction_and_discharge_pressure_drop")]
 public System.Nullable<float> CompressorSuctionAndDischargePressureDrop { get; set; } = null;
         
 
-[JsonProperty("superheating")]
+[JsonProperty(PropertyName="superheating")]
 public System.Nullable<float> Superheating { get; set; } = null;
         
 
-[JsonProperty("constant_part_of_electromechanical_power_losses")]
+[JsonProperty(PropertyName="constant_part_of_electromechanical_power_losses")]
 public System.Nullable<float> ConstantPartOfElectromechanicalPowerLosses { get; set; } = null;
         
 
 [Description("Used to define electromechanical loss that is proportional to the theoretical pow" +
     "er %")]
-[JsonProperty("loss_factor")]
+[JsonProperty(PropertyName="loss_factor")]
 public System.Nullable<float> LossFactor { get; set; } = null;
         
 
-[JsonProperty("high_pressure_cut_off")]
+[JsonProperty(PropertyName="high_pressure_cut_off")]
 public System.Nullable<float> HighPressureCutOff { get; set; } = (System.Nullable<float>)Single.Parse("500000000", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("low_pressure_cut_off")]
+[JsonProperty(PropertyName="low_pressure_cut_off")]
 public System.Nullable<float> LowPressureCutOff { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
     }
     
@@ -3008,23 +2996,24 @@ public System.Nullable<float> LowPressureCutOff { get; set; } = (System.Nullable
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("chilled_water_inlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_inlet_node_name")]
 public string ChilledWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("chilled_water_outlet_node_name")]
+[JsonProperty(PropertyName="chilled_water_outlet_node_name")]
 public string ChilledWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("nominal_capacity")]
-public string NominalCapacity { get; set; } = "";
+[JsonProperty(PropertyName="nominal_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalCapacity { get; set; } = null;
         
 
 [Description("Schedule values are multiplied by Nominal Capacity for current capacity")]
-[JsonProperty("capacity_fraction_schedule_name")]
+[JsonProperty(PropertyName="capacity_fraction_schedule_name")]
 public string CapacityFractionScheduleName { get; set; } = "";
     }
     
@@ -3035,23 +3024,24 @@ public string CapacityFractionScheduleName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("hot_water_inlet_node_name")]
+[JsonProperty(PropertyName="hot_water_inlet_node_name")]
 public string HotWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty("hot_water_outlet_node_name")]
+[JsonProperty(PropertyName="hot_water_outlet_node_name")]
 public string HotWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("nominal_capacity")]
-public string NominalCapacity { get; set; } = "";
+[JsonProperty(PropertyName="nominal_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalCapacity { get; set; } = null;
         
 
 [Description("Schedule values are multiplied by Nominal Capacity for current capacity")]
-[JsonProperty("capacity_fraction_schedule_name")]
+[JsonProperty(PropertyName="capacity_fraction_schedule_name")]
 public string CapacityFractionScheduleName { get; set; } = "";
     }
     
@@ -3062,36 +3052,36 @@ public string CapacityFractionScheduleName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Name of the source inlet node")]
-[JsonProperty("inlet_node")]
+[JsonProperty(PropertyName="inlet_node")]
 public string InletNode { get; set; } = "";
         
 
 [Description("Name of the source outlet node")]
-[JsonProperty("outlet_node")]
+[JsonProperty(PropertyName="outlet_node")]
 public string OutletNode { get; set; } = "";
         
 
 [Description("The design volumetric flow rate for this source")]
-[JsonProperty("design_volume_flow_rate")]
-public string DesignVolumeFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_volume_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignVolumeFlowRate { get; set; } = null;
         
 
-[JsonProperty("temperature_specification_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="temperature_specification_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_TemperatureSource_TemperatureSpecificationType TemperatureSpecificationType { get; set; } = (PlantComponent_TemperatureSource_TemperatureSpecificationType)Enum.Parse(typeof(PlantComponent_TemperatureSource_TemperatureSpecificationType), "Constant");
         
 
 [Description("Used if Temperature Specification Type = Constant")]
-[JsonProperty("source_temperature")]
+[JsonProperty(PropertyName="source_temperature")]
 public System.Nullable<float> SourceTemperature { get; set; } = null;
         
 
 [Description("Used if Temperature Specification Type = Scheduled")]
-[JsonProperty("source_temperature_schedule_name")]
+[JsonProperty(PropertyName="source_temperature_schedule_name")]
 public string SourceTemperatureScheduleName { get; set; } = "";
     }
     
@@ -3112,392 +3102,372 @@ public string SourceTemperatureScheduleName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("control_method")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ControlMethod ControlMethod { get; set; } = (CentralHeatPumpSystem_ControlMethod)Enum.Parse(typeof(CentralHeatPumpSystem_ControlMethod), "SmartMixing");
         
 
-[JsonProperty("cooling_loop_inlet_node_name")]
+[JsonProperty(PropertyName="cooling_loop_inlet_node_name")]
 public string CoolingLoopInletNodeName { get; set; } = "";
         
 
-[JsonProperty("cooling_loop_outlet_node_name")]
+[JsonProperty(PropertyName="cooling_loop_outlet_node_name")]
 public string CoolingLoopOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("source_loop_inlet_node_name")]
+[JsonProperty(PropertyName="source_loop_inlet_node_name")]
 public string SourceLoopInletNodeName { get; set; } = "";
         
 
-[JsonProperty("source_loop_outlet_node_name")]
+[JsonProperty(PropertyName="source_loop_outlet_node_name")]
 public string SourceLoopOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("heating_loop_inlet_node_name")]
+[JsonProperty(PropertyName="heating_loop_inlet_node_name")]
 public string HeatingLoopInletNodeName { get; set; } = "";
         
 
-[JsonProperty("heating_loop_outlet_node_name")]
+[JsonProperty(PropertyName="heating_loop_outlet_node_name")]
 public string HeatingLoopOutletNodeName { get; set; } = "";
         
 
 [Description("Power as demanded from any auxiliary controls")]
-[JsonProperty("ancillary_power")]
+[JsonProperty(PropertyName="ancillary_power")]
 public System.Nullable<float> AncillaryPower { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This value from this schedule is multiplied times the Ancillary Power")]
-[JsonProperty("ancillary_operation_schedule_name")]
+[JsonProperty(PropertyName="ancillary_operation_schedule_name")]
 public string AncillaryOperationScheduleName { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_1")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_1", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType1 ChillerHeaterModulesPerformanceComponentObjectType1 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType1)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType1), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_1")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_1")]
 public string ChillerHeaterModulesPerformanceComponentName1 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_1")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_1")]
 public string ChillerHeaterModulesControlScheduleName1 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_1")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_1")]
 public System.Nullable<float> NumberOfChillerHeaterModules1 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_2")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_2", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType2 ChillerHeaterModulesPerformanceComponentObjectType2 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType2)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType2), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_2")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_2")]
 public string ChillerHeaterModulesPerformanceComponentName2 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_2")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_2")]
 public string ChillerHeaterModulesControlScheduleName2 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_2")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_2")]
 public System.Nullable<float> NumberOfChillerHeaterModules2 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_performance_component_object_type_3")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_performance_component_object_type_3", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterPerformanceComponentObjectType3 ChillerHeaterPerformanceComponentObjectType3 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterPerformanceComponentObjectType3)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterPerformanceComponentObjectType3), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_performance_component_name_3")]
+[JsonProperty(PropertyName="chiller_heater_performance_component_name_3")]
 public string ChillerHeaterPerformanceComponentName3 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_3")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_3")]
 public string ChillerHeaterModulesControlScheduleName3 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_3")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_3")]
 public System.Nullable<float> NumberOfChillerHeaterModules3 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_4")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_4", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType4 ChillerHeaterModulesPerformanceComponentObjectType4 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType4)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType4), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_4")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_4")]
 public string ChillerHeaterModulesPerformanceComponentName4 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_4")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_4")]
 public string ChillerHeaterModulesControlScheduleName4 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_4")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_4")]
 public System.Nullable<float> NumberOfChillerHeaterModules4 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_5")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_5", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType5 ChillerHeaterModulesPerformanceComponentObjectType5 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType5)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType5), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_models_performance_component_name_5")]
+[JsonProperty(PropertyName="chiller_heater_models_performance_component_name_5")]
 public string ChillerHeaterModelsPerformanceComponentName5 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_5")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_5")]
 public string ChillerHeaterModulesControlScheduleName5 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_5")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_5")]
 public System.Nullable<float> NumberOfChillerHeaterModules5 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_6")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_6", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType6 ChillerHeaterModulesPerformanceComponentObjectType6 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType6)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType6), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_6")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_6")]
 public string ChillerHeaterModulesPerformanceComponentName6 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_6")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_6")]
 public string ChillerHeaterModulesControlScheduleName6 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_6")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_6")]
 public System.Nullable<float> NumberOfChillerHeaterModules6 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_7")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_7", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType7 ChillerHeaterModulesPerformanceComponentObjectType7 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType7)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType7), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_7")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_7")]
 public string ChillerHeaterModulesPerformanceComponentName7 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_7")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_7")]
 public string ChillerHeaterModulesControlScheduleName7 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_7")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_7")]
 public System.Nullable<float> NumberOfChillerHeaterModules7 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_8")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_8", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType8 ChillerHeaterModulesPerformanceComponentObjectType8 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType8)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType8), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_8")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_8")]
 public string ChillerHeaterModulesPerformanceComponentName8 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_8")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_8")]
 public string ChillerHeaterModulesControlScheduleName8 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_8")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_8")]
 public System.Nullable<float> NumberOfChillerHeaterModules8 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_9")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_9", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType9 ChillerHeaterModulesPerformanceComponentObjectType9 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType9)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType9), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_9")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_9")]
 public string ChillerHeaterModulesPerformanceComponentName9 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_9")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_9")]
 public string ChillerHeaterModulesControlScheduleName9 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_9")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_9")]
 public System.Nullable<float> NumberOfChillerHeaterModules9 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_10")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_10", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType10 ChillerHeaterModulesPerformanceComponentObjectType10 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType10)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType10), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_10")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_10")]
 public string ChillerHeaterModulesPerformanceComponentName10 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_10")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_10")]
 public string ChillerHeaterModulesControlScheduleName10 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_10")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_10")]
 public System.Nullable<float> NumberOfChillerHeaterModules10 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_11")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_11", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType11 ChillerHeaterModulesPerformanceComponentObjectType11 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType11)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType11), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_11")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_11")]
 public string ChillerHeaterModulesPerformanceComponentName11 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_module_control_schedule_name_11")]
+[JsonProperty(PropertyName="chiller_heater_module_control_schedule_name_11")]
 public string ChillerHeaterModuleControlScheduleName11 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_11")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_11")]
 public System.Nullable<float> NumberOfChillerHeaterModules11 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_12")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_12", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType12 ChillerHeaterModulesPerformanceComponentObjectType12 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType12)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType12), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_12")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_12")]
 public string ChillerHeaterModulesPerformanceComponentName12 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_12")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_12")]
 public string ChillerHeaterModulesControlScheduleName12 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_12")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_12")]
 public System.Nullable<float> NumberOfChillerHeaterModules12 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_13")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_13", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType13 ChillerHeaterModulesPerformanceComponentObjectType13 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType13)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType13), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_13")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_13")]
 public string ChillerHeaterModulesPerformanceComponentName13 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_13")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_13")]
 public string ChillerHeaterModulesControlScheduleName13 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_13")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_13")]
 public System.Nullable<float> NumberOfChillerHeaterModules13 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_14")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_14", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType14 ChillerHeaterModulesPerformanceComponentObjectType14 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType14)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType14), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_14")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_14")]
 public string ChillerHeaterModulesPerformanceComponentName14 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_14")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_14")]
 public string ChillerHeaterModulesControlScheduleName14 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_14")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_14")]
 public System.Nullable<float> NumberOfChillerHeaterModules14 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_15")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_15", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType15 ChillerHeaterModulesPerformanceComponentObjectType15 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType15)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType15), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_15")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_15")]
 public string ChillerHeaterModulesPerformanceComponentName15 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_15")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_15")]
 public string ChillerHeaterModulesControlScheduleName15 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_15")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_15")]
 public System.Nullable<float> NumberOfChillerHeaterModules15 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_16")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_16", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType16 ChillerHeaterModulesPerformanceComponentObjectType16 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType16)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType16), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_16")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_16")]
 public string ChillerHeaterModulesPerformanceComponentName16 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_16")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_16")]
 public string ChillerHeaterModulesControlScheduleName16 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_16")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_16")]
 public System.Nullable<float> NumberOfChillerHeaterModules16 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_17")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_17", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType17 ChillerHeaterModulesPerformanceComponentObjectType17 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType17)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType17), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_17")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_17")]
 public string ChillerHeaterModulesPerformanceComponentName17 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_17")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_17")]
 public string ChillerHeaterModulesControlScheduleName17 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_17")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_17")]
 public System.Nullable<float> NumberOfChillerHeaterModules17 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_18")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_18", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType18 ChillerHeaterModulesPerformanceComponentObjectType18 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType18)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType18), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_18")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_18")]
 public string ChillerHeaterModulesPerformanceComponentName18 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_control_schedule_name_18")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_control_schedule_name_18")]
 public string ChillerHeaterModulesControlControlScheduleName18 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_18")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_18")]
 public System.Nullable<float> NumberOfChillerHeaterModules18 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_19")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_19", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType19 ChillerHeaterModulesPerformanceComponentObjectType19 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType19)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType19), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_19")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_19")]
 public string ChillerHeaterModulesPerformanceComponentName19 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_19")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_19")]
 public string ChillerHeaterModulesControlScheduleName19 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_19")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_19")]
 public System.Nullable<float> NumberOfChillerHeaterModules19 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("chiller_heater_modules_performance_component_object_type_20")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_object_type_20", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType20 ChillerHeaterModulesPerformanceComponentObjectType20 { get; set; } = (CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType20)Enum.Parse(typeof(CentralHeatPumpSystem_ChillerHeaterModulesPerformanceComponentObjectType20), "ChillerHeaterPerformanceElectricEIR");
         
 
-[JsonProperty("chiller_heater_modules_performance_component_name_20")]
+[JsonProperty(PropertyName="chiller_heater_modules_performance_component_name_20")]
 public string ChillerHeaterModulesPerformanceComponentName20 { get; set; } = "";
         
 
-[JsonProperty("chiller_heater_modules_control_schedule_name_20")]
+[JsonProperty(PropertyName="chiller_heater_modules_control_schedule_name_20")]
 public string ChillerHeaterModulesControlScheduleName20 { get; set; } = "";
         
 
-[JsonProperty("number_of_chiller_heater_modules_20")]
+[JsonProperty(PropertyName="number_of_chiller_heater_modules_20")]
 public System.Nullable<float> NumberOfChillerHeaterModules20 { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum CentralHeatPumpSystem_ControlMethod
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="SmartMixing")]
@@ -3651,111 +3621,109 @@ public System.Nullable<float> NumberOfChillerHeaterModules20 { get; set; } = (Sy
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("reference_cooling_mode_evaporator_capacity")]
-public string ReferenceCoolingModeEvaporatorCapacity { get; set; } = "";
+[JsonProperty(PropertyName="reference_cooling_mode_evaporator_capacity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ReferenceCoolingModeEvaporatorCapacity { get; set; } = null;
         
 
 [Description("Efficiency of the chiller compressor (cooling output/compressor energy input).")]
-[JsonProperty("reference_cooling_mode_cop")]
+[JsonProperty(PropertyName="reference_cooling_mode_cop")]
 public System.Nullable<float> ReferenceCoolingModeCop { get; set; } = null;
         
 
-[JsonProperty("reference_cooling_mode_leaving_chilled_water_temperature")]
+[JsonProperty(PropertyName="reference_cooling_mode_leaving_chilled_water_temperature")]
 public System.Nullable<float> ReferenceCoolingModeLeavingChilledWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("6.67", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("reference_cooling_mode_entering_condenser_fluid_temperature")]
+[JsonProperty(PropertyName="reference_cooling_mode_entering_condenser_fluid_temperature")]
 public System.Nullable<float> ReferenceCoolingModeEnteringCondenserFluidTemperature { get; set; } = (System.Nullable<float>)Single.Parse("29.44", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("reference_cooling_mode_leaving_condenser_water_temperature")]
+[JsonProperty(PropertyName="reference_cooling_mode_leaving_condenser_water_temperature")]
 public System.Nullable<float> ReferenceCoolingModeLeavingCondenserWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("35", CultureInfo.InvariantCulture);
         
 
 [Description("During simultaneous cooling-heating mode, this ratio is relative to the Reference" +
     " Cooling Mode Cooling Capacity (Evaporator capacity at simul clg-htg mode ref co" +
     "ndition)/ (Evaporator capacity at cooling mode ref condition)")]
-[JsonProperty("reference_heating_mode_cooling_capacity_ratio")]
+[JsonProperty(PropertyName="reference_heating_mode_cooling_capacity_ratio")]
 public System.Nullable<float> ReferenceHeatingModeCoolingCapacityRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.75", CultureInfo.InvariantCulture);
         
 
 [Description("During simultaneous cooling-heating mode, this ratio is relative to the Reference" +
     " Cooling Mode COP (Power at simultaneous clg-htg mode reference condition)/ (Pow" +
     "er at cooling mode reference condition)")]
-[JsonProperty("reference_heating_mode_cooling_power_input_ratio")]
+[JsonProperty(PropertyName="reference_heating_mode_cooling_power_input_ratio")]
 public System.Nullable<float> ReferenceHeatingModeCoolingPowerInputRatio { get; set; } = (System.Nullable<float>)Single.Parse("1.38", CultureInfo.InvariantCulture);
         
 
 [Description("During simultaneous cooling-heating mode")]
-[JsonProperty("reference_heating_mode_leaving_chilled_water_temperature")]
+[JsonProperty(PropertyName="reference_heating_mode_leaving_chilled_water_temperature")]
 public System.Nullable<float> ReferenceHeatingModeLeavingChilledWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("6.67", CultureInfo.InvariantCulture);
         
 
 [Description("During simultaneous cooling-heating mode")]
-[JsonProperty("reference_heating_mode_leaving_condenser_water_temperature")]
+[JsonProperty(PropertyName="reference_heating_mode_leaving_condenser_water_temperature")]
 public System.Nullable<float> ReferenceHeatingModeLeavingCondenserWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("49", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("reference_heating_mode_entering_condenser_fluid_temperature")]
+[JsonProperty(PropertyName="reference_heating_mode_entering_condenser_fluid_temperature")]
 public System.Nullable<float> ReferenceHeatingModeEnteringCondenserFluidTemperature { get; set; } = (System.Nullable<float>)Single.Parse("29.44", CultureInfo.InvariantCulture);
         
 
 [Description("During simultaneous cooling-heating mode")]
-[JsonProperty("heating_mode_entering_chilled_water_temperature_low_limit")]
+[JsonProperty(PropertyName="heating_mode_entering_chilled_water_temperature_low_limit")]
 public System.Nullable<float> HeatingModeEnteringChilledWaterTemperatureLowLimit { get; set; } = (System.Nullable<float>)Single.Parse("12.22", CultureInfo.InvariantCulture);
         
 
 [Description("Sets chilled water flow rate to either constant or variable.")]
-[JsonProperty("chilled_water_flow_mode_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chilled_water_flow_mode_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ChillerHeaterPerformance_Electric_EIR_ChilledWaterFlowModeType ChilledWaterFlowModeType { get; set; } = (ChillerHeaterPerformance_Electric_EIR_ChilledWaterFlowModeType)Enum.Parse(typeof(ChillerHeaterPerformance_Electric_EIR_ChilledWaterFlowModeType), "ConstantFlow");
         
 
-[JsonProperty("design_chilled_water_flow_rate")]
-public string DesignChilledWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_chilled_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignChilledWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("design_condenser_water_flow_rate")]
-public string DesignCondenserWaterFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="design_condenser_water_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignCondenserWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty("design_hot_water_flow_rate")]
+[JsonProperty(PropertyName="design_hot_water_flow_rate")]
 public System.Nullable<float> DesignHotWaterFlowRate { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Fraction of compressor electrical energy that must be rejected by the condenser. " +
     "Enter 1.0 or leave this field blank for a hermetic compressor.")]
-[JsonProperty("compressor_motor_efficiency")]
+[JsonProperty(PropertyName="compressor_motor_efficiency")]
 public System.Nullable<float> CompressorMotorEfficiency { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("condenser_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="condenser_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ChillerHeaterPerformance_Electric_EIR_CondenserType CondenserType { get; set; } = (ChillerHeaterPerformance_Electric_EIR_CondenserType)Enum.Parse(typeof(ChillerHeaterPerformance_Electric_EIR_CondenserType), "WaterCooled");
         
 
 [Description(@"Sets the second independent variable in the three temperature dependent performance curves to either the leaving or entering condenser water temperature. Manufacturers express the performance of their chillers using either the leaving condenser water temperature (to the tower) or the entering condenser water temperature (from the tower). Cooling mode is generally a stronger function of Entering Condenser Fluid Temperature")]
-[JsonProperty("cooling_mode_temperature_curve_condenser_water_independent_variable")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="cooling_mode_temperature_curve_condenser_water_independent_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ChillerHeaterPerformance_Electric_EIR_CoolingModeTemperatureCurveCondenserWaterIndependentVariable CoolingModeTemperatureCurveCondenserWaterIndependentVariable { get; set; } = (ChillerHeaterPerformance_Electric_EIR_CoolingModeTemperatureCurveCondenserWaterIndependentVariable)Enum.Parse(typeof(ChillerHeaterPerformance_Electric_EIR_CoolingModeTemperatureCurveCondenserWaterIndependentVariable), "EnteringCondenser");
         
 
 [Description(@"Cooling capacity as a function of leaving chilled water temperature and either entering or leaving condenser fluid temperature curve = a + b*CWS + c*CWS**2 + d*TCond + e*TCond**2 + f*CWS*TCond If ClgModeCondWaterCurveInputVariable = EnteringCondenser, TCond = ECT If ClgModeCondWaterCurveInputVariable = LeavingCondenser, TCond = LCT CWS = supply (leaving) chilled water temperature(C) LCT = leaving condenser fluid temperature(C) ECT = entering condenser fluid temperature(C)")]
-[JsonProperty("cooling_mode_cooling_capacity_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="cooling_mode_cooling_capacity_function_of_temperature_curve_name")]
 public string CoolingModeCoolingCapacityFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"Electric Input Ratio (EIR) as a function of supply (leaving) chilled water temperature and leaving condenser fluid temperature. EIR = 1/COP. curve = a + b*CWS + c*CWS**2 + d*TCond + e*TCond**2 + f*CWS*TCond If ClgModeCondWaterCurveInputVariable = EnteringCondenser, TCond = ECT If ClgModeCondWaterCurveInputVariable = LeavingCondenser, TCond = LCT CWS = supply (leaving) chilled water temperature(C) LCT = leaving condenser fluid temperature(C) ECT = entering condenser fluid temperature(C)")]
-[JsonProperty("cooling_mode_electric_input_to_cooling_output_ratio_function_of_temperature_curve" +
+[JsonProperty(PropertyName="cooling_mode_electric_input_to_cooling_output_ratio_function_of_temperature_curve" +
     "_name")]
 public string CoolingModeElectricInputToCoolingOutputRatioFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"Electric Input Ratio (EIR) as a function of Part Load Ratio (PLR) EIR = 1/COP Bicubic = a + b*TCond + c*TCond**2 + d*PLR + e*PLR**2 + f*TCond*PLR +g*0 + h*PLR**3+i*0+j*0 If ClgModeCondWaterCurveInputVariable = EnteringCondenser, TCond = ECT If ClgModeCondWaterCurveInputVariable = LeavingCondenser, TCond = LCT Normally, a bicubic curve here should be in terms of LCT rather than ECT Also, a bicubic curve is more applicable for variable-speed compressor motor drives or Quadratic = a + b*PLR + c*PLR**2 PLR = part load ratio (cooling load/steady-state capacity) LCT = leaving condenser fluid temperature(C) ECT = entering condenser fluid temperature(C)")]
-[JsonProperty("cooling_mode_electric_input_to_cooling_output_ratio_function_of_part_load_ratio_c" +
+[JsonProperty(PropertyName="cooling_mode_electric_input_to_cooling_output_ratio_function_of_part_load_ratio_c" +
     "urve_name")]
 public string CoolingModeElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
@@ -3764,47 +3732,46 @@ public string CoolingModeElectricInputToCoolingOutputRatioFunctionOfPartLoadRati
     " or equal to the Minimum Part Load Ratio and less than or equal to the Maximum P" +
     "art Load Ratio. The Min/Max PLR are taken from their associated EIR-FPLR curve r" +
     "eferences.")]
-[JsonProperty("cooling_mode_cooling_capacity_optimum_part_load_ratio")]
+[JsonProperty(PropertyName="cooling_mode_cooling_capacity_optimum_part_load_ratio")]
 public System.Nullable<float> CoolingModeCoolingCapacityOptimumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"Sets the second independent variable in the three temperature dependent performance curves to either the leaving or entering condenser water temperature. Manufacturers express the performance of their chillers using either the leaving condenser water temperature (to the tower) or the entering condenser water temperature (from the tower). Heating mode (or Simul Clg/Htg Load) should be a function of Leaving Condenser Fluid Temperature Only use EnteringCondenser as a last resort in case no performance data exists for LeavingCondenser")]
-[JsonProperty("heating_mode_temperature_curve_condenser_water_independent_variable")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="heating_mode_temperature_curve_condenser_water_independent_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ChillerHeaterPerformance_Electric_EIR_HeatingModeTemperatureCurveCondenserWaterIndependentVariable HeatingModeTemperatureCurveCondenserWaterIndependentVariable { get; set; } = (ChillerHeaterPerformance_Electric_EIR_HeatingModeTemperatureCurveCondenserWaterIndependentVariable)Enum.Parse(typeof(ChillerHeaterPerformance_Electric_EIR_HeatingModeTemperatureCurveCondenserWaterIndependentVariable), "LeavingCondenser");
         
 
 [Description(@"Evaporator (cooling) capacity as a function of leaving chilled water temperature and leaving condenser fluid temperature when in heating or simultaneous cool/heat mode curve = a + b*CWS + c*CWS**2 + d*TCond + e*TCond**2 + f*CWS*TCond If independent variable = EnteringCondenser, TCond = ECT If independent variable = LeavingCondenser, TCond = LCT CWS = supply (leaving) chilled water temperature(C) LCT = leaving condenser fluid temperature(C) ECT = entering condenser fluid temperature(C)")]
-[JsonProperty("heating_mode_cooling_capacity_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="heating_mode_cooling_capacity_function_of_temperature_curve_name")]
 public string HeatingModeCoolingCapacityFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"Electric Input Ratio (EIR) as a function of leaving chilled water temperature when in heating or simultaneous cool/heat mode and leaving condenser fluid temperature. EIR = 1/COP. curve = a + b*CWS + c*CWS**2 + d*TCond + e*TCond**2 + f*CWS*TCond If independent variable = EnteringCondenser, TCond = ECT If independent variable = LeavingCondenser, TCond = LCT CWS = leaving chilled water temperature(C) LCT = leaving condenser fluid temperature(C) ECT = entering condenser fluid temperature(C)")]
-[JsonProperty("heating_mode_electric_input_to_cooling_output_ratio_function_of_temperature_curve" +
+[JsonProperty(PropertyName="heating_mode_electric_input_to_cooling_output_ratio_function_of_temperature_curve" +
     "_name")]
 public string HeatingModeElectricInputToCoolingOutputRatioFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"Electric Input Ratio (EIR) as a function of Part Load Ratio (PLR) when in heating or simultaneous cool/heat mode EIR = 1/COP Bicubic = a + b*LCT + c*LCT**2 + d*PLR + e*PLR**2 + f*LCT*PLR + g*0 + h*PLR**3 + i*0 + j*0 Normally, a bicubic curve here should be in terms of LCT rather than ECT Also, a bicubic curve is more applicable for variable-speed compressor motor drives or Quadratic = a + b*PLR + c*PLR**2 PLR = part load ratio (cooling load/steady-state capacity) LCT = leaving condenser fluid temperature(C) ECT = entering condenser fluid temperature(C)")]
-[JsonProperty("heating_mode_electric_input_to_cooling_output_ratio_function_of_part_load_ratio_c" +
+[JsonProperty(PropertyName="heating_mode_electric_input_to_cooling_output_ratio_function_of_part_load_ratio_c" +
     "urve_name")]
 public string HeatingModeElectricInputToCoolingOutputRatioFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
 
 [Description(@"Optimum part load ratio where the chiller is most efficient when in heating or simultaneous cool/heat mode. Must be greater than or equal to the Minimum Part Load Ratio and less than or equal to the Maximum Part Load Ratio. The Min/Max PLR are taken from their associated EIR-FPLR curve references.")]
-[JsonProperty("heating_mode_cooling_capacity_optimum_part_load_ratio")]
+[JsonProperty(PropertyName="heating_mode_cooling_capacity_optimum_part_load_ratio")]
 public System.Nullable<float> HeatingModeCoolingCapacityOptimumPartLoadRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Multiplies the autosized capacity and flow rates")]
-[JsonProperty("sizing_factor")]
+[JsonProperty(PropertyName="sizing_factor")]
 public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum ChillerHeaterPerformance_Electric_EIR_ChilledWaterFlowModeType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ConstantFlow")]
@@ -3817,7 +3784,7 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
     public enum ChillerHeaterPerformance_Electric_EIR_CondenserType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="AirCooled")]
@@ -3830,7 +3797,7 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
     public enum ChillerHeaterPerformance_Electric_EIR_CoolingModeTemperatureCurveCondenserWaterIndependentVariable
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="EnteringCondenser")]
@@ -3843,7 +3810,7 @@ public System.Nullable<float> SizingFactor { get; set; } = (System.Nullable<floa
     public enum ChillerHeaterPerformance_Electric_EIR_HeatingModeTemperatureCurveCondenserWaterIndependentVariable
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="EnteringCondenser")]

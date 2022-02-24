@@ -73,39 +73,39 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("roughness")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="roughness", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Material_Roughness Roughness { get; set; } = (Material_Roughness)Enum.Parse(typeof(Material_Roughness), "MediumRough");
         
 
-[JsonProperty("thickness")]
+[JsonProperty(PropertyName="thickness")]
 public System.Nullable<float> Thickness { get; set; } = null;
         
 
-[JsonProperty("conductivity")]
+[JsonProperty(PropertyName="conductivity")]
 public System.Nullable<float> Conductivity { get; set; } = null;
         
 
-[JsonProperty("density")]
+[JsonProperty(PropertyName="density")]
 public System.Nullable<float> Density { get; set; } = null;
         
 
-[JsonProperty("specific_heat")]
+[JsonProperty(PropertyName="specific_heat")]
 public System.Nullable<float> SpecificHeat { get; set; } = null;
         
 
-[JsonProperty("thermal_absorptance")]
+[JsonProperty(PropertyName="thermal_absorptance")]
 public System.Nullable<float> ThermalAbsorptance { get; set; } = (System.Nullable<float>)Single.Parse("0.9", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("solar_absorptance")]
+[JsonProperty(PropertyName="solar_absorptance")]
 public System.Nullable<float> SolarAbsorptance { get; set; } = (System.Nullable<float>)Single.Parse("0.7", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("visible_absorptance")]
+[JsonProperty(PropertyName="visible_absorptance")]
 public System.Nullable<float> VisibleAbsorptance { get; set; } = (System.Nullable<float>)Single.Parse("0.7", CultureInfo.InvariantCulture);
     }
     
@@ -139,27 +139,27 @@ public System.Nullable<float> VisibleAbsorptance { get; set; } = (System.Nullabl
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("roughness")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="roughness", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Material_NoMass_Roughness Roughness { get; set; } = (Material_NoMass_Roughness)Enum.Parse(typeof(Material_NoMass_Roughness), "MediumRough");
         
 
-[JsonProperty("thermal_resistance")]
+[JsonProperty(PropertyName="thermal_resistance")]
 public System.Nullable<float> ThermalResistance { get; set; } = null;
         
 
-[JsonProperty("thermal_absorptance")]
+[JsonProperty(PropertyName="thermal_absorptance")]
 public System.Nullable<float> ThermalAbsorptance { get; set; } = (System.Nullable<float>)Single.Parse("0.9", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("solar_absorptance")]
+[JsonProperty(PropertyName="solar_absorptance")]
 public System.Nullable<float> SolarAbsorptance { get; set; } = (System.Nullable<float>)Single.Parse("0.7", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("visible_absorptance")]
+[JsonProperty(PropertyName="visible_absorptance")]
 public System.Nullable<float> VisibleAbsorptance { get; set; } = (System.Nullable<float>)Single.Parse("0.7", CultureInfo.InvariantCulture);
     }
     
@@ -192,6 +192,7 @@ public System.Nullable<float> VisibleAbsorptance { get; set; } = (System.Nullabl
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
     }
     
@@ -202,10 +203,11 @@ public string NodeName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("thermal_resistance")]
+[JsonProperty(PropertyName="thermal_resistance")]
 public System.Nullable<float> ThermalResistance { get; set; } = null;
     }
     
@@ -216,102 +218,101 @@ public System.Nullable<float> ThermalResistance { get; set; } = null;
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("The ecoroof module is designed for short plants and shrubs.")]
-[JsonProperty("height_of_plants")]
+[JsonProperty(PropertyName="height_of_plants")]
 public System.Nullable<float> HeightOfPlants { get; set; } = (System.Nullable<float>)Single.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [Description("Entire surface is assumed covered, so decrease LAI accordingly.")]
-[JsonProperty("leaf_area_index")]
+[JsonProperty(PropertyName="leaf_area_index")]
 public System.Nullable<float> LeafAreaIndex { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Leaf reflectivity (albedo) is typically 0.18-0.25")]
-[JsonProperty("leaf_reflectivity")]
+[JsonProperty(PropertyName="leaf_reflectivity")]
 public System.Nullable<float> LeafReflectivity { get; set; } = (System.Nullable<float>)Single.Parse("0.22", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("leaf_emissivity")]
+[JsonProperty(PropertyName="leaf_emissivity")]
 public System.Nullable<float> LeafEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.95", CultureInfo.InvariantCulture);
         
 
 [Description("This depends upon plant type")]
-[JsonProperty("minimum_stomatal_resistance")]
+[JsonProperty(PropertyName="minimum_stomatal_resistance")]
 public System.Nullable<float> MinimumStomatalResistance { get; set; } = (System.Nullable<float>)Single.Parse("180", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("soil_layer_name")]
+[JsonProperty(PropertyName="soil_layer_name")]
 public string SoilLayerName { get; set; } = (System.String)"Green Roof Soil";
         
 
-[JsonProperty("roughness")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="roughness", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Material_RoofVegetation_Roughness Roughness { get; set; } = (Material_RoofVegetation_Roughness)Enum.Parse(typeof(Material_RoofVegetation_Roughness), "MediumRough");
         
 
 [Description("thickness of the soil layer of the EcoRoof Soil depths of 0.15m (6in) and 0.30m (" +
     "12in) are common.")]
-[JsonProperty("thickness")]
+[JsonProperty(PropertyName="thickness")]
 public System.Nullable<float> Thickness { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [Description("Thermal conductivity of dry soil. Typical ecoroof soils range from 0.3 to 0.5")]
-[JsonProperty("conductivity_of_dry_soil")]
+[JsonProperty(PropertyName="conductivity_of_dry_soil")]
 public System.Nullable<float> ConductivityOfDrySoil { get; set; } = (System.Nullable<float>)Single.Parse("0.35", CultureInfo.InvariantCulture);
         
 
 [Description("Density of dry soil (the code modifies this as the soil becomes moist) Typical ec" +
     "oroof soils range from 400 to 1000 (dry to wet)")]
-[JsonProperty("density_of_dry_soil")]
+[JsonProperty(PropertyName="density_of_dry_soil")]
 public System.Nullable<float> DensityOfDrySoil { get; set; } = (System.Nullable<float>)Single.Parse("1100", CultureInfo.InvariantCulture);
         
 
 [Description("Specific heat of dry soil")]
-[JsonProperty("specific_heat_of_dry_soil")]
+[JsonProperty(PropertyName="specific_heat_of_dry_soil")]
 public System.Nullable<float> SpecificHeatOfDrySoil { get; set; } = (System.Nullable<float>)Single.Parse("1200", CultureInfo.InvariantCulture);
         
 
 [Description("Soil emissivity is typically in range of 0.90 to 0.98")]
-[JsonProperty("thermal_absorptance")]
+[JsonProperty(PropertyName="thermal_absorptance")]
 public System.Nullable<float> ThermalAbsorptance { get; set; } = (System.Nullable<float>)Single.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description("Solar absorptance of dry soil (1-albedo) is typically 0.60 to 0.85 corresponding " +
     "to a dry albedo of 0.15 to 0.40")]
-[JsonProperty("solar_absorptance")]
+[JsonProperty(PropertyName="solar_absorptance")]
 public System.Nullable<float> SolarAbsorptance { get; set; } = (System.Nullable<float>)Single.Parse("0.7", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("visible_absorptance")]
+[JsonProperty(PropertyName="visible_absorptance")]
 public System.Nullable<float> VisibleAbsorptance { get; set; } = (System.Nullable<float>)Single.Parse("0.75", CultureInfo.InvariantCulture);
         
 
 [Description("Maximum moisture content is typically less than 0.5")]
-[JsonProperty("saturation_volumetric_moisture_content_of_the_soil_layer")]
+[JsonProperty(PropertyName="saturation_volumetric_moisture_content_of_the_soil_layer")]
 public System.Nullable<float> SaturationVolumetricMoistureContentOfTheSoilLayer { get; set; } = (System.Nullable<float>)Single.Parse("0.3", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("residual_volumetric_moisture_content_of_the_soil_layer")]
+[JsonProperty(PropertyName="residual_volumetric_moisture_content_of_the_soil_layer")]
 public System.Nullable<float> ResidualVolumetricMoistureContentOfTheSoilLayer { get; set; } = (System.Nullable<float>)Single.Parse("0.01", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("initial_volumetric_moisture_content_of_the_soil_layer")]
+[JsonProperty(PropertyName="initial_volumetric_moisture_content_of_the_soil_layer")]
 public System.Nullable<float> InitialVolumetricMoistureContentOfTheSoilLayer { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [Description("Advanced calculation requires increased number of timesteps (recommended >20).")]
-[JsonProperty("moisture_diffusion_calculation_method")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="moisture_diffusion_calculation_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Material_RoofVegetation_MoistureDiffusionCalculationMethod MoistureDiffusionCalculationMethod { get; set; } = (Material_RoofVegetation_MoistureDiffusionCalculationMethod)Enum.Parse(typeof(Material_RoofVegetation_MoistureDiffusionCalculationMethod), "Advanced");
     }
     
     public enum Material_RoofVegetation_Roughness
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="MediumRough")]
@@ -336,7 +337,7 @@ public Material_RoofVegetation_MoistureDiffusionCalculationMethod MoistureDiffus
     public enum Material_RoofVegetation_MoistureDiffusionCalculationMethod
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Advanced")]
@@ -354,22 +355,23 @@ public Material_RoofVegetation_MoistureDiffusionCalculationMethod MoistureDiffus
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Enter U-Factor including film coefficients Note that the effective upper limit fo" +
     "r U-factor is 5.8 W/m2-K")]
-[JsonProperty("u_factor")]
+[JsonProperty(PropertyName="u_factor")]
 public System.Nullable<float> UFactor { get; set; } = null;
         
 
 [Description("SHGC at Normal Incidence")]
-[JsonProperty("solar_heat_gain_coefficient")]
+[JsonProperty(PropertyName="solar_heat_gain_coefficient")]
 public System.Nullable<float> SolarHeatGainCoefficient { get; set; } = null;
         
 
 [Description("VT at Normal Incidence optional")]
-[JsonProperty("visible_transmittance")]
+[JsonProperty(PropertyName="visible_transmittance")]
 public System.Nullable<float> VisibleTransmittance { get; set; } = null;
     }
     
@@ -381,104 +383,103 @@ public System.Nullable<float> VisibleTransmittance { get; set; } = null;
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("optical_data_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="optical_data_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Glazing_OpticalDataType OpticalDataType { get; set; } = (WindowMaterial_Glazing_OpticalDataType)Enum.Parse(typeof(WindowMaterial_Glazing_OpticalDataType), "BSDF");
         
 
 [Description("Used only when Optical Data Type = Spectral")]
-[JsonProperty("window_glass_spectral_data_set_name")]
+[JsonProperty(PropertyName="window_glass_spectral_data_set_name")]
 public string WindowGlassSpectralDataSetName { get; set; } = "";
         
 
-[JsonProperty("thickness")]
+[JsonProperty(PropertyName="thickness")]
 public System.Nullable<float> Thickness { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
-[JsonProperty("solar_transmittance_at_normal_incidence")]
+[JsonProperty(PropertyName="solar_transmittance_at_normal_incidence")]
 public System.Nullable<float> SolarTransmittanceAtNormalIncidence { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Front Side is side closest to " +
     "outdoor air")]
-[JsonProperty("front_side_solar_reflectance_at_normal_incidence")]
+[JsonProperty(PropertyName="front_side_solar_reflectance_at_normal_incidence")]
 public System.Nullable<float> FrontSideSolarReflectanceAtNormalIncidence { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Back Side is side closest to z" +
     "one air")]
-[JsonProperty("back_side_solar_reflectance_at_normal_incidence")]
+[JsonProperty(PropertyName="back_side_solar_reflectance_at_normal_incidence")]
 public System.Nullable<float> BackSideSolarReflectanceAtNormalIncidence { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
-[JsonProperty("visible_transmittance_at_normal_incidence")]
+[JsonProperty(PropertyName="visible_transmittance_at_normal_incidence")]
 public System.Nullable<float> VisibleTransmittanceAtNormalIncidence { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
-[JsonProperty("front_side_visible_reflectance_at_normal_incidence")]
+[JsonProperty(PropertyName="front_side_visible_reflectance_at_normal_incidence")]
 public System.Nullable<float> FrontSideVisibleReflectanceAtNormalIncidence { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
-[JsonProperty("back_side_visible_reflectance_at_normal_incidence")]
+[JsonProperty(PropertyName="back_side_visible_reflectance_at_normal_incidence")]
 public System.Nullable<float> BackSideVisibleReflectanceAtNormalIncidence { get; set; } = null;
         
 
-[JsonProperty("infrared_transmittance_at_normal_incidence")]
+[JsonProperty(PropertyName="infrared_transmittance_at_normal_incidence")]
 public System.Nullable<float> InfraredTransmittanceAtNormalIncidence { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("front_side_infrared_hemispherical_emissivity")]
+[JsonProperty(PropertyName="front_side_infrared_hemispherical_emissivity")]
 public System.Nullable<float> FrontSideInfraredHemisphericalEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.84", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("back_side_infrared_hemispherical_emissivity")]
+[JsonProperty(PropertyName="back_side_infrared_hemispherical_emissivity")]
 public System.Nullable<float> BackSideInfraredHemisphericalEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.84", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("conductivity")]
+[JsonProperty(PropertyName="conductivity")]
 public System.Nullable<float> Conductivity { get; set; } = (System.Nullable<float>)Single.Parse("0.9", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("dirt_correction_factor_for_solar_and_visible_transmittance")]
+[JsonProperty(PropertyName="dirt_correction_factor_for_solar_and_visible_transmittance")]
 public System.Nullable<float> DirtCorrectionFactorForSolarAndVisibleTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("solar_diffusing")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="solar_diffusing", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes SolarDiffusing { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("coefficient used for deflection calculations. Used only with complex fenestration" +
     " when deflection model is set to TemperatureAndPressureInput")]
-[JsonProperty("young_s_modulus")]
+[JsonProperty(PropertyName="young_s_modulus")]
 public System.Nullable<float> YoungSModulus { get; set; } = (System.Nullable<float>)Single.Parse("72000000000", CultureInfo.InvariantCulture);
         
 
 [Description("coefficient used for deflection calculations. Used only with complex fenestration" +
     " when deflection model is set to TemperatureAndPressureInput")]
-[JsonProperty("poisson_s_ratio")]
+[JsonProperty(PropertyName="poisson_s_ratio")]
 public System.Nullable<float> PoissonSRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.22", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAndAngle")]
-[JsonProperty("window_glass_spectral_and_incident_angle_transmittance_data_set_table_name")]
+[JsonProperty(PropertyName="window_glass_spectral_and_incident_angle_transmittance_data_set_table_name")]
 public string WindowGlassSpectralAndIncidentAngleTransmittanceDataSetTableName { get; set; } = "";
         
 
 [Description("Used only when Optical Data Type = SpectralAndAngle")]
-[JsonProperty("window_glass_spectral_and_incident_angle_front_reflectance_data_set_table_name")]
+[JsonProperty(PropertyName="window_glass_spectral_and_incident_angle_front_reflectance_data_set_table_name")]
 public string WindowGlassSpectralAndIncidentAngleFrontReflectanceDataSetTableName { get; set; } = "";
         
 
 [Description("Used only when Optical Data Type = SpectralAndAngle")]
-[JsonProperty("window_glass_spectral_and_incident_angle_back_reflectance_data_set_table_name")]
+[JsonProperty(PropertyName="window_glass_spectral_and_incident_angle_back_reflectance_data_set_table_name")]
 public string WindowGlassSpectralAndIncidentAngleBackReflectanceDataSetTableName { get; set; } = "";
     }
     
@@ -505,10 +506,11 @@ public string WindowGlassSpectralAndIncidentAngleBackReflectanceDataSetTableName
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("temperature_data")]
+[JsonProperty(PropertyName="temperature_data")]
 public string TemperatureData { get; set; } = "";
     }
     
@@ -520,48 +522,48 @@ public string TemperatureData { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("thickness")]
+[JsonProperty(PropertyName="thickness")]
 public System.Nullable<float> Thickness { get; set; } = null;
         
 
-[JsonProperty("solar_index_of_refraction")]
+[JsonProperty(PropertyName="solar_index_of_refraction")]
 public System.Nullable<float> SolarIndexOfRefraction { get; set; } = null;
         
 
-[JsonProperty("solar_extinction_coefficient")]
+[JsonProperty(PropertyName="solar_extinction_coefficient")]
 public System.Nullable<float> SolarExtinctionCoefficient { get; set; } = null;
         
 
-[JsonProperty("visible_index_of_refraction")]
+[JsonProperty(PropertyName="visible_index_of_refraction")]
 public System.Nullable<float> VisibleIndexOfRefraction { get; set; } = null;
         
 
-[JsonProperty("visible_extinction_coefficient")]
+[JsonProperty(PropertyName="visible_extinction_coefficient")]
 public System.Nullable<float> VisibleExtinctionCoefficient { get; set; } = null;
         
 
-[JsonProperty("infrared_transmittance_at_normal_incidence")]
+[JsonProperty(PropertyName="infrared_transmittance_at_normal_incidence")]
 public System.Nullable<float> InfraredTransmittanceAtNormalIncidence { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Emissivity of front and back side assumed equal")]
-[JsonProperty("infrared_hemispherical_emissivity")]
+[JsonProperty(PropertyName="infrared_hemispherical_emissivity")]
 public System.Nullable<float> InfraredHemisphericalEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.84", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("conductivity")]
+[JsonProperty(PropertyName="conductivity")]
 public System.Nullable<float> Conductivity { get; set; } = (System.Nullable<float>)Single.Parse("0.9", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("dirt_correction_factor_for_solar_and_visible_transmittance")]
+[JsonProperty(PropertyName="dirt_correction_factor_for_solar_and_visible_transmittance")]
 public System.Nullable<float> DirtCorrectionFactorForSolarAndVisibleTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("solar_diffusing")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="solar_diffusing", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes SolarDiffusing { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
     
@@ -572,70 +574,70 @@ public EmptyNoYes SolarDiffusing { get; set; } = (EmptyNoYes)Enum.Parse(typeof(E
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("gas_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="gas_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Gas_GasType GasType { get; set; } = (WindowMaterial_Gas_GasType)Enum.Parse(typeof(WindowMaterial_Gas_GasType), "Air");
         
 
-[JsonProperty("thickness")]
+[JsonProperty(PropertyName="thickness")]
 public System.Nullable<float> Thickness { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("conductivity_coefficient_a")]
+[JsonProperty(PropertyName="conductivity_coefficient_a")]
 public System.Nullable<float> ConductivityCoefficientA { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("conductivity_coefficient_b")]
+[JsonProperty(PropertyName="conductivity_coefficient_b")]
 public System.Nullable<float> ConductivityCoefficientB { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("conductivity_coefficient_c")]
+[JsonProperty(PropertyName="conductivity_coefficient_c")]
 public System.Nullable<float> ConductivityCoefficientC { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("viscosity_coefficient_a")]
+[JsonProperty(PropertyName="viscosity_coefficient_a")]
 public System.Nullable<float> ViscosityCoefficientA { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("viscosity_coefficient_b")]
+[JsonProperty(PropertyName="viscosity_coefficient_b")]
 public System.Nullable<float> ViscosityCoefficientB { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("viscosity_coefficient_c")]
+[JsonProperty(PropertyName="viscosity_coefficient_c")]
 public System.Nullable<float> ViscosityCoefficientC { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("specific_heat_coefficient_a")]
+[JsonProperty(PropertyName="specific_heat_coefficient_a")]
 public System.Nullable<float> SpecificHeatCoefficientA { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("specific_heat_coefficient_b")]
+[JsonProperty(PropertyName="specific_heat_coefficient_b")]
 public System.Nullable<float> SpecificHeatCoefficientB { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("specific_heat_coefficient_c")]
+[JsonProperty(PropertyName="specific_heat_coefficient_c")]
 public System.Nullable<float> SpecificHeatCoefficientC { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("molecular_weight")]
+[JsonProperty(PropertyName="molecular_weight")]
 public System.Nullable<float> MolecularWeight { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("specific_heat_ratio")]
+[JsonProperty(PropertyName="specific_heat_ratio")]
 public System.Nullable<float> SpecificHeatRatio { get; set; } = null;
     }
     
@@ -665,14 +667,15 @@ public System.Nullable<float> SpecificHeatRatio { get; set; } = null;
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("spacing")]
+[JsonProperty(PropertyName="spacing")]
 public System.Nullable<float> Spacing { get; set; } = (System.Nullable<float>)Single.Parse("0.04", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("radius")]
+[JsonProperty(PropertyName="radius")]
 public System.Nullable<float> Radius { get; set; } = (System.Nullable<float>)Single.Parse("0.0004", CultureInfo.InvariantCulture);
     }
     
@@ -685,19 +688,20 @@ public System.Nullable<float> Radius { get; set; } = (System.Nullable<float>)Sin
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("If left blank will be considered that gap has no deflection.")]
-[JsonProperty("deflected_thickness")]
+[JsonProperty(PropertyName="deflected_thickness")]
 public System.Nullable<float> DeflectedThickness { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("initial_temperature")]
+[JsonProperty(PropertyName="initial_temperature")]
 public System.Nullable<float> InitialTemperature { get; set; } = (System.Nullable<float>)Single.Parse("25", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("initial_pressure")]
+[JsonProperty(PropertyName="initial_pressure")]
 public System.Nullable<float> InitialPressure { get; set; } = (System.Nullable<float>)Single.Parse("101325", CultureInfo.InvariantCulture);
     }
     
@@ -708,50 +712,47 @@ public System.Nullable<float> InitialPressure { get; set; } = (System.Nullable<f
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("thickness")]
+[JsonProperty(PropertyName="thickness")]
 public System.Nullable<float> Thickness { get; set; } = null;
         
 
-[JsonProperty("number_of_gases_in_mixture")]
+[JsonProperty(PropertyName="number_of_gases_in_mixture")]
 public System.Nullable<float> NumberOfGasesInMixture { get; set; } = null;
         
 
-[JsonProperty("gas_1_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="gas_1_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_GasMixture_Gas1Type Gas1Type { get; set; } = (WindowMaterial_GasMixture_Gas1Type)Enum.Parse(typeof(WindowMaterial_GasMixture_Gas1Type), "Air");
         
 
-[JsonProperty("gas_1_fraction")]
+[JsonProperty(PropertyName="gas_1_fraction")]
 public System.Nullable<float> Gas1Fraction { get; set; } = null;
         
 
-[JsonProperty("gas_2_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="gas_2_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_GasMixture_Gas2Type Gas2Type { get; set; } = (WindowMaterial_GasMixture_Gas2Type)Enum.Parse(typeof(WindowMaterial_GasMixture_Gas2Type), "Air");
         
 
-[JsonProperty("gas_2_fraction")]
+[JsonProperty(PropertyName="gas_2_fraction")]
 public System.Nullable<float> Gas2Fraction { get; set; } = null;
         
 
-[JsonProperty("gas_3_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="gas_3_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_GasMixture_Gas3Type Gas3Type { get; set; } = (WindowMaterial_GasMixture_Gas3Type)Enum.Parse(typeof(WindowMaterial_GasMixture_Gas3Type), "Air");
         
 
-[JsonProperty("gas_3_fraction")]
+[JsonProperty(PropertyName="gas_3_fraction")]
 public System.Nullable<float> Gas3Fraction { get; set; } = null;
         
 
-[JsonProperty("gas_4_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="gas_4_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_GasMixture_Gas4Type Gas4Type { get; set; } = (WindowMaterial_GasMixture_Gas4Type)Enum.Parse(typeof(WindowMaterial_GasMixture_Gas4Type), "Air");
         
 
-[JsonProperty("gas_4_fraction")]
+[JsonProperty(PropertyName="gas_4_fraction")]
 public System.Nullable<float> Gas4Fraction { get; set; } = null;
     }
     
@@ -826,30 +827,31 @@ public System.Nullable<float> Gas4Fraction { get; set; } = null;
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("thickness")]
+[JsonProperty(PropertyName="thickness")]
 public System.Nullable<float> Thickness { get; set; } = null;
         
 
 [Description("This field should reference only WindowMaterial:Gas or WindowMaterial:GasMixture " +
     "objects")]
-[JsonProperty("gas_or_gas_mixture_")]
+[JsonProperty(PropertyName="gas_or_gas_mixture_")]
 public string GasOrGasMixture { get; set; } = "";
         
 
-[JsonProperty("pressure")]
+[JsonProperty(PropertyName="pressure")]
 public System.Nullable<float> Pressure { get; set; } = (System.Nullable<float>)Single.Parse("101325", CultureInfo.InvariantCulture);
         
 
 [Description("If left blank, it will be considered that gap is not deflected")]
-[JsonProperty("deflection_state")]
+[JsonProperty(PropertyName="deflection_state")]
 public string DeflectionState { get; set; } = "";
         
 
 [Description("If left blank, it will be considered that gap does not have support pillars")]
-[JsonProperty("support_pillar")]
+[JsonProperty(PropertyName="support_pillar")]
 public string SupportPillar { get; set; } = "";
     }
     
@@ -860,66 +862,67 @@ public string SupportPillar { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Assumed independent of incidence angle")]
-[JsonProperty("solar_transmittance")]
+[JsonProperty(PropertyName="solar_transmittance")]
 public System.Nullable<float> SolarTransmittance { get; set; } = null;
         
 
 [Description("Assumed same for both sides Assumed independent of incidence angle")]
-[JsonProperty("solar_reflectance")]
+[JsonProperty(PropertyName="solar_reflectance")]
 public System.Nullable<float> SolarReflectance { get; set; } = null;
         
 
 [Description("Assumed independent of incidence angle")]
-[JsonProperty("visible_transmittance")]
+[JsonProperty(PropertyName="visible_transmittance")]
 public System.Nullable<float> VisibleTransmittance { get; set; } = null;
         
 
 [Description("Assumed same for both sides Assumed independent of incidence angle")]
-[JsonProperty("visible_reflectance")]
+[JsonProperty(PropertyName="visible_reflectance")]
 public System.Nullable<float> VisibleReflectance { get; set; } = null;
         
 
-[JsonProperty("infrared_hemispherical_emissivity")]
+[JsonProperty(PropertyName="infrared_hemispherical_emissivity")]
 public System.Nullable<float> InfraredHemisphericalEmissivity { get; set; } = null;
         
 
-[JsonProperty("infrared_transmittance")]
+[JsonProperty(PropertyName="infrared_transmittance")]
 public System.Nullable<float> InfraredTransmittance { get; set; } = null;
         
 
-[JsonProperty("thickness")]
+[JsonProperty(PropertyName="thickness")]
 public System.Nullable<float> Thickness { get; set; } = null;
         
 
-[JsonProperty("conductivity")]
+[JsonProperty(PropertyName="conductivity")]
 public System.Nullable<float> Conductivity { get; set; } = null;
         
 
-[JsonProperty("shade_to_glass_distance")]
+[JsonProperty(PropertyName="shade_to_glass_distance")]
 public System.Nullable<float> ShadeToGlassDistance { get; set; } = (System.Nullable<float>)Single.Parse("0.05", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("top_opening_multiplier")]
+[JsonProperty(PropertyName="top_opening_multiplier")]
 public System.Nullable<float> TopOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0.5", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("bottom_opening_multiplier")]
+[JsonProperty(PropertyName="bottom_opening_multiplier")]
 public System.Nullable<float> BottomOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0.5", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("left_side_opening_multiplier")]
+[JsonProperty(PropertyName="left_side_opening_multiplier")]
 public System.Nullable<float> LeftSideOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0.5", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("right_side_opening_multiplier")]
+[JsonProperty(PropertyName="right_side_opening_multiplier")]
 public System.Nullable<float> RightSideOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0.5", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("airflow_permeability")]
+[JsonProperty(PropertyName="airflow_permeability")]
 public System.Nullable<float> AirflowPermeability { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
     }
     
@@ -930,87 +933,87 @@ public System.Nullable<float> AirflowPermeability { get; set; } = (System.Nullab
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("layer_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="layer_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_ComplexShade_LayerType LayerType { get; set; } = (WindowMaterial_ComplexShade_LayerType)Enum.Parse(typeof(WindowMaterial_ComplexShade_LayerType), "OtherShadingType");
         
 
-[JsonProperty("thickness")]
+[JsonProperty(PropertyName="thickness")]
 public System.Nullable<float> Thickness { get; set; } = (System.Nullable<float>)Single.Parse("0.002", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("conductivity")]
+[JsonProperty(PropertyName="conductivity")]
 public System.Nullable<float> Conductivity { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("ir_transmittance")]
+[JsonProperty(PropertyName="ir_transmittance")]
 public System.Nullable<float> IrTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("front_emissivity")]
+[JsonProperty(PropertyName="front_emissivity")]
 public System.Nullable<float> FrontEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.84", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("back_emissivity")]
+[JsonProperty(PropertyName="back_emissivity")]
 public System.Nullable<float> BackEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.84", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("top_opening_multiplier")]
+[JsonProperty(PropertyName="top_opening_multiplier")]
 public System.Nullable<float> TopOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("bottom_opening_multiplier")]
+[JsonProperty(PropertyName="bottom_opening_multiplier")]
 public System.Nullable<float> BottomOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("left_side_opening_multiplier")]
+[JsonProperty(PropertyName="left_side_opening_multiplier")]
 public System.Nullable<float> LeftSideOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("right_side_opening_multiplier")]
+[JsonProperty(PropertyName="right_side_opening_multiplier")]
 public System.Nullable<float> RightSideOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("front_opening_multiplier")]
+[JsonProperty(PropertyName="front_opening_multiplier")]
 public System.Nullable<float> FrontOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0.05", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("slat_width")]
+[JsonProperty(PropertyName="slat_width")]
 public System.Nullable<float> SlatWidth { get; set; } = (System.Nullable<float>)Single.Parse("0.016", CultureInfo.InvariantCulture);
         
 
 [Description("Distance between adjacent slat faces")]
-[JsonProperty("slat_spacing")]
+[JsonProperty(PropertyName="slat_spacing")]
 public System.Nullable<float> SlatSpacing { get; set; } = (System.Nullable<float>)Single.Parse("0.012", CultureInfo.InvariantCulture);
         
 
 [Description("Distance between top and bottom surfaces of slat Slat is assumed to be rectangula" +
     "r in cross section and flat")]
-[JsonProperty("slat_thickness")]
+[JsonProperty(PropertyName="slat_thickness")]
 public System.Nullable<float> SlatThickness { get; set; } = (System.Nullable<float>)Single.Parse("0.0006", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("slat_angle")]
+[JsonProperty(PropertyName="slat_angle")]
 public System.Nullable<float> SlatAngle { get; set; } = (System.Nullable<float>)Single.Parse("90", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("slat_conductivity")]
+[JsonProperty(PropertyName="slat_conductivity")]
 public System.Nullable<float> SlatConductivity { get; set; } = (System.Nullable<float>)Single.Parse("160", CultureInfo.InvariantCulture);
         
 
 [Description("this value represents curvature radius of the slat. if the slat is flat use zero." +
     " if this value is not zero, then it must be > SlatWidth/2.")]
-[JsonProperty("slat_curve")]
+[JsonProperty(PropertyName="slat_curve")]
 public System.Nullable<float> SlatCurve { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum WindowMaterial_ComplexShade_LayerType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="BSDF")]
@@ -1039,149 +1042,149 @@ public System.Nullable<float> SlatCurve { get; set; } = (System.Nullable<float>)
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("slat_orientation")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="slat_orientation", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Blind_SlatOrientation SlatOrientation { get; set; } = (WindowMaterial_Blind_SlatOrientation)Enum.Parse(typeof(WindowMaterial_Blind_SlatOrientation), "Horizontal");
         
 
-[JsonProperty("slat_width")]
+[JsonProperty(PropertyName="slat_width")]
 public System.Nullable<float> SlatWidth { get; set; } = null;
         
 
 [Description("Distance between adjacent slat faces")]
-[JsonProperty("slat_separation")]
+[JsonProperty(PropertyName="slat_separation")]
 public System.Nullable<float> SlatSeparation { get; set; } = null;
         
 
 [Description("Distance between top and bottom surfaces of slat Slat is assumed to be rectangula" +
     "r in cross section and flat")]
-[JsonProperty("slat_thickness")]
+[JsonProperty(PropertyName="slat_thickness")]
 public System.Nullable<float> SlatThickness { get; set; } = (System.Nullable<float>)Single.Parse("0.00025", CultureInfo.InvariantCulture);
         
 
 [Description(@"If WindowShadingControl referencing the window that incorporates this blind has Type of Slat Angle Control for Blinds = FixedSlatAngle, then this is the fixed value of the slat angle; If WindowShadingControl referencing the window that incorporates this blind has Type of Slat Angle Control for Blinds = BlockBeamSolar, then this is the slat angle when slat angle control is not in effect (e.g., when there is no beam solar on the blind); Not used if WindowShadingControl referencing the window that incorporates this blind has Type of Slat Angle Control for Blinds = ScheduledSlatAngle.")]
-[JsonProperty("slat_angle")]
+[JsonProperty(PropertyName="slat_angle")]
 public System.Nullable<float> SlatAngle { get; set; } = (System.Nullable<float>)Single.Parse("45", CultureInfo.InvariantCulture);
         
 
 [Description("default is for aluminum")]
-[JsonProperty("slat_conductivity")]
+[JsonProperty(PropertyName="slat_conductivity")]
 public System.Nullable<float> SlatConductivity { get; set; } = (System.Nullable<float>)Single.Parse("221", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("slat_beam_solar_transmittance")]
+[JsonProperty(PropertyName="slat_beam_solar_transmittance")]
 public System.Nullable<float> SlatBeamSolarTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("front_side_slat_beam_solar_reflectance")]
+[JsonProperty(PropertyName="front_side_slat_beam_solar_reflectance")]
 public System.Nullable<float> FrontSideSlatBeamSolarReflectance { get; set; } = null;
         
 
-[JsonProperty("back_side_slat_beam_solar_reflectance")]
+[JsonProperty(PropertyName="back_side_slat_beam_solar_reflectance")]
 public System.Nullable<float> BackSideSlatBeamSolarReflectance { get; set; } = null;
         
 
 [Description("Must equal \"Slat beam solar transmittance\"")]
-[JsonProperty("slat_diffuse_solar_transmittance")]
+[JsonProperty(PropertyName="slat_diffuse_solar_transmittance")]
 public System.Nullable<float> SlatDiffuseSolarTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Must equal \"Front Side Slat Beam Solar Reflectance\"")]
-[JsonProperty("front_side_slat_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="front_side_slat_diffuse_solar_reflectance")]
 public System.Nullable<float> FrontSideSlatDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("Must equal \"Back Side Slat Beam Solar Reflectance\"")]
-[JsonProperty("back_side_slat_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="back_side_slat_diffuse_solar_reflectance")]
 public System.Nullable<float> BackSideSlatDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("Required for detailed daylighting calculation")]
-[JsonProperty("slat_beam_visible_transmittance")]
+[JsonProperty(PropertyName="slat_beam_visible_transmittance")]
 public System.Nullable<float> SlatBeamVisibleTransmittance { get; set; } = null;
         
 
 [Description("Required for detailed daylighting calculation")]
-[JsonProperty("front_side_slat_beam_visible_reflectance")]
+[JsonProperty(PropertyName="front_side_slat_beam_visible_reflectance")]
 public System.Nullable<float> FrontSideSlatBeamVisibleReflectance { get; set; } = null;
         
 
 [Description("Required for detailed daylighting calculation")]
-[JsonProperty("back_side_slat_beam_visible_reflectance")]
+[JsonProperty(PropertyName="back_side_slat_beam_visible_reflectance")]
 public System.Nullable<float> BackSideSlatBeamVisibleReflectance { get; set; } = null;
         
 
 [Description("Used only for detailed daylighting calculation Must equal \"Slat Beam Visible Tran" +
     "smittance\"")]
-[JsonProperty("slat_diffuse_visible_transmittance")]
+[JsonProperty(PropertyName="slat_diffuse_visible_transmittance")]
 public System.Nullable<float> SlatDiffuseVisibleTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Required for detailed daylighting calculation Must equal \"Front Side Slat Beam Vi" +
     "sible Reflectance\"")]
-[JsonProperty("front_side_slat_diffuse_visible_reflectance")]
+[JsonProperty(PropertyName="front_side_slat_diffuse_visible_reflectance")]
 public System.Nullable<float> FrontSideSlatDiffuseVisibleReflectance { get; set; } = null;
         
 
 [Description("Required for detailed daylighting calculation Must equal \"Back Side Slat Beam Vis" +
     "ible Reflectance\"")]
-[JsonProperty("back_side_slat_diffuse_visible_reflectance")]
+[JsonProperty(PropertyName="back_side_slat_diffuse_visible_reflectance")]
 public System.Nullable<float> BackSideSlatDiffuseVisibleReflectance { get; set; } = null;
         
 
-[JsonProperty("slat_infrared_hemispherical_transmittance")]
+[JsonProperty(PropertyName="slat_infrared_hemispherical_transmittance")]
 public System.Nullable<float> SlatInfraredHemisphericalTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("front_side_slat_infrared_hemispherical_emissivity")]
+[JsonProperty(PropertyName="front_side_slat_infrared_hemispherical_emissivity")]
 public System.Nullable<float> FrontSideSlatInfraredHemisphericalEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.9", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("back_side_slat_infrared_hemispherical_emissivity")]
+[JsonProperty(PropertyName="back_side_slat_infrared_hemispherical_emissivity")]
 public System.Nullable<float> BackSideSlatInfraredHemisphericalEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.9", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("blind_to_glass_distance")]
+[JsonProperty(PropertyName="blind_to_glass_distance")]
 public System.Nullable<float> BlindToGlassDistance { get; set; } = (System.Nullable<float>)Single.Parse("0.05", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("blind_top_opening_multiplier")]
+[JsonProperty(PropertyName="blind_top_opening_multiplier")]
 public System.Nullable<float> BlindTopOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0.5", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("blind_bottom_opening_multiplier")]
+[JsonProperty(PropertyName="blind_bottom_opening_multiplier")]
 public System.Nullable<float> BlindBottomOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("blind_left_side_opening_multiplier")]
+[JsonProperty(PropertyName="blind_left_side_opening_multiplier")]
 public System.Nullable<float> BlindLeftSideOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0.5", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("blind_right_side_opening_multiplier")]
+[JsonProperty(PropertyName="blind_right_side_opening_multiplier")]
 public System.Nullable<float> BlindRightSideOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [Description("Used only if WindowShadingControl referencing the window that incorporates this b" +
     "lind varies the slat angle (i.e., WindowShadingControl with Type of Slat Angle C" +
     "ontrol for Blinds = ScheduledSlatAngle or BlockBeamSolar)")]
-[JsonProperty("minimum_slat_angle")]
+[JsonProperty(PropertyName="minimum_slat_angle")]
 public System.Nullable<float> MinimumSlatAngle { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only if WindowShadingControl referencing the window that incorporates this b" +
     "lind varies the slat angle (i.e., WindowShadingControl with Type of Slat Angle C" +
     "ontrol for Blinds = ScheduledSlatAngle or BlockBeamSolar)")]
-[JsonProperty("maximum_slat_angle")]
+[JsonProperty(PropertyName="maximum_slat_angle")]
 public System.Nullable<float> MaximumSlatAngle { get; set; } = (System.Nullable<float>)Single.Parse("180", CultureInfo.InvariantCulture);
     }
     
     public enum WindowMaterial_Blind_SlatOrientation
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Horizontal")]
@@ -1199,90 +1202,90 @@ public System.Nullable<float> MaximumSlatAngle { get; set; } = (System.Nullable<
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Select the method used to account for the beam solar reflected off the material s" +
     "urface.")]
-[JsonProperty("reflected_beam_transmittance_accounting_method")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="reflected_beam_transmittance_accounting_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod ReflectedBeamTransmittanceAccountingMethod { get; set; } = (WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod)Enum.Parse(typeof(WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod), "ModelAsDiffuse");
         
 
 [Description("Diffuse reflectance of the screen material over the entire solar radiation spectr" +
     "um. Assumed to be the same for both sides of the screen.")]
-[JsonProperty("diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="diffuse_solar_reflectance")]
 public System.Nullable<float> DiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("Diffuse visible reflectance of the screen material averaged over the solar spectr" +
     "um and weighted by the response of the human eye. Assumed to be the same for bot" +
     "h sides of the screen.")]
-[JsonProperty("diffuse_visible_reflectance")]
+[JsonProperty(PropertyName="diffuse_visible_reflectance")]
 public System.Nullable<float> DiffuseVisibleReflectance { get; set; } = null;
         
 
 [Description("Long-wave emissivity of the screen material. Assumed to be the same for both side" +
     "s of the screen.")]
-[JsonProperty("thermal_hemispherical_emissivity")]
+[JsonProperty(PropertyName="thermal_hemispherical_emissivity")]
 public System.Nullable<float> ThermalHemisphericalEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description("Thermal conductivity of the screen material. Default is for aluminum.")]
-[JsonProperty("conductivity")]
+[JsonProperty(PropertyName="conductivity")]
 public System.Nullable<float> Conductivity { get; set; } = (System.Nullable<float>)Single.Parse("221", CultureInfo.InvariantCulture);
         
 
 [Description("Spacing assumed to be the same in both directions.")]
-[JsonProperty("screen_material_spacing")]
+[JsonProperty(PropertyName="screen_material_spacing")]
 public System.Nullable<float> ScreenMaterialSpacing { get; set; } = null;
         
 
 [Description("Diameter assumed to be the same in both directions.")]
-[JsonProperty("screen_material_diameter")]
+[JsonProperty(PropertyName="screen_material_diameter")]
 public System.Nullable<float> ScreenMaterialDiameter { get; set; } = null;
         
 
 [Description("Distance from the window screen to the adjacent glass surface.")]
-[JsonProperty("screen_to_glass_distance")]
+[JsonProperty(PropertyName="screen_to_glass_distance")]
 public System.Nullable<float> ScreenToGlassDistance { get; set; } = (System.Nullable<float>)Single.Parse("0.025", CultureInfo.InvariantCulture);
         
 
 [Description("Effective area for air flow at the top of the screen divided by the perpendicular" +
     " area between the glass and the top of the screen.")]
-[JsonProperty("top_opening_multiplier")]
+[JsonProperty(PropertyName="top_opening_multiplier")]
 public System.Nullable<float> TopOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Effective area for air flow at the bottom of the screen divided by the perpendicu" +
     "lar area between the glass and the bottom of the screen.")]
-[JsonProperty("bottom_opening_multiplier")]
+[JsonProperty(PropertyName="bottom_opening_multiplier")]
 public System.Nullable<float> BottomOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Effective area for air flow at the left side of the screen divided by the perpend" +
     "icular area between the glass and the left side of the screen.")]
-[JsonProperty("left_side_opening_multiplier")]
+[JsonProperty(PropertyName="left_side_opening_multiplier")]
 public System.Nullable<float> LeftSideOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Effective area for air flow at the right side of the screen divided by the perpen" +
     "dicular area between the glass and the right side of the screen.")]
-[JsonProperty("right_side_opening_multiplier")]
+[JsonProperty(PropertyName="right_side_opening_multiplier")]
 public System.Nullable<float> RightSideOpeningMultiplier { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Select the resolution of azimuth and altitude angles for the screen transmittance" +
     " map. A value of 0 means no transmittance map will be generated. Valid values fo" +
     "r this field are 0, 1, 2, 3 and 5.")]
-[JsonProperty("angle_of_resolution_for_screen_transmittance_output_map")]
-public string AngleOfResolutionForScreenTransmittanceOutputMap { get; set; } = (System.String)"0";
+[JsonProperty(PropertyName="angle_of_resolution_for_screen_transmittance_output_map")]
+public System.Nullable<float> AngleOfResolutionForScreenTransmittanceOutputMap { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="DoNotModel")]
@@ -1305,76 +1308,77 @@ public string AngleOfResolutionForScreenTransmittanceOutputMap { get; set; } = (
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("The beam-beam solar transmittance at normal incidence. This value is the same as " +
     "the openness area fraction of the shade material. Assumed to be the same for fro" +
     "nt and back sides.")]
-[JsonProperty("shade_beam_beam_solar_transmittance")]
+[JsonProperty(PropertyName="shade_beam_beam_solar_transmittance")]
 public System.Nullable<float> ShadeBeamBeamSolarTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The front side beam-diffuse solar transmittance at normal incidence averaged over" +
     " the entire spectrum of solar radiation.")]
-[JsonProperty("front_side_shade_beam_diffuse_solar_transmittance")]
+[JsonProperty(PropertyName="front_side_shade_beam_diffuse_solar_transmittance")]
 public System.Nullable<float> FrontSideShadeBeamDiffuseSolarTransmittance { get; set; } = null;
         
 
 [Description("The back side beam-diffuse solar transmittance at normal incidence averaged over " +
     "the entire spectrum of solar radiation.")]
-[JsonProperty("back_side_shade_beam_diffuse_solar_transmittance")]
+[JsonProperty(PropertyName="back_side_shade_beam_diffuse_solar_transmittance")]
 public System.Nullable<float> BackSideShadeBeamDiffuseSolarTransmittance { get; set; } = null;
         
 
 [Description("The front side beam-diffuse solar reflectance at normal incidence averaged over t" +
     "he entire spectrum of solar radiation.")]
-[JsonProperty("front_side_shade_beam_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="front_side_shade_beam_diffuse_solar_reflectance")]
 public System.Nullable<float> FrontSideShadeBeamDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("The back side beam-diffuse solar reflectance at normal incidence averaged over th" +
     "e entire spectrum of solar radiation.")]
-[JsonProperty("back_side_shade_beam_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="back_side_shade_beam_diffuse_solar_reflectance")]
 public System.Nullable<float> BackSideShadeBeamDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("The beam-beam visible transmittance at normal incidence averaged over the visible" +
     " spectrum range of solar radiation. Assumed to be the same for front and back si" +
     "des of the shade.")]
-[JsonProperty("shade_beam_beam_visible_transmittance_at_normal_incidence")]
+[JsonProperty(PropertyName="shade_beam_beam_visible_transmittance_at_normal_incidence")]
 public System.Nullable<float> ShadeBeamBeamVisibleTransmittanceAtNormalIncidence { get; set; } = null;
         
 
 [Description("The beam-diffuse visible transmittance at normal incidence averaged over the visi" +
     "ble spectrum range of solar radiation. Assumed to be the same for front and back" +
     " sides of the shade.")]
-[JsonProperty("shade_beam_diffuse_visible_transmittance_at_normal_incidence")]
+[JsonProperty(PropertyName="shade_beam_diffuse_visible_transmittance_at_normal_incidence")]
 public System.Nullable<float> ShadeBeamDiffuseVisibleTransmittanceAtNormalIncidence { get; set; } = null;
         
 
 [Description("The beam-diffuse visible reflectance at normal incidence averaged over the visibl" +
     "e spectrum range of solar radiation. Assumed to be the same for front and back s" +
     "ides of the shade.")]
-[JsonProperty("shade_beam_diffuse_visible_reflectance_at_normal_incidence")]
+[JsonProperty(PropertyName="shade_beam_diffuse_visible_reflectance_at_normal_incidence")]
 public System.Nullable<float> ShadeBeamDiffuseVisibleReflectanceAtNormalIncidence { get; set; } = null;
         
 
 [Description("The long-wave transmittance of the shade material at zero shade openness. Assumed" +
     " to be the same for front and back sides of the shade.")]
-[JsonProperty("shade_material_infrared_transmittance")]
+[JsonProperty(PropertyName="shade_material_infrared_transmittance")]
 public System.Nullable<float> ShadeMaterialInfraredTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0.05", CultureInfo.InvariantCulture);
         
 
 [Description("The front side long-wave emissivity of the shade material at zero shade openness." +
     " Openness fraction is used to calculate the effective emissivity value.")]
-[JsonProperty("front_side_shade_material_infrared_emissivity")]
+[JsonProperty(PropertyName="front_side_shade_material_infrared_emissivity")]
 public System.Nullable<float> FrontSideShadeMaterialInfraredEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.91", CultureInfo.InvariantCulture);
         
 
 [Description("The back side long-wave emissivity of the shade material at zero shade openness. " +
     "Openness fraction is used to calculate the effective emissivity value.")]
-[JsonProperty("back_side_shade_material_infrared_emissivity")]
+[JsonProperty(PropertyName="back_side_shade_material_infrared_emissivity")]
 public System.Nullable<float> BackSideShadeMaterialInfraredEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.91", CultureInfo.InvariantCulture);
     }
     
@@ -1385,91 +1389,92 @@ public System.Nullable<float> BackSideShadeMaterialInfraredEmissivity { get; set
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("The beam-beam solar transmittance at normal incidence. This value is the same as " +
     "the openness area fraction of the drape fabric. Assumed to be same for front and" +
     " back sides.")]
-[JsonProperty("drape_beam_beam_solar_transmittance_at_normal_incidence")]
+[JsonProperty(PropertyName="drape_beam_beam_solar_transmittance_at_normal_incidence")]
 public System.Nullable<float> DrapeBeamBeamSolarTransmittanceAtNormalIncidence { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The front side beam-diffuse solar transmittance at normal incidence averaged over" +
     " the entire spectrum of solar radiation. Assumed to be the same for front and ba" +
     "ck sides.")]
-[JsonProperty("front_side_drape_beam_diffuse_solar_transmittance")]
+[JsonProperty(PropertyName="front_side_drape_beam_diffuse_solar_transmittance")]
 public System.Nullable<float> FrontSideDrapeBeamDiffuseSolarTransmittance { get; set; } = null;
         
 
 [Description("The back side beam-diffuse solar transmittance at normal incidence averaged over " +
     "the entire spectrum of solar radiation. Assumed to be the same for front and bac" +
     "k sides.")]
-[JsonProperty("back_side_drape_beam_diffuse_solar_transmittance")]
+[JsonProperty(PropertyName="back_side_drape_beam_diffuse_solar_transmittance")]
 public System.Nullable<float> BackSideDrapeBeamDiffuseSolarTransmittance { get; set; } = null;
         
 
 [Description("The front side beam-diffuse solar reflectance at normal incidence averaged over t" +
     "he entire spectrum of solar radiation.")]
-[JsonProperty("front_side_drape_beam_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="front_side_drape_beam_diffuse_solar_reflectance")]
 public System.Nullable<float> FrontSideDrapeBeamDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("The back side beam-diffuse solar reflectance at normal incidence averaged over th" +
     "e entire spectrum of solar radiation.")]
-[JsonProperty("back_side_drape_beam_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="back_side_drape_beam_diffuse_solar_reflectance")]
 public System.Nullable<float> BackSideDrapeBeamDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("The beam-beam visible transmittance at normal incidence averaged over the visible" +
     " spectrum of solar radiation. Assumed same for front and back sides.")]
-[JsonProperty("drape_beam_beam_visible_transmittance")]
+[JsonProperty(PropertyName="drape_beam_beam_visible_transmittance")]
 public System.Nullable<float> DrapeBeamBeamVisibleTransmittance { get; set; } = null;
         
 
 [Description("The beam-diffuse visible transmittance at normal incidence averaged over the visi" +
     "ble spectrum range of solar radiation. Assumed to be the same for front and back" +
     " sides.")]
-[JsonProperty("drape_beam_diffuse_visible_transmittance")]
+[JsonProperty(PropertyName="drape_beam_diffuse_visible_transmittance")]
 public System.Nullable<float> DrapeBeamDiffuseVisibleTransmittance { get; set; } = null;
         
 
 [Description("The beam-diffuse visible reflectance at normal incidence average over the visible" +
     " spectrum range of solar radiation. Assumed to be the same for front and back si" +
     "des.")]
-[JsonProperty("drape_beam_diffuse_visible_reflectance")]
+[JsonProperty(PropertyName="drape_beam_diffuse_visible_reflectance")]
 public System.Nullable<float> DrapeBeamDiffuseVisibleReflectance { get; set; } = null;
         
 
 [Description("Long-wave transmittance of the drape fabric at zero openness fraction. Assumed sa" +
     "me for front and back sides.")]
-[JsonProperty("drape_material_infrared_transmittance")]
+[JsonProperty(PropertyName="drape_material_infrared_transmittance")]
 public System.Nullable<float> DrapeMaterialInfraredTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0.05", CultureInfo.InvariantCulture);
         
 
 [Description("Front side long-wave emissivity of the drape fabric at zero shade openness. Openn" +
     "ess fraction specified above is used to calculate the effective emissivity value" +
     ".")]
-[JsonProperty("front_side_drape_material_infrared_emissivity")]
+[JsonProperty(PropertyName="front_side_drape_material_infrared_emissivity")]
 public System.Nullable<float> FrontSideDrapeMaterialInfraredEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.87", CultureInfo.InvariantCulture);
         
 
 [Description("Back side long-wave emissivity of the drape fabric at zero shade openness. Openne" +
     "ss fraction specified above is used to calculate the effective emissivity value." +
     "")]
-[JsonProperty("back_side_drape_material_infrared_emissivity")]
+[JsonProperty(PropertyName="back_side_drape_material_infrared_emissivity")]
 public System.Nullable<float> BackSideDrapeMaterialInfraredEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.87", CultureInfo.InvariantCulture);
         
 
 [Description("Width of the pleated section of the draped fabric. If the drape fabric is unpleat" +
     "ed or is flat, then the pleated section width is set to zero.")]
-[JsonProperty("width_of_pleated_fabric")]
+[JsonProperty(PropertyName="width_of_pleated_fabric")]
 public System.Nullable<float> WidthOfPleatedFabric { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Length of the pleated section of the draped fabric. If the drape fabric is unplea" +
     "ted or is flat, then the pleated section length is set to zero.")]
-[JsonProperty("length_of_pleated_fabric")]
+[JsonProperty(PropertyName="length_of_pleated_fabric")]
 public System.Nullable<float> LengthOfPleatedFabric { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
     }
     
@@ -1483,146 +1488,145 @@ public System.Nullable<float> LengthOfPleatedFabric { get; set; } = (System.Null
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("slat_orientation")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="slat_orientation", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Blind_EquivalentLayer_SlatOrientation SlatOrientation { get; set; } = (WindowMaterial_Blind_EquivalentLayer_SlatOrientation)Enum.Parse(typeof(WindowMaterial_Blind_EquivalentLayer_SlatOrientation), "Horizontal");
         
 
-[JsonProperty("slat_width")]
+[JsonProperty(PropertyName="slat_width")]
 public System.Nullable<float> SlatWidth { get; set; } = null;
         
 
 [Description("Distance between adjacent slat faces")]
-[JsonProperty("slat_separation")]
+[JsonProperty(PropertyName="slat_separation")]
 public System.Nullable<float> SlatSeparation { get; set; } = null;
         
 
 [Description("Perpendicular length between the cord and the curve. Slat is assumed to be rectan" +
     "gular in cross section and flat. Crown=0.0625x\"Slat width\"")]
-[JsonProperty("slat_crown")]
+[JsonProperty(PropertyName="slat_crown")]
 public System.Nullable<float> SlatCrown { get; set; } = (System.Nullable<float>)Single.Parse("0.0015", CultureInfo.InvariantCulture);
         
 
 [Description("Slat angle is +ve if the tip of the slat front face is tilted upward, else the sl" +
     "at angle is -ve if the tip of the slat front face is tilted downward. The slat a" +
     "ngle varies between -90 to +90. The default value is 45 degrees.")]
-[JsonProperty("slat_angle")]
+[JsonProperty(PropertyName="slat_angle")]
 public System.Nullable<float> SlatAngle { get; set; } = (System.Nullable<float>)Single.Parse("45", CultureInfo.InvariantCulture);
         
 
 [Description("The front side beam-diffuse solar transmittance of the slat at normal incidence a" +
     "veraged over the entire spectrum of solar radiation.")]
-[JsonProperty("front_side_slat_beam_diffuse_solar_transmittance")]
+[JsonProperty(PropertyName="front_side_slat_beam_diffuse_solar_transmittance")]
 public System.Nullable<float> FrontSideSlatBeamDiffuseSolarTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The back side beam-diffuse solar transmittance of the slat at normal incidence av" +
     "eraged over the entire spectrum of solar radiation.")]
-[JsonProperty("back_side_slat_beam_diffuse_solar_transmittance")]
+[JsonProperty(PropertyName="back_side_slat_beam_diffuse_solar_transmittance")]
 public System.Nullable<float> BackSideSlatBeamDiffuseSolarTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The front side beam-diffuse solar reflectance of the slat at normal incidence ave" +
     "raged over the entire spectrum of solar radiation.")]
-[JsonProperty("front_side_slat_beam_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="front_side_slat_beam_diffuse_solar_reflectance")]
 public System.Nullable<float> FrontSideSlatBeamDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("The back side beam-diffuse solar reflectance of the slat at normal incidence aver" +
     "aged over the entire spectrum of solar radiation.")]
-[JsonProperty("back_side_slat_beam_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="back_side_slat_beam_diffuse_solar_reflectance")]
 public System.Nullable<float> BackSideSlatBeamDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("The front side beam-diffuse visible transmittance of the slat at normal incidence" +
     " averaged over the visible spectrum range of solar radiation.")]
-[JsonProperty("front_side_slat_beam_diffuse_visible_transmittance")]
+[JsonProperty(PropertyName="front_side_slat_beam_diffuse_visible_transmittance")]
 public System.Nullable<float> FrontSideSlatBeamDiffuseVisibleTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The back side beam-diffuse visible transmittance of the slat at normal incidence " +
     "averaged over the visible spectrum range of solar radiation.")]
-[JsonProperty("back_side_slat_beam_diffuse_visible_transmittance")]
+[JsonProperty(PropertyName="back_side_slat_beam_diffuse_visible_transmittance")]
 public System.Nullable<float> BackSideSlatBeamDiffuseVisibleTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The front side beam-diffuse visible reflectance of the slat at normal incidence a" +
     "veraged over the visible spectrum range of solar radiation.")]
-[JsonProperty("front_side_slat_beam_diffuse_visible_reflectance")]
+[JsonProperty(PropertyName="front_side_slat_beam_diffuse_visible_reflectance")]
 public System.Nullable<float> FrontSideSlatBeamDiffuseVisibleReflectance { get; set; } = null;
         
 
 [Description("The back side beam-diffuse visible reflectance of the slat at normal incidence av" +
     "eraged over the visible spectrum range of solar radiation.")]
-[JsonProperty("back_side_slat_beam_diffuse_visible_reflectance")]
+[JsonProperty(PropertyName="back_side_slat_beam_diffuse_visible_reflectance")]
 public System.Nullable<float> BackSideSlatBeamDiffuseVisibleReflectance { get; set; } = null;
         
 
 [Description("The beam-diffuse solar transmittance of the slat averaged over the entire solar s" +
     "pectrum of solar radiation.")]
-[JsonProperty("slat_diffuse_diffuse_solar_transmittance")]
+[JsonProperty(PropertyName="slat_diffuse_diffuse_solar_transmittance")]
 public System.Nullable<float> SlatDiffuseDiffuseSolarTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The front side beam-diffuse solar reflectance of the slat averaged over the entir" +
     "e solar spectrum of solar radiation.")]
-[JsonProperty("front_side_slat_diffuse_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="front_side_slat_diffuse_diffuse_solar_reflectance")]
 public System.Nullable<float> FrontSideSlatDiffuseDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("The back side beam-diffuse solar reflectance of the slat averaged over the entire" +
     " solar spectrum of solar radiation.")]
-[JsonProperty("back_side_slat_diffuse_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="back_side_slat_diffuse_diffuse_solar_reflectance")]
 public System.Nullable<float> BackSideSlatDiffuseDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("The beam-diffuse visible transmittance of the slat averaged over the visible spec" +
     "trum range of solar radiation.")]
-[JsonProperty("slat_diffuse_diffuse_visible_transmittance")]
+[JsonProperty(PropertyName="slat_diffuse_diffuse_visible_transmittance")]
 public System.Nullable<float> SlatDiffuseDiffuseVisibleTransmittance { get; set; } = null;
         
 
 [Description("The front side beam-diffuse visible reflectance of the slat averaged over the vis" +
     "ible spectrum range of solar radiation.")]
-[JsonProperty("front_side_slat_diffuse_diffuse_visible_reflectance")]
+[JsonProperty(PropertyName="front_side_slat_diffuse_diffuse_visible_reflectance")]
 public System.Nullable<float> FrontSideSlatDiffuseDiffuseVisibleReflectance { get; set; } = null;
         
 
 [Description("The back side beam-diffuse visible reflectance of the slat averaged over the visi" +
     "ble spectrum range of solar radiation.")]
-[JsonProperty("back_side_slat_diffuse_diffuse_visible_reflectance")]
+[JsonProperty(PropertyName="back_side_slat_diffuse_diffuse_visible_reflectance")]
 public System.Nullable<float> BackSideSlatDiffuseDiffuseVisibleReflectance { get; set; } = null;
         
 
 [Description("Long-wave hemispherical transmittance of the slat material. Assumed to be the sam" +
     "e for both sides of the slat.")]
-[JsonProperty("slat_infrared_transmittance")]
+[JsonProperty(PropertyName="slat_infrared_transmittance")]
 public System.Nullable<float> SlatInfraredTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Front side long-wave hemispherical emissivity of the slat material.")]
-[JsonProperty("front_side_slat_infrared_emissivity")]
+[JsonProperty(PropertyName="front_side_slat_infrared_emissivity")]
 public System.Nullable<float> FrontSideSlatInfraredEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description("Back side long-wave hemispherical emissivity of the slat material.")]
-[JsonProperty("back_side_slat_infrared_emissivity")]
+[JsonProperty(PropertyName="back_side_slat_infrared_emissivity")]
 public System.Nullable<float> BackSideSlatInfraredEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description(@"Used only if slat angle control is desired to either maximize solar gain (MaximizeSolar), maximize visibility while eliminating beam solar radiation (BlockBeamSolar), or fixed slate angle (FixedSlatAngle). If FixedSlatAngle is selected, the slat angle entered above is used.")]
-[JsonProperty("slat_angle_control")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="slat_angle_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Blind_EquivalentLayer_SlatAngleControl SlatAngleControl { get; set; } = (WindowMaterial_Blind_EquivalentLayer_SlatAngleControl)Enum.Parse(typeof(WindowMaterial_Blind_EquivalentLayer_SlatAngleControl), "FixedSlatAngle");
     }
     
     public enum WindowMaterial_Blind_EquivalentLayer_SlatOrientation
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Horizontal")]
@@ -1635,7 +1639,7 @@ public WindowMaterial_Blind_EquivalentLayer_SlatAngleControl SlatAngleControl { 
     public enum WindowMaterial_Blind_EquivalentLayer_SlatAngleControl
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="BlockBeamSolar")]
@@ -1656,68 +1660,69 @@ public WindowMaterial_Blind_EquivalentLayer_SlatAngleControl SlatAngleControl { 
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description(@"The beam-beam transmittance of the screen material at normal incidence. This input field is the same as the material openness area fraction and can be autocalculated from the wire spacing and wire and diameter. Assumed to be the same for both sides of the screen.")]
-[JsonProperty("screen_beam_beam_solar_transmittance")]
-public string ScreenBeamBeamSolarTransmittance { get; set; } = (System.String)"Autocalculate";
+[JsonProperty(PropertyName="screen_beam_beam_solar_transmittance", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> ScreenBeamBeamSolarTransmittance { get; set; } = null;
         
 
 [Description("The beam-diffuse solar transmittance of the screen material at normal incidence a" +
     "veraged over the entire spectrum of solar radiation. Assumed to be the same for " +
     "both sides of the screen.")]
-[JsonProperty("screen_beam_diffuse_solar_transmittance")]
+[JsonProperty(PropertyName="screen_beam_diffuse_solar_transmittance")]
 public System.Nullable<float> ScreenBeamDiffuseSolarTransmittance { get; set; } = null;
         
 
 [Description("The beam-diffuse solar reflectance of the screen material at normal incidence ave" +
     "raged over the entire spectrum of solar radiation. Assumed to be the same for bo" +
     "th sides of the screen.")]
-[JsonProperty("screen_beam_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="screen_beam_diffuse_solar_reflectance")]
 public System.Nullable<float> ScreenBeamDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("The beam-beam visible transmittance of the screen material at normal incidence av" +
     "eraged over the visible spectrum range of solar radiation. Assumed to be the sam" +
     "e for both sides of the screen.")]
-[JsonProperty("screen_beam_beam_visible_transmittance")]
+[JsonProperty(PropertyName="screen_beam_beam_visible_transmittance")]
 public System.Nullable<float> ScreenBeamBeamVisibleTransmittance { get; set; } = null;
         
 
 [Description("The beam-diffuse visible transmittance of the screen material at normal incidence" +
     " averaged over the visible spectrum range of solar radiation. Assumed to be the " +
     "same for both sides of the screen.")]
-[JsonProperty("screen_beam_diffuse_visible_transmittance")]
+[JsonProperty(PropertyName="screen_beam_diffuse_visible_transmittance")]
 public System.Nullable<float> ScreenBeamDiffuseVisibleTransmittance { get; set; } = null;
         
 
 [Description("Beam-diffuse visible reflectance of the screen material at normal incidence avera" +
     "ged over the visible spectrum range of solar radiation. Assumed to be the same f" +
     "or both sides of the screen.")]
-[JsonProperty("screen_beam_diffuse_visible_reflectance")]
+[JsonProperty(PropertyName="screen_beam_diffuse_visible_reflectance")]
 public System.Nullable<float> ScreenBeamDiffuseVisibleReflectance { get; set; } = null;
         
 
 [Description("The long-wave hemispherical transmittance of the screen material. Assumed to be t" +
     "he same for both sides of the screen.")]
-[JsonProperty("screen_infrared_transmittance")]
+[JsonProperty(PropertyName="screen_infrared_transmittance")]
 public System.Nullable<float> ScreenInfraredTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0.02", CultureInfo.InvariantCulture);
         
 
 [Description("The long-wave hemispherical emissivity of the screen material. Assumed to be the " +
     "same for both sides of the screen.")]
-[JsonProperty("screen_infrared_emissivity")]
+[JsonProperty(PropertyName="screen_infrared_emissivity")]
 public System.Nullable<float> ScreenInfraredEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.93", CultureInfo.InvariantCulture);
         
 
 [Description("Spacing assumed to be the same in both directions.")]
-[JsonProperty("screen_wire_spacing")]
+[JsonProperty(PropertyName="screen_wire_spacing")]
 public System.Nullable<float> ScreenWireSpacing { get; set; } = (System.Nullable<float>)Single.Parse("0.025", CultureInfo.InvariantCulture);
         
 
 [Description("Diameter assumed to be the same in both directions.")]
-[JsonProperty("screen_wire_diameter")]
+[JsonProperty(PropertyName="screen_wire_diameter")]
 public System.Nullable<float> ScreenWireDiameter { get; set; } = (System.Nullable<float>)Single.Parse("0.005", CultureInfo.InvariantCulture);
     }
     
@@ -1729,169 +1734,169 @@ public System.Nullable<float> ScreenWireDiameter { get; set; } = (System.Nullabl
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Spectral is not currently supported and SpectralAverage is the default.")]
-[JsonProperty("optical_data_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="optical_data_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Glazing_EquivalentLayer_OpticalDataType OpticalDataType { get; set; } = (WindowMaterial_Glazing_EquivalentLayer_OpticalDataType)Enum.Parse(typeof(WindowMaterial_Glazing_EquivalentLayer_OpticalDataType), "SpectralAverage");
         
 
 [Description("Spectral data is not currently supported. Used only when Optical Data Type = Spec" +
     "tral")]
-[JsonProperty("window_glass_spectral_data_set_name")]
+[JsonProperty(PropertyName="window_glass_spectral_data_set_name")]
 public string WindowGlassSpectralDataSetName { get; set; } = "";
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
-[JsonProperty("front_side_beam_beam_solar_transmittance")]
+[JsonProperty(PropertyName="front_side_beam_beam_solar_transmittance")]
 public System.Nullable<float> FrontSideBeamBeamSolarTransmittance { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
-[JsonProperty("back_side_beam_beam_solar_transmittance")]
+[JsonProperty(PropertyName="back_side_beam_beam_solar_transmittance")]
 public System.Nullable<float> BackSideBeamBeamSolarTransmittance { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Front Side is side closest to " +
     "outdoor air")]
-[JsonProperty("front_side_beam_beam_solar_reflectance")]
+[JsonProperty(PropertyName="front_side_beam_beam_solar_reflectance")]
 public System.Nullable<float> FrontSideBeamBeamSolarReflectance { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Back Side is side closest to z" +
     "one air")]
-[JsonProperty("back_side_beam_beam_solar_reflectance")]
+[JsonProperty(PropertyName="back_side_beam_beam_solar_reflectance")]
 public System.Nullable<float> BackSideBeamBeamSolarReflectance { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
-[JsonProperty("front_side_beam_beam_visible_solar_transmittance")]
+[JsonProperty(PropertyName="front_side_beam_beam_visible_solar_transmittance")]
 public System.Nullable<float> FrontSideBeamBeamVisibleSolarTransmittance { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
-[JsonProperty("back_side_beam_beam_visible_solar_transmittance")]
+[JsonProperty(PropertyName="back_side_beam_beam_visible_solar_transmittance")]
 public System.Nullable<float> BackSideBeamBeamVisibleSolarTransmittance { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Front Side is side closest to " +
     "outdoor air")]
-[JsonProperty("front_side_beam_beam_visible_solar_reflectance")]
+[JsonProperty(PropertyName="front_side_beam_beam_visible_solar_reflectance")]
 public System.Nullable<float> FrontSideBeamBeamVisibleSolarReflectance { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Back Side is side closest to z" +
     "one air")]
-[JsonProperty("back_side_beam_beam_visible_solar_reflectance")]
+[JsonProperty(PropertyName="back_side_beam_beam_visible_solar_reflectance")]
 public System.Nullable<float> BackSideBeamBeamVisibleSolarReflectance { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
-[JsonProperty("front_side_beam_diffuse_solar_transmittance")]
+[JsonProperty(PropertyName="front_side_beam_diffuse_solar_transmittance")]
 public System.Nullable<float> FrontSideBeamDiffuseSolarTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
-[JsonProperty("back_side_beam_diffuse_solar_transmittance")]
+[JsonProperty(PropertyName="back_side_beam_diffuse_solar_transmittance")]
 public System.Nullable<float> BackSideBeamDiffuseSolarTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Front Side is side closest to " +
     "outdoor air")]
-[JsonProperty("front_side_beam_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="front_side_beam_diffuse_solar_reflectance")]
 public System.Nullable<float> FrontSideBeamDiffuseSolarReflectance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Back Side is side closest to z" +
     "one air")]
-[JsonProperty("back_side_beam_diffuse_solar_reflectance")]
+[JsonProperty(PropertyName="back_side_beam_diffuse_solar_reflectance")]
 public System.Nullable<float> BackSideBeamDiffuseSolarReflectance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
-[JsonProperty("front_side_beam_diffuse_visible_solar_transmittance")]
+[JsonProperty(PropertyName="front_side_beam_diffuse_visible_solar_transmittance")]
 public System.Nullable<float> FrontSideBeamDiffuseVisibleSolarTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
-[JsonProperty("back_side_beam_diffuse_visible_solar_transmittance")]
+[JsonProperty(PropertyName="back_side_beam_diffuse_visible_solar_transmittance")]
 public System.Nullable<float> BackSideBeamDiffuseVisibleSolarTransmittance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Front Side is side closest to " +
     "outdoor air")]
-[JsonProperty("front_side_beam_diffuse_visible_solar_reflectance")]
+[JsonProperty(PropertyName="front_side_beam_diffuse_visible_solar_reflectance")]
 public System.Nullable<float> FrontSideBeamDiffuseVisibleSolarReflectance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Back Side is side closest to z" +
     "one air")]
-[JsonProperty("back_side_beam_diffuse_visible_solar_reflectance")]
+[JsonProperty(PropertyName="back_side_beam_diffuse_visible_solar_reflectance")]
 public System.Nullable<float> BackSideBeamDiffuseVisibleSolarReflectance { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"Used only when Optical Data Type = SpectralAverage If this field is autocalculate, then the diffuse-diffuse solar transmittance is automatically estimated from other inputs and used in subsequent calculations. If this field is zero or positive, then the value entered here will be used.")]
-[JsonProperty("diffuse_diffuse_solar_transmittance")]
-public string DiffuseDiffuseSolarTransmittance { get; set; } = (System.String)"Autocalculate";
+[JsonProperty(PropertyName="diffuse_diffuse_solar_transmittance", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DiffuseDiffuseSolarTransmittance { get; set; } = null;
         
 
 [Description(@"Used only when Optical Data Type = SpectralAverage If this field is autocalculate, then the front diffuse-diffuse solar reflectance is automatically estimated from other inputs and used in subsequent calculations. If this field is zero or positive, then the value entered here will be used. Front Side is side closest to outdoor air.")]
-[JsonProperty("front_side_diffuse_diffuse_solar_reflectance")]
-public string FrontSideDiffuseDiffuseSolarReflectance { get; set; } = (System.String)"Autocalculate";
+[JsonProperty(PropertyName="front_side_diffuse_diffuse_solar_reflectance", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> FrontSideDiffuseDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description(@"Used only when Optical Data Type = SpectralAverage If this field is autocalculate, then the back diffuse-diffuse solar reflectance is automatically estimated from other inputs and used in subsequent calculations. If this field is zero or positive, then the value entered here will be used. Back side is side closest to indoor air.")]
-[JsonProperty("back_side_diffuse_diffuse_solar_reflectance")]
-public string BackSideDiffuseDiffuseSolarReflectance { get; set; } = (System.String)"Autocalculate";
+[JsonProperty(PropertyName="back_side_diffuse_diffuse_solar_reflectance", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> BackSideDiffuseDiffuseSolarReflectance { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage This input field is not used c" +
     "urrently.")]
-[JsonProperty("diffuse_diffuse_visible_solar_transmittance")]
-public string DiffuseDiffuseVisibleSolarTransmittance { get; set; } = (System.String)"Autocalculate";
+[JsonProperty(PropertyName="diffuse_diffuse_visible_solar_transmittance", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DiffuseDiffuseVisibleSolarTransmittance { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage This input field is not used c" +
     "urrently.")]
-[JsonProperty("front_side_diffuse_diffuse_visible_solar_reflectance")]
-public string FrontSideDiffuseDiffuseVisibleSolarReflectance { get; set; } = (System.String)"Autocalculate";
+[JsonProperty(PropertyName="front_side_diffuse_diffuse_visible_solar_reflectance", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> FrontSideDiffuseDiffuseVisibleSolarReflectance { get; set; } = null;
         
 
 [Description("Used only when Optical Data Type = SpectralAverage This input field is not used c" +
     "urrently.")]
-[JsonProperty("back_side_diffuse_diffuse_visible_solar_reflectance")]
-public string BackSideDiffuseDiffuseVisibleSolarReflectance { get; set; } = (System.String)"Autocalculate";
+[JsonProperty(PropertyName="back_side_diffuse_diffuse_visible_solar_reflectance", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> BackSideDiffuseDiffuseVisibleSolarReflectance { get; set; } = null;
         
 
 [Description("The long-wave hemispherical transmittance of the glazing. Assumed to be the same " +
     "for both sides of the glazing.")]
-[JsonProperty("infrared_transmittance_applies_to_front_and_back_")]
+[JsonProperty(PropertyName="infrared_transmittance_applies_to_front_and_back_")]
 public System.Nullable<float> InfraredTransmittanceAppliesToFrontAndBack { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The front side long-wave hemispherical emissivity of the glazing.")]
-[JsonProperty("front_side_infrared_emissivity")]
+[JsonProperty(PropertyName="front_side_infrared_emissivity")]
 public System.Nullable<float> FrontSideInfraredEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.84", CultureInfo.InvariantCulture);
         
 
 [Description("The back side long-wave hemispherical emissivity of the glazing.")]
-[JsonProperty("back_side_infrared_emissivity")]
+[JsonProperty(PropertyName="back_side_infrared_emissivity")]
 public System.Nullable<float> BackSideInfraredEmissivity { get; set; } = (System.Nullable<float>)Single.Parse("0.84", CultureInfo.InvariantCulture);
         
 
 [Description("This is the R-Value in SI for the glass. The default value is an approximation fo" +
     "r a single layer of glass at 1/4\" inch thickness. This field is used only for mo" +
     "vable insulation defined with this material type.")]
-[JsonProperty("thermal_resistance")]
+[JsonProperty(PropertyName="thermal_resistance")]
 public System.Nullable<float> ThermalResistance { get; set; } = (System.Nullable<float>)Single.Parse("0.158", CultureInfo.InvariantCulture);
     }
     
     public enum WindowMaterial_Glazing_EquivalentLayer_OpticalDataType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Spectral")]
@@ -1909,76 +1914,75 @@ public System.Nullable<float> ThermalResistance { get; set; } = (System.Nullable
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("gas_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="gas_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Gap_EquivalentLayer_GasType GasType { get; set; } = (WindowMaterial_Gap_EquivalentLayer_GasType)Enum.Parse(typeof(WindowMaterial_Gap_EquivalentLayer_GasType), "AIR");
         
 
-[JsonProperty("thickness")]
+[JsonProperty(PropertyName="thickness")]
 public System.Nullable<float> Thickness { get; set; } = null;
         
 
 [Description(@"Sealed means the gap is enclosed and gas tight, i.e., no venting to indoor or outdoor environment. VentedIndoor means the gap is vented to indoor environment, and VentedOutdoor means the gap is vented to the outdoor environment. The gap types VentedIndoor and VentedOutdoor are used with gas type ""Air"" only.")]
-[JsonProperty("gap_vent_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="gap_vent_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowMaterial_Gap_EquivalentLayer_GapVentType GapVentType { get; set; } = (WindowMaterial_Gap_EquivalentLayer_GapVentType)Enum.Parse(typeof(WindowMaterial_Gap_EquivalentLayer_GapVentType), "Sealed");
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("conductivity_coefficient_a")]
+[JsonProperty(PropertyName="conductivity_coefficient_a")]
 public System.Nullable<float> ConductivityCoefficientA { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("conductivity_coefficient_b")]
+[JsonProperty(PropertyName="conductivity_coefficient_b")]
 public System.Nullable<float> ConductivityCoefficientB { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("conductivity_coefficient_c")]
+[JsonProperty(PropertyName="conductivity_coefficient_c")]
 public System.Nullable<float> ConductivityCoefficientC { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("viscosity_coefficient_a")]
+[JsonProperty(PropertyName="viscosity_coefficient_a")]
 public System.Nullable<float> ViscosityCoefficientA { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("viscosity_coefficient_b")]
+[JsonProperty(PropertyName="viscosity_coefficient_b")]
 public System.Nullable<float> ViscosityCoefficientB { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("viscosity_coefficient_c")]
+[JsonProperty(PropertyName="viscosity_coefficient_c")]
 public System.Nullable<float> ViscosityCoefficientC { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("specific_heat_coefficient_a")]
+[JsonProperty(PropertyName="specific_heat_coefficient_a")]
 public System.Nullable<float> SpecificHeatCoefficientA { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("specific_heat_coefficient_b")]
+[JsonProperty(PropertyName="specific_heat_coefficient_b")]
 public System.Nullable<float> SpecificHeatCoefficientB { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("specific_heat_coefficient_c")]
+[JsonProperty(PropertyName="specific_heat_coefficient_c")]
 public System.Nullable<float> SpecificHeatCoefficientC { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("molecular_weight")]
+[JsonProperty(PropertyName="molecular_weight")]
 public System.Nullable<float> MolecularWeight { get; set; } = null;
         
 
 [Description("Used only if Gas Type = Custom")]
-[JsonProperty("specific_heat_ratio")]
+[JsonProperty(PropertyName="specific_heat_ratio")]
 public System.Nullable<float> SpecificHeatRatio { get; set; } = null;
     }
     
@@ -2023,47 +2027,48 @@ public System.Nullable<float> SpecificHeatRatio { get; set; } = null;
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Ratio of water vapor permeability of stagnant air to water vapor permeability of " +
     "material")]
-[JsonProperty("water_vapor_diffusion_resistance_factor")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor { get; set; } = null;
         
 
-[JsonProperty("moisture_equation_coefficient_a")]
+[JsonProperty(PropertyName="moisture_equation_coefficient_a")]
 public System.Nullable<float> MoistureEquationCoefficientA { get; set; } = null;
         
 
-[JsonProperty("moisture_equation_coefficient_b")]
+[JsonProperty(PropertyName="moisture_equation_coefficient_b")]
 public System.Nullable<float> MoistureEquationCoefficientB { get; set; } = null;
         
 
-[JsonProperty("moisture_equation_coefficient_c")]
+[JsonProperty(PropertyName="moisture_equation_coefficient_c")]
 public System.Nullable<float> MoistureEquationCoefficientC { get; set; } = null;
         
 
-[JsonProperty("moisture_equation_coefficient_d")]
+[JsonProperty(PropertyName="moisture_equation_coefficient_d")]
 public System.Nullable<float> MoistureEquationCoefficientD { get; set; } = null;
         
 
-[JsonProperty("surface_layer_penetration_depth")]
-public string SurfaceLayerPenetrationDepth { get; set; } = (System.String)"Autocalculate";
+[JsonProperty(PropertyName="surface_layer_penetration_depth", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> SurfaceLayerPenetrationDepth { get; set; } = null;
         
 
-[JsonProperty("deep_layer_penetration_depth")]
-public string DeepLayerPenetrationDepth { get; set; } = (System.String)"Autocalculate";
+[JsonProperty(PropertyName="deep_layer_penetration_depth", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DeepLayerPenetrationDepth { get; set; } = null;
         
 
-[JsonProperty("coating_layer_thickness")]
+[JsonProperty(PropertyName="coating_layer_thickness")]
 public System.Nullable<float> CoatingLayerThickness { get; set; } = null;
         
 
 [Description("The coating\'s resistance to water vapor diffusion relative to the resistance to w" +
     "ater vapor diffusion in stagnant air (see Water Vapor Diffusion Resistance Facto" +
     "r above).")]
-[JsonProperty("coating_layer_water_vapor_diffusion_resistance_factor")]
+[JsonProperty(PropertyName="coating_layer_water_vapor_diffusion_resistance_factor")]
 public System.Nullable<float> CoatingLayerWaterVaporDiffusionResistanceFactor { get; set; } = null;
     }
     
@@ -2074,173 +2079,174 @@ public System.Nullable<float> CoatingLayerWaterVaporDiffusionResistanceFactor { 
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("The base temperature is 20C. This is the thermal conductivity change per degree e" +
     "xcursion from 20C. This variable conductivity function is overridden by the Vari" +
     "ableThermalConductivity object, if present.")]
-[JsonProperty("temperature_coefficient_for_thermal_conductivity")]
+[JsonProperty(PropertyName="temperature_coefficient_for_thermal_conductivity")]
 public System.Nullable<float> TemperatureCoefficientForThermalConductivity { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_1")]
+[JsonProperty(PropertyName="temperature_1")]
 public System.Nullable<float> Temperature1 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 1")]
-[JsonProperty("enthalpy_1")]
+[JsonProperty(PropertyName="enthalpy_1")]
 public System.Nullable<float> Enthalpy1 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_2")]
+[JsonProperty(PropertyName="temperature_2")]
 public System.Nullable<float> Temperature2 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 2")]
-[JsonProperty("enthalpy_2")]
+[JsonProperty(PropertyName="enthalpy_2")]
 public System.Nullable<float> Enthalpy2 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_3")]
+[JsonProperty(PropertyName="temperature_3")]
 public System.Nullable<float> Temperature3 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 3")]
-[JsonProperty("enthalpy_3")]
+[JsonProperty(PropertyName="enthalpy_3")]
 public System.Nullable<float> Enthalpy3 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_4")]
+[JsonProperty(PropertyName="temperature_4")]
 public System.Nullable<float> Temperature4 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 4")]
-[JsonProperty("enthalpy_4")]
+[JsonProperty(PropertyName="enthalpy_4")]
 public System.Nullable<float> Enthalpy4 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_5")]
+[JsonProperty(PropertyName="temperature_5")]
 public System.Nullable<float> Temperature5 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 5")]
-[JsonProperty("enthalpy_5")]
+[JsonProperty(PropertyName="enthalpy_5")]
 public System.Nullable<float> Enthalpy5 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_6")]
+[JsonProperty(PropertyName="temperature_6")]
 public System.Nullable<float> Temperature6 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 6")]
-[JsonProperty("enthalpy_6")]
+[JsonProperty(PropertyName="enthalpy_6")]
 public System.Nullable<float> Enthalpy6 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_7")]
+[JsonProperty(PropertyName="temperature_7")]
 public System.Nullable<float> Temperature7 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 7")]
-[JsonProperty("enthalpy_7")]
+[JsonProperty(PropertyName="enthalpy_7")]
 public System.Nullable<float> Enthalpy7 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_8")]
+[JsonProperty(PropertyName="temperature_8")]
 public System.Nullable<float> Temperature8 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 8")]
-[JsonProperty("enthalpy_8")]
+[JsonProperty(PropertyName="enthalpy_8")]
 public System.Nullable<float> Enthalpy8 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_9")]
+[JsonProperty(PropertyName="temperature_9")]
 public System.Nullable<float> Temperature9 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 1")]
-[JsonProperty("enthalpy_9")]
+[JsonProperty(PropertyName="enthalpy_9")]
 public System.Nullable<float> Enthalpy9 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_10")]
+[JsonProperty(PropertyName="temperature_10")]
 public System.Nullable<float> Temperature10 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 2")]
-[JsonProperty("enthalpy_10")]
+[JsonProperty(PropertyName="enthalpy_10")]
 public System.Nullable<float> Enthalpy10 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_11")]
+[JsonProperty(PropertyName="temperature_11")]
 public System.Nullable<float> Temperature11 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 3")]
-[JsonProperty("enthalpy_11")]
+[JsonProperty(PropertyName="enthalpy_11")]
 public System.Nullable<float> Enthalpy11 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_12")]
+[JsonProperty(PropertyName="temperature_12")]
 public System.Nullable<float> Temperature12 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 14")]
-[JsonProperty("enthalpy_12")]
+[JsonProperty(PropertyName="enthalpy_12")]
 public System.Nullable<float> Enthalpy12 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_13")]
+[JsonProperty(PropertyName="temperature_13")]
 public System.Nullable<float> Temperature13 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 15")]
-[JsonProperty("enthalpy_13")]
+[JsonProperty(PropertyName="enthalpy_13")]
 public System.Nullable<float> Enthalpy13 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_14")]
+[JsonProperty(PropertyName="temperature_14")]
 public System.Nullable<float> Temperature14 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 16")]
-[JsonProperty("enthalpy_14")]
+[JsonProperty(PropertyName="enthalpy_14")]
 public System.Nullable<float> Enthalpy14 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_15")]
+[JsonProperty(PropertyName="temperature_15")]
 public System.Nullable<float> Temperature15 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 17")]
-[JsonProperty("enthalpy_15")]
+[JsonProperty(PropertyName="enthalpy_15")]
 public System.Nullable<float> Enthalpy15 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function")]
-[JsonProperty("temperature_16")]
+[JsonProperty(PropertyName="temperature_16")]
 public System.Nullable<float> Temperature16 { get; set; } = null;
         
 
 [Description("for Temperature-enthalpy function corresponding to temperature 16")]
-[JsonProperty("enthalpy_16")]
+[JsonProperty(PropertyName="enthalpy_16")]
 public System.Nullable<float> Enthalpy16 { get; set; } = null;
     }
     
@@ -2251,76 +2257,77 @@ public System.Nullable<float> Enthalpy16 { get; set; } = null;
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("The total latent heat absorbed or rejected during the transition from solid to li" +
     "quid, or back")]
-[JsonProperty("latent_heat_during_the_entire_phase_change_process")]
+[JsonProperty(PropertyName="latent_heat_during_the_entire_phase_change_process")]
 public System.Nullable<float> LatentHeatDuringTheEntirePhaseChangeProcess { get; set; } = null;
         
 
 [Description("The thermal conductivity used by this material when the material is fully liquid")]
-[JsonProperty("liquid_state_thermal_conductivity")]
+[JsonProperty(PropertyName="liquid_state_thermal_conductivity")]
 public System.Nullable<float> LiquidStateThermalConductivity { get; set; } = null;
         
 
 [Description("The density used by this material when the material is fully liquid")]
-[JsonProperty("liquid_state_density")]
+[JsonProperty(PropertyName="liquid_state_density")]
 public System.Nullable<float> LiquidStateDensity { get; set; } = null;
         
 
 [Description("The constant specific heat used for the fully melted (liquid) state")]
-[JsonProperty("liquid_state_specific_heat")]
+[JsonProperty(PropertyName="liquid_state_specific_heat")]
 public System.Nullable<float> LiquidStateSpecificHeat { get; set; } = null;
         
 
 [Description("The total melting range of the material is the sum of low and high temperature di" +
     "fference of melting curve.")]
-[JsonProperty("high_temperature_difference_of_melting_curve")]
+[JsonProperty(PropertyName="high_temperature_difference_of_melting_curve")]
 public System.Nullable<float> HighTemperatureDifferenceOfMeltingCurve { get; set; } = null;
         
 
 [Description("The temperature at which the melting curve peaks")]
-[JsonProperty("peak_melting_temperature")]
+[JsonProperty(PropertyName="peak_melting_temperature")]
 public System.Nullable<float> PeakMeltingTemperature { get; set; } = null;
         
 
 [Description("The total melting range of the material is the sum of low and high temperature di" +
     "fference of melting curve.")]
-[JsonProperty("low_temperature_difference_of_melting_curve")]
+[JsonProperty(PropertyName="low_temperature_difference_of_melting_curve")]
 public System.Nullable<float> LowTemperatureDifferenceOfMeltingCurve { get; set; } = null;
         
 
 [Description("The thermal conductivity used by this material when the material is fully solid")]
-[JsonProperty("solid_state_thermal_conductivity")]
+[JsonProperty(PropertyName="solid_state_thermal_conductivity")]
 public System.Nullable<float> SolidStateThermalConductivity { get; set; } = null;
         
 
 [Description("The density used by this material when the material is fully solid")]
-[JsonProperty("solid_state_density")]
+[JsonProperty(PropertyName="solid_state_density")]
 public System.Nullable<float> SolidStateDensity { get; set; } = null;
         
 
 [Description("The constant specific heat used for the fully frozen (crystallized) state")]
-[JsonProperty("solid_state_specific_heat")]
+[JsonProperty(PropertyName="solid_state_specific_heat")]
 public System.Nullable<float> SolidStateSpecificHeat { get; set; } = null;
         
 
 [Description("The total freezing range of the material is the sum of low and high temperature d" +
     "ifference of freezing curve.")]
-[JsonProperty("high_temperature_difference_of_freezing_curve")]
+[JsonProperty(PropertyName="high_temperature_difference_of_freezing_curve")]
 public System.Nullable<float> HighTemperatureDifferenceOfFreezingCurve { get; set; } = null;
         
 
 [Description("The temperature at which the freezing curve peaks")]
-[JsonProperty("peak_freezing_temperature")]
+[JsonProperty(PropertyName="peak_freezing_temperature")]
 public System.Nullable<float> PeakFreezingTemperature { get; set; } = null;
         
 
 [Description("The total freezing range of the material is the sum of low and high temperature d" +
     "ifference of freezing curve.")]
-[JsonProperty("low_temperature_difference_of_freezing_curve")]
+[JsonProperty(PropertyName="low_temperature_difference_of_freezing_curve")]
 public System.Nullable<float> LowTemperatureDifferenceOfFreezingCurve { get; set; } = null;
     }
     
@@ -2331,106 +2338,107 @@ public System.Nullable<float> LowTemperatureDifferenceOfFreezingCurve { get; set
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("for Temperature-Thermal Conductivity function")]
-[JsonProperty("temperature_1")]
+[JsonProperty(PropertyName="temperature_1")]
 public System.Nullable<float> Temperature1 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function corresponding to temperature 1")]
-[JsonProperty("thermal_conductivity_1")]
+[JsonProperty(PropertyName="thermal_conductivity_1")]
 public System.Nullable<float> ThermalConductivity1 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function")]
-[JsonProperty("temperature_2")]
+[JsonProperty(PropertyName="temperature_2")]
 public System.Nullable<float> Temperature2 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function corresponding to temperature 2")]
-[JsonProperty("thermal_conductivity_2")]
+[JsonProperty(PropertyName="thermal_conductivity_2")]
 public System.Nullable<float> ThermalConductivity2 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function")]
-[JsonProperty("temperature_3")]
+[JsonProperty(PropertyName="temperature_3")]
 public System.Nullable<float> Temperature3 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function corresponding to temperature 3")]
-[JsonProperty("thermal_conductivity_3")]
+[JsonProperty(PropertyName="thermal_conductivity_3")]
 public System.Nullable<float> ThermalConductivity3 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function")]
-[JsonProperty("temperature_4")]
+[JsonProperty(PropertyName="temperature_4")]
 public System.Nullable<float> Temperature4 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function corresponding to temperature 4")]
-[JsonProperty("thermal_conductivity_4")]
+[JsonProperty(PropertyName="thermal_conductivity_4")]
 public System.Nullable<float> ThermalConductivity4 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function")]
-[JsonProperty("temperature_5")]
+[JsonProperty(PropertyName="temperature_5")]
 public System.Nullable<float> Temperature5 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function corresponding to temperature 5")]
-[JsonProperty("thermal_conductivity_5")]
+[JsonProperty(PropertyName="thermal_conductivity_5")]
 public System.Nullable<float> ThermalConductivity5 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function")]
-[JsonProperty("temperature_6")]
+[JsonProperty(PropertyName="temperature_6")]
 public System.Nullable<float> Temperature6 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function corresponding to temperature 6")]
-[JsonProperty("thermal_conductivity_6")]
+[JsonProperty(PropertyName="thermal_conductivity_6")]
 public System.Nullable<float> ThermalConductivity6 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function")]
-[JsonProperty("temperature_7")]
+[JsonProperty(PropertyName="temperature_7")]
 public System.Nullable<float> Temperature7 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function corresponding to temperature 7")]
-[JsonProperty("thermal_conductivity_7")]
+[JsonProperty(PropertyName="thermal_conductivity_7")]
 public System.Nullable<float> ThermalConductivity7 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function")]
-[JsonProperty("temperature_8")]
+[JsonProperty(PropertyName="temperature_8")]
 public System.Nullable<float> Temperature8 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function corresponding to temperature 8")]
-[JsonProperty("thermal_conductivity_8")]
+[JsonProperty(PropertyName="thermal_conductivity_8")]
 public System.Nullable<float> ThermalConductivity8 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function")]
-[JsonProperty("temperature_9")]
+[JsonProperty(PropertyName="temperature_9")]
 public System.Nullable<float> Temperature9 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function corresponding to temperature 9")]
-[JsonProperty("thermal_conductivity_9")]
+[JsonProperty(PropertyName="thermal_conductivity_9")]
 public System.Nullable<float> ThermalConductivity9 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function")]
-[JsonProperty("temperature_10")]
+[JsonProperty(PropertyName="temperature_10")]
 public System.Nullable<float> Temperature10 { get; set; } = null;
         
 
 [Description("for Temperature-Thermal Conductivity function corresponding to temperature 10")]
-[JsonProperty("thermal_conductivity_10")]
+[JsonProperty(PropertyName="thermal_conductivity_10")]
 public System.Nullable<float> ThermalConductivity10 { get; set; } = null;
     }
     
@@ -2444,16 +2452,16 @@ public System.Nullable<float> ThermalConductivity10 { get; set; } = null;
 
 [Description("Material Name that the moisture properties will be added to. This augments materi" +
     "al properties needed for combined heat and moisture transfer for surfaces.")]
-[JsonProperty("material_name")]
+[JsonProperty(PropertyName="material_name")]
 public string MaterialName { get; set; } = "";
         
 
-[JsonProperty("porosity")]
+[JsonProperty(PropertyName="porosity")]
 public System.Nullable<float> Porosity { get; set; } = null;
         
 
 [Description("units are the water/material density ratio at the beginning of each run period.")]
-[JsonProperty("initial_water_content_ratio")]
+[JsonProperty(PropertyName="initial_water_content_ratio")]
 public System.Nullable<float> InitialWaterContentRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.2", CultureInfo.InvariantCulture);
     }
     
@@ -2466,237 +2474,237 @@ public System.Nullable<float> InitialWaterContentRatio { get; set; } = (System.N
         
 
 [Description("The Material Name that the moisture sorption isotherm will be added to.")]
-[JsonProperty("material_name")]
+[JsonProperty(PropertyName="material_name")]
 public string MaterialName { get; set; } = "";
         
 
 [Description("Number of data Coordinates")]
-[JsonProperty("number_of_isotherm_coordinates")]
+[JsonProperty(PropertyName="number_of_isotherm_coordinates")]
 public System.Nullable<float> NumberOfIsothermCoordinates { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_1")]
+[JsonProperty(PropertyName="relative_humidity_fraction_1")]
 public System.Nullable<float> RelativeHumidityFraction1 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_1")]
+[JsonProperty(PropertyName="moisture_content_1")]
 public System.Nullable<float> MoistureContent1 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_2")]
+[JsonProperty(PropertyName="relative_humidity_fraction_2")]
 public System.Nullable<float> RelativeHumidityFraction2 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_2")]
+[JsonProperty(PropertyName="moisture_content_2")]
 public System.Nullable<float> MoistureContent2 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_3")]
+[JsonProperty(PropertyName="relative_humidity_fraction_3")]
 public System.Nullable<float> RelativeHumidityFraction3 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_3")]
+[JsonProperty(PropertyName="moisture_content_3")]
 public System.Nullable<float> MoistureContent3 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_4")]
+[JsonProperty(PropertyName="relative_humidity_fraction_4")]
 public System.Nullable<float> RelativeHumidityFraction4 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_4")]
+[JsonProperty(PropertyName="moisture_content_4")]
 public System.Nullable<float> MoistureContent4 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_5")]
+[JsonProperty(PropertyName="relative_humidity_fraction_5")]
 public System.Nullable<float> RelativeHumidityFraction5 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_5")]
+[JsonProperty(PropertyName="moisture_content_5")]
 public System.Nullable<float> MoistureContent5 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_6")]
+[JsonProperty(PropertyName="relative_humidity_fraction_6")]
 public System.Nullable<float> RelativeHumidityFraction6 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_6")]
+[JsonProperty(PropertyName="moisture_content_6")]
 public System.Nullable<float> MoistureContent6 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_7")]
+[JsonProperty(PropertyName="relative_humidity_fraction_7")]
 public System.Nullable<float> RelativeHumidityFraction7 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_7")]
+[JsonProperty(PropertyName="moisture_content_7")]
 public System.Nullable<float> MoistureContent7 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_8")]
+[JsonProperty(PropertyName="relative_humidity_fraction_8")]
 public System.Nullable<float> RelativeHumidityFraction8 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_8")]
+[JsonProperty(PropertyName="moisture_content_8")]
 public System.Nullable<float> MoistureContent8 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_9")]
+[JsonProperty(PropertyName="relative_humidity_fraction_9")]
 public System.Nullable<float> RelativeHumidityFraction9 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_9")]
+[JsonProperty(PropertyName="moisture_content_9")]
 public System.Nullable<float> MoistureContent9 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_10")]
+[JsonProperty(PropertyName="relative_humidity_fraction_10")]
 public System.Nullable<float> RelativeHumidityFraction10 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_10")]
+[JsonProperty(PropertyName="moisture_content_10")]
 public System.Nullable<float> MoistureContent10 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_11")]
+[JsonProperty(PropertyName="relative_humidity_fraction_11")]
 public System.Nullable<float> RelativeHumidityFraction11 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_11")]
+[JsonProperty(PropertyName="moisture_content_11")]
 public System.Nullable<float> MoistureContent11 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_12")]
+[JsonProperty(PropertyName="relative_humidity_fraction_12")]
 public System.Nullable<float> RelativeHumidityFraction12 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_12")]
+[JsonProperty(PropertyName="moisture_content_12")]
 public System.Nullable<float> MoistureContent12 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_13")]
+[JsonProperty(PropertyName="relative_humidity_fraction_13")]
 public System.Nullable<float> RelativeHumidityFraction13 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_13")]
+[JsonProperty(PropertyName="moisture_content_13")]
 public System.Nullable<float> MoistureContent13 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_14")]
+[JsonProperty(PropertyName="relative_humidity_fraction_14")]
 public System.Nullable<float> RelativeHumidityFraction14 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_14")]
+[JsonProperty(PropertyName="moisture_content_14")]
 public System.Nullable<float> MoistureContent14 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_15")]
+[JsonProperty(PropertyName="relative_humidity_fraction_15")]
 public System.Nullable<float> RelativeHumidityFraction15 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_15")]
+[JsonProperty(PropertyName="moisture_content_15")]
 public System.Nullable<float> MoistureContent15 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_16")]
+[JsonProperty(PropertyName="relative_humidity_fraction_16")]
 public System.Nullable<float> RelativeHumidityFraction16 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_16")]
+[JsonProperty(PropertyName="moisture_content_16")]
 public System.Nullable<float> MoistureContent16 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_17")]
+[JsonProperty(PropertyName="relative_humidity_fraction_17")]
 public System.Nullable<float> RelativeHumidityFraction17 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_17")]
+[JsonProperty(PropertyName="moisture_content_17")]
 public System.Nullable<float> MoistureContent17 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_18")]
+[JsonProperty(PropertyName="relative_humidity_fraction_18")]
 public System.Nullable<float> RelativeHumidityFraction18 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_18")]
+[JsonProperty(PropertyName="moisture_content_18")]
 public System.Nullable<float> MoistureContent18 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_19")]
+[JsonProperty(PropertyName="relative_humidity_fraction_19")]
 public System.Nullable<float> RelativeHumidityFraction19 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_19")]
+[JsonProperty(PropertyName="moisture_content_19")]
 public System.Nullable<float> MoistureContent19 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_20")]
+[JsonProperty(PropertyName="relative_humidity_fraction_20")]
 public System.Nullable<float> RelativeHumidityFraction20 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_20")]
+[JsonProperty(PropertyName="moisture_content_20")]
 public System.Nullable<float> MoistureContent20 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_21")]
+[JsonProperty(PropertyName="relative_humidity_fraction_21")]
 public System.Nullable<float> RelativeHumidityFraction21 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_21")]
+[JsonProperty(PropertyName="moisture_content_21")]
 public System.Nullable<float> MoistureContent21 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_22")]
+[JsonProperty(PropertyName="relative_humidity_fraction_22")]
 public System.Nullable<float> RelativeHumidityFraction22 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_22")]
+[JsonProperty(PropertyName="moisture_content_22")]
 public System.Nullable<float> MoistureContent22 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_23")]
+[JsonProperty(PropertyName="relative_humidity_fraction_23")]
 public System.Nullable<float> RelativeHumidityFraction23 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_23")]
+[JsonProperty(PropertyName="moisture_content_23")]
 public System.Nullable<float> MoistureContent23 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_24")]
+[JsonProperty(PropertyName="relative_humidity_fraction_24")]
 public System.Nullable<float> RelativeHumidityFraction24 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_24")]
+[JsonProperty(PropertyName="moisture_content_24")]
 public System.Nullable<float> MoistureContent24 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_25")]
+[JsonProperty(PropertyName="relative_humidity_fraction_25")]
 public System.Nullable<float> RelativeHumidityFraction25 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_25")]
+[JsonProperty(PropertyName="moisture_content_25")]
 public System.Nullable<float> MoistureContent25 { get; set; } = null;
     }
     
@@ -2709,212 +2717,212 @@ public System.Nullable<float> MoistureContent25 { get; set; } = null;
         
 
 [Description("Material Name that the moisture properties will be added to.")]
-[JsonProperty("material_name")]
+[JsonProperty(PropertyName="material_name")]
 public string MaterialName { get; set; } = "";
         
 
 [Description("Number of Suction Liquid Transport Coefficient coordinates")]
-[JsonProperty("number_of_suction_points")]
+[JsonProperty(PropertyName="number_of_suction_points")]
 public System.Nullable<float> NumberOfSuctionPoints { get; set; } = null;
         
 
-[JsonProperty("moisture_content_1")]
+[JsonProperty(PropertyName="moisture_content_1")]
 public System.Nullable<float> MoistureContent1 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_1")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_1")]
 public System.Nullable<float> LiquidTransportCoefficient1 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_2")]
+[JsonProperty(PropertyName="moisture_content_2")]
 public System.Nullable<float> MoistureContent2 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_2")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_2")]
 public System.Nullable<float> LiquidTransportCoefficient2 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_3")]
+[JsonProperty(PropertyName="moisture_content_3")]
 public System.Nullable<float> MoistureContent3 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_3")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_3")]
 public System.Nullable<float> LiquidTransportCoefficient3 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_4")]
+[JsonProperty(PropertyName="moisture_content_4")]
 public System.Nullable<float> MoistureContent4 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_4")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_4")]
 public System.Nullable<float> LiquidTransportCoefficient4 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_5")]
+[JsonProperty(PropertyName="moisture_content_5")]
 public System.Nullable<float> MoistureContent5 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_5")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_5")]
 public System.Nullable<float> LiquidTransportCoefficient5 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_6")]
+[JsonProperty(PropertyName="moisture_content_6")]
 public System.Nullable<float> MoistureContent6 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_6")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_6")]
 public System.Nullable<float> LiquidTransportCoefficient6 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_7")]
+[JsonProperty(PropertyName="moisture_content_7")]
 public System.Nullable<float> MoistureContent7 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_7")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_7")]
 public System.Nullable<float> LiquidTransportCoefficient7 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_8")]
+[JsonProperty(PropertyName="moisture_content_8")]
 public System.Nullable<float> MoistureContent8 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_8")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_8")]
 public System.Nullable<float> LiquidTransportCoefficient8 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_9")]
+[JsonProperty(PropertyName="moisture_content_9")]
 public System.Nullable<float> MoistureContent9 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_9")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_9")]
 public System.Nullable<float> LiquidTransportCoefficient9 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_10")]
+[JsonProperty(PropertyName="moisture_content_10")]
 public System.Nullable<float> MoistureContent10 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_10")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_10")]
 public System.Nullable<float> LiquidTransportCoefficient10 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_11")]
+[JsonProperty(PropertyName="moisture_content_11")]
 public System.Nullable<float> MoistureContent11 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_11")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_11")]
 public System.Nullable<float> LiquidTransportCoefficient11 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_12")]
+[JsonProperty(PropertyName="moisture_content_12")]
 public System.Nullable<float> MoistureContent12 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_12")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_12")]
 public System.Nullable<float> LiquidTransportCoefficient12 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_13")]
+[JsonProperty(PropertyName="moisture_content_13")]
 public System.Nullable<float> MoistureContent13 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_13")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_13")]
 public System.Nullable<float> LiquidTransportCoefficient13 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_14")]
+[JsonProperty(PropertyName="moisture_content_14")]
 public System.Nullable<float> MoistureContent14 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_14")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_14")]
 public System.Nullable<float> LiquidTransportCoefficient14 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_15")]
+[JsonProperty(PropertyName="moisture_content_15")]
 public System.Nullable<float> MoistureContent15 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_15")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_15")]
 public System.Nullable<float> LiquidTransportCoefficient15 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_16")]
+[JsonProperty(PropertyName="moisture_content_16")]
 public System.Nullable<float> MoistureContent16 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_16")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_16")]
 public System.Nullable<float> LiquidTransportCoefficient16 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_17")]
+[JsonProperty(PropertyName="moisture_content_17")]
 public System.Nullable<float> MoistureContent17 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_17")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_17")]
 public System.Nullable<float> LiquidTransportCoefficient17 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_18")]
+[JsonProperty(PropertyName="moisture_content_18")]
 public System.Nullable<float> MoistureContent18 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_18")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_18")]
 public System.Nullable<float> LiquidTransportCoefficient18 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_19")]
+[JsonProperty(PropertyName="moisture_content_19")]
 public System.Nullable<float> MoistureContent19 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_19")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_19")]
 public System.Nullable<float> LiquidTransportCoefficient19 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_20")]
+[JsonProperty(PropertyName="moisture_content_20")]
 public System.Nullable<float> MoistureContent20 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_20")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_20")]
 public System.Nullable<float> LiquidTransportCoefficient20 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_21")]
+[JsonProperty(PropertyName="moisture_content_21")]
 public System.Nullable<float> MoistureContent21 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_21")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_21")]
 public System.Nullable<float> LiquidTransportCoefficient21 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_22")]
+[JsonProperty(PropertyName="moisture_content_22")]
 public System.Nullable<float> MoistureContent22 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_22")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_22")]
 public System.Nullable<float> LiquidTransportCoefficient22 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_23")]
+[JsonProperty(PropertyName="moisture_content_23")]
 public System.Nullable<float> MoistureContent23 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_23")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_23")]
 public System.Nullable<float> LiquidTransportCoefficient23 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_24")]
+[JsonProperty(PropertyName="moisture_content_24")]
 public System.Nullable<float> MoistureContent24 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_24")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_24")]
 public System.Nullable<float> LiquidTransportCoefficient24 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_25")]
+[JsonProperty(PropertyName="moisture_content_25")]
 public System.Nullable<float> MoistureContent25 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_25")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_25")]
 public System.Nullable<float> LiquidTransportCoefficient25 { get; set; } = null;
     }
     
@@ -2927,212 +2935,212 @@ public System.Nullable<float> LiquidTransportCoefficient25 { get; set; } = null;
         
 
 [Description("Moisture Material Name that the moisture properties will be added to.")]
-[JsonProperty("material_name")]
+[JsonProperty(PropertyName="material_name")]
 public string MaterialName { get; set; } = "";
         
 
 [Description("number of data points")]
-[JsonProperty("number_of_redistribution_points")]
+[JsonProperty(PropertyName="number_of_redistribution_points")]
 public System.Nullable<float> NumberOfRedistributionPoints { get; set; } = null;
         
 
-[JsonProperty("moisture_content_1")]
+[JsonProperty(PropertyName="moisture_content_1")]
 public System.Nullable<float> MoistureContent1 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_1")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_1")]
 public System.Nullable<float> LiquidTransportCoefficient1 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_2")]
+[JsonProperty(PropertyName="moisture_content_2")]
 public System.Nullable<float> MoistureContent2 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_2")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_2")]
 public System.Nullable<float> LiquidTransportCoefficient2 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_3")]
+[JsonProperty(PropertyName="moisture_content_3")]
 public System.Nullable<float> MoistureContent3 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_3")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_3")]
 public System.Nullable<float> LiquidTransportCoefficient3 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_4")]
+[JsonProperty(PropertyName="moisture_content_4")]
 public System.Nullable<float> MoistureContent4 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_4")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_4")]
 public System.Nullable<float> LiquidTransportCoefficient4 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_5")]
+[JsonProperty(PropertyName="moisture_content_5")]
 public System.Nullable<float> MoistureContent5 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_5")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_5")]
 public System.Nullable<float> LiquidTransportCoefficient5 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_6")]
+[JsonProperty(PropertyName="moisture_content_6")]
 public System.Nullable<float> MoistureContent6 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_6")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_6")]
 public System.Nullable<float> LiquidTransportCoefficient6 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_7")]
+[JsonProperty(PropertyName="moisture_content_7")]
 public System.Nullable<float> MoistureContent7 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_7")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_7")]
 public System.Nullable<float> LiquidTransportCoefficient7 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_8")]
+[JsonProperty(PropertyName="moisture_content_8")]
 public System.Nullable<float> MoistureContent8 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_8")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_8")]
 public System.Nullable<float> LiquidTransportCoefficient8 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_9")]
+[JsonProperty(PropertyName="moisture_content_9")]
 public System.Nullable<float> MoistureContent9 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_9")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_9")]
 public System.Nullable<float> LiquidTransportCoefficient9 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_10")]
+[JsonProperty(PropertyName="moisture_content_10")]
 public System.Nullable<float> MoistureContent10 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_10")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_10")]
 public System.Nullable<float> LiquidTransportCoefficient10 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_11")]
+[JsonProperty(PropertyName="moisture_content_11")]
 public System.Nullable<float> MoistureContent11 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_11")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_11")]
 public System.Nullable<float> LiquidTransportCoefficient11 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_12")]
+[JsonProperty(PropertyName="moisture_content_12")]
 public System.Nullable<float> MoistureContent12 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_12")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_12")]
 public System.Nullable<float> LiquidTransportCoefficient12 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_13")]
+[JsonProperty(PropertyName="moisture_content_13")]
 public System.Nullable<float> MoistureContent13 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_13")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_13")]
 public System.Nullable<float> LiquidTransportCoefficient13 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_14")]
+[JsonProperty(PropertyName="moisture_content_14")]
 public System.Nullable<float> MoistureContent14 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_14")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_14")]
 public System.Nullable<float> LiquidTransportCoefficient14 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_15")]
+[JsonProperty(PropertyName="moisture_content_15")]
 public System.Nullable<float> MoistureContent15 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_15")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_15")]
 public System.Nullable<float> LiquidTransportCoefficient15 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_16")]
+[JsonProperty(PropertyName="moisture_content_16")]
 public System.Nullable<float> MoistureContent16 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_16")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_16")]
 public System.Nullable<float> LiquidTransportCoefficient16 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_17")]
+[JsonProperty(PropertyName="moisture_content_17")]
 public System.Nullable<float> MoistureContent17 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_17")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_17")]
 public System.Nullable<float> LiquidTransportCoefficient17 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_18")]
+[JsonProperty(PropertyName="moisture_content_18")]
 public System.Nullable<float> MoistureContent18 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_18")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_18")]
 public System.Nullable<float> LiquidTransportCoefficient18 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_19")]
+[JsonProperty(PropertyName="moisture_content_19")]
 public System.Nullable<float> MoistureContent19 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_19")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_19")]
 public System.Nullable<float> LiquidTransportCoefficient19 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_20")]
+[JsonProperty(PropertyName="moisture_content_20")]
 public System.Nullable<float> MoistureContent20 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_20")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_20")]
 public System.Nullable<float> LiquidTransportCoefficient20 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_21")]
+[JsonProperty(PropertyName="moisture_content_21")]
 public System.Nullable<float> MoistureContent21 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_21")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_21")]
 public System.Nullable<float> LiquidTransportCoefficient21 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_22")]
+[JsonProperty(PropertyName="moisture_content_22")]
 public System.Nullable<float> MoistureContent22 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_22")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_22")]
 public System.Nullable<float> LiquidTransportCoefficient22 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_23")]
+[JsonProperty(PropertyName="moisture_content_23")]
 public System.Nullable<float> MoistureContent23 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_23")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_23")]
 public System.Nullable<float> LiquidTransportCoefficient23 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_24")]
+[JsonProperty(PropertyName="moisture_content_24")]
 public System.Nullable<float> MoistureContent24 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_24")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_24")]
 public System.Nullable<float> LiquidTransportCoefficient24 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_25")]
+[JsonProperty(PropertyName="moisture_content_25")]
 public System.Nullable<float> MoistureContent25 { get; set; } = null;
         
 
-[JsonProperty("liquid_transport_coefficient_25")]
+[JsonProperty(PropertyName="liquid_transport_coefficient_25")]
 public System.Nullable<float> LiquidTransportCoefficient25 { get; set; } = null;
     }
     
@@ -3145,237 +3153,237 @@ public System.Nullable<float> LiquidTransportCoefficient25 { get; set; } = null;
         
 
 [Description("Moisture Material Name that the moisture properties will be added to.")]
-[JsonProperty("material_name")]
+[JsonProperty(PropertyName="material_name")]
 public string MaterialName { get; set; } = "";
         
 
 [Description("Water Vapor Diffusion Resistance Factor")]
-[JsonProperty("number_of_data_pairs")]
+[JsonProperty(PropertyName="number_of_data_pairs")]
 public System.Nullable<float> NumberOfDataPairs { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_1")]
+[JsonProperty(PropertyName="relative_humidity_fraction_1")]
 public System.Nullable<float> RelativeHumidityFraction1 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_1")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_1")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor1 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_2")]
+[JsonProperty(PropertyName="relative_humidity_fraction_2")]
 public System.Nullable<float> RelativeHumidityFraction2 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_2")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_2")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor2 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_3")]
+[JsonProperty(PropertyName="relative_humidity_fraction_3")]
 public System.Nullable<float> RelativeHumidityFraction3 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_3")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_3")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor3 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_4")]
+[JsonProperty(PropertyName="relative_humidity_fraction_4")]
 public System.Nullable<float> RelativeHumidityFraction4 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_4")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_4")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor4 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_5")]
+[JsonProperty(PropertyName="relative_humidity_fraction_5")]
 public System.Nullable<float> RelativeHumidityFraction5 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_5")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_5")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor5 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_6")]
+[JsonProperty(PropertyName="relative_humidity_fraction_6")]
 public System.Nullable<float> RelativeHumidityFraction6 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_6")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_6")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor6 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_7")]
+[JsonProperty(PropertyName="relative_humidity_fraction_7")]
 public System.Nullable<float> RelativeHumidityFraction7 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_7")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_7")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor7 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_8")]
+[JsonProperty(PropertyName="relative_humidity_fraction_8")]
 public System.Nullable<float> RelativeHumidityFraction8 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_8")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_8")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor8 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_9")]
+[JsonProperty(PropertyName="relative_humidity_fraction_9")]
 public System.Nullable<float> RelativeHumidityFraction9 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_9")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_9")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor9 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_10")]
+[JsonProperty(PropertyName="relative_humidity_fraction_10")]
 public System.Nullable<float> RelativeHumidityFraction10 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_10")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_10")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor10 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_11")]
+[JsonProperty(PropertyName="relative_humidity_fraction_11")]
 public System.Nullable<float> RelativeHumidityFraction11 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_11")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_11")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor11 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_12")]
+[JsonProperty(PropertyName="relative_humidity_fraction_12")]
 public System.Nullable<float> RelativeHumidityFraction12 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_12")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_12")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor12 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_13")]
+[JsonProperty(PropertyName="relative_humidity_fraction_13")]
 public System.Nullable<float> RelativeHumidityFraction13 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_13")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_13")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor13 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_14")]
+[JsonProperty(PropertyName="relative_humidity_fraction_14")]
 public System.Nullable<float> RelativeHumidityFraction14 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_14")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_14")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor14 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_15")]
+[JsonProperty(PropertyName="relative_humidity_fraction_15")]
 public System.Nullable<float> RelativeHumidityFraction15 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_15")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_15")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor15 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_16")]
+[JsonProperty(PropertyName="relative_humidity_fraction_16")]
 public System.Nullable<float> RelativeHumidityFraction16 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_16")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_16")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor16 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_17")]
+[JsonProperty(PropertyName="relative_humidity_fraction_17")]
 public System.Nullable<float> RelativeHumidityFraction17 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_17")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_17")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor17 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_18")]
+[JsonProperty(PropertyName="relative_humidity_fraction_18")]
 public System.Nullable<float> RelativeHumidityFraction18 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_18")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_18")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor18 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_19")]
+[JsonProperty(PropertyName="relative_humidity_fraction_19")]
 public System.Nullable<float> RelativeHumidityFraction19 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_19")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_19")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor19 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_20")]
+[JsonProperty(PropertyName="relative_humidity_fraction_20")]
 public System.Nullable<float> RelativeHumidityFraction20 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_20")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_20")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor20 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_21")]
+[JsonProperty(PropertyName="relative_humidity_fraction_21")]
 public System.Nullable<float> RelativeHumidityFraction21 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_21")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_21")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor21 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_22")]
+[JsonProperty(PropertyName="relative_humidity_fraction_22")]
 public System.Nullable<float> RelativeHumidityFraction22 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_22")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_22")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor22 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_23")]
+[JsonProperty(PropertyName="relative_humidity_fraction_23")]
 public System.Nullable<float> RelativeHumidityFraction23 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_23")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_23")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor23 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_24")]
+[JsonProperty(PropertyName="relative_humidity_fraction_24")]
 public System.Nullable<float> RelativeHumidityFraction24 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_24")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_24")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor24 { get; set; } = null;
         
 
 [Description("The relative humidity is entered as a fraction.")]
-[JsonProperty("relative_humidity_fraction_25")]
+[JsonProperty(PropertyName="relative_humidity_fraction_25")]
 public System.Nullable<float> RelativeHumidityFraction25 { get; set; } = null;
         
 
-[JsonProperty("water_vapor_diffusion_resistance_factor_25")]
+[JsonProperty(PropertyName="water_vapor_diffusion_resistance_factor_25")]
 public System.Nullable<float> WaterVaporDiffusionResistanceFactor25 { get; set; } = null;
     }
     
@@ -3388,212 +3396,212 @@ public System.Nullable<float> WaterVaporDiffusionResistanceFactor25 { get; set; 
         
 
 [Description("Moisture Material Name that the Thermal Conductivity will be added to.")]
-[JsonProperty("material_name")]
+[JsonProperty(PropertyName="material_name")]
 public string MaterialName { get; set; } = "";
         
 
 [Description("number of data coordinates")]
-[JsonProperty("number_of_thermal_coordinates")]
+[JsonProperty(PropertyName="number_of_thermal_coordinates")]
 public System.Nullable<float> NumberOfThermalCoordinates { get; set; } = null;
         
 
-[JsonProperty("moisture_content_1")]
+[JsonProperty(PropertyName="moisture_content_1")]
 public System.Nullable<float> MoistureContent1 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_1")]
+[JsonProperty(PropertyName="thermal_conductivity_1")]
 public System.Nullable<float> ThermalConductivity1 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_2")]
+[JsonProperty(PropertyName="moisture_content_2")]
 public System.Nullable<float> MoistureContent2 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_2")]
+[JsonProperty(PropertyName="thermal_conductivity_2")]
 public System.Nullable<float> ThermalConductivity2 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_3")]
+[JsonProperty(PropertyName="moisture_content_3")]
 public System.Nullable<float> MoistureContent3 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_3")]
+[JsonProperty(PropertyName="thermal_conductivity_3")]
 public System.Nullable<float> ThermalConductivity3 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_4")]
+[JsonProperty(PropertyName="moisture_content_4")]
 public System.Nullable<float> MoistureContent4 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_4")]
+[JsonProperty(PropertyName="thermal_conductivity_4")]
 public System.Nullable<float> ThermalConductivity4 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_5")]
+[JsonProperty(PropertyName="moisture_content_5")]
 public System.Nullable<float> MoistureContent5 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_5")]
+[JsonProperty(PropertyName="thermal_conductivity_5")]
 public System.Nullable<float> ThermalConductivity5 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_6")]
+[JsonProperty(PropertyName="moisture_content_6")]
 public System.Nullable<float> MoistureContent6 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_6")]
+[JsonProperty(PropertyName="thermal_conductivity_6")]
 public System.Nullable<float> ThermalConductivity6 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_7")]
+[JsonProperty(PropertyName="moisture_content_7")]
 public System.Nullable<float> MoistureContent7 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_7")]
+[JsonProperty(PropertyName="thermal_conductivity_7")]
 public System.Nullable<float> ThermalConductivity7 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_8")]
+[JsonProperty(PropertyName="moisture_content_8")]
 public System.Nullable<float> MoistureContent8 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_8")]
+[JsonProperty(PropertyName="thermal_conductivity_8")]
 public System.Nullable<float> ThermalConductivity8 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_9")]
+[JsonProperty(PropertyName="moisture_content_9")]
 public System.Nullable<float> MoistureContent9 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_9")]
+[JsonProperty(PropertyName="thermal_conductivity_9")]
 public System.Nullable<float> ThermalConductivity9 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_10")]
+[JsonProperty(PropertyName="moisture_content_10")]
 public System.Nullable<float> MoistureContent10 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_10")]
+[JsonProperty(PropertyName="thermal_conductivity_10")]
 public System.Nullable<float> ThermalConductivity10 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_11")]
+[JsonProperty(PropertyName="moisture_content_11")]
 public System.Nullable<float> MoistureContent11 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_11")]
+[JsonProperty(PropertyName="thermal_conductivity_11")]
 public System.Nullable<float> ThermalConductivity11 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_12")]
+[JsonProperty(PropertyName="moisture_content_12")]
 public System.Nullable<float> MoistureContent12 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_12")]
+[JsonProperty(PropertyName="thermal_conductivity_12")]
 public System.Nullable<float> ThermalConductivity12 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_13")]
+[JsonProperty(PropertyName="moisture_content_13")]
 public System.Nullable<float> MoistureContent13 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_13")]
+[JsonProperty(PropertyName="thermal_conductivity_13")]
 public System.Nullable<float> ThermalConductivity13 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_14")]
+[JsonProperty(PropertyName="moisture_content_14")]
 public System.Nullable<float> MoistureContent14 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_14")]
+[JsonProperty(PropertyName="thermal_conductivity_14")]
 public System.Nullable<float> ThermalConductivity14 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_15")]
+[JsonProperty(PropertyName="moisture_content_15")]
 public System.Nullable<float> MoistureContent15 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_15")]
+[JsonProperty(PropertyName="thermal_conductivity_15")]
 public System.Nullable<float> ThermalConductivity15 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_16")]
+[JsonProperty(PropertyName="moisture_content_16")]
 public System.Nullable<float> MoistureContent16 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_16")]
+[JsonProperty(PropertyName="thermal_conductivity_16")]
 public System.Nullable<float> ThermalConductivity16 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_17")]
+[JsonProperty(PropertyName="moisture_content_17")]
 public System.Nullable<float> MoistureContent17 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_17")]
+[JsonProperty(PropertyName="thermal_conductivity_17")]
 public System.Nullable<float> ThermalConductivity17 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_18")]
+[JsonProperty(PropertyName="moisture_content_18")]
 public System.Nullable<float> MoistureContent18 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_18")]
+[JsonProperty(PropertyName="thermal_conductivity_18")]
 public System.Nullable<float> ThermalConductivity18 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_19")]
+[JsonProperty(PropertyName="moisture_content_19")]
 public System.Nullable<float> MoistureContent19 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_19")]
+[JsonProperty(PropertyName="thermal_conductivity_19")]
 public System.Nullable<float> ThermalConductivity19 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_20")]
+[JsonProperty(PropertyName="moisture_content_20")]
 public System.Nullable<float> MoistureContent20 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_20")]
+[JsonProperty(PropertyName="thermal_conductivity_20")]
 public System.Nullable<float> ThermalConductivity20 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_21")]
+[JsonProperty(PropertyName="moisture_content_21")]
 public System.Nullable<float> MoistureContent21 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_21")]
+[JsonProperty(PropertyName="thermal_conductivity_21")]
 public System.Nullable<float> ThermalConductivity21 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_22")]
+[JsonProperty(PropertyName="moisture_content_22")]
 public System.Nullable<float> MoistureContent22 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_22")]
+[JsonProperty(PropertyName="thermal_conductivity_22")]
 public System.Nullable<float> ThermalConductivity22 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_23")]
+[JsonProperty(PropertyName="moisture_content_23")]
 public System.Nullable<float> MoistureContent23 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_23")]
+[JsonProperty(PropertyName="thermal_conductivity_23")]
 public System.Nullable<float> ThermalConductivity23 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_24")]
+[JsonProperty(PropertyName="moisture_content_24")]
 public System.Nullable<float> MoistureContent24 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_24")]
+[JsonProperty(PropertyName="thermal_conductivity_24")]
 public System.Nullable<float> ThermalConductivity24 { get; set; } = null;
         
 
-[JsonProperty("moisture_content_25")]
+[JsonProperty(PropertyName="moisture_content_25")]
 public System.Nullable<float> MoistureContent25 { get; set; } = null;
         
 
-[JsonProperty("thermal_conductivity_25")]
+[JsonProperty(PropertyName="thermal_conductivity_25")]
 public System.Nullable<float> ThermalConductivity25 { get; set; } = null;
     }
     
@@ -3606,74 +3614,75 @@ public System.Nullable<float> ThermalConductivity25 { get; set; } = null;
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("wavelength_1")]
+[JsonProperty(PropertyName="wavelength_1")]
 public System.Nullable<float> Wavelength1 { get; set; } = null;
         
 
-[JsonProperty("transmittance_1")]
+[JsonProperty(PropertyName="transmittance_1")]
 public System.Nullable<float> Transmittance1 { get; set; } = null;
         
 
-[JsonProperty("front_reflectance_1")]
+[JsonProperty(PropertyName="front_reflectance_1")]
 public System.Nullable<float> FrontReflectance1 { get; set; } = null;
         
 
-[JsonProperty("back_reflectance_1")]
+[JsonProperty(PropertyName="back_reflectance_1")]
 public System.Nullable<float> BackReflectance1 { get; set; } = null;
         
 
-[JsonProperty("wavelength_2")]
+[JsonProperty(PropertyName="wavelength_2")]
 public System.Nullable<float> Wavelength2 { get; set; } = null;
         
 
-[JsonProperty("transmittance_2")]
+[JsonProperty(PropertyName="transmittance_2")]
 public System.Nullable<float> Transmittance2 { get; set; } = null;
         
 
-[JsonProperty("front_reflectance_2")]
+[JsonProperty(PropertyName="front_reflectance_2")]
 public System.Nullable<float> FrontReflectance2 { get; set; } = null;
         
 
-[JsonProperty("back_reflectance_2")]
+[JsonProperty(PropertyName="back_reflectance_2")]
 public System.Nullable<float> BackReflectance2 { get; set; } = null;
         
 
-[JsonProperty("wavelength_3")]
+[JsonProperty(PropertyName="wavelength_3")]
 public System.Nullable<float> Wavelength3 { get; set; } = null;
         
 
-[JsonProperty("transmittance_3")]
+[JsonProperty(PropertyName="transmittance_3")]
 public System.Nullable<float> Transmittance3 { get; set; } = null;
         
 
-[JsonProperty("front_reflectance_3")]
+[JsonProperty(PropertyName="front_reflectance_3")]
 public System.Nullable<float> FrontReflectance3 { get; set; } = null;
         
 
-[JsonProperty("back_reflectance_3")]
+[JsonProperty(PropertyName="back_reflectance_3")]
 public System.Nullable<float> BackReflectance3 { get; set; } = null;
         
 
-[JsonProperty("wavelength_4")]
+[JsonProperty(PropertyName="wavelength_4")]
 public System.Nullable<float> Wavelength4 { get; set; } = null;
         
 
-[JsonProperty("transmittance_4")]
+[JsonProperty(PropertyName="transmittance_4")]
 public System.Nullable<float> Transmittance4 { get; set; } = null;
         
 
-[JsonProperty("front_reflectance_4")]
+[JsonProperty(PropertyName="front_reflectance_4")]
 public System.Nullable<float> FrontReflectance4 { get; set; } = null;
         
 
-[JsonProperty("back_reflectance_4")]
+[JsonProperty(PropertyName="back_reflectance_4")]
 public System.Nullable<float> BackReflectance4 { get; set; } = null;
         
 
-[JsonProperty("extensions")]
+[JsonProperty(PropertyName="extensions")]
 public string Extensions { get; set; } = "";
     }
     
@@ -3685,46 +3694,47 @@ public string Extensions { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("outside_layer")]
+[JsonProperty(PropertyName="outside_layer")]
 public string OutsideLayer { get; set; } = "";
         
 
-[JsonProperty("layer_2")]
+[JsonProperty(PropertyName="layer_2")]
 public string Layer2 { get; set; } = "";
         
 
-[JsonProperty("layer_3")]
+[JsonProperty(PropertyName="layer_3")]
 public string Layer3 { get; set; } = "";
         
 
-[JsonProperty("layer_4")]
+[JsonProperty(PropertyName="layer_4")]
 public string Layer4 { get; set; } = "";
         
 
-[JsonProperty("layer_5")]
+[JsonProperty(PropertyName="layer_5")]
 public string Layer5 { get; set; } = "";
         
 
-[JsonProperty("layer_6")]
+[JsonProperty(PropertyName="layer_6")]
 public string Layer6 { get; set; } = "";
         
 
-[JsonProperty("layer_7")]
+[JsonProperty(PropertyName="layer_7")]
 public string Layer7 { get; set; } = "";
         
 
-[JsonProperty("layer_8")]
+[JsonProperty(PropertyName="layer_8")]
 public string Layer8 { get; set; } = "";
         
 
-[JsonProperty("layer_9")]
+[JsonProperty(PropertyName="layer_9")]
 public string Layer9 { get; set; } = "";
         
 
-[JsonProperty("layer_10")]
+[JsonProperty(PropertyName="layer_10")]
 public string Layer10 { get; set; } = "";
     }
     
@@ -3735,16 +3745,17 @@ public string Layer10 { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Enter C-Factor without film coefficients or soil")]
-[JsonProperty("c_factor")]
+[JsonProperty(PropertyName="c_factor")]
 public System.Nullable<float> CFactor { get; set; } = null;
         
 
 [Description("Enter height of the underground wall")]
-[JsonProperty("height")]
+[JsonProperty(PropertyName="height")]
 public System.Nullable<float> Height { get; set; } = null;
     }
     
@@ -3755,20 +3766,21 @@ public System.Nullable<float> Height { get; set; } = null;
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("f_factor")]
+[JsonProperty(PropertyName="f_factor")]
 public System.Nullable<float> FFactor { get; set; } = null;
         
 
 [Description("Enter area of the floor")]
-[JsonProperty("area")]
+[JsonProperty(PropertyName="area")]
 public System.Nullable<float> Area { get; set; } = null;
         
 
 [Description("Enter exposed perimeter of the floor")]
-[JsonProperty("perimeterexposed")]
+[JsonProperty(PropertyName="perimeterexposed")]
 public System.Nullable<float> Perimeterexposed { get; set; } = null;
     }
     
@@ -3779,36 +3791,37 @@ public System.Nullable<float> Perimeterexposed { get; set; } = null;
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("construction_name")]
+[JsonProperty(PropertyName="construction_name")]
 public string ConstructionName { get; set; } = "";
         
 
 [Description("refers to the list of materials which follows")]
-[JsonProperty("thermal_source_present_after_layer_number")]
+[JsonProperty(PropertyName="thermal_source_present_after_layer_number")]
 public System.Nullable<float> ThermalSourcePresentAfterLayerNumber { get; set; } = null;
         
 
 [Description("refers to the list of materials which follows")]
-[JsonProperty("temperature_calculation_requested_after_layer_number")]
+[JsonProperty(PropertyName="temperature_calculation_requested_after_layer_number")]
 public System.Nullable<float> TemperatureCalculationRequestedAfterLayerNumber { get; set; } = null;
         
 
 [Description("1 = 1-dimensional calculation, 2 = 2-dimensional calculation")]
-[JsonProperty("dimensions_for_the_ctf_calculation")]
+[JsonProperty(PropertyName="dimensions_for_the_ctf_calculation")]
 public System.Nullable<float> DimensionsForTheCtfCalculation { get; set; } = null;
         
 
 [Description("uniform spacing between tubes or resistance wires in direction perpendicular to m" +
     "ain intended direction of heat transfer")]
-[JsonProperty("tube_spacing")]
+[JsonProperty(PropertyName="tube_spacing")]
 public System.Nullable<float> TubeSpacing { get; set; } = null;
         
 
 [Description(@"used in conjunction with field Temperature Calculation Requested After Layer Number this field is the location perpendicular to the main direction of heat transfer 0.0 means in line with the tubing, 1.0 means at the midpoint between two adjacent pipes this field is ignored for 1-D calculations")]
-[JsonProperty("two_dimensional_temperature_calculation_position")]
+[JsonProperty(PropertyName="two_dimensional_temperature_calculation_position")]
 public System.Nullable<float> TwoDimensionalTemperatureCalculationPosition { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
     }
     
@@ -3819,33 +3832,33 @@ public System.Nullable<float> TwoDimensionalTemperatureCalculationPosition { get
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("This field controls how air exchange is modeled across this boundary.")]
-[JsonProperty("air_exchange_method")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="air_exchange_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Construction_AirBoundary_AirExchangeMethod AirExchangeMethod { get; set; } = (Construction_AirBoundary_AirExchangeMethod)Enum.Parse(typeof(Construction_AirBoundary_AirExchangeMethod), "None");
         
 
 [Description("If the Air Exchange Method is SimpleMixing then this field specifies the air chan" +
     "ges per hour using the volume of the smaller zone as the basis. If an AirflowNet" +
     "work simulation is active this field is ignored.")]
-[JsonProperty("simple_mixing_air_changes_per_hour")]
+[JsonProperty(PropertyName="simple_mixing_air_changes_per_hour")]
 public System.Nullable<float> SimpleMixingAirChangesPerHour { get; set; } = (System.Nullable<float>)Single.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [Description("If the Air Exchange Method is SimpleMixing then this field specifies the air exch" +
     "ange schedule. If this field is blank, the schedule is always 1.0. If an Airflow" +
     "Network simulation is active this field is ignored.")]
-[JsonProperty("simple_mixing_schedule_name")]
+[JsonProperty(PropertyName="simple_mixing_schedule_name")]
 public string SimpleMixingScheduleName { get; set; } = "";
     }
     
     public enum Construction_AirBoundary_AirExchangeMethod
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="None")]
@@ -3863,46 +3876,44 @@ public string SimpleMixingScheduleName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("standard")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="standard", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowThermalModel_Params_Standard Standard { get; set; } = (WindowThermalModel_Params_Standard)Enum.Parse(typeof(WindowThermalModel_Params_Standard), "ISO15099");
         
 
-[JsonProperty("thermal_model")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="thermal_model", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowThermalModel_Params_ThermalModel ThermalModel { get; set; } = (WindowThermalModel_Params_ThermalModel)Enum.Parse(typeof(WindowThermalModel_Params_ThermalModel), "ISO15099");
         
 
-[JsonProperty("sdscalar")]
+[JsonProperty(PropertyName="sdscalar")]
 public System.Nullable<float> Sdscalar { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("deflection_model")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="deflection_model", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowThermalModel_Params_DeflectionModel DeflectionModel { get; set; } = (WindowThermalModel_Params_DeflectionModel)Enum.Parse(typeof(WindowThermalModel_Params_DeflectionModel), "NoDeflection");
         
 
-[JsonProperty("vacuum_pressure_limit")]
+[JsonProperty(PropertyName="vacuum_pressure_limit")]
 public System.Nullable<float> VacuumPressureLimit { get; set; } = (System.Nullable<float>)Single.Parse("13.238", CultureInfo.InvariantCulture);
         
 
 [Description("This is temperature in time of window fabrication")]
-[JsonProperty("initial_temperature")]
+[JsonProperty(PropertyName="initial_temperature")]
 public System.Nullable<float> InitialTemperature { get; set; } = (System.Nullable<float>)Single.Parse("25", CultureInfo.InvariantCulture);
         
 
 [Description("This is pressure in time of window fabrication")]
-[JsonProperty("initial_pressure")]
+[JsonProperty(PropertyName="initial_pressure")]
 public System.Nullable<float> InitialPressure { get; set; } = (System.Nullable<float>)Single.Parse("101325", CultureInfo.InvariantCulture);
     }
     
     public enum WindowThermalModel_Params_Standard
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="EN673Declared")]
@@ -3918,7 +3929,7 @@ public System.Nullable<float> InitialPressure { get; set; } = (System.Nullable<f
     public enum WindowThermalModel_Params_ThermalModel
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ConvectiveScalarModel_NoSDThickness")]
@@ -3937,7 +3948,7 @@ public System.Nullable<float> InitialPressure { get; set; } = (System.Nullable<f
     public enum WindowThermalModel_Params_DeflectionModel
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="MeasuredDeflection")]
@@ -3956,15 +3967,14 @@ public System.Nullable<float> InitialPressure { get; set; } = (System.Nullable<f
     {
         
 
-[JsonProperty("windows_engine")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="windows_engine", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public WindowsCalculationEngine_WindowsEngine WindowsEngine { get; set; } = (WindowsCalculationEngine_WindowsEngine)Enum.Parse(typeof(WindowsCalculationEngine_WindowsEngine), "BuiltInWindowsModel");
     }
     
     public enum WindowsCalculationEngine_WindowsEngine
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="BuiltInWindowsModel")]
@@ -3982,163 +3992,162 @@ public WindowsCalculationEngine_WindowsEngine WindowsEngine { get; set; } = (Win
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("basis_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="basis_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Construction_ComplexFenestrationState_BasisType BasisType { get; set; } = (Construction_ComplexFenestrationState_BasisType)Enum.Parse(typeof(Construction_ComplexFenestrationState_BasisType), "LBNLWINDOW");
         
 
-[JsonProperty("basis_symmetry_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="basis_symmetry_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Construction_ComplexFenestrationState_BasisSymmetryType BasisSymmetryType { get; set; } = (Construction_ComplexFenestrationState_BasisSymmetryType)Enum.Parse(typeof(Construction_ComplexFenestrationState_BasisSymmetryType), "None");
         
 
-[JsonProperty("window_thermal_model")]
+[JsonProperty(PropertyName="window_thermal_model")]
 public string WindowThermalModel { get; set; } = "";
         
 
-[JsonProperty("basis_matrix_name")]
+[JsonProperty(PropertyName="basis_matrix_name")]
 public string BasisMatrixName { get; set; } = "";
         
 
-[JsonProperty("solar_optical_complex_front_transmittance_matrix_name")]
+[JsonProperty(PropertyName="solar_optical_complex_front_transmittance_matrix_name")]
 public string SolarOpticalComplexFrontTransmittanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("solar_optical_complex_back_reflectance_matrix_name")]
+[JsonProperty(PropertyName="solar_optical_complex_back_reflectance_matrix_name")]
 public string SolarOpticalComplexBackReflectanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("visible_optical_complex_front_transmittance_matrix_name")]
+[JsonProperty(PropertyName="visible_optical_complex_front_transmittance_matrix_name")]
 public string VisibleOpticalComplexFrontTransmittanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("visible_optical_complex_back_transmittance_matrix_name")]
+[JsonProperty(PropertyName="visible_optical_complex_back_transmittance_matrix_name")]
 public string VisibleOpticalComplexBackTransmittanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("outside_layer_name")]
+[JsonProperty(PropertyName="outside_layer_name")]
 public string OutsideLayerName { get; set; } = "";
         
 
-[JsonProperty("outside_layer_directional_front_absoptance_matrix_name")]
+[JsonProperty(PropertyName="outside_layer_directional_front_absoptance_matrix_name")]
 public string OutsideLayerDirectionalFrontAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("outside_layer_directional_back_absoptance_matrix_name")]
+[JsonProperty(PropertyName="outside_layer_directional_back_absoptance_matrix_name")]
 public string OutsideLayerDirectionalBackAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("gap_1_name")]
+[JsonProperty(PropertyName="gap_1_name")]
 public string Gap1Name { get; set; } = "";
         
 
 [Description("Reserved for future use. Leave it blank for this version")]
-[JsonProperty("cfs_gap_1_directional_front_absoptance_matrix_name")]
+[JsonProperty(PropertyName="cfs_gap_1_directional_front_absoptance_matrix_name")]
 public string CfsGap1DirectionalFrontAbsoptanceMatrixName { get; set; } = "";
         
 
 [Description("Reserved for future use. Leave it blank for this version")]
-[JsonProperty("cfs_gap_1_directional_back_absoptance_matrix_name")]
+[JsonProperty(PropertyName="cfs_gap_1_directional_back_absoptance_matrix_name")]
 public string CfsGap1DirectionalBackAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("layer_2_name")]
+[JsonProperty(PropertyName="layer_2_name")]
 public string Layer2Name { get; set; } = "";
         
 
-[JsonProperty("layer_2_directional_front_absoptance_matrix_name")]
+[JsonProperty(PropertyName="layer_2_directional_front_absoptance_matrix_name")]
 public string Layer2DirectionalFrontAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("layer_2_directional_back_absoptance_matrix_name")]
+[JsonProperty(PropertyName="layer_2_directional_back_absoptance_matrix_name")]
 public string Layer2DirectionalBackAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("gap_2_name")]
+[JsonProperty(PropertyName="gap_2_name")]
 public string Gap2Name { get; set; } = "";
         
 
 [Description("Reserved for future use. Leave it blank for this version")]
-[JsonProperty("gap_2_directional_front_absoptance_matrix_name")]
+[JsonProperty(PropertyName="gap_2_directional_front_absoptance_matrix_name")]
 public string Gap2DirectionalFrontAbsoptanceMatrixName { get; set; } = "";
         
 
 [Description("Reserved for future use. Leave it blank for this version")]
-[JsonProperty("gap_2_directional_back_absoptance_matrix_name")]
+[JsonProperty(PropertyName="gap_2_directional_back_absoptance_matrix_name")]
 public string Gap2DirectionalBackAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("layer_3_material")]
+[JsonProperty(PropertyName="layer_3_material")]
 public string Layer3Material { get; set; } = "";
         
 
-[JsonProperty("layer_3_directional_front_absoptance_matrix_name")]
+[JsonProperty(PropertyName="layer_3_directional_front_absoptance_matrix_name")]
 public string Layer3DirectionalFrontAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("layer_3_directional_back_absoptance_matrix_name")]
+[JsonProperty(PropertyName="layer_3_directional_back_absoptance_matrix_name")]
 public string Layer3DirectionalBackAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("gap_3_name")]
+[JsonProperty(PropertyName="gap_3_name")]
 public string Gap3Name { get; set; } = "";
         
 
 [Description("Reserved for future use. Leave it blank for this version")]
-[JsonProperty("gap_3_directional_front_absoptance_matrix_name")]
+[JsonProperty(PropertyName="gap_3_directional_front_absoptance_matrix_name")]
 public string Gap3DirectionalFrontAbsoptanceMatrixName { get; set; } = "";
         
 
 [Description("Reserved for future use. Leave it blank for this version")]
-[JsonProperty("gap_3_directional_back_absoptance_matrix_name")]
+[JsonProperty(PropertyName="gap_3_directional_back_absoptance_matrix_name")]
 public string Gap3DirectionalBackAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("layer_4_name")]
+[JsonProperty(PropertyName="layer_4_name")]
 public string Layer4Name { get; set; } = "";
         
 
-[JsonProperty("layer_4_directional_front_absoptance_matrix_name")]
+[JsonProperty(PropertyName="layer_4_directional_front_absoptance_matrix_name")]
 public string Layer4DirectionalFrontAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("layer_4_directional_back_absoptance_matrix_name")]
+[JsonProperty(PropertyName="layer_4_directional_back_absoptance_matrix_name")]
 public string Layer4DirectionalBackAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("gap_4_name")]
+[JsonProperty(PropertyName="gap_4_name")]
 public string Gap4Name { get; set; } = "";
         
 
 [Description("Reserved for future use. Leave it blank for this version")]
-[JsonProperty("gap_4_directional_front_absoptance_matrix_name")]
+[JsonProperty(PropertyName="gap_4_directional_front_absoptance_matrix_name")]
 public string Gap4DirectionalFrontAbsoptanceMatrixName { get; set; } = "";
         
 
 [Description("Reserved for future use. Leave it blank for this version")]
-[JsonProperty("gap_4_directional_back_absoptance_matrix_name")]
+[JsonProperty(PropertyName="gap_4_directional_back_absoptance_matrix_name")]
 public string Gap4DirectionalBackAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("layer_5_name")]
+[JsonProperty(PropertyName="layer_5_name")]
 public string Layer5Name { get; set; } = "";
         
 
-[JsonProperty("layer_5_directional_front_absoptance_matrix_name")]
+[JsonProperty(PropertyName="layer_5_directional_front_absoptance_matrix_name")]
 public string Layer5DirectionalFrontAbsoptanceMatrixName { get; set; } = "";
         
 
-[JsonProperty("layer_5_directional_back_absoptance_matrix_name")]
+[JsonProperty(PropertyName="layer_5_directional_back_absoptance_matrix_name")]
 public string Layer5DirectionalBackAbsoptanceMatrixName { get; set; } = "";
     }
     
     public enum Construction_ComplexFenestrationState_BasisType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="LBNLWINDOW")]
@@ -4151,7 +4160,7 @@ public string Layer5DirectionalBackAbsoptanceMatrixName { get; set; } = "";
     public enum Construction_ComplexFenestrationState_BasisSymmetryType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Axisymmetric")]
@@ -4170,50 +4179,51 @@ public string Layer5DirectionalBackAbsoptanceMatrixName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("outside_layer")]
+[JsonProperty(PropertyName="outside_layer")]
 public string OutsideLayer { get; set; } = "";
         
 
-[JsonProperty("layer_2")]
+[JsonProperty(PropertyName="layer_2")]
 public string Layer2 { get; set; } = "";
         
 
-[JsonProperty("layer_3")]
+[JsonProperty(PropertyName="layer_3")]
 public string Layer3 { get; set; } = "";
         
 
-[JsonProperty("layer_4")]
+[JsonProperty(PropertyName="layer_4")]
 public string Layer4 { get; set; } = "";
         
 
-[JsonProperty("layer_5")]
+[JsonProperty(PropertyName="layer_5")]
 public string Layer5 { get; set; } = "";
         
 
-[JsonProperty("layer_6")]
+[JsonProperty(PropertyName="layer_6")]
 public string Layer6 { get; set; } = "";
         
 
-[JsonProperty("layer_7")]
+[JsonProperty(PropertyName="layer_7")]
 public string Layer7 { get; set; } = "";
         
 
-[JsonProperty("layer_8")]
+[JsonProperty(PropertyName="layer_8")]
 public string Layer8 { get; set; } = "";
         
 
-[JsonProperty("layer_9")]
+[JsonProperty(PropertyName="layer_9")]
 public string Layer9 { get; set; } = "";
         
 
-[JsonProperty("layer_10")]
+[JsonProperty(PropertyName="layer_10")]
 public string Layer10 { get; set; } = "";
         
 
-[JsonProperty("layer_11")]
+[JsonProperty(PropertyName="layer_11")]
 public string Layer11 { get; set; } = "";
     }
     
@@ -4224,12 +4234,13 @@ public string Layer11 { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("default file name is \"Window5DataFile.dat\" limit on this field is 100 characters." +
     "")]
-[JsonProperty("file_name")]
+[JsonProperty(PropertyName="file_name")]
 public string FileName { get; set; } = "";
     }
 }

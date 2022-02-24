@@ -73,22 +73,22 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACEquipmentConnections
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("load_distribution_scheme")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="load_distribution_scheme", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneHVAC_EquipmentList_LoadDistributionScheme LoadDistributionScheme { get; set; } = (ZoneHVAC_EquipmentList_LoadDistributionScheme)Enum.Parse(typeof(ZoneHVAC_EquipmentList_LoadDistributionScheme), "SequentialLoad");
         
 
-[JsonProperty("equipment")]
+[JsonProperty(PropertyName="equipment")]
 public string Equipment { get; set; } = "";
     }
     
     public enum ZoneHVAC_EquipmentList_LoadDistributionScheme
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="SequentialLoad")]
@@ -113,39 +113,39 @@ public string Equipment { get; set; } = "";
     {
         
 
-[JsonProperty("zone_name")]
+[JsonProperty(PropertyName="zone_name")]
 public string ZoneName { get; set; } = "";
         
 
 [Description("Enter the name of a ZoneHVAC:EquipmentList object.")]
-[JsonProperty("zone_conditioning_equipment_list_name")]
+[JsonProperty(PropertyName="zone_conditioning_equipment_list_name")]
 public string ZoneConditioningEquipmentListName { get; set; } = "";
         
 
-[JsonProperty("zone_air_inlet_node_or_nodelist_name")]
+[JsonProperty(PropertyName="zone_air_inlet_node_or_nodelist_name")]
 public string ZoneAirInletNodeOrNodelistName { get; set; } = "";
         
 
-[JsonProperty("zone_air_exhaust_node_or_nodelist_name")]
+[JsonProperty(PropertyName="zone_air_exhaust_node_or_nodelist_name")]
 public string ZoneAirExhaustNodeOrNodelistName { get; set; } = "";
         
 
-[JsonProperty("zone_air_node_name")]
+[JsonProperty(PropertyName="zone_air_node_name")]
 public string ZoneAirNodeName { get; set; } = "";
         
 
-[JsonProperty("zone_return_air_node_or_nodelist_name")]
+[JsonProperty(PropertyName="zone_return_air_node_or_nodelist_name")]
 public string ZoneReturnAirNodeOrNodelistName { get; set; } = "";
         
 
 [Description("This schedule is multiplied times the base return air flow rate. If this field is" +
     " left blank, the schedule defaults to 1.0 at all times.")]
-[JsonProperty("zone_return_air_node_1_flow_rate_fraction_schedule_name")]
+[JsonProperty(PropertyName="zone_return_air_node_1_flow_rate_fraction_schedule_name")]
 public string ZoneReturnAirNode1FlowRateFractionScheduleName { get; set; } = "";
         
 
 [Description(@"The optional basis node(s) used to calculate the base return air flow rate for the first return air node in this zone. The return air flow rate is the sum of the flow rates at the basis node(s) multiplied by the Zone Return Air Flow Rate Fraction Schedule. If this  field is blank, then the base return air flow rate is the total supply inlet flow rate to the zone less the total exhaust node flow rate from the zone.")]
-[JsonProperty("zone_return_air_node_1_flow_rate_basis_node_or_nodelist_name")]
+[JsonProperty(PropertyName="zone_return_air_node_1_flow_rate_basis_node_or_nodelist_name")]
 public string ZoneReturnAirNode1FlowRateBasisNodeOrNodelistName { get; set; } = "";
     }
 }

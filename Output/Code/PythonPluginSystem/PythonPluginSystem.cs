@@ -73,24 +73,23 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Adding the current working directory allows Python to find plugin scripts in the " +
     "current directory.")]
-[JsonProperty("add_current_working_directory_to_search_path")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="add_current_working_directory_to_search_path", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes AddCurrentWorkingDirectoryToSearchPath { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [Description("Enabling this will allow Python to find plugin scripts in the same directory as t" +
     "he running input file, even if that is not the current working directory.")]
-[JsonProperty("add_input_file_directory_to_search_path")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="add_input_file_directory_to_search_path", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes AddInputFileDirectoryToSearchPath { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty("py_search_paths")]
+[JsonProperty(PropertyName="py_search_paths")]
 public string PySearchPaths { get; set; } = "";
     }
     
@@ -103,25 +102,25 @@ public string PySearchPaths { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("If this field is enabled, the plugin will be executed during warmup days, otherwi" +
     "se it will only be executed once warmup is completed and the actual run period b" +
     "egins")]
-[JsonProperty("run_during_warmup_days")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="run_during_warmup_days", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RunDuringWarmupDays { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description(@"This is the name of the Python file, without a file extension. For ""plugin_b.py"", use just ""plugin_b"". The Python plugin file must be on the plugin system search path to be found during a simulation Additional directories can be added to the search path using the PythonPlugin:SearchPaths object")]
-[JsonProperty("python_module_name")]
+[JsonProperty(PropertyName="python_module_name")]
 public string PythonModuleName { get; set; } = "";
         
 
 [Description("This is the name of the class to be executed as a plugin during a simulation The " +
     "class must inherit the EnergyPlusPlugin base class")]
-[JsonProperty("plugin_class_name")]
+[JsonProperty(PropertyName="plugin_class_name")]
 public string PluginClassName { get; set; } = "";
     }
     
@@ -133,10 +132,11 @@ public string PluginClassName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("global_py_vars")]
+[JsonProperty(PropertyName="global_py_vars")]
 public string GlobalPyVars { get; set; } = "";
     }
     
@@ -148,14 +148,15 @@ public string GlobalPyVars { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("name_of_a_python_plugin_variable")]
+[JsonProperty(PropertyName="name_of_a_python_plugin_variable")]
 public string NameOfAPythonPluginVariable { get; set; } = "";
         
 
-[JsonProperty("number_of_timesteps_to_be_logged")]
+[JsonProperty(PropertyName="number_of_timesteps_to_be_logged")]
 public System.Nullable<float> NumberOfTimestepsToBeLogged { get; set; } = null;
     }
     
@@ -166,55 +167,51 @@ public System.Nullable<float> NumberOfTimestepsToBeLogged { get; set; } = null;
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Must be listed in the PythonPlugin:Variables object")]
-[JsonProperty("python_plugin_variable_name")]
+[JsonProperty(PropertyName="python_plugin_variable_name")]
 public string PythonPluginVariableName { get; set; } = "";
         
 
 [Description("If Metered is selected, the variable is automatically set to a \"Summed\" type, and" +
     " the Resource Type, Group Type, and End-Use Subcategory fields on this object ar" +
     "e required")]
-[JsonProperty("type_of_data_in_variable")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="type_of_data_in_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PythonPlugin_OutputVariable_TypeOfDataInVariable TypeOfDataInVariable { get; set; } = (PythonPlugin_OutputVariable_TypeOfDataInVariable)Enum.Parse(typeof(PythonPlugin_OutputVariable_TypeOfDataInVariable), "Averaged");
         
 
-[JsonProperty("update_frequency")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="update_frequency", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PythonPlugin_OutputVariable_UpdateFrequency UpdateFrequency { get; set; } = (PythonPlugin_OutputVariable_UpdateFrequency)Enum.Parse(typeof(PythonPlugin_OutputVariable_UpdateFrequency), "SystemTimestep");
         
 
 [Description("optional but will result in dimensionless units for blank EnergyPlus units are st" +
     "andard SI units")]
-[JsonProperty("units")]
+[JsonProperty(PropertyName="units")]
 public string Units { get; set; } = "";
         
 
 [Description(@"This field is optional for regular output variables with ""Type of Data in Variable"" set to either Averaged or Summed. For Metered variables, this field is required. Choose the type of fuel, water, electricity, pollution or heat rate that should be metered.")]
-[JsonProperty("resource_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="resource_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PythonPlugin_OutputVariable_ResourceType ResourceType { get; set; } = (PythonPlugin_OutputVariable_ResourceType)Enum.Parse(typeof(PythonPlugin_OutputVariable_ResourceType), "Coal");
         
 
 [Description(@"This field is optional for regular output variables with ""Type of Data in Variable"" set to either Averaged or Summed. For Metered variables, this field is required. Choose a general classification, building (internal services), HVAC (air systems), or plant (hydronic systems), or system")]
-[JsonProperty("group_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="group_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PythonPlugin_OutputVariable_GroupType GroupType { get; set; } = (PythonPlugin_OutputVariable_GroupType)Enum.Parse(typeof(PythonPlugin_OutputVariable_GroupType), "Building");
         
 
 [Description("This field is optional for regular output variables with \"Type of Data in Variabl" +
     "e\" set to either Averaged or Summed. For Metered variables, this field is requir" +
     "ed. Choose how the metered output should be classified for end-use category")]
-[JsonProperty("end_use_category")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="end_use_category", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PythonPlugin_OutputVariable_EndUseCategory EndUseCategory { get; set; } = (PythonPlugin_OutputVariable_EndUseCategory)Enum.Parse(typeof(PythonPlugin_OutputVariable_EndUseCategory), "Baseboard");
         
 
 [Description(@"This field is always optional. For regular output variables with ""Type of Data in Variable"" set to either Averaged or Summed, this field is completely ignored. For Metered variables, this field is optional, but allows custom categorization of the end-uses in the ABUPS End Uses by Subcategory table. Enter a user-defined subcategory for this metered output")]
-[JsonProperty("end_use_subcategory")]
+[JsonProperty(PropertyName="end_use_subcategory")]
 public string EndUseSubcategory { get; set; } = "";
     }
     

@@ -73,10 +73,11 @@ namespace BH.oM.Adapters.EnergyPlus.Parametrics
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("values")]
+[JsonProperty(PropertyName="values")]
 public string Values { get; set; } = "";
     }
     
@@ -87,10 +88,11 @@ public string Values { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("lines")]
+[JsonProperty(PropertyName="lines")]
 public string Lines { get; set; } = "";
     }
     
@@ -102,10 +104,11 @@ public string Lines { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("runs")]
+[JsonProperty(PropertyName="runs")]
 public string Runs { get; set; } = "";
     }
     
@@ -118,10 +121,11 @@ public string Runs { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("suffixes")]
+[JsonProperty(PropertyName="suffixes")]
 public string Suffixes { get; set; } = "";
     }
 }

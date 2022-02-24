@@ -74,69 +74,68 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty("availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name")]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty("flow_arrangement_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="flow_arrangement_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_AirToAir_FlatPlate_FlowArrangementType FlowArrangementType { get; set; } = (HeatExchanger_AirToAir_FlatPlate_FlowArrangementType)Enum.Parse(typeof(HeatExchanger_AirToAir_FlatPlate_FlowArrangementType), "CounterFlow");
         
 
 [Description("Yes means that the heat exchanger will be locked out (off) when the economizer is" +
     " operating or high humidity control is active")]
-[JsonProperty("economizer_lockout")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="economizer_lockout", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [Description("Ratio of h*A for supply side to h*A for exhaust side")]
-[JsonProperty("ratio_of_supply_to_secondary_ha_values")]
+[JsonProperty(PropertyName="ratio_of_supply_to_secondary_ha_values")]
 public System.Nullable<float> RatioOfSupplyToSecondaryHaValues { get; set; } = null;
         
 
-[JsonProperty("nominal_supply_air_flow_rate")]
-public string NominalSupplyAirFlowRate { get; set; } = (System.String)"Autosize";
+[JsonProperty(PropertyName="nominal_supply_air_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalSupplyAirFlowRate { get; set; } = null;
         
 
-[JsonProperty("nominal_supply_air_inlet_temperature")]
+[JsonProperty(PropertyName="nominal_supply_air_inlet_temperature")]
 public System.Nullable<float> NominalSupplyAirInletTemperature { get; set; } = null;
         
 
-[JsonProperty("nominal_supply_air_outlet_temperature")]
+[JsonProperty(PropertyName="nominal_supply_air_outlet_temperature")]
 public System.Nullable<float> NominalSupplyAirOutletTemperature { get; set; } = null;
         
 
-[JsonProperty("nominal_secondary_air_flow_rate")]
-public string NominalSecondaryAirFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="nominal_secondary_air_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalSecondaryAirFlowRate { get; set; } = null;
         
 
-[JsonProperty("nominal_secondary_air_inlet_temperature")]
+[JsonProperty(PropertyName="nominal_secondary_air_inlet_temperature")]
 public System.Nullable<float> NominalSecondaryAirInletTemperature { get; set; } = null;
         
 
-[JsonProperty("nominal_electric_power")]
+[JsonProperty(PropertyName="nominal_electric_power")]
 public System.Nullable<float> NominalElectricPower { get; set; } = null;
         
 
-[JsonProperty("supply_air_inlet_node_name")]
+[JsonProperty(PropertyName="supply_air_inlet_node_name")]
 public string SupplyAirInletNodeName { get; set; } = "";
         
 
-[JsonProperty("supply_air_outlet_node_name")]
+[JsonProperty(PropertyName="supply_air_outlet_node_name")]
 public string SupplyAirOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("secondary_air_inlet_node_name")]
+[JsonProperty(PropertyName="secondary_air_inlet_node_name")]
 public string SecondaryAirInletNodeName { get; set; } = "";
         
 
-[JsonProperty("secondary_air_outlet_node_name")]
+[JsonProperty(PropertyName="secondary_air_outlet_node_name")]
 public string SecondaryAirOutletNodeName { get; set; } = "";
     }
     
@@ -162,118 +161,115 @@ public string SecondaryAirOutletNodeName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty("availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name")]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty("nominal_supply_air_flow_rate")]
-public string NominalSupplyAirFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="nominal_supply_air_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalSupplyAirFlowRate { get; set; } = null;
         
 
-[JsonProperty("sensible_effectiveness_at_100_heating_air_flow")]
+[JsonProperty(PropertyName="sensible_effectiveness_at_100_heating_air_flow")]
 public System.Nullable<float> SensibleEffectivenessAt100HeatingAirFlow { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("latent_effectiveness_at_100_heating_air_flow")]
+[JsonProperty(PropertyName="latent_effectiveness_at_100_heating_air_flow")]
 public System.Nullable<float> LatentEffectivenessAt100HeatingAirFlow { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("sensible_effectiveness_at_75_heating_air_flow")]
+[JsonProperty(PropertyName="sensible_effectiveness_at_75_heating_air_flow")]
 public System.Nullable<float> SensibleEffectivenessAt75HeatingAirFlow { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("latent_effectiveness_at_75_heating_air_flow")]
+[JsonProperty(PropertyName="latent_effectiveness_at_75_heating_air_flow")]
 public System.Nullable<float> LatentEffectivenessAt75HeatingAirFlow { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("sensible_effectiveness_at_100_cooling_air_flow")]
+[JsonProperty(PropertyName="sensible_effectiveness_at_100_cooling_air_flow")]
 public System.Nullable<float> SensibleEffectivenessAt100CoolingAirFlow { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("latent_effectiveness_at_100_cooling_air_flow")]
+[JsonProperty(PropertyName="latent_effectiveness_at_100_cooling_air_flow")]
 public System.Nullable<float> LatentEffectivenessAt100CoolingAirFlow { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("sensible_effectiveness_at_75_cooling_air_flow")]
+[JsonProperty(PropertyName="sensible_effectiveness_at_75_cooling_air_flow")]
 public System.Nullable<float> SensibleEffectivenessAt75CoolingAirFlow { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("latent_effectiveness_at_75_cooling_air_flow")]
+[JsonProperty(PropertyName="latent_effectiveness_at_75_cooling_air_flow")]
 public System.Nullable<float> LatentEffectivenessAt75CoolingAirFlow { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("supply_air_inlet_node_name")]
+[JsonProperty(PropertyName="supply_air_inlet_node_name")]
 public string SupplyAirInletNodeName { get; set; } = "";
         
 
-[JsonProperty("supply_air_outlet_node_name")]
+[JsonProperty(PropertyName="supply_air_outlet_node_name")]
 public string SupplyAirOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("exhaust_air_inlet_node_name")]
+[JsonProperty(PropertyName="exhaust_air_inlet_node_name")]
 public string ExhaustAirInletNodeName { get; set; } = "";
         
 
-[JsonProperty("exhaust_air_outlet_node_name")]
+[JsonProperty(PropertyName="exhaust_air_outlet_node_name")]
 public string ExhaustAirOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("nominal_electric_power")]
+[JsonProperty(PropertyName="nominal_electric_power")]
 public System.Nullable<float> NominalElectricPower { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("supply_air_outlet_temperature_control")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="supply_air_outlet_temperature_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes SupplyAirOutletTemperatureControl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
-[JsonProperty("heat_exchanger_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="heat_exchanger_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType HeatExchangerType { get; set; } = (HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType)Enum.Parse(typeof(HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType), "Plate");
         
 
-[JsonProperty("frost_control_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="frost_control_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType FrostControlType { get; set; } = (HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType)Enum.Parse(typeof(HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType), "None");
         
 
 [Description("Supply (outdoor) air inlet temp threshold for exhaust air recirculation and exhau" +
     "st only frost control types. Exhaust air outlet threshold Temperature for minimu" +
     "m exhaust temperature frost control type.")]
-[JsonProperty("threshold_temperature")]
+[JsonProperty(PropertyName="threshold_temperature")]
 public System.Nullable<float> ThresholdTemperature { get; set; } = (System.Nullable<float>)Single.Parse("1.7", CultureInfo.InvariantCulture);
         
 
 [Description("Fraction of the time when frost control will be invoked at the threshold temperat" +
     "ure. This field only used for exhaust air recirc and exhaust-only frost control " +
     "types.")]
-[JsonProperty("initial_defrost_time_fraction")]
+[JsonProperty(PropertyName="initial_defrost_time_fraction")]
 public System.Nullable<float> InitialDefrostTimeFraction { get; set; } = (System.Nullable<float>)Single.Parse("0.083", CultureInfo.InvariantCulture);
         
 
 [Description("Rate of increase in defrost time fraction as actual temp falls below threshold te" +
     "mperature. This field only used for exhaust air recirc and exhaust-only frost co" +
     "ntrol types.")]
-[JsonProperty("rate_of_defrost_time_fraction_increase")]
+[JsonProperty(PropertyName="rate_of_defrost_time_fraction_increase")]
 public System.Nullable<float> RateOfDefrostTimeFractionIncrease { get; set; } = (System.Nullable<float>)Single.Parse("0.012", CultureInfo.InvariantCulture);
         
 
 [Description("Yes means that the heat exchanger will be locked out (off) when the economizer is" +
     " operating or high humidity control is active")]
-[JsonProperty("economizer_lockout")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="economizer_lockout", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
     }
     
     public enum HeatExchanger_AirToAir_SensibleAndLatent_HeatExchangerType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Plate")]
@@ -286,7 +282,7 @@ public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeo
     public enum HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ExhaustAirRecirculation")]
@@ -309,51 +305,50 @@ public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeo
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty("availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name")]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty("regeneration_air_inlet_node_name")]
+[JsonProperty(PropertyName="regeneration_air_inlet_node_name")]
 public string RegenerationAirInletNodeName { get; set; } = "";
         
 
-[JsonProperty("regeneration_air_outlet_node_name")]
+[JsonProperty(PropertyName="regeneration_air_outlet_node_name")]
 public string RegenerationAirOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("process_air_inlet_node_name")]
+[JsonProperty(PropertyName="process_air_inlet_node_name")]
 public string ProcessAirInletNodeName { get; set; } = "";
         
 
-[JsonProperty("process_air_outlet_node_name")]
+[JsonProperty(PropertyName="process_air_outlet_node_name")]
 public string ProcessAirOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("heat_exchanger_performance_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="heat_exchanger_performance_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public HeatExchanger_Desiccant_BalancedFlow_HeatExchangerPerformanceObjectType HeatExchangerPerformanceObjectType { get; set; } = (HeatExchanger_Desiccant_BalancedFlow_HeatExchangerPerformanceObjectType)Enum.Parse(typeof(HeatExchanger_Desiccant_BalancedFlow_HeatExchangerPerformanceObjectType), "Empty");
         
 
-[JsonProperty("heat_exchanger_performance_name")]
+[JsonProperty(PropertyName="heat_exchanger_performance_name")]
 public string HeatExchangerPerformanceName { get; set; } = "";
         
 
 [Description("Yes means that the heat exchanger will be locked out (off) when the economizer is" +
     " operating or high humidity control is active")]
-[JsonProperty("economizer_lockout")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="economizer_lockout", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
     
     public enum HeatExchanger_Desiccant_BalancedFlow_HeatExchangerPerformanceObjectType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1")]
@@ -367,213 +362,214 @@ public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeo
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Air flow rate at nominal conditions (assumed to be the same for both sides of the" +
     " heat exchanger).")]
-[JsonProperty("nominal_air_flow_rate")]
-public string NominalAirFlowRate { get; set; } = "";
+[JsonProperty(PropertyName="nominal_air_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalAirFlowRate { get; set; } = null;
         
 
-[JsonProperty("nominal_air_face_velocity")]
-public string NominalAirFaceVelocity { get; set; } = "";
+[JsonProperty(PropertyName="nominal_air_face_velocity", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> NominalAirFaceVelocity { get; set; } = null;
         
 
 [Description("Parasitic electric power (e.g., desiccant wheel motor)")]
-[JsonProperty("nominal_electric_power")]
+[JsonProperty(PropertyName="nominal_electric_power")]
 public System.Nullable<float> NominalElectricPower { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("temperature_equation_coefficient_1")]
+[JsonProperty(PropertyName="temperature_equation_coefficient_1")]
 public System.Nullable<float> TemperatureEquationCoefficient1 { get; set; } = null;
         
 
-[JsonProperty("temperature_equation_coefficient_2")]
+[JsonProperty(PropertyName="temperature_equation_coefficient_2")]
 public System.Nullable<float> TemperatureEquationCoefficient2 { get; set; } = null;
         
 
-[JsonProperty("temperature_equation_coefficient_3")]
+[JsonProperty(PropertyName="temperature_equation_coefficient_3")]
 public System.Nullable<float> TemperatureEquationCoefficient3 { get; set; } = null;
         
 
-[JsonProperty("temperature_equation_coefficient_4")]
+[JsonProperty(PropertyName="temperature_equation_coefficient_4")]
 public System.Nullable<float> TemperatureEquationCoefficient4 { get; set; } = null;
         
 
-[JsonProperty("temperature_equation_coefficient_5")]
+[JsonProperty(PropertyName="temperature_equation_coefficient_5")]
 public System.Nullable<float> TemperatureEquationCoefficient5 { get; set; } = null;
         
 
-[JsonProperty("temperature_equation_coefficient_6")]
+[JsonProperty(PropertyName="temperature_equation_coefficient_6")]
 public System.Nullable<float> TemperatureEquationCoefficient6 { get; set; } = null;
         
 
-[JsonProperty("temperature_equation_coefficient_7")]
+[JsonProperty(PropertyName="temperature_equation_coefficient_7")]
 public System.Nullable<float> TemperatureEquationCoefficient7 { get; set; } = null;
         
 
-[JsonProperty("temperature_equation_coefficient_8")]
+[JsonProperty(PropertyName="temperature_equation_coefficient_8")]
 public System.Nullable<float> TemperatureEquationCoefficient8 { get; set; } = null;
         
 
-[JsonProperty("minimum_regeneration_inlet_air_humidity_ratio_for_temperature_equation")]
+[JsonProperty(PropertyName="minimum_regeneration_inlet_air_humidity_ratio_for_temperature_equation")]
 public System.Nullable<float> MinimumRegenerationInletAirHumidityRatioForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_regeneration_inlet_air_humidity_ratio_for_temperature_equation")]
+[JsonProperty(PropertyName="maximum_regeneration_inlet_air_humidity_ratio_for_temperature_equation")]
 public System.Nullable<float> MaximumRegenerationInletAirHumidityRatioForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_regeneration_inlet_air_temperature_for_temperature_equation")]
+[JsonProperty(PropertyName="minimum_regeneration_inlet_air_temperature_for_temperature_equation")]
 public System.Nullable<float> MinimumRegenerationInletAirTemperatureForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_regeneration_inlet_air_temperature_for_temperature_equation")]
+[JsonProperty(PropertyName="maximum_regeneration_inlet_air_temperature_for_temperature_equation")]
 public System.Nullable<float> MaximumRegenerationInletAirTemperatureForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_process_inlet_air_humidity_ratio_for_temperature_equation")]
+[JsonProperty(PropertyName="minimum_process_inlet_air_humidity_ratio_for_temperature_equation")]
 public System.Nullable<float> MinimumProcessInletAirHumidityRatioForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_process_inlet_air_humidity_ratio_for_temperature_equation")]
+[JsonProperty(PropertyName="maximum_process_inlet_air_humidity_ratio_for_temperature_equation")]
 public System.Nullable<float> MaximumProcessInletAirHumidityRatioForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_process_inlet_air_temperature_for_temperature_equation")]
+[JsonProperty(PropertyName="minimum_process_inlet_air_temperature_for_temperature_equation")]
 public System.Nullable<float> MinimumProcessInletAirTemperatureForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_process_inlet_air_temperature_for_temperature_equation")]
+[JsonProperty(PropertyName="maximum_process_inlet_air_temperature_for_temperature_equation")]
 public System.Nullable<float> MaximumProcessInletAirTemperatureForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_regeneration_air_velocity_for_temperature_equation")]
+[JsonProperty(PropertyName="minimum_regeneration_air_velocity_for_temperature_equation")]
 public System.Nullable<float> MinimumRegenerationAirVelocityForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_regeneration_air_velocity_for_temperature_equation")]
+[JsonProperty(PropertyName="maximum_regeneration_air_velocity_for_temperature_equation")]
 public System.Nullable<float> MaximumRegenerationAirVelocityForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_regeneration_outlet_air_temperature_for_temperature_equation")]
+[JsonProperty(PropertyName="minimum_regeneration_outlet_air_temperature_for_temperature_equation")]
 public System.Nullable<float> MinimumRegenerationOutletAirTemperatureForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_regeneration_outlet_air_temperature_for_temperature_equation")]
+[JsonProperty(PropertyName="maximum_regeneration_outlet_air_temperature_for_temperature_equation")]
 public System.Nullable<float> MaximumRegenerationOutletAirTemperatureForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_regeneration_inlet_air_relative_humidity_for_temperature_equation")]
+[JsonProperty(PropertyName="minimum_regeneration_inlet_air_relative_humidity_for_temperature_equation")]
 public System.Nullable<float> MinimumRegenerationInletAirRelativeHumidityForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_regeneration_inlet_air_relative_humidity_for_temperature_equation")]
+[JsonProperty(PropertyName="maximum_regeneration_inlet_air_relative_humidity_for_temperature_equation")]
 public System.Nullable<float> MaximumRegenerationInletAirRelativeHumidityForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_process_inlet_air_relative_humidity_for_temperature_equation")]
+[JsonProperty(PropertyName="minimum_process_inlet_air_relative_humidity_for_temperature_equation")]
 public System.Nullable<float> MinimumProcessInletAirRelativeHumidityForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_process_inlet_air_relative_humidity_for_temperature_equation")]
+[JsonProperty(PropertyName="maximum_process_inlet_air_relative_humidity_for_temperature_equation")]
 public System.Nullable<float> MaximumProcessInletAirRelativeHumidityForTemperatureEquation { get; set; } = null;
         
 
-[JsonProperty("humidity_ratio_equation_coefficient_1")]
+[JsonProperty(PropertyName="humidity_ratio_equation_coefficient_1")]
 public System.Nullable<float> HumidityRatioEquationCoefficient1 { get; set; } = null;
         
 
-[JsonProperty("humidity_ratio_equation_coefficient_2")]
+[JsonProperty(PropertyName="humidity_ratio_equation_coefficient_2")]
 public System.Nullable<float> HumidityRatioEquationCoefficient2 { get; set; } = null;
         
 
-[JsonProperty("humidity_ratio_equation_coefficient_3")]
+[JsonProperty(PropertyName="humidity_ratio_equation_coefficient_3")]
 public System.Nullable<float> HumidityRatioEquationCoefficient3 { get; set; } = null;
         
 
-[JsonProperty("humidity_ratio_equation_coefficient_4")]
+[JsonProperty(PropertyName="humidity_ratio_equation_coefficient_4")]
 public System.Nullable<float> HumidityRatioEquationCoefficient4 { get; set; } = null;
         
 
-[JsonProperty("humidity_ratio_equation_coefficient_5")]
+[JsonProperty(PropertyName="humidity_ratio_equation_coefficient_5")]
 public System.Nullable<float> HumidityRatioEquationCoefficient5 { get; set; } = null;
         
 
-[JsonProperty("humidity_ratio_equation_coefficient_6")]
+[JsonProperty(PropertyName="humidity_ratio_equation_coefficient_6")]
 public System.Nullable<float> HumidityRatioEquationCoefficient6 { get; set; } = null;
         
 
-[JsonProperty("humidity_ratio_equation_coefficient_7")]
+[JsonProperty(PropertyName="humidity_ratio_equation_coefficient_7")]
 public System.Nullable<float> HumidityRatioEquationCoefficient7 { get; set; } = null;
         
 
-[JsonProperty("humidity_ratio_equation_coefficient_8")]
+[JsonProperty(PropertyName="humidity_ratio_equation_coefficient_8")]
 public System.Nullable<float> HumidityRatioEquationCoefficient8 { get; set; } = null;
         
 
-[JsonProperty("minimum_regeneration_inlet_air_humidity_ratio_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="minimum_regeneration_inlet_air_humidity_ratio_for_humidity_ratio_equation")]
 public System.Nullable<float> MinimumRegenerationInletAirHumidityRatioForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_regeneration_inlet_air_humidity_ratio_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="maximum_regeneration_inlet_air_humidity_ratio_for_humidity_ratio_equation")]
 public System.Nullable<float> MaximumRegenerationInletAirHumidityRatioForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_regeneration_inlet_air_temperature_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="minimum_regeneration_inlet_air_temperature_for_humidity_ratio_equation")]
 public System.Nullable<float> MinimumRegenerationInletAirTemperatureForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_regeneration_inlet_air_temperature_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="maximum_regeneration_inlet_air_temperature_for_humidity_ratio_equation")]
 public System.Nullable<float> MaximumRegenerationInletAirTemperatureForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_process_inlet_air_humidity_ratio_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="minimum_process_inlet_air_humidity_ratio_for_humidity_ratio_equation")]
 public System.Nullable<float> MinimumProcessInletAirHumidityRatioForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_process_inlet_air_humidity_ratio_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="maximum_process_inlet_air_humidity_ratio_for_humidity_ratio_equation")]
 public System.Nullable<float> MaximumProcessInletAirHumidityRatioForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_process_inlet_air_temperature_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="minimum_process_inlet_air_temperature_for_humidity_ratio_equation")]
 public System.Nullable<float> MinimumProcessInletAirTemperatureForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_process_inlet_air_temperature_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="maximum_process_inlet_air_temperature_for_humidity_ratio_equation")]
 public System.Nullable<float> MaximumProcessInletAirTemperatureForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_regeneration_air_velocity_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="minimum_regeneration_air_velocity_for_humidity_ratio_equation")]
 public System.Nullable<float> MinimumRegenerationAirVelocityForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_regeneration_air_velocity_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="maximum_regeneration_air_velocity_for_humidity_ratio_equation")]
 public System.Nullable<float> MaximumRegenerationAirVelocityForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_regeneration_outlet_air_humidity_ratio_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="minimum_regeneration_outlet_air_humidity_ratio_for_humidity_ratio_equation")]
 public System.Nullable<float> MinimumRegenerationOutletAirHumidityRatioForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_regeneration_outlet_air_humidity_ratio_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="maximum_regeneration_outlet_air_humidity_ratio_for_humidity_ratio_equation")]
 public System.Nullable<float> MaximumRegenerationOutletAirHumidityRatioForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_regeneration_inlet_air_relative_humidity_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="minimum_regeneration_inlet_air_relative_humidity_for_humidity_ratio_equation")]
 public System.Nullable<float> MinimumRegenerationInletAirRelativeHumidityForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_regeneration_inlet_air_relative_humidity_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="maximum_regeneration_inlet_air_relative_humidity_for_humidity_ratio_equation")]
 public System.Nullable<float> MaximumRegenerationInletAirRelativeHumidityForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("minimum_process_inlet_air_relative_humidity_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="minimum_process_inlet_air_relative_humidity_for_humidity_ratio_equation")]
 public System.Nullable<float> MinimumProcessInletAirRelativeHumidityForHumidityRatioEquation { get; set; } = null;
         
 
-[JsonProperty("maximum_process_inlet_air_relative_humidity_for_humidity_ratio_equation")]
+[JsonProperty(PropertyName="maximum_process_inlet_air_relative_humidity_for_humidity_ratio_equation")]
 public System.Nullable<float> MaximumProcessInletAirRelativeHumidityForHumidityRatioEquation { get; set; } = null;
     }
 }

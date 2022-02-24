@@ -74,18 +74,19 @@ namespace BH.oM.Adapters.EnergyPlus.GeneralDataEntry
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("number_of_rows")]
+[JsonProperty(PropertyName="number_of_rows")]
 public System.Nullable<float> NumberOfRows { get; set; } = null;
         
 
-[JsonProperty("number_of_columns")]
+[JsonProperty(PropertyName="number_of_columns")]
 public System.Nullable<float> NumberOfColumns { get; set; } = null;
         
 
-[JsonProperty("values")]
+[JsonProperty(PropertyName="values")]
 public string Values { get; set; } = "";
     }
 }

@@ -74,34 +74,33 @@ namespace BH.oM.Adapters.EnergyPlus.Schedules
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("lower limit (real or integer) for the Schedule Type. e.g. if fraction, this is 0." +
     "0")]
-[JsonProperty("lower_limit_value")]
+[JsonProperty(PropertyName="lower_limit_value")]
 public System.Nullable<float> LowerLimitValue { get; set; } = null;
         
 
 [Description("upper limit (real or integer) for the Schedule Type. e.g. if fraction, this is 1." +
     "0")]
-[JsonProperty("upper_limit_value")]
+[JsonProperty(PropertyName="upper_limit_value")]
 public System.Nullable<float> UpperLimitValue { get; set; } = null;
         
 
 [Description("Numeric type is either Continuous (all numbers within the min and max are valid o" +
     "r Discrete (only integer numbers between min and max are valid. (Could also allo" +
     "w REAL and INTEGER to mean the same things)")]
-[JsonProperty("numeric_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="numeric_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ScheduleTypeLimits_NumericType NumericType { get; set; } = (ScheduleTypeLimits_NumericType)Enum.Parse(typeof(ScheduleTypeLimits_NumericType), "Continuous");
         
 
 [Description("Temperature (C or F) DeltaTemperature (C or F) PrecipitationRate (m/hr or ft/hr) " +
     "Angle (degrees) Convection Coefficient (W/m2-K or Btu/sqft-hr-F) Activity Level " +
     "(W/person) Velocity (m/s or ft/min) Capacity (W or Btu/h) Power (W)")]
-[JsonProperty("unit_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ScheduleTypeLimits_UnitType UnitType { get; set; } = (ScheduleTypeLimits_UnitType)Enum.Parse(typeof(ScheduleTypeLimits_UnitType), "Dimensionless");
     }
     
@@ -118,7 +117,7 @@ public ScheduleTypeLimits_UnitType UnitType { get; set; } = (ScheduleTypeLimits_
     public enum ScheduleTypeLimits_UnitType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="ActivityLevel")]
@@ -171,106 +170,107 @@ public ScheduleTypeLimits_UnitType UnitType { get; set; } = (ScheduleTypeLimits_
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("schedule_type_limits_name")]
+[JsonProperty(PropertyName="schedule_type_limits_name")]
 public string ScheduleTypeLimitsName { get; set; } = "";
         
 
-[JsonProperty("hour_1")]
+[JsonProperty(PropertyName="hour_1")]
 public System.Nullable<float> Hour1 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_2")]
+[JsonProperty(PropertyName="hour_2")]
 public System.Nullable<float> Hour2 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_3")]
+[JsonProperty(PropertyName="hour_3")]
 public System.Nullable<float> Hour3 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_4")]
+[JsonProperty(PropertyName="hour_4")]
 public System.Nullable<float> Hour4 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_5")]
+[JsonProperty(PropertyName="hour_5")]
 public System.Nullable<float> Hour5 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_6")]
+[JsonProperty(PropertyName="hour_6")]
 public System.Nullable<float> Hour6 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_7")]
+[JsonProperty(PropertyName="hour_7")]
 public System.Nullable<float> Hour7 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_8")]
+[JsonProperty(PropertyName="hour_8")]
 public System.Nullable<float> Hour8 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_9")]
+[JsonProperty(PropertyName="hour_9")]
 public System.Nullable<float> Hour9 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_10")]
+[JsonProperty(PropertyName="hour_10")]
 public System.Nullable<float> Hour10 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_11")]
+[JsonProperty(PropertyName="hour_11")]
 public System.Nullable<float> Hour11 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_12")]
+[JsonProperty(PropertyName="hour_12")]
 public System.Nullable<float> Hour12 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_13")]
+[JsonProperty(PropertyName="hour_13")]
 public System.Nullable<float> Hour13 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_14")]
+[JsonProperty(PropertyName="hour_14")]
 public System.Nullable<float> Hour14 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_15")]
+[JsonProperty(PropertyName="hour_15")]
 public System.Nullable<float> Hour15 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_16")]
+[JsonProperty(PropertyName="hour_16")]
 public System.Nullable<float> Hour16 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_17")]
+[JsonProperty(PropertyName="hour_17")]
 public System.Nullable<float> Hour17 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_18")]
+[JsonProperty(PropertyName="hour_18")]
 public System.Nullable<float> Hour18 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_19")]
+[JsonProperty(PropertyName="hour_19")]
 public System.Nullable<float> Hour19 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_20")]
+[JsonProperty(PropertyName="hour_20")]
 public System.Nullable<float> Hour20 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_21")]
+[JsonProperty(PropertyName="hour_21")]
 public System.Nullable<float> Hour21 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_22")]
+[JsonProperty(PropertyName="hour_22")]
 public System.Nullable<float> Hour22 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_23")]
+[JsonProperty(PropertyName="hour_23")]
 public System.Nullable<float> Hour23 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("hour_24")]
+[JsonProperty(PropertyName="hour_24")]
 public System.Nullable<float> Hour24 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
     }
     
@@ -283,27 +283,27 @@ public System.Nullable<float> Hour24 { get; set; } = (System.Nullable<float>)Sin
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("schedule_type_limits_name")]
+[JsonProperty(PropertyName="schedule_type_limits_name")]
 public string ScheduleTypeLimitsName { get; set; } = "";
         
 
 [Description(@"when the interval does not match the user specified timestep a Average choice will average between the intervals request (to timestep resolution. A No choice will use the interval value at the simulation timestep without regard to if it matches the boundary or not. A Linear choice will interpolate linearly between successive values.")]
-[JsonProperty("interpolate_to_timestep")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="interpolate_to_timestep", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Schedule_Day_Interval_InterpolateToTimestep InterpolateToTimestep { get; set; } = (Schedule_Day_Interval_InterpolateToTimestep)Enum.Parse(typeof(Schedule_Day_Interval_InterpolateToTimestep), "No");
         
 
-[JsonProperty("data")]
+[JsonProperty(PropertyName="data")]
 public string Data { get; set; } = "";
     }
     
     public enum Schedule_Day_Interval_InterpolateToTimestep
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Average")]
@@ -324,32 +324,32 @@ public string Data { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("schedule_type_limits_name")]
+[JsonProperty(PropertyName="schedule_type_limits_name")]
 public string ScheduleTypeLimitsName { get; set; } = "";
         
 
 [Description(@"when the interval does not match the user specified timestep a ""Average"" choice will average between the intervals request (to timestep resolution. A ""No"" choice will use the interval value at the simulation timestep without regard to if it matches the boundary or not. A ""Linear"" choice will interpolate linearly between successive values.")]
-[JsonProperty("interpolate_to_timestep")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="interpolate_to_timestep", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Schedule_Day_List_InterpolateToTimestep InterpolateToTimestep { get; set; } = (Schedule_Day_List_InterpolateToTimestep)Enum.Parse(typeof(Schedule_Day_List_InterpolateToTimestep), "No");
         
 
 [Description("Must be evenly divisible into 60")]
-[JsonProperty("minutes_per_item")]
+[JsonProperty(PropertyName="minutes_per_item")]
 public System.Nullable<float> MinutesPerItem { get; set; } = null;
         
 
-[JsonProperty("extensions")]
+[JsonProperty(PropertyName="extensions")]
 public string Extensions { get; set; } = "";
     }
     
     public enum Schedule_Day_List_InterpolateToTimestep
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Average")]
@@ -370,54 +370,55 @@ public string Extensions { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("sunday_schedule_day_name")]
+[JsonProperty(PropertyName="sunday_schedule_day_name")]
 public string SundayScheduleDayName { get; set; } = "";
         
 
-[JsonProperty("monday_schedule_day_name")]
+[JsonProperty(PropertyName="monday_schedule_day_name")]
 public string MondayScheduleDayName { get; set; } = "";
         
 
-[JsonProperty("tuesday_schedule_day_name")]
+[JsonProperty(PropertyName="tuesday_schedule_day_name")]
 public string TuesdayScheduleDayName { get; set; } = "";
         
 
-[JsonProperty("wednesday_schedule_day_name")]
+[JsonProperty(PropertyName="wednesday_schedule_day_name")]
 public string WednesdayScheduleDayName { get; set; } = "";
         
 
-[JsonProperty("thursday_schedule_day_name")]
+[JsonProperty(PropertyName="thursday_schedule_day_name")]
 public string ThursdayScheduleDayName { get; set; } = "";
         
 
-[JsonProperty("friday_schedule_day_name")]
+[JsonProperty(PropertyName="friday_schedule_day_name")]
 public string FridayScheduleDayName { get; set; } = "";
         
 
-[JsonProperty("saturday_schedule_day_name")]
+[JsonProperty(PropertyName="saturday_schedule_day_name")]
 public string SaturdayScheduleDayName { get; set; } = "";
         
 
-[JsonProperty("holiday_schedule_day_name")]
+[JsonProperty(PropertyName="holiday_schedule_day_name")]
 public string HolidayScheduleDayName { get; set; } = "";
         
 
-[JsonProperty("summerdesignday_schedule_day_name")]
+[JsonProperty(PropertyName="summerdesignday_schedule_day_name")]
 public string SummerdesigndayScheduleDayName { get; set; } = "";
         
 
-[JsonProperty("winterdesignday_schedule_day_name")]
+[JsonProperty(PropertyName="winterdesignday_schedule_day_name")]
 public string WinterdesigndayScheduleDayName { get; set; } = "";
         
 
-[JsonProperty("customday1_schedule_day_name")]
+[JsonProperty(PropertyName="customday1_schedule_day_name")]
 public string Customday1ScheduleDayName { get; set; } = "";
         
 
-[JsonProperty("customday2_schedule_day_name")]
+[JsonProperty(PropertyName="customday2_schedule_day_name")]
 public string Customday2ScheduleDayName { get; set; } = "";
     }
     
@@ -428,10 +429,11 @@ public string Customday2ScheduleDayName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("data")]
+[JsonProperty(PropertyName="data")]
 public string Data { get; set; } = "";
     }
     
@@ -442,14 +444,15 @@ public string Data { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("schedule_type_limits_name")]
+[JsonProperty(PropertyName="schedule_type_limits_name")]
 public string ScheduleTypeLimitsName { get; set; } = "";
         
 
-[JsonProperty("schedule_weeks")]
+[JsonProperty(PropertyName="schedule_weeks")]
 public string ScheduleWeeks { get; set; } = "";
     }
     
@@ -460,14 +463,15 @@ public string ScheduleWeeks { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("schedule_type_limits_name")]
+[JsonProperty(PropertyName="schedule_type_limits_name")]
 public string ScheduleTypeLimitsName { get; set; } = "";
         
 
-[JsonProperty("data")]
+[JsonProperty(PropertyName="data")]
 public string Data { get; set; } = "";
     }
     
@@ -478,14 +482,15 @@ public string Data { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("schedule_type_limits_name")]
+[JsonProperty(PropertyName="schedule_type_limits_name")]
 public string ScheduleTypeLimitsName { get; set; } = "";
         
 
-[JsonProperty("hourly_value")]
+[JsonProperty(PropertyName="hourly_value")]
 public System.Nullable<float> HourlyValue { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
     }
     
@@ -497,7 +502,7 @@ public System.Nullable<float> HourlyValue { get; set; } = (System.Nullable<float
         
 
 [Description("The name of the file that writes all shading data.")]
-[JsonProperty("file_name")]
+[JsonProperty(PropertyName="file_name")]
 public string FileName { get; set; } = "";
     }
     
@@ -508,51 +513,50 @@ public string FileName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("schedule_type_limits_name")]
+[JsonProperty(PropertyName="schedule_type_limits_name")]
 public string ScheduleTypeLimitsName { get; set; } = "";
         
 
-[JsonProperty("file_name")]
+[JsonProperty(PropertyName="file_name")]
 public string FileName { get; set; } = "";
         
 
-[JsonProperty("column_number")]
+[JsonProperty(PropertyName="column_number")]
 public System.Nullable<float> ColumnNumber { get; set; } = null;
         
 
-[JsonProperty("rows_to_skip_at_top")]
+[JsonProperty(PropertyName="rows_to_skip_at_top")]
 public System.Nullable<float> RowsToSkipAtTop { get; set; } = null;
         
 
 [Description("8760 hours does not account for leap years, 8784 does. should be either 8760 or 8" +
     "784")]
-[JsonProperty("number_of_hours_of_data")]
+[JsonProperty(PropertyName="number_of_hours_of_data")]
 public System.Nullable<float> NumberOfHoursOfData { get; set; } = (System.Nullable<float>)Single.Parse("8760", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("column_separator")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="column_separator", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Schedule_File_ColumnSeparator ColumnSeparator { get; set; } = (Schedule_File_ColumnSeparator)Enum.Parse(typeof(Schedule_File_ColumnSeparator), "Comma");
         
 
 [Description(@"when the interval does not match the user specified timestep a ""Yes"" choice will average between the intervals request (to timestep resolution. a ""No"" choice will use the interval value at the simulation timestep without regard to if it matches the boundary or not.")]
-[JsonProperty("interpolate_to_timestep")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="interpolate_to_timestep", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes InterpolateToTimestep { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("Must be evenly divisible into 60")]
-[JsonProperty("minutes_per_item")]
+[JsonProperty(PropertyName="minutes_per_item")]
 public System.Nullable<float> MinutesPerItem { get; set; } = null;
     }
     
     public enum Schedule_File_ColumnSeparator
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Comma")]

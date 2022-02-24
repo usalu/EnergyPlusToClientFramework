@@ -73,27 +73,28 @@ namespace BH.oM.Adapters.EnergyPlus.NonZoneEquipment
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("inlet_node_name")]
+[JsonProperty(PropertyName="inlet_node_name")]
 public string InletNodeName { get; set; } = "";
         
 
-[JsonProperty("outlet_node_name")]
+[JsonProperty(PropertyName="outlet_node_name")]
 public string OutletNodeName { get; set; } = "";
         
 
 [Description("Schedule values are load in [W]")]
-[JsonProperty("load_schedule_name")]
+[JsonProperty(PropertyName="load_schedule_name")]
 public string LoadScheduleName { get; set; } = "";
         
 
-[JsonProperty("peak_flow_rate")]
+[JsonProperty(PropertyName="peak_flow_rate")]
 public System.Nullable<float> PeakFlowRate { get; set; } = null;
         
 
-[JsonProperty("flow_rate_fraction_schedule_name")]
+[JsonProperty(PropertyName="flow_rate_fraction_schedule_name")]
 public string FlowRateFractionScheduleName { get; set; } = "";
     }
 }

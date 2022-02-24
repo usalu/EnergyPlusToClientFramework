@@ -73,10 +73,11 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("equipment")]
+[JsonProperty(PropertyName="equipment")]
 public string Equipment { get; set; } = "";
     }
     
@@ -87,10 +88,11 @@ public string Equipment { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("equipment")]
+[JsonProperty(PropertyName="equipment")]
 public string Equipment { get; set; } = "";
     }
     
@@ -103,10 +105,11 @@ public string Equipment { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("equipment_list_name")]
+[JsonProperty(PropertyName="equipment_list_name")]
 public string EquipmentListName { get; set; } = "";
     }
     
@@ -119,126 +122,127 @@ public string EquipmentListName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("load_range_1_lower_limit")]
+[JsonProperty(PropertyName="load_range_1_lower_limit")]
 public System.Nullable<float> LoadRange1LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_1_upper_limit")]
+[JsonProperty(PropertyName="load_range_1_upper_limit")]
 public System.Nullable<float> LoadRange1UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_1_equipment_list_name")]
+[JsonProperty(PropertyName="range_1_equipment_list_name")]
 public string Range1EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_2_lower_limit")]
+[JsonProperty(PropertyName="load_range_2_lower_limit")]
 public System.Nullable<float> LoadRange2LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_2_upper_limit")]
+[JsonProperty(PropertyName="load_range_2_upper_limit")]
 public System.Nullable<float> LoadRange2UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_2_equipment_list_name")]
+[JsonProperty(PropertyName="range_2_equipment_list_name")]
 public string Range2EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_3_lower_limit")]
+[JsonProperty(PropertyName="load_range_3_lower_limit")]
 public System.Nullable<float> LoadRange3LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_3_upper_limit")]
+[JsonProperty(PropertyName="load_range_3_upper_limit")]
 public System.Nullable<float> LoadRange3UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_3_equipment_list_name")]
+[JsonProperty(PropertyName="range_3_equipment_list_name")]
 public string Range3EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_4_lower_limit")]
+[JsonProperty(PropertyName="load_range_4_lower_limit")]
 public System.Nullable<float> LoadRange4LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_4_upper_limit")]
+[JsonProperty(PropertyName="load_range_4_upper_limit")]
 public System.Nullable<float> LoadRange4UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_4_equipment_list_name")]
+[JsonProperty(PropertyName="range_4_equipment_list_name")]
 public string Range4EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_5_lower_limit")]
+[JsonProperty(PropertyName="load_range_5_lower_limit")]
 public System.Nullable<float> LoadRange5LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_5_upper_limit")]
+[JsonProperty(PropertyName="load_range_5_upper_limit")]
 public System.Nullable<float> LoadRange5UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_5_equipment_list_name")]
+[JsonProperty(PropertyName="range_5_equipment_list_name")]
 public string Range5EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_6_lower_limit")]
+[JsonProperty(PropertyName="load_range_6_lower_limit")]
 public System.Nullable<float> LoadRange6LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_6_upper_limit")]
+[JsonProperty(PropertyName="load_range_6_upper_limit")]
 public System.Nullable<float> LoadRange6UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_6_equipment_list_name")]
+[JsonProperty(PropertyName="range_6_equipment_list_name")]
 public string Range6EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_7_lower_limit")]
+[JsonProperty(PropertyName="load_range_7_lower_limit")]
 public System.Nullable<float> LoadRange7LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_7_upper_limit")]
+[JsonProperty(PropertyName="load_range_7_upper_limit")]
 public System.Nullable<float> LoadRange7UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_7_equipment_list_name")]
+[JsonProperty(PropertyName="range_7_equipment_list_name")]
 public string Range7EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_8_lower_limit")]
+[JsonProperty(PropertyName="load_range_8_lower_limit")]
 public System.Nullable<float> LoadRange8LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_8_upper_limit")]
+[JsonProperty(PropertyName="load_range_8_upper_limit")]
 public System.Nullable<float> LoadRange8UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_8_equipment_list_name")]
+[JsonProperty(PropertyName="range_8_equipment_list_name")]
 public string Range8EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_9_lower_limit")]
+[JsonProperty(PropertyName="load_range_9_lower_limit")]
 public System.Nullable<float> LoadRange9LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_9_upper_limit")]
+[JsonProperty(PropertyName="load_range_9_upper_limit")]
 public System.Nullable<float> LoadRange9UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_9_equipment_list_name")]
+[JsonProperty(PropertyName="range_9_equipment_list_name")]
 public string Range9EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_10_lower_limit")]
+[JsonProperty(PropertyName="load_range_10_lower_limit")]
 public System.Nullable<float> LoadRange10LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_10_upper_limit")]
+[JsonProperty(PropertyName="load_range_10_upper_limit")]
 public System.Nullable<float> LoadRange10UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_10_equipment_list_name")]
+[JsonProperty(PropertyName="range_10_equipment_list_name")]
 public string Range10EquipmentListName { get; set; } = "";
     }
     
@@ -251,126 +255,127 @@ public string Range10EquipmentListName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("load_range_1_lower_limit")]
+[JsonProperty(PropertyName="load_range_1_lower_limit")]
 public System.Nullable<float> LoadRange1LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_1_upper_limit")]
+[JsonProperty(PropertyName="load_range_1_upper_limit")]
 public System.Nullable<float> LoadRange1UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_1_equipment_list_name")]
+[JsonProperty(PropertyName="range_1_equipment_list_name")]
 public string Range1EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_2_lower_limit")]
+[JsonProperty(PropertyName="load_range_2_lower_limit")]
 public System.Nullable<float> LoadRange2LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_2_upper_limit")]
+[JsonProperty(PropertyName="load_range_2_upper_limit")]
 public System.Nullable<float> LoadRange2UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_2_equipment_list_name")]
+[JsonProperty(PropertyName="range_2_equipment_list_name")]
 public string Range2EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_3_lower_limit")]
+[JsonProperty(PropertyName="load_range_3_lower_limit")]
 public System.Nullable<float> LoadRange3LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_3_upper_limit")]
+[JsonProperty(PropertyName="load_range_3_upper_limit")]
 public System.Nullable<float> LoadRange3UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_3_equipment_list_name")]
+[JsonProperty(PropertyName="range_3_equipment_list_name")]
 public string Range3EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_4_lower_limit")]
+[JsonProperty(PropertyName="load_range_4_lower_limit")]
 public System.Nullable<float> LoadRange4LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_4_upper_limit")]
+[JsonProperty(PropertyName="load_range_4_upper_limit")]
 public System.Nullable<float> LoadRange4UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_4_equipment_list_name")]
+[JsonProperty(PropertyName="range_4_equipment_list_name")]
 public string Range4EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_5_lower_limit")]
+[JsonProperty(PropertyName="load_range_5_lower_limit")]
 public System.Nullable<float> LoadRange5LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_5_upper_limit")]
+[JsonProperty(PropertyName="load_range_5_upper_limit")]
 public System.Nullable<float> LoadRange5UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_5_equipment_list_name")]
+[JsonProperty(PropertyName="range_5_equipment_list_name")]
 public string Range5EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_6_lower_limit")]
+[JsonProperty(PropertyName="load_range_6_lower_limit")]
 public System.Nullable<float> LoadRange6LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_6_upper_limit")]
+[JsonProperty(PropertyName="load_range_6_upper_limit")]
 public System.Nullable<float> LoadRange6UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_6_equipment_list_name")]
+[JsonProperty(PropertyName="range_6_equipment_list_name")]
 public string Range6EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_7_lower_limit")]
+[JsonProperty(PropertyName="load_range_7_lower_limit")]
 public System.Nullable<float> LoadRange7LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_7_upper_limit")]
+[JsonProperty(PropertyName="load_range_7_upper_limit")]
 public System.Nullable<float> LoadRange7UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_7_equipment_list_name")]
+[JsonProperty(PropertyName="range_7_equipment_list_name")]
 public string Range7EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_8_lower_limit")]
+[JsonProperty(PropertyName="load_range_8_lower_limit")]
 public System.Nullable<float> LoadRange8LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_8_upper_limit")]
+[JsonProperty(PropertyName="load_range_8_upper_limit")]
 public System.Nullable<float> LoadRange8UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_8_equipment_list_name")]
+[JsonProperty(PropertyName="range_8_equipment_list_name")]
 public string Range8EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_9_lower_limit")]
+[JsonProperty(PropertyName="load_range_9_lower_limit")]
 public System.Nullable<float> LoadRange9LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_9_upper_limit")]
+[JsonProperty(PropertyName="load_range_9_upper_limit")]
 public System.Nullable<float> LoadRange9UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_9_equipment_list_name")]
+[JsonProperty(PropertyName="range_9_equipment_list_name")]
 public string Range9EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("load_range_10_lower_limit")]
+[JsonProperty(PropertyName="load_range_10_lower_limit")]
 public System.Nullable<float> LoadRange10LowerLimit { get; set; } = null;
         
 
-[JsonProperty("load_range_10_upper_limit")]
+[JsonProperty(PropertyName="load_range_10_upper_limit")]
 public System.Nullable<float> LoadRange10UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_10_equipment_list_name")]
+[JsonProperty(PropertyName="range_10_equipment_list_name")]
 public string Range10EquipmentListName { get; set; } = "";
     }
     
@@ -383,126 +388,127 @@ public string Range10EquipmentListName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_range_1_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_1_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureRange1LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_range_1_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_1_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureRange1UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_1_equipment_list_name")]
+[JsonProperty(PropertyName="range_1_equipment_list_name")]
 public string Range1EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_range_2_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_2_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureRange2LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_range_2_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_2_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureRange2UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_2_equipment_list_name")]
+[JsonProperty(PropertyName="range_2_equipment_list_name")]
 public string Range2EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_range_3_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_3_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureRange3LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_range_3_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_3_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureRange3UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_3_equipment_list_name")]
+[JsonProperty(PropertyName="range_3_equipment_list_name")]
 public string Range3EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_range_4_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_4_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureRange4LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_range_4_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_4_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureRange4UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_4_equipment_list_name")]
+[JsonProperty(PropertyName="range_4_equipment_list_name")]
 public string Range4EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_range_5_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_5_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureRange5LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_range_5_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_5_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureRange5UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_5_equipment_list_name")]
+[JsonProperty(PropertyName="range_5_equipment_list_name")]
 public string Range5EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_range_6_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_6_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureRange6LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_range_6_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_6_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureRange6UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_6_equipment_list_name")]
+[JsonProperty(PropertyName="range_6_equipment_list_name")]
 public string Range6EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_range_7_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_7_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureRange7LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_range_7_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_7_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureRange7UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_7_equipment_list_name")]
+[JsonProperty(PropertyName="range_7_equipment_list_name")]
 public string Range7EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_range_8_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_8_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureRange8LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_range_8_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_8_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureRange8UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_8_equipment_list_name")]
+[JsonProperty(PropertyName="range_8_equipment_list_name")]
 public string Range8EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_range_9_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_9_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureRange9LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_range_9_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_9_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureRange9UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_9_equipment_list_name")]
+[JsonProperty(PropertyName="range_9_equipment_list_name")]
 public string Range9EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_range_10_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_10_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureRange10LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_range_10_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_range_10_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureRange10UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_10_equipment_list_name")]
+[JsonProperty(PropertyName="range_10_equipment_list_name")]
 public string Range10EquipmentListName { get; set; } = "";
     }
     
@@ -515,126 +521,127 @@ public string Range10EquipmentListName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_range_1_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_1_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureRange1LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_range_1_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_1_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureRange1UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_1_equipment_list_name")]
+[JsonProperty(PropertyName="range_1_equipment_list_name")]
 public string Range1EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_range_2_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_2_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureRange2LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_range_2_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_2_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureRange2UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_2_equipment_list_name")]
+[JsonProperty(PropertyName="range_2_equipment_list_name")]
 public string Range2EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_range_3_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_3_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureRange3LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_range_3_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_3_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureRange3UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_3_equipment_list_name")]
+[JsonProperty(PropertyName="range_3_equipment_list_name")]
 public string Range3EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_range_4_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_4_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureRange4LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_range_4_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_4_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureRange4UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_4_equipment_list_name")]
+[JsonProperty(PropertyName="range_4_equipment_list_name")]
 public string Range4EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_range_5_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_5_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureRange5LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_range_5_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_5_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureRange5UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_5_equipment_list_name")]
+[JsonProperty(PropertyName="range_5_equipment_list_name")]
 public string Range5EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_range_6_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_6_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureRange6LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_range_6_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_6_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureRange6UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_6_equipment_list_name")]
+[JsonProperty(PropertyName="range_6_equipment_list_name")]
 public string Range6EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_range_7_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_7_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureRange7LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_range_7_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_7_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureRange7UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_7_equipment_list_name")]
+[JsonProperty(PropertyName="range_7_equipment_list_name")]
 public string Range7EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_range_8_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_8_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureRange8LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_range_8_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_8_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureRange8UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_8_equipment_list_name")]
+[JsonProperty(PropertyName="range_8_equipment_list_name")]
 public string Range8EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_range_9_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_9_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureRange9LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_range_9_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_9_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureRange9UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_9_equipment_list_name")]
+[JsonProperty(PropertyName="range_9_equipment_list_name")]
 public string Range9EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_range_10_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_10_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureRange10LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_range_10_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_range_10_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureRange10UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_10_equipment_list_name")]
+[JsonProperty(PropertyName="range_10_equipment_list_name")]
 public string Range10EquipmentListName { get; set; } = "";
     }
     
@@ -647,126 +654,127 @@ public string Range10EquipmentListName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("relative_humidity_range_1_lower_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_1_lower_limit")]
 public System.Nullable<float> RelativeHumidityRange1LowerLimit { get; set; } = null;
         
 
-[JsonProperty("relative_humidity_range_1_upper_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_1_upper_limit")]
 public System.Nullable<float> RelativeHumidityRange1UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_1_equipment_list_name")]
+[JsonProperty(PropertyName="range_1_equipment_list_name")]
 public string Range1EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("relative_humidity_range_2_lower_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_2_lower_limit")]
 public System.Nullable<float> RelativeHumidityRange2LowerLimit { get; set; } = null;
         
 
-[JsonProperty("relative_humidity_range_2_upper_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_2_upper_limit")]
 public System.Nullable<float> RelativeHumidityRange2UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_2_equipment_list_name")]
+[JsonProperty(PropertyName="range_2_equipment_list_name")]
 public string Range2EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("relative_humidity_range_3_lower_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_3_lower_limit")]
 public System.Nullable<float> RelativeHumidityRange3LowerLimit { get; set; } = null;
         
 
-[JsonProperty("relative_humidity_range_3_upper_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_3_upper_limit")]
 public System.Nullable<float> RelativeHumidityRange3UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_3_equipment_list_name")]
+[JsonProperty(PropertyName="range_3_equipment_list_name")]
 public string Range3EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("relative_humidity_range_4_lower_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_4_lower_limit")]
 public System.Nullable<float> RelativeHumidityRange4LowerLimit { get; set; } = null;
         
 
-[JsonProperty("relative_humidity_range_4_upper_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_4_upper_limit")]
 public System.Nullable<float> RelativeHumidityRange4UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_4_equipment_list_name")]
+[JsonProperty(PropertyName="range_4_equipment_list_name")]
 public string Range4EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("relative_humidity_range_5_lower_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_5_lower_limit")]
 public System.Nullable<float> RelativeHumidityRange5LowerLimit { get; set; } = null;
         
 
-[JsonProperty("relative_humidity_range_5_upper_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_5_upper_limit")]
 public System.Nullable<float> RelativeHumidityRange5UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_5_equipment_list_name")]
+[JsonProperty(PropertyName="range_5_equipment_list_name")]
 public string Range5EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("relative_humidity_range_6_lower_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_6_lower_limit")]
 public System.Nullable<float> RelativeHumidityRange6LowerLimit { get; set; } = null;
         
 
-[JsonProperty("relative_humidity_range_6_upper_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_6_upper_limit")]
 public System.Nullable<float> RelativeHumidityRange6UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_6_equipment_list_name")]
+[JsonProperty(PropertyName="range_6_equipment_list_name")]
 public string Range6EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("relative_humidity_range_7_lower_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_7_lower_limit")]
 public System.Nullable<float> RelativeHumidityRange7LowerLimit { get; set; } = null;
         
 
-[JsonProperty("relative_humidity_range_7_upper_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_7_upper_limit")]
 public System.Nullable<float> RelativeHumidityRange7UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_7_equipment_list_name")]
+[JsonProperty(PropertyName="range_7_equipment_list_name")]
 public string Range7EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("relative_humidity_range_8_lower_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_8_lower_limit")]
 public System.Nullable<float> RelativeHumidityRange8LowerLimit { get; set; } = null;
         
 
-[JsonProperty("relative_humidity_range_8_upper_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_8_upper_limit")]
 public System.Nullable<float> RelativeHumidityRange8UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_8_equipment_list_name")]
+[JsonProperty(PropertyName="range_8_equipment_list_name")]
 public string Range8EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("relative_humidity_range_9_lower_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_9_lower_limit")]
 public System.Nullable<float> RelativeHumidityRange9LowerLimit { get; set; } = null;
         
 
-[JsonProperty("relative_humidity_range_9_upper_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_9_upper_limit")]
 public System.Nullable<float> RelativeHumidityRange9UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_9_equipment_list_name")]
+[JsonProperty(PropertyName="range_9_equipment_list_name")]
 public string Range9EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("relative_humidity_range_10_lower_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_10_lower_limit")]
 public System.Nullable<float> RelativeHumidityRange10LowerLimit { get; set; } = null;
         
 
-[JsonProperty("relative_humidity_range_10_upper_limit")]
+[JsonProperty(PropertyName="relative_humidity_range_10_upper_limit")]
 public System.Nullable<float> RelativeHumidityRange10UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_10_equipment_list_name")]
+[JsonProperty(PropertyName="range_10_equipment_list_name")]
 public string Range10EquipmentListName { get; set; } = "";
     }
     
@@ -779,126 +787,127 @@ public string Range10EquipmentListName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_range_1_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_1_lower_limit")]
 public System.Nullable<float> DewpointTemperatureRange1LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_range_1_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_1_upper_limit")]
 public System.Nullable<float> DewpointTemperatureRange1UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_1_equipment_list_name")]
+[JsonProperty(PropertyName="range_1_equipment_list_name")]
 public string Range1EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_range_2_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_2_lower_limit")]
 public System.Nullable<float> DewpointTemperatureRange2LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_range_2_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_2_upper_limit")]
 public System.Nullable<float> DewpointTemperatureRange2UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_2_equipment_list_name")]
+[JsonProperty(PropertyName="range_2_equipment_list_name")]
 public string Range2EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_range_3_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_3_lower_limit")]
 public System.Nullable<float> DewpointTemperatureRange3LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_range_3_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_3_upper_limit")]
 public System.Nullable<float> DewpointTemperatureRange3UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_3_equipment_list_name")]
+[JsonProperty(PropertyName="range_3_equipment_list_name")]
 public string Range3EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_range_4_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_4_lower_limit")]
 public System.Nullable<float> DewpointTemperatureRange4LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_range_4_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_4_upper_limit")]
 public System.Nullable<float> DewpointTemperatureRange4UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_4_equipment_list_name")]
+[JsonProperty(PropertyName="range_4_equipment_list_name")]
 public string Range4EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_range_5_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_5_lower_limit")]
 public System.Nullable<float> DewpointTemperatureRange5LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_range_5_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_5_upper_limit")]
 public System.Nullable<float> DewpointTemperatureRange5UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_5_equipment_list_name")]
+[JsonProperty(PropertyName="range_5_equipment_list_name")]
 public string Range5EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_range_6_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_6_lower_limit")]
 public System.Nullable<float> DewpointTemperatureRange6LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_range_6_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_6_upper_limit")]
 public System.Nullable<float> DewpointTemperatureRange6UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_6_equipment_list_name")]
+[JsonProperty(PropertyName="range_6_equipment_list_name")]
 public string Range6EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_range_7_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_7_lower_limit")]
 public System.Nullable<float> DewpointTemperatureRange7LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_range_7_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_7_upper_limit")]
 public System.Nullable<float> DewpointTemperatureRange7UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_7_equipment_list_name")]
+[JsonProperty(PropertyName="range_7_equipment_list_name")]
 public string Range7EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_range_8_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_8_lower_limit")]
 public System.Nullable<float> DewpointTemperatureRange8LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_range_8_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_8_upper_limit")]
 public System.Nullable<float> DewpointTemperatureRange8UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_8_equipment_list_name")]
+[JsonProperty(PropertyName="range_8_equipment_list_name")]
 public string Range8EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_range_9_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_9_lower_limit")]
 public System.Nullable<float> DewpointTemperatureRange9LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_range_9_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_9_upper_limit")]
 public System.Nullable<float> DewpointTemperatureRange9UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_9_equipment_list_name")]
+[JsonProperty(PropertyName="range_9_equipment_list_name")]
 public string Range9EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_range_10_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_10_lower_limit")]
 public System.Nullable<float> DewpointTemperatureRange10LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_range_10_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_range_10_upper_limit")]
 public System.Nullable<float> DewpointTemperatureRange10UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_10_equipment_list_name")]
+[JsonProperty(PropertyName="range_10_equipment_list_name")]
 public string Range10EquipmentListName { get; set; } = "";
     }
     
@@ -911,256 +920,247 @@ public string Range10EquipmentListName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("equipment_1_object_type")]
+[JsonProperty(PropertyName="equipment_1_object_type")]
 public string Equipment1ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_1_name")]
+[JsonProperty(PropertyName="equipment_1_name")]
 public string Equipment1Name { get; set; } = "";
         
 
-[JsonProperty("demand_calculation_1_node_name")]
+[JsonProperty(PropertyName="demand_calculation_1_node_name")]
 public string DemandCalculation1NodeName { get; set; } = "";
         
 
-[JsonProperty("setpoint_1_node_name")]
+[JsonProperty(PropertyName="setpoint_1_node_name")]
 public string Setpoint1NodeName { get; set; } = "";
         
 
-[JsonProperty("component_1_flow_rate")]
-public string Component1FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_1_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component1FlowRate { get; set; } = null;
         
 
-[JsonProperty("operation_1_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="operation_1_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation1Type Operation1Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation1Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation1Type), "Cooling");
         
 
-[JsonProperty("equipment_2_object_type")]
+[JsonProperty(PropertyName="equipment_2_object_type")]
 public string Equipment2ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_2_name")]
+[JsonProperty(PropertyName="equipment_2_name")]
 public string Equipment2Name { get; set; } = "";
         
 
-[JsonProperty("demand_calculation_2_node_name")]
+[JsonProperty(PropertyName="demand_calculation_2_node_name")]
 public string DemandCalculation2NodeName { get; set; } = "";
         
 
-[JsonProperty("setpoint_2_node_name")]
+[JsonProperty(PropertyName="setpoint_2_node_name")]
 public string Setpoint2NodeName { get; set; } = "";
         
 
-[JsonProperty("component_2_flow_rate")]
-public string Component2FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_2_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component2FlowRate { get; set; } = null;
         
 
-[JsonProperty("operation_2_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="operation_2_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation2Type Operation2Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation2Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation2Type), "Cooling");
         
 
-[JsonProperty("equipment_3_object_type")]
+[JsonProperty(PropertyName="equipment_3_object_type")]
 public string Equipment3ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_3_name")]
+[JsonProperty(PropertyName="equipment_3_name")]
 public string Equipment3Name { get; set; } = "";
         
 
-[JsonProperty("demand_calculation_3_node_name")]
+[JsonProperty(PropertyName="demand_calculation_3_node_name")]
 public string DemandCalculation3NodeName { get; set; } = "";
         
 
-[JsonProperty("setpoint_3_node_name")]
+[JsonProperty(PropertyName="setpoint_3_node_name")]
 public string Setpoint3NodeName { get; set; } = "";
         
 
-[JsonProperty("component_3_flow_rate")]
-public string Component3FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_3_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component3FlowRate { get; set; } = null;
         
 
-[JsonProperty("operation_3_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="operation_3_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation3Type Operation3Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation3Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation3Type), "Cooling");
         
 
-[JsonProperty("equipment_4_object_type")]
+[JsonProperty(PropertyName="equipment_4_object_type")]
 public string Equipment4ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_4_name")]
+[JsonProperty(PropertyName="equipment_4_name")]
 public string Equipment4Name { get; set; } = "";
         
 
-[JsonProperty("demand_calculation_4_node_name")]
+[JsonProperty(PropertyName="demand_calculation_4_node_name")]
 public string DemandCalculation4NodeName { get; set; } = "";
         
 
-[JsonProperty("setpoint_4_node_name")]
+[JsonProperty(PropertyName="setpoint_4_node_name")]
 public string Setpoint4NodeName { get; set; } = "";
         
 
-[JsonProperty("component_4_flow_rate")]
-public string Component4FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_4_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component4FlowRate { get; set; } = null;
         
 
-[JsonProperty("operation_4_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="operation_4_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation4Type Operation4Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation4Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation4Type), "Cooling");
         
 
-[JsonProperty("equipment_5_object_type")]
+[JsonProperty(PropertyName="equipment_5_object_type")]
 public string Equipment5ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_5_name")]
+[JsonProperty(PropertyName="equipment_5_name")]
 public string Equipment5Name { get; set; } = "";
         
 
-[JsonProperty("demand_calculation_5_node_name")]
+[JsonProperty(PropertyName="demand_calculation_5_node_name")]
 public string DemandCalculation5NodeName { get; set; } = "";
         
 
-[JsonProperty("setpoint_5_node_name")]
+[JsonProperty(PropertyName="setpoint_5_node_name")]
 public string Setpoint5NodeName { get; set; } = "";
         
 
-[JsonProperty("component_5_flow_rate")]
-public string Component5FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_5_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component5FlowRate { get; set; } = null;
         
 
-[JsonProperty("operation_5_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="operation_5_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation5Type Operation5Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation5Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation5Type), "Cooling");
         
 
-[JsonProperty("equipment_6_object_type")]
+[JsonProperty(PropertyName="equipment_6_object_type")]
 public string Equipment6ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_6_name")]
+[JsonProperty(PropertyName="equipment_6_name")]
 public string Equipment6Name { get; set; } = "";
         
 
-[JsonProperty("demand_calculation_6_node_name")]
+[JsonProperty(PropertyName="demand_calculation_6_node_name")]
 public string DemandCalculation6NodeName { get; set; } = "";
         
 
-[JsonProperty("setpoint_6_node_name")]
+[JsonProperty(PropertyName="setpoint_6_node_name")]
 public string Setpoint6NodeName { get; set; } = "";
         
 
-[JsonProperty("component_6_flow_rate")]
-public string Component6FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_6_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component6FlowRate { get; set; } = null;
         
 
-[JsonProperty("operation_6_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="operation_6_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation6Type Operation6Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation6Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation6Type), "Cooling");
         
 
-[JsonProperty("equipment_7_object_type")]
+[JsonProperty(PropertyName="equipment_7_object_type")]
 public string Equipment7ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_7_name")]
+[JsonProperty(PropertyName="equipment_7_name")]
 public string Equipment7Name { get; set; } = "";
         
 
-[JsonProperty("demand_calculation_7_node_name")]
+[JsonProperty(PropertyName="demand_calculation_7_node_name")]
 public string DemandCalculation7NodeName { get; set; } = "";
         
 
-[JsonProperty("setpoint_7_node_name")]
+[JsonProperty(PropertyName="setpoint_7_node_name")]
 public string Setpoint7NodeName { get; set; } = "";
         
 
-[JsonProperty("component_7_flow_rate")]
-public string Component7FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_7_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component7FlowRate { get; set; } = null;
         
 
-[JsonProperty("operation_7_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="operation_7_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation7Type Operation7Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation7Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation7Type), "Cooling");
         
 
-[JsonProperty("equipment_8_object_type")]
+[JsonProperty(PropertyName="equipment_8_object_type")]
 public string Equipment8ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_8_name")]
+[JsonProperty(PropertyName="equipment_8_name")]
 public string Equipment8Name { get; set; } = "";
         
 
-[JsonProperty("demand_calculation_8_node_name")]
+[JsonProperty(PropertyName="demand_calculation_8_node_name")]
 public string DemandCalculation8NodeName { get; set; } = "";
         
 
-[JsonProperty("setpoint_8_node_name")]
+[JsonProperty(PropertyName="setpoint_8_node_name")]
 public string Setpoint8NodeName { get; set; } = "";
         
 
-[JsonProperty("component_8_flow_rate")]
-public string Component8FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_8_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component8FlowRate { get; set; } = null;
         
 
-[JsonProperty("operation_8_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="operation_8_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation8Type Operation8Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation8Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation8Type), "Cooling");
         
 
-[JsonProperty("equipment_9_object_type")]
+[JsonProperty(PropertyName="equipment_9_object_type")]
 public string Equipment9ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_9_name")]
+[JsonProperty(PropertyName="equipment_9_name")]
 public string Equipment9Name { get; set; } = "";
         
 
-[JsonProperty("demand_calculation_9_node_name")]
+[JsonProperty(PropertyName="demand_calculation_9_node_name")]
 public string DemandCalculation9NodeName { get; set; } = "";
         
 
-[JsonProperty("setpoint_9_node_name")]
+[JsonProperty(PropertyName="setpoint_9_node_name")]
 public string Setpoint9NodeName { get; set; } = "";
         
 
-[JsonProperty("component_9_flow_rate")]
-public string Component9FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_9_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component9FlowRate { get; set; } = null;
         
 
-[JsonProperty("operation_9_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="operation_9_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation9Type Operation9Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation9Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation9Type), "Cooling");
         
 
-[JsonProperty("equipment_10_object_type")]
+[JsonProperty(PropertyName="equipment_10_object_type")]
 public string Equipment10ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_10_name")]
+[JsonProperty(PropertyName="equipment_10_name")]
 public string Equipment10Name { get; set; } = "";
         
 
-[JsonProperty("demand_calculation_10_node_name")]
+[JsonProperty(PropertyName="demand_calculation_10_node_name")]
 public string DemandCalculation10NodeName { get; set; } = "";
         
 
-[JsonProperty("setpoint_10_node_name")]
+[JsonProperty(PropertyName="setpoint_10_node_name")]
 public string Setpoint10NodeName { get; set; } = "";
         
 
-[JsonProperty("component_10_flow_rate")]
-public string Component10FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_10_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component10FlowRate { get; set; } = null;
         
 
-[JsonProperty("operation_10_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="operation_10_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ComponentSetpoint_Operation10Type Operation10Type { get; set; } = (PlantEquipmentOperation_ComponentSetpoint_Operation10Type)Enum.Parse(typeof(PlantEquipmentOperation_ComponentSetpoint_Operation10Type), "Cooling");
     }
     
@@ -1303,297 +1303,278 @@ public PlantEquipmentOperation_ComponentSetpoint_Operation10Type Operation10Type
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("on_peak_schedule")]
+[JsonProperty(PropertyName="on_peak_schedule")]
 public string OnPeakSchedule { get; set; } = "";
         
 
-[JsonProperty("charging_availability_schedule")]
+[JsonProperty(PropertyName="charging_availability_schedule")]
 public string ChargingAvailabilitySchedule { get; set; } = "";
         
 
 [Description("Single temperature for chiller outlet when not in cooling season or during on-pea" +
     "k cooling (discharge)")]
-[JsonProperty("non_charging_chilled_water_temperature")]
+[JsonProperty(PropertyName="non_charging_chilled_water_temperature")]
 public System.Nullable<float> NonChargingChilledWaterTemperature { get; set; } = null;
         
 
 [Description("Single temperature for chiller outlet when off-peak during cooling season (chargi" +
     "ng)")]
-[JsonProperty("charging_chilled_water_temperature")]
+[JsonProperty(PropertyName="charging_chilled_water_temperature")]
 public System.Nullable<float> ChargingChilledWaterTemperature { get; set; } = null;
         
 
 [Description("This field is the type of object and should either be a chiller or some ice stora" +
     "ge equipment.")]
-[JsonProperty("component_1_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_1_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component1ObjectType Component1ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component1ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component1ObjectType), "ChillerAbsorption");
         
 
 [Description("This field is the name of either the chiller or ice storage equipment on the loop" +
     ".")]
-[JsonProperty("component_1_name")]
+[JsonProperty(PropertyName="component_1_name")]
 public string Component1Name { get; set; } = "";
         
 
 [Description("This field is the name of the inlet node for the component defined in the two pre" +
     "vious input fields.")]
-[JsonProperty("component_1_demand_calculation_node_name")]
+[JsonProperty(PropertyName="component_1_demand_calculation_node_name")]
 public string Component1DemandCalculationNodeName { get; set; } = "";
         
 
 [Description("This field is the name of the outlet node for the component listed above.")]
-[JsonProperty("component_1_setpoint_node_name")]
+[JsonProperty(PropertyName="component_1_setpoint_node_name")]
 public string Component1SetpointNodeName { get; set; } = "";
         
 
 [Description("This field is the flow rate for the component listed above.")]
-[JsonProperty("component_1_flow_rate")]
-public string Component1FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_1_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component1FlowRate { get; set; } = null;
         
 
 [Description("This field is the operation type for the component listed above. For this plant e" +
     "quipment operation scheme, \"Cooling\" should be selected for chiller equipment wh" +
     "ile ice storage equipment should be defined as \"Dual\".")]
-[JsonProperty("component_1_operation_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_1_operation_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component1OperationType Component1OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component1OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component1OperationType), "Cooling");
         
 
-[JsonProperty("component_2_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_2_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component2ObjectType Component2ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component2ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component2ObjectType), "ChillerAbsorption");
         
 
-[JsonProperty("component_2_name")]
+[JsonProperty(PropertyName="component_2_name")]
 public string Component2Name { get; set; } = "";
         
 
-[JsonProperty("component_2_demand_calculation_node_name")]
+[JsonProperty(PropertyName="component_2_demand_calculation_node_name")]
 public string Component2DemandCalculationNodeName { get; set; } = "";
         
 
-[JsonProperty("component_2_setpoint_node_name")]
+[JsonProperty(PropertyName="component_2_setpoint_node_name")]
 public string Component2SetpointNodeName { get; set; } = "";
         
 
-[JsonProperty("component_2_flow_rate")]
-public string Component2FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_2_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component2FlowRate { get; set; } = null;
         
 
-[JsonProperty("component_2_operation_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_2_operation_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component2OperationType Component2OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component2OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component2OperationType), "Cooling");
         
 
-[JsonProperty("component_3_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_3_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component3ObjectType Component3ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component3ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component3ObjectType), "ChillerAbsorption");
         
 
-[JsonProperty("component_3_name")]
+[JsonProperty(PropertyName="component_3_name")]
 public string Component3Name { get; set; } = "";
         
 
-[JsonProperty("component_3_demand_calculation_node_name")]
+[JsonProperty(PropertyName="component_3_demand_calculation_node_name")]
 public string Component3DemandCalculationNodeName { get; set; } = "";
         
 
-[JsonProperty("component_3_setpoint_node_name")]
+[JsonProperty(PropertyName="component_3_setpoint_node_name")]
 public string Component3SetpointNodeName { get; set; } = "";
         
 
-[JsonProperty("component_3_flow_rate")]
-public string Component3FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_3_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component3FlowRate { get; set; } = null;
         
 
-[JsonProperty("component_3_operation_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_3_operation_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component3OperationType Component3OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component3OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component3OperationType), "Cooling");
         
 
-[JsonProperty("component_4_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_4_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component4ObjectType Component4ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component4ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component4ObjectType), "ChillerAbsorption");
         
 
-[JsonProperty("component_4_name")]
+[JsonProperty(PropertyName="component_4_name")]
 public string Component4Name { get; set; } = "";
         
 
-[JsonProperty("component_4_demand_calculation_node_name")]
+[JsonProperty(PropertyName="component_4_demand_calculation_node_name")]
 public string Component4DemandCalculationNodeName { get; set; } = "";
         
 
-[JsonProperty("component_4_setpoint_node_name")]
+[JsonProperty(PropertyName="component_4_setpoint_node_name")]
 public string Component4SetpointNodeName { get; set; } = "";
         
 
-[JsonProperty("component_4_flow_rate")]
-public string Component4FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_4_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component4FlowRate { get; set; } = null;
         
 
-[JsonProperty("component_4_operation_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_4_operation_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component4OperationType Component4OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component4OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component4OperationType), "Cooling");
         
 
-[JsonProperty("component_5_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_5_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component5ObjectType Component5ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component5ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component5ObjectType), "ChillerAbsorption");
         
 
-[JsonProperty("component_5_name")]
+[JsonProperty(PropertyName="component_5_name")]
 public string Component5Name { get; set; } = "";
         
 
-[JsonProperty("component_5_demand_calculation_node_name")]
+[JsonProperty(PropertyName="component_5_demand_calculation_node_name")]
 public string Component5DemandCalculationNodeName { get; set; } = "";
         
 
-[JsonProperty("component_5_setpoint_node_name")]
+[JsonProperty(PropertyName="component_5_setpoint_node_name")]
 public string Component5SetpointNodeName { get; set; } = "";
         
 
-[JsonProperty("component_5_flow_rate")]
-public string Component5FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_5_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component5FlowRate { get; set; } = null;
         
 
-[JsonProperty("component_5_operation_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_5_operation_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component5OperationType Component5OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component5OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component5OperationType), "Cooling");
         
 
-[JsonProperty("component_6_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_6_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component6ObjectType Component6ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component6ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component6ObjectType), "ChillerAbsorption");
         
 
-[JsonProperty("component_6_name")]
+[JsonProperty(PropertyName="component_6_name")]
 public string Component6Name { get; set; } = "";
         
 
-[JsonProperty("component_6_demand_calculation_node_name")]
+[JsonProperty(PropertyName="component_6_demand_calculation_node_name")]
 public string Component6DemandCalculationNodeName { get; set; } = "";
         
 
-[JsonProperty("component_6_setpoint_node_name")]
+[JsonProperty(PropertyName="component_6_setpoint_node_name")]
 public string Component6SetpointNodeName { get; set; } = "";
         
 
-[JsonProperty("component_6_flow_rate")]
-public string Component6FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_6_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component6FlowRate { get; set; } = null;
         
 
-[JsonProperty("component_6_operation_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_6_operation_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component6OperationType Component6OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component6OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component6OperationType), "Cooling");
         
 
-[JsonProperty("component_7_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_7_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component7ObjectType Component7ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component7ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component7ObjectType), "ChillerAbsorption");
         
 
-[JsonProperty("component_7_name")]
+[JsonProperty(PropertyName="component_7_name")]
 public string Component7Name { get; set; } = "";
         
 
-[JsonProperty("component_7_demand_calculation_node_name")]
+[JsonProperty(PropertyName="component_7_demand_calculation_node_name")]
 public string Component7DemandCalculationNodeName { get; set; } = "";
         
 
-[JsonProperty("component_7_setpoint_node_name")]
+[JsonProperty(PropertyName="component_7_setpoint_node_name")]
 public string Component7SetpointNodeName { get; set; } = "";
         
 
-[JsonProperty("component_7_flow_rate")]
-public string Component7FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_7_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component7FlowRate { get; set; } = null;
         
 
-[JsonProperty("component_7_operation_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_7_operation_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component7OperationType Component7OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component7OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component7OperationType), "Cooling");
         
 
-[JsonProperty("component_8_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_8_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component8ObjectType Component8ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component8ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component8ObjectType), "ChillerAbsorption");
         
 
-[JsonProperty("component_8_name")]
+[JsonProperty(PropertyName="component_8_name")]
 public string Component8Name { get; set; } = "";
         
 
-[JsonProperty("component_8_demand_calculation_node_name")]
+[JsonProperty(PropertyName="component_8_demand_calculation_node_name")]
 public string Component8DemandCalculationNodeName { get; set; } = "";
         
 
-[JsonProperty("component_8_setpoint_node_name")]
+[JsonProperty(PropertyName="component_8_setpoint_node_name")]
 public string Component8SetpointNodeName { get; set; } = "";
         
 
-[JsonProperty("component_8_flow_rate")]
-public string Component8FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_8_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component8FlowRate { get; set; } = null;
         
 
-[JsonProperty("component_8_operation_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_8_operation_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component8OperationType Component8OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component8OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component8OperationType), "Cooling");
         
 
-[JsonProperty("component_9_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_9_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component9ObjectType Component9ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component9ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component9ObjectType), "ChillerAbsorption");
         
 
-[JsonProperty("component_9_name")]
+[JsonProperty(PropertyName="component_9_name")]
 public string Component9Name { get; set; } = "";
         
 
-[JsonProperty("component_9_demand_calculation_node_name")]
+[JsonProperty(PropertyName="component_9_demand_calculation_node_name")]
 public string Component9DemandCalculationNodeName { get; set; } = "";
         
 
-[JsonProperty("component_9_setpoint_node_name")]
+[JsonProperty(PropertyName="component_9_setpoint_node_name")]
 public string Component9SetpointNodeName { get; set; } = "";
         
 
-[JsonProperty("component_9_flow_rate")]
-public string Component9FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_9_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component9FlowRate { get; set; } = null;
         
 
-[JsonProperty("component_9_operation_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_9_operation_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component9OperationType Component9OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component9OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component9OperationType), "Cooling");
         
 
-[JsonProperty("component_10_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_10_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component10ObjectType Component10ObjectType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component10ObjectType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component10ObjectType), "ChillerAbsorption");
         
 
-[JsonProperty("component_10_name")]
+[JsonProperty(PropertyName="component_10_name")]
 public string Component10Name { get; set; } = "";
         
 
-[JsonProperty("component_10_demand_calculation_node_name")]
+[JsonProperty(PropertyName="component_10_demand_calculation_node_name")]
 public string Component10DemandCalculationNodeName { get; set; } = "";
         
 
-[JsonProperty("component_10_setpoint_node_name")]
+[JsonProperty(PropertyName="component_10_setpoint_node_name")]
 public string Component10SetpointNodeName { get; set; } = "";
         
 
-[JsonProperty("component_10_flow_rate")]
-public string Component10FlowRate { get; set; } = "";
+[JsonProperty(PropertyName="component_10_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> Component10FlowRate { get; set; } = null;
         
 
-[JsonProperty("component_10_operation_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="component_10_operation_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType Component10OperationType { get; set; } = (PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType)Enum.Parse(typeof(PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType), "Cooling");
     }
     
@@ -2074,130 +2055,131 @@ public PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType Com
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("reference_temperature_node_name")]
+[JsonProperty(PropertyName="reference_temperature_node_name")]
 public string ReferenceTemperatureNodeName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_1_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_1_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange1LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_1_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_1_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange1UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_1_equipment_list_name")]
+[JsonProperty(PropertyName="range_1_equipment_list_name")]
 public string Range1EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_2_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_2_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange2LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_2_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_2_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange2UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_2_equipment_list_name")]
+[JsonProperty(PropertyName="range_2_equipment_list_name")]
 public string Range2EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_3_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_3_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange3LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_3_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_3_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange3UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_3_equipment_list_name")]
+[JsonProperty(PropertyName="range_3_equipment_list_name")]
 public string Range3EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_4_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_4_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange4LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_4_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_4_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange4UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_4_equipment_list_name")]
+[JsonProperty(PropertyName="range_4_equipment_list_name")]
 public string Range4EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_5_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_5_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange5LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_5_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_5_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange5UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_5_equipment_list_name")]
+[JsonProperty(PropertyName="range_5_equipment_list_name")]
 public string Range5EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_6_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_6_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange6LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_6_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_6_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange6UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_6_equipment_list_name")]
+[JsonProperty(PropertyName="range_6_equipment_list_name")]
 public string Range6EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_7_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_7_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange7LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_7_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_7_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange7UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_7_equipment_list_name")]
+[JsonProperty(PropertyName="range_7_equipment_list_name")]
 public string Range7EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_8_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_8_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange8LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_8_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_8_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange8UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_8_equipment_list_name")]
+[JsonProperty(PropertyName="range_8_equipment_list_name")]
 public string Range8EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_9_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_9_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange9LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_9_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_9_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange9UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_9_equipment_list_name")]
+[JsonProperty(PropertyName="range_9_equipment_list_name")]
 public string Range9EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_10_lower_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_10_lower_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange10LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dry_bulb_temperature_difference_range_10_upper_limit")]
+[JsonProperty(PropertyName="dry_bulb_temperature_difference_range_10_upper_limit")]
 public System.Nullable<float> DryBulbTemperatureDifferenceRange10UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_10_equipment_list_name")]
+[JsonProperty(PropertyName="range_10_equipment_list_name")]
 public string Range10EquipmentListName { get; set; } = "";
     }
     
@@ -2208,130 +2190,131 @@ public string Range10EquipmentListName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("reference_temperature_node_name")]
+[JsonProperty(PropertyName="reference_temperature_node_name")]
 public string ReferenceTemperatureNodeName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_1_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_1_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange1LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_1_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_1_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange1UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_1_equipment_list_name")]
+[JsonProperty(PropertyName="range_1_equipment_list_name")]
 public string Range1EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_2_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_2_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange2LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_2_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_2_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange2UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_2_equipment_list_name")]
+[JsonProperty(PropertyName="range_2_equipment_list_name")]
 public string Range2EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_3_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_3_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange3LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_3_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_3_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange3UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_3_equipment_list_name")]
+[JsonProperty(PropertyName="range_3_equipment_list_name")]
 public string Range3EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_4_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_4_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange4LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_4_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_4_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange4UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_4_equipment_list_name")]
+[JsonProperty(PropertyName="range_4_equipment_list_name")]
 public string Range4EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_5_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_5_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange5LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_5_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_5_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange5UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_5_equipment_list_name")]
+[JsonProperty(PropertyName="range_5_equipment_list_name")]
 public string Range5EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_6_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_6_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange6LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_6_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_6_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange6UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_6_equipment_list_name")]
+[JsonProperty(PropertyName="range_6_equipment_list_name")]
 public string Range6EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_7_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_7_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange7LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_7_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_7_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange7UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_7_equipment_list_name")]
+[JsonProperty(PropertyName="range_7_equipment_list_name")]
 public string Range7EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_8_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_8_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange8LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_8_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_8_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange8UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_8_equipment_list_name")]
+[JsonProperty(PropertyName="range_8_equipment_list_name")]
 public string Range8EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_9_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_9_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange9LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_9_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_9_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange9UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_9_equipment_list_name")]
+[JsonProperty(PropertyName="range_9_equipment_list_name")]
 public string Range9EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_10_lower_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_10_lower_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange10LowerLimit { get; set; } = null;
         
 
-[JsonProperty("wet_bulb_temperature_difference_range_10_upper_limit")]
+[JsonProperty(PropertyName="wet_bulb_temperature_difference_range_10_upper_limit")]
 public System.Nullable<float> WetBulbTemperatureDifferenceRange10UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_10_equipment_list_name")]
+[JsonProperty(PropertyName="range_10_equipment_list_name")]
 public string Range10EquipmentListName { get; set; } = "";
     }
     
@@ -2342,130 +2325,131 @@ public string Range10EquipmentListName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("reference_temperature_node_name")]
+[JsonProperty(PropertyName="reference_temperature_node_name")]
 public string ReferenceTemperatureNodeName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_difference_range_1_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_1_lower_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange1LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_difference_range_1_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_1_upper_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange1UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_1_equipment_list_name")]
+[JsonProperty(PropertyName="range_1_equipment_list_name")]
 public string Range1EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_difference_range_2_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_2_lower_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange2LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_difference_range_2_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_2_upper_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange2UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_2_equipment_list_name")]
+[JsonProperty(PropertyName="range_2_equipment_list_name")]
 public string Range2EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_difference_range_3_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_3_lower_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange3LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_difference_range_3_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_3_upper_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange3UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_3_equipment_list_name")]
+[JsonProperty(PropertyName="range_3_equipment_list_name")]
 public string Range3EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_difference_range_4_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_4_lower_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange4LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_difference_range_4_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_4_upper_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange4UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_4_equipment_list_name")]
+[JsonProperty(PropertyName="range_4_equipment_list_name")]
 public string Range4EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_difference_range_5_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_5_lower_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange5LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_difference_range_5_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_5_upper_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange5UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_5_equipment_list_name")]
+[JsonProperty(PropertyName="range_5_equipment_list_name")]
 public string Range5EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_difference_range_6_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_6_lower_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange6LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_difference_range_6_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_6_upper_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange6UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_6_equipment_list_name")]
+[JsonProperty(PropertyName="range_6_equipment_list_name")]
 public string Range6EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_difference_range_7_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_7_lower_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange7LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_difference_range_7_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_7_upper_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange7UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_7_equipment_list_name")]
+[JsonProperty(PropertyName="range_7_equipment_list_name")]
 public string Range7EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_difference_range_8_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_8_lower_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange8LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_difference_range_8_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_8_upper_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange8UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_8_equipment_list_name")]
+[JsonProperty(PropertyName="range_8_equipment_list_name")]
 public string Range8EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_difference_range_9_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_9_lower_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange9LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_difference_range_9_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_9_upper_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange9UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_9_equipment_list_name")]
+[JsonProperty(PropertyName="range_9_equipment_list_name")]
 public string Range9EquipmentListName { get; set; } = "";
         
 
-[JsonProperty("dewpoint_temperature_difference_range_10_lower_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_10_lower_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange10LowerLimit { get; set; } = null;
         
 
-[JsonProperty("dewpoint_temperature_difference_range_10_upper_limit")]
+[JsonProperty(PropertyName="dewpoint_temperature_difference_range_10_upper_limit")]
 public System.Nullable<float> DewpointTemperatureDifferenceRange10UpperLimit { get; set; } = null;
         
 
-[JsonProperty("range_10_equipment_list_name")]
+[JsonProperty(PropertyName="range_10_equipment_list_name")]
 public string Range10EquipmentListName { get; set; } = "";
     }
     
@@ -2476,110 +2460,103 @@ public string Range10EquipmentListName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_1_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_1_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme1ObjectType ControlScheme1ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme1ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme1ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
-[JsonProperty("control_scheme_1_name")]
+[JsonProperty(PropertyName="control_scheme_1_name")]
 public string ControlScheme1Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_1_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_1_schedule_name")]
 public string ControlScheme1ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_2_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_2_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme2ObjectType ControlScheme2ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme2ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme2ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
-[JsonProperty("control_scheme_2_name")]
+[JsonProperty(PropertyName="control_scheme_2_name")]
 public string ControlScheme2Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_2_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_2_schedule_name")]
 public string ControlScheme2ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_3_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_3_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme3ObjectType ControlScheme3ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme3ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme3ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
-[JsonProperty("control_scheme_3_name")]
+[JsonProperty(PropertyName="control_scheme_3_name")]
 public string ControlScheme3Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_3_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_3_schedule_name")]
 public string ControlScheme3ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_4_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_4_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme4ObjectType ControlScheme4ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme4ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme4ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
-[JsonProperty("control_scheme_4_name")]
+[JsonProperty(PropertyName="control_scheme_4_name")]
 public string ControlScheme4Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_4_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_4_schedule_name")]
 public string ControlScheme4ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_5_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_5_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme5ObjectType ControlScheme5ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme5ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme5ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
-[JsonProperty("control_scheme_5_name")]
+[JsonProperty(PropertyName="control_scheme_5_name")]
 public string ControlScheme5Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_5_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_5_schedule_name")]
 public string ControlScheme5ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_6_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_6_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme6ObjectType ControlScheme6ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme6ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme6ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
-[JsonProperty("control_scheme_6_name")]
+[JsonProperty(PropertyName="control_scheme_6_name")]
 public string ControlScheme6Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_6_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_6_schedule_name")]
 public string ControlScheme6ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_7_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_7_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme7ObjectType ControlScheme7ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme7ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme7ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
-[JsonProperty("control_scheme_7_name")]
+[JsonProperty(PropertyName="control_scheme_7_name")]
 public string ControlScheme7Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_7_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_7_schedule_name")]
 public string ControlScheme7ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_8_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_8_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantEquipmentOperationSchemes_ControlScheme8ObjectType ControlScheme8ObjectType { get; set; } = (PlantEquipmentOperationSchemes_ControlScheme8ObjectType)Enum.Parse(typeof(PlantEquipmentOperationSchemes_ControlScheme8ObjectType), "PlantEquipmentOperationComponentSetpoint");
         
 
-[JsonProperty("control_scheme_8_name")]
+[JsonProperty(PropertyName="control_scheme_8_name")]
 public string ControlScheme8Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_8_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_8_schedule_name")]
 public string ControlScheme8ScheduleName { get; set; } = "";
     }
     
@@ -2934,110 +2911,103 @@ public string ControlScheme8ScheduleName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_1_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_1_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme1ObjectType ControlScheme1ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme1ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme1ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
-[JsonProperty("control_scheme_1_name")]
+[JsonProperty(PropertyName="control_scheme_1_name")]
 public string ControlScheme1Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_1_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_1_schedule_name")]
 public string ControlScheme1ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_2_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_2_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme2ObjectType ControlScheme2ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme2ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme2ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
-[JsonProperty("control_scheme_2_name")]
+[JsonProperty(PropertyName="control_scheme_2_name")]
 public string ControlScheme2Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_2_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_2_schedule_name")]
 public string ControlScheme2ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_3_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_3_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme3ObjectType ControlScheme3ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme3ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme3ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
-[JsonProperty("control_scheme_3_name")]
+[JsonProperty(PropertyName="control_scheme_3_name")]
 public string ControlScheme3Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_3_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_3_schedule_name")]
 public string ControlScheme3ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_4_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_4_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme4ObjectType ControlScheme4ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme4ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme4ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
-[JsonProperty("control_scheme_4_name")]
+[JsonProperty(PropertyName="control_scheme_4_name")]
 public string ControlScheme4Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_4_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_4_schedule_name")]
 public string ControlScheme4ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_5_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_5_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme5ObjectType ControlScheme5ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme5ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme5ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
-[JsonProperty("control_scheme_5_name")]
+[JsonProperty(PropertyName="control_scheme_5_name")]
 public string ControlScheme5Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_5_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_5_schedule_name")]
 public string ControlScheme5ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_6_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_6_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme6ObjectType ControlScheme6ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme6ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme6ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
-[JsonProperty("control_scheme_6_name")]
+[JsonProperty(PropertyName="control_scheme_6_name")]
 public string ControlScheme6Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_6_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_6_schedule_name")]
 public string ControlScheme6ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_7_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_7_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme7ObjectType ControlScheme7ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme7ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme7ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
-[JsonProperty("control_scheme_7_name")]
+[JsonProperty(PropertyName="control_scheme_7_name")]
 public string ControlScheme7Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_7_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_7_schedule_name")]
 public string ControlScheme7ScheduleName { get; set; } = "";
         
 
-[JsonProperty("control_scheme_8_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_scheme_8_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserEquipmentOperationSchemes_ControlScheme8ObjectType ControlScheme8ObjectType { get; set; } = (CondenserEquipmentOperationSchemes_ControlScheme8ObjectType)Enum.Parse(typeof(CondenserEquipmentOperationSchemes_ControlScheme8ObjectType), "PlantEquipmentOperationCoolingLoad");
         
 
-[JsonProperty("control_scheme_8_name")]
+[JsonProperty(PropertyName="control_scheme_8_name")]
 public string ControlScheme8Name { get; set; } = "";
         
 
-[JsonProperty("control_scheme_8_schedule_name")]
+[JsonProperty(PropertyName="control_scheme_8_schedule_name")]
 public string ControlScheme8ScheduleName { get; set; } = "";
     }
     

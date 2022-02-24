@@ -59,14 +59,17 @@ namespace EnergyPlus_oM
 
             JObject o = (JObject)t;
 
-            ////This needs to make sure that every instance of that class has a Name property.
-            ////For further implementation, this can be changed to getMethod in interface but requires adjusting in code
-            //string name = (string)value.GetType().GetProperty("Name").GetValue(value, null);
-            //var jProp = new JProperty(name, o);
-            ////writer.WriteRaw("Name");
-            //writer.WriteRaw(jProp.ToString());
+            //This needs to make sure that every instance of that class has a Name property.
+            //For further implementation, this can be changed to getMethod in interface but requires adjusting in code
+            string name = (string)value.GetType().GetProperty("NodeName").GetValue(value, null);
+            var jProp = new JProperty(name, o);
+            //writer.WriteRaw("Name");
 
-            o.WriteTo(writer);
+            writer.WriteToken(JsonToken.StartObject);
+            writer.WriteRaw(jProp.ToString());
+            writer.WriteToken(JsonToken.EndObject);
+
+            //o.WriteTo(writer);
 
         }
 

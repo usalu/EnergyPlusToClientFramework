@@ -74,15 +74,16 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description(@"Optional field to include this branch in plant pressure drop calculations This field is only relevant for branches in PlantLoops and CondenserLoops Air loops do not account for pressure drop using this field Valid curve types are: Curve:Functional:PressureDrop or one of Curve:{Linear,Quadratic,Cubic,Exponent}')")]
-[JsonProperty("pressure_drop_curve_name")]
+[JsonProperty(PropertyName="pressure_drop_curve_name")]
 public string PressureDropCurveName { get; set; } = "";
         
 
-[JsonProperty("components")]
+[JsonProperty(PropertyName="components")]
 public string Components { get; set; } = "";
     }
     
@@ -95,10 +96,11 @@ public string Components { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("branches")]
+[JsonProperty(PropertyName="branches")]
 public string Branches { get; set; } = "";
     }
     
@@ -110,14 +112,15 @@ public string Branches { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("inlet_branch_name")]
+[JsonProperty(PropertyName="inlet_branch_name")]
 public string InletBranchName { get; set; } = "";
         
 
-[JsonProperty("branches")]
+[JsonProperty(PropertyName="branches")]
 public string Branches { get; set; } = "";
     }
     
@@ -129,14 +132,15 @@ public string Branches { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("outlet_branch_name")]
+[JsonProperty(PropertyName="outlet_branch_name")]
 public string OutletBranchName { get; set; } = "";
         
 
-[JsonProperty("branches")]
+[JsonProperty(PropertyName="branches")]
 public string Branches { get; set; } = "";
     }
     
@@ -148,24 +152,23 @@ public string Branches { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("connector_1_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="connector_1_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ConnectorList_Connector1ObjectType Connector1ObjectType { get; set; } = (ConnectorList_Connector1ObjectType)Enum.Parse(typeof(ConnectorList_Connector1ObjectType), "ConnectorMixer");
         
 
-[JsonProperty("connector_1_name")]
+[JsonProperty(PropertyName="connector_1_name")]
 public string Connector1Name { get; set; } = "";
         
 
-[JsonProperty("connector_2_object_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="connector_2_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ConnectorList_Connector2ObjectType Connector2ObjectType { get; set; } = (ConnectorList_Connector2ObjectType)Enum.Parse(typeof(ConnectorList_Connector2ObjectType), "ConnectorMixer");
         
 
-[JsonProperty("connector_2_name")]
+[JsonProperty(PropertyName="connector_2_name")]
 public string Connector2Name { get; set; } = "";
     }
     
@@ -197,10 +200,11 @@ public string Connector2Name { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("nodes")]
+[JsonProperty(PropertyName="nodes")]
 public string Nodes { get; set; } = "";
     }
     
@@ -211,46 +215,46 @@ public string Nodes { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("A value less than zero indicates that the height will be ignored and the weather " +
     "file conditions will be used.")]
-[JsonProperty("height_above_ground")]
+[JsonProperty(PropertyName="height_above_ground")]
 public System.Nullable<float> HeightAboveGround { get; set; } = (System.Nullable<float>)Single.Parse("-1", CultureInfo.InvariantCulture);
         
 
 [Description("Schedule values are real numbers, -100.0 to 100.0, units C")]
-[JsonProperty("drybulb_temperature_schedule_name")]
+[JsonProperty(PropertyName="drybulb_temperature_schedule_name")]
 public string DrybulbTemperatureScheduleName { get; set; } = "";
         
 
 [Description("Schedule values are real numbers, -100.0 to 100.0, units C")]
-[JsonProperty("wetbulb_temperature_schedule_name")]
+[JsonProperty(PropertyName="wetbulb_temperature_schedule_name")]
 public string WetbulbTemperatureScheduleName { get; set; } = "";
         
 
 [Description("Schedule values are real numbers, 0.0 to 40.0, units m/s")]
-[JsonProperty("wind_speed_schedule_name")]
+[JsonProperty(PropertyName="wind_speed_schedule_name")]
 public string WindSpeedScheduleName { get; set; } = "";
         
 
 [Description("Schedule values are real numbers, 0.0 to 360.0, units degree")]
-[JsonProperty("wind_direction_schedule_name")]
+[JsonProperty(PropertyName="wind_direction_schedule_name")]
 public string WindDirectionScheduleName { get; set; } = "";
         
 
 [Description("The name of the AirflowNetwork:MultiZone:WindPressureCoefficientValues, curve, or" +
     " table object specifying the wind pressure coefficient.")]
-[JsonProperty("wind_pressure_coefficient_curve_name")]
+[JsonProperty(PropertyName="wind_pressure_coefficient_curve_name")]
 public string WindPressureCoefficientCurveName { get; set; } = "";
         
 
 [Description("Specify whether the pressure curve is symmetric or not. Specify Yes for curves th" +
     "at should be evaluated from 0 to 180 degrees Specify No for curves that should b" +
     "e evaluated from 0 to 360 degrees")]
-[JsonProperty("symmetric_wind_pressure_coefficient_curve")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="symmetric_wind_pressure_coefficient_curve", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes SymmetricWindPressureCoefficientCurve { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
@@ -258,15 +262,14 @@ public EmptyNoYes SymmetricWindPressureCoefficientCurve { get; set; } = (EmptyNo
     "te or relative Specify Relative to compute the angle between the wind direction " +
     "and the surface azimuth Specify Absolute to use the wind direction angle directl" +
     "y")]
-[JsonProperty("wind_angle_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="wind_angle_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutdoorAir_Node_WindAngleType WindAngleType { get; set; } = (OutdoorAir_Node_WindAngleType)Enum.Parse(typeof(OutdoorAir_Node_WindAngleType), "Absolute");
     }
     
     public enum OutdoorAir_Node_WindAngleType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Absolute")]
@@ -282,7 +285,7 @@ public OutdoorAir_Node_WindAngleType WindAngleType { get; set; } = (OutdoorAir_N
     {
         
 
-[JsonProperty("nodes")]
+[JsonProperty(PropertyName="nodes")]
 public string Nodes { get; set; } = "";
     }
     
@@ -293,14 +296,15 @@ public string Nodes { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("inlet_node_name")]
+[JsonProperty(PropertyName="inlet_node_name")]
 public string InletNodeName { get; set; } = "";
         
 
-[JsonProperty("outlet_node_name")]
+[JsonProperty(PropertyName="outlet_node_name")]
 public string OutletNodeName { get; set; } = "";
     }
     
@@ -311,14 +315,15 @@ public string OutletNodeName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("inlet_node_name")]
+[JsonProperty(PropertyName="inlet_node_name")]
 public string InletNodeName { get; set; } = "";
         
 
-[JsonProperty("outlet_node_name")]
+[JsonProperty(PropertyName="outlet_node_name")]
 public string OutletNodeName { get; set; } = "";
     }
     
@@ -329,50 +334,50 @@ public string OutletNodeName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("construction_name")]
+[JsonProperty(PropertyName="construction_name")]
 public string ConstructionName { get; set; } = "";
         
 
-[JsonProperty("fluid_inlet_node_name")]
+[JsonProperty(PropertyName="fluid_inlet_node_name")]
 public string FluidInletNodeName { get; set; } = "";
         
 
-[JsonProperty("fluid_outlet_node_name")]
+[JsonProperty(PropertyName="fluid_outlet_node_name")]
 public string FluidOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("environment_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="environment_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Pipe_Indoor_EnvironmentType EnvironmentType { get; set; } = (Pipe_Indoor_EnvironmentType)Enum.Parse(typeof(Pipe_Indoor_EnvironmentType), "Zone");
         
 
-[JsonProperty("ambient_temperature_zone_name")]
+[JsonProperty(PropertyName="ambient_temperature_zone_name")]
 public string AmbientTemperatureZoneName { get; set; } = "";
         
 
-[JsonProperty("ambient_temperature_schedule_name")]
+[JsonProperty(PropertyName="ambient_temperature_schedule_name")]
 public string AmbientTemperatureScheduleName { get; set; } = "";
         
 
-[JsonProperty("ambient_air_velocity_schedule_name")]
+[JsonProperty(PropertyName="ambient_air_velocity_schedule_name")]
 public string AmbientAirVelocityScheduleName { get; set; } = "";
         
 
-[JsonProperty("pipe_inside_diameter")]
+[JsonProperty(PropertyName="pipe_inside_diameter")]
 public System.Nullable<float> PipeInsideDiameter { get; set; } = null;
         
 
-[JsonProperty("pipe_length")]
+[JsonProperty(PropertyName="pipe_length")]
 public System.Nullable<float> PipeLength { get; set; } = null;
     }
     
     public enum Pipe_Indoor_EnvironmentType
     {
         
-        [System.Runtime.Serialization.EnumMember(Value="null")]
+        [System.Runtime.Serialization.EnumMember(Value="")]
         Empty = 0,
         
         [System.Runtime.Serialization.EnumMember(Value="Schedule")]
@@ -389,30 +394,31 @@ public System.Nullable<float> PipeLength { get; set; } = null;
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("construction_name")]
+[JsonProperty(PropertyName="construction_name")]
 public string ConstructionName { get; set; } = "";
         
 
-[JsonProperty("fluid_inlet_node_name")]
+[JsonProperty(PropertyName="fluid_inlet_node_name")]
 public string FluidInletNodeName { get; set; } = "";
         
 
-[JsonProperty("fluid_outlet_node_name")]
+[JsonProperty(PropertyName="fluid_outlet_node_name")]
 public string FluidOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("ambient_temperature_outdoor_air_node_name")]
+[JsonProperty(PropertyName="ambient_temperature_outdoor_air_node_name")]
 public string AmbientTemperatureOutdoorAirNodeName { get; set; } = "";
         
 
-[JsonProperty("pipe_inside_diameter")]
+[JsonProperty(PropertyName="pipe_inside_diameter")]
 public System.Nullable<float> PipeInsideDiameter { get; set; } = null;
         
 
-[JsonProperty("pipe_length")]
+[JsonProperty(PropertyName="pipe_length")]
 public System.Nullable<float> PipeLength { get; set; } = null;
     }
     
@@ -424,45 +430,44 @@ public System.Nullable<float> PipeLength { get; set; } = null;
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("construction_name")]
+[JsonProperty(PropertyName="construction_name")]
 public string ConstructionName { get; set; } = "";
         
 
-[JsonProperty("fluid_inlet_node_name")]
+[JsonProperty(PropertyName="fluid_inlet_node_name")]
 public string FluidInletNodeName { get; set; } = "";
         
 
-[JsonProperty("fluid_outlet_node_name")]
+[JsonProperty(PropertyName="fluid_outlet_node_name")]
 public string FluidOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("sun_exposure")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="sun_exposure", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Pipe_Underground_SunExposure SunExposure { get; set; } = (Pipe_Underground_SunExposure)Enum.Parse(typeof(Pipe_Underground_SunExposure), "NoSun");
         
 
 [Description("pipe thickness is defined in the Construction object")]
-[JsonProperty("pipe_inside_diameter")]
+[JsonProperty(PropertyName="pipe_inside_diameter")]
 public System.Nullable<float> PipeInsideDiameter { get; set; } = null;
         
 
-[JsonProperty("pipe_length")]
+[JsonProperty(PropertyName="pipe_length")]
 public System.Nullable<float> PipeLength { get; set; } = null;
         
 
-[JsonProperty("soil_material_name")]
+[JsonProperty(PropertyName="soil_material_name")]
 public string SoilMaterialName { get; set; } = "";
         
 
-[JsonProperty("undisturbed_ground_temperature_model_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="undisturbed_ground_temperature_model_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Pipe_Underground_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (Pipe_Underground_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(Pipe_Underground_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
-[JsonProperty("undisturbed_ground_temperature_model_name")]
+[JsonProperty(PropertyName="undisturbed_ground_temperature_model_name")]
 public string UndisturbedGroundTemperatureModelName { get; set; } = "";
     }
     
@@ -496,151 +501,146 @@ public string UndisturbedGroundTemperatureModelName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Domain extent in the local \'X\' direction")]
-[JsonProperty("xmax")]
+[JsonProperty(PropertyName="xmax")]
 public System.Nullable<float> Xmax { get; set; } = null;
         
 
 [Description("Domain extent in the local \'Y\' direction")]
-[JsonProperty("ymax")]
+[JsonProperty(PropertyName="ymax")]
 public System.Nullable<float> Ymax { get; set; } = null;
         
 
 [Description("Domain extent in the local \'Y\' direction")]
-[JsonProperty("zmax")]
+[JsonProperty(PropertyName="zmax")]
 public System.Nullable<float> Zmax { get; set; } = null;
         
 
 [Description("If mesh type is symmetric geometric, this should be an even number.")]
-[JsonProperty("x_direction_mesh_density_parameter")]
+[JsonProperty(PropertyName="x_direction_mesh_density_parameter")]
 public System.Nullable<float> XDirectionMeshDensityParameter { get; set; } = (System.Nullable<float>)Single.Parse("4", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("x_direction_mesh_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="x_direction_mesh_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PipingSystem_Underground_Domain_XDirectionMeshType XDirectionMeshType { get; set; } = (PipingSystem_Underground_Domain_XDirectionMeshType)Enum.Parse(typeof(PipingSystem_Underground_Domain_XDirectionMeshType), "SymmetricGeometric");
         
 
 [Description("optional Only used if mesh type is symmetric geometric")]
-[JsonProperty("x_direction_geometric_coefficient")]
+[JsonProperty(PropertyName="x_direction_geometric_coefficient")]
 public System.Nullable<float> XDirectionGeometricCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("1.3", CultureInfo.InvariantCulture);
         
 
 [Description("If mesh type is symmetric geometric, this should be an even number.")]
-[JsonProperty("y_direction_mesh_density_parameter")]
+[JsonProperty(PropertyName="y_direction_mesh_density_parameter")]
 public System.Nullable<float> YDirectionMeshDensityParameter { get; set; } = (System.Nullable<float>)Single.Parse("4", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("y_direction_mesh_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="y_direction_mesh_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PipingSystem_Underground_Domain_YDirectionMeshType YDirectionMeshType { get; set; } = (PipingSystem_Underground_Domain_YDirectionMeshType)Enum.Parse(typeof(PipingSystem_Underground_Domain_YDirectionMeshType), "SymmetricGeometric");
         
 
 [Description("optional Only used if mesh type is symmetric geometric")]
-[JsonProperty("y_direction_geometric_coefficient")]
+[JsonProperty(PropertyName="y_direction_geometric_coefficient")]
 public System.Nullable<float> YDirectionGeometricCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("1.3", CultureInfo.InvariantCulture);
         
 
 [Description("If mesh type is symmetric geometric, this should be an even number.")]
-[JsonProperty("z_direction_mesh_density_parameter")]
+[JsonProperty(PropertyName="z_direction_mesh_density_parameter")]
 public System.Nullable<float> ZDirectionMeshDensityParameter { get; set; } = (System.Nullable<float>)Single.Parse("4", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("z_direction_mesh_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="z_direction_mesh_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PipingSystem_Underground_Domain_ZDirectionMeshType ZDirectionMeshType { get; set; } = (PipingSystem_Underground_Domain_ZDirectionMeshType)Enum.Parse(typeof(PipingSystem_Underground_Domain_ZDirectionMeshType), "SymmetricGeometric");
         
 
 [Description("optional Only used if mesh type is symmetric geometric")]
-[JsonProperty("z_direction_geometric_coefficient")]
+[JsonProperty(PropertyName="z_direction_geometric_coefficient")]
 public System.Nullable<float> ZDirectionGeometricCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("1.3", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("soil_thermal_conductivity")]
+[JsonProperty(PropertyName="soil_thermal_conductivity")]
 public System.Nullable<float> SoilThermalConductivity { get; set; } = null;
         
 
-[JsonProperty("soil_density")]
+[JsonProperty(PropertyName="soil_density")]
 public System.Nullable<float> SoilDensity { get; set; } = null;
         
 
 [Description("This is a dry soil property, which is adjusted for freezing effects by the simula" +
     "tion algorithm.")]
-[JsonProperty("soil_specific_heat")]
+[JsonProperty(PropertyName="soil_specific_heat")]
 public System.Nullable<float> SoilSpecificHeat { get; set; } = null;
         
 
-[JsonProperty("soil_moisture_content_volume_fraction")]
+[JsonProperty(PropertyName="soil_moisture_content_volume_fraction")]
 public System.Nullable<float> SoilMoistureContentVolumeFraction { get; set; } = (System.Nullable<float>)Single.Parse("30", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("soil_moisture_content_volume_fraction_at_saturation")]
+[JsonProperty(PropertyName="soil_moisture_content_volume_fraction_at_saturation")]
 public System.Nullable<float> SoilMoistureContentVolumeFractionAtSaturation { get; set; } = (System.Nullable<float>)Single.Parse("50", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("undisturbed_ground_temperature_model_type")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="undisturbed_ground_temperature_model_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType UndisturbedGroundTemperatureModelType { get; set; } = (PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType)Enum.Parse(typeof(PipingSystem_Underground_Domain_UndisturbedGroundTemperatureModelType), "SiteGroundTemperatureUndisturbedFiniteDifference");
         
 
-[JsonProperty("undisturbed_ground_temperature_model_name")]
+[JsonProperty(PropertyName="undisturbed_ground_temperature_model_name")]
 public string UndisturbedGroundTemperatureModelName { get; set; } = "";
         
 
 [Description("if Yes, then the following basement inputs are used if No, then the following bas" +
     "ement inputs are *ignored*")]
-[JsonProperty("this_domain_includes_basement_surface_interaction")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="this_domain_includes_basement_surface_interaction", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ThisDomainIncludesBasementSurfaceInteraction { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("Required only if Domain Has Basement Interaction")]
-[JsonProperty("width_of_basement_floor_in_ground_domain")]
+[JsonProperty(PropertyName="width_of_basement_floor_in_ground_domain")]
 public System.Nullable<float> WidthOfBasementFloorInGroundDomain { get; set; } = null;
         
 
 [Description("Required only if Domain Has Basement Interaction")]
-[JsonProperty("depth_of_basement_wall_in_ground_domain")]
+[JsonProperty(PropertyName="depth_of_basement_wall_in_ground_domain")]
 public System.Nullable<float> DepthOfBasementWallInGroundDomain { get; set; } = null;
         
 
 [Description("Required only if Domain Has Basement Interaction")]
-[JsonProperty("shift_pipe_x_coordinates_by_basement_width")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="shift_pipe_x_coordinates_by_basement_width", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth ShiftPipeXCoordinatesByBasementWidth { get; set; } = (PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth)Enum.Parse(typeof(PipingSystem_Underground_Domain_ShiftPipeXCoordinatesByBasementWidth), "No");
         
 
 [Description("Required only if Domain Has Basement Interaction")]
-[JsonProperty("name_of_basement_wall_boundary_condition_model")]
+[JsonProperty(PropertyName="name_of_basement_wall_boundary_condition_model")]
 public string NameOfBasementWallBoundaryConditionModel { get; set; } = "";
         
 
 [Description("Required only if Domain Has Basement Interaction")]
-[JsonProperty("name_of_basement_floor_boundary_condition_model")]
+[JsonProperty(PropertyName="name_of_basement_floor_boundary_condition_model")]
 public string NameOfBasementFloorBoundaryConditionModel { get; set; } = "";
         
 
-[JsonProperty("convergence_criterion_for_the_outer_cartesian_domain_iteration_loop")]
+[JsonProperty(PropertyName="convergence_criterion_for_the_outer_cartesian_domain_iteration_loop")]
 public System.Nullable<float> ConvergenceCriterionForTheOuterCartesianDomainIterationLoop { get; set; } = (System.Nullable<float>)Single.Parse("0.001", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("maximum_iterations_in_the_outer_cartesian_domain_iteration_loop")]
+[JsonProperty(PropertyName="maximum_iterations_in_the_outer_cartesian_domain_iteration_loop")]
 public System.Nullable<float> MaximumIterationsInTheOuterCartesianDomainIterationLoop { get; set; } = (System.Nullable<float>)Single.Parse("500", CultureInfo.InvariantCulture);
         
 
 [Description(@"This specifies the ground cover effects during evapotranspiration calculations. The value roughly represents the following cases: = 0   : concrete or other solid, non-permeable ground surface material = 0.5 : short grass, much like a manicured lawn = 1   : standard reference state (12 cm grass) = 1.5 : wild growth")]
-[JsonProperty("evapotranspiration_ground_cover_parameter")]
+[JsonProperty(PropertyName="evapotranspiration_ground_cover_parameter")]
 public System.Nullable<float> EvapotranspirationGroundCoverParameter { get; set; } = (System.Nullable<float>)Single.Parse("0.4", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("number_of_pipe_circuits_entered_for_this_domain")]
+[JsonProperty(PropertyName="number_of_pipe_circuits_entered_for_this_domain")]
 public System.Nullable<float> NumberOfPipeCircuitsEnteredForThisDomain { get; set; } = null;
         
 
-[JsonProperty("pipe_circuits")]
+[JsonProperty(PropertyName="pipe_circuits")]
 public string PipeCircuits { get; set; } = "";
     }
     
@@ -706,64 +706,65 @@ public string PipeCircuits { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("pipe_thermal_conductivity")]
+[JsonProperty(PropertyName="pipe_thermal_conductivity")]
 public System.Nullable<float> PipeThermalConductivity { get; set; } = null;
         
 
-[JsonProperty("pipe_density")]
+[JsonProperty(PropertyName="pipe_density")]
 public System.Nullable<float> PipeDensity { get; set; } = null;
         
 
-[JsonProperty("pipe_specific_heat")]
+[JsonProperty(PropertyName="pipe_specific_heat")]
 public System.Nullable<float> PipeSpecificHeat { get; set; } = null;
         
 
-[JsonProperty("pipe_inner_diameter")]
+[JsonProperty(PropertyName="pipe_inner_diameter")]
 public System.Nullable<float> PipeInnerDiameter { get; set; } = null;
         
 
-[JsonProperty("pipe_outer_diameter")]
+[JsonProperty(PropertyName="pipe_outer_diameter")]
 public System.Nullable<float> PipeOuterDiameter { get; set; } = null;
         
 
-[JsonProperty("design_flow_rate")]
+[JsonProperty(PropertyName="design_flow_rate")]
 public System.Nullable<float> DesignFlowRate { get; set; } = null;
         
 
-[JsonProperty("circuit_inlet_node")]
+[JsonProperty(PropertyName="circuit_inlet_node")]
 public string CircuitInletNode { get; set; } = "";
         
 
-[JsonProperty("circuit_outlet_node")]
+[JsonProperty(PropertyName="circuit_outlet_node")]
 public string CircuitOutletNode { get; set; } = "";
         
 
-[JsonProperty("convergence_criterion_for_the_inner_radial_iteration_loop")]
+[JsonProperty(PropertyName="convergence_criterion_for_the_inner_radial_iteration_loop")]
 public System.Nullable<float> ConvergenceCriterionForTheInnerRadialIterationLoop { get; set; } = (System.Nullable<float>)Single.Parse("0.001", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("maximum_iterations_in_the_inner_radial_iteration_loop")]
+[JsonProperty(PropertyName="maximum_iterations_in_the_inner_radial_iteration_loop")]
 public System.Nullable<float> MaximumIterationsInTheInnerRadialIterationLoop { get; set; } = (System.Nullable<float>)Single.Parse("500", CultureInfo.InvariantCulture);
         
 
-[JsonProperty("number_of_soil_nodes_in_the_inner_radial_near_pipe_mesh_region")]
+[JsonProperty(PropertyName="number_of_soil_nodes_in_the_inner_radial_near_pipe_mesh_region")]
 public System.Nullable<float> NumberOfSoilNodesInTheInnerRadialNearPipeMeshRegion { get; set; } = (System.Nullable<float>)Single.Parse("3", CultureInfo.InvariantCulture);
         
 
 [Description("Required because it must be selected by user instead of being inferred from circu" +
     "it/domain object inputs.")]
-[JsonProperty("radial_thickness_of_inner_radial_near_pipe_mesh_region")]
+[JsonProperty(PropertyName="radial_thickness_of_inner_radial_near_pipe_mesh_region")]
 public System.Nullable<float> RadialThicknessOfInnerRadialNearPipeMeshRegion { get; set; } = null;
         
 
-[JsonProperty("number_of_pipe_segments_entered_for_this_pipe_circuit")]
+[JsonProperty(PropertyName="number_of_pipe_segments_entered_for_this_pipe_circuit")]
 public System.Nullable<float> NumberOfPipeSegmentsEnteredForThisPipeCircuit { get; set; } = null;
         
 
-[JsonProperty("pipe_segments")]
+[JsonProperty(PropertyName="pipe_segments")]
 public string PipeSegments { get; set; } = "";
     }
     
@@ -776,26 +777,26 @@ public string PipeSegments { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("This segment will be centered at this distance from the x=0 domain surface or the" +
     " basement wall surface, based on whether a basement exists in this domain and th" +
     "e selection of the shift input field found in the domain object.")]
-[JsonProperty("x_position")]
+[JsonProperty(PropertyName="x_position")]
 public System.Nullable<float> XPosition { get; set; } = null;
         
 
 [Description("This segment will be centered at this distance away from the ground surface; thus" +
     " this value represents the burial depth of this pipe segment.")]
-[JsonProperty("y_position")]
+[JsonProperty(PropertyName="y_position")]
 public System.Nullable<float> YPosition { get; set; } = null;
         
 
 [Description("This segment will be simulated such that the flow is in the selected direction. T" +
     "his can allow for detailed analysis of circuiting effects in a single domain.")]
-[JsonProperty("flow_direction")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="flow_direction", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PipingSystem_Underground_PipeSegment_FlowDirection FlowDirection { get; set; } = (PipingSystem_Underground_PipeSegment_FlowDirection)Enum.Parse(typeof(PipingSystem_Underground_PipeSegment_FlowDirection), "DecreasingZ");
     }
     
@@ -816,14 +817,15 @@ public PipingSystem_Underground_PipeSegment_FlowDirection FlowDirection { get; s
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("inlet_node_name")]
+[JsonProperty(PropertyName="inlet_node_name")]
 public string InletNodeName { get; set; } = "";
         
 
-[JsonProperty("outlet_node_name")]
+[JsonProperty(PropertyName="outlet_node_name")]
 public string OutletNodeName { get; set; } = "";
     }
 }

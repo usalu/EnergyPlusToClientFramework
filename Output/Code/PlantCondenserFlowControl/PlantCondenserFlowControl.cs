@@ -75,30 +75,31 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserFlowControl
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Name of a Node")]
-[JsonProperty("inlet_node_name")]
+[JsonProperty(PropertyName="inlet_node_name")]
 public string InletNodeName { get; set; } = "";
         
 
 [Description("Name of a Node")]
-[JsonProperty("outlet_node_name")]
+[JsonProperty(PropertyName="outlet_node_name")]
 public string OutletNodeName { get; set; } = "";
         
 
 [Description("Name of a Node")]
-[JsonProperty("stream_2_source_node_name")]
+[JsonProperty(PropertyName="stream_2_source_node_name")]
 public string Stream2SourceNodeName { get; set; } = "";
         
 
 [Description("Name of a Node")]
-[JsonProperty("temperature_setpoint_node_name")]
+[JsonProperty(PropertyName="temperature_setpoint_node_name")]
 public string TemperatureSetpointNodeName { get; set; } = "";
         
 
-[JsonProperty("pump_outlet_node_name")]
+[JsonProperty(PropertyName="pump_outlet_node_name")]
 public string PumpOutletNodeName { get; set; } = "";
     }
 }

@@ -73,59 +73,60 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC:ControllerList object.")]
-[JsonProperty("controller_list_name")]
+[JsonProperty(PropertyName="controller_list_name")]
 public string ControllerListName { get; set; } = "";
         
 
 [Description("Enter the name of an AvailabilityManagerAssignmentList object.")]
-[JsonProperty("availability_manager_list_name")]
+[JsonProperty(PropertyName="availability_manager_list_name")]
 public string AvailabilityManagerListName { get; set; } = "";
         
 
-[JsonProperty("design_supply_air_flow_rate")]
-public string DesignSupplyAirFlowRate { get; set; } = (System.String)"0";
+[JsonProperty(PropertyName="design_supply_air_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<float> DesignSupplyAirFlowRate { get; set; } = null;
         
 
 [Description("Name of a BranchList containing all the branches in this air loop")]
-[JsonProperty("branch_list_name")]
+[JsonProperty(PropertyName="branch_list_name")]
 public string BranchListName { get; set; } = "";
         
 
 [Description("Name of a ConnectorList containing all the splitters and mixers in the loop")]
-[JsonProperty("connector_list_name")]
+[JsonProperty(PropertyName="connector_list_name")]
 public string ConnectorListName { get; set; } = "";
         
 
 [Description(@"Name of inlet node where air enters the supply side of the air loop. If this air loop has a return path, then this node is where return air enters the supply side. If this air loop has no return path, then this node is where outdoor air or other air enters the supply side.")]
-[JsonProperty("supply_side_inlet_node_name")]
+[JsonProperty(PropertyName="supply_side_inlet_node_name")]
 public string SupplySideInletNodeName { get; set; } = "";
         
 
 [Description("Name of outlet node where return air leaves the demand side and enters the supply" +
     " side. Required if this air loop has a return path. Leave this field blank if th" +
     "ere is no return.")]
-[JsonProperty("demand_side_outlet_node_name")]
+[JsonProperty(PropertyName="demand_side_outlet_node_name")]
 public string DemandSideOutletNodeName { get; set; } = "";
         
 
 [Description("Name of a Node or NodeList containing the inlet node(s) supplying air to zone equ" +
     "ipment.")]
-[JsonProperty("demand_side_inlet_node_names")]
+[JsonProperty(PropertyName="demand_side_inlet_node_names")]
 public string DemandSideInletNodeNames { get; set; } = "";
         
 
 [Description("Name of a Node or NodeList containing the outlet node(s) supplying air to the dem" +
     "and side.")]
-[JsonProperty("supply_side_outlet_node_names")]
+[JsonProperty(PropertyName="supply_side_outlet_node_names")]
 public string SupplySideOutletNodeNames { get; set; } = "";
         
 
 [Description(@"The design return air flow rate as a fraction of supply air flow rate with no exhaust. This can be used to model a pressurized system or set to zero to model a DOAS with no return flow. Use ZoneAirMassFlowConservation to balance zone infiltration and mixing flows.")]
-[JsonProperty("design_return_air_flow_fraction_of_supply_air_flow")]
+[JsonProperty(PropertyName="design_return_air_flow_fraction_of_supply_air_flow")]
 public System.Nullable<float> DesignReturnAirFlowFractionOfSupplyAirFlow { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
     }
     
@@ -136,78 +137,79 @@ public System.Nullable<float> DesignReturnAirFlowFractionOfSupplyAirFlow { get; 
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("component_1_object_type")]
+[JsonProperty(PropertyName="component_1_object_type")]
 public string Component1ObjectType { get; set; } = "";
         
 
-[JsonProperty("component_1_name")]
+[JsonProperty(PropertyName="component_1_name")]
 public string Component1Name { get; set; } = "";
         
 
-[JsonProperty("component_2_object_type")]
+[JsonProperty(PropertyName="component_2_object_type")]
 public string Component2ObjectType { get; set; } = "";
         
 
-[JsonProperty("component_2_name")]
+[JsonProperty(PropertyName="component_2_name")]
 public string Component2Name { get; set; } = "";
         
 
-[JsonProperty("component_3_object_type")]
+[JsonProperty(PropertyName="component_3_object_type")]
 public string Component3ObjectType { get; set; } = "";
         
 
-[JsonProperty("component_3_name")]
+[JsonProperty(PropertyName="component_3_name")]
 public string Component3Name { get; set; } = "";
         
 
-[JsonProperty("component_4_object_type")]
+[JsonProperty(PropertyName="component_4_object_type")]
 public string Component4ObjectType { get; set; } = "";
         
 
-[JsonProperty("component_4_name")]
+[JsonProperty(PropertyName="component_4_name")]
 public string Component4Name { get; set; } = "";
         
 
-[JsonProperty("component_5_object_type")]
+[JsonProperty(PropertyName="component_5_object_type")]
 public string Component5ObjectType { get; set; } = "";
         
 
-[JsonProperty("component_5_name")]
+[JsonProperty(PropertyName="component_5_name")]
 public string Component5Name { get; set; } = "";
         
 
-[JsonProperty("component_6_object_type")]
+[JsonProperty(PropertyName="component_6_object_type")]
 public string Component6ObjectType { get; set; } = "";
         
 
-[JsonProperty("component_6_name")]
+[JsonProperty(PropertyName="component_6_name")]
 public string Component6Name { get; set; } = "";
         
 
-[JsonProperty("component_7_object_type")]
+[JsonProperty(PropertyName="component_7_object_type")]
 public string Component7ObjectType { get; set; } = "";
         
 
-[JsonProperty("component_7_name")]
+[JsonProperty(PropertyName="component_7_name")]
 public string Component7Name { get; set; } = "";
         
 
-[JsonProperty("component_8_object_type")]
+[JsonProperty(PropertyName="component_8_object_type")]
 public string Component8ObjectType { get; set; } = "";
         
 
-[JsonProperty("component_8_name")]
+[JsonProperty(PropertyName="component_8_name")]
 public string Component8Name { get; set; } = "";
         
 
-[JsonProperty("component_9_object_type")]
+[JsonProperty(PropertyName="component_9_object_type")]
 public string Component9ObjectType { get; set; } = "";
         
 
-[JsonProperty("component_9_name")]
+[JsonProperty(PropertyName="component_9_name")]
 public string Component9Name { get; set; } = "";
     }
     
@@ -218,22 +220,23 @@ public string Component9Name { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC:ControllerList object or blank if this object is" +
     " used in AirLoopHVAC:DedicatedOutdoorAirSystem.")]
-[JsonProperty("controller_list_name")]
+[JsonProperty(PropertyName="controller_list_name")]
 public string ControllerListName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC:OutdoorAirSystem:EquipmentList object.")]
-[JsonProperty("outdoor_air_equipment_list_name")]
+[JsonProperty(PropertyName="outdoor_air_equipment_list_name")]
 public string OutdoorAirEquipmentListName { get; set; } = "";
         
 
 [Description("Enter the name of an AvailabilityManagerAssignmentList object.")]
-[JsonProperty("availability_manager_list_name")]
+[JsonProperty(PropertyName="availability_manager_list_name")]
 public string AvailabilityManagerListName { get; set; } = "";
     }
     
@@ -245,26 +248,27 @@ public string AvailabilityManagerListName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Name of Mixed Air Node")]
-[JsonProperty("mixed_air_node_name")]
+[JsonProperty(PropertyName="mixed_air_node_name")]
 public string MixedAirNodeName { get; set; } = "";
         
 
 [Description("Name of Outdoor Air Stream Node")]
-[JsonProperty("outdoor_air_stream_node_name")]
+[JsonProperty(PropertyName="outdoor_air_stream_node_name")]
 public string OutdoorAirStreamNodeName { get; set; } = "";
         
 
 [Description("Name of Relief Air Stream Node")]
-[JsonProperty("relief_air_stream_node_name")]
+[JsonProperty(PropertyName="relief_air_stream_node_name")]
 public string ReliefAirStreamNodeName { get; set; } = "";
         
 
 [Description("Name of Return Air Stream Node")]
-[JsonProperty("return_air_stream_node_name")]
+[JsonProperty(PropertyName="return_air_stream_node_name")]
 public string ReturnAirStreamNodeName { get; set; } = "";
     }
     
@@ -277,14 +281,15 @@ public string ReturnAirStreamNodeName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("inlet_node_name")]
+[JsonProperty(PropertyName="inlet_node_name")]
 public string InletNodeName { get; set; } = "";
         
 
-[JsonProperty("nodes")]
+[JsonProperty(PropertyName="nodes")]
 public string Nodes { get; set; } = "";
     }
     
@@ -296,22 +301,23 @@ public string Nodes { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("zone_name")]
+[JsonProperty(PropertyName="zone_name")]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty("zone_node_name")]
+[JsonProperty(PropertyName="zone_node_name")]
 public string ZoneNodeName { get; set; } = "";
         
 
-[JsonProperty("inlet_node_name")]
+[JsonProperty(PropertyName="inlet_node_name")]
 public string InletNodeName { get; set; } = "";
         
 
-[JsonProperty("nodes")]
+[JsonProperty(PropertyName="nodes")]
 public string Nodes { get; set; } = "";
     }
     
@@ -323,14 +329,15 @@ public string Nodes { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("supply_air_path_inlet_node_name")]
+[JsonProperty(PropertyName="supply_air_path_inlet_node_name")]
 public string SupplyAirPathInletNodeName { get; set; } = "";
         
 
-[JsonProperty("components")]
+[JsonProperty(PropertyName="components")]
 public string Components { get; set; } = "";
     }
     
@@ -343,14 +350,15 @@ public string Components { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("outlet_node_name")]
+[JsonProperty(PropertyName="outlet_node_name")]
 public string OutletNodeName { get; set; } = "";
         
 
-[JsonProperty("nodes")]
+[JsonProperty(PropertyName="nodes")]
 public string Nodes { get; set; } = "";
     }
     
@@ -363,26 +371,27 @@ public string Nodes { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("zone_name")]
+[JsonProperty(PropertyName="zone_name")]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty("zone_node_name")]
+[JsonProperty(PropertyName="zone_node_name")]
 public string ZoneNodeName { get; set; } = "";
         
 
-[JsonProperty("outlet_node_name")]
+[JsonProperty(PropertyName="outlet_node_name")]
 public string OutletNodeName { get; set; } = "";
         
 
-[JsonProperty("induced_air_outlet_node_or_nodelist_name")]
+[JsonProperty(PropertyName="induced_air_outlet_node_or_nodelist_name")]
 public string InducedAirOutletNodeOrNodelistName { get; set; } = "";
         
 
-[JsonProperty("nodes")]
+[JsonProperty(PropertyName="nodes")]
 public string Nodes { get; set; } = "";
     }
     
@@ -394,14 +403,15 @@ public string Nodes { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("return_air_path_outlet_node_name")]
+[JsonProperty(PropertyName="return_air_path_outlet_node_name")]
 public string ReturnAirPathOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("components")]
+[JsonProperty(PropertyName="components")]
 public string Components { get; set; } = "";
     }
     
@@ -413,53 +423,54 @@ public string Components { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC:OutdoorAirSystem object.")]
-[JsonProperty("airloophvac_outdoorairsystem_name")]
+[JsonProperty(PropertyName="airloophvac_outdoorairsystem_name")]
 public string AirloophvacOutdoorairsystemName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty("availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name")]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
 [Description("Name of AirLoopHVAC:Mixer.")]
-[JsonProperty("airloophvac_mixer_name")]
+[JsonProperty(PropertyName="airloophvac_mixer_name")]
 public string AirloophvacMixerName { get; set; } = "";
         
 
 [Description("Name of AirLoopHVAC:Splitter.")]
-[JsonProperty("airloophvac_splitter_name")]
+[JsonProperty(PropertyName="airloophvac_splitter_name")]
 public string AirloophvacSplitterName { get; set; } = "";
         
 
-[JsonProperty("preheat_design_temperature")]
+[JsonProperty(PropertyName="preheat_design_temperature")]
 public System.Nullable<float> PreheatDesignTemperature { get; set; } = null;
         
 
-[JsonProperty("preheat_design_humidity_ratio")]
+[JsonProperty(PropertyName="preheat_design_humidity_ratio")]
 public System.Nullable<float> PreheatDesignHumidityRatio { get; set; } = null;
         
 
-[JsonProperty("precool_design_temperature")]
+[JsonProperty(PropertyName="precool_design_temperature")]
 public System.Nullable<float> PrecoolDesignTemperature { get; set; } = null;
         
 
-[JsonProperty("precool_design_humidity_ratio")]
+[JsonProperty(PropertyName="precool_design_humidity_ratio")]
 public System.Nullable<float> PrecoolDesignHumidityRatio { get; set; } = null;
         
 
 [Description("Enter the number of the AirLoopHAVC served by AirLoopHVAC:DedicatedOutdoorAirSyst" +
     "em")]
-[JsonProperty("number_of_airloophvac")]
+[JsonProperty(PropertyName="number_of_airloophvac")]
 public System.Nullable<float> NumberOfAirloophvac { get; set; } = null;
         
 
-[JsonProperty("airloophvacs")]
+[JsonProperty(PropertyName="airloophvacs")]
 public string Airloophvacs { get; set; } = "";
     }
     
@@ -470,14 +481,15 @@ public string Airloophvacs { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("outlet_node_name")]
+[JsonProperty(PropertyName="outlet_node_name")]
 public string OutletNodeName { get; set; } = "";
         
 
-[JsonProperty("nodes")]
+[JsonProperty(PropertyName="nodes")]
 public string Nodes { get; set; } = "";
     }
     
@@ -488,14 +500,15 @@ public string Nodes { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("inlet_node_name")]
+[JsonProperty(PropertyName="inlet_node_name")]
 public string InletNodeName { get; set; } = "";
         
 
-[JsonProperty("nodes")]
+[JsonProperty(PropertyName="nodes")]
 public string Nodes { get; set; } = "";
     }
 }

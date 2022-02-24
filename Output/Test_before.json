@@ -1,0 +1,57 @@
+{
+  "Boiler:HotWater": [
+    {
+      "name": "Main boiler1",
+      "fuel_type": 0,
+      "nominal_capacity": null,
+      "nominal_thermal_efficiency": null,
+      "efficiency_curve_temperature_evaluation_variable": 0,
+      "normalized_boiler_efficiency_curve_name": "",
+      "design_water_flow_rate": null,
+      "minimum_part_load_ratio": 0.0,
+      "maximum_part_load_ratio": 1.0,
+      "optimum_part_load_ratio": 1.0,
+      "boiler_water_inlet_node_name": "",
+      "boiler_water_outlet_node_name": "",
+      "water_outlet_upper_temperature_limit": 99.9,
+      "boiler_flow_mode": 0,
+      "parasitic_electric_load": 0.0,
+      "sizing_factor": 1.0,
+      "end_use_subcategory": "General"
+    },
+    {
+      "name": "Secondary boiler",
+      "fuel_type": 6,
+      "nominal_capacity": null,
+      "nominal_thermal_efficiency": null,
+      "efficiency_curve_temperature_evaluation_variable": 0,
+      "normalized_boiler_efficiency_curve_name": "",
+      "design_water_flow_rate": null,
+      "minimum_part_load_ratio": 0.0,
+      "maximum_part_load_ratio": 1.0,
+      "optimum_part_load_ratio": 1.0,
+      "boiler_water_inlet_node_name": "",
+      "boiler_water_outlet_node_name": "",
+      "water_outlet_upper_temperature_limit": 99.9,
+      "boiler_flow_mode": 1,
+      "parasitic_electric_load": 0.0,
+      "sizing_factor": 1.0,
+      "end_use_subcategory": "General"
+    }
+  ],
+  "Building": {
+    "name": "Buildinggg X1",
+    "north_axis": 0.0,
+    "terrain": 4,
+    "loads_convergence_tolerance_value": 0.04,
+    "temperature_convergence_tolerance_value": 0.4,
+    "solar_distribution": 1,
+    "maximum_number_of_warmup_days": 25.0,
+    "minimum_number_of_warmup_days": 1.0
+  },
+  "BHoM_Guid": "d4a9ac29-0d41-41a2-8355-4b8088528b1a",
+  "Name": "",
+  "Fragments": [],
+  "Tags": [],
+  "CustomData": {}
+}

@@ -59,7 +59,6 @@
     <Compile Include="Builders\ClientCodeCompileUnitBuilder.cs" />
     <Compile Include="Directors\ClientCodeCompileUnitDirector.cs" />
     <Compile Include="Directors\EPClientCodeCompileUnitDirector.cs" />
-    <Compile Include="Output.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

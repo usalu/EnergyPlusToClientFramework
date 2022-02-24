@@ -74,77 +74,78 @@ namespace BH.oM.Adapters.EnergyPlus.UserDefinedHVACandPlantComponentModels
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("overall_model_simulation_program_calling_manager_name")]
+[JsonProperty(PropertyName="overall_model_simulation_program_calling_manager_name")]
 public string OverallModelSimulationProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("model_setup_and_sizing_program_calling_manager_name")]
+[JsonProperty(PropertyName="model_setup_and_sizing_program_calling_manager_name")]
 public string ModelSetupAndSizingProgramCallingManagerName { get; set; } = "";
         
 
 [Description("Air inlet node for the unit must be a zone air exhaust Node.")]
-[JsonProperty("primary_air_inlet_node_name")]
+[JsonProperty(PropertyName="primary_air_inlet_node_name")]
 public string PrimaryAirInletNodeName { get; set; } = "";
         
 
 [Description("Air outlet node for the unit must be a zone air inlet node.")]
-[JsonProperty("primary_air_outlet_node_name")]
+[JsonProperty(PropertyName="primary_air_outlet_node_name")]
 public string PrimaryAirOutletNodeName { get; set; } = "";
         
 
 [Description("Inlet air used for heat rejection or air source")]
-[JsonProperty("secondary_air_inlet_node_name")]
+[JsonProperty(PropertyName="secondary_air_inlet_node_name")]
 public string SecondaryAirInletNodeName { get; set; } = "";
         
 
 [Description("Outlet air used for heat rejection or air source")]
-[JsonProperty("secondary_air_outlet_node_name")]
+[JsonProperty(PropertyName="secondary_air_outlet_node_name")]
 public string SecondaryAirOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("number_of_plant_loop_connections")]
+[JsonProperty(PropertyName="number_of_plant_loop_connections")]
 public System.Nullable<float> NumberOfPlantLoopConnections { get; set; } = null;
         
 
-[JsonProperty("plant_connection_1_inlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_1_inlet_node_name")]
 public string PlantConnection1InletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_1_outlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_1_outlet_node_name")]
 public string PlantConnection1OutletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_2_inlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_2_inlet_node_name")]
 public string PlantConnection2InletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_2_outlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_2_outlet_node_name")]
 public string PlantConnection2OutletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_3_inlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_3_inlet_node_name")]
 public string PlantConnection3InletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_3_outlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_3_outlet_node_name")]
 public string PlantConnection3OutletNodeName { get; set; } = "";
         
 
 [Description("Water use storage tank for alternate source of water consumed by device")]
-[JsonProperty("supply_inlet_water_storage_tank_name")]
+[JsonProperty(PropertyName="supply_inlet_water_storage_tank_name")]
 public string SupplyInletWaterStorageTankName { get; set; } = "";
         
 
 [Description("Water use storage tank for collection of condensate by device")]
-[JsonProperty("collection_outlet_water_storage_tank_name")]
+[JsonProperty(PropertyName="collection_outlet_water_storage_tank_name")]
 public string CollectionOutletWaterStorageTankName { get; set; } = "";
         
 
 [Description("Used for modeling device losses to surrounding zone")]
-[JsonProperty("ambient_zone_name")]
+[JsonProperty(PropertyName="ambient_zone_name")]
 public string AmbientZoneName { get; set; } = "";
     }
     
@@ -156,69 +157,70 @@ public string AmbientZoneName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("overall_model_simulation_program_calling_manager_name")]
+[JsonProperty(PropertyName="overall_model_simulation_program_calling_manager_name")]
 public string OverallModelSimulationProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("model_setup_and_sizing_program_calling_manager_name")]
+[JsonProperty(PropertyName="model_setup_and_sizing_program_calling_manager_name")]
 public string ModelSetupAndSizingProgramCallingManagerName { get; set; } = "";
         
 
 [Description("Air inlet node for the unit must be a zone splitter outlet.")]
-[JsonProperty("primary_air_inlet_node_name")]
+[JsonProperty(PropertyName="primary_air_inlet_node_name")]
 public string PrimaryAirInletNodeName { get; set; } = "";
         
 
 [Description("Air outlet node for the unit must be a zone air inlet node.")]
-[JsonProperty("primary_air_outlet_node_name")]
+[JsonProperty(PropertyName="primary_air_outlet_node_name")]
 public string PrimaryAirOutletNodeName { get; set; } = "";
         
 
 [Description("Inlet air used for heat rejection or air source")]
-[JsonProperty("secondary_air_inlet_node_name")]
+[JsonProperty(PropertyName="secondary_air_inlet_node_name")]
 public string SecondaryAirInletNodeName { get; set; } = "";
         
 
 [Description("Outlet air used for heat rejection or air source")]
-[JsonProperty("secondary_air_outlet_node_name")]
+[JsonProperty(PropertyName="secondary_air_outlet_node_name")]
 public string SecondaryAirOutletNodeName { get; set; } = "";
         
 
-[JsonProperty("number_of_plant_loop_connections")]
+[JsonProperty(PropertyName="number_of_plant_loop_connections")]
 public System.Nullable<float> NumberOfPlantLoopConnections { get; set; } = null;
         
 
-[JsonProperty("plant_connection_1_inlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_1_inlet_node_name")]
 public string PlantConnection1InletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_1_outlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_1_outlet_node_name")]
 public string PlantConnection1OutletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_2_inlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_2_inlet_node_name")]
 public string PlantConnection2InletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_2_outlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_2_outlet_node_name")]
 public string PlantConnection2OutletNodeName { get; set; } = "";
         
 
 [Description("Water use storage tank for alternate source of water consumed by device")]
-[JsonProperty("supply_inlet_water_storage_tank_name")]
+[JsonProperty(PropertyName="supply_inlet_water_storage_tank_name")]
 public string SupplyInletWaterStorageTankName { get; set; } = "";
         
 
 [Description("Water use storage tank for collection of condensate by device")]
-[JsonProperty("collection_outlet_water_storage_tank_name")]
+[JsonProperty(PropertyName="collection_outlet_water_storage_tank_name")]
 public string CollectionOutletWaterStorageTankName { get; set; } = "";
         
 
 [Description("Used for modeling device losses to surrounding zone")]
-[JsonProperty("ambient_zone_name")]
+[JsonProperty(PropertyName="ambient_zone_name")]
 public string AmbientZoneName { get; set; } = "";
     }
     
@@ -230,66 +232,66 @@ public string AmbientZoneName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("overall_model_simulation_program_calling_manager_name")]
+[JsonProperty(PropertyName="overall_model_simulation_program_calling_manager_name")]
 public string OverallModelSimulationProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("model_setup_and_sizing_program_calling_manager_name")]
+[JsonProperty(PropertyName="model_setup_and_sizing_program_calling_manager_name")]
 public string ModelSetupAndSizingProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("number_of_air_connections")]
+[JsonProperty(PropertyName="number_of_air_connections")]
 public System.Nullable<float> NumberOfAirConnections { get; set; } = null;
         
 
 [Description("Inlet air for primary air stream")]
-[JsonProperty("air_connection_1_inlet_node_name")]
+[JsonProperty(PropertyName="air_connection_1_inlet_node_name")]
 public string AirConnection1InletNodeName { get; set; } = "";
         
 
 [Description("Outlet air for primary air stream")]
-[JsonProperty("air_connection_1_outlet_node_name")]
+[JsonProperty(PropertyName="air_connection_1_outlet_node_name")]
 public string AirConnection1OutletNodeName { get; set; } = "";
         
 
 [Description("Inlet air for secondary air stream")]
-[JsonProperty("air_connection_2_inlet_node_name")]
+[JsonProperty(PropertyName="air_connection_2_inlet_node_name")]
 public string AirConnection2InletNodeName { get; set; } = "";
         
 
 [Description("Outlet air for secondary air stream")]
-[JsonProperty("air_connection_2_outlet_node_name")]
+[JsonProperty(PropertyName="air_connection_2_outlet_node_name")]
 public string AirConnection2OutletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_is_used")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="plant_connection_is_used", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Coil_UserDefined_PlantConnectionIsUsed PlantConnectionIsUsed { get; set; } = (Coil_UserDefined_PlantConnectionIsUsed)Enum.Parse(typeof(Coil_UserDefined_PlantConnectionIsUsed), "No");
         
 
-[JsonProperty("plant_connection_inlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_inlet_node_name")]
 public string PlantConnectionInletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_outlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_outlet_node_name")]
 public string PlantConnectionOutletNodeName { get; set; } = "";
         
 
 [Description("Water use storage tank for alternate source of water consumed by device")]
-[JsonProperty("supply_inlet_water_storage_tank_name")]
+[JsonProperty(PropertyName="supply_inlet_water_storage_tank_name")]
 public string SupplyInletWaterStorageTankName { get; set; } = "";
         
 
 [Description("Water use storage tank for collection of condensate by device")]
-[JsonProperty("collection_outlet_water_storage_tank_name")]
+[JsonProperty(PropertyName="collection_outlet_water_storage_tank_name")]
 public string CollectionOutletWaterStorageTankName { get; set; } = "";
         
 
 [Description("Used for modeling device losses to surrounding zone")]
-[JsonProperty("ambient_zone_name")]
+[JsonProperty(PropertyName="ambient_zone_name")]
 public string AmbientZoneName { get; set; } = "";
     }
     
@@ -311,143 +313,136 @@ public string AmbientZoneName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("main_model_program_calling_manager_name")]
+[JsonProperty(PropertyName="main_model_program_calling_manager_name")]
 public string MainModelProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("number_of_plant_loop_connections")]
+[JsonProperty(PropertyName="number_of_plant_loop_connections")]
 public System.Nullable<float> NumberOfPlantLoopConnections { get; set; } = null;
         
 
-[JsonProperty("plant_connection_1_inlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_1_inlet_node_name")]
 public string PlantConnection1InletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_1_outlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_1_outlet_node_name")]
 public string PlantConnection1OutletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_1_loading_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="plant_connection_1_loading_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection1LoadingMode PlantConnection1LoadingMode { get; set; } = (PlantComponent_UserDefined_PlantConnection1LoadingMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection1LoadingMode), "DemandsLoad");
         
 
-[JsonProperty("plant_connection_1_loop_flow_request_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="plant_connection_1_loop_flow_request_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection1LoopFlowRequestMode PlantConnection1LoopFlowRequestMode { get; set; } = (PlantComponent_UserDefined_PlantConnection1LoopFlowRequestMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection1LoopFlowRequestMode), "NeedsFlowAndTurnsLoopOn");
         
 
-[JsonProperty("plant_connection_1_initialization_program_calling_manager_name")]
+[JsonProperty(PropertyName="plant_connection_1_initialization_program_calling_manager_name")]
 public string PlantConnection1InitializationProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_1_simulation_program_calling_manager_name")]
+[JsonProperty(PropertyName="plant_connection_1_simulation_program_calling_manager_name")]
 public string PlantConnection1SimulationProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_2_inlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_2_inlet_node_name")]
 public string PlantConnection2InletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_2_outlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_2_outlet_node_name")]
 public string PlantConnection2OutletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_2_loading_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="plant_connection_2_loading_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection2LoadingMode PlantConnection2LoadingMode { get; set; } = (PlantComponent_UserDefined_PlantConnection2LoadingMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection2LoadingMode), "DemandsLoad");
         
 
-[JsonProperty("plant_connection_2_loop_flow_request_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="plant_connection_2_loop_flow_request_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection2LoopFlowRequestMode PlantConnection2LoopFlowRequestMode { get; set; } = (PlantComponent_UserDefined_PlantConnection2LoopFlowRequestMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection2LoopFlowRequestMode), "NeedsFlowAndTurnsLoopOn");
         
 
-[JsonProperty("plant_connection_2_initialization_program_calling_manager_name")]
+[JsonProperty(PropertyName="plant_connection_2_initialization_program_calling_manager_name")]
 public string PlantConnection2InitializationProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_2_simulation_program_calling_manager_name")]
+[JsonProperty(PropertyName="plant_connection_2_simulation_program_calling_manager_name")]
 public string PlantConnection2SimulationProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_3_inlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_3_inlet_node_name")]
 public string PlantConnection3InletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_3_outlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_3_outlet_node_name")]
 public string PlantConnection3OutletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_3_loading_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="plant_connection_3_loading_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection3LoadingMode PlantConnection3LoadingMode { get; set; } = (PlantComponent_UserDefined_PlantConnection3LoadingMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection3LoadingMode), "DemandsLoad");
         
 
-[JsonProperty("plant_connection_3_loop_flow_request_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="plant_connection_3_loop_flow_request_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection3LoopFlowRequestMode PlantConnection3LoopFlowRequestMode { get; set; } = (PlantComponent_UserDefined_PlantConnection3LoopFlowRequestMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection3LoopFlowRequestMode), "NeedsFlowAndTurnsLoopOn");
         
 
-[JsonProperty("plant_connection_3_initialization_program_calling_manager_name")]
+[JsonProperty(PropertyName="plant_connection_3_initialization_program_calling_manager_name")]
 public string PlantConnection3InitializationProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_3_simulation_program_calling_manager_name")]
+[JsonProperty(PropertyName="plant_connection_3_simulation_program_calling_manager_name")]
 public string PlantConnection3SimulationProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_4_inlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_4_inlet_node_name")]
 public string PlantConnection4InletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_4_outlet_node_name")]
+[JsonProperty(PropertyName="plant_connection_4_outlet_node_name")]
 public string PlantConnection4OutletNodeName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_4_loading_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="plant_connection_4_loading_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection4LoadingMode PlantConnection4LoadingMode { get; set; } = (PlantComponent_UserDefined_PlantConnection4LoadingMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection4LoadingMode), "DemandsLoad");
         
 
-[JsonProperty("plant_connection_4_loop_flow_request_mode")]
-[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="plant_connection_4_loop_flow_request_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantComponent_UserDefined_PlantConnection4LoopFlowRequestMode PlantConnection4LoopFlowRequestMode { get; set; } = (PlantComponent_UserDefined_PlantConnection4LoopFlowRequestMode)Enum.Parse(typeof(PlantComponent_UserDefined_PlantConnection4LoopFlowRequestMode), "NeedsFlowAndTurnsLoopOn");
         
 
-[JsonProperty("plant_connection_4_initialization_program_calling_manager_name")]
+[JsonProperty(PropertyName="plant_connection_4_initialization_program_calling_manager_name")]
 public string PlantConnection4InitializationProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("plant_connection_4_simulation_program_calling_manager_name")]
+[JsonProperty(PropertyName="plant_connection_4_simulation_program_calling_manager_name")]
 public string PlantConnection4SimulationProgramCallingManagerName { get; set; } = "";
         
 
 [Description("Inlet air used for heat rejection or air source")]
-[JsonProperty("air_connection_inlet_node_name")]
+[JsonProperty(PropertyName="air_connection_inlet_node_name")]
 public string AirConnectionInletNodeName { get; set; } = "";
         
 
 [Description("Outlet air used for heat rejection or air source")]
-[JsonProperty("air_connection_outlet_node_name")]
+[JsonProperty(PropertyName="air_connection_outlet_node_name")]
 public string AirConnectionOutletNodeName { get; set; } = "";
         
 
 [Description("Water use storage tank for alternate source of water consumed by device")]
-[JsonProperty("supply_inlet_water_storage_tank_name")]
+[JsonProperty(PropertyName="supply_inlet_water_storage_tank_name")]
 public string SupplyInletWaterStorageTankName { get; set; } = "";
         
 
 [Description("Water use storage tank for collection of condensate by device")]
-[JsonProperty("collection_outlet_water_storage_tank_name")]
+[JsonProperty(PropertyName="collection_outlet_water_storage_tank_name")]
 public string CollectionOutletWaterStorageTankName { get; set; } = "";
         
 
 [Description("Used for modeling device losses to surrounding zone")]
-[JsonProperty("ambient_zone_name")]
+[JsonProperty(PropertyName="ambient_zone_name")]
 public string AmbientZoneName { get; set; } = "";
     }
     
@@ -587,94 +582,95 @@ public string AmbientZoneName { get; set; } = "";
         
 
 [Description("This will be the main key of this instance.")]
+[JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty("main_model_program_calling_manager_name")]
+[JsonProperty(PropertyName="main_model_program_calling_manager_name")]
 public string MainModelProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("initialization_program_calling_manager_name")]
+[JsonProperty(PropertyName="initialization_program_calling_manager_name")]
 public string InitializationProgramCallingManagerName { get; set; } = "";
         
 
-[JsonProperty("equipment_1_object_type")]
+[JsonProperty(PropertyName="equipment_1_object_type")]
 public string Equipment1ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_1_name")]
+[JsonProperty(PropertyName="equipment_1_name")]
 public string Equipment1Name { get; set; } = "";
         
 
-[JsonProperty("equipment_2_object_type")]
+[JsonProperty(PropertyName="equipment_2_object_type")]
 public string Equipment2ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_2_name")]
+[JsonProperty(PropertyName="equipment_2_name")]
 public string Equipment2Name { get; set; } = "";
         
 
-[JsonProperty("equipment_3_object_type")]
+[JsonProperty(PropertyName="equipment_3_object_type")]
 public string Equipment3ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_3_name")]
+[JsonProperty(PropertyName="equipment_3_name")]
 public string Equipment3Name { get; set; } = "";
         
 
-[JsonProperty("equipment_4_object_type")]
+[JsonProperty(PropertyName="equipment_4_object_type")]
 public string Equipment4ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_4_name")]
+[JsonProperty(PropertyName="equipment_4_name")]
 public string Equipment4Name { get; set; } = "";
         
 
-[JsonProperty("equipment_5_object_type")]
+[JsonProperty(PropertyName="equipment_5_object_type")]
 public string Equipment5ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_5_name")]
+[JsonProperty(PropertyName="equipment_5_name")]
 public string Equipment5Name { get; set; } = "";
         
 
-[JsonProperty("equipment_6_object_type")]
+[JsonProperty(PropertyName="equipment_6_object_type")]
 public string Equipment6ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_6_name")]
+[JsonProperty(PropertyName="equipment_6_name")]
 public string Equipment6Name { get; set; } = "";
         
 
-[JsonProperty("equipment_7_object_type")]
+[JsonProperty(PropertyName="equipment_7_object_type")]
 public string Equipment7ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_7_name")]
+[JsonProperty(PropertyName="equipment_7_name")]
 public string Equipment7Name { get; set; } = "";
         
 
-[JsonProperty("equipment_8_object_type")]
+[JsonProperty(PropertyName="equipment_8_object_type")]
 public string Equipment8ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_8_name")]
+[JsonProperty(PropertyName="equipment_8_name")]
 public string Equipment8Name { get; set; } = "";
         
 
-[JsonProperty("equipment_9_object_type")]
+[JsonProperty(PropertyName="equipment_9_object_type")]
 public string Equipment9ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_9_name")]
+[JsonProperty(PropertyName="equipment_9_name")]
 public string Equipment9Name { get; set; } = "";
         
 
-[JsonProperty("equipment_10_object_type")]
+[JsonProperty(PropertyName="equipment_10_object_type")]
 public string Equipment10ObjectType { get; set; } = "";
         
 
-[JsonProperty("equipment_10_name")]
+[JsonProperty(PropertyName="equipment_10_name")]
 public string Equipment10Name { get; set; } = "";
     }
 }
