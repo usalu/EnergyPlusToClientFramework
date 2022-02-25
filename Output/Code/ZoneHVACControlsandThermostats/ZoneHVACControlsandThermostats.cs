@@ -78,17 +78,17 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="zone_name")]
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneName { get; set; } = "";
         
 
 [Description("hourly schedule values should be in Relative Humidity (percent)")]
-[JsonProperty(PropertyName="humidifying_relative_humidity_setpoint_schedule_name")]
+[JsonProperty(PropertyName="humidifying_relative_humidity_setpoint_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HumidifyingRelativeHumiditySetpointScheduleName { get; set; } = "";
         
 
 [Description("hourly schedule values should be in Relative Humidity (percent)")]
-[JsonProperty(PropertyName="dehumidifying_relative_humidity_setpoint_schedule_name")]
+[JsonProperty(PropertyName="dehumidifying_relative_humidity_setpoint_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string DehumidifyingRelativeHumiditySetpointScheduleName { get; set; } = "";
     }
     
@@ -105,64 +105,68 @@ public string DehumidifyingRelativeHumiditySetpointScheduleName { get; set; } = 
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="zone_or_zonelist_name")]
+[JsonProperty(PropertyName="zone_or_zonelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneOrZonelistName { get; set; } = "";
         
 
 [Description(@"This schedule contains appropriate control types for thermostat. Control types are integers: 0 - Uncontrolled (floating, no thermostat), 1 = ThermostatSetpoint:SingleHeating, 2 = ThermostatSetpoint:SingleCooling, 3 = ThermostatSetpoint:SingleHeatingOrCooling, 4 = ThermostatSetpoint:DualSetpoint")]
-[JsonProperty(PropertyName="control_type_schedule_name")]
+[JsonProperty(PropertyName="control_type_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControlTypeScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_1_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_1_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_Control1ObjectType Control1ObjectType { get; set; } = (ZoneControl_Thermostat_Control1ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_Control1ObjectType), "ThermostatSetpointDualSetpoint");
         
 
 [Description("Control names are names of individual control objects (e.g. ThermostatSetpoint:Si" +
     "ngleHeating) Schedule values in these objects list actual setpoint temperatures " +
     "for the control types")]
-[JsonProperty(PropertyName="control_1_name")]
+[JsonProperty(PropertyName="control_1_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Control1Name { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_2_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_2_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_Control2ObjectType Control2ObjectType { get; set; } = (ZoneControl_Thermostat_Control2ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_Control2ObjectType), "ThermostatSetpointDualSetpoint");
         
 
 [Description("Control names are names of individual control objects (e.g. ThermostatSetpoint:Si" +
     "ngleHeating) Schedule values in these objects list actual setpoint temperatures " +
     "for the control types")]
-[JsonProperty(PropertyName="control_2_name")]
+[JsonProperty(PropertyName="control_2_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Control2Name { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_3_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_3_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_Control3ObjectType Control3ObjectType { get; set; } = (ZoneControl_Thermostat_Control3ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_Control3ObjectType), "ThermostatSetpointDualSetpoint");
         
 
 [Description("Control names are names of individual control objects (e.g. ThermostatSetpoint:Si" +
     "ngleHeating) Schedule values in these objects list actual setpoint temperatures " +
     "for the control types")]
-[JsonProperty(PropertyName="control_3_name")]
+[JsonProperty(PropertyName="control_3_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Control3Name { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_4_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_4_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_Control4ObjectType Control4ObjectType { get; set; } = (ZoneControl_Thermostat_Control4ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_Control4ObjectType), "ThermostatSetpointDualSetpoint");
         
 
 [Description("Control names are names of individual control objects (e.g. ThermostatSetpoint:Si" +
     "ngleHeating) Schedule values in these objects list actual setpoint temperatures " +
     "for the control types")]
-[JsonProperty(PropertyName="control_4_name")]
+[JsonProperty(PropertyName="control_4_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Control4Name { get; set; } = "";
         
 
 [Description("This optional choice field provides a temperature difference between cut-out temp" +
     "erature and setpoint. The difference is used to adjust to heating or cooling set" +
     "point based on control types.")]
-[JsonProperty(PropertyName="temperature_difference_between_cutout_and_setpoint")]
-public System.Nullable<float> TemperatureDifferenceBetweenCutoutAndSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="temperature_difference_between_cutout_and_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TemperatureDifferenceBetweenCutoutAndSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum ZoneControl_Thermostat_Control1ObjectType
@@ -240,26 +244,28 @@ public System.Nullable<float> TemperatureDifferenceBetweenCutoutAndSetpoint { ge
 
 [Description("Enter the name of a ZoneControl:Thermostat object. This object modifies a ZoneCon" +
     "trol:Thermostat object to add a radiative fraction.")]
-[JsonProperty(PropertyName="thermostat_name")]
+[JsonProperty(PropertyName="thermostat_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ThermostatName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="radiative_fraction_input_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="radiative_fraction_input_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_OperativeTemperature_RadiativeFractionInputMode RadiativeFractionInputMode { get; set; } = (ZoneControl_Thermostat_OperativeTemperature_RadiativeFractionInputMode)Enum.Parse(typeof(ZoneControl_Thermostat_OperativeTemperature_RadiativeFractionInputMode), "Constant");
         
 
-[JsonProperty(PropertyName="fixed_radiative_fraction")]
-public System.Nullable<float> FixedRadiativeFraction { get; set; } = null;
+[JsonProperty(PropertyName="fixed_radiative_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FixedRadiativeFraction { get; set; } = null;
         
 
 [Description("Schedule values of 0.0 indicate no operative temperature control")]
-[JsonProperty(PropertyName="radiative_fraction_schedule_name")]
+[JsonProperty(PropertyName="radiative_fraction_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string RadiativeFractionScheduleName { get; set; } = "";
         
 
 [Description("the cooling setpoint temperature schedule of the referenced thermostat will be ad" +
     "justed based on the selected adaptive comfort model type")]
-[JsonProperty(PropertyName="adaptive_comfort_model_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="adaptive_comfort_model_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType AdaptiveComfortModelType { get; set; } = (ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType)Enum.Parse(typeof(ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType), "None");
     }
     
@@ -316,71 +322,76 @@ public ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType Adap
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="zone_or_zonelist_name")]
+[JsonProperty(PropertyName="zone_or_zonelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneOrZonelistName { get; set; } = "";
         
 
 [Description("The method used to calculate thermal comfort dry-bulb temperature setpoint for mu" +
     "ltiple people objects in a zone")]
-[JsonProperty(PropertyName="averaging_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="averaging_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_ThermalComfort_AveragingMethod AveragingMethod { get; set; } = (ZoneControl_Thermostat_ThermalComfort_AveragingMethod)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_AveragingMethod), "PeopleAverage");
         
 
 [Description("Used only when Averaging Method = SpecificObject in the previous field.")]
-[JsonProperty(PropertyName="specific_people_name")]
+[JsonProperty(PropertyName="specific_people_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SpecificPeopleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_dry_bulb_temperature_setpoint")]
-public System.Nullable<float> MinimumDryBulbTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_dry_bulb_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumDryBulbTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_dry_bulb_temperature_setpoint")]
-public System.Nullable<float> MaximumDryBulbTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("50", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_dry_bulb_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumDryBulbTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("50", CultureInfo.InvariantCulture);
         
 
 [Description(@"The Thermal Comfort Control Type Schedule contains values that are appropriate control types. Thermal Comfort Control types are integers: 0 - Uncontrolled (floating), 1 = ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating 2 = ThermostatSetpoint:ThermalComfort:Fanger:SingleCooling 3 = ThermostatSetpoint:ThermalComfort:Fanger:SingleHeatingOrCooling 4 = ThermostatSetpoint:ThermalComfort:Fanger:DualSetpoint")]
-[JsonProperty(PropertyName="thermal_comfort_control_type_schedule_name")]
+[JsonProperty(PropertyName="thermal_comfort_control_type_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ThermalComfortControlTypeScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="thermal_comfort_control_1_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="thermal_comfort_control_1_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType ThermalComfortControl1ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl1ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
 [Description("Control type names are names for individual control type objects. Schedule values" +
     " in these objects list actual setpoint temperatures for the control types")]
-[JsonProperty(PropertyName="thermal_comfort_control_1_name")]
+[JsonProperty(PropertyName="thermal_comfort_control_1_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ThermalComfortControl1Name { get; set; } = "";
         
 
-[JsonProperty(PropertyName="thermal_comfort_control_2_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="thermal_comfort_control_2_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType ThermalComfortControl2ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl2ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
 [Description("Control Type names are names for individual control type objects. Schedule values" +
     " in these objects list actual setpoint temperatures for the control types")]
-[JsonProperty(PropertyName="thermal_comfort_control_2_name")]
+[JsonProperty(PropertyName="thermal_comfort_control_2_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ThermalComfortControl2Name { get; set; } = "";
         
 
-[JsonProperty(PropertyName="thermal_comfort_control_3_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="thermal_comfort_control_3_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType ThermalComfortControl3ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl3ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
 [Description("Control type names are names for individual control type objects. Schedule values" +
     " in these objects list actual setpoint temperatures for the control types")]
-[JsonProperty(PropertyName="thermal_comfort_control_3_name")]
+[JsonProperty(PropertyName="thermal_comfort_control_3_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ThermalComfortControl3Name { get; set; } = "";
         
 
-[JsonProperty(PropertyName="thermal_comfort_control_4_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="thermal_comfort_control_4_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType ThermalComfortControl4ObjectType { get; set; } = (ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType)Enum.Parse(typeof(ZoneControl_Thermostat_ThermalComfort_ThermalComfortControl4ObjectType), "ThermostatSetpointThermalComfortFangerDualSetpoint");
         
 
 [Description("Control type names are names for individual control type objects. Schedule values" +
     " in these objects list actual setpoint temperatures for the control types")]
-[JsonProperty(PropertyName="thermal_comfort_control_4_name")]
+[JsonProperty(PropertyName="thermal_comfort_control_4_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ThermalComfortControl4Name { get; set; } = "";
     }
     
@@ -472,40 +483,42 @@ public string ThermalComfortControl4Name { get; set; } = "";
         
 
 [Description(@"Enter the name of a ZoneControl:Thermostat object whose operation is to be modified to effect temperature control based on zone air humidity conditions. If the ZoneControl: Thermostat object references a ZoneList, simply enter the name of the ZoneControl:Thermostat object and this temperature and humidity thermostat control will be applied to all zones in the ZoneList. If the ZoneControl:Thermostat object references a ZoneList but it is desired that only a single zone within the ZoneList be controlled based on temperature and humidity control, then the name to be put here is <Zone Name> <Thermostat Name> where the Thermostat Name is the the name of the ZoneControl:Thermostat object.")]
-[JsonProperty(PropertyName="thermostat_name")]
+[JsonProperty(PropertyName="thermostat_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ThermostatName { get; set; } = "";
         
 
 [Description("Schedule values should be in Relative Humidity (percent)")]
-[JsonProperty(PropertyName="dehumidifying_relative_humidity_setpoint_schedule_name")]
+[JsonProperty(PropertyName="dehumidifying_relative_humidity_setpoint_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string DehumidifyingRelativeHumiditySetpointScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="dehumidification_control_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="dehumidification_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_TemperatureAndHumidity_DehumidificationControlType DehumidificationControlType { get; set; } = (ZoneControl_Thermostat_TemperatureAndHumidity_DehumidificationControlType)Enum.Parse(typeof(ZoneControl_Thermostat_TemperatureAndHumidity_DehumidificationControlType), "Overcool");
         
 
-[JsonProperty(PropertyName="overcool_range_input_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="overcool_range_input_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ZoneControl_Thermostat_TemperatureAndHumidity_OvercoolRangeInputMethod OvercoolRangeInputMethod { get; set; } = (ZoneControl_Thermostat_TemperatureAndHumidity_OvercoolRangeInputMethod)Enum.Parse(typeof(ZoneControl_Thermostat_TemperatureAndHumidity_OvercoolRangeInputMethod), "Constant");
         
 
 [Description("Maximum Overcool temperature range for cooling setpoint reduction. Used with Dehu" +
     "midification Control Type = Overcool. A value of 0.0 indicates no zone temperatu" +
     "re overcooling will be provided to gain additional dehumidification.")]
-[JsonProperty(PropertyName="overcool_constant_range")]
-public System.Nullable<float> OvercoolConstantRange { get; set; } = (System.Nullable<float>)Single.Parse("1.7", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="overcool_constant_range", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OvercoolConstantRange { get; set; } = (System.Nullable<double>)Double.Parse("1.7", CultureInfo.InvariantCulture);
         
 
 [Description("Schedule values of 0.0 indicates no zone temperature overcooling will be provided" +
     " to gain additional dehumidification. Schedule values should be >= 0 and <= 3 (d" +
     "eltaC).")]
-[JsonProperty(PropertyName="overcool_range_schedule_name")]
+[JsonProperty(PropertyName="overcool_range_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string OvercoolRangeScheduleName { get; set; } = "";
         
 
 [Description(@"The value of this input field is used to adjust the cooling setpoint temperature (established by the associated ZoneControl:Thermostat object) downward based on the difference between the zone air relative humidity level and the dehumidifying relative humidity setpoint.")]
-[JsonProperty(PropertyName="overcool_control_ratio")]
-public System.Nullable<float> OvercoolControlRatio { get; set; } = (System.Nullable<float>)Single.Parse("3.6", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="overcool_control_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OvercoolControlRatio { get; set; } = (System.Nullable<double>)Double.Parse("3.6", CultureInfo.InvariantCulture);
     }
     
     public enum ZoneControl_Thermostat_TemperatureAndHumidity_DehumidificationControlType
@@ -546,7 +559,7 @@ public System.Nullable<float> OvercoolControlRatio { get; set; } = (System.Nulla
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="setpoint_temperature_schedule_name")]
+[JsonProperty(PropertyName="setpoint_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointTemperatureScheduleName { get; set; } = "";
     }
     
@@ -562,7 +575,7 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="setpoint_temperature_schedule_name")]
+[JsonProperty(PropertyName="setpoint_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointTemperatureScheduleName { get; set; } = "";
     }
     
@@ -579,7 +592,7 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="setpoint_temperature_schedule_name")]
+[JsonProperty(PropertyName="setpoint_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointTemperatureScheduleName { get; set; } = "";
     }
     
@@ -595,11 +608,11 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heating_setpoint_temperature_schedule_name")]
+[JsonProperty(PropertyName="heating_setpoint_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatingSetpointTemperatureScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="cooling_setpoint_temperature_schedule_name")]
+[JsonProperty(PropertyName="cooling_setpoint_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CoolingSetpointTemperatureScheduleName { get; set; } = "";
     }
     
@@ -617,7 +630,7 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Schedule values should be Predicted Mean Vote (PMV)")]
-[JsonProperty(PropertyName="fanger_thermal_comfort_schedule_name")]
+[JsonProperty(PropertyName="fanger_thermal_comfort_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FangerThermalComfortScheduleName { get; set; } = "";
     }
     
@@ -635,7 +648,7 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Schedule values should be Predicted Mean Vote (PMV)")]
-[JsonProperty(PropertyName="fanger_thermal_comfort_schedule_name")]
+[JsonProperty(PropertyName="fanger_thermal_comfort_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FangerThermalComfortScheduleName { get; set; } = "";
     }
     
@@ -653,7 +666,7 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Schedule values should be Predicted Mean Vote (PMV)")]
-[JsonProperty(PropertyName="fanger_thermal_comfort_schedule_name")]
+[JsonProperty(PropertyName="fanger_thermal_comfort_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FangerThermalComfortScheduleName { get; set; } = "";
     }
     
@@ -671,12 +684,12 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Schedule values should be Predicted Mean Vote (PMV)")]
-[JsonProperty(PropertyName="fanger_thermal_comfort_heating_schedule_name")]
+[JsonProperty(PropertyName="fanger_thermal_comfort_heating_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FangerThermalComfortHeatingScheduleName { get; set; } = "";
         
 
 [Description("Schedule values should be Predicted Mean Vote (PMV)")]
-[JsonProperty(PropertyName="fanger_thermal_comfort_cooling_schedule_name")]
+[JsonProperty(PropertyName="fanger_thermal_comfort_cooling_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FangerThermalComfortCoolingScheduleName { get; set; } = "";
     }
     
@@ -693,74 +706,74 @@ public string FangerThermalComfortCoolingScheduleName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="zone_or_zonelist_name")]
+[JsonProperty(PropertyName="zone_or_zonelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneOrZonelistName { get; set; } = "";
         
 
 [Description("Enter the number of the following sets of data for heating temperature offset")]
-[JsonProperty(PropertyName="number_of_heating_stages")]
-public System.Nullable<float> NumberOfHeatingStages { get; set; } = null;
+[JsonProperty(PropertyName="number_of_heating_stages", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfHeatingStages { get; set; } = null;
         
 
-[JsonProperty(PropertyName="heating_temperature_setpoint_schedule_name")]
+[JsonProperty(PropertyName="heating_temperature_setpoint_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatingTemperatureSetpointScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heating_throttling_temperature_range")]
-public System.Nullable<float> HeatingThrottlingTemperatureRange { get; set; } = (System.Nullable<float>)Single.Parse("1.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="heating_throttling_temperature_range", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HeatingThrottlingTemperatureRange { get; set; } = (System.Nullable<double>)Double.Parse("1.1", CultureInfo.InvariantCulture);
         
 
 [Description(@"The heating temperature offset is used to determine heating stage number for multi stage equipment. When the temperature difference of the heating setpoint and the controlled zone temperature at previous time step is less than Stage 1 value and greater than Stage 2 value, the stage number is 1.")]
-[JsonProperty(PropertyName="stage_1_heating_temperature_offset")]
-public System.Nullable<float> Stage1HeatingTemperatureOffset { get; set; } = null;
+[JsonProperty(PropertyName="stage_1_heating_temperature_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Stage1HeatingTemperatureOffset { get; set; } = null;
         
 
 [Description(@"The heating temperature offset is used to determine heating stage number for multi stage equipment. When the temperature difference of the heating setpoint and the controlled zone temperature at previous time step is less than Stage 2 value and greater than Stage 3 value, the stage number is 2. The value of this field has to be less the value at the previous field.")]
-[JsonProperty(PropertyName="stage_2_heating_temperature_offset")]
-public System.Nullable<float> Stage2HeatingTemperatureOffset { get; set; } = null;
+[JsonProperty(PropertyName="stage_2_heating_temperature_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Stage2HeatingTemperatureOffset { get; set; } = null;
         
 
 [Description(@"The heating temperature offset is used to determine heating stage number for multi stage equipment. When the temperature difference of the heating setpoint and the controlled zone temperature at previous time step is less than Stage 3 value and greater than Stage 4 value, the stage number is 3. The value of this field has to be less the value at the previous field.")]
-[JsonProperty(PropertyName="stage_3_heating_temperature_offset")]
-public System.Nullable<float> Stage3HeatingTemperatureOffset { get; set; } = null;
+[JsonProperty(PropertyName="stage_3_heating_temperature_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Stage3HeatingTemperatureOffset { get; set; } = null;
         
 
 [Description(@"The heating temperature offset is used to determine heating stage number for multi stage equipment. When the temperature difference of the heating setpoint and the controlled zone temperature at previous time step is less than Stage 4 value, the stage number is 4. The value of this field has to be less the value at the previous field.")]
-[JsonProperty(PropertyName="stage_4_heating_temperature_offset")]
-public System.Nullable<float> Stage4HeatingTemperatureOffset { get; set; } = null;
+[JsonProperty(PropertyName="stage_4_heating_temperature_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Stage4HeatingTemperatureOffset { get; set; } = null;
         
 
 [Description("Enter the number of the following sets of data for cooling temperature offset")]
-[JsonProperty(PropertyName="number_of_cooling_stages")]
-public System.Nullable<float> NumberOfCoolingStages { get; set; } = null;
+[JsonProperty(PropertyName="number_of_cooling_stages", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfCoolingStages { get; set; } = null;
         
 
-[JsonProperty(PropertyName="cooling_temperature_setpoint_base_schedule_name")]
+[JsonProperty(PropertyName="cooling_temperature_setpoint_base_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CoolingTemperatureSetpointBaseScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="cooling_throttling_temperature_range")]
-public System.Nullable<float> CoolingThrottlingTemperatureRange { get; set; } = (System.Nullable<float>)Single.Parse("1.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="cooling_throttling_temperature_range", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoolingThrottlingTemperatureRange { get; set; } = (System.Nullable<double>)Double.Parse("1.1", CultureInfo.InvariantCulture);
         
 
 [Description(@"The cooling temperature offset is used to determine cooling stage number for multi stage equipment. When the temperature difference of the cooling setpoint and the controlled zone temperature at previous time step is greater than Stage 1 value and less than Stage 2 value, the stage number is 1.")]
-[JsonProperty(PropertyName="stage_1_cooling_temperature_offset")]
-public System.Nullable<float> Stage1CoolingTemperatureOffset { get; set; } = null;
+[JsonProperty(PropertyName="stage_1_cooling_temperature_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Stage1CoolingTemperatureOffset { get; set; } = null;
         
 
 [Description(@"The cooling temperature offset is used to determine cooling stage number for multi stage equipment. When the temperature difference of the cooling setpoint and the controlled zone temperature at previous time step is greater than Stage 2 value and less than Stage 3 value, the stage number is 2. The value of this field has to be greater than the value at the previous field.")]
-[JsonProperty(PropertyName="stage_2_cooling_temperature_offset")]
-public System.Nullable<float> Stage2CoolingTemperatureOffset { get; set; } = null;
+[JsonProperty(PropertyName="stage_2_cooling_temperature_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Stage2CoolingTemperatureOffset { get; set; } = null;
         
 
 [Description(@"The cooling temperature offset is used to determine cooling stage number for multi stage equipment. When the temperature difference of the cooling setpoint and the controlled zone temperature at previous time step is greater than Stage 3 value and less than Stage 4 value, the stage number is 3. The value of this field has to be greater than the value at the previous field.")]
-[JsonProperty(PropertyName="stage_3_cooling_temperature_offset")]
-public System.Nullable<float> Stage3CoolingTemperatureOffset { get; set; } = null;
+[JsonProperty(PropertyName="stage_3_cooling_temperature_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Stage3CoolingTemperatureOffset { get; set; } = null;
         
 
 [Description(@"The cooling temperature offset is used to determine cooling stage number for multi stage equipment. When the temperature difference of the cooling setpoint and the controlled zone temperature at previous time step is greater than Stage 4 value, the stage number is 4. The value of this field has to be greater than the value at the previous field.")]
-[JsonProperty(PropertyName="stage_4_cooling_temperature_offset")]
-public System.Nullable<float> Stage4CoolingTemperatureOffset { get; set; } = null;
+[JsonProperty(PropertyName="stage_4_cooling_temperature_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Stage4CoolingTemperatureOffset { get; set; } = null;
     }
     
     [Description("Used to control a zone to a specified indoor level of CO2 or generic contaminants" +
@@ -775,44 +788,44 @@ public System.Nullable<float> Stage4CoolingTemperatureOffset { get; set; } = nul
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="zone_name")]
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneName { get; set; } = "";
         
 
 [Description("Availability schedule name for CO2 controller. Schedule value > 0 means the CO2 c" +
     "ontroller is enabled. If this field is blank, then CO2 controller is always enab" +
     "led.")]
-[JsonProperty(PropertyName="carbon_dioxide_control_availability_schedule_name")]
+[JsonProperty(PropertyName="carbon_dioxide_control_availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CarbonDioxideControlAvailabilityScheduleName { get; set; } = "";
         
 
 [Description("Schedule values should be carbon dioxide concentration in parts per million (ppm)" +
     "")]
-[JsonProperty(PropertyName="carbon_dioxide_setpoint_schedule_name")]
+[JsonProperty(PropertyName="carbon_dioxide_setpoint_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CarbonDioxideSetpointScheduleName { get; set; } = "";
         
 
 [Description(@"Schedule values should be carbon dioxide concentration in parts per million (ppm) This field is used when the field System Outdoor Air Method = ProportionalControlBasedOnOccupancySchedule or ProportionalControlBasedOnDesignOccupancy, or ProportionalControlBasedOnDesignOARate in Controller:MechanicalVentilation")]
-[JsonProperty(PropertyName="minimum_carbon_dioxide_concentration_schedule_name")]
+[JsonProperty(PropertyName="minimum_carbon_dioxide_concentration_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MinimumCarbonDioxideConcentrationScheduleName { get; set; } = "";
         
 
 [Description(@"Schedule values should be carbon dioxide concentration in parts per million (ppm) This field is used when the field System Outdoor Air Method = ProportionalControlBasedOnOccupancySchedule or ProportionalControlBasedOnDesignOccupancy or ProportionalControlBasedOnDesignOARate.")]
-[JsonProperty(PropertyName="maximum_carbon_dioxide_concentration_schedule_name")]
+[JsonProperty(PropertyName="maximum_carbon_dioxide_concentration_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MaximumCarbonDioxideConcentrationScheduleName { get; set; } = "";
         
 
 [Description("Availability schedule name for generic contaminant controller. Schedule value > 0" +
     " means the generic contaminant controller is enabled. If this field is blank, th" +
     "en generic contaminant controller is always enabled.")]
-[JsonProperty(PropertyName="generic_contaminant_control_availability_schedule_name")]
+[JsonProperty(PropertyName="generic_contaminant_control_availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string GenericContaminantControlAvailabilityScheduleName { get; set; } = "";
         
 
 [Description("Schedule values should be generic contaminant concentration in parts per million " +
     "(ppm) This field is used when the field System Outdoor Air Method = IndoorAirQua" +
     "lityProcedureGenericContaminant in Controller:MechanicalVentilation")]
-[JsonProperty(PropertyName="generic_contaminant_setpoint_schedule_name")]
+[JsonProperty(PropertyName="generic_contaminant_setpoint_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string GenericContaminantSetpointScheduleName { get; set; } = "";
     }
 }

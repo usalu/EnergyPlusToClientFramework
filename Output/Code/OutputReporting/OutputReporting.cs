@@ -72,11 +72,13 @@ namespace BH.oM.Adapters.EnergyPlus.OutputReporting
     {
         
 
-[JsonProperty(PropertyName="key_field", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="key_field", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_VariableDictionary_KeyField KeyField { get; set; } = (Output_VariableDictionary_KeyField)Enum.Parse(typeof(Output_VariableDictionary_KeyField), "Empty");
         
 
-[JsonProperty(PropertyName="sort_option", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="sort_option", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_VariableDictionary_SortOption SortOption { get; set; } = (Output_VariableDictionary_SortOption)Enum.Parse(typeof(Output_VariableDictionary_SortOption), "Name");
     }
     
@@ -109,13 +111,15 @@ public Output_VariableDictionary_SortOption SortOption { get; set; } = (Output_V
     {
         
 
-[JsonProperty(PropertyName="report_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="report_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Surfaces_List_ReportType ReportType { get; set; } = (Output_Surfaces_List_ReportType)Enum.Parse(typeof(Output_Surfaces_List_ReportType), "CostInfo");
         
 
 [Description("(IDF, only for Output:Surfaces:List, Lines report -- will print transformed coord" +
     "inates in IDF style)")]
-[JsonProperty(PropertyName="report_specifications", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="report_specifications", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Surfaces_List_ReportSpecifications ReportSpecifications { get; set; } = (Output_Surfaces_List_ReportSpecifications)Enum.Parse(typeof(Output_Surfaces_List_ReportSpecifications), "IDF");
     }
     
@@ -158,18 +162,20 @@ public Output_Surfaces_List_ReportSpecifications ReportSpecifications { get; set
     {
         
 
-[JsonProperty(PropertyName="report_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="report_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Surfaces_Drawing_ReportType ReportType { get; set; } = (Output_Surfaces_Drawing_ReportType)Enum.Parse(typeof(Output_Surfaces_Drawing_ReportType), "DXF");
         
 
 [Description("Triangulate3DFace (default), ThickPolyline, RegularPolyline apply to DXF This fie" +
     "ld is ignored for DXF:WireFrame and VRML")]
-[JsonProperty(PropertyName="report_specifications_1", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="report_specifications_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Surfaces_Drawing_ReportSpecifications1 ReportSpecifications1 { get; set; } = (Output_Surfaces_Drawing_ReportSpecifications1)Enum.Parse(typeof(Output_Surfaces_Drawing_ReportSpecifications1), "Triangulate3DFace");
         
 
 [Description("Use ColorScheme Name for DXF reports")]
-[JsonProperty(PropertyName="report_specifications_2")]
+[JsonProperty(PropertyName="report_specifications_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ReportSpecifications2 { get; set; } = "";
     }
     
@@ -210,7 +216,8 @@ public string ReportSpecifications2 { get; set; } = "";
     {
         
 
-[JsonProperty(PropertyName="key_field", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="key_field", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Schedules_KeyField KeyField { get; set; } = (Output_Schedules_KeyField)Enum.Parse(typeof(Output_Schedules_KeyField), "Hourly");
     }
     
@@ -232,11 +239,13 @@ public Output_Schedules_KeyField KeyField { get; set; } = (Output_Schedules_KeyF
     {
         
 
-[JsonProperty(PropertyName="details_type_1", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="details_type_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Constructions_DetailsType1 DetailsType1 { get; set; } = (Output_Constructions_DetailsType1)Enum.Parse(typeof(Output_Constructions_DetailsType1), "Constructions");
         
 
-[JsonProperty(PropertyName="details_type_2", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="details_type_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Constructions_DetailsType2 DetailsType2 { get; set; } = (Output_Constructions_DetailsType2)Enum.Parse(typeof(Output_Constructions_DetailsType2), "Constructions");
     }
     
@@ -267,15 +276,18 @@ public Output_Constructions_DetailsType2 DetailsType2 { get; set; } = (Output_Co
     {
         
 
-[JsonProperty(PropertyName="actuator_availability_dictionary_reporting", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="actuator_availability_dictionary_reporting", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_EnergyManagementSystem_ActuatorAvailabilityDictionaryReporting ActuatorAvailabilityDictionaryReporting { get; set; } = (Output_EnergyManagementSystem_ActuatorAvailabilityDictionaryReporting)Enum.Parse(typeof(Output_EnergyManagementSystem_ActuatorAvailabilityDictionaryReporting), "None");
         
 
-[JsonProperty(PropertyName="internal_variable_availability_dictionary_reporting", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="internal_variable_availability_dictionary_reporting", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_EnergyManagementSystem_InternalVariableAvailabilityDictionaryReporting InternalVariableAvailabilityDictionaryReporting { get; set; } = (Output_EnergyManagementSystem_InternalVariableAvailabilityDictionaryReporting)Enum.Parse(typeof(Output_EnergyManagementSystem_InternalVariableAvailabilityDictionaryReporting), "None");
         
 
-[JsonProperty(PropertyName="ems_runtime_language_debug_output_level", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="ems_runtime_language_debug_output_level", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_EnergyManagementSystem_EmsRuntimeLanguageDebugOutputLevel EmsRuntimeLanguageDebugOutputLevel { get; set; } = (Output_EnergyManagementSystem_EmsRuntimeLanguageDebugOutputLevel)Enum.Parse(typeof(Output_EnergyManagementSystem_EmsRuntimeLanguageDebugOutputLevel), "None");
     }
     
@@ -338,139 +350,154 @@ public Output_EnergyManagementSystem_EmsRuntimeLanguageDebugOutputLevel EmsRunti
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="drawing_element_1_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_1_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement1Type DrawingElement1Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement1Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement1Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_1")]
-public System.Nullable<float> ColorForDrawingElement1 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_2_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_2_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement2Type DrawingElement2Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement2Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement2Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_2")]
-public System.Nullable<float> ColorForDrawingElement2 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_3_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_3_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement3Type DrawingElement3Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement3Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement3Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_3")]
-public System.Nullable<float> ColorForDrawingElement3 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_4_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_4_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement4Type DrawingElement4Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement4Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement4Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_4")]
-public System.Nullable<float> ColorForDrawingElement4 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_5_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_5_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement5Type DrawingElement5Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement5Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement5Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_5")]
-public System.Nullable<float> ColorForDrawingElement5 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement5 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_6_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_6_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement6Type DrawingElement6Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement6Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement6Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_6")]
-public System.Nullable<float> ColorForDrawingElement6 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_6", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement6 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_7_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_7_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement7Type DrawingElement7Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement7Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement7Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_7")]
-public System.Nullable<float> ColorForDrawingElement7 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_7", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement7 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_8_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_8_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement8Type DrawingElement8Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement8Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement8Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_8")]
-public System.Nullable<float> ColorForDrawingElement8 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_8", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement8 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_9_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_9_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement9Type DrawingElement9Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement9Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement9Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_9")]
-public System.Nullable<float> ColorForDrawingElement9 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_9", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement9 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_10_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_10_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement10Type DrawingElement10Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement10Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement10Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_10")]
-public System.Nullable<float> ColorForDrawingElement10 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_10", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement10 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_11_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_11_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement11Type DrawingElement11Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement11Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement11Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_11")]
-public System.Nullable<float> ColorForDrawingElement11 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_11", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement11 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_12_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_12_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement12Type DrawingElement12Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement12Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement12Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_12")]
-public System.Nullable<float> ColorForDrawingElement12 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_12", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement12 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_13_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_13_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement13Type DrawingElement13Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement13Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement13Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_13")]
-public System.Nullable<float> ColorForDrawingElement13 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_13", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement13 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_14_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_14_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement14Type DrawingElement14Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement14Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement14Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_14")]
-public System.Nullable<float> ColorForDrawingElement14 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_14", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement14 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="drawing_element_15_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="drawing_element_15_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_SurfaceColorScheme_DrawingElement15Type DrawingElement15Type { get; set; } = (OutputControl_SurfaceColorScheme_DrawingElement15Type)Enum.Parse(typeof(OutputControl_SurfaceColorScheme_DrawingElement15Type), "AttachedBuildingShades");
         
 
 [Description("use color number for output assignment (e.g. DXF)")]
-[JsonProperty(PropertyName="color_for_drawing_element_15")]
-public System.Nullable<float> ColorForDrawingElement15 { get; set; } = null;
+[JsonProperty(PropertyName="color_for_drawing_element_15", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ColorForDrawingElement15 { get; set; } = null;
     }
     
     public enum OutputControl_SurfaceColorScheme_DrawingElement1Type
@@ -1214,7 +1241,7 @@ public System.Nullable<float> ColorForDrawingElement15 { get; set; } = null;
     {
         
 
-[JsonProperty(PropertyName="reports")]
+[JsonProperty(PropertyName="reports", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Reports { get; set; } = "";
     }
     
@@ -1228,39 +1255,40 @@ public string Reports { get; set; } = "";
         
 
 [Description("use \'*\' (without quotes) to apply this variable to all keys")]
-[JsonProperty(PropertyName="key_value")]
+[JsonProperty(PropertyName="key_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string KeyValue { get; set; } = (System.String)"*";
         
 
-[JsonProperty(PropertyName="variable_name")]
+[JsonProperty(PropertyName="variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string VariableName { get; set; } = "";
         
 
 [Description("The lowest value for the intervals being binned into.")]
-[JsonProperty(PropertyName="interval_start")]
-public System.Nullable<float> IntervalStart { get; set; } = null;
+[JsonProperty(PropertyName="interval_start", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> IntervalStart { get; set; } = null;
         
 
 [Description("The size of the bins starting with Interval start.")]
-[JsonProperty(PropertyName="interval_size")]
-public System.Nullable<float> IntervalSize { get; set; } = null;
+[JsonProperty(PropertyName="interval_size", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> IntervalSize { get; set; } = null;
         
 
 [Description("The number of bins used. The number of hours below the start of the Lowest bin an" +
     "d above the value of the last bin are also shown.")]
-[JsonProperty(PropertyName="interval_count")]
-public System.Nullable<float> IntervalCount { get; set; } = null;
+[JsonProperty(PropertyName="interval_count", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> IntervalCount { get; set; } = null;
         
 
 [Description("Optional schedule name. Binning is performed for non-zero hours. Binning always p" +
     "erformed if left blank.")]
-[JsonProperty(PropertyName="schedule_name")]
+[JsonProperty(PropertyName="schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ScheduleName { get; set; } = "";
         
 
 [Description("Optional input on the type of units for the variable used by other fields in the " +
     "object.")]
-[JsonProperty(PropertyName="variable_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="variable_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Table_TimeBins_VariableType VariableType { get; set; } = (Output_Table_TimeBins_VariableType)Enum.Parse(typeof(Output_Table_TimeBins_VariableType), "Energy");
     }
     
@@ -1291,11 +1319,11 @@ public Output_Table_TimeBins_VariableType VariableType { get; set; } = (Output_T
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="digits_after_decimal")]
-public System.Nullable<float> DigitsAfterDecimal { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="digits_after_decimal", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DigitsAfterDecimal { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="variable_details")]
+[JsonProperty(PropertyName="variable_details", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string VariableDetails { get; set; } = "";
     }
     
@@ -1311,18 +1339,18 @@ public string NodeName { get; set; } = "";
         
 
 [Description(@"An optional text string that is compared to the names of the objects referenced by the variables and if they match are included in the table. A footnote will appear that indicates that the objects shown may not be all the objects that of that type that occur in the file.")]
-[JsonProperty(PropertyName="filter")]
+[JsonProperty(PropertyName="filter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Filter { get; set; } = "";
         
 
 [Description("Optional schedule name. If left blank, aggregation is performed for all hours sim" +
     "ulated. If a schedule is specified, aggregation is performed for non-zero hours " +
     "in the schedule.")]
-[JsonProperty(PropertyName="schedule_name")]
+[JsonProperty(PropertyName="schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="variable_details")]
+[JsonProperty(PropertyName="variable_details", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string VariableDetails { get; set; } = "";
     }
     
@@ -1332,11 +1360,13 @@ public string VariableDetails { get; set; } = "";
     {
         
 
-[JsonProperty(PropertyName="column_separator", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="column_separator", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_Table_Style_ColumnSeparator ColumnSeparator { get; set; } = (OutputControl_Table_Style_ColumnSeparator)Enum.Parse(typeof(OutputControl_Table_Style_ColumnSeparator), "Comma");
         
 
-[JsonProperty(PropertyName="unit_conversion", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="unit_conversion", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public OutputControl_Table_Style_UnitConversion UnitConversion { get; set; } = (OutputControl_Table_Style_UnitConversion)Enum.Parse(typeof(OutputControl_Table_Style_UnitConversion), "None");
     }
     
@@ -1408,13 +1438,13 @@ public OutputControl_Table_Style_UnitConversion UnitConversion { get; set; } = (
         
 
 [Description(@"If the zone temperature is below the heating setpoint by more than this value, the following output variables will increment as appropriate Zone Heating Setpoint Not Met Time Zone Heating Setpoint Not Met While Occupied Time This also impacts table report ""Annual Building Utility Performance Summary"" subtable ""Comfort and Setpoint Not Met Summary""")]
-[JsonProperty(PropertyName="tolerance_for_time_heating_setpoint_not_met")]
-public System.Nullable<float> ToleranceForTimeHeatingSetpointNotMet { get; set; } = (System.Nullable<float>)Single.Parse("0.2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tolerance_for_time_heating_setpoint_not_met", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ToleranceForTimeHeatingSetpointNotMet { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [Description(@"If the zone temperature is above the cooling setpoint by more than this value, the following output variables will increment as appropriate Zone Cooling Setpoint Not Met Time Zone Cooling Setpoint Not Met While Occupied Time This also impacts table report ""Annual Building Utility Performance Summary"" subtable ""Comfort and Setpoint Not Met Summary""")]
-[JsonProperty(PropertyName="tolerance_for_time_cooling_setpoint_not_met")]
-public System.Nullable<float> ToleranceForTimeCoolingSetpointNotMet { get; set; } = (System.Nullable<float>)Single.Parse("0.2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tolerance_for_time_cooling_setpoint_not_met", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ToleranceForTimeCoolingSetpointNotMet { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
     }
     
     [Description(@"each Output:Variable command picks variables to be put onto the standard output file (.eso) some variables may not be reported for every simulation. a list of variables that can be reported are available after a run on the report dictionary file (.rdd) if the Output:VariableDictionary has been requested.")]
@@ -1424,22 +1454,23 @@ public System.Nullable<float> ToleranceForTimeCoolingSetpointNotMet { get; set; 
         
 
 [Description("use \'*\' (without quotes) to apply this variable to all keys")]
-[JsonProperty(PropertyName="key_value")]
+[JsonProperty(PropertyName="key_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string KeyValue { get; set; } = (System.String)"*";
         
 
-[JsonProperty(PropertyName="variable_name")]
+[JsonProperty(PropertyName="variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string VariableName { get; set; } = "";
         
 
 [Description("Detailed lists every instance (i.e. HVAC variable timesteps) Timestep refers to t" +
     "he zone Timestep/Number of Timesteps in hour value RunPeriod and Environment are" +
     " the same")]
-[JsonProperty(PropertyName="reporting_frequency", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="reporting_frequency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Variable_ReportingFrequency ReportingFrequency { get; set; } = (Output_Variable_ReportingFrequency)Enum.Parse(typeof(Output_Variable_ReportingFrequency), "Hourly");
         
 
-[JsonProperty(PropertyName="schedule_name")]
+[JsonProperty(PropertyName="schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ScheduleName { get; set; } = "";
     }
     
@@ -1483,13 +1514,14 @@ public string ScheduleName { get; set; } = "";
 [Description("Form is EnergyUseType:..., e.g. Electricity:* for all Electricity meters or EndUs" +
     "e:..., e.g. GeneralLights:* for all General Lights Output:Meter puts results on " +
     "both the eplusout.mtr and eplusout.eso files")]
-[JsonProperty(PropertyName="key_name")]
+[JsonProperty(PropertyName="key_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string KeyName { get; set; } = "";
         
 
 [Description("Timestep refers to the zone Timestep/Number of Timesteps in hour value RunPeriod " +
     "and Environment are the same")]
-[JsonProperty(PropertyName="reporting_frequency", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="reporting_frequency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Meter_ReportingFrequency ReportingFrequency { get; set; } = (Output_Meter_ReportingFrequency)Enum.Parse(typeof(Output_Meter_ReportingFrequency), "Hourly");
     }
     
@@ -1533,13 +1565,14 @@ public Output_Meter_ReportingFrequency ReportingFrequency { get; set; } = (Outpu
 [Description("Form is EnergyUseType:..., e.g. Electricity:* for all Electricity meters or EndUs" +
     "e:..., e.g. GeneralLights:* for all General Lights Output:Meter:MeterFileOnly pu" +
     "ts results on the eplusout.mtr file only")]
-[JsonProperty(PropertyName="key_name")]
+[JsonProperty(PropertyName="key_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string KeyName { get; set; } = "";
         
 
 [Description("Timestep refers to the zone Timestep/Number of Timesteps in hour value RunPeriod " +
     "and Environment are the same")]
-[JsonProperty(PropertyName="reporting_frequency", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="reporting_frequency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Meter_MeterFileOnly_ReportingFrequency ReportingFrequency { get; set; } = (Output_Meter_MeterFileOnly_ReportingFrequency)Enum.Parse(typeof(Output_Meter_MeterFileOnly_ReportingFrequency), "Hourly");
     }
     
@@ -1583,13 +1616,14 @@ public Output_Meter_MeterFileOnly_ReportingFrequency ReportingFrequency { get; s
 [Description("Form is EnergyUseType:..., e.g. Electricity:* for all Electricity meters or EndUs" +
     "e:..., e.g. GeneralLights:* for all General Lights Output:Meter:Cumulative puts " +
     "results on both the eplusout.mtr and eplusout.eso files")]
-[JsonProperty(PropertyName="key_name")]
+[JsonProperty(PropertyName="key_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string KeyName { get; set; } = "";
         
 
 [Description("Timestep refers to the zone Timestep/Number of Timesteps in hour value RunPeriod " +
     "and Environment are the same")]
-[JsonProperty(PropertyName="reporting_frequency", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="reporting_frequency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Meter_Cumulative_ReportingFrequency ReportingFrequency { get; set; } = (Output_Meter_Cumulative_ReportingFrequency)Enum.Parse(typeof(Output_Meter_Cumulative_ReportingFrequency), "Hourly");
     }
     
@@ -1633,13 +1667,14 @@ public Output_Meter_Cumulative_ReportingFrequency ReportingFrequency { get; set;
 [Description("Form is EnergyUseType:..., e.g. Electricity:* for all Electricity meters or EndUs" +
     "e:..., e.g. GeneralLights:* for all General Lights Output:Meter:Cumulative:Meter" +
     "FileOnly puts results on the eplusout.mtr file only")]
-[JsonProperty(PropertyName="key_name")]
+[JsonProperty(PropertyName="key_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string KeyName { get; set; } = "";
         
 
 [Description("Timestep refers to the zone Timestep/Number of Timesteps in hour value RunPeriod " +
     "and Environment are the same")]
-[JsonProperty(PropertyName="reporting_frequency", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="reporting_frequency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_Meter_Cumulative_MeterFileOnly_ReportingFrequency ReportingFrequency { get; set; } = (Output_Meter_Cumulative_MeterFileOnly_ReportingFrequency)Enum.Parse(typeof(Output_Meter_Cumulative_MeterFileOnly_ReportingFrequency), "Hourly");
     }
     
@@ -1685,11 +1720,12 @@ public Output_Meter_Cumulative_MeterFileOnly_ReportingFrequency ReportingFrequen
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="resource_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="resource_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Meter_Custom_ResourceType ResourceType { get; set; } = (Meter_Custom_ResourceType)Enum.Parse(typeof(Meter_Custom_ResourceType), "Coal");
         
 
-[JsonProperty(PropertyName="variable_details")]
+[JsonProperty(PropertyName="variable_details", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string VariableDetails { get; set; } = "";
     }
     
@@ -1755,15 +1791,16 @@ public string VariableDetails { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="resource_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="resource_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Meter_CustomDecrement_ResourceType ResourceType { get; set; } = (Meter_CustomDecrement_ResourceType)Enum.Parse(typeof(Meter_CustomDecrement_ResourceType), "Coal");
         
 
-[JsonProperty(PropertyName="source_meter_name")]
+[JsonProperty(PropertyName="source_meter_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SourceMeterName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="variable_details")]
+[JsonProperty(PropertyName="variable_details", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string VariableDetails { get; set; } = "";
     }
     
@@ -1822,128 +1859,159 @@ public string VariableDetails { get; set; } = "";
     {
         
 
-[JsonProperty(PropertyName="output_csv", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_csv", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputCsv { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
-[JsonProperty(PropertyName="output_mtr", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_mtr", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputMtr { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_eso", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_eso", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputEso { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_eio", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_eio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputEio { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_tabular", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_tabular", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputTabular { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_sqlite", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_sqlite", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputSqlite { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_json", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_json", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputJson { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_audit", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_audit", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputAudit { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_zone_sizing", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_zone_sizing", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputZoneSizing { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_system_sizing", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_system_sizing", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputSystemSizing { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_dxf", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_dxf", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputDxf { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_bnd", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_bnd", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputBnd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_rdd", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_rdd", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputRdd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_mdd", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_mdd", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputMdd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_mtd", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_mtd", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputMtd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_end", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_end", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputEnd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_shd", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_shd", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputShd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_dfs", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_dfs", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputDfs { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_glhe", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_glhe", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputGlhe { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_delightin", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_delightin", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputDelightin { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_delighteldmp", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_delighteldmp", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputDelighteldmp { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_delightdfdmp", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_delightdfdmp", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputDelightdfdmp { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_edd", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_edd", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputEdd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_dbg", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_dbg", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputDbg { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_perflog", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_perflog", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputPerflog { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_sln", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_sln", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputSln { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_sci", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_sci", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputSci { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_wrl", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_wrl", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputWrl { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_screen", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_screen", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputScreen { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_extshd", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_extshd", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputExtshd { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
 [Description("Not Implemented Yet")]
-[JsonProperty(PropertyName="output_tarcog", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_tarcog", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputTarcog { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
     }
     
@@ -1953,19 +2021,23 @@ public EmptyNoYes OutputTarcog { get; set; } = (EmptyNoYes)Enum.Parse(typeof(Emp
     {
         
 
-[JsonProperty(PropertyName="option_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="option_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_JSON_OptionType OptionType { get; set; } = (Output_JSON_OptionType)Enum.Parse(typeof(Output_JSON_OptionType), "TimeSeries");
         
 
-[JsonProperty(PropertyName="output_json", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_json", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputJson { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="output_cbor", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_cbor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputCbor { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
-[JsonProperty(PropertyName="output_messagepack", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_messagepack", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes OutputMessagepack { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
     
@@ -1985,13 +2057,15 @@ public EmptyNoYes OutputMessagepack { get; set; } = (EmptyNoYes)Enum.Parse(typeo
     {
         
 
-[JsonProperty(PropertyName="option_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="option_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_SQLite_OptionType OptionType { get; set; } = (Output_SQLite_OptionType)Enum.Parse(typeof(Output_SQLite_OptionType), "Simple");
         
 
 [Description("Unit conversion option used when writing SQLite Tabular Data This option applies " +
     "to TabularData and TabularDatawithString in the SQLite file")]
-[JsonProperty(PropertyName="unit_conversion_for_tabular_data", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="unit_conversion_for_tabular_data", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_SQLite_UnitConversionForTabularData UnitConversionForTabularData { get; set; } = (Output_SQLite_UnitConversionForTabularData)Enum.Parse(typeof(Output_SQLite_UnitConversionForTabularData), "UseOutputControlTableStyle");
     }
     
@@ -2039,7 +2113,8 @@ public Output_SQLite_UnitConversionForTabularData UnitConversionForTabularData {
 
 [Description("Timestep refers to the zone Timestep/Number of Timesteps in hour value RunPeriod " +
     "and Environment are the same. Detailed is not a valid choice.")]
-[JsonProperty(PropertyName="reporting_frequency", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="reporting_frequency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_EnvironmentalImpactFactors_ReportingFrequency ReportingFrequency { get; set; } = (Output_EnvironmentalImpactFactors_ReportingFrequency)Enum.Parse(typeof(Output_EnvironmentalImpactFactors_ReportingFrequency), "Annual");
     }
     
@@ -2076,30 +2151,30 @@ public Output_EnvironmentalImpactFactors_ReportingFrequency ReportingFrequency {
         
 
 [Description("District heating efficiency used when converted to natural gas")]
-[JsonProperty(PropertyName="district_heating_efficiency")]
-public System.Nullable<float> DistrictHeatingEfficiency { get; set; } = (System.Nullable<float>)Single.Parse("0.3", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="district_heating_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DistrictHeatingEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.3", CultureInfo.InvariantCulture);
         
 
 [Description("District cooling COP used when converted to electricity")]
-[JsonProperty(PropertyName="district_cooling_cop")]
-public System.Nullable<float> DistrictCoolingCop { get; set; } = (System.Nullable<float>)Single.Parse("3", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="district_cooling_cop", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DistrictCoolingCop { get; set; } = (System.Nullable<double>)Double.Parse("3", CultureInfo.InvariantCulture);
         
 
 [Description("Steam conversion efficiency used to convert steam usage to natural gas")]
-[JsonProperty(PropertyName="steam_conversion_efficiency")]
-public System.Nullable<float> SteamConversionEfficiency { get; set; } = (System.Nullable<float>)Single.Parse("0.25", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="steam_conversion_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SteamConversionEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.25", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="total_carbon_equivalent_emission_factor_from_n2o")]
-public System.Nullable<float> TotalCarbonEquivalentEmissionFactorFromN2o { get; set; } = (System.Nullable<float>)Single.Parse("80.7272", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="total_carbon_equivalent_emission_factor_from_n2o", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TotalCarbonEquivalentEmissionFactorFromN2o { get; set; } = (System.Nullable<double>)Double.Parse("80.7272", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="total_carbon_equivalent_emission_factor_from_ch4")]
-public System.Nullable<float> TotalCarbonEquivalentEmissionFactorFromCh4 { get; set; } = (System.Nullable<float>)Single.Parse("6.2727", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="total_carbon_equivalent_emission_factor_from_ch4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TotalCarbonEquivalentEmissionFactorFromCh4 { get; set; } = (System.Nullable<double>)Double.Parse("6.2727", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="total_carbon_equivalent_emission_factor_from_co2")]
-public System.Nullable<float> TotalCarbonEquivalentEmissionFactorFromCo2 { get; set; } = (System.Nullable<float>)Single.Parse("0.2727", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="total_carbon_equivalent_emission_factor_from_co2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TotalCarbonEquivalentEmissionFactorFromCo2 { get; set; } = (System.Nullable<double>)Double.Parse("0.2727", CultureInfo.InvariantCulture);
     }
     
     [Description("Provides Fuel Factors for Emissions as well as Source=>Site conversions. OtherFue" +
@@ -2110,151 +2185,152 @@ public System.Nullable<float> TotalCarbonEquivalentEmissionFactorFromCo2 { get; 
     {
         
 
-[JsonProperty(PropertyName="existing_fuel_resource_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="existing_fuel_resource_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FuelFactors_ExistingFuelResourceName ExistingFuelResourceName { get; set; } = (FuelFactors_ExistingFuelResourceName)Enum.Parse(typeof(FuelFactors_ExistingFuelResourceName), "Coal");
         
 
-[JsonProperty(PropertyName="units_of_measure")]
+[JsonProperty(PropertyName="units_of_measure", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string UnitsOfMeasure { get; set; } = "";
         
 
-[JsonProperty(PropertyName="energy_per_unit_factor")]
-public System.Nullable<float> EnergyPerUnitFactor { get; set; } = null;
+[JsonProperty(PropertyName="energy_per_unit_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EnergyPerUnitFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="source_energy_factor")]
-public System.Nullable<float> SourceEnergyFactor { get; set; } = null;
+[JsonProperty(PropertyName="source_energy_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SourceEnergyFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="source_energy_schedule_name")]
+[JsonProperty(PropertyName="source_energy_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SourceEnergyScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="co2_emission_factor")]
-public System.Nullable<float> Co2EmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="co2_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Co2EmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="co2_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="co2_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Co2EmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="co_emission_factor")]
-public System.Nullable<float> CoEmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="co_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoEmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="co_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="co_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CoEmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="ch4_emission_factor")]
-public System.Nullable<float> Ch4EmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="ch4_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Ch4EmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="ch4_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="ch4_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Ch4EmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="nox_emission_factor")]
-public System.Nullable<float> NoxEmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="nox_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NoxEmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nox_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="nox_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NoxEmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="n2o_emission_factor")]
-public System.Nullable<float> N2oEmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="n2o_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> N2oEmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="n2o_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="n2o_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string N2oEmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="so2_emission_factor")]
-public System.Nullable<float> So2EmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="so2_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> So2EmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="so2_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="so2_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string So2EmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="pm_emission_factor")]
-public System.Nullable<float> PmEmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="pm_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PmEmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="pm_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="pm_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PmEmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="pm10_emission_factor")]
-public System.Nullable<float> Pm10EmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="pm10_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Pm10EmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="pm10_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="pm10_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Pm10EmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="pm2_5_emission_factor")]
-public System.Nullable<float> Pm25EmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="pm2_5_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Pm25EmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="pm2_5_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="pm2_5_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Pm25EmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="nh3_emission_factor")]
-public System.Nullable<float> Nh3EmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="nh3_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Nh3EmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nh3_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="nh3_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Nh3EmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="nmvoc_emission_factor")]
-public System.Nullable<float> NmvocEmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="nmvoc_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NmvocEmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nmvoc_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="nmvoc_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NmvocEmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="hg_emission_factor")]
-public System.Nullable<float> HgEmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="hg_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HgEmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="hg_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="hg_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HgEmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="pb_emission_factor")]
-public System.Nullable<float> PbEmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="pb_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PbEmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="pb_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="pb_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PbEmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="water_emission_factor")]
-public System.Nullable<float> WaterEmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="water_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> WaterEmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="water_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="water_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string WaterEmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="nuclear_high_level_emission_factor")]
-public System.Nullable<float> NuclearHighLevelEmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="nuclear_high_level_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NuclearHighLevelEmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nuclear_high_level_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="nuclear_high_level_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NuclearHighLevelEmissionFactorScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="nuclear_low_level_emission_factor")]
-public System.Nullable<float> NuclearLowLevelEmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="nuclear_low_level_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NuclearLowLevelEmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nuclear_low_level_emission_factor_schedule_name")]
+[JsonProperty(PropertyName="nuclear_low_level_emission_factor_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NuclearLowLevelEmissionFactorScheduleName { get; set; } = "";
     }
     
@@ -2299,7 +2375,7 @@ public string NuclearLowLevelEmissionFactorScheduleName { get; set; } = "";
     {
         
 
-[JsonProperty(PropertyName="diagnostics")]
+[JsonProperty(PropertyName="diagnostics", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Diagnostics { get; set; } = "";
     }
     
@@ -2309,11 +2385,13 @@ public string Diagnostics { get; set; } = "";
     {
         
 
-[JsonProperty(PropertyName="report_debugging_data", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="report_debugging_data", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ReportDebuggingData { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
-[JsonProperty(PropertyName="report_during_warmup", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="report_during_warmup", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ReportDuringWarmup { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
     
@@ -2324,52 +2402,53 @@ public EmptyNoYes ReportDuringWarmup { get; set; } = (EmptyNoYes)Enum.Parse(type
     {
         
 
-[JsonProperty(PropertyName="preprocessor_name")]
+[JsonProperty(PropertyName="preprocessor_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PreprocessorName { get; set; } = "";
         
 
 [Description("Depending on type, InputProcessor may terminate the program.")]
-[JsonProperty(PropertyName="error_severity", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="error_severity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Output_PreprocessorMessage_ErrorSeverity ErrorSeverity { get; set; } = (Output_PreprocessorMessage_ErrorSeverity)Enum.Parse(typeof(Output_PreprocessorMessage_ErrorSeverity), "Fatal");
         
 
-[JsonProperty(PropertyName="message_line_1")]
+[JsonProperty(PropertyName="message_line_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MessageLine1 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="message_line_2")]
+[JsonProperty(PropertyName="message_line_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MessageLine2 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="message_line_3")]
+[JsonProperty(PropertyName="message_line_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MessageLine3 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="message_line_4")]
+[JsonProperty(PropertyName="message_line_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MessageLine4 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="message_line_5")]
+[JsonProperty(PropertyName="message_line_5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MessageLine5 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="message_line_6")]
+[JsonProperty(PropertyName="message_line_6", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MessageLine6 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="message_line_7")]
+[JsonProperty(PropertyName="message_line_7", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MessageLine7 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="message_line_8")]
+[JsonProperty(PropertyName="message_line_8", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MessageLine8 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="message_line_9")]
+[JsonProperty(PropertyName="message_line_9", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MessageLine9 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="message_line_10")]
+[JsonProperty(PropertyName="message_line_10", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MessageLine10 { get; set; } = "";
     }
     

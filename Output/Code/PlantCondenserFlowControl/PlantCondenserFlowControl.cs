@@ -80,26 +80,26 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Name of a Node")]
-[JsonProperty(PropertyName="inlet_node_name")]
+[JsonProperty(PropertyName="inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string InletNodeName { get; set; } = "";
         
 
 [Description("Name of a Node")]
-[JsonProperty(PropertyName="outlet_node_name")]
+[JsonProperty(PropertyName="outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string OutletNodeName { get; set; } = "";
         
 
 [Description("Name of a Node")]
-[JsonProperty(PropertyName="stream_2_source_node_name")]
+[JsonProperty(PropertyName="stream_2_source_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Stream2SourceNodeName { get; set; } = "";
         
 
 [Description("Name of a Node")]
-[JsonProperty(PropertyName="temperature_setpoint_node_name")]
+[JsonProperty(PropertyName="temperature_setpoint_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TemperatureSetpointNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="pump_outlet_node_name")]
+[JsonProperty(PropertyName="pump_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PumpOutletNodeName { get; set; } = "";
     }
 }

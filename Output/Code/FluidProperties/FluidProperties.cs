@@ -72,11 +72,12 @@ namespace BH.oM.Adapters.EnergyPlus.FluidProperties
     {
         
 
-[JsonProperty(PropertyName="fluid_name")]
+[JsonProperty(PropertyName="fluid_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FluidName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fluid_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fluid_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_Name_FluidType FluidType { get; set; } = (FluidProperties_Name_FluidType)Enum.Parse(typeof(FluidProperties_Name_FluidType), "Glycol");
     }
     
@@ -102,16 +103,17 @@ public string NodeName { get; set; } = "";
         
 
 [Description("or UserDefined Fluid (must show up as a glycol in FluidProperties:Name object)")]
-[JsonProperty(PropertyName="glycol_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="glycol_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_GlycolConcentration_GlycolType GlycolType { get; set; } = (FluidProperties_GlycolConcentration_GlycolType)Enum.Parse(typeof(FluidProperties_GlycolConcentration_GlycolType), "EthyleneGlycol");
         
 
-[JsonProperty(PropertyName="user_defined_glycol_name")]
+[JsonProperty(PropertyName="user_defined_glycol_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string UserDefinedGlycolName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="glycol_concentration")]
-public System.Nullable<float> GlycolConcentration { get; set; } = null;
+[JsonProperty(PropertyName="glycol_concentration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> GlycolConcentration { get; set; } = null;
     }
     
     public enum FluidProperties_GlycolConcentration_GlycolType
@@ -138,1004 +140,1004 @@ public System.Nullable<float> GlycolConcentration { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="temperature_1")]
-public System.Nullable<float> Temperature1 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_2")]
-public System.Nullable<float> Temperature2 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_3")]
-public System.Nullable<float> Temperature3 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_4")]
-public System.Nullable<float> Temperature4 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_5")]
-public System.Nullable<float> Temperature5 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature5 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_6")]
-public System.Nullable<float> Temperature6 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_6", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature6 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_7")]
-public System.Nullable<float> Temperature7 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_7", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature7 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_8")]
-public System.Nullable<float> Temperature8 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_8", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature8 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_9")]
-public System.Nullable<float> Temperature9 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_9", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature9 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_10")]
-public System.Nullable<float> Temperature10 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_10", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature10 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_11")]
-public System.Nullable<float> Temperature11 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_11", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature11 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_12")]
-public System.Nullable<float> Temperature12 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_12", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature12 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_13")]
-public System.Nullable<float> Temperature13 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_13", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature13 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_14")]
-public System.Nullable<float> Temperature14 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_14", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature14 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_15")]
-public System.Nullable<float> Temperature15 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_15", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature15 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_16")]
-public System.Nullable<float> Temperature16 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_16", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature16 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_17")]
-public System.Nullable<float> Temperature17 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_17", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature17 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_18")]
-public System.Nullable<float> Temperature18 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_18", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature18 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_19")]
-public System.Nullable<float> Temperature19 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_19", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature19 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_20")]
-public System.Nullable<float> Temperature20 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_20", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature20 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_21")]
-public System.Nullable<float> Temperature21 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_21", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature21 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_22")]
-public System.Nullable<float> Temperature22 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_22", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature22 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_23")]
-public System.Nullable<float> Temperature23 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_23", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature23 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_24")]
-public System.Nullable<float> Temperature24 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_24", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature24 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_25")]
-public System.Nullable<float> Temperature25 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_25", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature25 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_26")]
-public System.Nullable<float> Temperature26 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_26", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature26 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_27")]
-public System.Nullable<float> Temperature27 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_27", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature27 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_28")]
-public System.Nullable<float> Temperature28 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_28", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature28 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_29")]
-public System.Nullable<float> Temperature29 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_29", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature29 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_30")]
-public System.Nullable<float> Temperature30 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_30", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature30 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_31")]
-public System.Nullable<float> Temperature31 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_31", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature31 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_32")]
-public System.Nullable<float> Temperature32 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_32", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature32 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_33")]
-public System.Nullable<float> Temperature33 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_33", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature33 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_34")]
-public System.Nullable<float> Temperature34 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_34", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature34 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_35")]
-public System.Nullable<float> Temperature35 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_35", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature35 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_36")]
-public System.Nullable<float> Temperature36 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_36", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature36 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_37")]
-public System.Nullable<float> Temperature37 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_37", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature37 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_38")]
-public System.Nullable<float> Temperature38 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_38", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature38 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_39")]
-public System.Nullable<float> Temperature39 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_39", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature39 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_40")]
-public System.Nullable<float> Temperature40 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_40", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature40 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_41")]
-public System.Nullable<float> Temperature41 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_41", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature41 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_42")]
-public System.Nullable<float> Temperature42 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_42", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature42 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_43")]
-public System.Nullable<float> Temperature43 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_43", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature43 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_44")]
-public System.Nullable<float> Temperature44 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_44", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature44 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_45")]
-public System.Nullable<float> Temperature45 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_45", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature45 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_46")]
-public System.Nullable<float> Temperature46 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_46", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature46 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_47")]
-public System.Nullable<float> Temperature47 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_47", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature47 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_48")]
-public System.Nullable<float> Temperature48 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_48", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature48 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_49")]
-public System.Nullable<float> Temperature49 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_49", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature49 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_50")]
-public System.Nullable<float> Temperature50 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_50", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature50 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_51")]
-public System.Nullable<float> Temperature51 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_51", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature51 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_52")]
-public System.Nullable<float> Temperature52 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_52", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature52 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_53")]
-public System.Nullable<float> Temperature53 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_53", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature53 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_54")]
-public System.Nullable<float> Temperature54 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_54", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature54 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_55")]
-public System.Nullable<float> Temperature55 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_55", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature55 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_56")]
-public System.Nullable<float> Temperature56 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_56", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature56 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_57")]
-public System.Nullable<float> Temperature57 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_57", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature57 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_58")]
-public System.Nullable<float> Temperature58 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_58", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature58 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_59")]
-public System.Nullable<float> Temperature59 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_59", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature59 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_60")]
-public System.Nullable<float> Temperature60 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_60", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature60 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_61")]
-public System.Nullable<float> Temperature61 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_61", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature61 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_62")]
-public System.Nullable<float> Temperature62 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_62", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature62 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_63")]
-public System.Nullable<float> Temperature63 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_63", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature63 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_64")]
-public System.Nullable<float> Temperature64 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_64", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature64 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_65")]
-public System.Nullable<float> Temperature65 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_65", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature65 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_66")]
-public System.Nullable<float> Temperature66 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_66", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature66 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_67")]
-public System.Nullable<float> Temperature67 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_67", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature67 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_68")]
-public System.Nullable<float> Temperature68 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_68", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature68 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_69")]
-public System.Nullable<float> Temperature69 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_69", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature69 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_70")]
-public System.Nullable<float> Temperature70 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_70", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature70 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_71")]
-public System.Nullable<float> Temperature71 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_71", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature71 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_72")]
-public System.Nullable<float> Temperature72 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_72", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature72 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_73")]
-public System.Nullable<float> Temperature73 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_73", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature73 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_74")]
-public System.Nullable<float> Temperature74 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_74", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature74 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_75")]
-public System.Nullable<float> Temperature75 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_75", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature75 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_76")]
-public System.Nullable<float> Temperature76 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_76", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature76 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_77")]
-public System.Nullable<float> Temperature77 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_77", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature77 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_78")]
-public System.Nullable<float> Temperature78 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_78", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature78 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_79")]
-public System.Nullable<float> Temperature79 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_79", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature79 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_80")]
-public System.Nullable<float> Temperature80 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_80", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature80 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_81")]
-public System.Nullable<float> Temperature81 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_81", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature81 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_82")]
-public System.Nullable<float> Temperature82 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_82", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature82 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_83")]
-public System.Nullable<float> Temperature83 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_83", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature83 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_84")]
-public System.Nullable<float> Temperature84 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_84", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature84 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_85")]
-public System.Nullable<float> Temperature85 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_85", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature85 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_86")]
-public System.Nullable<float> Temperature86 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_86", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature86 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_87")]
-public System.Nullable<float> Temperature87 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_87", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature87 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_88")]
-public System.Nullable<float> Temperature88 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_88", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature88 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_89")]
-public System.Nullable<float> Temperature89 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_89", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature89 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_90")]
-public System.Nullable<float> Temperature90 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_90", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature90 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_91")]
-public System.Nullable<float> Temperature91 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_91", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature91 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_92")]
-public System.Nullable<float> Temperature92 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_92", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature92 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_93")]
-public System.Nullable<float> Temperature93 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_93", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature93 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_94")]
-public System.Nullable<float> Temperature94 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_94", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature94 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_95")]
-public System.Nullable<float> Temperature95 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_95", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature95 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_96")]
-public System.Nullable<float> Temperature96 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_96", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature96 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_97")]
-public System.Nullable<float> Temperature97 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_97", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature97 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_98")]
-public System.Nullable<float> Temperature98 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_98", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature98 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_99")]
-public System.Nullable<float> Temperature99 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_99", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature99 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_100")]
-public System.Nullable<float> Temperature100 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_100", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature100 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_101")]
-public System.Nullable<float> Temperature101 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_101", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature101 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_102")]
-public System.Nullable<float> Temperature102 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_102", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature102 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_103")]
-public System.Nullable<float> Temperature103 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_103", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature103 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_104")]
-public System.Nullable<float> Temperature104 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_104", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature104 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_105")]
-public System.Nullable<float> Temperature105 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_105", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature105 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_106")]
-public System.Nullable<float> Temperature106 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_106", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature106 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_107")]
-public System.Nullable<float> Temperature107 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_107", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature107 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_108")]
-public System.Nullable<float> Temperature108 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_108", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature108 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_109")]
-public System.Nullable<float> Temperature109 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_109", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature109 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_110")]
-public System.Nullable<float> Temperature110 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_110", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature110 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_111")]
-public System.Nullable<float> Temperature111 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_111", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature111 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_112")]
-public System.Nullable<float> Temperature112 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_112", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature112 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_113")]
-public System.Nullable<float> Temperature113 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_113", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature113 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_114")]
-public System.Nullable<float> Temperature114 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_114", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature114 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_115")]
-public System.Nullable<float> Temperature115 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_115", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature115 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_116")]
-public System.Nullable<float> Temperature116 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_116", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature116 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_117")]
-public System.Nullable<float> Temperature117 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_117", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature117 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_118")]
-public System.Nullable<float> Temperature118 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_118", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature118 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_119")]
-public System.Nullable<float> Temperature119 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_119", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature119 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_120")]
-public System.Nullable<float> Temperature120 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_120", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature120 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_121")]
-public System.Nullable<float> Temperature121 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_121", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature121 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_122")]
-public System.Nullable<float> Temperature122 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_122", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature122 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_123")]
-public System.Nullable<float> Temperature123 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_123", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature123 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_124")]
-public System.Nullable<float> Temperature124 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_124", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature124 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_125")]
-public System.Nullable<float> Temperature125 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_125", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature125 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_126")]
-public System.Nullable<float> Temperature126 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_126", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature126 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_127")]
-public System.Nullable<float> Temperature127 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_127", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature127 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_128")]
-public System.Nullable<float> Temperature128 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_128", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature128 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_129")]
-public System.Nullable<float> Temperature129 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_129", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature129 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_130")]
-public System.Nullable<float> Temperature130 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_130", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature130 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_131")]
-public System.Nullable<float> Temperature131 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_131", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature131 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_132")]
-public System.Nullable<float> Temperature132 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_132", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature132 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_133")]
-public System.Nullable<float> Temperature133 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_133", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature133 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_134")]
-public System.Nullable<float> Temperature134 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_134", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature134 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_135")]
-public System.Nullable<float> Temperature135 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_135", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature135 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_136")]
-public System.Nullable<float> Temperature136 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_136", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature136 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_137")]
-public System.Nullable<float> Temperature137 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_137", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature137 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_138")]
-public System.Nullable<float> Temperature138 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_138", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature138 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_139")]
-public System.Nullable<float> Temperature139 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_139", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature139 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_140")]
-public System.Nullable<float> Temperature140 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_140", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature140 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_141")]
-public System.Nullable<float> Temperature141 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_141", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature141 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_142")]
-public System.Nullable<float> Temperature142 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_142", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature142 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_143")]
-public System.Nullable<float> Temperature143 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_143", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature143 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_144")]
-public System.Nullable<float> Temperature144 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_144", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature144 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_145")]
-public System.Nullable<float> Temperature145 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_145", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature145 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_146")]
-public System.Nullable<float> Temperature146 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_146", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature146 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_147")]
-public System.Nullable<float> Temperature147 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_147", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature147 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_148")]
-public System.Nullable<float> Temperature148 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_148", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature148 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_149")]
-public System.Nullable<float> Temperature149 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_149", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature149 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_150")]
-public System.Nullable<float> Temperature150 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_150", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature150 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_151")]
-public System.Nullable<float> Temperature151 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_151", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature151 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_152")]
-public System.Nullable<float> Temperature152 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_152", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature152 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_153")]
-public System.Nullable<float> Temperature153 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_153", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature153 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_154")]
-public System.Nullable<float> Temperature154 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_154", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature154 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_155")]
-public System.Nullable<float> Temperature155 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_155", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature155 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_156")]
-public System.Nullable<float> Temperature156 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_156", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature156 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_157")]
-public System.Nullable<float> Temperature157 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_157", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature157 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_158")]
-public System.Nullable<float> Temperature158 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_158", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature158 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_159")]
-public System.Nullable<float> Temperature159 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_159", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature159 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_160")]
-public System.Nullable<float> Temperature160 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_160", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature160 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_161")]
-public System.Nullable<float> Temperature161 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_161", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature161 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_162")]
-public System.Nullable<float> Temperature162 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_162", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature162 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_163")]
-public System.Nullable<float> Temperature163 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_163", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature163 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_164")]
-public System.Nullable<float> Temperature164 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_164", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature164 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_165")]
-public System.Nullable<float> Temperature165 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_165", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature165 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_166")]
-public System.Nullable<float> Temperature166 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_166", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature166 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_167")]
-public System.Nullable<float> Temperature167 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_167", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature167 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_168")]
-public System.Nullable<float> Temperature168 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_168", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature168 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_169")]
-public System.Nullable<float> Temperature169 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_169", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature169 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_170")]
-public System.Nullable<float> Temperature170 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_170", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature170 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_171")]
-public System.Nullable<float> Temperature171 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_171", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature171 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_172")]
-public System.Nullable<float> Temperature172 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_172", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature172 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_173")]
-public System.Nullable<float> Temperature173 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_173", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature173 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_174")]
-public System.Nullable<float> Temperature174 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_174", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature174 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_175")]
-public System.Nullable<float> Temperature175 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_175", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature175 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_176")]
-public System.Nullable<float> Temperature176 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_176", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature176 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_177")]
-public System.Nullable<float> Temperature177 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_177", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature177 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_178")]
-public System.Nullable<float> Temperature178 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_178", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature178 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_179")]
-public System.Nullable<float> Temperature179 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_179", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature179 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_180")]
-public System.Nullable<float> Temperature180 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_180", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature180 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_181")]
-public System.Nullable<float> Temperature181 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_181", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature181 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_182")]
-public System.Nullable<float> Temperature182 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_182", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature182 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_183")]
-public System.Nullable<float> Temperature183 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_183", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature183 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_184")]
-public System.Nullable<float> Temperature184 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_184", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature184 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_185")]
-public System.Nullable<float> Temperature185 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_185", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature185 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_186")]
-public System.Nullable<float> Temperature186 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_186", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature186 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_187")]
-public System.Nullable<float> Temperature187 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_187", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature187 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_188")]
-public System.Nullable<float> Temperature188 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_188", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature188 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_189")]
-public System.Nullable<float> Temperature189 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_189", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature189 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_190")]
-public System.Nullable<float> Temperature190 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_190", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature190 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_191")]
-public System.Nullable<float> Temperature191 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_191", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature191 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_192")]
-public System.Nullable<float> Temperature192 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_192", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature192 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_193")]
-public System.Nullable<float> Temperature193 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_193", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature193 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_194")]
-public System.Nullable<float> Temperature194 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_194", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature194 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_195")]
-public System.Nullable<float> Temperature195 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_195", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature195 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_196")]
-public System.Nullable<float> Temperature196 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_196", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature196 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_197")]
-public System.Nullable<float> Temperature197 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_197", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature197 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_198")]
-public System.Nullable<float> Temperature198 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_198", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature198 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_199")]
-public System.Nullable<float> Temperature199 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_199", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature199 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_200")]
-public System.Nullable<float> Temperature200 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_200", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature200 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_201")]
-public System.Nullable<float> Temperature201 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_201", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature201 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_202")]
-public System.Nullable<float> Temperature202 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_202", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature202 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_203")]
-public System.Nullable<float> Temperature203 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_203", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature203 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_204")]
-public System.Nullable<float> Temperature204 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_204", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature204 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_205")]
-public System.Nullable<float> Temperature205 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_205", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature205 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_206")]
-public System.Nullable<float> Temperature206 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_206", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature206 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_207")]
-public System.Nullable<float> Temperature207 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_207", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature207 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_208")]
-public System.Nullable<float> Temperature208 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_208", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature208 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_209")]
-public System.Nullable<float> Temperature209 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_209", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature209 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_210")]
-public System.Nullable<float> Temperature210 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_210", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature210 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_211")]
-public System.Nullable<float> Temperature211 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_211", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature211 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_212")]
-public System.Nullable<float> Temperature212 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_212", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature212 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_213")]
-public System.Nullable<float> Temperature213 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_213", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature213 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_214")]
-public System.Nullable<float> Temperature214 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_214", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature214 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_215")]
-public System.Nullable<float> Temperature215 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_215", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature215 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_216")]
-public System.Nullable<float> Temperature216 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_216", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature216 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_217")]
-public System.Nullable<float> Temperature217 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_217", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature217 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_218")]
-public System.Nullable<float> Temperature218 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_218", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature218 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_219")]
-public System.Nullable<float> Temperature219 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_219", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature219 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_220")]
-public System.Nullable<float> Temperature220 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_220", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature220 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_221")]
-public System.Nullable<float> Temperature221 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_221", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature221 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_222")]
-public System.Nullable<float> Temperature222 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_222", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature222 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_223")]
-public System.Nullable<float> Temperature223 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_223", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature223 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_224")]
-public System.Nullable<float> Temperature224 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_224", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature224 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_225")]
-public System.Nullable<float> Temperature225 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_225", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature225 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_226")]
-public System.Nullable<float> Temperature226 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_226", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature226 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_227")]
-public System.Nullable<float> Temperature227 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_227", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature227 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_228")]
-public System.Nullable<float> Temperature228 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_228", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature228 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_229")]
-public System.Nullable<float> Temperature229 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_229", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature229 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_230")]
-public System.Nullable<float> Temperature230 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_230", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature230 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_231")]
-public System.Nullable<float> Temperature231 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_231", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature231 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_232")]
-public System.Nullable<float> Temperature232 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_232", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature232 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_233")]
-public System.Nullable<float> Temperature233 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_233", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature233 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_234")]
-public System.Nullable<float> Temperature234 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_234", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature234 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_235")]
-public System.Nullable<float> Temperature235 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_235", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature235 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_236")]
-public System.Nullable<float> Temperature236 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_236", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature236 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_237")]
-public System.Nullable<float> Temperature237 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_237", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature237 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_238")]
-public System.Nullable<float> Temperature238 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_238", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature238 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_239")]
-public System.Nullable<float> Temperature239 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_239", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature239 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_240")]
-public System.Nullable<float> Temperature240 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_240", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature240 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_241")]
-public System.Nullable<float> Temperature241 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_241", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature241 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_242")]
-public System.Nullable<float> Temperature242 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_242", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature242 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_243")]
-public System.Nullable<float> Temperature243 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_243", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature243 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_244")]
-public System.Nullable<float> Temperature244 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_244", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature244 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_245")]
-public System.Nullable<float> Temperature245 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_245", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature245 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_246")]
-public System.Nullable<float> Temperature246 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_246", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature246 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_247")]
-public System.Nullable<float> Temperature247 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_247", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature247 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_248")]
-public System.Nullable<float> Temperature248 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_248", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature248 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_249")]
-public System.Nullable<float> Temperature249 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_249", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature249 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="temperature_250")]
-public System.Nullable<float> Temperature250 { get; set; } = null;
+[JsonProperty(PropertyName="temperature_250", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Temperature250 { get; set; } = null;
     }
     
     [Description("fluid properties for the saturated region")]
@@ -1144,1024 +1146,1026 @@ public System.Nullable<float> Temperature250 { get; set; } = null;
     {
         
 
-[JsonProperty(PropertyName="fluid_name")]
+[JsonProperty(PropertyName="fluid_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FluidName { get; set; } = "";
         
 
 [Description("Enthalpy Units are J/kg Density Units are kg/m3 SpecificHeat Units are J/kg-K Pre" +
     "ssure Units are Pa")]
-[JsonProperty(PropertyName="fluid_property_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fluid_property_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_Saturated_FluidPropertyType FluidPropertyType { get; set; } = (FluidProperties_Saturated_FluidPropertyType)Enum.Parse(typeof(FluidProperties_Saturated_FluidPropertyType), "Density");
         
 
 [Description("Fluid=saturated fluid FluidGas=saturated vapor")]
-[JsonProperty(PropertyName="fluid_phase", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fluid_phase", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_Saturated_FluidPhase FluidPhase { get; set; } = (FluidProperties_Saturated_FluidPhase)Enum.Parse(typeof(FluidProperties_Saturated_FluidPhase), "Fluid");
         
 
 [Description("Enter the name of a FluidProperties:Temperatures object.")]
-[JsonProperty(PropertyName="temperature_values_name")]
+[JsonProperty(PropertyName="temperature_values_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TemperatureValuesName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="property_value_1")]
-public System.Nullable<float> PropertyValue1 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_2")]
-public System.Nullable<float> PropertyValue2 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_3")]
-public System.Nullable<float> PropertyValue3 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_4")]
-public System.Nullable<float> PropertyValue4 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_5")]
-public System.Nullable<float> PropertyValue5 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue5 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_6")]
-public System.Nullable<float> PropertyValue6 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_6", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue6 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_7")]
-public System.Nullable<float> PropertyValue7 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_7", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue7 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_8")]
-public System.Nullable<float> PropertyValue8 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_8", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue8 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_9")]
-public System.Nullable<float> PropertyValue9 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_9", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue9 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_10")]
-public System.Nullable<float> PropertyValue10 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_10", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue10 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_11")]
-public System.Nullable<float> PropertyValue11 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_11", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue11 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_12")]
-public System.Nullable<float> PropertyValue12 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_12", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue12 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_13")]
-public System.Nullable<float> PropertyValue13 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_13", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue13 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_14")]
-public System.Nullable<float> PropertyValue14 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_14", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue14 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_15")]
-public System.Nullable<float> PropertyValue15 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_15", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue15 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_16")]
-public System.Nullable<float> PropertyValue16 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_16", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue16 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_17")]
-public System.Nullable<float> PropertyValue17 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_17", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue17 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_18")]
-public System.Nullable<float> PropertyValue18 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_18", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue18 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_19")]
-public System.Nullable<float> PropertyValue19 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_19", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue19 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_20")]
-public System.Nullable<float> PropertyValue20 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_20", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue20 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_21")]
-public System.Nullable<float> PropertyValue21 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_21", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue21 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_22")]
-public System.Nullable<float> PropertyValue22 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_22", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue22 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_23")]
-public System.Nullable<float> PropertyValue23 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_23", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue23 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_24")]
-public System.Nullable<float> PropertyValue24 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_24", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue24 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_25")]
-public System.Nullable<float> PropertyValue25 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_25", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue25 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_26")]
-public System.Nullable<float> PropertyValue26 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_26", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue26 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_27")]
-public System.Nullable<float> PropertyValue27 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_27", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue27 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_28")]
-public System.Nullable<float> PropertyValue28 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_28", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue28 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_29")]
-public System.Nullable<float> PropertyValue29 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_29", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue29 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_30")]
-public System.Nullable<float> PropertyValue30 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_30", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue30 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_31")]
-public System.Nullable<float> PropertyValue31 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_31", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue31 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_32")]
-public System.Nullable<float> PropertyValue32 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_32", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue32 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_33")]
-public System.Nullable<float> PropertyValue33 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_33", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue33 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_34")]
-public System.Nullable<float> PropertyValue34 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_34", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue34 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_35")]
-public System.Nullable<float> PropertyValue35 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_35", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue35 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_36")]
-public System.Nullable<float> PropertyValue36 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_36", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue36 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_37")]
-public System.Nullable<float> PropertyValue37 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_37", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue37 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_38")]
-public System.Nullable<float> PropertyValue38 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_38", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue38 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_39")]
-public System.Nullable<float> PropertyValue39 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_39", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue39 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_40")]
-public System.Nullable<float> PropertyValue40 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_40", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue40 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_41")]
-public System.Nullable<float> PropertyValue41 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_41", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue41 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_42")]
-public System.Nullable<float> PropertyValue42 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_42", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue42 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_43")]
-public System.Nullable<float> PropertyValue43 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_43", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue43 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_44")]
-public System.Nullable<float> PropertyValue44 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_44", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue44 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_45")]
-public System.Nullable<float> PropertyValue45 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_45", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue45 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_46")]
-public System.Nullable<float> PropertyValue46 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_46", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue46 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_47")]
-public System.Nullable<float> PropertyValue47 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_47", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue47 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_48")]
-public System.Nullable<float> PropertyValue48 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_48", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue48 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_49")]
-public System.Nullable<float> PropertyValue49 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_49", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue49 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_50")]
-public System.Nullable<float> PropertyValue50 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_50", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue50 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_51")]
-public System.Nullable<float> PropertyValue51 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_51", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue51 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_52")]
-public System.Nullable<float> PropertyValue52 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_52", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue52 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_53")]
-public System.Nullable<float> PropertyValue53 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_53", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue53 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_54")]
-public System.Nullable<float> PropertyValue54 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_54", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue54 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_55")]
-public System.Nullable<float> PropertyValue55 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_55", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue55 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_56")]
-public System.Nullable<float> PropertyValue56 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_56", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue56 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_57")]
-public System.Nullable<float> PropertyValue57 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_57", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue57 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_58")]
-public System.Nullable<float> PropertyValue58 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_58", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue58 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_59")]
-public System.Nullable<float> PropertyValue59 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_59", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue59 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_60")]
-public System.Nullable<float> PropertyValue60 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_60", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue60 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_61")]
-public System.Nullable<float> PropertyValue61 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_61", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue61 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_62")]
-public System.Nullable<float> PropertyValue62 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_62", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue62 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_63")]
-public System.Nullable<float> PropertyValue63 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_63", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue63 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_64")]
-public System.Nullable<float> PropertyValue64 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_64", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue64 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_65")]
-public System.Nullable<float> PropertyValue65 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_65", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue65 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_66")]
-public System.Nullable<float> PropertyValue66 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_66", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue66 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_67")]
-public System.Nullable<float> PropertyValue67 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_67", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue67 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_68")]
-public System.Nullable<float> PropertyValue68 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_68", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue68 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_69")]
-public System.Nullable<float> PropertyValue69 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_69", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue69 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_70")]
-public System.Nullable<float> PropertyValue70 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_70", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue70 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_71")]
-public System.Nullable<float> PropertyValue71 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_71", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue71 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_72")]
-public System.Nullable<float> PropertyValue72 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_72", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue72 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_73")]
-public System.Nullable<float> PropertyValue73 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_73", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue73 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_74")]
-public System.Nullable<float> PropertyValue74 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_74", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue74 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_75")]
-public System.Nullable<float> PropertyValue75 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_75", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue75 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_76")]
-public System.Nullable<float> PropertyValue76 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_76", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue76 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_77")]
-public System.Nullable<float> PropertyValue77 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_77", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue77 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_78")]
-public System.Nullable<float> PropertyValue78 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_78", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue78 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_79")]
-public System.Nullable<float> PropertyValue79 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_79", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue79 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_80")]
-public System.Nullable<float> PropertyValue80 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_80", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue80 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_81")]
-public System.Nullable<float> PropertyValue81 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_81", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue81 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_82")]
-public System.Nullable<float> PropertyValue82 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_82", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue82 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_83")]
-public System.Nullable<float> PropertyValue83 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_83", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue83 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_84")]
-public System.Nullable<float> PropertyValue84 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_84", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue84 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_85")]
-public System.Nullable<float> PropertyValue85 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_85", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue85 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_86")]
-public System.Nullable<float> PropertyValue86 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_86", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue86 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_87")]
-public System.Nullable<float> PropertyValue87 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_87", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue87 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_88")]
-public System.Nullable<float> PropertyValue88 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_88", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue88 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_89")]
-public System.Nullable<float> PropertyValue89 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_89", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue89 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_90")]
-public System.Nullable<float> PropertyValue90 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_90", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue90 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_91")]
-public System.Nullable<float> PropertyValue91 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_91", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue91 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_92")]
-public System.Nullable<float> PropertyValue92 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_92", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue92 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_93")]
-public System.Nullable<float> PropertyValue93 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_93", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue93 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_94")]
-public System.Nullable<float> PropertyValue94 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_94", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue94 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_95")]
-public System.Nullable<float> PropertyValue95 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_95", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue95 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_96")]
-public System.Nullable<float> PropertyValue96 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_96", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue96 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_97")]
-public System.Nullable<float> PropertyValue97 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_97", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue97 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_98")]
-public System.Nullable<float> PropertyValue98 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_98", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue98 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_99")]
-public System.Nullable<float> PropertyValue99 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_99", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue99 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_100")]
-public System.Nullable<float> PropertyValue100 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_100", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue100 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_101")]
-public System.Nullable<float> PropertyValue101 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_101", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue101 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_102")]
-public System.Nullable<float> PropertyValue102 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_102", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue102 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_103")]
-public System.Nullable<float> PropertyValue103 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_103", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue103 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_104")]
-public System.Nullable<float> PropertyValue104 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_104", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue104 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_105")]
-public System.Nullable<float> PropertyValue105 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_105", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue105 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_106")]
-public System.Nullable<float> PropertyValue106 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_106", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue106 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_107")]
-public System.Nullable<float> PropertyValue107 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_107", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue107 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_108")]
-public System.Nullable<float> PropertyValue108 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_108", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue108 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_109")]
-public System.Nullable<float> PropertyValue109 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_109", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue109 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_110")]
-public System.Nullable<float> PropertyValue110 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_110", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue110 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_111")]
-public System.Nullable<float> PropertyValue111 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_111", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue111 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_112")]
-public System.Nullable<float> PropertyValue112 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_112", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue112 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_113")]
-public System.Nullable<float> PropertyValue113 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_113", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue113 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_114")]
-public System.Nullable<float> PropertyValue114 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_114", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue114 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_115")]
-public System.Nullable<float> PropertyValue115 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_115", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue115 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_116")]
-public System.Nullable<float> PropertyValue116 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_116", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue116 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_117")]
-public System.Nullable<float> PropertyValue117 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_117", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue117 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_118")]
-public System.Nullable<float> PropertyValue118 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_118", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue118 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_119")]
-public System.Nullable<float> PropertyValue119 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_119", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue119 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_120")]
-public System.Nullable<float> PropertyValue120 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_120", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue120 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_121")]
-public System.Nullable<float> PropertyValue121 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_121", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue121 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_122")]
-public System.Nullable<float> PropertyValue122 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_122", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue122 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_123")]
-public System.Nullable<float> PropertyValue123 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_123", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue123 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_124")]
-public System.Nullable<float> PropertyValue124 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_124", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue124 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_125")]
-public System.Nullable<float> PropertyValue125 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_125", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue125 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_126")]
-public System.Nullable<float> PropertyValue126 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_126", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue126 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_127")]
-public System.Nullable<float> PropertyValue127 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_127", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue127 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_128")]
-public System.Nullable<float> PropertyValue128 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_128", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue128 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_129")]
-public System.Nullable<float> PropertyValue129 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_129", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue129 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_130")]
-public System.Nullable<float> PropertyValue130 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_130", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue130 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_131")]
-public System.Nullable<float> PropertyValue131 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_131", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue131 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_132")]
-public System.Nullable<float> PropertyValue132 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_132", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue132 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_133")]
-public System.Nullable<float> PropertyValue133 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_133", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue133 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_134")]
-public System.Nullable<float> PropertyValue134 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_134", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue134 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_135")]
-public System.Nullable<float> PropertyValue135 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_135", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue135 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_136")]
-public System.Nullable<float> PropertyValue136 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_136", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue136 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_137")]
-public System.Nullable<float> PropertyValue137 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_137", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue137 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_138")]
-public System.Nullable<float> PropertyValue138 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_138", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue138 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_139")]
-public System.Nullable<float> PropertyValue139 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_139", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue139 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_140")]
-public System.Nullable<float> PropertyValue140 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_140", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue140 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_141")]
-public System.Nullable<float> PropertyValue141 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_141", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue141 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_142")]
-public System.Nullable<float> PropertyValue142 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_142", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue142 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_143")]
-public System.Nullable<float> PropertyValue143 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_143", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue143 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_144")]
-public System.Nullable<float> PropertyValue144 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_144", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue144 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_145")]
-public System.Nullable<float> PropertyValue145 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_145", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue145 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_146")]
-public System.Nullable<float> PropertyValue146 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_146", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue146 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_147")]
-public System.Nullable<float> PropertyValue147 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_147", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue147 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_148")]
-public System.Nullable<float> PropertyValue148 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_148", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue148 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_149")]
-public System.Nullable<float> PropertyValue149 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_149", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue149 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_150")]
-public System.Nullable<float> PropertyValue150 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_150", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue150 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_151")]
-public System.Nullable<float> PropertyValue151 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_151", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue151 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_152")]
-public System.Nullable<float> PropertyValue152 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_152", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue152 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_153")]
-public System.Nullable<float> PropertyValue153 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_153", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue153 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_154")]
-public System.Nullable<float> PropertyValue154 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_154", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue154 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_155")]
-public System.Nullable<float> PropertyValue155 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_155", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue155 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_156")]
-public System.Nullable<float> PropertyValue156 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_156", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue156 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_157")]
-public System.Nullable<float> PropertyValue157 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_157", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue157 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_158")]
-public System.Nullable<float> PropertyValue158 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_158", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue158 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_159")]
-public System.Nullable<float> PropertyValue159 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_159", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue159 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_160")]
-public System.Nullable<float> PropertyValue160 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_160", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue160 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_161")]
-public System.Nullable<float> PropertyValue161 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_161", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue161 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_162")]
-public System.Nullable<float> PropertyValue162 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_162", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue162 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_163")]
-public System.Nullable<float> PropertyValue163 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_163", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue163 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_164")]
-public System.Nullable<float> PropertyValue164 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_164", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue164 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_165")]
-public System.Nullable<float> PropertyValue165 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_165", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue165 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_166")]
-public System.Nullable<float> PropertyValue166 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_166", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue166 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_167")]
-public System.Nullable<float> PropertyValue167 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_167", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue167 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_168")]
-public System.Nullable<float> PropertyValue168 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_168", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue168 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_169")]
-public System.Nullable<float> PropertyValue169 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_169", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue169 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_170")]
-public System.Nullable<float> PropertyValue170 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_170", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue170 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_171")]
-public System.Nullable<float> PropertyValue171 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_171", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue171 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_172")]
-public System.Nullable<float> PropertyValue172 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_172", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue172 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_173")]
-public System.Nullable<float> PropertyValue173 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_173", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue173 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_174")]
-public System.Nullable<float> PropertyValue174 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_174", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue174 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_175")]
-public System.Nullable<float> PropertyValue175 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_175", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue175 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_176")]
-public System.Nullable<float> PropertyValue176 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_176", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue176 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_177")]
-public System.Nullable<float> PropertyValue177 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_177", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue177 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_178")]
-public System.Nullable<float> PropertyValue178 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_178", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue178 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_179")]
-public System.Nullable<float> PropertyValue179 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_179", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue179 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_180")]
-public System.Nullable<float> PropertyValue180 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_180", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue180 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_181")]
-public System.Nullable<float> PropertyValue181 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_181", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue181 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_182")]
-public System.Nullable<float> PropertyValue182 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_182", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue182 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_183")]
-public System.Nullable<float> PropertyValue183 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_183", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue183 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_184")]
-public System.Nullable<float> PropertyValue184 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_184", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue184 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_185")]
-public System.Nullable<float> PropertyValue185 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_185", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue185 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_186")]
-public System.Nullable<float> PropertyValue186 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_186", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue186 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_187")]
-public System.Nullable<float> PropertyValue187 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_187", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue187 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_188")]
-public System.Nullable<float> PropertyValue188 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_188", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue188 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_189")]
-public System.Nullable<float> PropertyValue189 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_189", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue189 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_190")]
-public System.Nullable<float> PropertyValue190 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_190", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue190 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_191")]
-public System.Nullable<float> PropertyValue191 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_191", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue191 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_192")]
-public System.Nullable<float> PropertyValue192 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_192", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue192 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_193")]
-public System.Nullable<float> PropertyValue193 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_193", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue193 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_194")]
-public System.Nullable<float> PropertyValue194 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_194", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue194 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_195")]
-public System.Nullable<float> PropertyValue195 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_195", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue195 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_196")]
-public System.Nullable<float> PropertyValue196 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_196", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue196 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_197")]
-public System.Nullable<float> PropertyValue197 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_197", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue197 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_198")]
-public System.Nullable<float> PropertyValue198 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_198", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue198 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_199")]
-public System.Nullable<float> PropertyValue199 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_199", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue199 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_200")]
-public System.Nullable<float> PropertyValue200 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_200", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue200 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_201")]
-public System.Nullable<float> PropertyValue201 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_201", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue201 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_202")]
-public System.Nullable<float> PropertyValue202 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_202", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue202 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_203")]
-public System.Nullable<float> PropertyValue203 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_203", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue203 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_204")]
-public System.Nullable<float> PropertyValue204 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_204", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue204 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_205")]
-public System.Nullable<float> PropertyValue205 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_205", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue205 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_206")]
-public System.Nullable<float> PropertyValue206 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_206", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue206 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_207")]
-public System.Nullable<float> PropertyValue207 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_207", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue207 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_208")]
-public System.Nullable<float> PropertyValue208 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_208", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue208 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_209")]
-public System.Nullable<float> PropertyValue209 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_209", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue209 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_210")]
-public System.Nullable<float> PropertyValue210 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_210", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue210 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_211")]
-public System.Nullable<float> PropertyValue211 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_211", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue211 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_212")]
-public System.Nullable<float> PropertyValue212 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_212", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue212 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_213")]
-public System.Nullable<float> PropertyValue213 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_213", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue213 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_214")]
-public System.Nullable<float> PropertyValue214 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_214", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue214 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_215")]
-public System.Nullable<float> PropertyValue215 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_215", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue215 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_216")]
-public System.Nullable<float> PropertyValue216 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_216", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue216 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_217")]
-public System.Nullable<float> PropertyValue217 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_217", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue217 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_218")]
-public System.Nullable<float> PropertyValue218 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_218", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue218 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_219")]
-public System.Nullable<float> PropertyValue219 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_219", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue219 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_220")]
-public System.Nullable<float> PropertyValue220 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_220", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue220 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_221")]
-public System.Nullable<float> PropertyValue221 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_221", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue221 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_222")]
-public System.Nullable<float> PropertyValue222 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_222", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue222 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_223")]
-public System.Nullable<float> PropertyValue223 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_223", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue223 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_224")]
-public System.Nullable<float> PropertyValue224 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_224", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue224 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_225")]
-public System.Nullable<float> PropertyValue225 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_225", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue225 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_226")]
-public System.Nullable<float> PropertyValue226 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_226", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue226 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_227")]
-public System.Nullable<float> PropertyValue227 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_227", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue227 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_228")]
-public System.Nullable<float> PropertyValue228 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_228", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue228 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_229")]
-public System.Nullable<float> PropertyValue229 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_229", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue229 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_230")]
-public System.Nullable<float> PropertyValue230 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_230", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue230 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_231")]
-public System.Nullable<float> PropertyValue231 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_231", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue231 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_232")]
-public System.Nullable<float> PropertyValue232 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_232", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue232 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_233")]
-public System.Nullable<float> PropertyValue233 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_233", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue233 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_234")]
-public System.Nullable<float> PropertyValue234 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_234", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue234 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_235")]
-public System.Nullable<float> PropertyValue235 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_235", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue235 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_236")]
-public System.Nullable<float> PropertyValue236 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_236", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue236 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_237")]
-public System.Nullable<float> PropertyValue237 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_237", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue237 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_238")]
-public System.Nullable<float> PropertyValue238 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_238", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue238 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_239")]
-public System.Nullable<float> PropertyValue239 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_239", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue239 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_240")]
-public System.Nullable<float> PropertyValue240 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_240", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue240 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_241")]
-public System.Nullable<float> PropertyValue241 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_241", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue241 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_242")]
-public System.Nullable<float> PropertyValue242 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_242", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue242 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_243")]
-public System.Nullable<float> PropertyValue243 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_243", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue243 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_244")]
-public System.Nullable<float> PropertyValue244 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_244", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue244 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_245")]
-public System.Nullable<float> PropertyValue245 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_245", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue245 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_246")]
-public System.Nullable<float> PropertyValue246 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_246", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue246 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_247")]
-public System.Nullable<float> PropertyValue247 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_247", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue247 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_248")]
-public System.Nullable<float> PropertyValue248 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_248", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue248 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_249")]
-public System.Nullable<float> PropertyValue249 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_249", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue249 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_250")]
-public System.Nullable<float> PropertyValue250 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_250", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue250 { get; set; } = null;
     }
     
     public enum FluidProperties_Saturated_FluidPropertyType
@@ -2196,1023 +2200,1024 @@ public System.Nullable<float> PropertyValue250 { get; set; } = null;
     {
         
 
-[JsonProperty(PropertyName="fluid_name")]
+[JsonProperty(PropertyName="fluid_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FluidName { get; set; } = "";
         
 
 [Description("Enthalpy Units are J/kg Density Units are kg/m3")]
-[JsonProperty(PropertyName="fluid_property_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fluid_property_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_Superheated_FluidPropertyType FluidPropertyType { get; set; } = (FluidProperties_Superheated_FluidPropertyType)Enum.Parse(typeof(FluidProperties_Superheated_FluidPropertyType), "Density");
         
 
 [Description("Enter the name of a FluidProperties:Temperatures object.")]
-[JsonProperty(PropertyName="temperature_values_name")]
+[JsonProperty(PropertyName="temperature_values_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TemperatureValuesName { get; set; } = "";
         
 
 [Description("pressure for this list of properties")]
-[JsonProperty(PropertyName="pressure")]
-public System.Nullable<float> Pressure { get; set; } = null;
+[JsonProperty(PropertyName="pressure", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Pressure { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_1")]
-public System.Nullable<float> PropertyValue1 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_2")]
-public System.Nullable<float> PropertyValue2 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_3")]
-public System.Nullable<float> PropertyValue3 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_4")]
-public System.Nullable<float> PropertyValue4 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_5")]
-public System.Nullable<float> PropertyValue5 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue5 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_6")]
-public System.Nullable<float> PropertyValue6 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_6", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue6 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_7")]
-public System.Nullable<float> PropertyValue7 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_7", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue7 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_8")]
-public System.Nullable<float> PropertyValue8 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_8", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue8 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_9")]
-public System.Nullable<float> PropertyValue9 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_9", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue9 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_10")]
-public System.Nullable<float> PropertyValue10 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_10", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue10 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_11")]
-public System.Nullable<float> PropertyValue11 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_11", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue11 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_12")]
-public System.Nullable<float> PropertyValue12 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_12", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue12 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_13")]
-public System.Nullable<float> PropertyValue13 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_13", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue13 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_14")]
-public System.Nullable<float> PropertyValue14 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_14", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue14 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_15")]
-public System.Nullable<float> PropertyValue15 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_15", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue15 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_16")]
-public System.Nullable<float> PropertyValue16 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_16", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue16 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_17")]
-public System.Nullable<float> PropertyValue17 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_17", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue17 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_18")]
-public System.Nullable<float> PropertyValue18 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_18", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue18 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_19")]
-public System.Nullable<float> PropertyValue19 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_19", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue19 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_20")]
-public System.Nullable<float> PropertyValue20 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_20", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue20 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_21")]
-public System.Nullable<float> PropertyValue21 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_21", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue21 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_22")]
-public System.Nullable<float> PropertyValue22 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_22", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue22 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_23")]
-public System.Nullable<float> PropertyValue23 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_23", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue23 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_24")]
-public System.Nullable<float> PropertyValue24 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_24", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue24 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_25")]
-public System.Nullable<float> PropertyValue25 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_25", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue25 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_26")]
-public System.Nullable<float> PropertyValue26 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_26", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue26 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_27")]
-public System.Nullable<float> PropertyValue27 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_27", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue27 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_28")]
-public System.Nullable<float> PropertyValue28 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_28", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue28 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_29")]
-public System.Nullable<float> PropertyValue29 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_29", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue29 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_30")]
-public System.Nullable<float> PropertyValue30 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_30", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue30 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_31")]
-public System.Nullable<float> PropertyValue31 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_31", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue31 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_32")]
-public System.Nullable<float> PropertyValue32 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_32", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue32 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_33")]
-public System.Nullable<float> PropertyValue33 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_33", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue33 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_34")]
-public System.Nullable<float> PropertyValue34 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_34", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue34 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_35")]
-public System.Nullable<float> PropertyValue35 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_35", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue35 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_36")]
-public System.Nullable<float> PropertyValue36 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_36", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue36 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_37")]
-public System.Nullable<float> PropertyValue37 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_37", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue37 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_38")]
-public System.Nullable<float> PropertyValue38 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_38", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue38 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_39")]
-public System.Nullable<float> PropertyValue39 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_39", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue39 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_40")]
-public System.Nullable<float> PropertyValue40 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_40", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue40 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_41")]
-public System.Nullable<float> PropertyValue41 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_41", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue41 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_42")]
-public System.Nullable<float> PropertyValue42 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_42", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue42 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_43")]
-public System.Nullable<float> PropertyValue43 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_43", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue43 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_44")]
-public System.Nullable<float> PropertyValue44 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_44", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue44 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_45")]
-public System.Nullable<float> PropertyValue45 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_45", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue45 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_46")]
-public System.Nullable<float> PropertyValue46 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_46", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue46 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_47")]
-public System.Nullable<float> PropertyValue47 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_47", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue47 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_48")]
-public System.Nullable<float> PropertyValue48 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_48", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue48 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_49")]
-public System.Nullable<float> PropertyValue49 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_49", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue49 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_50")]
-public System.Nullable<float> PropertyValue50 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_50", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue50 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_51")]
-public System.Nullable<float> PropertyValue51 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_51", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue51 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_52")]
-public System.Nullable<float> PropertyValue52 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_52", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue52 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_53")]
-public System.Nullable<float> PropertyValue53 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_53", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue53 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_54")]
-public System.Nullable<float> PropertyValue54 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_54", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue54 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_55")]
-public System.Nullable<float> PropertyValue55 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_55", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue55 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_56")]
-public System.Nullable<float> PropertyValue56 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_56", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue56 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_57")]
-public System.Nullable<float> PropertyValue57 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_57", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue57 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_58")]
-public System.Nullable<float> PropertyValue58 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_58", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue58 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_59")]
-public System.Nullable<float> PropertyValue59 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_59", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue59 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_60")]
-public System.Nullable<float> PropertyValue60 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_60", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue60 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_61")]
-public System.Nullable<float> PropertyValue61 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_61", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue61 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_62")]
-public System.Nullable<float> PropertyValue62 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_62", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue62 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_63")]
-public System.Nullable<float> PropertyValue63 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_63", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue63 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_64")]
-public System.Nullable<float> PropertyValue64 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_64", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue64 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_65")]
-public System.Nullable<float> PropertyValue65 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_65", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue65 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_66")]
-public System.Nullable<float> PropertyValue66 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_66", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue66 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_67")]
-public System.Nullable<float> PropertyValue67 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_67", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue67 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_68")]
-public System.Nullable<float> PropertyValue68 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_68", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue68 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_69")]
-public System.Nullable<float> PropertyValue69 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_69", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue69 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_70")]
-public System.Nullable<float> PropertyValue70 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_70", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue70 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_71")]
-public System.Nullable<float> PropertyValue71 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_71", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue71 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_72")]
-public System.Nullable<float> PropertyValue72 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_72", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue72 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_73")]
-public System.Nullable<float> PropertyValue73 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_73", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue73 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_74")]
-public System.Nullable<float> PropertyValue74 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_74", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue74 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_75")]
-public System.Nullable<float> PropertyValue75 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_75", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue75 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_76")]
-public System.Nullable<float> PropertyValue76 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_76", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue76 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_77")]
-public System.Nullable<float> PropertyValue77 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_77", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue77 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_78")]
-public System.Nullable<float> PropertyValue78 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_78", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue78 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_79")]
-public System.Nullable<float> PropertyValue79 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_79", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue79 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_80")]
-public System.Nullable<float> PropertyValue80 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_80", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue80 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_81")]
-public System.Nullable<float> PropertyValue81 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_81", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue81 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_82")]
-public System.Nullable<float> PropertyValue82 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_82", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue82 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_83")]
-public System.Nullable<float> PropertyValue83 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_83", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue83 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_84")]
-public System.Nullable<float> PropertyValue84 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_84", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue84 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_85")]
-public System.Nullable<float> PropertyValue85 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_85", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue85 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_86")]
-public System.Nullable<float> PropertyValue86 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_86", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue86 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_87")]
-public System.Nullable<float> PropertyValue87 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_87", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue87 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_88")]
-public System.Nullable<float> PropertyValue88 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_88", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue88 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_89")]
-public System.Nullable<float> PropertyValue89 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_89", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue89 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_90")]
-public System.Nullable<float> PropertyValue90 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_90", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue90 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_91")]
-public System.Nullable<float> PropertyValue91 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_91", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue91 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_92")]
-public System.Nullable<float> PropertyValue92 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_92", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue92 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_93")]
-public System.Nullable<float> PropertyValue93 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_93", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue93 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_94")]
-public System.Nullable<float> PropertyValue94 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_94", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue94 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_95")]
-public System.Nullable<float> PropertyValue95 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_95", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue95 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_96")]
-public System.Nullable<float> PropertyValue96 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_96", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue96 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_97")]
-public System.Nullable<float> PropertyValue97 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_97", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue97 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_98")]
-public System.Nullable<float> PropertyValue98 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_98", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue98 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_99")]
-public System.Nullable<float> PropertyValue99 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_99", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue99 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_100")]
-public System.Nullable<float> PropertyValue100 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_100", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue100 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_101")]
-public System.Nullable<float> PropertyValue101 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_101", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue101 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_102")]
-public System.Nullable<float> PropertyValue102 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_102", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue102 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_103")]
-public System.Nullable<float> PropertyValue103 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_103", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue103 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_104")]
-public System.Nullable<float> PropertyValue104 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_104", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue104 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_105")]
-public System.Nullable<float> PropertyValue105 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_105", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue105 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_106")]
-public System.Nullable<float> PropertyValue106 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_106", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue106 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_107")]
-public System.Nullable<float> PropertyValue107 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_107", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue107 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_108")]
-public System.Nullable<float> PropertyValue108 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_108", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue108 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_109")]
-public System.Nullable<float> PropertyValue109 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_109", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue109 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_110")]
-public System.Nullable<float> PropertyValue110 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_110", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue110 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_111")]
-public System.Nullable<float> PropertyValue111 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_111", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue111 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_112")]
-public System.Nullable<float> PropertyValue112 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_112", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue112 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_113")]
-public System.Nullable<float> PropertyValue113 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_113", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue113 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_114")]
-public System.Nullable<float> PropertyValue114 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_114", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue114 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_115")]
-public System.Nullable<float> PropertyValue115 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_115", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue115 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_116")]
-public System.Nullable<float> PropertyValue116 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_116", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue116 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_117")]
-public System.Nullable<float> PropertyValue117 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_117", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue117 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_118")]
-public System.Nullable<float> PropertyValue118 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_118", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue118 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_119")]
-public System.Nullable<float> PropertyValue119 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_119", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue119 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_120")]
-public System.Nullable<float> PropertyValue120 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_120", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue120 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_121")]
-public System.Nullable<float> PropertyValue121 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_121", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue121 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_122")]
-public System.Nullable<float> PropertyValue122 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_122", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue122 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_123")]
-public System.Nullable<float> PropertyValue123 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_123", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue123 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_124")]
-public System.Nullable<float> PropertyValue124 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_124", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue124 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_125")]
-public System.Nullable<float> PropertyValue125 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_125", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue125 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_126")]
-public System.Nullable<float> PropertyValue126 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_126", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue126 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_127")]
-public System.Nullable<float> PropertyValue127 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_127", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue127 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_128")]
-public System.Nullable<float> PropertyValue128 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_128", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue128 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_129")]
-public System.Nullable<float> PropertyValue129 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_129", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue129 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_130")]
-public System.Nullable<float> PropertyValue130 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_130", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue130 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_131")]
-public System.Nullable<float> PropertyValue131 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_131", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue131 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_132")]
-public System.Nullable<float> PropertyValue132 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_132", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue132 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_133")]
-public System.Nullable<float> PropertyValue133 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_133", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue133 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_134")]
-public System.Nullable<float> PropertyValue134 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_134", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue134 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_135")]
-public System.Nullable<float> PropertyValue135 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_135", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue135 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_136")]
-public System.Nullable<float> PropertyValue136 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_136", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue136 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_137")]
-public System.Nullable<float> PropertyValue137 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_137", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue137 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_138")]
-public System.Nullable<float> PropertyValue138 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_138", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue138 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_139")]
-public System.Nullable<float> PropertyValue139 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_139", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue139 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_140")]
-public System.Nullable<float> PropertyValue140 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_140", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue140 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_141")]
-public System.Nullable<float> PropertyValue141 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_141", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue141 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_142")]
-public System.Nullable<float> PropertyValue142 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_142", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue142 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_143")]
-public System.Nullable<float> PropertyValue143 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_143", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue143 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_144")]
-public System.Nullable<float> PropertyValue144 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_144", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue144 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_145")]
-public System.Nullable<float> PropertyValue145 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_145", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue145 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_146")]
-public System.Nullable<float> PropertyValue146 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_146", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue146 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_147")]
-public System.Nullable<float> PropertyValue147 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_147", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue147 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_148")]
-public System.Nullable<float> PropertyValue148 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_148", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue148 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_149")]
-public System.Nullable<float> PropertyValue149 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_149", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue149 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_150")]
-public System.Nullable<float> PropertyValue150 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_150", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue150 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_151")]
-public System.Nullable<float> PropertyValue151 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_151", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue151 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_152")]
-public System.Nullable<float> PropertyValue152 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_152", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue152 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_153")]
-public System.Nullable<float> PropertyValue153 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_153", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue153 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_154")]
-public System.Nullable<float> PropertyValue154 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_154", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue154 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_155")]
-public System.Nullable<float> PropertyValue155 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_155", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue155 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_156")]
-public System.Nullable<float> PropertyValue156 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_156", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue156 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_157")]
-public System.Nullable<float> PropertyValue157 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_157", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue157 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_158")]
-public System.Nullable<float> PropertyValue158 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_158", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue158 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_159")]
-public System.Nullable<float> PropertyValue159 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_159", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue159 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_160")]
-public System.Nullable<float> PropertyValue160 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_160", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue160 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_161")]
-public System.Nullable<float> PropertyValue161 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_161", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue161 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_162")]
-public System.Nullable<float> PropertyValue162 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_162", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue162 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_163")]
-public System.Nullable<float> PropertyValue163 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_163", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue163 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_164")]
-public System.Nullable<float> PropertyValue164 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_164", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue164 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_165")]
-public System.Nullable<float> PropertyValue165 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_165", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue165 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_166")]
-public System.Nullable<float> PropertyValue166 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_166", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue166 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_167")]
-public System.Nullable<float> PropertyValue167 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_167", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue167 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_168")]
-public System.Nullable<float> PropertyValue168 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_168", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue168 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_169")]
-public System.Nullable<float> PropertyValue169 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_169", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue169 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_170")]
-public System.Nullable<float> PropertyValue170 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_170", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue170 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_171")]
-public System.Nullable<float> PropertyValue171 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_171", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue171 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_172")]
-public System.Nullable<float> PropertyValue172 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_172", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue172 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_173")]
-public System.Nullable<float> PropertyValue173 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_173", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue173 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_174")]
-public System.Nullable<float> PropertyValue174 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_174", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue174 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_175")]
-public System.Nullable<float> PropertyValue175 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_175", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue175 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_176")]
-public System.Nullable<float> PropertyValue176 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_176", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue176 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_177")]
-public System.Nullable<float> PropertyValue177 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_177", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue177 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_178")]
-public System.Nullable<float> PropertyValue178 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_178", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue178 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_179")]
-public System.Nullable<float> PropertyValue179 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_179", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue179 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_180")]
-public System.Nullable<float> PropertyValue180 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_180", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue180 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_181")]
-public System.Nullable<float> PropertyValue181 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_181", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue181 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_182")]
-public System.Nullable<float> PropertyValue182 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_182", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue182 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_183")]
-public System.Nullable<float> PropertyValue183 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_183", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue183 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_184")]
-public System.Nullable<float> PropertyValue184 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_184", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue184 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_185")]
-public System.Nullable<float> PropertyValue185 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_185", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue185 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_186")]
-public System.Nullable<float> PropertyValue186 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_186", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue186 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_187")]
-public System.Nullable<float> PropertyValue187 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_187", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue187 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_188")]
-public System.Nullable<float> PropertyValue188 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_188", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue188 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_189")]
-public System.Nullable<float> PropertyValue189 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_189", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue189 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_190")]
-public System.Nullable<float> PropertyValue190 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_190", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue190 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_191")]
-public System.Nullable<float> PropertyValue191 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_191", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue191 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_192")]
-public System.Nullable<float> PropertyValue192 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_192", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue192 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_193")]
-public System.Nullable<float> PropertyValue193 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_193", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue193 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_194")]
-public System.Nullable<float> PropertyValue194 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_194", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue194 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_195")]
-public System.Nullable<float> PropertyValue195 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_195", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue195 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_196")]
-public System.Nullable<float> PropertyValue196 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_196", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue196 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_197")]
-public System.Nullable<float> PropertyValue197 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_197", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue197 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_198")]
-public System.Nullable<float> PropertyValue198 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_198", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue198 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_199")]
-public System.Nullable<float> PropertyValue199 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_199", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue199 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_200")]
-public System.Nullable<float> PropertyValue200 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_200", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue200 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_201")]
-public System.Nullable<float> PropertyValue201 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_201", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue201 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_202")]
-public System.Nullable<float> PropertyValue202 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_202", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue202 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_203")]
-public System.Nullable<float> PropertyValue203 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_203", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue203 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_204")]
-public System.Nullable<float> PropertyValue204 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_204", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue204 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_205")]
-public System.Nullable<float> PropertyValue205 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_205", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue205 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_206")]
-public System.Nullable<float> PropertyValue206 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_206", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue206 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_207")]
-public System.Nullable<float> PropertyValue207 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_207", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue207 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_208")]
-public System.Nullable<float> PropertyValue208 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_208", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue208 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_209")]
-public System.Nullable<float> PropertyValue209 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_209", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue209 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_210")]
-public System.Nullable<float> PropertyValue210 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_210", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue210 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_211")]
-public System.Nullable<float> PropertyValue211 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_211", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue211 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_212")]
-public System.Nullable<float> PropertyValue212 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_212", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue212 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_213")]
-public System.Nullable<float> PropertyValue213 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_213", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue213 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_214")]
-public System.Nullable<float> PropertyValue214 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_214", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue214 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_215")]
-public System.Nullable<float> PropertyValue215 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_215", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue215 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_216")]
-public System.Nullable<float> PropertyValue216 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_216", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue216 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_217")]
-public System.Nullable<float> PropertyValue217 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_217", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue217 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_218")]
-public System.Nullable<float> PropertyValue218 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_218", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue218 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_219")]
-public System.Nullable<float> PropertyValue219 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_219", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue219 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_220")]
-public System.Nullable<float> PropertyValue220 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_220", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue220 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_221")]
-public System.Nullable<float> PropertyValue221 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_221", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue221 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_222")]
-public System.Nullable<float> PropertyValue222 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_222", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue222 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_223")]
-public System.Nullable<float> PropertyValue223 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_223", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue223 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_224")]
-public System.Nullable<float> PropertyValue224 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_224", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue224 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_225")]
-public System.Nullable<float> PropertyValue225 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_225", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue225 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_226")]
-public System.Nullable<float> PropertyValue226 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_226", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue226 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_227")]
-public System.Nullable<float> PropertyValue227 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_227", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue227 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_228")]
-public System.Nullable<float> PropertyValue228 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_228", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue228 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_229")]
-public System.Nullable<float> PropertyValue229 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_229", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue229 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_230")]
-public System.Nullable<float> PropertyValue230 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_230", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue230 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_231")]
-public System.Nullable<float> PropertyValue231 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_231", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue231 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_232")]
-public System.Nullable<float> PropertyValue232 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_232", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue232 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_233")]
-public System.Nullable<float> PropertyValue233 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_233", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue233 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_234")]
-public System.Nullable<float> PropertyValue234 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_234", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue234 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_235")]
-public System.Nullable<float> PropertyValue235 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_235", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue235 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_236")]
-public System.Nullable<float> PropertyValue236 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_236", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue236 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_237")]
-public System.Nullable<float> PropertyValue237 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_237", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue237 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_238")]
-public System.Nullable<float> PropertyValue238 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_238", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue238 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_239")]
-public System.Nullable<float> PropertyValue239 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_239", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue239 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_240")]
-public System.Nullable<float> PropertyValue240 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_240", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue240 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_241")]
-public System.Nullable<float> PropertyValue241 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_241", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue241 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_242")]
-public System.Nullable<float> PropertyValue242 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_242", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue242 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_243")]
-public System.Nullable<float> PropertyValue243 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_243", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue243 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_244")]
-public System.Nullable<float> PropertyValue244 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_244", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue244 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_245")]
-public System.Nullable<float> PropertyValue245 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_245", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue245 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_246")]
-public System.Nullable<float> PropertyValue246 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_246", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue246 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_247")]
-public System.Nullable<float> PropertyValue247 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_247", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue247 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_248")]
-public System.Nullable<float> PropertyValue248 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_248", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue248 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_249")]
-public System.Nullable<float> PropertyValue249 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_249", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue249 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_250")]
-public System.Nullable<float> PropertyValue250 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_250", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue250 { get; set; } = null;
     }
     
     public enum FluidProperties_Superheated_FluidPropertyType
@@ -3232,1024 +3237,1025 @@ public System.Nullable<float> PropertyValue250 { get; set; } = null;
         
 
 [Description("should not be any of the defaults (Water, EthyleneGlycol, or PropyleneGlycol)")]
-[JsonProperty(PropertyName="fluid_name")]
+[JsonProperty(PropertyName="fluid_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FluidName { get; set; } = "";
         
 
 [Description("Density Units are kg/m3 SpecificHeat Units are J/kg-K Conductivity Units are W/m-" +
     "K Viscosity Units are N-s/m2")]
-[JsonProperty(PropertyName="fluid_property_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fluid_property_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FluidProperties_Concentration_FluidPropertyType FluidPropertyType { get; set; } = (FluidProperties_Concentration_FluidPropertyType)Enum.Parse(typeof(FluidProperties_Concentration_FluidPropertyType), "Conductivity");
         
 
 [Description("Enter the name of a FluidProperties:Temperatures object.")]
-[JsonProperty(PropertyName="temperature_values_name")]
+[JsonProperty(PropertyName="temperature_values_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TemperatureValuesName { get; set; } = "";
         
 
 [Description("Glycol concentration for this list of properties entered as a fraction")]
-[JsonProperty(PropertyName="concentration")]
-public System.Nullable<float> Concentration { get; set; } = null;
+[JsonProperty(PropertyName="concentration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Concentration { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_1")]
-public System.Nullable<float> PropertyValue1 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_2")]
-public System.Nullable<float> PropertyValue2 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_3")]
-public System.Nullable<float> PropertyValue3 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_4")]
-public System.Nullable<float> PropertyValue4 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_5")]
-public System.Nullable<float> PropertyValue5 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue5 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_6")]
-public System.Nullable<float> PropertyValue6 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_6", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue6 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_7")]
-public System.Nullable<float> PropertyValue7 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_7", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue7 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_8")]
-public System.Nullable<float> PropertyValue8 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_8", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue8 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_9")]
-public System.Nullable<float> PropertyValue9 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_9", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue9 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_10")]
-public System.Nullable<float> PropertyValue10 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_10", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue10 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_11")]
-public System.Nullable<float> PropertyValue11 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_11", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue11 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_12")]
-public System.Nullable<float> PropertyValue12 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_12", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue12 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_13")]
-public System.Nullable<float> PropertyValue13 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_13", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue13 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_14")]
-public System.Nullable<float> PropertyValue14 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_14", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue14 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_15")]
-public System.Nullable<float> PropertyValue15 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_15", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue15 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_16")]
-public System.Nullable<float> PropertyValue16 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_16", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue16 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_17")]
-public System.Nullable<float> PropertyValue17 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_17", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue17 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_18")]
-public System.Nullable<float> PropertyValue18 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_18", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue18 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_19")]
-public System.Nullable<float> PropertyValue19 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_19", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue19 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_20")]
-public System.Nullable<float> PropertyValue20 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_20", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue20 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_21")]
-public System.Nullable<float> PropertyValue21 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_21", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue21 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_22")]
-public System.Nullable<float> PropertyValue22 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_22", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue22 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_23")]
-public System.Nullable<float> PropertyValue23 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_23", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue23 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_24")]
-public System.Nullable<float> PropertyValue24 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_24", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue24 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_25")]
-public System.Nullable<float> PropertyValue25 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_25", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue25 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_26")]
-public System.Nullable<float> PropertyValue26 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_26", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue26 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_27")]
-public System.Nullable<float> PropertyValue27 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_27", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue27 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_28")]
-public System.Nullable<float> PropertyValue28 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_28", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue28 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_29")]
-public System.Nullable<float> PropertyValue29 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_29", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue29 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_30")]
-public System.Nullable<float> PropertyValue30 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_30", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue30 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_31")]
-public System.Nullable<float> PropertyValue31 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_31", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue31 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_32")]
-public System.Nullable<float> PropertyValue32 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_32", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue32 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_33")]
-public System.Nullable<float> PropertyValue33 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_33", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue33 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_34")]
-public System.Nullable<float> PropertyValue34 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_34", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue34 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_35")]
-public System.Nullable<float> PropertyValue35 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_35", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue35 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_36")]
-public System.Nullable<float> PropertyValue36 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_36", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue36 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_37")]
-public System.Nullable<float> PropertyValue37 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_37", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue37 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_38")]
-public System.Nullable<float> PropertyValue38 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_38", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue38 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_39")]
-public System.Nullable<float> PropertyValue39 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_39", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue39 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_40")]
-public System.Nullable<float> PropertyValue40 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_40", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue40 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_41")]
-public System.Nullable<float> PropertyValue41 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_41", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue41 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_42")]
-public System.Nullable<float> PropertyValue42 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_42", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue42 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_43")]
-public System.Nullable<float> PropertyValue43 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_43", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue43 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_44")]
-public System.Nullable<float> PropertyValue44 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_44", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue44 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_45")]
-public System.Nullable<float> PropertyValue45 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_45", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue45 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_46")]
-public System.Nullable<float> PropertyValue46 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_46", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue46 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_47")]
-public System.Nullable<float> PropertyValue47 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_47", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue47 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_48")]
-public System.Nullable<float> PropertyValue48 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_48", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue48 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_49")]
-public System.Nullable<float> PropertyValue49 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_49", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue49 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_50")]
-public System.Nullable<float> PropertyValue50 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_50", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue50 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_51")]
-public System.Nullable<float> PropertyValue51 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_51", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue51 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_52")]
-public System.Nullable<float> PropertyValue52 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_52", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue52 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_53")]
-public System.Nullable<float> PropertyValue53 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_53", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue53 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_54")]
-public System.Nullable<float> PropertyValue54 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_54", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue54 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_55")]
-public System.Nullable<float> PropertyValue55 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_55", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue55 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_56")]
-public System.Nullable<float> PropertyValue56 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_56", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue56 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_57")]
-public System.Nullable<float> PropertyValue57 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_57", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue57 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_58")]
-public System.Nullable<float> PropertyValue58 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_58", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue58 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_59")]
-public System.Nullable<float> PropertyValue59 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_59", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue59 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_60")]
-public System.Nullable<float> PropertyValue60 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_60", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue60 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_61")]
-public System.Nullable<float> PropertyValue61 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_61", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue61 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_62")]
-public System.Nullable<float> PropertyValue62 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_62", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue62 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_63")]
-public System.Nullable<float> PropertyValue63 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_63", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue63 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_64")]
-public System.Nullable<float> PropertyValue64 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_64", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue64 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_65")]
-public System.Nullable<float> PropertyValue65 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_65", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue65 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_66")]
-public System.Nullable<float> PropertyValue66 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_66", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue66 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_67")]
-public System.Nullable<float> PropertyValue67 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_67", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue67 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_68")]
-public System.Nullable<float> PropertyValue68 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_68", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue68 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_69")]
-public System.Nullable<float> PropertyValue69 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_69", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue69 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_70")]
-public System.Nullable<float> PropertyValue70 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_70", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue70 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_71")]
-public System.Nullable<float> PropertyValue71 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_71", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue71 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_72")]
-public System.Nullable<float> PropertyValue72 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_72", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue72 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_73")]
-public System.Nullable<float> PropertyValue73 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_73", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue73 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_74")]
-public System.Nullable<float> PropertyValue74 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_74", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue74 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_75")]
-public System.Nullable<float> PropertyValue75 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_75", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue75 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_76")]
-public System.Nullable<float> PropertyValue76 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_76", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue76 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_77")]
-public System.Nullable<float> PropertyValue77 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_77", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue77 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_78")]
-public System.Nullable<float> PropertyValue78 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_78", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue78 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_79")]
-public System.Nullable<float> PropertyValue79 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_79", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue79 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_80")]
-public System.Nullable<float> PropertyValue80 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_80", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue80 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_81")]
-public System.Nullable<float> PropertyValue81 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_81", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue81 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_82")]
-public System.Nullable<float> PropertyValue82 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_82", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue82 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_83")]
-public System.Nullable<float> PropertyValue83 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_83", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue83 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_84")]
-public System.Nullable<float> PropertyValue84 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_84", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue84 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_85")]
-public System.Nullable<float> PropertyValue85 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_85", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue85 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_86")]
-public System.Nullable<float> PropertyValue86 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_86", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue86 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_87")]
-public System.Nullable<float> PropertyValue87 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_87", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue87 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_88")]
-public System.Nullable<float> PropertyValue88 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_88", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue88 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_89")]
-public System.Nullable<float> PropertyValue89 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_89", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue89 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_90")]
-public System.Nullable<float> PropertyValue90 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_90", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue90 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_91")]
-public System.Nullable<float> PropertyValue91 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_91", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue91 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_92")]
-public System.Nullable<float> PropertyValue92 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_92", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue92 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_93")]
-public System.Nullable<float> PropertyValue93 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_93", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue93 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_94")]
-public System.Nullable<float> PropertyValue94 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_94", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue94 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_95")]
-public System.Nullable<float> PropertyValue95 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_95", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue95 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_96")]
-public System.Nullable<float> PropertyValue96 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_96", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue96 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_97")]
-public System.Nullable<float> PropertyValue97 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_97", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue97 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_98")]
-public System.Nullable<float> PropertyValue98 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_98", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue98 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_99")]
-public System.Nullable<float> PropertyValue99 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_99", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue99 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_100")]
-public System.Nullable<float> PropertyValue100 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_100", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue100 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_101")]
-public System.Nullable<float> PropertyValue101 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_101", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue101 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_102")]
-public System.Nullable<float> PropertyValue102 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_102", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue102 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_103")]
-public System.Nullable<float> PropertyValue103 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_103", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue103 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_104")]
-public System.Nullable<float> PropertyValue104 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_104", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue104 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_105")]
-public System.Nullable<float> PropertyValue105 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_105", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue105 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_106")]
-public System.Nullable<float> PropertyValue106 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_106", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue106 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_107")]
-public System.Nullable<float> PropertyValue107 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_107", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue107 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_108")]
-public System.Nullable<float> PropertyValue108 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_108", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue108 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_109")]
-public System.Nullable<float> PropertyValue109 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_109", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue109 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_110")]
-public System.Nullable<float> PropertyValue110 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_110", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue110 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_111")]
-public System.Nullable<float> PropertyValue111 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_111", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue111 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_112")]
-public System.Nullable<float> PropertyValue112 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_112", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue112 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_113")]
-public System.Nullable<float> PropertyValue113 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_113", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue113 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_114")]
-public System.Nullable<float> PropertyValue114 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_114", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue114 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_115")]
-public System.Nullable<float> PropertyValue115 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_115", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue115 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_116")]
-public System.Nullable<float> PropertyValue116 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_116", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue116 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_117")]
-public System.Nullable<float> PropertyValue117 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_117", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue117 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_118")]
-public System.Nullable<float> PropertyValue118 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_118", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue118 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_119")]
-public System.Nullable<float> PropertyValue119 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_119", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue119 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_120")]
-public System.Nullable<float> PropertyValue120 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_120", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue120 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_121")]
-public System.Nullable<float> PropertyValue121 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_121", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue121 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_122")]
-public System.Nullable<float> PropertyValue122 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_122", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue122 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_123")]
-public System.Nullable<float> PropertyValue123 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_123", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue123 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_124")]
-public System.Nullable<float> PropertyValue124 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_124", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue124 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_125")]
-public System.Nullable<float> PropertyValue125 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_125", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue125 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_126")]
-public System.Nullable<float> PropertyValue126 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_126", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue126 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_127")]
-public System.Nullable<float> PropertyValue127 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_127", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue127 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_128")]
-public System.Nullable<float> PropertyValue128 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_128", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue128 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_129")]
-public System.Nullable<float> PropertyValue129 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_129", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue129 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_130")]
-public System.Nullable<float> PropertyValue130 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_130", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue130 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_131")]
-public System.Nullable<float> PropertyValue131 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_131", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue131 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_132")]
-public System.Nullable<float> PropertyValue132 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_132", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue132 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_133")]
-public System.Nullable<float> PropertyValue133 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_133", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue133 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_134")]
-public System.Nullable<float> PropertyValue134 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_134", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue134 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_135")]
-public System.Nullable<float> PropertyValue135 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_135", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue135 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_136")]
-public System.Nullable<float> PropertyValue136 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_136", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue136 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_137")]
-public System.Nullable<float> PropertyValue137 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_137", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue137 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_138")]
-public System.Nullable<float> PropertyValue138 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_138", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue138 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_139")]
-public System.Nullable<float> PropertyValue139 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_139", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue139 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_140")]
-public System.Nullable<float> PropertyValue140 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_140", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue140 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_141")]
-public System.Nullable<float> PropertyValue141 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_141", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue141 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_142")]
-public System.Nullable<float> PropertyValue142 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_142", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue142 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_143")]
-public System.Nullable<float> PropertyValue143 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_143", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue143 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_144")]
-public System.Nullable<float> PropertyValue144 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_144", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue144 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_145")]
-public System.Nullable<float> PropertyValue145 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_145", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue145 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_146")]
-public System.Nullable<float> PropertyValue146 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_146", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue146 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_147")]
-public System.Nullable<float> PropertyValue147 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_147", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue147 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_148")]
-public System.Nullable<float> PropertyValue148 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_148", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue148 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_149")]
-public System.Nullable<float> PropertyValue149 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_149", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue149 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_150")]
-public System.Nullable<float> PropertyValue150 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_150", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue150 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_151")]
-public System.Nullable<float> PropertyValue151 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_151", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue151 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_152")]
-public System.Nullable<float> PropertyValue152 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_152", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue152 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_153")]
-public System.Nullable<float> PropertyValue153 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_153", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue153 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_154")]
-public System.Nullable<float> PropertyValue154 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_154", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue154 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_155")]
-public System.Nullable<float> PropertyValue155 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_155", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue155 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_156")]
-public System.Nullable<float> PropertyValue156 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_156", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue156 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_157")]
-public System.Nullable<float> PropertyValue157 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_157", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue157 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_158")]
-public System.Nullable<float> PropertyValue158 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_158", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue158 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_159")]
-public System.Nullable<float> PropertyValue159 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_159", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue159 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_160")]
-public System.Nullable<float> PropertyValue160 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_160", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue160 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_161")]
-public System.Nullable<float> PropertyValue161 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_161", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue161 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_162")]
-public System.Nullable<float> PropertyValue162 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_162", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue162 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_163")]
-public System.Nullable<float> PropertyValue163 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_163", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue163 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_164")]
-public System.Nullable<float> PropertyValue164 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_164", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue164 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_165")]
-public System.Nullable<float> PropertyValue165 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_165", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue165 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_166")]
-public System.Nullable<float> PropertyValue166 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_166", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue166 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_167")]
-public System.Nullable<float> PropertyValue167 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_167", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue167 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_168")]
-public System.Nullable<float> PropertyValue168 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_168", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue168 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_169")]
-public System.Nullable<float> PropertyValue169 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_169", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue169 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_170")]
-public System.Nullable<float> PropertyValue170 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_170", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue170 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_171")]
-public System.Nullable<float> PropertyValue171 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_171", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue171 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_172")]
-public System.Nullable<float> PropertyValue172 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_172", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue172 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_173")]
-public System.Nullable<float> PropertyValue173 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_173", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue173 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_174")]
-public System.Nullable<float> PropertyValue174 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_174", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue174 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_175")]
-public System.Nullable<float> PropertyValue175 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_175", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue175 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_176")]
-public System.Nullable<float> PropertyValue176 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_176", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue176 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_177")]
-public System.Nullable<float> PropertyValue177 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_177", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue177 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_178")]
-public System.Nullable<float> PropertyValue178 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_178", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue178 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_179")]
-public System.Nullable<float> PropertyValue179 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_179", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue179 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_180")]
-public System.Nullable<float> PropertyValue180 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_180", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue180 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_181")]
-public System.Nullable<float> PropertyValue181 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_181", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue181 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_182")]
-public System.Nullable<float> PropertyValue182 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_182", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue182 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_183")]
-public System.Nullable<float> PropertyValue183 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_183", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue183 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_184")]
-public System.Nullable<float> PropertyValue184 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_184", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue184 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_185")]
-public System.Nullable<float> PropertyValue185 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_185", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue185 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_186")]
-public System.Nullable<float> PropertyValue186 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_186", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue186 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_187")]
-public System.Nullable<float> PropertyValue187 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_187", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue187 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_188")]
-public System.Nullable<float> PropertyValue188 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_188", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue188 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_189")]
-public System.Nullable<float> PropertyValue189 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_189", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue189 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_190")]
-public System.Nullable<float> PropertyValue190 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_190", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue190 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_191")]
-public System.Nullable<float> PropertyValue191 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_191", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue191 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_192")]
-public System.Nullable<float> PropertyValue192 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_192", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue192 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_193")]
-public System.Nullable<float> PropertyValue193 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_193", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue193 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_194")]
-public System.Nullable<float> PropertyValue194 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_194", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue194 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_195")]
-public System.Nullable<float> PropertyValue195 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_195", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue195 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_196")]
-public System.Nullable<float> PropertyValue196 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_196", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue196 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_197")]
-public System.Nullable<float> PropertyValue197 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_197", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue197 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_198")]
-public System.Nullable<float> PropertyValue198 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_198", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue198 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_199")]
-public System.Nullable<float> PropertyValue199 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_199", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue199 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_200")]
-public System.Nullable<float> PropertyValue200 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_200", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue200 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_201")]
-public System.Nullable<float> PropertyValue201 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_201", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue201 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_202")]
-public System.Nullable<float> PropertyValue202 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_202", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue202 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_203")]
-public System.Nullable<float> PropertyValue203 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_203", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue203 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_204")]
-public System.Nullable<float> PropertyValue204 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_204", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue204 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_205")]
-public System.Nullable<float> PropertyValue205 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_205", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue205 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_206")]
-public System.Nullable<float> PropertyValue206 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_206", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue206 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_207")]
-public System.Nullable<float> PropertyValue207 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_207", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue207 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_208")]
-public System.Nullable<float> PropertyValue208 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_208", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue208 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_209")]
-public System.Nullable<float> PropertyValue209 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_209", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue209 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_210")]
-public System.Nullable<float> PropertyValue210 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_210", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue210 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_211")]
-public System.Nullable<float> PropertyValue211 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_211", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue211 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_212")]
-public System.Nullable<float> PropertyValue212 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_212", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue212 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_213")]
-public System.Nullable<float> PropertyValue213 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_213", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue213 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_214")]
-public System.Nullable<float> PropertyValue214 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_214", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue214 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_215")]
-public System.Nullable<float> PropertyValue215 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_215", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue215 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_216")]
-public System.Nullable<float> PropertyValue216 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_216", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue216 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_217")]
-public System.Nullable<float> PropertyValue217 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_217", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue217 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_218")]
-public System.Nullable<float> PropertyValue218 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_218", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue218 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_219")]
-public System.Nullable<float> PropertyValue219 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_219", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue219 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_220")]
-public System.Nullable<float> PropertyValue220 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_220", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue220 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_221")]
-public System.Nullable<float> PropertyValue221 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_221", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue221 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_222")]
-public System.Nullable<float> PropertyValue222 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_222", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue222 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_223")]
-public System.Nullable<float> PropertyValue223 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_223", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue223 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_224")]
-public System.Nullable<float> PropertyValue224 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_224", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue224 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_225")]
-public System.Nullable<float> PropertyValue225 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_225", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue225 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_226")]
-public System.Nullable<float> PropertyValue226 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_226", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue226 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_227")]
-public System.Nullable<float> PropertyValue227 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_227", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue227 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_228")]
-public System.Nullable<float> PropertyValue228 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_228", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue228 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_229")]
-public System.Nullable<float> PropertyValue229 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_229", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue229 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_230")]
-public System.Nullable<float> PropertyValue230 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_230", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue230 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_231")]
-public System.Nullable<float> PropertyValue231 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_231", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue231 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_232")]
-public System.Nullable<float> PropertyValue232 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_232", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue232 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_233")]
-public System.Nullable<float> PropertyValue233 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_233", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue233 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_234")]
-public System.Nullable<float> PropertyValue234 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_234", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue234 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_235")]
-public System.Nullable<float> PropertyValue235 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_235", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue235 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_236")]
-public System.Nullable<float> PropertyValue236 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_236", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue236 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_237")]
-public System.Nullable<float> PropertyValue237 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_237", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue237 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_238")]
-public System.Nullable<float> PropertyValue238 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_238", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue238 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_239")]
-public System.Nullable<float> PropertyValue239 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_239", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue239 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_240")]
-public System.Nullable<float> PropertyValue240 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_240", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue240 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_241")]
-public System.Nullable<float> PropertyValue241 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_241", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue241 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_242")]
-public System.Nullable<float> PropertyValue242 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_242", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue242 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_243")]
-public System.Nullable<float> PropertyValue243 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_243", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue243 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_244")]
-public System.Nullable<float> PropertyValue244 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_244", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue244 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_245")]
-public System.Nullable<float> PropertyValue245 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_245", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue245 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_246")]
-public System.Nullable<float> PropertyValue246 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_246", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue246 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_247")]
-public System.Nullable<float> PropertyValue247 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_247", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue247 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_248")]
-public System.Nullable<float> PropertyValue248 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_248", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue248 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_249")]
-public System.Nullable<float> PropertyValue249 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_249", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue249 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="property_value_250")]
-public System.Nullable<float> PropertyValue250 { get; set; } = null;
+[JsonProperty(PropertyName="property_value_250", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PropertyValue250 { get; set; } = null;
     }
     
     public enum FluidProperties_Concentration_FluidPropertyType

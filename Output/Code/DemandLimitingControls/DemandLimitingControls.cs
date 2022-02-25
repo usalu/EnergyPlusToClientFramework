@@ -78,40 +78,41 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="meter_name")]
+[JsonProperty(PropertyName="meter_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MeterName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="demand_limit_schedule_name")]
+[JsonProperty(PropertyName="demand_limit_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string DemandLimitScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="demand_limit_safety_fraction")]
-public System.Nullable<float> DemandLimitSafetyFraction { get; set; } = null;
+[JsonProperty(PropertyName="demand_limit_safety_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DemandLimitSafetyFraction { get; set; } = null;
         
 
 [Description("This field should reference the same schedule as the month schedule name field of" +
     " the UtilityCost:Tariff object, if used. If blank, defaults to regular divisions" +
     " between months.")]
-[JsonProperty(PropertyName="billing_period_schedule_name")]
+[JsonProperty(PropertyName="billing_period_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BillingPeriodScheduleName { get; set; } = "";
         
 
 [Description("This field should reference the same schedule as the period schedule name field o" +
     "f the UtilityCost:Tariff object, if used. If blank, defaults to always on peak.")]
-[JsonProperty(PropertyName="peak_period_schedule_name")]
+[JsonProperty(PropertyName="peak_period_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PeakPeriodScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="demand_window_length")]
-public System.Nullable<float> DemandWindowLength { get; set; } = null;
+[JsonProperty(PropertyName="demand_window_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DemandWindowLength { get; set; } = null;
         
 
-[JsonProperty(PropertyName="demand_manager_priority", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="demand_manager_priority", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManagerAssignmentList_DemandManagerPriority DemandManagerPriority { get; set; } = (DemandManagerAssignmentList_DemandManagerPriority)Enum.Parse(typeof(DemandManagerAssignmentList_DemandManagerPriority), "All");
         
 
-[JsonProperty(PropertyName="manager_data")]
+[JsonProperty(PropertyName="manager_data", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ManagerData { get; set; } = "";
     }
     
@@ -138,38 +139,40 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="limit_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="limit_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_ExteriorLights_LimitControl LimitControl { get; set; } = (DemandManager_ExteriorLights_LimitControl)Enum.Parse(typeof(DemandManager_ExteriorLights_LimitControl), "Fixed");
         
 
 [Description("If blank, duration defaults to the timestep")]
-[JsonProperty(PropertyName="minimum_limit_duration")]
-public System.Nullable<float> MinimumLimitDuration { get; set; } = null;
+[JsonProperty(PropertyName="minimum_limit_duration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumLimitDuration { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_limit_fraction")]
-public System.Nullable<float> MaximumLimitFraction { get; set; } = null;
+[JsonProperty(PropertyName="maximum_limit_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumLimitFraction { get; set; } = null;
         
 
 [Description("Not yet implemented")]
-[JsonProperty(PropertyName="limit_step_change")]
-public System.Nullable<float> LimitStepChange { get; set; } = null;
+[JsonProperty(PropertyName="limit_step_change", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> LimitStepChange { get; set; } = null;
         
 
-[JsonProperty(PropertyName="selection_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="selection_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_ExteriorLights_SelectionControl SelectionControl { get; set; } = (DemandManager_ExteriorLights_SelectionControl)Enum.Parse(typeof(DemandManager_ExteriorLights_SelectionControl), "All");
         
 
 [Description("If blank, duration defaults to the timestep")]
-[JsonProperty(PropertyName="rotation_duration")]
-public System.Nullable<float> RotationDuration { get; set; } = null;
+[JsonProperty(PropertyName="rotation_duration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RotationDuration { get; set; } = null;
         
 
-[JsonProperty(PropertyName="lights")]
+[JsonProperty(PropertyName="lights", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Lights { get; set; } = "";
     }
     
@@ -209,38 +212,40 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="limit_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="limit_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_Lights_LimitControl LimitControl { get; set; } = (DemandManager_Lights_LimitControl)Enum.Parse(typeof(DemandManager_Lights_LimitControl), "Fixed");
         
 
 [Description("If blank, duration defaults to the timestep")]
-[JsonProperty(PropertyName="minimum_limit_duration")]
-public System.Nullable<float> MinimumLimitDuration { get; set; } = null;
+[JsonProperty(PropertyName="minimum_limit_duration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumLimitDuration { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_limit_fraction")]
-public System.Nullable<float> MaximumLimitFraction { get; set; } = null;
+[JsonProperty(PropertyName="maximum_limit_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumLimitFraction { get; set; } = null;
         
 
 [Description("Not yet implemented")]
-[JsonProperty(PropertyName="limit_step_change")]
-public System.Nullable<float> LimitStepChange { get; set; } = null;
+[JsonProperty(PropertyName="limit_step_change", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> LimitStepChange { get; set; } = null;
         
 
-[JsonProperty(PropertyName="selection_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="selection_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_Lights_SelectionControl SelectionControl { get; set; } = (DemandManager_Lights_SelectionControl)Enum.Parse(typeof(DemandManager_Lights_SelectionControl), "All");
         
 
 [Description("If blank, duration defaults to the timestep")]
-[JsonProperty(PropertyName="rotation_duration")]
-public System.Nullable<float> RotationDuration { get; set; } = null;
+[JsonProperty(PropertyName="rotation_duration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RotationDuration { get; set; } = null;
         
 
-[JsonProperty(PropertyName="lights")]
+[JsonProperty(PropertyName="lights", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Lights { get; set; } = "";
     }
     
@@ -280,38 +285,40 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="limit_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="limit_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_ElectricEquipment_LimitControl LimitControl { get; set; } = (DemandManager_ElectricEquipment_LimitControl)Enum.Parse(typeof(DemandManager_ElectricEquipment_LimitControl), "Fixed");
         
 
 [Description("If blank, duration defaults to the timestep")]
-[JsonProperty(PropertyName="minimum_limit_duration")]
-public System.Nullable<float> MinimumLimitDuration { get; set; } = null;
+[JsonProperty(PropertyName="minimum_limit_duration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumLimitDuration { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_limit_fraction")]
-public System.Nullable<float> MaximumLimitFraction { get; set; } = null;
+[JsonProperty(PropertyName="maximum_limit_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumLimitFraction { get; set; } = null;
         
 
 [Description("Not yet implemented")]
-[JsonProperty(PropertyName="limit_step_change")]
-public System.Nullable<float> LimitStepChange { get; set; } = null;
+[JsonProperty(PropertyName="limit_step_change", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> LimitStepChange { get; set; } = null;
         
 
-[JsonProperty(PropertyName="selection_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="selection_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_ElectricEquipment_SelectionControl SelectionControl { get; set; } = (DemandManager_ElectricEquipment_SelectionControl)Enum.Parse(typeof(DemandManager_ElectricEquipment_SelectionControl), "All");
         
 
 [Description("If blank, duration defaults to the timestep")]
-[JsonProperty(PropertyName="rotation_duration")]
-public System.Nullable<float> RotationDuration { get; set; } = null;
+[JsonProperty(PropertyName="rotation_duration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RotationDuration { get; set; } = null;
         
 
-[JsonProperty(PropertyName="equipment")]
+[JsonProperty(PropertyName="equipment", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Equipment { get; set; } = "";
     }
     
@@ -351,42 +358,44 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="reset_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="reset_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_Thermostats_ResetControl ResetControl { get; set; } = (DemandManager_Thermostats_ResetControl)Enum.Parse(typeof(DemandManager_Thermostats_ResetControl), "Fixed");
         
 
 [Description("If blank, duration defaults to the timestep")]
-[JsonProperty(PropertyName="minimum_reset_duration")]
-public System.Nullable<float> MinimumResetDuration { get; set; } = null;
+[JsonProperty(PropertyName="minimum_reset_duration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumResetDuration { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_heating_setpoint_reset")]
-public System.Nullable<float> MaximumHeatingSetpointReset { get; set; } = null;
+[JsonProperty(PropertyName="maximum_heating_setpoint_reset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumHeatingSetpointReset { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_cooling_setpoint_reset")]
-public System.Nullable<float> MaximumCoolingSetpointReset { get; set; } = null;
+[JsonProperty(PropertyName="maximum_cooling_setpoint_reset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCoolingSetpointReset { get; set; } = null;
         
 
 [Description("Not yet implemented")]
-[JsonProperty(PropertyName="reset_step_change")]
-public System.Nullable<float> ResetStepChange { get; set; } = null;
+[JsonProperty(PropertyName="reset_step_change", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ResetStepChange { get; set; } = null;
         
 
-[JsonProperty(PropertyName="selection_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="selection_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_Thermostats_SelectionControl SelectionControl { get; set; } = (DemandManager_Thermostats_SelectionControl)Enum.Parse(typeof(DemandManager_Thermostats_SelectionControl), "All");
         
 
 [Description("If blank, duration defaults to the timestep")]
-[JsonProperty(PropertyName="rotation_duration")]
-public System.Nullable<float> RotationDuration { get; set; } = null;
+[JsonProperty(PropertyName="rotation_duration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RotationDuration { get; set; } = null;
         
 
-[JsonProperty(PropertyName="thermostats")]
+[JsonProperty(PropertyName="thermostats", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Thermostats { get; set; } = "";
     }
     
@@ -427,44 +436,46 @@ public string NodeName { get; set; } = "";
 [Description("Availability schedule name for this demand manager. Schedule value > 0 means the " +
     "demand manager is available. If this field is blank, the DR is always available." +
     "")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="limit_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="limit_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_Ventilation_LimitControl LimitControl { get; set; } = (DemandManager_Ventilation_LimitControl)Enum.Parse(typeof(DemandManager_Ventilation_LimitControl), "FixedRate");
         
 
 [Description("If blank, duration defaults to the timestep")]
-[JsonProperty(PropertyName="minimum_limit_duration")]
-public System.Nullable<float> MinimumLimitDuration { get; set; } = null;
+[JsonProperty(PropertyName="minimum_limit_duration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumLimitDuration { get; set; } = null;
         
 
 [Description("Used in case when Limit strategy is set to FixedRate")]
-[JsonProperty(PropertyName="fixed_rate")]
-public System.Nullable<float> FixedRate { get; set; } = null;
+[JsonProperty(PropertyName="fixed_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FixedRate { get; set; } = null;
         
 
 [Description("Used in case when Limit Control is set to ReductionRatio")]
-[JsonProperty(PropertyName="reduction_ratio")]
-public System.Nullable<float> ReductionRatio { get; set; } = null;
+[JsonProperty(PropertyName="reduction_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReductionRatio { get; set; } = null;
         
 
 [Description("Not yet implemented")]
-[JsonProperty(PropertyName="limit_step_change")]
-public System.Nullable<float> LimitStepChange { get; set; } = null;
+[JsonProperty(PropertyName="limit_step_change", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> LimitStepChange { get; set; } = null;
         
 
-[JsonProperty(PropertyName="selection_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="selection_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public DemandManager_Ventilation_SelectionControl SelectionControl { get; set; } = (DemandManager_Ventilation_SelectionControl)Enum.Parse(typeof(DemandManager_Ventilation_SelectionControl), "All");
         
 
 [Description("If blank, duration defaults to the timestep")]
-[JsonProperty(PropertyName="rotation_duration")]
-public System.Nullable<float> RotationDuration { get; set; } = null;
+[JsonProperty(PropertyName="rotation_duration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RotationDuration { get; set; } = null;
         
 
-[JsonProperty(PropertyName="controllers")]
+[JsonProperty(PropertyName="controllers", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Controllers { get; set; } = "";
     }
     

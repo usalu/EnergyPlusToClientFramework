@@ -78,16 +78,17 @@ namespace BH.oM.Adapters.EnergyPlus.SetpointManagers
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_Scheduled_ControlVariable ControlVariable { get; set; } = (SetpointManager_Scheduled_ControlVariable)Enum.Parse(typeof(SetpointManager_Scheduled_ControlVariable), "HumidityRatio");
         
 
-[JsonProperty(PropertyName="schedule_name")]
+[JsonProperty(PropertyName="schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ScheduleName { get; set; } = "";
         
 
 [Description("Node(s) at which control variable will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -133,20 +134,21 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_Scheduled_DualSetpoint_ControlVariable ControlVariable { get; set; } = (SetpointManager_Scheduled_DualSetpoint_ControlVariable)Enum.Parse(typeof(SetpointManager_Scheduled_DualSetpoint_ControlVariable), "Temperature");
         
 
-[JsonProperty(PropertyName="high_setpoint_schedule_name")]
+[JsonProperty(PropertyName="high_setpoint_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HighSetpointScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="low_setpoint_schedule_name")]
+[JsonProperty(PropertyName="low_setpoint_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string LowSetpointScheduleName { get; set; } = "";
         
 
 [Description("Node(s) at which temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -173,56 +175,57 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_OutdoorAirReset_ControlVariable ControlVariable { get; set; } = (SetpointManager_OutdoorAirReset_ControlVariable)Enum.Parse(typeof(SetpointManager_OutdoorAirReset_ControlVariable), "Temperature");
         
 
-[JsonProperty(PropertyName="setpoint_at_outdoor_low_temperature")]
-public System.Nullable<float> SetpointAtOutdoorLowTemperature { get; set; } = null;
+[JsonProperty(PropertyName="setpoint_at_outdoor_low_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SetpointAtOutdoorLowTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="outdoor_low_temperature")]
-public System.Nullable<float> OutdoorLowTemperature { get; set; } = null;
+[JsonProperty(PropertyName="outdoor_low_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OutdoorLowTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="setpoint_at_outdoor_high_temperature")]
-public System.Nullable<float> SetpointAtOutdoorHighTemperature { get; set; } = null;
+[JsonProperty(PropertyName="setpoint_at_outdoor_high_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SetpointAtOutdoorHighTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="outdoor_high_temperature")]
-public System.Nullable<float> OutdoorHighTemperature { get; set; } = null;
+[JsonProperty(PropertyName="outdoor_high_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OutdoorHighTemperature { get; set; } = null;
         
 
 [Description("Node(s) at which temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
         
 
 [Description("Optional input. Schedule allows scheduling of the outdoor air reset rule - a sche" +
     "dule value of 1 means use the first rule; a value of 2 means use the second rule" +
     ".")]
-[JsonProperty(PropertyName="schedule_name")]
+[JsonProperty(PropertyName="schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ScheduleName { get; set; } = "";
         
 
 [Description("2nd outdoor air temperature reset rule")]
-[JsonProperty(PropertyName="setpoint_at_outdoor_low_temperature_2")]
-public System.Nullable<float> SetpointAtOutdoorLowTemperature2 { get; set; } = null;
+[JsonProperty(PropertyName="setpoint_at_outdoor_low_temperature_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SetpointAtOutdoorLowTemperature2 { get; set; } = null;
         
 
 [Description("2nd outdoor air temperature reset rule")]
-[JsonProperty(PropertyName="outdoor_low_temperature_2")]
-public System.Nullable<float> OutdoorLowTemperature2 { get; set; } = null;
+[JsonProperty(PropertyName="outdoor_low_temperature_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OutdoorLowTemperature2 { get; set; } = null;
         
 
 [Description("2nd outdoor air temperature reset rule")]
-[JsonProperty(PropertyName="setpoint_at_outdoor_high_temperature_2")]
-public System.Nullable<float> SetpointAtOutdoorHighTemperature2 { get; set; } = null;
+[JsonProperty(PropertyName="setpoint_at_outdoor_high_temperature_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SetpointAtOutdoorHighTemperature2 { get; set; } = null;
         
 
 [Description("2nd outdoor air temperature reset rule")]
-[JsonProperty(PropertyName="outdoor_high_temperature_2")]
-public System.Nullable<float> OutdoorHighTemperature2 { get; set; } = null;
+[JsonProperty(PropertyName="outdoor_high_temperature_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OutdoorHighTemperature2 { get; set; } = null;
     }
     
     public enum SetpointManager_OutdoorAirReset_ControlVariable
@@ -252,32 +255,33 @@ public System.Nullable<float> OutdoorHighTemperature2 { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_SingleZone_Reheat_ControlVariable ControlVariable { get; set; } = (SetpointManager_SingleZone_Reheat_ControlVariable)Enum.Parse(typeof(SetpointManager_SingleZone_Reheat_ControlVariable), "Temperature");
         
 
-[JsonProperty(PropertyName="minimum_supply_air_temperature")]
-public System.Nullable<float> MinimumSupplyAirTemperature { get; set; } = (System.Nullable<float>)Single.Parse("-99", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_supply_air_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSupplyAirTemperature { get; set; } = (System.Nullable<double>)Double.Parse("-99", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_supply_air_temperature")]
-public System.Nullable<float> MaximumSupplyAirTemperature { get; set; } = (System.Nullable<float>)Single.Parse("99", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_supply_air_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSupplyAirTemperature { get; set; } = (System.Nullable<double>)Double.Parse("99", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="control_zone_name")]
+[JsonProperty(PropertyName="control_zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControlZoneName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="zone_node_name")]
+[JsonProperty(PropertyName="zone_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="zone_inlet_node_name")]
+[JsonProperty(PropertyName="zone_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneInletNodeName { get; set; } = "";
         
 
 [Description("Node(s) at which the temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -302,32 +306,33 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_SingleZone_Heating_ControlVariable ControlVariable { get; set; } = (SetpointManager_SingleZone_Heating_ControlVariable)Enum.Parse(typeof(SetpointManager_SingleZone_Heating_ControlVariable), "Temperature");
         
 
-[JsonProperty(PropertyName="minimum_supply_air_temperature")]
-public System.Nullable<float> MinimumSupplyAirTemperature { get; set; } = (System.Nullable<float>)Single.Parse("-99", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_supply_air_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSupplyAirTemperature { get; set; } = (System.Nullable<double>)Double.Parse("-99", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_supply_air_temperature")]
-public System.Nullable<float> MaximumSupplyAirTemperature { get; set; } = (System.Nullable<float>)Single.Parse("99", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_supply_air_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSupplyAirTemperature { get; set; } = (System.Nullable<double>)Double.Parse("99", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="control_zone_name")]
+[JsonProperty(PropertyName="control_zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControlZoneName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="zone_node_name")]
+[JsonProperty(PropertyName="zone_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="zone_inlet_node_name")]
+[JsonProperty(PropertyName="zone_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneInletNodeName { get; set; } = "";
         
 
 [Description("Node(s) at which the temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -352,32 +357,33 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_SingleZone_Cooling_ControlVariable ControlVariable { get; set; } = (SetpointManager_SingleZone_Cooling_ControlVariable)Enum.Parse(typeof(SetpointManager_SingleZone_Cooling_ControlVariable), "Temperature");
         
 
-[JsonProperty(PropertyName="minimum_supply_air_temperature")]
-public System.Nullable<float> MinimumSupplyAirTemperature { get; set; } = (System.Nullable<float>)Single.Parse("-99", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_supply_air_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSupplyAirTemperature { get; set; } = (System.Nullable<double>)Double.Parse("-99", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_supply_air_temperature")]
-public System.Nullable<float> MaximumSupplyAirTemperature { get; set; } = (System.Nullable<float>)Single.Parse("99", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_supply_air_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSupplyAirTemperature { get; set; } = (System.Nullable<double>)Double.Parse("99", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="control_zone_name")]
+[JsonProperty(PropertyName="control_zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControlZoneName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="zone_node_name")]
+[JsonProperty(PropertyName="zone_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="zone_inlet_node_name")]
+[JsonProperty(PropertyName="zone_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneInletNodeName { get; set; } = "";
         
 
 [Description("Node(s) at which the temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -405,12 +411,12 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Node(s) at which humidity ratio setpoint will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
         
 
 [Description("Name of the zone air node for the humidity control zone")]
-[JsonProperty(PropertyName="control_zone_air_node_name")]
+[JsonProperty(PropertyName="control_zone_air_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControlZoneAirNodeName { get; set; } = "";
     }
     
@@ -428,12 +434,12 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Node(s) at which humidity ratio setpoint will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
         
 
 [Description("Name of the zone air node for the humidity control zone")]
-[JsonProperty(PropertyName="control_zone_air_node_name")]
+[JsonProperty(PropertyName="control_zone_air_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControlZoneAirNodeName { get; set; } = "";
     }
     
@@ -450,43 +456,44 @@ public string ControlZoneAirNodeName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_MixedAir_ControlVariable ControlVariable { get; set; } = (SetpointManager_MixedAir_ControlVariable)Enum.Parse(typeof(SetpointManager_MixedAir_ControlVariable), "Temperature");
         
 
-[JsonProperty(PropertyName="reference_setpoint_node_name")]
+[JsonProperty(PropertyName="reference_setpoint_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ReferenceSetpointNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fan_inlet_node_name")]
+[JsonProperty(PropertyName="fan_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FanInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fan_outlet_node_name")]
+[JsonProperty(PropertyName="fan_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FanOutletNodeName { get; set; } = "";
         
 
 [Description("Node(s) at which the temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
         
 
 [Description("Optional field used to limit economizer operation to prevent freezing of DX cooli" +
     "ng coil.")]
-[JsonProperty(PropertyName="cooling_coil_inlet_node_name")]
+[JsonProperty(PropertyName="cooling_coil_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CoolingCoilInletNodeName { get; set; } = "";
         
 
 [Description("Optional field used to limit economizer operation to prevent freezing of DX cooli" +
     "ng coil.")]
-[JsonProperty(PropertyName="cooling_coil_outlet_node_name")]
+[JsonProperty(PropertyName="cooling_coil_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CoolingCoilOutletNodeName { get; set; } = "";
         
 
 [Description("Optional field used to limit economizer operation to prevent freezing of DX cooli" +
     "ng coil.")]
-[JsonProperty(PropertyName="minimum_temperature_at_cooling_coil_outlet_node")]
-public System.Nullable<float> MinimumTemperatureAtCoolingCoilOutletNode { get; set; } = (System.Nullable<float>)Single.Parse("7.2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_temperature_at_cooling_coil_outlet_node", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumTemperatureAtCoolingCoilOutletNode { get; set; } = (System.Nullable<double>)Double.Parse("7.2", CultureInfo.InvariantCulture);
     }
     
     public enum SetpointManager_MixedAir_ControlVariable
@@ -512,56 +519,57 @@ public System.Nullable<float> MinimumTemperatureAtCoolingCoilOutletNode { get; s
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_OutdoorAirPretreat_ControlVariable ControlVariable { get; set; } = (SetpointManager_OutdoorAirPretreat_ControlVariable)Enum.Parse(typeof(SetpointManager_OutdoorAirPretreat_ControlVariable), "HumidityRatio");
         
 
 [Description("Applicable only if Control variable is Temperature")]
-[JsonProperty(PropertyName="minimum_setpoint_temperature")]
-public System.Nullable<float> MinimumSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("-99", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("-99", CultureInfo.InvariantCulture);
         
 
 [Description("Applicable only if Control variable is Temperature")]
-[JsonProperty(PropertyName="maximum_setpoint_temperature")]
-public System.Nullable<float> MaximumSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("99", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("99", CultureInfo.InvariantCulture);
         
 
 [Description("Applicable only if Control variable is MaximumHumidityRatio, MinimumHumidityRatio" +
     ", or HumidityRatio - then minimum is 0.00001")]
-[JsonProperty(PropertyName="minimum_setpoint_humidity_ratio")]
-public System.Nullable<float> MinimumSetpointHumidityRatio { get; set; } = (System.Nullable<float>)Single.Parse("1E-05", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_setpoint_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("1E-05", CultureInfo.InvariantCulture);
         
 
 [Description("Applicable only if Control variable is MaximumHumidityRatio, MinimumHumidityRatio" +
     ", or HumidityRatio - then minimum is 0.00001")]
-[JsonProperty(PropertyName="maximum_setpoint_humidity_ratio")]
-public System.Nullable<float> MaximumSetpointHumidityRatio { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_setpoint_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("The current setpoint at this node is the desired condition for the Mixed Air Node" +
     " This node must have a valid setpoint which has been set by another setpoint man" +
     "ager")]
-[JsonProperty(PropertyName="reference_setpoint_node_name")]
+[JsonProperty(PropertyName="reference_setpoint_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ReferenceSetpointNodeName { get; set; } = "";
         
 
 [Description("Name of Mixed Air Node")]
-[JsonProperty(PropertyName="mixed_air_stream_node_name")]
+[JsonProperty(PropertyName="mixed_air_stream_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MixedAirStreamNodeName { get; set; } = "";
         
 
 [Description("Name of Outdoor Air Stream Node")]
-[JsonProperty(PropertyName="outdoor_air_stream_node_name")]
+[JsonProperty(PropertyName="outdoor_air_stream_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string OutdoorAirStreamNodeName { get; set; } = "";
         
 
 [Description("Name of Return Air Stream Node")]
-[JsonProperty(PropertyName="return_air_stream_node_name")]
+[JsonProperty(PropertyName="return_air_stream_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ReturnAirStreamNodeName { get; set; } = "";
         
 
 [Description("Node(s) at which the temperature or humidity ratio will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -593,29 +601,31 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_Warmest_ControlVariable ControlVariable { get; set; } = (SetpointManager_Warmest_ControlVariable)Enum.Parse(typeof(SetpointManager_Warmest_ControlVariable), "Temperature");
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
-[JsonProperty(PropertyName="hvac_air_loop_name")]
+[JsonProperty(PropertyName="hvac_air_loop_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HvacAirLoopName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_setpoint_temperature")]
-public System.Nullable<float> MinimumSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("12", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("12", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_setpoint_temperature")]
-public System.Nullable<float> MaximumSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("18", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="strategy", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="strategy", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_Warmest_Strategy Strategy { get; set; } = (SetpointManager_Warmest_Strategy)Enum.Parse(typeof(SetpointManager_Warmest_Strategy), "MaximumTemperature");
         
 
 [Description("Node(s) at which the temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -653,29 +663,31 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_Coldest_ControlVariable ControlVariable { get; set; } = (SetpointManager_Coldest_ControlVariable)Enum.Parse(typeof(SetpointManager_Coldest_ControlVariable), "Temperature");
         
 
 [Description("Enter the name of an AirLoopHVAC object.")]
-[JsonProperty(PropertyName="hvac_air_loop_name")]
+[JsonProperty(PropertyName="hvac_air_loop_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HvacAirLoopName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_setpoint_temperature")]
-public System.Nullable<float> MinimumSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("20", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("20", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_setpoint_temperature")]
-public System.Nullable<float> MaximumSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("50", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("50", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="strategy", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="strategy", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_Coldest_Strategy Strategy { get; set; } = (SetpointManager_Coldest_Strategy)Enum.Parse(typeof(SetpointManager_Coldest_Strategy), "MinimumTemperature");
         
 
 [Description("Node(s) at which the temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -711,16 +723,17 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_ReturnAirBypassFlow_ControlVariable ControlVariable { get; set; } = (SetpointManager_ReturnAirBypassFlow_ControlVariable)Enum.Parse(typeof(SetpointManager_ReturnAirBypassFlow_ControlVariable), "Flow");
         
 
 [Description("Enter the name of an AirLoopHVAC object.")]
-[JsonProperty(PropertyName="hvac_air_loop_name")]
+[JsonProperty(PropertyName="hvac_air_loop_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HvacAirLoopName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="temperature_setpoint_schedule_name")]
+[JsonProperty(PropertyName="temperature_setpoint_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TemperatureSetpointScheduleName { get; set; } = "";
     }
     
@@ -746,37 +759,39 @@ public string TemperatureSetpointScheduleName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_WarmestTemperatureFlow_ControlVariable ControlVariable { get; set; } = (SetpointManager_WarmestTemperatureFlow_ControlVariable)Enum.Parse(typeof(SetpointManager_WarmestTemperatureFlow_ControlVariable), "Temperature");
         
 
 [Description("Enter the name of an AirLoopHVAC object.")]
-[JsonProperty(PropertyName="hvac_air_loop_name")]
+[JsonProperty(PropertyName="hvac_air_loop_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HvacAirLoopName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_setpoint_temperature")]
-public System.Nullable<float> MinimumSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("12", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("12", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_setpoint_temperature")]
-public System.Nullable<float> MaximumSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("18", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [Description(@"For TemperatureFirst the manager tries to find the highest setpoint temperature that will satisfy all the zone cooling loads at minimum supply air flow rate. If this setpoint temperature is less than the minimum, the setpoint temperature is set to the minimum, and the supply air flow rate is increased to meet the loads. For FlowFirst the manager tries to find the lowest supply air flow rate that will satisfy all the zone cooling loads at the maximum setpoint temperature. If this flow is greater than the maximum, the flow is set to the maximum and the setpoint temperature is reduced to satisfy the cooling loads.")]
-[JsonProperty(PropertyName="strategy", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="strategy", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_WarmestTemperatureFlow_Strategy Strategy { get; set; } = (SetpointManager_WarmestTemperatureFlow_Strategy)Enum.Parse(typeof(SetpointManager_WarmestTemperatureFlow_Strategy), "TemperatureFirst");
         
 
 [Description("Node(s) at which the temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
         
 
 [Description("Fraction of the maximum supply air flow rate. Used to define the minimum supply f" +
     "low for the TemperatureFirst strategy.")]
-[JsonProperty(PropertyName="minimum_turndown_ratio")]
-public System.Nullable<float> MinimumTurndownRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_turndown_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumTurndownRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
     }
     
     public enum SetpointManager_WarmestTemperatureFlow_ControlVariable
@@ -813,20 +828,20 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
-[JsonProperty(PropertyName="hvac_air_loop_name")]
+[JsonProperty(PropertyName="hvac_air_loop_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HvacAirLoopName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_setpoint_temperature")]
-public System.Nullable<float> MinimumSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("20", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("20", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_setpoint_temperature")]
-public System.Nullable<float> MaximumSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("50", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("50", CultureInfo.InvariantCulture);
         
 
 [Description("Node(s) at which the temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -844,20 +859,20 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
-[JsonProperty(PropertyName="hvac_air_loop_name")]
+[JsonProperty(PropertyName="hvac_air_loop_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HvacAirLoopName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_setpoint_temperature")]
-public System.Nullable<float> MinimumSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("12", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("12", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_setpoint_temperature")]
-public System.Nullable<float> MaximumSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("18", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [Description("Node(s) at which the temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -875,20 +890,20 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
-[JsonProperty(PropertyName="hvac_air_loop_name")]
+[JsonProperty(PropertyName="hvac_air_loop_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HvacAirLoopName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_setpoint_humidity_ratio")]
-public System.Nullable<float> MinimumSetpointHumidityRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.005", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_setpoint_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.005", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_setpoint_humidity_ratio")]
-public System.Nullable<float> MaximumSetpointHumidityRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.012", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_setpoint_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.012", CultureInfo.InvariantCulture);
         
 
 [Description("Node(s) at which the humidity ratio will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -906,20 +921,20 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
-[JsonProperty(PropertyName="hvac_air_loop_name")]
+[JsonProperty(PropertyName="hvac_air_loop_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HvacAirLoopName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_setpoint_humidity_ratio")]
-public System.Nullable<float> MinimumSetpointHumidityRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.008", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_setpoint_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.008", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_setpoint_humidity_ratio")]
-public System.Nullable<float> MaximumSetpointHumidityRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.015", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_setpoint_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.015", CultureInfo.InvariantCulture);
         
 
 [Description("Node(s) at which the humidity ratio will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -935,20 +950,20 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
-[JsonProperty(PropertyName="hvac_air_loop_name")]
+[JsonProperty(PropertyName="hvac_air_loop_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HvacAirLoopName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_setpoint_humidity_ratio")]
-public System.Nullable<float> MinimumSetpointHumidityRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.005", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_setpoint_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.005", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_setpoint_humidity_ratio")]
-public System.Nullable<float> MaximumSetpointHumidityRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.012", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_setpoint_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.012", CultureInfo.InvariantCulture);
         
 
 [Description("Node(s) at which the humidity ratio will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -964,20 +979,20 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of an AirLoopHVAC object")]
-[JsonProperty(PropertyName="hvac_air_loop_name")]
+[JsonProperty(PropertyName="hvac_air_loop_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HvacAirLoopName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_setpoint_humidity_ratio")]
-public System.Nullable<float> MinimumSetpointHumidityRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.008", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_setpoint_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.008", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_setpoint_humidity_ratio")]
-public System.Nullable<float> MaximumSetpointHumidityRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.015", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_setpoint_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.015", CultureInfo.InvariantCulture);
         
 
 [Description("Node(s) at which the humidity ratio will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -995,28 +1010,30 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_FollowOutdoorAirTemperature_ControlVariable ControlVariable { get; set; } = (SetpointManager_FollowOutdoorAirTemperature_ControlVariable)Enum.Parse(typeof(SetpointManager_FollowOutdoorAirTemperature_ControlVariable), "Temperature");
         
 
-[JsonProperty(PropertyName="reference_temperature_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="reference_temperature_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_FollowOutdoorAirTemperature_ReferenceTemperatureType ReferenceTemperatureType { get; set; } = (SetpointManager_FollowOutdoorAirTemperature_ReferenceTemperatureType)Enum.Parse(typeof(SetpointManager_FollowOutdoorAirTemperature_ReferenceTemperatureType), "OutdoorAirWetBulb");
         
 
-[JsonProperty(PropertyName="offset_temperature_difference")]
-public System.Nullable<float> OffsetTemperatureDifference { get; set; } = null;
+[JsonProperty(PropertyName="offset_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OffsetTemperatureDifference { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_setpoint_temperature")]
-public System.Nullable<float> MaximumSetpointTemperature { get; set; } = null;
+[JsonProperty(PropertyName="maximum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_setpoint_temperature")]
-public System.Nullable<float> MinimumSetpointTemperature { get; set; } = null;
+[JsonProperty(PropertyName="minimum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointTemperature { get; set; } = null;
         
 
 [Description("Node(s) at which control variable will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -1060,32 +1077,34 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_FollowSystemNodeTemperature_ControlVariable ControlVariable { get; set; } = (SetpointManager_FollowSystemNodeTemperature_ControlVariable)Enum.Parse(typeof(SetpointManager_FollowSystemNodeTemperature_ControlVariable), "Temperature");
         
 
-[JsonProperty(PropertyName="reference_node_name")]
+[JsonProperty(PropertyName="reference_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ReferenceNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="reference_temperature_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="reference_temperature_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_FollowSystemNodeTemperature_ReferenceTemperatureType ReferenceTemperatureType { get; set; } = (SetpointManager_FollowSystemNodeTemperature_ReferenceTemperatureType)Enum.Parse(typeof(SetpointManager_FollowSystemNodeTemperature_ReferenceTemperatureType), "NodeDryBulb");
         
 
-[JsonProperty(PropertyName="offset_temperature_difference")]
-public System.Nullable<float> OffsetTemperatureDifference { get; set; } = null;
+[JsonProperty(PropertyName="offset_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OffsetTemperatureDifference { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_limit_setpoint_temperature")]
-public System.Nullable<float> MaximumLimitSetpointTemperature { get; set; } = null;
+[JsonProperty(PropertyName="maximum_limit_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumLimitSetpointTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_limit_setpoint_temperature")]
-public System.Nullable<float> MinimumLimitSetpointTemperature { get; set; } = null;
+[JsonProperty(PropertyName="minimum_limit_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumLimitSetpointTemperature { get; set; } = null;
         
 
 [Description("Node(s) at which control variable will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -1129,28 +1148,30 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_FollowGroundTemperature_ControlVariable ControlVariable { get; set; } = (SetpointManager_FollowGroundTemperature_ControlVariable)Enum.Parse(typeof(SetpointManager_FollowGroundTemperature_ControlVariable), "Temperature");
         
 
-[JsonProperty(PropertyName="reference_ground_temperature_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="reference_ground_temperature_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_FollowGroundTemperature_ReferenceGroundTemperatureObjectType ReferenceGroundTemperatureObjectType { get; set; } = (SetpointManager_FollowGroundTemperature_ReferenceGroundTemperatureObjectType)Enum.Parse(typeof(SetpointManager_FollowGroundTemperature_ReferenceGroundTemperatureObjectType), "SiteGroundTemperatureBuildingSurface");
         
 
-[JsonProperty(PropertyName="offset_temperature_difference")]
-public System.Nullable<float> OffsetTemperatureDifference { get; set; } = null;
+[JsonProperty(PropertyName="offset_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OffsetTemperatureDifference { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_setpoint_temperature")]
-public System.Nullable<float> MaximumSetpointTemperature { get; set; } = null;
+[JsonProperty(PropertyName="maximum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSetpointTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_setpoint_temperature")]
-public System.Nullable<float> MinimumSetpointTemperature { get; set; } = null;
+[JsonProperty(PropertyName="minimum_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSetpointTemperature { get; set; } = null;
         
 
 [Description("Node(s) at which control variable will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -1199,43 +1220,44 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_CondenserEnteringReset_ControlVariable ControlVariable { get; set; } = (SetpointManager_CondenserEnteringReset_ControlVariable)Enum.Parse(typeof(SetpointManager_CondenserEnteringReset_ControlVariable), "Temperature");
         
 
 [Description("This scheduled setpoint value is only used in a given timestep if the \"Optimized\"" +
     " Condenser Entering Temperature does not fall within the prescribed boundary con" +
     "ditions.")]
-[JsonProperty(PropertyName="default_condenser_entering_water_temperature_schedule_name")]
+[JsonProperty(PropertyName="default_condenser_entering_water_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string DefaultCondenserEnteringWaterTemperatureScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_design_wetbulb_temperature_curve_name")]
+[JsonProperty(PropertyName="minimum_design_wetbulb_temperature_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MinimumDesignWetbulbTemperatureCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_outside_air_wetbulb_temperature_curve_name")]
+[JsonProperty(PropertyName="minimum_outside_air_wetbulb_temperature_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MinimumOutsideAirWetbulbTemperatureCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="optimized_cond_entering_water_temperature_curve_name")]
+[JsonProperty(PropertyName="optimized_cond_entering_water_temperature_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string OptimizedCondEnteringWaterTemperatureCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_lift")]
-public System.Nullable<float> MinimumLift { get; set; } = (System.Nullable<float>)Single.Parse("11.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_lift", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumLift { get; set; } = (System.Nullable<double>)Double.Parse("11.1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_condenser_entering_water_temperature")]
-public System.Nullable<float> MaximumCondenserEnteringWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("32", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_condenser_entering_water_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCondenserEnteringWaterTemperature { get; set; } = (System.Nullable<double>)Double.Parse("32", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="cooling_tower_design_inlet_air_wet_bulb_temperature")]
-public System.Nullable<float> CoolingTowerDesignInletAirWetBulbTemperature { get; set; } = (System.Nullable<float>)Single.Parse("25.56", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="cooling_tower_design_inlet_air_wet_bulb_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoolingTowerDesignInletAirWetBulbTemperature { get; set; } = (System.Nullable<double>)Double.Parse("25.56", CultureInfo.InvariantCulture);
         
 
 [Description("Node(s) at which control variable will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -1261,20 +1283,21 @@ public string SetpointNodeOrNodelistName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="control_variable", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="control_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_CondenserEnteringReset_Ideal_ControlVariable ControlVariable { get; set; } = (SetpointManager_CondenserEnteringReset_Ideal_ControlVariable)Enum.Parse(typeof(SetpointManager_CondenserEnteringReset_Ideal_ControlVariable), "Temperature");
         
 
-[JsonProperty(PropertyName="minimum_lift")]
-public System.Nullable<float> MinimumLift { get; set; } = (System.Nullable<float>)Single.Parse("11.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_lift", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumLift { get; set; } = (System.Nullable<double>)Double.Parse("11.1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_condenser_entering_water_temperature")]
-public System.Nullable<float> MaximumCondenserEnteringWaterTemperature { get; set; } = (System.Nullable<float>)Single.Parse("32", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_condenser_entering_water_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCondenserEnteringWaterTemperature { get; set; } = (System.Nullable<double>)Double.Parse("32", CultureInfo.InvariantCulture);
         
 
 [Description("Node(s) at which control variable will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -1300,21 +1323,21 @@ public string NodeName { get; set; } = "";
         
 
 [Description("This is the setpoint value applied when cooling device is to cycle ON")]
-[JsonProperty(PropertyName="cooling_stage_on_supply_air_setpoint_temperature")]
-public System.Nullable<float> CoolingStageOnSupplyAirSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("-99", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="cooling_stage_on_supply_air_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoolingStageOnSupplyAirSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("-99", CultureInfo.InvariantCulture);
         
 
 [Description("This is the setpoint value applied when cooling device is to cycle OFF")]
-[JsonProperty(PropertyName="cooling_stage_off_supply_air_setpoint_temperature")]
-public System.Nullable<float> CoolingStageOffSupplyAirSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("99", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="cooling_stage_off_supply_air_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoolingStageOffSupplyAirSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("99", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="control_zone_name")]
+[JsonProperty(PropertyName="control_zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControlZoneName { get; set; } = "";
         
 
 [Description("Node(s) at which the temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -1330,21 +1353,21 @@ public string NodeName { get; set; } = "";
         
 
 [Description("This is the setpoint value applied when heating device is to cycle ON")]
-[JsonProperty(PropertyName="heating_stage_on_supply_air_setpoint_temperature")]
-public System.Nullable<float> HeatingStageOnSupplyAirSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("99", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="heating_stage_on_supply_air_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HeatingStageOnSupplyAirSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("99", CultureInfo.InvariantCulture);
         
 
 [Description("This is the setpoint value applied when heating device is to cycle OFF")]
-[JsonProperty(PropertyName="heating_stage_off_supply_air_setpoint_temperature")]
-public System.Nullable<float> HeatingStageOffSupplyAirSetpointTemperature { get; set; } = (System.Nullable<float>)Single.Parse("-99", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="heating_stage_off_supply_air_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HeatingStageOffSupplyAirSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("-99", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="control_zone_name")]
+[JsonProperty(PropertyName="control_zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControlZoneName { get; set; } = "";
         
 
 [Description("Node(s) at which the temperature will be set")]
-[JsonProperty(PropertyName="setpoint_node_or_nodelist_name")]
+[JsonProperty(PropertyName="setpoint_node_or_nodelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SetpointNodeOrNodelistName { get; set; } = "";
     }
     
@@ -1360,44 +1383,45 @@ public string NodeName { get; set; } = "";
         
 
 [Description(@"This is the name of the supply outlet node for the plant being controlled by this setpoint manager. Typically this is where the setpoint will be actuated for supply equipment to control to, but not necessarily. This setpoint manager will mine that information from the internal plant data structures.")]
-[JsonProperty(PropertyName="plant_loop_supply_outlet_node")]
+[JsonProperty(PropertyName="plant_loop_supply_outlet_node", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PlantLoopSupplyOutletNode { get; set; } = "";
         
 
 [Description("This is the name of the supply inlet node for the plant being controlled with thi" +
     "s setpoint manager. The temperature on this node is controlled by actuating the " +
     "supply setpoint.")]
-[JsonProperty(PropertyName="plant_loop_supply_inlet_node")]
+[JsonProperty(PropertyName="plant_loop_supply_inlet_node", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PlantLoopSupplyInletNode { get; set; } = "";
         
 
 [Description("This is the minimum chilled water supply temperature setpoint. This is also used " +
     "as the default setpoint during no-load or negative-load conditions and during in" +
     "itialization.")]
-[JsonProperty(PropertyName="minimum_supply_temperature_setpoint")]
-public System.Nullable<float> MinimumSupplyTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("5", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_supply_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSupplyTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
         
 
 [Description("This is the maximum reset temperature for the chilled water supply.")]
-[JsonProperty(PropertyName="maximum_supply_temperature_setpoint")]
-public System.Nullable<float> MaximumSupplyTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("10", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_supply_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSupplyTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description("This defines whether the chilled water return temperature target is constant, sch" +
     "eduled, or specified on the supply inlet node by a separate setpoint manager.")]
-[JsonProperty(PropertyName="return_temperature_setpoint_input_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="return_temperature_setpoint_input_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_ReturnTemperature_ChilledWater_ReturnTemperatureSetpointInputType ReturnTemperatureSetpointInputType { get; set; } = (SetpointManager_ReturnTemperature_ChilledWater_ReturnTemperatureSetpointInputType)Enum.Parse(typeof(SetpointManager_ReturnTemperature_ChilledWater_ReturnTemperatureSetpointInputType), "Constant");
         
 
 [Description("This is the desired return temperature target, which is met by adjusting the supp" +
     "ly temperature setpoint. This constant value is only used if the Design Chilled " +
     "Water Return Temperature Input Type is Constant")]
-[JsonProperty(PropertyName="return_temperature_setpoint_constant_value")]
-public System.Nullable<float> ReturnTemperatureSetpointConstantValue { get; set; } = (System.Nullable<float>)Single.Parse("13", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="return_temperature_setpoint_constant_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReturnTemperatureSetpointConstantValue { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [Description(@"This is the desired return temperature target, which is met by adjusting the supply temperature setpoint. This is a schedule name to allow the return temperature target value to be scheduled. This field is only used if the Design Chilled Water Return Temperature Input Type is Scheduled")]
-[JsonProperty(PropertyName="return_temperature_setpoint_schedule_name")]
+[JsonProperty(PropertyName="return_temperature_setpoint_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ReturnTemperatureSetpointScheduleName { get; set; } = "";
     }
     
@@ -1426,44 +1450,45 @@ public string NodeName { get; set; } = "";
         
 
 [Description(@"This is the name of the supply outlet node for the plant being controlled by this setpoint manager. Typically this is where the setpoint will be actuated for supply equipment to control to, but not necessarily. This setpoint manager will mine that information from the internal plant data structures.")]
-[JsonProperty(PropertyName="plant_loop_supply_outlet_node")]
+[JsonProperty(PropertyName="plant_loop_supply_outlet_node", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PlantLoopSupplyOutletNode { get; set; } = "";
         
 
 [Description("This is the name of the supply inlet node for the plant being controlled with thi" +
     "s setpoint manager. The temperature on this node is controlled by actuating the " +
     "supply setpoint.")]
-[JsonProperty(PropertyName="plant_loop_supply_inlet_node")]
+[JsonProperty(PropertyName="plant_loop_supply_inlet_node", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PlantLoopSupplyInletNode { get; set; } = "";
         
 
 [Description("This is the minimum reset temperature for the hot water supply.")]
-[JsonProperty(PropertyName="minimum_supply_temperature_setpoint")]
-public System.Nullable<float> MinimumSupplyTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("77", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_supply_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumSupplyTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("77", CultureInfo.InvariantCulture);
         
 
 [Description("This is the maximum hot water supply temperature setpoint. This is also used as t" +
     "he default setpoint during no-load or negative-load conditions and during initia" +
     "lization.")]
-[JsonProperty(PropertyName="maximum_supply_temperature_setpoint")]
-public System.Nullable<float> MaximumSupplyTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("82", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_supply_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumSupplyTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("82", CultureInfo.InvariantCulture);
         
 
 [Description("This defines whether the hot water return temperature target is constant, schedul" +
     "ed, or specified on the supply inlet node by a separate setpoint manager.")]
-[JsonProperty(PropertyName="return_temperature_setpoint_input_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="return_temperature_setpoint_input_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public SetpointManager_ReturnTemperature_HotWater_ReturnTemperatureSetpointInputType ReturnTemperatureSetpointInputType { get; set; } = (SetpointManager_ReturnTemperature_HotWater_ReturnTemperatureSetpointInputType)Enum.Parse(typeof(SetpointManager_ReturnTemperature_HotWater_ReturnTemperatureSetpointInputType), "Constant");
         
 
 [Description("This is the desired return temperature target, which is met by adjusting the supp" +
     "ly temperature setpoint. This constant value is only used if the Design Hot Wate" +
     "r Return Temperature Input Type is Constant")]
-[JsonProperty(PropertyName="return_temperature_setpoint_constant_value")]
-public System.Nullable<float> ReturnTemperatureSetpointConstantValue { get; set; } = (System.Nullable<float>)Single.Parse("71", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="return_temperature_setpoint_constant_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReturnTemperatureSetpointConstantValue { get; set; } = (System.Nullable<double>)Double.Parse("71", CultureInfo.InvariantCulture);
         
 
 [Description(@"This is the desired return temperature target, which is met by adjusting the supply temperature setpoint. This is a schedule name to allow the return temperature target value to be scheduled. This field is only used if the Design Hot Water Return Temperature Input Type is Scheduled")]
-[JsonProperty(PropertyName="return_temperature_setpoint_schedule_name")]
+[JsonProperty(PropertyName="return_temperature_setpoint_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ReturnTemperatureSetpointScheduleName { get; set; } = "";
     }
     

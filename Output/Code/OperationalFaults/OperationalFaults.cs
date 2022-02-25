@@ -77,24 +77,25 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="controller_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="controller_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_TemperatureSensorOffset_OutdoorAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_OutdoorAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_OutdoorAir_ControllerObjectType), "ControllerOutdoorAir");
         
 
-[JsonProperty(PropertyName="controller_object_name")]
+[JsonProperty(PropertyName="controller_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControllerObjectName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="temperature_sensor_offset")]
-public System.Nullable<float> TemperatureSensorOffset { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="temperature_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TemperatureSensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_TemperatureSensorOffset_OutdoorAir_ControllerObjectType
@@ -115,24 +116,25 @@ public System.Nullable<float> TemperatureSensorOffset { get; set; } = (System.Nu
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="controller_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="controller_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_HumiditySensorOffset_OutdoorAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_HumiditySensorOffset_OutdoorAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_HumiditySensorOffset_OutdoorAir_ControllerObjectType), "ControllerOutdoorAir");
         
 
-[JsonProperty(PropertyName="controller_object_name")]
+[JsonProperty(PropertyName="controller_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControllerObjectName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="humidity_sensor_offset")]
-public System.Nullable<float> HumiditySensorOffset { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="humidity_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HumiditySensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_HumiditySensorOffset_OutdoorAir_ControllerObjectType
@@ -153,24 +155,25 @@ public System.Nullable<float> HumiditySensorOffset { get; set; } = (System.Nulla
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="controller_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="controller_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_EnthalpySensorOffset_OutdoorAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_EnthalpySensorOffset_OutdoorAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_EnthalpySensorOffset_OutdoorAir_ControllerObjectType), "ControllerOutdoorAir");
         
 
-[JsonProperty(PropertyName="controller_object_name")]
+[JsonProperty(PropertyName="controller_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControllerObjectName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="enthalpy_sensor_offset")]
-public System.Nullable<float> EnthalpySensorOffset { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="enthalpy_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EnthalpySensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_EnthalpySensorOffset_OutdoorAir_ControllerObjectType
@@ -191,24 +194,25 @@ public System.Nullable<float> EnthalpySensorOffset { get; set; } = (System.Nulla
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="controller_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="controller_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType), "ControllerOutdoorAir");
         
 
-[JsonProperty(PropertyName="controller_object_name")]
+[JsonProperty(PropertyName="controller_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControllerObjectName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="temperature_sensor_offset")]
-public System.Nullable<float> TemperatureSensorOffset { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="temperature_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TemperatureSensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType
@@ -229,24 +233,25 @@ public System.Nullable<float> TemperatureSensorOffset { get; set; } = (System.Nu
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="controller_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="controller_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_EnthalpySensorOffset_ReturnAir_ControllerObjectType ControllerObjectType { get; set; } = (FaultModel_EnthalpySensorOffset_ReturnAir_ControllerObjectType)Enum.Parse(typeof(FaultModel_EnthalpySensorOffset_ReturnAir_ControllerObjectType), "ControllerOutdoorAir");
         
 
-[JsonProperty(PropertyName="controller_object_name")]
+[JsonProperty(PropertyName="controller_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ControllerObjectName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="enthalpy_sensor_offset")]
-public System.Nullable<float> EnthalpySensorOffset { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="enthalpy_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EnthalpySensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_EnthalpySensorOffset_ReturnAir_ControllerObjectType
@@ -267,26 +272,27 @@ public System.Nullable<float> EnthalpySensorOffset { get; set; } = (System.Nulla
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
 [Description("Enter the type of a chiller object")]
-[JsonProperty(PropertyName="chiller_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_TemperatureSensorOffset_ChillerSupplyWater_ChillerObjectType ChillerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_ChillerSupplyWater_ChillerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_ChillerSupplyWater_ChillerObjectType), "ChillerAbsorption");
         
 
 [Description("Enter the name of a chiller object")]
-[JsonProperty(PropertyName="chiller_object_name")]
+[JsonProperty(PropertyName="chiller_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ChillerObjectName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="reference_sensor_offset")]
-public System.Nullable<float> ReferenceSensorOffset { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="reference_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceSensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_TemperatureSensorOffset_ChillerSupplyWater_ChillerObjectType
@@ -328,32 +334,33 @@ public System.Nullable<float> ReferenceSensorOffset { get; set; } = (System.Null
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
 [Description("Enter the type of the coil affected")]
-[JsonProperty(PropertyName="coil_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="coil_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_TemperatureSensorOffset_CoilSupplyAir_CoilObjectType CoilObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_CoilSupplyAir_CoilObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_CoilSupplyAir_CoilObjectType), "AirLoopHVACUnitarySystem");
         
 
 [Description("Enter the name of the coil affected")]
-[JsonProperty(PropertyName="coil_object_name")]
+[JsonProperty(PropertyName="coil_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CoilObjectName { get; set; } = "";
         
 
 [Description("Enter the name of controller for the water coil affected Required for water coils" +
     "")]
-[JsonProperty(PropertyName="water_coil_controller_name")]
+[JsonProperty(PropertyName="water_coil_controller_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string WaterCoilControllerName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="reference_sensor_offset")]
-public System.Nullable<float> ReferenceSensorOffset { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="reference_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceSensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_TemperatureSensorOffset_CoilSupplyAir_CoilObjectType
@@ -401,26 +408,27 @@ public System.Nullable<float> ReferenceSensorOffset { get; set; } = (System.Null
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
 [Description("Enter the type of the cooling tower affected")]
-[JsonProperty(PropertyName="cooling_tower_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="cooling_tower_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_TemperatureSensorOffset_CondenserSupplyWater_CoolingTowerObjectType CoolingTowerObjectType { get; set; } = (FaultModel_TemperatureSensorOffset_CondenserSupplyWater_CoolingTowerObjectType)Enum.Parse(typeof(FaultModel_TemperatureSensorOffset_CondenserSupplyWater_CoolingTowerObjectType), "CoolingTowerSingleSpeed");
         
 
 [Description("Enter the name of the cooling tower affected")]
-[JsonProperty(PropertyName="cooling_tower_object_name")]
+[JsonProperty(PropertyName="cooling_tower_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CoolingTowerObjectName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="reference_sensor_offset")]
-public System.Nullable<float> ReferenceSensorOffset { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="reference_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceSensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_TemperatureSensorOffset_CondenserSupplyWater_CoolingTowerObjectType
@@ -451,20 +459,20 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a ZoneControl:Thermostat object.")]
-[JsonProperty(PropertyName="thermostat_name")]
+[JsonProperty(PropertyName="thermostat_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ThermostatName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="reference_thermostat_offset")]
-public System.Nullable<float> ReferenceThermostatOffset { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="reference_thermostat_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceThermostatOffset { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
     }
     
     [Description("This object describes fault of humidistat offset")]
@@ -479,34 +487,35 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a ZoneControl:Humidistat object.")]
-[JsonProperty(PropertyName="humidistat_name")]
+[JsonProperty(PropertyName="humidistat_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HumidistatName { get; set; } = "";
         
 
 [Description("Two types are available: Type ThermostatOffsetIndependent Type ThermostatOffsetDe" +
     "pendent")]
-[JsonProperty(PropertyName="humidistat_offset_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="humidistat_offset_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_HumidistatOffset_HumidistatOffsetType HumidistatOffsetType { get; set; } = (FaultModel_HumidistatOffset_HumidistatOffsetType)Enum.Parse(typeof(FaultModel_HumidistatOffset_HumidistatOffsetType), "ThermostatOffsetIndependent");
         
 
 [Description("This field is applicable for Type ThermostatOffsetIndependent")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
 [Description("This field is applicable for Type ThermostatOffsetIndependent")]
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
 [Description("Required field for Type ThermostatOffsetIndependent")]
-[JsonProperty(PropertyName="reference_humidistat_offset")]
-public System.Nullable<float> ReferenceHumidistatOffset { get; set; } = (System.Nullable<float>)Single.Parse("5", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="reference_humidistat_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceHumidistatOffset { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the name of a FaultModel:ThermostatOffset object Required field for Type Th" +
     "ermostatOffsetDependent")]
-[JsonProperty(PropertyName="related_thermostat_offset_fault_name")]
+[JsonProperty(PropertyName="related_thermostat_offset_fault_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string RelatedThermostatOffsetFaultName { get; set; } = "";
     }
     
@@ -535,28 +544,29 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Choose the type of the fan Support for Fan:SystemModel is pending")]
-[JsonProperty(PropertyName="fan_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fan_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_Fouling_AirFilter_FanObjectType FanObjectType { get; set; } = (FaultModel_Fouling_AirFilter_FanObjectType)Enum.Parse(typeof(FaultModel_Fouling_AirFilter_FanObjectType), "FanConstantVolume");
         
 
 [Description("Enter the name of a fan object")]
-[JsonProperty(PropertyName="fan_name")]
+[JsonProperty(PropertyName="fan_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FanName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
 [Description("Enter the name of a schedule describing the variations of the fan pressure rise i" +
     "n terms of multipliers to the fan design pressure rise")]
-[JsonProperty(PropertyName="pressure_fraction_schedule_name")]
+[JsonProperty(PropertyName="pressure_fraction_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PressureFractionScheduleName { get; set; } = "";
         
 
 [Description("The curve describes the relationship between the fan pressure rise and air flow r" +
     "ate")]
-[JsonProperty(PropertyName="fan_curve_name")]
+[JsonProperty(PropertyName="fan_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FanCurveName { get; set; } = "";
     }
     
@@ -585,28 +595,29 @@ public string FanCurveName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
 [Description("Enter the type of a boiler object The fault applies to the hot-water boilers")]
-[JsonProperty(PropertyName="boiler_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="boiler_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_Fouling_Boiler_BoilerObjectType BoilerObjectType { get; set; } = (FaultModel_Fouling_Boiler_BoilerObjectType)Enum.Parse(typeof(FaultModel_Fouling_Boiler_BoilerObjectType), "BoilerHotWater");
         
 
 [Description("Enter the name of a Boiler object")]
-[JsonProperty(PropertyName="boiler_object_name")]
+[JsonProperty(PropertyName="boiler_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BoilerObjectName { get; set; } = "";
         
 
 [Description("The factor indicates the decrease of the nominal capacity of the boiler It is the" +
     " ratio between the nominal capacity at fouling case and that at fault free case")]
-[JsonProperty(PropertyName="fouling_factor")]
-public System.Nullable<float> FoulingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fouling_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FoulingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_Fouling_Boiler_BoilerObjectType
@@ -627,31 +638,32 @@ public System.Nullable<float> FoulingFactor { get; set; } = (System.Nullable<flo
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
 [Description("Enter the type of a Evaporative Cooler object The fault applies to the wetted coi" +
     "l evaporative cooler The fault does not apply to direct evaporative coolers or t" +
     "he dry coil indirect evaporative coolers")]
-[JsonProperty(PropertyName="evaporative_cooler_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="evaporative_cooler_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType EvaporativeCoolerObjectType { get; set; } = (FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType)Enum.Parse(typeof(FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType), "EvaporativeCoolerIndirectWetCoil");
         
 
 [Description("Enter the name of aN Evaporative Cooler object")]
-[JsonProperty(PropertyName="evaporative_cooler_object_name")]
+[JsonProperty(PropertyName="evaporative_cooler_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string EvaporativeCoolerObjectName { get; set; } = "";
         
 
 [Description("The factor indicates the decrease of the indirect stage efficiency It is the rati" +
     "o between the indirect stage efficiency at fouling case and that at fault free c" +
     "ase")]
-[JsonProperty(PropertyName="fouling_factor")]
-public System.Nullable<float> FoulingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fouling_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FoulingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType
@@ -672,30 +684,31 @@ public System.Nullable<float> FoulingFactor { get; set; } = (System.Nullable<flo
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
 [Description("Enter the type of a chiller object The fault applies to the chillers with water-c" +
     "ooled condensers")]
-[JsonProperty(PropertyName="chiller_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="chiller_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_Fouling_Chiller_ChillerObjectType ChillerObjectType { get; set; } = (FaultModel_Fouling_Chiller_ChillerObjectType)Enum.Parse(typeof(FaultModel_Fouling_Chiller_ChillerObjectType), "ChillerCombustionTurbine");
         
 
 [Description("Enter the name of a chiller object")]
-[JsonProperty(PropertyName="chiller_object_name")]
+[JsonProperty(PropertyName="chiller_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ChillerObjectName { get; set; } = "";
         
 
 [Description("The factor indicates the decrease of the nominal capacity of the chiller It is th" +
     "e ratio between the nominal capacity at fouling case and that at fault free case" +
     "")]
-[JsonProperty(PropertyName="fouling_factor")]
-public System.Nullable<float> FoulingFactor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fouling_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FoulingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_Fouling_Chiller_ChillerObjectType
@@ -731,29 +744,30 @@ public System.Nullable<float> FoulingFactor { get; set; } = (System.Nullable<flo
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
 [Description("Enter the type of the cooling tower affected")]
-[JsonProperty(PropertyName="cooling_tower_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="cooling_tower_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_Fouling_CoolingTower_CoolingTowerObjectType CoolingTowerObjectType { get; set; } = (FaultModel_Fouling_CoolingTower_CoolingTowerObjectType)Enum.Parse(typeof(FaultModel_Fouling_CoolingTower_CoolingTowerObjectType), "CoolingTowerSingleSpeed");
         
 
 [Description("Enter the name of the cooling tower affected")]
-[JsonProperty(PropertyName="cooling_tower_object_name")]
+[JsonProperty(PropertyName="cooling_tower_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CoolingTowerObjectName { get; set; } = "";
         
 
 [Description("Factor describing the tower UA reduction due to fouling It is the ratio between t" +
     "he UA value at fouling case and that at fault free case It is applicable to both" +
     " the Design UA and Free Convection UA of the tower")]
-[JsonProperty(PropertyName="reference_ua_reduction_factor")]
-public System.Nullable<float> ReferenceUaReductionFactor { get; set; } = null;
+[JsonProperty(PropertyName="reference_ua_reduction_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceUaReductionFactor { get; set; } = null;
     }
     
     public enum FaultModel_Fouling_CoolingTower_CoolingTowerObjectType
@@ -780,46 +794,47 @@ public System.Nullable<float> ReferenceUaReductionFactor { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coil_name")]
+[JsonProperty(PropertyName="coil_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CoilName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="severity_schedule_name")]
+[JsonProperty(PropertyName="severity_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeverityScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fouling_input_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fouling_input_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public FaultModel_Fouling_Coil_FoulingInputMethod FoulingInputMethod { get; set; } = (FaultModel_Fouling_Coil_FoulingInputMethod)Enum.Parse(typeof(FaultModel_Fouling_Coil_FoulingInputMethod), "FouledUARated");
         
 
 [Description("Fouling coil UA value under rating conditions For Fouling Input Method: FouledUAR" +
     "ated")]
-[JsonProperty(PropertyName="uafouled")]
-public System.Nullable<float> Uafouled { get; set; } = null;
+[JsonProperty(PropertyName="uafouled", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Uafouled { get; set; } = null;
         
 
 [Description("For Fouling Input Method: FoulingFactor")]
-[JsonProperty(PropertyName="water_side_fouling_factor")]
-public System.Nullable<float> WaterSideFoulingFactor { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="water_side_fouling_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> WaterSideFoulingFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("For Fouling Input Method: FoulingFactor")]
-[JsonProperty(PropertyName="air_side_fouling_factor")]
-public System.Nullable<float> AirSideFoulingFactor { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="air_side_fouling_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AirSideFoulingFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("For Fouling Input Method: FoulingFactor")]
-[JsonProperty(PropertyName="outside_coil_surface_area")]
-public System.Nullable<float> OutsideCoilSurfaceArea { get; set; } = null;
+[JsonProperty(PropertyName="outside_coil_surface_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OutsideCoilSurfaceArea { get; set; } = null;
         
 
 [Description("For Fouling Input Method: FoulingFactor")]
-[JsonProperty(PropertyName="inside_to_outside_coil_surface_area_ratio")]
-public System.Nullable<float> InsideToOutsideCoilSurfaceAreaRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.07", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="inside_to_outside_coil_surface_area_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InsideToOutsideCoilSurfaceAreaRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.07", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_Fouling_Coil_FoulingInputMethod

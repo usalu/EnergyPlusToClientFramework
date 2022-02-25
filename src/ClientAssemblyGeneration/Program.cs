@@ -75,34 +75,17 @@ namespace ClientAssemblyGeneration
             var mainBoiler = new Boiler_HotWater();
             mainBoiler.NodeName = "Main boiler1";
             mainBoiler.BoilerFlowMode = Boiler_HotWater_BoilerFlowMode.Empty;
+            mainBoiler.NominalThermalEfficiency = 0.5;
             boilers.Add(mainBoiler);
             var secondaryBoiler = new Boiler_HotWater();
             secondaryBoiler.NodeName = "Secondary boiler";
             secondaryBoiler.BoilerFlowMode = Boiler_HotWater_BoilerFlowMode.ConstantFlow;
             secondaryBoiler.FuelType = Boiler_HotWater_FuelType.NaturalGas;
+            secondaryBoiler.NominalThermalEfficiency = 0.4;
             boilers.Add(secondaryBoiler);
 
             epJsonTest.Building = building;
             epJsonTest.Boiler_HotWater_List = boilers;
-
-
-            //var settings = new JsonSerializerSettings()
-            //{
-            //    ContractResolver = new NullToEmptyStringResolver(),
-            //    Converters = new List<JsonConverter>() { new EnergyPlusNodeConverter(), new EPListConverter( typeof(IEnergyPlusNode)) }
-            //};
-            //string serializedString = JsonConvert.SerializeObject(epJsonTest, settings);
-
-            //var settings = new JsonSerializerSettings()
-            //{
-            //    Formatting = Formatting.Indented,
-            //    Converters = new List<JsonConverter>() { new EPNullToAutosizeJsonConverter() }
-            //};
-
-            //string t = "{\"nominal_capacity\": null,}";
-            //t = JsonConvert.SerializeObject(t, settings);
-
-            //string serializedString = JsonConvert.SerializeObject(epJsonTest, settings);
 
             string serializedString = JsonConvert.SerializeObject(epJsonTest, Formatting.Indented);
 
@@ -148,6 +131,7 @@ namespace ClientAssemblyGeneration
             string idf = EPJsonToIDFConverter.GetIDF(ePExePath, serializedString);
             Console.WriteLine(idf);
             Console.Read();
+
         }
 
         static JToken GetEPNodeWithNameAsMainProperty(JObject ePNode)

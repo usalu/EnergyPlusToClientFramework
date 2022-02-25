@@ -48,7 +48,7 @@ namespace ClientAssemblyGeneration.Builders
 
                     var isNumber = float.TryParse(defaultValue, out _);
                     defaultValueCode =
-                        (defaultValue != "" && isNumber) ?  "(" + "System.Nullable<float>" + ")" + "Single.Parse("+ "\"" + defaultValue +  "\"" + ", CultureInfo.InvariantCulture)" : "null";
+                        (defaultValue != "" && isNumber) ?  "(" + "System.Nullable<double>" + ")" + "Double.Parse("+ "\"" + defaultValue +  "\"" + ", CultureInfo.InvariantCulture)" : "null";
                     //defaultValueCode = defaultValue;
                     break;
                 default:

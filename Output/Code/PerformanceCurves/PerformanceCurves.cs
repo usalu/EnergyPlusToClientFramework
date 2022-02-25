@@ -77,37 +77,39 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceCurves
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_constant")]
-public System.Nullable<float> Coefficient1Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_x")]
-public System.Nullable<float> Coefficient2X { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2X { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Linear_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Linear_InputUnitTypeForX)Enum.Parse(typeof(Curve_Linear_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Linear_OutputUnitType OutputUnitType { get; set; } = (Curve_Linear_OutputUnitType)Enum.Parse(typeof(Curve_Linear_OutputUnitType), "Dimensionless");
     }
     
@@ -172,81 +174,85 @@ public Curve_Linear_OutputUnitType OutputUnitType { get; set; } = (Curve_Linear_
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_constant")]
-public System.Nullable<float> Coefficient1Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_w")]
-public System.Nullable<float> Coefficient2W { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_w", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2W { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_x")]
-public System.Nullable<float> Coefficient3X { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3X { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_y")]
-public System.Nullable<float> Coefficient4Y { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4Y { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient5_z")]
-public System.Nullable<float> Coefficient5Z { get; set; } = null;
+[JsonProperty(PropertyName="coefficient5_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient5Z { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_w")]
-public System.Nullable<float> MinimumValueOfW { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_w", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfW { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_w")]
-public System.Nullable<float> MaximumValueOfW { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_w", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfW { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_y")]
-public System.Nullable<float> MinimumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_y")]
-public System.Nullable<float> MaximumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_z")]
-public System.Nullable<float> MinimumValueOfZ { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfZ { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_z")]
-public System.Nullable<float> MaximumValueOfZ { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfZ { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_w", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_w", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_QuadLinear_InputUnitTypeForW InputUnitTypeForW { get; set; } = (Curve_QuadLinear_InputUnitTypeForW)Enum.Parse(typeof(Curve_QuadLinear_InputUnitTypeForW), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_QuadLinear_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_QuadLinear_InputUnitTypeForX)Enum.Parse(typeof(Curve_QuadLinear_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_y", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_QuadLinear_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_QuadLinear_InputUnitTypeForY)Enum.Parse(typeof(Curve_QuadLinear_InputUnitTypeForY), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_z", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_QuadLinear_InputUnitTypeForZ InputUnitTypeForZ { get; set; } = (Curve_QuadLinear_InputUnitTypeForZ)Enum.Parse(typeof(Curve_QuadLinear_InputUnitTypeForZ), "Dimensionless");
     }
     
@@ -373,97 +379,102 @@ public Curve_QuadLinear_InputUnitTypeForZ InputUnitTypeForZ { get; set; } = (Cur
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_constant")]
-public System.Nullable<float> Coefficient1Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_v")]
-public System.Nullable<float> Coefficient2V { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_v", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2V { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_w")]
-public System.Nullable<float> Coefficient3W { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_w", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3W { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_x")]
-public System.Nullable<float> Coefficient4X { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4X { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient5_y")]
-public System.Nullable<float> Coefficient5Y { get; set; } = null;
+[JsonProperty(PropertyName="coefficient5_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient5Y { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient6_z")]
-public System.Nullable<float> Coefficient6Z { get; set; } = null;
+[JsonProperty(PropertyName="coefficient6_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient6Z { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_v")]
-public System.Nullable<float> MinimumValueOfV { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_v", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfV { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_v")]
-public System.Nullable<float> MaximumValueOfV { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_v", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfV { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_w")]
-public System.Nullable<float> MinimumValueOfW { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_w", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfW { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_w")]
-public System.Nullable<float> MaximumValueOfW { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_w", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfW { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_y")]
-public System.Nullable<float> MinimumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_y")]
-public System.Nullable<float> MaximumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_z")]
-public System.Nullable<float> MinimumValueOfZ { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfZ { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_z")]
-public System.Nullable<float> MaximumValueOfZ { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfZ { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_v", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_v", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_QuintLinear_InputUnitTypeForV InputUnitTypeForV { get; set; } = (Curve_QuintLinear_InputUnitTypeForV)Enum.Parse(typeof(Curve_QuintLinear_InputUnitTypeForV), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_w", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_w", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_QuintLinear_InputUnitTypeForW InputUnitTypeForW { get; set; } = (Curve_QuintLinear_InputUnitTypeForW)Enum.Parse(typeof(Curve_QuintLinear_InputUnitTypeForW), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_QuintLinear_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_QuintLinear_InputUnitTypeForX)Enum.Parse(typeof(Curve_QuintLinear_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_y", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_QuintLinear_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_QuintLinear_InputUnitTypeForY)Enum.Parse(typeof(Curve_QuintLinear_InputUnitTypeForY), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_z", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_QuintLinear_InputUnitTypeForZ InputUnitTypeForZ { get; set; } = (Curve_QuintLinear_InputUnitTypeForZ)Enum.Parse(typeof(Curve_QuintLinear_InputUnitTypeForZ), "Dimensionless");
     }
     
@@ -618,41 +629,43 @@ public Curve_QuintLinear_InputUnitTypeForZ InputUnitTypeForZ { get; set; } = (Cu
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_constant")]
-public System.Nullable<float> Coefficient1Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_x")]
-public System.Nullable<float> Coefficient2X { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2X { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_x_2")]
-public System.Nullable<float> Coefficient3X2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_x_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3X2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Quadratic_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Quadratic_InputUnitTypeForX)Enum.Parse(typeof(Curve_Quadratic_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Quadratic_OutputUnitType OutputUnitType { get; set; } = (Curve_Quadratic_OutputUnitType)Enum.Parse(typeof(Curve_Quadratic_OutputUnitType), "Dimensionless");
     }
     
@@ -714,45 +727,47 @@ public Curve_Quadratic_OutputUnitType OutputUnitType { get; set; } = (Curve_Quad
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_constant")]
-public System.Nullable<float> Coefficient1Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_x")]
-public System.Nullable<float> Coefficient2X { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2X { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_x_2")]
-public System.Nullable<float> Coefficient3X2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_x_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3X2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_x_3")]
-public System.Nullable<float> Coefficient4X3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_x_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4X3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Cubic_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Cubic_InputUnitTypeForX)Enum.Parse(typeof(Curve_Cubic_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Cubic_OutputUnitType OutputUnitType { get; set; } = (Curve_Cubic_OutputUnitType)Enum.Parse(typeof(Curve_Cubic_OutputUnitType), "Dimensionless");
     }
     
@@ -814,49 +829,51 @@ public Curve_Cubic_OutputUnitType OutputUnitType { get; set; } = (Curve_Cubic_Ou
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_constant")]
-public System.Nullable<float> Coefficient1Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_x")]
-public System.Nullable<float> Coefficient2X { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2X { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_x_2")]
-public System.Nullable<float> Coefficient3X2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_x_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3X2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_x_3")]
-public System.Nullable<float> Coefficient4X3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_x_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4X3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient5_x_4")]
-public System.Nullable<float> Coefficient5X4 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient5_x_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient5X4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Quartic_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Quartic_InputUnitTypeForX)Enum.Parse(typeof(Curve_Quartic_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Quartic_OutputUnitType OutputUnitType { get; set; } = (Curve_Quartic_OutputUnitType)Enum.Parse(typeof(Curve_Quartic_OutputUnitType), "Dimensionless");
     }
     
@@ -918,43 +935,45 @@ public Curve_Quartic_OutputUnitType OutputUnitType { get; set; } = (Curve_Quarti
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_constant")]
-public System.Nullable<float> Coefficient1Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_constant")]
-public System.Nullable<float> Coefficient2Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_constant")]
-public System.Nullable<float> Coefficient3Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3Constant { get; set; } = null;
         
 
 [Description("Specify the minimum value of the independent variable x allowed")]
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
 [Description("Specify the maximum value of the independent variable x allowed")]
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Exponent_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Exponent_InputUnitTypeForX)Enum.Parse(typeof(Curve_Exponent_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Exponent_OutputUnitType OutputUnitType { get; set; } = (Curve_Exponent_OutputUnitType)Enum.Parse(typeof(Curve_Exponent_OutputUnitType), "Dimensionless");
     }
     
@@ -1016,81 +1035,84 @@ public Curve_Exponent_OutputUnitType OutputUnitType { get; set; } = (Curve_Expon
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_constant")]
-public System.Nullable<float> Coefficient1Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_x")]
-public System.Nullable<float> Coefficient2X { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2X { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_x_2")]
-public System.Nullable<float> Coefficient3X2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_x_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3X2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_y")]
-public System.Nullable<float> Coefficient4Y { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4Y { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient5_y_2")]
-public System.Nullable<float> Coefficient5Y2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient5_y_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient5Y2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient6_x_y")]
-public System.Nullable<float> Coefficient6XY { get; set; } = null;
+[JsonProperty(PropertyName="coefficient6_x_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient6XY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient7_x_3")]
-public System.Nullable<float> Coefficient7X3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient7_x_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient7X3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient8_y_3")]
-public System.Nullable<float> Coefficient8Y3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient8_y_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient8Y3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient9_x_2_y")]
-public System.Nullable<float> Coefficient9X2Y { get; set; } = null;
+[JsonProperty(PropertyName="coefficient9_x_2_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient9X2Y { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient10_x_y_2")]
-public System.Nullable<float> Coefficient10XY2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient10_x_y_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient10XY2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_y")]
-public System.Nullable<float> MinimumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_y")]
-public System.Nullable<float> MaximumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfY { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Bicubic_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Bicubic_InputUnitTypeForX)Enum.Parse(typeof(Curve_Bicubic_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_y", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Bicubic_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_Bicubic_InputUnitTypeForY)Enum.Parse(typeof(Curve_Bicubic_InputUnitTypeForY), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Bicubic_OutputUnitType OutputUnitType { get; set; } = (Curve_Bicubic_OutputUnitType)Enum.Parse(typeof(Curve_Bicubic_OutputUnitType), "Dimensionless");
     }
     
@@ -1177,65 +1199,68 @@ public Curve_Bicubic_OutputUnitType OutputUnitType { get; set; } = (Curve_Bicubi
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_constant")]
-public System.Nullable<float> Coefficient1Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_x")]
-public System.Nullable<float> Coefficient2X { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2X { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_x_2")]
-public System.Nullable<float> Coefficient3X2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_x_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3X2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_y")]
-public System.Nullable<float> Coefficient4Y { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4Y { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient5_y_2")]
-public System.Nullable<float> Coefficient5Y2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient5_y_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient5Y2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient6_x_y")]
-public System.Nullable<float> Coefficient6XY { get; set; } = null;
+[JsonProperty(PropertyName="coefficient6_x_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient6XY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_y")]
-public System.Nullable<float> MinimumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_y")]
-public System.Nullable<float> MaximumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfY { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Biquadratic_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Biquadratic_InputUnitTypeForX)Enum.Parse(typeof(Curve_Biquadratic_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_y", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Biquadratic_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_Biquadratic_InputUnitTypeForY)Enum.Parse(typeof(Curve_Biquadratic_InputUnitTypeForY), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Biquadratic_OutputUnitType OutputUnitType { get; set; } = (Curve_Biquadratic_OutputUnitType)Enum.Parse(typeof(Curve_Biquadratic_OutputUnitType), "Dimensionless");
     }
     
@@ -1322,65 +1347,68 @@ public Curve_Biquadratic_OutputUnitType OutputUnitType { get; set; } = (Curve_Bi
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_constant")]
-public System.Nullable<float> Coefficient1Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_x")]
-public System.Nullable<float> Coefficient2X { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2X { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_x_2")]
-public System.Nullable<float> Coefficient3X2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_x_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3X2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_y")]
-public System.Nullable<float> Coefficient4Y { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4Y { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient5_x_y")]
-public System.Nullable<float> Coefficient5XY { get; set; } = null;
+[JsonProperty(PropertyName="coefficient5_x_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient5XY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient6_x_2_y")]
-public System.Nullable<float> Coefficient6X2Y { get; set; } = null;
+[JsonProperty(PropertyName="coefficient6_x_2_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient6X2Y { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_y")]
-public System.Nullable<float> MinimumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_y")]
-public System.Nullable<float> MaximumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfY { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_QuadraticLinear_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_QuadraticLinear_InputUnitTypeForX)Enum.Parse(typeof(Curve_QuadraticLinear_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_y", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_QuadraticLinear_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_QuadraticLinear_InputUnitTypeForY)Enum.Parse(typeof(Curve_QuadraticLinear_InputUnitTypeForY), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_QuadraticLinear_OutputUnitType OutputUnitType { get; set; } = (Curve_QuadraticLinear_OutputUnitType)Enum.Parse(typeof(Curve_QuadraticLinear_OutputUnitType), "Dimensionless");
     }
     
@@ -1467,65 +1495,68 @@ public Curve_QuadraticLinear_OutputUnitType OutputUnitType { get; set; } = (Curv
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_constant")]
-public System.Nullable<float> Coefficient1Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_x")]
-public System.Nullable<float> Coefficient2X { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2X { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_x_2")]
-public System.Nullable<float> Coefficient3X2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_x_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3X2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_x_3")]
-public System.Nullable<float> Coefficient4X3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_x_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4X3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient5_y")]
-public System.Nullable<float> Coefficient5Y { get; set; } = null;
+[JsonProperty(PropertyName="coefficient5_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient5Y { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient6_x_y")]
-public System.Nullable<float> Coefficient6XY { get; set; } = null;
+[JsonProperty(PropertyName="coefficient6_x_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient6XY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_y")]
-public System.Nullable<float> MinimumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_y")]
-public System.Nullable<float> MaximumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfY { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_CubicLinear_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_CubicLinear_InputUnitTypeForX)Enum.Parse(typeof(Curve_CubicLinear_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_y", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_CubicLinear_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_CubicLinear_InputUnitTypeForY)Enum.Parse(typeof(Curve_CubicLinear_InputUnitTypeForY), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_CubicLinear_OutputUnitType OutputUnitType { get; set; } = (Curve_CubicLinear_OutputUnitType)Enum.Parse(typeof(Curve_CubicLinear_OutputUnitType), "Dimensionless");
     }
     
@@ -1588,161 +1619,165 @@ public Curve_CubicLinear_OutputUnitType OutputUnitType { get; set; } = (Curve_Cu
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_constant")]
-public System.Nullable<float> Coefficient1Constant { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1Constant { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_x_2")]
-public System.Nullable<float> Coefficient2X2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_x_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2X2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_x")]
-public System.Nullable<float> Coefficient3X { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3X { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_y_2")]
-public System.Nullable<float> Coefficient4Y2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_y_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4Y2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient5_y")]
-public System.Nullable<float> Coefficient5Y { get; set; } = null;
+[JsonProperty(PropertyName="coefficient5_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient5Y { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient6_z_2")]
-public System.Nullable<float> Coefficient6Z2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient6_z_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient6Z2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient7_z")]
-public System.Nullable<float> Coefficient7Z { get; set; } = null;
+[JsonProperty(PropertyName="coefficient7_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient7Z { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient8_x_2_y_2")]
-public System.Nullable<float> Coefficient8X2Y2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient8_x_2_y_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient8X2Y2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient9_x_y")]
-public System.Nullable<float> Coefficient9XY { get; set; } = null;
+[JsonProperty(PropertyName="coefficient9_x_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient9XY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient10_x_y_2")]
-public System.Nullable<float> Coefficient10XY2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient10_x_y_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient10XY2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient11_x_2_y")]
-public System.Nullable<float> Coefficient11X2Y { get; set; } = null;
+[JsonProperty(PropertyName="coefficient11_x_2_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient11X2Y { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient12_x_2_z_2")]
-public System.Nullable<float> Coefficient12X2Z2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient12_x_2_z_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient12X2Z2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient13_x_z")]
-public System.Nullable<float> Coefficient13XZ { get; set; } = null;
+[JsonProperty(PropertyName="coefficient13_x_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient13XZ { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient14_x_z_2")]
-public System.Nullable<float> Coefficient14XZ2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient14_x_z_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient14XZ2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient15_x_2_z")]
-public System.Nullable<float> Coefficient15X2Z { get; set; } = null;
+[JsonProperty(PropertyName="coefficient15_x_2_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient15X2Z { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient16_y_2_z_2")]
-public System.Nullable<float> Coefficient16Y2Z2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient16_y_2_z_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient16Y2Z2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient17_y_z")]
-public System.Nullable<float> Coefficient17YZ { get; set; } = null;
+[JsonProperty(PropertyName="coefficient17_y_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient17YZ { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient18_y_z_2")]
-public System.Nullable<float> Coefficient18YZ2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient18_y_z_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient18YZ2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient19_y_2_z")]
-public System.Nullable<float> Coefficient19Y2Z { get; set; } = null;
+[JsonProperty(PropertyName="coefficient19_y_2_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient19Y2Z { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient20_x_2_y_2_z_2")]
-public System.Nullable<float> Coefficient20X2Y2Z2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient20_x_2_y_2_z_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient20X2Y2Z2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient21_x_2_y_2_z")]
-public System.Nullable<float> Coefficient21X2Y2Z { get; set; } = null;
+[JsonProperty(PropertyName="coefficient21_x_2_y_2_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient21X2Y2Z { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient22_x_2_y_z_2")]
-public System.Nullable<float> Coefficient22X2YZ2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient22_x_2_y_z_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient22X2YZ2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient23_x_y_2_z_2")]
-public System.Nullable<float> Coefficient23XY2Z2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient23_x_y_2_z_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient23XY2Z2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient24_x_2_y_z")]
-public System.Nullable<float> Coefficient24X2YZ { get; set; } = null;
+[JsonProperty(PropertyName="coefficient24_x_2_y_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient24X2YZ { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient25_x_y_2_z")]
-public System.Nullable<float> Coefficient25XY2Z { get; set; } = null;
+[JsonProperty(PropertyName="coefficient25_x_y_2_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient25XY2Z { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient26_x_y_z_2")]
-public System.Nullable<float> Coefficient26XYZ2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient26_x_y_z_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient26XYZ2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient27_x_y_z")]
-public System.Nullable<float> Coefficient27XYZ { get; set; } = null;
+[JsonProperty(PropertyName="coefficient27_x_y_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient27XYZ { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_y")]
-public System.Nullable<float> MinimumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_y")]
-public System.Nullable<float> MaximumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_z")]
-public System.Nullable<float> MinimumValueOfZ { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfZ { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_z")]
-public System.Nullable<float> MaximumValueOfZ { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfZ { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Triquadratic_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Triquadratic_InputUnitTypeForX)Enum.Parse(typeof(Curve_Triquadratic_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_y", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Triquadratic_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_Triquadratic_InputUnitTypeForY)Enum.Parse(typeof(Curve_Triquadratic_InputUnitTypeForY), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_z", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Triquadratic_InputUnitTypeForZ InputUnitTypeForZ { get; set; } = (Curve_Triquadratic_InputUnitTypeForZ)Enum.Parse(typeof(Curve_Triquadratic_InputUnitTypeForZ), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Triquadratic_OutputUnitType OutputUnitType { get; set; } = (Curve_Triquadratic_OutputUnitType)Enum.Parse(typeof(Curve_Triquadratic_OutputUnitType), "Dimensionless");
     }
     
@@ -1856,29 +1891,29 @@ public string NodeName { get; set; } = "";
         
 
 [Description("\"D\" in above expression, used to also calculate local velocity")]
-[JsonProperty(PropertyName="diameter")]
-public System.Nullable<float> Diameter { get; set; } = null;
+[JsonProperty(PropertyName="diameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Diameter { get; set; } = null;
         
 
 [Description("\"K\" in above expression")]
-[JsonProperty(PropertyName="minor_loss_coefficient")]
-public System.Nullable<float> MinorLossCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="minor_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinorLossCoefficient { get; set; } = null;
         
 
 [Description("\"L\" in above expression")]
-[JsonProperty(PropertyName="length")]
-public System.Nullable<float> Length { get; set; } = null;
+[JsonProperty(PropertyName="length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Length { get; set; } = null;
         
 
 [Description("This will be used to calculate \"f\" from Moody-chart approximations")]
-[JsonProperty(PropertyName="roughness")]
-public System.Nullable<float> Roughness { get; set; } = null;
+[JsonProperty(PropertyName="roughness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Roughness { get; set; } = null;
         
 
 [Description("Optional way to set a constant value for \"f\", instead of using internal Moody-cha" +
     "rt approximations")]
-[JsonProperty(PropertyName="fixed_friction_factor")]
-public System.Nullable<float> FixedFrictionFactor { get; set; } = null;
+[JsonProperty(PropertyName="fixed_friction_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FixedFrictionFactor { get; set; } = null;
     }
     
     [Description(@"Special curve type with two independent variables. Input for the fan total pressure rise curve consists of the curve name, the four coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = C1*Qfan**2+C2*Qfan+C3*Qfan*(Psm-Po)**0.5+C4*(Psm-Po) Po assumed to be zero See InputOut Reference for curve details")]
@@ -1892,46 +1927,46 @@ public System.Nullable<float> FixedFrictionFactor { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_c1")]
-public System.Nullable<float> Coefficient1C1 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_c1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1C1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_c2")]
-public System.Nullable<float> Coefficient2C2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_c2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2C2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_c3")]
-public System.Nullable<float> Coefficient3C3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_c3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3C3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_c4")]
-public System.Nullable<float> Coefficient4C4 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_c4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4C4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_qfan")]
-public System.Nullable<float> MinimumValueOfQfan { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_qfan", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfQfan { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_qfan")]
-public System.Nullable<float> MaximumValueOfQfan { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_qfan", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfQfan { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_psm")]
-public System.Nullable<float> MinimumValueOfPsm { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_psm", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfPsm { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_psm")]
-public System.Nullable<float> MaximumValueOfPsm { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_psm", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfPsm { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
     }
     
     [Description(@"Exponential-modified skew normal curve with one independent variable. Input consists of the curve name, the four coefficients, and the maximum and minimum valid independent variable values. Optional inputs for the curve minimum and maximum may be used to limit the output of the performance curve. curve = see Input Output Reference")]
@@ -1945,45 +1980,47 @@ public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_c1")]
-public System.Nullable<float> Coefficient1C1 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_c1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1C1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_c2")]
-public System.Nullable<float> Coefficient2C2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_c2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2C2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_c3")]
-public System.Nullable<float> Coefficient3C3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_c3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3C3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_c4")]
-public System.Nullable<float> Coefficient4C4 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_c4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4C4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_ExponentialSkewNormal_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_ExponentialSkewNormal_InputUnitTypeForX)Enum.Parse(typeof(Curve_ExponentialSkewNormal_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_ExponentialSkewNormal_OutputUnitType OutputUnitType { get; set; } = (Curve_ExponentialSkewNormal_OutputUnitType)Enum.Parse(typeof(Curve_ExponentialSkewNormal_OutputUnitType), "Dimensionless");
     }
     
@@ -2030,49 +2067,51 @@ public Curve_ExponentialSkewNormal_OutputUnitType OutputUnitType { get; set; } =
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_c1")]
-public System.Nullable<float> Coefficient1C1 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_c1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1C1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_c2")]
-public System.Nullable<float> Coefficient2C2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_c2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2C2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_c3")]
-public System.Nullable<float> Coefficient3C3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_c3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3C3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_c4")]
-public System.Nullable<float> Coefficient4C4 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_c4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4C4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient5_c5")]
-public System.Nullable<float> Coefficient5C5 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient5_c5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient5C5 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Sigmoid_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_Sigmoid_InputUnitTypeForX)Enum.Parse(typeof(Curve_Sigmoid_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_Sigmoid_OutputUnitType OutputUnitType { get; set; } = (Curve_Sigmoid_OutputUnitType)Enum.Parse(typeof(Curve_Sigmoid_OutputUnitType), "Dimensionless");
     }
     
@@ -2119,41 +2158,43 @@ public Curve_Sigmoid_OutputUnitType OutputUnitType { get; set; } = (Curve_Sigmoi
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_c1")]
-public System.Nullable<float> Coefficient1C1 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_c1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1C1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_c2")]
-public System.Nullable<float> Coefficient2C2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_c2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2C2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_c3")]
-public System.Nullable<float> Coefficient3C3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_c3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3C3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_RectangularHyperbola1_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_RectangularHyperbola1_InputUnitTypeForX)Enum.Parse(typeof(Curve_RectangularHyperbola1_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_RectangularHyperbola1_OutputUnitType OutputUnitType { get; set; } = (Curve_RectangularHyperbola1_OutputUnitType)Enum.Parse(typeof(Curve_RectangularHyperbola1_OutputUnitType), "Dimensionless");
     }
     
@@ -2200,41 +2241,43 @@ public Curve_RectangularHyperbola1_OutputUnitType OutputUnitType { get; set; } =
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_c1")]
-public System.Nullable<float> Coefficient1C1 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_c1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1C1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_c2")]
-public System.Nullable<float> Coefficient2C2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_c2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2C2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_c3")]
-public System.Nullable<float> Coefficient3C3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_c3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3C3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_RectangularHyperbola2_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_RectangularHyperbola2_InputUnitTypeForX)Enum.Parse(typeof(Curve_RectangularHyperbola2_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_RectangularHyperbola2_OutputUnitType OutputUnitType { get; set; } = (Curve_RectangularHyperbola2_OutputUnitType)Enum.Parse(typeof(Curve_RectangularHyperbola2_OutputUnitType), "Dimensionless");
     }
     
@@ -2281,41 +2324,43 @@ public Curve_RectangularHyperbola2_OutputUnitType OutputUnitType { get; set; } =
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_c1")]
-public System.Nullable<float> Coefficient1C1 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_c1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1C1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_c2")]
-public System.Nullable<float> Coefficient2C2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_c2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2C2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_c3")]
-public System.Nullable<float> Coefficient3C3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_c3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3C3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_ExponentialDecay_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_ExponentialDecay_InputUnitTypeForX)Enum.Parse(typeof(Curve_ExponentialDecay_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_ExponentialDecay_OutputUnitType OutputUnitType { get; set; } = (Curve_ExponentialDecay_OutputUnitType)Enum.Parse(typeof(Curve_ExponentialDecay_OutputUnitType), "Dimensionless");
     }
     
@@ -2362,49 +2407,51 @@ public Curve_ExponentialDecay_OutputUnitType OutputUnitType { get; set; } = (Cur
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_c1")]
-public System.Nullable<float> Coefficient1C1 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_c1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1C1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_c2")]
-public System.Nullable<float> Coefficient2C2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_c2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2C2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_c3")]
-public System.Nullable<float> Coefficient3C3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_c3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3C3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_c4")]
-public System.Nullable<float> Coefficient4C4 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_c4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4C4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient5_c5")]
-public System.Nullable<float> Coefficient5C5 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient5_c5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient5C5 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_DoubleExponentialDecay_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_DoubleExponentialDecay_InputUnitTypeForX)Enum.Parse(typeof(Curve_DoubleExponentialDecay_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_DoubleExponentialDecay_OutputUnitType OutputUnitType { get; set; } = (Curve_DoubleExponentialDecay_OutputUnitType)Enum.Parse(typeof(Curve_DoubleExponentialDecay_OutputUnitType), "Dimensionless");
     }
     
@@ -2451,101 +2498,105 @@ public Curve_DoubleExponentialDecay_OutputUnitType OutputUnitType { get; set; } 
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="coefficient1_c1")]
-public System.Nullable<float> Coefficient1C1 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient1_c1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1C1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient2_c2")]
-public System.Nullable<float> Coefficient2C2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient2_c2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2C2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient3_c3")]
-public System.Nullable<float> Coefficient3C3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient3_c3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient3C3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient4_c4")]
-public System.Nullable<float> Coefficient4C4 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient4_c4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient4C4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient5_c5")]
-public System.Nullable<float> Coefficient5C5 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient5_c5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient5C5 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient6_c6")]
-public System.Nullable<float> Coefficient6C6 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient6_c6", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient6C6 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient7_c7")]
-public System.Nullable<float> Coefficient7C7 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient7_c7", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient7C7 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient8_c8")]
-public System.Nullable<float> Coefficient8C8 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient8_c8", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient8C8 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient9_c9")]
-public System.Nullable<float> Coefficient9C9 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient9_c9", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient9C9 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient10_c10")]
-public System.Nullable<float> Coefficient10C10 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient10_c10", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient10C10 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient11_c11")]
-public System.Nullable<float> Coefficient11C11 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient11_c11", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient11C11 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient12_c12")]
-public System.Nullable<float> Coefficient12C12 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient12_c12", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient12C12 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_x")]
-public System.Nullable<float> MinimumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_x")]
-public System.Nullable<float> MaximumValueOfX { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfX { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_y")]
-public System.Nullable<float> MinimumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_y")]
-public System.Nullable<float> MaximumValueOfY { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfY { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_value_of_z")]
-public System.Nullable<float> MinimumValueOfZ { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value_of_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValueOfZ { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value_of_z")]
-public System.Nullable<float> MaximumValueOfZ { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value_of_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValueOfZ { get; set; } = null;
         
 
 [Description("Specify the minimum value calculated by this curve object")]
-[JsonProperty(PropertyName="minimum_curve_output")]
-public System.Nullable<float> MinimumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCurveOutput { get; set; } = null;
         
 
 [Description("Specify the maximum value calculated by this curve object")]
-[JsonProperty(PropertyName="maximum_curve_output")]
-public System.Nullable<float> MaximumCurveOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_curve_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCurveOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="input_unit_type_for_x", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_x", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_ChillerPartLoadWithLift_InputUnitTypeForX InputUnitTypeForX { get; set; } = (Curve_ChillerPartLoadWithLift_InputUnitTypeForX)Enum.Parse(typeof(Curve_ChillerPartLoadWithLift_InputUnitTypeForX), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_y", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_y", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_ChillerPartLoadWithLift_InputUnitTypeForY InputUnitTypeForY { get; set; } = (Curve_ChillerPartLoadWithLift_InputUnitTypeForY)Enum.Parse(typeof(Curve_ChillerPartLoadWithLift_InputUnitTypeForY), "Dimensionless");
         
 
-[JsonProperty(PropertyName="input_unit_type_for_z", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="input_unit_type_for_z", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_ChillerPartLoadWithLift_InputUnitTypeForZ InputUnitTypeForZ { get; set; } = (Curve_ChillerPartLoadWithLift_InputUnitTypeForZ)Enum.Parse(typeof(Curve_ChillerPartLoadWithLift_InputUnitTypeForZ), "Dimensionless");
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Curve_ChillerPartLoadWithLift_OutputUnitType OutputUnitType { get; set; } = (Curve_ChillerPartLoadWithLift_OutputUnitType)Enum.Parse(typeof(Curve_ChillerPartLoadWithLift_OutputUnitType), "Dimensionless");
     }
     

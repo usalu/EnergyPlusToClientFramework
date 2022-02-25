@@ -74,7 +74,8 @@ namespace BH.oM.Adapters.EnergyPlus.ExternalInterface
 
 [Description("Name of External Interface Currently, the only valid entries are PtolemyServer, F" +
     "unctionalMockupUnitImport, and FunctionalMockupUnitExport.")]
-[JsonProperty(PropertyName="name_of_external_interface", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="name_of_external_interface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ExternalInterface_NameOfExternalInterface NameOfExternalInterface { get; set; } = (ExternalInterface_NameOfExternalInterface)Enum.Parse(typeof(ExternalInterface_NameOfExternalInterface), "FunctionalMockupUnitExport");
     }
     
@@ -103,13 +104,13 @@ public ExternalInterface_NameOfExternalInterface NameOfExternalInterface { get; 
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="schedule_type_limits_name")]
+[JsonProperty(PropertyName="schedule_type_limits_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ScheduleTypeLimitsName { get; set; } = "";
         
 
 [Description("Used during warm-up and system sizing.")]
-[JsonProperty(PropertyName="initial_value")]
-public System.Nullable<float> InitialValue { get; set; } = null;
+[JsonProperty(PropertyName="initial_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InitialValue { get; set; } = null;
     }
     
     [Description(@"This input object is similar to EnergyManagementSystem:GlobalVariable. However, at the beginning of each zone time step, its value is set to the value received from the external interface. During the warm-up period and the system sizing, its value is set to the value specified by the field ""initial value."" This object can be used to move data into Erl subroutines.")]
@@ -124,8 +125,8 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Used during warm-up and system sizing.")]
-[JsonProperty(PropertyName="initial_value")]
-public System.Nullable<float> InitialValue { get; set; } = null;
+[JsonProperty(PropertyName="initial_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InitialValue { get; set; } = null;
     }
     
     [Description("Hardware portion of EMS used to set up actuators in the model")]
@@ -139,23 +140,23 @@ public System.Nullable<float> InitialValue { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="actuated_component_unique_name")]
+[JsonProperty(PropertyName="actuated_component_unique_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ActuatedComponentUniqueName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="actuated_component_type")]
+[JsonProperty(PropertyName="actuated_component_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ActuatedComponentType { get; set; } = "";
         
 
-[JsonProperty(PropertyName="actuated_component_control_type")]
+[JsonProperty(PropertyName="actuated_component_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ActuatedComponentControlType { get; set; } = "";
         
 
 [Description("If specified, it is used during warm-up and system sizing. If not specified, then" +
     " the actuator only overwrites the actuated component after the warm-up and syste" +
     "m sizing.")]
-[JsonProperty(PropertyName="optional_initial_value")]
-public System.Nullable<float> OptionalInitialValue { get; set; } = null;
+[JsonProperty(PropertyName="optional_initial_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OptionalInitialValue { get; set; } = null;
     }
     
     [Description("This object declares an FMU")]
@@ -164,17 +165,17 @@ public System.Nullable<float> OptionalInitialValue { get; set; } = null;
     {
         
 
-[JsonProperty(PropertyName="fmu_file_name")]
+[JsonProperty(PropertyName="fmu_file_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuFileName { get; set; } = "";
         
 
 [Description("in milli-seconds")]
-[JsonProperty(PropertyName="fmu_timeout")]
-public System.Nullable<float> FmuTimeout { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fmu_timeout", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FmuTimeout { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="fmu_loggingon")]
-public System.Nullable<float> FmuLoggingon { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fmu_loggingon", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FmuLoggingon { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description("This object declares an FMU input variable")]
@@ -183,23 +184,23 @@ public System.Nullable<float> FmuLoggingon { get; set; } = (System.Nullable<floa
     {
         
 
-[JsonProperty(PropertyName="output_variable_index_key_name")]
+[JsonProperty(PropertyName="output_variable_index_key_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string OutputVariableIndexKeyName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="output_variable_name")]
+[JsonProperty(PropertyName="output_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string OutputVariableName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_file_name")]
+[JsonProperty(PropertyName="fmu_file_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuFileName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_instance_name")]
+[JsonProperty(PropertyName="fmu_instance_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuInstanceName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_variable_name")]
+[JsonProperty(PropertyName="fmu_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuVariableName { get; set; } = "";
     }
     
@@ -215,25 +216,25 @@ public string FmuVariableName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="schedule_type_limits_names")]
+[JsonProperty(PropertyName="schedule_type_limits_names", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ScheduleTypeLimitsNames { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_file_name")]
+[JsonProperty(PropertyName="fmu_file_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuFileName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_instance_name")]
+[JsonProperty(PropertyName="fmu_instance_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuInstanceName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_variable_name")]
+[JsonProperty(PropertyName="fmu_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuVariableName { get; set; } = "";
         
 
 [Description("Used during the first call of EnergyPlus.")]
-[JsonProperty(PropertyName="initial_value")]
-public System.Nullable<float> InitialValue { get; set; } = null;
+[JsonProperty(PropertyName="initial_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InitialValue { get; set; } = null;
     }
     
     [Description("Hardware portion of EMS used to set up actuators in the model that are dynamicall" +
@@ -248,33 +249,33 @@ public System.Nullable<float> InitialValue { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="actuated_component_unique_name")]
+[JsonProperty(PropertyName="actuated_component_unique_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ActuatedComponentUniqueName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="actuated_component_type")]
+[JsonProperty(PropertyName="actuated_component_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ActuatedComponentType { get; set; } = "";
         
 
-[JsonProperty(PropertyName="actuated_component_control_type")]
+[JsonProperty(PropertyName="actuated_component_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ActuatedComponentControlType { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_file_name")]
+[JsonProperty(PropertyName="fmu_file_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuFileName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_instance_name")]
+[JsonProperty(PropertyName="fmu_instance_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuInstanceName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_variable_name")]
+[JsonProperty(PropertyName="fmu_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuVariableName { get; set; } = "";
         
 
 [Description("Used during the first call of EnergyPlus.")]
-[JsonProperty(PropertyName="initial_value")]
-public System.Nullable<float> InitialValue { get; set; } = null;
+[JsonProperty(PropertyName="initial_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InitialValue { get; set; } = null;
     }
     
     [Description("Declares Erl variable as having global scope No spaces allowed in names used for " +
@@ -289,21 +290,21 @@ public System.Nullable<float> InitialValue { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_file_name")]
+[JsonProperty(PropertyName="fmu_file_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuFileName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_instance_name")]
+[JsonProperty(PropertyName="fmu_instance_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuInstanceName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_variable_name")]
+[JsonProperty(PropertyName="fmu_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuVariableName { get; set; } = "";
         
 
 [Description("Used during the first call of EnergyPlus.")]
-[JsonProperty(PropertyName="initial_value")]
-public System.Nullable<float> InitialValue { get; set; } = null;
+[JsonProperty(PropertyName="initial_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InitialValue { get; set; } = null;
     }
     
     [Description("This object declares an FMU input variable")]
@@ -312,15 +313,15 @@ public System.Nullable<float> InitialValue { get; set; } = null;
     {
         
 
-[JsonProperty(PropertyName="output_variable_index_key_name")]
+[JsonProperty(PropertyName="output_variable_index_key_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string OutputVariableIndexKeyName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="output_variable_name")]
+[JsonProperty(PropertyName="output_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string OutputVariableName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_variable_name")]
+[JsonProperty(PropertyName="fmu_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuVariableName { get; set; } = "";
     }
     
@@ -331,21 +332,21 @@ public string FmuVariableName { get; set; } = "";
     {
         
 
-[JsonProperty(PropertyName="schedule_name")]
+[JsonProperty(PropertyName="schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="schedule_type_limits_names")]
+[JsonProperty(PropertyName="schedule_type_limits_names", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ScheduleTypeLimitsNames { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_variable_name")]
+[JsonProperty(PropertyName="fmu_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuVariableName { get; set; } = "";
         
 
 [Description("Used during the first call of EnergyPlus.")]
-[JsonProperty(PropertyName="initial_value")]
-public System.Nullable<float> InitialValue { get; set; } = null;
+[JsonProperty(PropertyName="initial_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InitialValue { get; set; } = null;
     }
     
     [Description("Hardware portion of EMS used to set up actuators in the model that are dynamicall" +
@@ -360,25 +361,25 @@ public System.Nullable<float> InitialValue { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="actuated_component_unique_name")]
+[JsonProperty(PropertyName="actuated_component_unique_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ActuatedComponentUniqueName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="actuated_component_type")]
+[JsonProperty(PropertyName="actuated_component_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ActuatedComponentType { get; set; } = "";
         
 
-[JsonProperty(PropertyName="actuated_component_control_type")]
+[JsonProperty(PropertyName="actuated_component_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ActuatedComponentControlType { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_variable_name")]
+[JsonProperty(PropertyName="fmu_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuVariableName { get; set; } = "";
         
 
 [Description("Used during the first call of EnergyPlus.")]
-[JsonProperty(PropertyName="initial_value")]
-public System.Nullable<float> InitialValue { get; set; } = null;
+[JsonProperty(PropertyName="initial_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InitialValue { get; set; } = null;
     }
     
     [Description("Declares Erl variable as having global scope No spaces allowed in names used for " +
@@ -393,12 +394,12 @@ public System.Nullable<float> InitialValue { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fmu_variable_name")]
+[JsonProperty(PropertyName="fmu_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FmuVariableName { get; set; } = "";
         
 
 [Description("Used during the first call of EnergyPlus.")]
-[JsonProperty(PropertyName="initial_value")]
-public System.Nullable<float> InitialValue { get; set; } = null;
+[JsonProperty(PropertyName="initial_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InitialValue { get; set; } = null;
     }
 }

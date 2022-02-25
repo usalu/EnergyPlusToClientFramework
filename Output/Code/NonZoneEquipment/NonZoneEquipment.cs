@@ -77,24 +77,24 @@ namespace BH.oM.Adapters.EnergyPlus.NonZoneEquipment
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="inlet_node_name")]
+[JsonProperty(PropertyName="inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string InletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="outlet_node_name")]
+[JsonProperty(PropertyName="outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string OutletNodeName { get; set; } = "";
         
 
 [Description("Schedule values are load in [W]")]
-[JsonProperty(PropertyName="load_schedule_name")]
+[JsonProperty(PropertyName="load_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string LoadScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="peak_flow_rate")]
-public System.Nullable<float> PeakFlowRate { get; set; } = null;
+[JsonProperty(PropertyName="peak_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PeakFlowRate { get; set; } = null;
         
 
-[JsonProperty(PropertyName="flow_rate_fraction_schedule_name")]
+[JsonProperty(PropertyName="flow_rate_fraction_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FlowRateFractionScheduleName { get; set; } = "";
     }
 }

@@ -78,15 +78,15 @@ namespace BH.oM.Adapters.EnergyPlus.GeneralDataEntry
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="number_of_rows")]
-public System.Nullable<float> NumberOfRows { get; set; } = null;
+[JsonProperty(PropertyName="number_of_rows", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfRows { get; set; } = null;
         
 
-[JsonProperty(PropertyName="number_of_columns")]
-public System.Nullable<float> NumberOfColumns { get; set; } = null;
+[JsonProperty(PropertyName="number_of_columns", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfColumns { get; set; } = null;
         
 
-[JsonProperty(PropertyName="values")]
+[JsonProperty(PropertyName="values", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Values { get; set; } = "";
     }
 }

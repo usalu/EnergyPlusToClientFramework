@@ -77,100 +77,107 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserLoops
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fluid_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fluid_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_FluidType FluidType { get; set; } = (PlantLoop_FluidType)Enum.Parse(typeof(PlantLoop_FluidType), "Water");
         
 
 [Description("This field is only required when Fluid Type is UserDefinedFluidType")]
-[JsonProperty(PropertyName="user_defined_fluid_type")]
+[JsonProperty(PropertyName="user_defined_fluid_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string UserDefinedFluidType { get; set; } = "";
         
 
-[JsonProperty(PropertyName="plant_equipment_operation_scheme_name")]
+[JsonProperty(PropertyName="plant_equipment_operation_scheme_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PlantEquipmentOperationSchemeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="loop_temperature_setpoint_node_name")]
+[JsonProperty(PropertyName="loop_temperature_setpoint_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string LoopTemperatureSetpointNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="maximum_loop_temperature")]
-public System.Nullable<float> MaximumLoopTemperature { get; set; } = null;
+[JsonProperty(PropertyName="maximum_loop_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumLoopTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_loop_temperature")]
-public System.Nullable<float> MinimumLoopTemperature { get; set; } = null;
+[JsonProperty(PropertyName="minimum_loop_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumLoopTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_loop_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<float> MaximumLoopFlowRate { get; set; } = null;
+[JsonProperty(PropertyName="maximum_loop_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<double> MaximumLoopFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="minimum_loop_flow_rate")]
-public System.Nullable<float> MinimumLoopFlowRate { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_loop_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumLoopFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="plant_loop_volume", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<float> PlantLoopVolume { get; set; } = null;
+[JsonProperty(PropertyName="plant_loop_volume", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
+public System.Nullable<double> PlantLoopVolume { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="plant_side_inlet_node_name")]
+[JsonProperty(PropertyName="plant_side_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PlantSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="plant_side_outlet_node_name")]
+[JsonProperty(PropertyName="plant_side_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PlantSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="plant_side_branch_list_name")]
+[JsonProperty(PropertyName="plant_side_branch_list_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PlantSideBranchListName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="plant_side_connector_list_name")]
+[JsonProperty(PropertyName="plant_side_connector_list_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PlantSideConnectorListName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="demand_side_inlet_node_name")]
+[JsonProperty(PropertyName="demand_side_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string DemandSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="demand_side_outlet_node_name")]
+[JsonProperty(PropertyName="demand_side_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string DemandSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="demand_side_branch_list_name")]
+[JsonProperty(PropertyName="demand_side_branch_list_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string DemandSideBranchListName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="demand_side_connector_list_name")]
+[JsonProperty(PropertyName="demand_side_connector_list_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string DemandSideConnectorListName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="load_distribution_scheme", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="load_distribution_scheme", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_LoadDistributionScheme LoadDistributionScheme { get; set; } = (PlantLoop_LoadDistributionScheme)Enum.Parse(typeof(PlantLoop_LoadDistributionScheme), "SequentialLoad");
         
 
-[JsonProperty(PropertyName="availability_manager_list_name")]
+[JsonProperty(PropertyName="availability_manager_list_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityManagerListName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="plant_loop_demand_calculation_scheme", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="plant_loop_demand_calculation_scheme", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_PlantLoopDemandCalculationScheme PlantLoopDemandCalculationScheme { get; set; } = (PlantLoop_PlantLoopDemandCalculationScheme)Enum.Parse(typeof(PlantLoop_PlantLoopDemandCalculationScheme), "SingleSetpoint");
         
 
 [Description(@"Specifies a primary-secondary loop configuration. The plant side is the primary loop, and the demand side is the secondary loop. A secondary supply pump is required on the demand side. None = Primary-only, no secondary simulation CommonPipe = Primary-secondary with no temperature control at primary-secondary interface TwoWayCommonPipe = Primary-secondary with control of secondary supply temperature or primary return temperature (requires a setpoint be placed on the plant side or demand side inlet node).")]
-[JsonProperty(PropertyName="common_pipe_simulation", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="common_pipe_simulation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_CommonPipeSimulation CommonPipeSimulation { get; set; } = (PlantLoop_CommonPipeSimulation)Enum.Parse(typeof(PlantLoop_CommonPipeSimulation), "None");
         
 
-[JsonProperty(PropertyName="pressure_simulation_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="pressure_simulation_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PlantLoop_PressureSimulationType PressureSimulationType { get; set; } = (PlantLoop_PressureSimulationType)Enum.Parse(typeof(PlantLoop_PressureSimulationType), "None");
         
 
 [Description("This field is only used to autocalulate the Plant Loop Volume. Loop Volume = Loop" +
     " Circulation Time * Maximum Loop Flow Rate")]
-[JsonProperty(PropertyName="loop_circulation_time")]
-public System.Nullable<float> LoopCirculationTime { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="loop_circulation_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> LoopCirculationTime { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
     }
     
     public enum PlantLoop_FluidType
@@ -269,87 +276,92 @@ public System.Nullable<float> LoopCirculationTime { get; set; } = (System.Nullab
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fluid_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fluid_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserLoop_FluidType FluidType { get; set; } = (CondenserLoop_FluidType)Enum.Parse(typeof(CondenserLoop_FluidType), "Water");
         
 
 [Description("This field is only required when Fluid Type is UserDefinedFluidType")]
-[JsonProperty(PropertyName="user_defined_fluid_type")]
+[JsonProperty(PropertyName="user_defined_fluid_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string UserDefinedFluidType { get; set; } = "";
         
 
-[JsonProperty(PropertyName="condenser_equipment_operation_scheme_name")]
+[JsonProperty(PropertyName="condenser_equipment_operation_scheme_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CondenserEquipmentOperationSchemeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="condenser_loop_temperature_setpoint_node_name")]
+[JsonProperty(PropertyName="condenser_loop_temperature_setpoint_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CondenserLoopTemperatureSetpointNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="maximum_loop_temperature")]
-public System.Nullable<float> MaximumLoopTemperature { get; set; } = null;
+[JsonProperty(PropertyName="maximum_loop_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumLoopTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_loop_temperature")]
-public System.Nullable<float> MinimumLoopTemperature { get; set; } = null;
+[JsonProperty(PropertyName="minimum_loop_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumLoopTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_loop_flow_rate", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<float> MaximumLoopFlowRate { get; set; } = null;
+[JsonProperty(PropertyName="maximum_loop_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
+public System.Nullable<double> MaximumLoopFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="minimum_loop_flow_rate")]
-public System.Nullable<float> MinimumLoopFlowRate { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_loop_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumLoopFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="condenser_loop_volume", ItemConverterType=typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<float> CondenserLoopVolume { get; set; } = null;
+[JsonProperty(PropertyName="condenser_loop_volume", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
+public System.Nullable<double> CondenserLoopVolume { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="condenser_side_inlet_node_name")]
+[JsonProperty(PropertyName="condenser_side_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CondenserSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="condenser_side_outlet_node_name")]
+[JsonProperty(PropertyName="condenser_side_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CondenserSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="condenser_side_branch_list_name")]
+[JsonProperty(PropertyName="condenser_side_branch_list_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CondenserSideBranchListName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="condenser_side_connector_list_name")]
+[JsonProperty(PropertyName="condenser_side_connector_list_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CondenserSideConnectorListName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="demand_side_inlet_node_name")]
+[JsonProperty(PropertyName="demand_side_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string DemandSideInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="demand_side_outlet_node_name")]
+[JsonProperty(PropertyName="demand_side_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string DemandSideOutletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="condenser_demand_side_branch_list_name")]
+[JsonProperty(PropertyName="condenser_demand_side_branch_list_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CondenserDemandSideBranchListName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="condenser_demand_side_connector_list_name")]
+[JsonProperty(PropertyName="condenser_demand_side_connector_list_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CondenserDemandSideConnectorListName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="load_distribution_scheme", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="load_distribution_scheme", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserLoop_LoadDistributionScheme LoadDistributionScheme { get; set; } = (CondenserLoop_LoadDistributionScheme)Enum.Parse(typeof(CondenserLoop_LoadDistributionScheme), "SequentialLoad");
         
 
-[JsonProperty(PropertyName="pressure_simulation_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="pressure_simulation_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CondenserLoop_PressureSimulationType PressureSimulationType { get; set; } = (CondenserLoop_PressureSimulationType)Enum.Parse(typeof(CondenserLoop_PressureSimulationType), "None");
         
 
 [Description("This field is only used to autocalulate the Condenser Loop Volume. Loop Volume = " +
     "Loop Circulation Time * Maximum Loop Flow Rate")]
-[JsonProperty(PropertyName="loop_circulation_time")]
-public System.Nullable<float> LoopCirculationTime { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="loop_circulation_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> LoopCirculationTime { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
     }
     
     public enum CondenserLoop_FluidType

@@ -78,43 +78,46 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="interpolation_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="interpolation_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_IndependentVariable_InterpolationMethod InterpolationMethod { get; set; } = (Table_IndependentVariable_InterpolationMethod)Enum.Parse(typeof(Table_IndependentVariable_InterpolationMethod), "Linear");
         
 
-[JsonProperty(PropertyName="extrapolation_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="extrapolation_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_IndependentVariable_ExtrapolationMethod ExtrapolationMethod { get; set; } = (Table_IndependentVariable_ExtrapolationMethod)Enum.Parse(typeof(Table_IndependentVariable_ExtrapolationMethod), "Constant");
         
 
-[JsonProperty(PropertyName="minimum_value")]
-public System.Nullable<float> MinimumValue { get; set; } = null;
+[JsonProperty(PropertyName="minimum_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_value")]
-public System.Nullable<float> MaximumValue { get; set; } = null;
+[JsonProperty(PropertyName="maximum_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="normalization_reference_value")]
-public System.Nullable<float> NormalizationReferenceValue { get; set; } = null;
+[JsonProperty(PropertyName="normalization_reference_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NormalizationReferenceValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_IndependentVariable_UnitType UnitType { get; set; } = (Table_IndependentVariable_UnitType)Enum.Parse(typeof(Table_IndependentVariable_UnitType), "Dimensionless");
         
 
-[JsonProperty(PropertyName="external_file_name")]
+[JsonProperty(PropertyName="external_file_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ExternalFileName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="external_file_column_number")]
-public System.Nullable<float> ExternalFileColumnNumber { get; set; } = null;
+[JsonProperty(PropertyName="external_file_column_number", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ExternalFileColumnNumber { get; set; } = null;
         
 
-[JsonProperty(PropertyName="external_file_starting_row_number")]
-public System.Nullable<float> ExternalFileStartingRowNumber { get; set; } = null;
+[JsonProperty(PropertyName="external_file_starting_row_number", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ExternalFileStartingRowNumber { get; set; } = null;
         
 
-[JsonProperty(PropertyName="values")]
+[JsonProperty(PropertyName="values", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Values { get; set; } = "";
     }
     
@@ -183,7 +186,7 @@ public string Values { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="independent_variables")]
+[JsonProperty(PropertyName="independent_variables", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string IndependentVariables { get; set; } = "";
     }
     
@@ -198,43 +201,45 @@ public string IndependentVariables { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="independent_variable_list_name")]
+[JsonProperty(PropertyName="independent_variable_list_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string IndependentVariableListName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="normalization_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="normalization_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_Lookup_NormalizationMethod NormalizationMethod { get; set; } = (Table_Lookup_NormalizationMethod)Enum.Parse(typeof(Table_Lookup_NormalizationMethod), "None");
         
 
-[JsonProperty(PropertyName="normalization_divisor")]
-public System.Nullable<float> NormalizationDivisor { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="normalization_divisor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NormalizationDivisor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="minimum_output")]
-public System.Nullable<float> MinimumOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_output")]
-public System.Nullable<float> MaximumOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="output_unit_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="output_unit_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Table_Lookup_OutputUnitType OutputUnitType { get; set; } = (Table_Lookup_OutputUnitType)Enum.Parse(typeof(Table_Lookup_OutputUnitType), "Dimensionless");
         
 
-[JsonProperty(PropertyName="external_file_name")]
+[JsonProperty(PropertyName="external_file_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ExternalFileName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="external_file_column_number")]
-public System.Nullable<float> ExternalFileColumnNumber { get; set; } = null;
+[JsonProperty(PropertyName="external_file_column_number", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ExternalFileColumnNumber { get; set; } = null;
         
 
-[JsonProperty(PropertyName="external_file_starting_row_number")]
-public System.Nullable<float> ExternalFileStartingRowNumber { get; set; } = null;
+[JsonProperty(PropertyName="external_file_starting_row_number", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ExternalFileStartingRowNumber { get; set; } = null;
         
 
-[JsonProperty(PropertyName="values")]
+[JsonProperty(PropertyName="values", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Values { get; set; } = "";
     }
     

@@ -80,92 +80,93 @@ namespace BH.oM.Adapters.EnergyPlus.ElectricLoadCenterGeneratorSpecifications
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="rated_power_output")]
-public System.Nullable<float> RatedPowerOutput { get; set; } = null;
+[JsonProperty(PropertyName="rated_power_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RatedPowerOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="electric_circuit_node_name")]
+[JsonProperty(PropertyName="electric_circuit_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ElectricCircuitNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_part_load_ratio")]
-public System.Nullable<float> MinimumPartLoadRatio { get; set; } = null;
+[JsonProperty(PropertyName="minimum_part_load_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_part_load_ratio")]
-public System.Nullable<float> MaximumPartLoadRatio { get; set; } = null;
+[JsonProperty(PropertyName="maximum_part_load_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty(PropertyName="optimum_part_load_ratio")]
-public System.Nullable<float> OptimumPartLoadRatio { get; set; } = null;
+[JsonProperty(PropertyName="optimum_part_load_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OptimumPartLoadRatio { get; set; } = null;
         
 
 [Description("curve = a + b*PLR + c*PLR**2 PLR = Ratio of Generator Load to Rated Power Output")]
-[JsonProperty(PropertyName="shaft_power_curve_name")]
+[JsonProperty(PropertyName="shaft_power_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ShaftPowerCurveName { get; set; } = "";
         
 
 [Description("curve = a + b*PLR + c*PLR**2 PLR = Ratio of Generator Load to Rated Power Output")]
-[JsonProperty(PropertyName="jacket_heat_recovery_curve_name")]
+[JsonProperty(PropertyName="jacket_heat_recovery_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string JacketHeatRecoveryCurveName { get; set; } = "";
         
 
 [Description("curve = a + b*PLR + c*PLR**2 PLR = Ratio of Generator Load to Rated Power Output")]
-[JsonProperty(PropertyName="lube_heat_recovery_curve_name")]
+[JsonProperty(PropertyName="lube_heat_recovery_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string LubeHeatRecoveryCurveName { get; set; } = "";
         
 
 [Description("curve = a + b*PLR + c*PLR**2 PLR = Ratio of Generator Load to Rated Power Output")]
-[JsonProperty(PropertyName="total_exhaust_energy_curve_name")]
+[JsonProperty(PropertyName="total_exhaust_energy_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TotalExhaustEnergyCurveName { get; set; } = "";
         
 
 [Description("curve = a + b*PLR + c*PLR**2 PLR = Ratio of Generator Load to Rated Power Output")]
-[JsonProperty(PropertyName="exhaust_temperature_curve_name")]
+[JsonProperty(PropertyName="exhaust_temperature_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ExhaustTemperatureCurveName { get; set; } = "";
         
 
 [Description("curve = C1 * Generator Rated Power Output**C2")]
-[JsonProperty(PropertyName="coefficient_1_of_u_factor_times_area_curve")]
-public System.Nullable<float> Coefficient1OfUFactorTimesAreaCurve { get; set; } = null;
+[JsonProperty(PropertyName="coefficient_1_of_u_factor_times_area_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1OfUFactorTimesAreaCurve { get; set; } = null;
         
 
 [Description("curve = C1 * Generator Rated Power Output**C2 typical value .9")]
-[JsonProperty(PropertyName="coefficient_2_of_u_factor_times_area_curve")]
-public System.Nullable<float> Coefficient2OfUFactorTimesAreaCurve { get; set; } = null;
+[JsonProperty(PropertyName="coefficient_2_of_u_factor_times_area_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2OfUFactorTimesAreaCurve { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_exhaust_flow_per_unit_of_power_output")]
-public System.Nullable<float> MaximumExhaustFlowPerUnitOfPowerOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_exhaust_flow_per_unit_of_power_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumExhaustFlowPerUnitOfPowerOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="design_minimum_exhaust_temperature")]
-public System.Nullable<float> DesignMinimumExhaustTemperature { get; set; } = null;
+[JsonProperty(PropertyName="design_minimum_exhaust_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DesignMinimumExhaustTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="fuel_higher_heating_value")]
-public System.Nullable<float> FuelHigherHeatingValue { get; set; } = null;
+[JsonProperty(PropertyName="fuel_higher_heating_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FuelHigherHeatingValue { get; set; } = null;
         
 
 [Description("if non-zero, then inlet, outlet nodes must be entered.")]
-[JsonProperty(PropertyName="design_heat_recovery_water_flow_rate")]
-public System.Nullable<float> DesignHeatRecoveryWaterFlowRate { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="design_heat_recovery_water_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DesignHeatRecoveryWaterFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="heat_recovery_inlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heat_recovery_outlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryOutletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fuel_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fuel_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_InternalCombustionEngine_FuelType FuelType { get; set; } = (Generator_InternalCombustionEngine_FuelType)Enum.Parse(typeof(Generator_InternalCombustionEngine_FuelType), "Diesel");
         
 
-[JsonProperty(PropertyName="heat_recovery_maximum_temperature")]
-public System.Nullable<float> HeatRecoveryMaximumTemperature { get; set; } = (System.Nullable<float>)Single.Parse("80", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="heat_recovery_maximum_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HeatRecoveryMaximumTemperature { get; set; } = (System.Nullable<double>)Double.Parse("80", CultureInfo.InvariantCulture);
     }
     
     public enum Generator_InternalCombustionEngine_FuelType
@@ -210,111 +211,112 @@ public System.Nullable<float> HeatRecoveryMaximumTemperature { get; set; } = (Sy
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="rated_power_output")]
-public System.Nullable<float> RatedPowerOutput { get; set; } = null;
+[JsonProperty(PropertyName="rated_power_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RatedPowerOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="electric_circuit_node_name")]
+[JsonProperty(PropertyName="electric_circuit_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ElectricCircuitNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_part_load_ratio")]
-public System.Nullable<float> MinimumPartLoadRatio { get; set; } = null;
+[JsonProperty(PropertyName="minimum_part_load_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_part_load_ratio")]
-public System.Nullable<float> MaximumPartLoadRatio { get; set; } = null;
+[JsonProperty(PropertyName="maximum_part_load_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumPartLoadRatio { get; set; } = null;
         
 
-[JsonProperty(PropertyName="optimum_part_load_ratio")]
-public System.Nullable<float> OptimumPartLoadRatio { get; set; } = null;
+[JsonProperty(PropertyName="optimum_part_load_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OptimumPartLoadRatio { get; set; } = null;
         
 
 [Description("curve = a + b*PLR + c*PLR**2 PLR = Ratio of Generator Load to Rated Power Output " +
     "this curve is multiplied to the Temperature Based Fuel Input Curve to determine " +
     "Fuel Energy In")]
-[JsonProperty(PropertyName="part_load_based_fuel_input_curve_name")]
+[JsonProperty(PropertyName="part_load_based_fuel_input_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PartLoadBasedFuelInputCurveName { get; set; } = "";
         
 
 [Description("curve = a + b*AT + c*AT**2 AT = Ambient Delta T this curve is multiplied to the P" +
     "art Load Based Fuel Input Curve to determine Fuel Energy In")]
-[JsonProperty(PropertyName="temperature_based_fuel_input_curve_name")]
+[JsonProperty(PropertyName="temperature_based_fuel_input_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TemperatureBasedFuelInputCurveName { get; set; } = "";
         
 
 [Description("curve = a + b*AT + c*AT**2 AT = Ambient Delta T")]
-[JsonProperty(PropertyName="exhaust_flow_curve_name")]
+[JsonProperty(PropertyName="exhaust_flow_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ExhaustFlowCurveName { get; set; } = "";
         
 
 [Description("curve = a + b*PLR + c*PLR**2 PLR = Ratio of Generator Load to Rated Power Output " +
     "this curve is multiplied to the Temperature Based Exhaust Temperature Curve to d" +
     "etermine Exhaust Temperature")]
-[JsonProperty(PropertyName="part_load_based_exhaust_temperature_curve_name")]
+[JsonProperty(PropertyName="part_load_based_exhaust_temperature_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PartLoadBasedExhaustTemperatureCurveName { get; set; } = "";
         
 
 [Description("curve = a + b*AT + c*AT**2 AT = Ambient Delta T this curve is multiplied to the P" +
     "art Load Based Exhaust Temperature Curve to determine Exhaust Temperature")]
-[JsonProperty(PropertyName="temperature_based_exhaust_temperature_curve_name")]
+[JsonProperty(PropertyName="temperature_based_exhaust_temperature_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TemperatureBasedExhaustTemperatureCurveName { get; set; } = "";
         
 
 [Description("curve = a + b*PLR + c*PLR**2 PLR = Ratio of Generator Load to Rated Power Output")]
-[JsonProperty(PropertyName="heat_recovery_lube_energy_curve_name")]
+[JsonProperty(PropertyName="heat_recovery_lube_energy_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryLubeEnergyCurveName { get; set; } = "";
         
 
 [Description("curve = C1 * Rated Power Output**C2")]
-[JsonProperty(PropertyName="coefficient_1_of_u_factor_times_area_curve")]
-public System.Nullable<float> Coefficient1OfUFactorTimesAreaCurve { get; set; } = null;
+[JsonProperty(PropertyName="coefficient_1_of_u_factor_times_area_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient1OfUFactorTimesAreaCurve { get; set; } = null;
         
 
 [Description("curve = C1 * Rated Power Output**C2 typical value .9")]
-[JsonProperty(PropertyName="coefficient_2_of_u_factor_times_area_curve")]
-public System.Nullable<float> Coefficient2OfUFactorTimesAreaCurve { get; set; } = null;
+[JsonProperty(PropertyName="coefficient_2_of_u_factor_times_area_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Coefficient2OfUFactorTimesAreaCurve { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_exhaust_flow_per_unit_of_power_output")]
-public System.Nullable<float> MaximumExhaustFlowPerUnitOfPowerOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_exhaust_flow_per_unit_of_power_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumExhaustFlowPerUnitOfPowerOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="design_minimum_exhaust_temperature")]
-public System.Nullable<float> DesignMinimumExhaustTemperature { get; set; } = null;
+[JsonProperty(PropertyName="design_minimum_exhaust_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DesignMinimumExhaustTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="design_air_inlet_temperature")]
-public System.Nullable<float> DesignAirInletTemperature { get; set; } = null;
+[JsonProperty(PropertyName="design_air_inlet_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DesignAirInletTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="fuel_higher_heating_value")]
-public System.Nullable<float> FuelHigherHeatingValue { get; set; } = null;
+[JsonProperty(PropertyName="fuel_higher_heating_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FuelHigherHeatingValue { get; set; } = null;
         
 
 [Description("if non-zero, then inlet, outlet nodes must be entered.")]
-[JsonProperty(PropertyName="design_heat_recovery_water_flow_rate")]
-public System.Nullable<float> DesignHeatRecoveryWaterFlowRate { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="design_heat_recovery_water_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DesignHeatRecoveryWaterFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="heat_recovery_inlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heat_recovery_outlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryOutletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fuel_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fuel_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_CombustionTurbine_FuelType FuelType { get; set; } = (Generator_CombustionTurbine_FuelType)Enum.Parse(typeof(Generator_CombustionTurbine_FuelType), "NaturalGas");
         
 
-[JsonProperty(PropertyName="heat_recovery_maximum_temperature")]
-public System.Nullable<float> HeatRecoveryMaximumTemperature { get; set; } = (System.Nullable<float>)Single.Parse("80", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="heat_recovery_maximum_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HeatRecoveryMaximumTemperature { get; set; } = (System.Nullable<double>)Double.Parse("80", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the name of an outdoor air node")]
-[JsonProperty(PropertyName="outdoor_air_inlet_node_name")]
+[JsonProperty(PropertyName="outdoor_air_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string OutdoorAirInletNodeName { get; set; } = "";
     }
     
@@ -365,193 +367,195 @@ public string OutdoorAirInletNodeName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="reference_electrical_power_output")]
-public System.Nullable<float> ReferenceElectricalPowerOutput { get; set; } = null;
+[JsonProperty(PropertyName="reference_electrical_power_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceElectricalPowerOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_full_load_electrical_power_output")]
-public System.Nullable<float> MinimumFullLoadElectricalPowerOutput { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_full_load_electrical_power_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumFullLoadElectricalPowerOutput { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("If left blank, Maximum Full Load Electrical Power Output will be set equal to the" +
     " Reference Electrical Power Output.")]
-[JsonProperty(PropertyName="maximum_full_load_electrical_power_output")]
-public System.Nullable<float> MaximumFullLoadElectricalPowerOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_full_load_electrical_power_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumFullLoadElectricalPowerOutput { get; set; } = null;
         
 
 [Description("Electric power output divided by fuel energy input (LHV basis) at reference condi" +
     "tions.")]
-[JsonProperty(PropertyName="reference_electrical_efficiency_using_lower_heating_value")]
-public System.Nullable<float> ReferenceElectricalEfficiencyUsingLowerHeatingValue { get; set; } = null;
+[JsonProperty(PropertyName="reference_electrical_efficiency_using_lower_heating_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceElectricalEfficiencyUsingLowerHeatingValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="reference_combustion_air_inlet_temperature")]
-public System.Nullable<float> ReferenceCombustionAirInletTemperature { get; set; } = (System.Nullable<float>)Single.Parse("15", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="reference_combustion_air_inlet_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceCombustionAirInletTemperature { get; set; } = (System.Nullable<double>)Double.Parse("15", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="reference_combustion_air_inlet_humidity_ratio")]
-public System.Nullable<float> ReferenceCombustionAirInletHumidityRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.00638", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="reference_combustion_air_inlet_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceCombustionAirInletHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.00638", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="reference_elevation")]
-public System.Nullable<float> ReferenceElevation { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="reference_elevation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceElevation { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("curve = a + b*T + c*T**2 + d*Elev + e*Elev**2 + f*T*Elev T = combustion air inlet" +
     " temperature (C) Elev = elevation (m)")]
-[JsonProperty(PropertyName="electrical_power_function_of_temperature_and_elevation_curve_name")]
+[JsonProperty(PropertyName="electrical_power_function_of_temperature_and_elevation_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ElectricalPowerFunctionOfTemperatureAndElevationCurveName { get; set; } = "";
         
 
 [Description("Quadratic curve = a + b*T + c*T**2 Cubic curve = a + b*T + c*T**2 + d*T**3 T = co" +
     "mbustion air inlet temperature (C)")]
-[JsonProperty(PropertyName="electrical_efficiency_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="electrical_efficiency_function_of_temperature_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ElectricalEfficiencyFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description("Quadratic curve = a + b*PLR + c*PLR**2 Cubic curve = a + b*PLR + c*PLR**2 + d*PLR" +
     "**3 PLR = ratio of Generator Load to steady state Electrical Power Output at cur" +
     "rent operating conditions")]
-[JsonProperty(PropertyName="electrical_efficiency_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="electrical_efficiency_function_of_part_load_ratio_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ElectricalEfficiencyFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fuel_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fuel_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_MicroTurbine_FuelType FuelType { get; set; } = (Generator_MicroTurbine_FuelType)Enum.Parse(typeof(Generator_MicroTurbine_FuelType), "NaturalGas");
         
 
-[JsonProperty(PropertyName="fuel_higher_heating_value")]
-public System.Nullable<float> FuelHigherHeatingValue { get; set; } = (System.Nullable<float>)Single.Parse("50000", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fuel_higher_heating_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FuelHigherHeatingValue { get; set; } = (System.Nullable<double>)Double.Parse("50000", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="fuel_lower_heating_value")]
-public System.Nullable<float> FuelLowerHeatingValue { get; set; } = (System.Nullable<float>)Single.Parse("45450", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fuel_lower_heating_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FuelLowerHeatingValue { get; set; } = (System.Nullable<double>)Double.Parse("45450", CultureInfo.InvariantCulture);
         
 
 [Description("Electric power consumed when the generator is available but not being called by t" +
     "he Electric Load Center.")]
-[JsonProperty(PropertyName="standby_power")]
-public System.Nullable<float> StandbyPower { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="standby_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StandbyPower { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"Electric power consumed by ancillary equipment (e.g., external fuel pressurization pump). Set to zero if Reference Electrical Power Output is the 'net' value (ancillary power already deducted). Input value is positive, but indicates negative electric generation.")]
-[JsonProperty(PropertyName="ancillary_power")]
-public System.Nullable<float> AncillaryPower { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="ancillary_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AncillaryPower { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Quadratic curve = a + b*mdot + c*mdot**2 mdot = fuel mass flow rate (kg/s) If lef" +
     "t blank, model assumes ancillary power defined in previous field is constant whe" +
     "never the generator is operating.")]
-[JsonProperty(PropertyName="ancillary_power_function_of_fuel_input_curve_name")]
+[JsonProperty(PropertyName="ancillary_power_function_of_fuel_input_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AncillaryPowerFunctionOfFuelInputCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heat_recovery_water_inlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_water_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heat_recovery_water_outlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_water_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryWaterOutletNodeName { get; set; } = "";
         
 
 [Description("Reference thermal efficiency (heat recovery to water) based on the Lower Heating " +
     "Value (LHV) of the fuel.")]
-[JsonProperty(PropertyName="reference_thermal_efficiency_using_lower_heat_value")]
-public System.Nullable<float> ReferenceThermalEfficiencyUsingLowerHeatValue { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="reference_thermal_efficiency_using_lower_heat_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceThermalEfficiencyUsingLowerHeatValue { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="reference_inlet_water_temperature")]
-public System.Nullable<float> ReferenceInletWaterTemperature { get; set; } = null;
+[JsonProperty(PropertyName="reference_inlet_water_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceInletWaterTemperature { get; set; } = null;
         
 
 [Description(@"PlantControl means the heat recovery water flow rate is determined by the plant, but the user needs to supply a heat recovery water flow rate. InternalControl means the heat recovery water flow rate is controlled by this generator. If 'InternalControl' is selected, then the user needs to supply a reference heat recovery water flow rate and optionally the name of a heat recovery flow rate modifier curve.")]
-[JsonProperty(PropertyName="heat_recovery_water_flow_operating_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="heat_recovery_water_flow_operating_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_MicroTurbine_HeatRecoveryWaterFlowOperatingMode HeatRecoveryWaterFlowOperatingMode { get; set; } = (Generator_MicroTurbine_HeatRecoveryWaterFlowOperatingMode)Enum.Parse(typeof(Generator_MicroTurbine_HeatRecoveryWaterFlowOperatingMode), "PlantControl");
         
 
-[JsonProperty(PropertyName="reference_heat_recovery_water_flow_rate")]
-public System.Nullable<float> ReferenceHeatRecoveryWaterFlowRate { get; set; } = null;
+[JsonProperty(PropertyName="reference_heat_recovery_water_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceHeatRecoveryWaterFlowRate { get; set; } = null;
         
 
 [Description(@"curve = a + b*T + c*T**2 + d*Pnet + e*Pnet + f*T*Pnet T = heat recovery inlet water temperature Pnet = net power output = electric power output - ancillary power If left blank, model assumes the heat recovery water flow rate is constant whenever the generator is operating, at the Reference HR Water Flow Rate defined in the previous field.")]
-[JsonProperty(PropertyName="heat_recovery_water_flow_rate_function_of_temperature_and_power_curve_name")]
+[JsonProperty(PropertyName="heat_recovery_water_flow_rate_function_of_temperature_and_power_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryWaterFlowRateFunctionOfTemperatureAndPowerCurveName { get; set; } = "";
         
 
 [Description(@"Bicubic curve = a + b*T + c*T**2 + d*Elev + e*Elev**2 + f*T*Elev + g*T**3 + h*Elev**3 + i*T**2*Elev + j*T*Elev**2 Biquadratic curve = a + b*T + c*T**2 + d*Elev + e*Elev**2 + f*T*Elev T = combustion air inlet temperature (C) Elev = elevation (m) If field is left blank, model assumes this modifier equals 1 for entire simulation.")]
-[JsonProperty(PropertyName="thermal_efficiency_function_of_temperature_and_elevation_curve_name")]
+[JsonProperty(PropertyName="thermal_efficiency_function_of_temperature_and_elevation_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ThermalEfficiencyFunctionOfTemperatureAndElevationCurveName { get; set; } = "";
         
 
 [Description(@"Quadratic curve = a + b*PLR + c*PLR**2 Cubic curve = a + b*PLR + c*PLR**2 + d*PLR**3 PLR = ratio of Generator Load to steady state Electrical Power Output at current operating conditions If field is left blank, model assumes this modifier equals 1 for entire simulation.")]
-[JsonProperty(PropertyName="heat_recovery_rate_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="heat_recovery_rate_function_of_part_load_ratio_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryRateFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
 
 [Description("Quadratic curve = a + b*T + c*T**2 T = inlet water temperature (C) If field is le" +
     "ft blank, model assumes this modifier equals 1 for entire simulation.")]
-[JsonProperty(PropertyName="heat_recovery_rate_function_of_inlet_water_temperature_curve_name")]
+[JsonProperty(PropertyName="heat_recovery_rate_function_of_inlet_water_temperature_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryRateFunctionOfInletWaterTemperatureCurveName { get; set; } = "";
         
 
 [Description("Quadratic curve = a + b*Flow + c*Flow**2 Flow = flow rate of water through the he" +
     "at exchanger (m3/s) If field is left blank, model assumes this modifier equals 1" +
     " for entire simulation.")]
-[JsonProperty(PropertyName="heat_recovery_rate_function_of_water_flow_rate_curve_name")]
+[JsonProperty(PropertyName="heat_recovery_rate_function_of_water_flow_rate_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryRateFunctionOfWaterFlowRateCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_heat_recovery_water_flow_rate")]
-public System.Nullable<float> MinimumHeatRecoveryWaterFlowRate { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_heat_recovery_water_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumHeatRecoveryWaterFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_heat_recovery_water_flow_rate")]
-public System.Nullable<float> MaximumHeatRecoveryWaterFlowRate { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_heat_recovery_water_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumHeatRecoveryWaterFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_heat_recovery_water_temperature")]
-public System.Nullable<float> MaximumHeatRecoveryWaterTemperature { get; set; } = null;
+[JsonProperty(PropertyName="maximum_heat_recovery_water_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumHeatRecoveryWaterTemperature { get; set; } = null;
         
 
 [Description("Must be an outdoor air node.")]
-[JsonProperty(PropertyName="combustion_air_inlet_node_name")]
+[JsonProperty(PropertyName="combustion_air_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CombustionAirInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="combustion_air_outlet_node_name")]
+[JsonProperty(PropertyName="combustion_air_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CombustionAirOutletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="reference_exhaust_air_mass_flow_rate")]
-public System.Nullable<float> ReferenceExhaustAirMassFlowRate { get; set; } = null;
+[JsonProperty(PropertyName="reference_exhaust_air_mass_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceExhaustAirMassFlowRate { get; set; } = null;
         
 
 [Description("Quadratic curve = a + b*T + c*T**2 Cubic curve = a + b*T + c*T**2 + d*T**3 T = co" +
     "mbustion air inlet temperature (C) If field is left blank, model assumes this mo" +
     "difier equals 1 for entire simulation.")]
-[JsonProperty(PropertyName="exhaust_air_flow_rate_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="exhaust_air_flow_rate_function_of_temperature_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ExhaustAirFlowRateFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"Quadratic curve = a + b*PLR + c*PLR**2 Cubic curve = a + b*PLR + c*PLR**2 + d*PLR**3 PLR = ratio of Generator Load to steady state Electrical Power Output at current operating conditions. If field is left blank, model assumes this modifier equals 1 for entire simulation.")]
-[JsonProperty(PropertyName="exhaust_air_flow_rate_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="exhaust_air_flow_rate_function_of_part_load_ratio_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ExhaustAirFlowRateFunctionOfPartLoadRatioCurveName { get; set; } = "";
         
 
 [Description("Exhaust air outlet temperature at reference conditions.")]
-[JsonProperty(PropertyName="nominal_exhaust_air_outlet_temperature")]
-public System.Nullable<float> NominalExhaustAirOutletTemperature { get; set; } = null;
+[JsonProperty(PropertyName="nominal_exhaust_air_outlet_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalExhaustAirOutletTemperature { get; set; } = null;
         
 
 [Description("Quadratic curve = a + b*T + c*T**2 Cubic curve = a + b*T + c*T**2 + d*T**3 T = co" +
     "mbustion air inlet temperature (C) If field is left blank, model assumes this mo" +
     "difier equals 1 for entire simulation.")]
-[JsonProperty(PropertyName="exhaust_air_temperature_function_of_temperature_curve_name")]
+[JsonProperty(PropertyName="exhaust_air_temperature_function_of_temperature_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ExhaustAirTemperatureFunctionOfTemperatureCurveName { get; set; } = "";
         
 
 [Description(@"Quadratic curve = a + b*PLR + c*PLR**2 Cubic curve = a + b*PLR + c*PLR**2 + d*PLR**3 PLR = ratio of Generator Load to steady state Electrical Power Output at current operating conditions. If field is left blank, model assumes this modifier equals 1 for entire simulation.")]
-[JsonProperty(PropertyName="exhaust_air_temperature_function_of_part_load_ratio_curve_name")]
+[JsonProperty(PropertyName="exhaust_air_temperature_function_of_part_load_ratio_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ExhaustAirTemperatureFunctionOfPartLoadRatioCurveName { get; set; } = "";
     }
     
@@ -613,31 +617,33 @@ public string ExhaustAirTemperatureFunctionOfPartLoadRatioCurveName { get; set; 
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="surface_name")]
+[JsonProperty(PropertyName="surface_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SurfaceName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="photovoltaic_performance_object_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="photovoltaic_performance_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_Photovoltaic_PhotovoltaicPerformanceObjectType PhotovoltaicPerformanceObjectType { get; set; } = (Generator_Photovoltaic_PhotovoltaicPerformanceObjectType)Enum.Parse(typeof(Generator_Photovoltaic_PhotovoltaicPerformanceObjectType), "PhotovoltaicPerformanceEquivalentOneDiode");
         
 
 [Description("PV array modeling details")]
-[JsonProperty(PropertyName="module_performance_name")]
+[JsonProperty(PropertyName="module_performance_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ModulePerformanceName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heat_transfer_integration_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="heat_transfer_integration_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_Photovoltaic_HeatTransferIntegrationMode HeatTransferIntegrationMode { get; set; } = (Generator_Photovoltaic_HeatTransferIntegrationMode)Enum.Parse(typeof(Generator_Photovoltaic_HeatTransferIntegrationMode), "Decoupled");
         
 
 [Description("number of series-wired strings of PV modules that are in parallel")]
-[JsonProperty(PropertyName="number_of_series_strings_in_parallel")]
-public System.Nullable<float> NumberOfSeriesStringsInParallel { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="number_of_series_strings_in_parallel", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfSeriesStringsInParallel { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Number of PV modules wired in series for each string.")]
-[JsonProperty(PropertyName="number_of_modules_in_series")]
-public System.Nullable<float> NumberOfModulesInSeries { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="number_of_modules_in_series", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfModulesInSeries { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum Generator_Photovoltaic_PhotovoltaicPerformanceObjectType
@@ -689,20 +695,21 @@ public System.Nullable<float> NumberOfModulesInSeries { get; set; } = (System.Nu
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fraction_of_surface_area_with_active_solar_cells")]
-public System.Nullable<float> FractionOfSurfaceAreaWithActiveSolarCells { get; set; } = null;
+[JsonProperty(PropertyName="fraction_of_surface_area_with_active_solar_cells", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfSurfaceAreaWithActiveSolarCells { get; set; } = null;
         
 
-[JsonProperty(PropertyName="conversion_efficiency_input_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="conversion_efficiency_input_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PhotovoltaicPerformance_Simple_ConversionEfficiencyInputMode ConversionEfficiencyInputMode { get; set; } = (PhotovoltaicPerformance_Simple_ConversionEfficiencyInputMode)Enum.Parse(typeof(PhotovoltaicPerformance_Simple_ConversionEfficiencyInputMode), "Fixed");
         
 
 [Description("Efficiency = (power generated [W])/(incident solar[W])")]
-[JsonProperty(PropertyName="value_for_cell_efficiency_if_fixed")]
-public System.Nullable<float> ValueForCellEfficiencyIfFixed { get; set; } = null;
+[JsonProperty(PropertyName="value_for_cell_efficiency_if_fixed", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ValueForCellEfficiencyIfFixed { get; set; } = null;
         
 
-[JsonProperty(PropertyName="efficiency_schedule_name")]
+[JsonProperty(PropertyName="efficiency_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string EfficiencyScheduleName { get; set; } = "";
     }
     
@@ -729,89 +736,90 @@ public string EfficiencyScheduleName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="cell_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="cell_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public PhotovoltaicPerformance_EquivalentOneDiode_CellType CellType { get; set; } = (PhotovoltaicPerformance_EquivalentOneDiode_CellType)Enum.Parse(typeof(PhotovoltaicPerformance_EquivalentOneDiode_CellType), "AmorphousSilicon");
         
 
-[JsonProperty(PropertyName="number_of_cells_in_series")]
-public System.Nullable<float> NumberOfCellsInSeries { get; set; } = (System.Nullable<float>)Single.Parse("36", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="number_of_cells_in_series", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfCellsInSeries { get; set; } = (System.Nullable<double>)Double.Parse("36", CultureInfo.InvariantCulture);
         
 
 [Description("The total power output of the array is determined by the number of modules (see a" +
     "bove). The Active Area is only used to calculate the PV Array Efficiency output " +
     "variable.")]
-[JsonProperty(PropertyName="active_area")]
-public System.Nullable<float> ActiveArea { get; set; } = (System.Nullable<float>)Single.Parse("0.89", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="active_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ActiveArea { get; set; } = (System.Nullable<double>)Double.Parse("0.89", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="transmittance_absorptance_product")]
-public System.Nullable<float> TransmittanceAbsorptanceProduct { get; set; } = (System.Nullable<float>)Single.Parse("0.95", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="transmittance_absorptance_product", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TransmittanceAbsorptanceProduct { get; set; } = (System.Nullable<double>)Double.Parse("0.95", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="semiconductor_bandgap")]
-public System.Nullable<float> SemiconductorBandgap { get; set; } = (System.Nullable<float>)Single.Parse("1.12", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="semiconductor_bandgap", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SemiconductorBandgap { get; set; } = (System.Nullable<double>)Double.Parse("1.12", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="shunt_resistance")]
-public System.Nullable<float> ShuntResistance { get; set; } = (System.Nullable<float>)Single.Parse("1000000", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="shunt_resistance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ShuntResistance { get; set; } = (System.Nullable<double>)Double.Parse("1000000", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="short_circuit_current")]
-public System.Nullable<float> ShortCircuitCurrent { get; set; } = (System.Nullable<float>)Single.Parse("6.5", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="short_circuit_current", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ShortCircuitCurrent { get; set; } = (System.Nullable<double>)Double.Parse("6.5", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="open_circuit_voltage")]
-public System.Nullable<float> OpenCircuitVoltage { get; set; } = (System.Nullable<float>)Single.Parse("21.6", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="open_circuit_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OpenCircuitVoltage { get; set; } = (System.Nullable<double>)Double.Parse("21.6", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="reference_temperature")]
-public System.Nullable<float> ReferenceTemperature { get; set; } = (System.Nullable<float>)Single.Parse("25", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="reference_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceTemperature { get; set; } = (System.Nullable<double>)Double.Parse("25", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="reference_insolation")]
-public System.Nullable<float> ReferenceInsolation { get; set; } = (System.Nullable<float>)Single.Parse("1000", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="reference_insolation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceInsolation { get; set; } = (System.Nullable<double>)Double.Parse("1000", CultureInfo.InvariantCulture);
         
 
 [Description("Single module current at the maximum power point and reference conditions. Module" +
     " Current, Module Voltage, Number of Modules in Parallel and Number of Modules in" +
     " Series determine the maximum power output of the array.")]
-[JsonProperty(PropertyName="module_current_at_maximum_power")]
-public System.Nullable<float> ModuleCurrentAtMaximumPower { get; set; } = (System.Nullable<float>)Single.Parse("5.9", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="module_current_at_maximum_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ModuleCurrentAtMaximumPower { get; set; } = (System.Nullable<double>)Double.Parse("5.9", CultureInfo.InvariantCulture);
         
 
 [Description("Single module voltage at the maximum power point and reference conditions. Module" +
     " Current, Module Voltage, Number of Modules in Parallel and Number of Modules in" +
     " Series determine the maximum power output of the array.")]
-[JsonProperty(PropertyName="module_voltage_at_maximum_power")]
-public System.Nullable<float> ModuleVoltageAtMaximumPower { get; set; } = (System.Nullable<float>)Single.Parse("17", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="module_voltage_at_maximum_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ModuleVoltageAtMaximumPower { get; set; } = (System.Nullable<double>)Double.Parse("17", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="temperature_coefficient_of_short_circuit_current")]
-public System.Nullable<float> TemperatureCoefficientOfShortCircuitCurrent { get; set; } = (System.Nullable<float>)Single.Parse("0.02", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="temperature_coefficient_of_short_circuit_current", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TemperatureCoefficientOfShortCircuitCurrent { get; set; } = (System.Nullable<double>)Double.Parse("0.02", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="temperature_coefficient_of_open_circuit_voltage")]
-public System.Nullable<float> TemperatureCoefficientOfOpenCircuitVoltage { get; set; } = (System.Nullable<float>)Single.Parse("-0.079", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="temperature_coefficient_of_open_circuit_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TemperatureCoefficientOfOpenCircuitVoltage { get; set; } = (System.Nullable<double>)Double.Parse("-0.079", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="nominal_operating_cell_temperature_test_ambient_temperature")]
-public System.Nullable<float> NominalOperatingCellTemperatureTestAmbientTemperature { get; set; } = (System.Nullable<float>)Single.Parse("20", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="nominal_operating_cell_temperature_test_ambient_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalOperatingCellTemperatureTestAmbientTemperature { get; set; } = (System.Nullable<double>)Double.Parse("20", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="nominal_operating_cell_temperature_test_cell_temperature")]
-public System.Nullable<float> NominalOperatingCellTemperatureTestCellTemperature { get; set; } = (System.Nullable<float>)Single.Parse("40", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="nominal_operating_cell_temperature_test_cell_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalOperatingCellTemperatureTestCellTemperature { get; set; } = (System.Nullable<double>)Double.Parse("40", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="nominal_operating_cell_temperature_test_insolation")]
-public System.Nullable<float> NominalOperatingCellTemperatureTestInsolation { get; set; } = (System.Nullable<float>)Single.Parse("800", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="nominal_operating_cell_temperature_test_insolation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalOperatingCellTemperatureTestInsolation { get; set; } = (System.Nullable<double>)Double.Parse("800", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="module_heat_loss_coefficient")]
-public System.Nullable<float> ModuleHeatLossCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("30", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="module_heat_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ModuleHeatLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("30", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="total_heat_capacity")]
-public System.Nullable<float> TotalHeatCapacity { get; set; } = (System.Nullable<float>)Single.Parse("50000", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="total_heat_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TotalHeatCapacity { get; set; } = (System.Nullable<double>)Double.Parse("50000", CultureInfo.InvariantCulture);
     }
     
     public enum PhotovoltaicPerformance_EquivalentOneDiode_CellType
@@ -838,174 +846,174 @@ public string NodeName { get; set; } = "";
         
 
 [Description("(m2, single module)")]
-[JsonProperty(PropertyName="active_area")]
-public System.Nullable<float> ActiveArea { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="active_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ActiveArea { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="number_of_cells_in_series")]
-public System.Nullable<float> NumberOfCellsInSeries { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="number_of_cells_in_series", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfCellsInSeries { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="number_of_cells_in_parallel")]
-public System.Nullable<float> NumberOfCellsInParallel { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
-        
-
-[Description("(Amps)")]
-[JsonProperty(PropertyName="short_circuit_current")]
-public System.Nullable<float> ShortCircuitCurrent { get; set; } = null;
-        
-
-[Description("(Volts)")]
-[JsonProperty(PropertyName="open_circuit_voltage")]
-public System.Nullable<float> OpenCircuitVoltage { get; set; } = null;
+[JsonProperty(PropertyName="number_of_cells_in_parallel", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfCellsInParallel { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("(Amps)")]
-[JsonProperty(PropertyName="current_at_maximum_power_point")]
-public System.Nullable<float> CurrentAtMaximumPowerPoint { get; set; } = null;
+[JsonProperty(PropertyName="short_circuit_current", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ShortCircuitCurrent { get; set; } = null;
         
 
 [Description("(Volts)")]
-[JsonProperty(PropertyName="voltage_at_maximum_power_point")]
-public System.Nullable<float> VoltageAtMaximumPowerPoint { get; set; } = null;
+[JsonProperty(PropertyName="open_circuit_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OpenCircuitVoltage { get; set; } = null;
+        
+
+[Description("(Amps)")]
+[JsonProperty(PropertyName="current_at_maximum_power_point", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CurrentAtMaximumPowerPoint { get; set; } = null;
+        
+
+[Description("(Volts)")]
+[JsonProperty(PropertyName="voltage_at_maximum_power_point", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VoltageAtMaximumPowerPoint { get; set; } = null;
         
 
 [Description("(1/degC)")]
-[JsonProperty(PropertyName="sandia_database_parameter_aisc")]
-public System.Nullable<float> SandiaDatabaseParameterAisc { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_aisc", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterAisc { get; set; } = null;
         
 
 [Description("(1/degC)")]
-[JsonProperty(PropertyName="sandia_database_parameter_aimp")]
-public System.Nullable<float> SandiaDatabaseParameterAimp { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_aimp", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterAimp { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_c0")]
-public System.Nullable<float> SandiaDatabaseParameterC0 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_c0", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterC0 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_c1")]
-public System.Nullable<float> SandiaDatabaseParameterC1 { get; set; } = null;
-        
-
-[Description("(Volts/degC)")]
-[JsonProperty(PropertyName="sandia_database_parameter_bvoc0")]
-public System.Nullable<float> SandiaDatabaseParameterBvoc0 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_c1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterC1 { get; set; } = null;
         
 
 [Description("(Volts/degC)")]
-[JsonProperty(PropertyName="sandia_database_parameter_mbvoc")]
-public System.Nullable<float> SandiaDatabaseParameterMbvoc { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_bvoc0", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterBvoc0 { get; set; } = null;
         
 
 [Description("(Volts/degC)")]
-[JsonProperty(PropertyName="sandia_database_parameter_bvmp0")]
-public System.Nullable<float> SandiaDatabaseParameterBvmp0 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_mbvoc", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterMbvoc { get; set; } = null;
         
 
 [Description("(Volts/degC)")]
-[JsonProperty(PropertyName="sandia_database_parameter_mbvmp")]
-public System.Nullable<float> SandiaDatabaseParameterMbvmp { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_bvmp0", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterBvmp0 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="diode_factor")]
-public System.Nullable<float> DiodeFactor { get; set; } = null;
+[Description("(Volts/degC)")]
+[JsonProperty(PropertyName="sandia_database_parameter_mbvmp", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterMbvmp { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_c2")]
-public System.Nullable<float> SandiaDatabaseParameterC2 { get; set; } = null;
+[JsonProperty(PropertyName="diode_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DiodeFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_c3")]
-public System.Nullable<float> SandiaDatabaseParameterC3 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_c2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterC2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_a0")]
-public System.Nullable<float> SandiaDatabaseParameterA0 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_c3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterC3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_a1")]
-public System.Nullable<float> SandiaDatabaseParameterA1 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_a0", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterA0 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_a2")]
-public System.Nullable<float> SandiaDatabaseParameterA2 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_a1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterA1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_a3")]
-public System.Nullable<float> SandiaDatabaseParameterA3 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_a2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterA2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_a4")]
-public System.Nullable<float> SandiaDatabaseParameterA4 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_a3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterA3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_b0")]
-public System.Nullable<float> SandiaDatabaseParameterB0 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_a4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterA4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_b1")]
-public System.Nullable<float> SandiaDatabaseParameterB1 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_b0", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterB0 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_b2")]
-public System.Nullable<float> SandiaDatabaseParameterB2 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_b1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterB1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_b3")]
-public System.Nullable<float> SandiaDatabaseParameterB3 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_b2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterB2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_b4")]
-public System.Nullable<float> SandiaDatabaseParameterB4 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_b3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterB3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_b5")]
-public System.Nullable<float> SandiaDatabaseParameterB5 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_b4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterB4 { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="sandia_database_parameter_b5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterB5 { get; set; } = null;
         
 
 [Description("(deg C)")]
-[JsonProperty(PropertyName="sandia_database_parameter_delta_tc_")]
-public System.Nullable<float> SandiaDatabaseParameterDeltaTc { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_delta_tc_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterDeltaTc { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_fd")]
-public System.Nullable<float> SandiaDatabaseParameterFd { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_fd", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterFd { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_a")]
-public System.Nullable<float> SandiaDatabaseParameterA { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_a", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterA { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_b")]
-public System.Nullable<float> SandiaDatabaseParameterB { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_b", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterB { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_c4")]
-public System.Nullable<float> SandiaDatabaseParameterC4 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_c4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterC4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_c5")]
-public System.Nullable<float> SandiaDatabaseParameterC5 { get; set; } = null;
-        
-
-[Description("(Amps)")]
-[JsonProperty(PropertyName="sandia_database_parameter_ix0")]
-public System.Nullable<float> SandiaDatabaseParameterIx0 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_c5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterC5 { get; set; } = null;
         
 
 [Description("(Amps)")]
-[JsonProperty(PropertyName="sandia_database_parameter_ixx0")]
-public System.Nullable<float> SandiaDatabaseParameterIxx0 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_ix0", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterIx0 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="sandia_database_parameter_c6")]
-public System.Nullable<float> SandiaDatabaseParameterC6 { get; set; } = null;
+[Description("(Amps)")]
+[JsonProperty(PropertyName="sandia_database_parameter_ixx0", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterIxx0 { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="sandia_database_parameter_c6", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterC6 { get; set; } = null;
         
 
 [Description("(non-dimensional)")]
-[JsonProperty(PropertyName="sandia_database_parameter_c7")]
-public System.Nullable<float> SandiaDatabaseParameterC7 { get; set; } = null;
+[JsonProperty(PropertyName="sandia_database_parameter_c7", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SandiaDatabaseParameterC7 { get; set; } = null;
     }
     
     [Description(@"Describes a simple set of inputs for an array of photovoltaic (PV) modules as described in the PVWatts software. A series of different PVWatts arrays can be connected to a single electric load center (preferably through an ElectricLoadCenter:Inverter:PVWatts). Array tilt and azimuth can be either specified on this object or taken from a referenced building surface or shading surface. If a surface is specified, the array participates normally in all shading calculations.")]
@@ -1019,56 +1027,60 @@ public System.Nullable<float> SandiaDatabaseParameterC7 { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="pvwatts_version", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="pvwatts_version", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_PVWatts_PvwattsVersion PvwattsVersion { get; set; } = (Generator_PVWatts_PvwattsVersion)Enum.Parse(typeof(Generator_PVWatts_PvwattsVersion), "_5");
         
 
 [Description("Nameplate rated DC system capacity in watts")]
-[JsonProperty(PropertyName="dc_system_capacity")]
-public System.Nullable<float> DcSystemCapacity { get; set; } = null;
+[JsonProperty(PropertyName="dc_system_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DcSystemCapacity { get; set; } = null;
         
 
-[JsonProperty(PropertyName="module_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="module_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_PVWatts_ModuleType ModuleType { get; set; } = (Generator_PVWatts_ModuleType)Enum.Parse(typeof(Generator_PVWatts_ModuleType), "Premium");
         
 
-[JsonProperty(PropertyName="array_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="array_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_PVWatts_ArrayType ArrayType { get; set; } = (Generator_PVWatts_ArrayType)Enum.Parse(typeof(Generator_PVWatts_ArrayType), "FixedOpenRack");
         
 
-[JsonProperty(PropertyName="system_losses")]
-public System.Nullable<float> SystemLosses { get; set; } = (System.Nullable<float>)Single.Parse("0.14", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="system_losses", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SystemLosses { get; set; } = (System.Nullable<double>)Double.Parse("0.14", CultureInfo.InvariantCulture);
         
 
 [Description("TiltAzimuth - The tilt and azimuth angles are specified in the next two fields. A" +
     "n unshaded array is assumed. Surface - The array geometry (tilt and azimuth) as " +
     "well as shading is determined from surface referenced.")]
-[JsonProperty(PropertyName="array_geometry_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="array_geometry_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_PVWatts_ArrayGeometryType ArrayGeometryType { get; set; } = (Generator_PVWatts_ArrayGeometryType)Enum.Parse(typeof(Generator_PVWatts_ArrayGeometryType), "TiltAzimuth");
         
 
 [Description("The tilt angle is the angle from horizontal of the photovoltaic modules in the ar" +
     "ray.")]
-[JsonProperty(PropertyName="tilt_angle")]
-public System.Nullable<float> TiltAngle { get; set; } = (System.Nullable<float>)Single.Parse("20", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("20", CultureInfo.InvariantCulture);
         
 
 [Description("For a fixed array, the azimuth angle is the angle clockwise from true north descr" +
     "ibing the direction that the array faces. For an array with one-axis tracking, t" +
     "he azimuth angle is the angle clockwise from true north of the axis of rotation." +
     "")]
-[JsonProperty(PropertyName="azimuth_angle")]
-public System.Nullable<float> AzimuthAngle { get; set; } = (System.Nullable<float>)Single.Parse("180", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="azimuth_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AzimuthAngle { get; set; } = (System.Nullable<double>)Double.Parse("180", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="surface_name")]
+[JsonProperty(PropertyName="surface_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SurfaceName { get; set; } = "";
         
 
 [Description("Applies only to arrays with one-axis tracking and is the ratio of module surface " +
     "area to area of the ground or roof occupied by the array.")]
-[JsonProperty(PropertyName="ground_coverage_ratio")]
-public System.Nullable<float> GroundCoverageRatio { get; set; } = (System.Nullable<float>)Single.Parse("0.4", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="ground_coverage_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> GroundCoverageRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
     }
     
     public enum Generator_PVWatts_PvwattsVersion
@@ -1136,12 +1148,12 @@ public System.Nullable<float> GroundCoverageRatio { get; set; } = (System.Nullab
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="dc_to_ac_size_ratio")]
-public System.Nullable<float> DcToAcSizeRatio { get; set; } = (System.Nullable<float>)Single.Parse("1.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="dc_to_ac_size_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DcToAcSizeRatio { get; set; } = (System.Nullable<double>)Double.Parse("1.1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="inverter_efficiency")]
-public System.Nullable<float> InverterEfficiency { get; set; } = (System.Nullable<float>)Single.Parse("0.96", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="inverter_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InverterEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.96", CultureInfo.InvariantCulture);
     }
     
     [Description("This generator model is the FC model from IEA Annex 42")]
@@ -1156,48 +1168,48 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a Generator:FuelCell:PowerModule object.")]
-[JsonProperty(PropertyName="power_module_name")]
+[JsonProperty(PropertyName="power_module_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PowerModuleName { get; set; } = "";
         
 
 [Description("Enter the name of a Generator:FuelCell:AirSupply object.")]
-[JsonProperty(PropertyName="air_supply_name")]
+[JsonProperty(PropertyName="air_supply_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AirSupplyName { get; set; } = "";
         
 
 [Description("Enter the name of a Generator:FuelSupply object.")]
-[JsonProperty(PropertyName="fuel_supply_name")]
+[JsonProperty(PropertyName="fuel_supply_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FuelSupplyName { get; set; } = "";
         
 
 [Description("Enter the name of a Generator:FuelCell:WaterSupply object.")]
-[JsonProperty(PropertyName="water_supply_name")]
+[JsonProperty(PropertyName="water_supply_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string WaterSupplyName { get; set; } = "";
         
 
 [Description("Enter the name of a Generator:FuelCell:AuxiliaryHeater object.")]
-[JsonProperty(PropertyName="auxiliary_heater_name")]
+[JsonProperty(PropertyName="auxiliary_heater_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AuxiliaryHeaterName { get; set; } = "";
         
 
 [Description("Enter the name of a Generator:FuelCell:ExhaustGasToWaterHeatExchanger object.")]
-[JsonProperty(PropertyName="heat_exchanger_name")]
+[JsonProperty(PropertyName="heat_exchanger_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatExchangerName { get; set; } = "";
         
 
 [Description("Enter the name of a Generator:FuelCell:ElectricalStorage object.")]
-[JsonProperty(PropertyName="electrical_storage_name")]
+[JsonProperty(PropertyName="electrical_storage_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ElectricalStorageName { get; set; } = "";
         
 
 [Description("Enter the name of a Generator:FuelCell:Inverter object.")]
-[JsonProperty(PropertyName="inverter_name")]
+[JsonProperty(PropertyName="inverter_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string InverterName { get; set; } = "";
         
 
 [Description("Enter the name of a Generator:FuelCell:StackCooler object. optional, used for PEM" +
     "FC")]
-[JsonProperty(PropertyName="stack_cooler_name")]
+[JsonProperty(PropertyName="stack_cooler_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string StackCoolerName { get; set; } = "";
     }
     
@@ -1212,142 +1224,144 @@ public string StackCoolerName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="efficiency_curve_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="efficiency_curve_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelCell_PowerModule_EfficiencyCurveMode EfficiencyCurveMode { get; set; } = (Generator_FuelCell_PowerModule_EfficiencyCurveMode)Enum.Parse(typeof(Generator_FuelCell_PowerModule_EfficiencyCurveMode), "Annex42");
         
 
-[JsonProperty(PropertyName="efficiency_curve_name")]
+[JsonProperty(PropertyName="efficiency_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string EfficiencyCurveName { get; set; } = "";
         
 
 [Description("This field is not used.")]
-[JsonProperty(PropertyName="nominal_efficiency")]
-public System.Nullable<float> NominalEfficiency { get; set; } = null;
+[JsonProperty(PropertyName="nominal_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalEfficiency { get; set; } = null;
         
 
 [Description("This field is not used")]
-[JsonProperty(PropertyName="nominal_electrical_power")]
-public System.Nullable<float> NominalElectricalPower { get; set; } = null;
+[JsonProperty(PropertyName="nominal_electrical_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalElectricalPower { get; set; } = null;
         
 
 [Description("this is Nstops in SOFC model specification")]
-[JsonProperty(PropertyName="number_of_stops_at_start_of_simulation")]
-public System.Nullable<float> NumberOfStopsAtStartOfSimulation { get; set; } = null;
+[JsonProperty(PropertyName="number_of_stops_at_start_of_simulation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfStopsAtStartOfSimulation { get; set; } = null;
         
 
 [Description("this is D in SOFC model specification")]
-[JsonProperty(PropertyName="cycling_performance_degradation_coefficient")]
-public System.Nullable<float> CyclingPerformanceDegradationCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="cycling_performance_degradation_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CyclingPerformanceDegradationCoefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="number_of_run_hours_at_beginning_of_simulation")]
-public System.Nullable<float> NumberOfRunHoursAtBeginningOfSimulation { get; set; } = null;
+[JsonProperty(PropertyName="number_of_run_hours_at_beginning_of_simulation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfRunHoursAtBeginningOfSimulation { get; set; } = null;
         
 
 [Description("this is L in SOFC model specification")]
-[JsonProperty(PropertyName="accumulated_run_time_degradation_coefficient")]
-public System.Nullable<float> AccumulatedRunTimeDegradationCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="accumulated_run_time_degradation_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AccumulatedRunTimeDegradationCoefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="run_time_degradation_initiation_time_threshold")]
-public System.Nullable<float> RunTimeDegradationInitiationTimeThreshold { get; set; } = null;
+[JsonProperty(PropertyName="run_time_degradation_initiation_time_threshold", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RunTimeDegradationInitiationTimeThreshold { get; set; } = null;
         
 
 [Description("Maximum rate of change in electrical output [power increasing]")]
-[JsonProperty(PropertyName="power_up_transient_limit")]
-public System.Nullable<float> PowerUpTransientLimit { get; set; } = null;
+[JsonProperty(PropertyName="power_up_transient_limit", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PowerUpTransientLimit { get; set; } = null;
         
 
 [Description("Maximum rate of change in electrical output [power decreasing] Enter positive val" +
     "ue for rate of change")]
-[JsonProperty(PropertyName="power_down_transient_limit")]
-public System.Nullable<float> PowerDownTransientLimit { get; set; } = null;
+[JsonProperty(PropertyName="power_down_transient_limit", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PowerDownTransientLimit { get; set; } = null;
         
 
 [Description("Time from start up to normal operation")]
-[JsonProperty(PropertyName="start_up_time")]
-public System.Nullable<float> StartUpTime { get; set; } = null;
+[JsonProperty(PropertyName="start_up_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StartUpTime { get; set; } = null;
         
 
-[JsonProperty(PropertyName="start_up_fuel")]
-public System.Nullable<float> StartUpFuel { get; set; } = null;
+[JsonProperty(PropertyName="start_up_fuel", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StartUpFuel { get; set; } = null;
         
 
-[JsonProperty(PropertyName="start_up_electricity_consumption")]
-public System.Nullable<float> StartUpElectricityConsumption { get; set; } = null;
+[JsonProperty(PropertyName="start_up_electricity_consumption", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StartUpElectricityConsumption { get; set; } = null;
         
 
-[JsonProperty(PropertyName="start_up_electricity_produced")]
-public System.Nullable<float> StartUpElectricityProduced { get; set; } = null;
+[JsonProperty(PropertyName="start_up_electricity_produced", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StartUpElectricityProduced { get; set; } = null;
         
 
-[JsonProperty(PropertyName="shut_down_time")]
-public System.Nullable<float> ShutDownTime { get; set; } = null;
+[JsonProperty(PropertyName="shut_down_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ShutDownTime { get; set; } = null;
         
 
-[JsonProperty(PropertyName="shut_down_fuel")]
-public System.Nullable<float> ShutDownFuel { get; set; } = null;
+[JsonProperty(PropertyName="shut_down_fuel", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ShutDownFuel { get; set; } = null;
         
 
-[JsonProperty(PropertyName="shut_down_electricity_consumption")]
-public System.Nullable<float> ShutDownElectricityConsumption { get; set; } = null;
+[JsonProperty(PropertyName="shut_down_electricity_consumption", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ShutDownElectricityConsumption { get; set; } = null;
         
 
-[JsonProperty(PropertyName="ancillary_electricity_constant_term")]
-public System.Nullable<float> AncillaryElectricityConstantTerm { get; set; } = null;
+[JsonProperty(PropertyName="ancillary_electricity_constant_term", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AncillaryElectricityConstantTerm { get; set; } = null;
         
 
-[JsonProperty(PropertyName="ancillary_electricity_linear_term")]
-public System.Nullable<float> AncillaryElectricityLinearTerm { get; set; } = null;
+[JsonProperty(PropertyName="ancillary_electricity_linear_term", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AncillaryElectricityLinearTerm { get; set; } = null;
         
 
-[JsonProperty(PropertyName="skin_loss_calculation_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="skin_loss_calculation_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelCell_PowerModule_SkinLossCalculationMode SkinLossCalculationMode { get; set; } = (Generator_FuelCell_PowerModule_SkinLossCalculationMode)Enum.Parse(typeof(Generator_FuelCell_PowerModule_SkinLossCalculationMode), "ConstantRate");
         
 
-[JsonProperty(PropertyName="zone_name")]
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="skin_loss_radiative_fraction")]
-public System.Nullable<float> SkinLossRadiativeFraction { get; set; } = null;
+[JsonProperty(PropertyName="skin_loss_radiative_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SkinLossRadiativeFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constant_skin_loss_rate")]
-public System.Nullable<float> ConstantSkinLossRate { get; set; } = null;
+[JsonProperty(PropertyName="constant_skin_loss_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ConstantSkinLossRate { get; set; } = null;
         
 
-[JsonProperty(PropertyName="skin_loss_u_factor_times_area_term")]
-public System.Nullable<float> SkinLossUFactorTimesAreaTerm { get; set; } = null;
+[JsonProperty(PropertyName="skin_loss_u_factor_times_area_term", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SkinLossUFactorTimesAreaTerm { get; set; } = null;
         
 
 [Description("curve is function of fuel use rate")]
-[JsonProperty(PropertyName="skin_loss_quadratic_curve_name")]
+[JsonProperty(PropertyName="skin_loss_quadratic_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SkinLossQuadraticCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="dilution_air_flow_rate")]
-public System.Nullable<float> DilutionAirFlowRate { get; set; } = null;
+[JsonProperty(PropertyName="dilution_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DilutionAirFlowRate { get; set; } = null;
         
 
-[JsonProperty(PropertyName="stack_heat_loss_to_dilution_air")]
-public System.Nullable<float> StackHeatLossToDilutionAir { get; set; } = null;
+[JsonProperty(PropertyName="stack_heat_loss_to_dilution_air", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StackHeatLossToDilutionAir { get; set; } = null;
         
 
-[JsonProperty(PropertyName="dilution_inlet_air_node_name")]
+[JsonProperty(PropertyName="dilution_inlet_air_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string DilutionInletAirNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="dilution_outlet_air_node_name")]
+[JsonProperty(PropertyName="dilution_outlet_air_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string DilutionOutletAirNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="minimum_operating_point")]
-public System.Nullable<float> MinimumOperatingPoint { get; set; } = null;
+[JsonProperty(PropertyName="minimum_operating_point", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumOperatingPoint { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_operating_point")]
-public System.Nullable<float> MaximumOperatingPoint { get; set; } = null;
+[JsonProperty(PropertyName="maximum_operating_point", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumOperatingPoint { get; set; } = null;
     }
     
     public enum Generator_FuelCell_PowerModule_EfficiencyCurveMode
@@ -1385,53 +1399,56 @@ public System.Nullable<float> MaximumOperatingPoint { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="air_inlet_node_name")]
+[JsonProperty(PropertyName="air_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AirInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="blower_power_curve_name")]
+[JsonProperty(PropertyName="blower_power_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlowerPowerCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="blower_heat_loss_factor")]
-public System.Nullable<float> BlowerHeatLossFactor { get; set; } = null;
+[JsonProperty(PropertyName="blower_heat_loss_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BlowerHeatLossFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="air_supply_rate_calculation_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="air_supply_rate_calculation_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelCell_AirSupply_AirSupplyRateCalculationMode AirSupplyRateCalculationMode { get; set; } = (Generator_FuelCell_AirSupply_AirSupplyRateCalculationMode)Enum.Parse(typeof(Generator_FuelCell_AirSupply_AirSupplyRateCalculationMode), "AirRatiobyStoics");
         
 
 [Description("This is the excess air \"stoics\" the value entered is incremented by 1 in the mode" +
     "l.")]
-[JsonProperty(PropertyName="stoichiometric_ratio")]
-public System.Nullable<float> StoichiometricRatio { get; set; } = null;
+[JsonProperty(PropertyName="stoichiometric_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StoichiometricRatio { get; set; } = null;
         
 
-[JsonProperty(PropertyName="air_rate_function_of_electric_power_curve_name")]
+[JsonProperty(PropertyName="air_rate_function_of_electric_power_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AirRateFunctionOfElectricPowerCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="air_rate_air_temperature_coefficient")]
-public System.Nullable<float> AirRateAirTemperatureCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="air_rate_air_temperature_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AirRateAirTemperatureCoefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="air_rate_function_of_fuel_rate_curve_name")]
+[JsonProperty(PropertyName="air_rate_function_of_fuel_rate_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AirRateFunctionOfFuelRateCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="air_intake_heat_recovery_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="air_intake_heat_recovery_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelCell_AirSupply_AirIntakeHeatRecoveryMode AirIntakeHeatRecoveryMode { get; set; } = (Generator_FuelCell_AirSupply_AirIntakeHeatRecoveryMode)Enum.Parse(typeof(Generator_FuelCell_AirSupply_AirIntakeHeatRecoveryMode), "NoRecovery");
         
 
-[JsonProperty(PropertyName="air_supply_constituent_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="air_supply_constituent_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelCell_AirSupply_AirSupplyConstituentMode AirSupplyConstituentMode { get; set; } = (Generator_FuelCell_AirSupply_AirSupplyConstituentMode)Enum.Parse(typeof(Generator_FuelCell_AirSupply_AirSupplyConstituentMode), "AmbientAir");
         
 
-[JsonProperty(PropertyName="number_of_userdefined_constituents")]
-public System.Nullable<float> NumberOfUserdefinedConstituents { get; set; } = null;
+[JsonProperty(PropertyName="number_of_userdefined_constituents", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfUserdefinedConstituents { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_fractions")]
+[JsonProperty(PropertyName="constituent_fractions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ConstituentFractions { get; set; } = "";
     }
     
@@ -1493,27 +1510,28 @@ public string ConstituentFractions { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="reformer_water_flow_rate_function_of_fuel_rate_curve_name")]
+[JsonProperty(PropertyName="reformer_water_flow_rate_function_of_fuel_rate_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ReformerWaterFlowRateFunctionOfFuelRateCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="reformer_water_pump_power_function_of_fuel_rate_curve_name")]
+[JsonProperty(PropertyName="reformer_water_pump_power_function_of_fuel_rate_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ReformerWaterPumpPowerFunctionOfFuelRateCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="pump_heat_loss_factor")]
-public System.Nullable<float> PumpHeatLossFactor { get; set; } = null;
+[JsonProperty(PropertyName="pump_heat_loss_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PumpHeatLossFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="water_temperature_modeling_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="water_temperature_modeling_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelCell_WaterSupply_WaterTemperatureModelingMode WaterTemperatureModelingMode { get; set; } = (Generator_FuelCell_WaterSupply_WaterTemperatureModelingMode)Enum.Parse(typeof(Generator_FuelCell_WaterSupply_WaterTemperatureModelingMode), "MainsWaterTemperature");
         
 
-[JsonProperty(PropertyName="water_temperature_reference_node_name")]
+[JsonProperty(PropertyName="water_temperature_reference_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string WaterTemperatureReferenceNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="water_temperature_schedule_name")]
+[JsonProperty(PropertyName="water_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string WaterTemperatureScheduleName { get; set; } = "";
     }
     
@@ -1544,48 +1562,50 @@ public string WaterTemperatureScheduleName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="excess_air_ratio")]
-public System.Nullable<float> ExcessAirRatio { get; set; } = null;
+[JsonProperty(PropertyName="excess_air_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ExcessAirRatio { get; set; } = null;
         
 
-[JsonProperty(PropertyName="ancillary_power_constant_term")]
-public System.Nullable<float> AncillaryPowerConstantTerm { get; set; } = null;
+[JsonProperty(PropertyName="ancillary_power_constant_term", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AncillaryPowerConstantTerm { get; set; } = null;
         
 
-[JsonProperty(PropertyName="ancillary_power_linear_term")]
-public System.Nullable<float> AncillaryPowerLinearTerm { get; set; } = null;
+[JsonProperty(PropertyName="ancillary_power_linear_term", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AncillaryPowerLinearTerm { get; set; } = null;
         
 
-[JsonProperty(PropertyName="skin_loss_u_factor_times_area_value")]
-public System.Nullable<float> SkinLossUFactorTimesAreaValue { get; set; } = null;
+[JsonProperty(PropertyName="skin_loss_u_factor_times_area_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SkinLossUFactorTimesAreaValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="skin_loss_destination", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="skin_loss_destination", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelCell_AuxiliaryHeater_SkinLossDestination SkinLossDestination { get; set; } = (Generator_FuelCell_AuxiliaryHeater_SkinLossDestination)Enum.Parse(typeof(Generator_FuelCell_AuxiliaryHeater_SkinLossDestination), "AirInletForFuelCell");
         
 
-[JsonProperty(PropertyName="zone_name_to_receive_skin_losses")]
+[JsonProperty(PropertyName="zone_name_to_receive_skin_losses", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneNameToReceiveSkinLosses { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heating_capacity_units", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="heating_capacity_units", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelCell_AuxiliaryHeater_HeatingCapacityUnits HeatingCapacityUnits { get; set; } = (Generator_FuelCell_AuxiliaryHeater_HeatingCapacityUnits)Enum.Parse(typeof(Generator_FuelCell_AuxiliaryHeater_HeatingCapacityUnits), "Watts");
         
 
-[JsonProperty(PropertyName="maximum_heating_capacity_in_watts")]
-public System.Nullable<float> MaximumHeatingCapacityInWatts { get; set; } = null;
+[JsonProperty(PropertyName="maximum_heating_capacity_in_watts", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumHeatingCapacityInWatts { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_heating_capacity_in_watts")]
-public System.Nullable<float> MinimumHeatingCapacityInWatts { get; set; } = null;
+[JsonProperty(PropertyName="minimum_heating_capacity_in_watts", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumHeatingCapacityInWatts { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_heating_capacity_in_kmol_per_second")]
-public System.Nullable<float> MaximumHeatingCapacityInKmolPerSecond { get; set; } = null;
+[JsonProperty(PropertyName="maximum_heating_capacity_in_kmol_per_second", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumHeatingCapacityInKmolPerSecond { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_heating_capacity_in_kmol_per_second")]
-public System.Nullable<float> MinimumHeatingCapacityInKmolPerSecond { get; set; } = null;
+[JsonProperty(PropertyName="minimum_heating_capacity_in_kmol_per_second", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumHeatingCapacityInKmolPerSecond { get; set; } = null;
     }
     
     public enum Generator_FuelCell_AuxiliaryHeater_SkinLossDestination
@@ -1620,96 +1640,97 @@ public System.Nullable<float> MinimumHeatingCapacityInKmolPerSecond { get; set; 
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heat_recovery_water_inlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_water_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heat_recovery_water_outlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_water_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heat_recovery_water_maximum_flow_rate")]
-public System.Nullable<float> HeatRecoveryWaterMaximumFlowRate { get; set; } = null;
+[JsonProperty(PropertyName="heat_recovery_water_maximum_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HeatRecoveryWaterMaximumFlowRate { get; set; } = null;
         
 
-[JsonProperty(PropertyName="exhaust_outlet_air_node_name")]
+[JsonProperty(PropertyName="exhaust_outlet_air_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ExhaustOutletAirNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heat_exchanger_calculation_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="heat_exchanger_calculation_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelCell_ExhaustGasToWaterHeatExchanger_HeatExchangerCalculationMethod HeatExchangerCalculationMethod { get; set; } = (Generator_FuelCell_ExhaustGasToWaterHeatExchanger_HeatExchangerCalculationMethod)Enum.Parse(typeof(Generator_FuelCell_ExhaustGasToWaterHeatExchanger_HeatExchangerCalculationMethod), "Condensing");
         
 
-[JsonProperty(PropertyName="method_1_heat_exchanger_effectiveness")]
-public System.Nullable<float> Method1HeatExchangerEffectiveness { get; set; } = null;
+[JsonProperty(PropertyName="method_1_heat_exchanger_effectiveness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method1HeatExchangerEffectiveness { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_2_parameter_hxs0")]
-public System.Nullable<float> Method2ParameterHxs0 { get; set; } = null;
+[JsonProperty(PropertyName="method_2_parameter_hxs0", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method2ParameterHxs0 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_2_parameter_hxs1")]
-public System.Nullable<float> Method2ParameterHxs1 { get; set; } = null;
+[JsonProperty(PropertyName="method_2_parameter_hxs1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method2ParameterHxs1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_2_parameter_hxs2")]
-public System.Nullable<float> Method2ParameterHxs2 { get; set; } = null;
+[JsonProperty(PropertyName="method_2_parameter_hxs2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method2ParameterHxs2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_2_parameter_hxs3")]
-public System.Nullable<float> Method2ParameterHxs3 { get; set; } = null;
+[JsonProperty(PropertyName="method_2_parameter_hxs3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method2ParameterHxs3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_2_parameter_hxs4")]
-public System.Nullable<float> Method2ParameterHxs4 { get; set; } = null;
+[JsonProperty(PropertyName="method_2_parameter_hxs4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method2ParameterHxs4 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_3_h0gas_coefficient")]
-public System.Nullable<float> Method3H0gasCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="method_3_h0gas_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method3H0gasCoefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_3_ndotgasref_coefficient")]
-public System.Nullable<float> Method3NdotgasrefCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="method_3_ndotgasref_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method3NdotgasrefCoefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_3_n_coefficient")]
-public System.Nullable<float> Method3NCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="method_3_n_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method3NCoefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_3_gas_area")]
-public System.Nullable<float> Method3GasArea { get; set; } = null;
+[JsonProperty(PropertyName="method_3_gas_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method3GasArea { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_3_h0_water_coefficient")]
-public System.Nullable<float> Method3H0WaterCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="method_3_h0_water_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method3H0WaterCoefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_3_n_dot_water_ref_coefficient")]
-public System.Nullable<float> Method3NDotWaterRefCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="method_3_n_dot_water_ref_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method3NDotWaterRefCoefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_3_m_coefficient")]
-public System.Nullable<float> Method3MCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="method_3_m_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method3MCoefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_3_water_area")]
-public System.Nullable<float> Method3WaterArea { get; set; } = null;
+[JsonProperty(PropertyName="method_3_water_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method3WaterArea { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_3_f_adjustment_factor")]
-public System.Nullable<float> Method3FAdjustmentFactor { get; set; } = null;
+[JsonProperty(PropertyName="method_3_f_adjustment_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method3FAdjustmentFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_4_hxl1_coefficient")]
-public System.Nullable<float> Method4Hxl1Coefficient { get; set; } = null;
+[JsonProperty(PropertyName="method_4_hxl1_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method4Hxl1Coefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_4_hxl2_coefficient")]
-public System.Nullable<float> Method4Hxl2Coefficient { get; set; } = null;
+[JsonProperty(PropertyName="method_4_hxl2_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method4Hxl2Coefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="method_4_condensation_threshold")]
-public System.Nullable<float> Method4CondensationThreshold { get; set; } = null;
+[JsonProperty(PropertyName="method_4_condensation_threshold", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Method4CondensationThreshold { get; set; } = null;
     }
     
     public enum Generator_FuelCell_ExhaustGasToWaterHeatExchanger_HeatExchangerCalculationMethod
@@ -1741,32 +1762,33 @@ public System.Nullable<float> Method4CondensationThreshold { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="choice_of_model", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="choice_of_model", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelCell_ElectricalStorage_ChoiceOfModel ChoiceOfModel { get; set; } = (Generator_FuelCell_ElectricalStorage_ChoiceOfModel)Enum.Parse(typeof(Generator_FuelCell_ElectricalStorage_ChoiceOfModel), "SimpleEfficiencyWithConstraints");
         
 
-[JsonProperty(PropertyName="nominal_charging_energetic_efficiency")]
-public System.Nullable<float> NominalChargingEnergeticEfficiency { get; set; } = null;
+[JsonProperty(PropertyName="nominal_charging_energetic_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalChargingEnergeticEfficiency { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nominal_discharging_energetic_efficiency")]
-public System.Nullable<float> NominalDischargingEnergeticEfficiency { get; set; } = null;
+[JsonProperty(PropertyName="nominal_discharging_energetic_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalDischargingEnergeticEfficiency { get; set; } = null;
         
 
-[JsonProperty(PropertyName="simple_maximum_capacity")]
-public System.Nullable<float> SimpleMaximumCapacity { get; set; } = null;
+[JsonProperty(PropertyName="simple_maximum_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SimpleMaximumCapacity { get; set; } = null;
         
 
-[JsonProperty(PropertyName="simple_maximum_power_draw")]
-public System.Nullable<float> SimpleMaximumPowerDraw { get; set; } = null;
+[JsonProperty(PropertyName="simple_maximum_power_draw", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SimpleMaximumPowerDraw { get; set; } = null;
         
 
-[JsonProperty(PropertyName="simple_maximum_power_store")]
-public System.Nullable<float> SimpleMaximumPowerStore { get; set; } = null;
+[JsonProperty(PropertyName="simple_maximum_power_store", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SimpleMaximumPowerStore { get; set; } = null;
         
 
-[JsonProperty(PropertyName="initial_charge_state")]
-public System.Nullable<float> InitialChargeState { get; set; } = null;
+[JsonProperty(PropertyName="initial_charge_state", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InitialChargeState { get; set; } = null;
     }
     
     public enum Generator_FuelCell_ElectricalStorage_ChoiceOfModel
@@ -1789,15 +1811,16 @@ public System.Nullable<float> InitialChargeState { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="inverter_efficiency_calculation_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="inverter_efficiency_calculation_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelCell_Inverter_InverterEfficiencyCalculationMode InverterEfficiencyCalculationMode { get; set; } = (Generator_FuelCell_Inverter_InverterEfficiencyCalculationMode)Enum.Parse(typeof(Generator_FuelCell_Inverter_InverterEfficiencyCalculationMode), "Constant");
         
 
-[JsonProperty(PropertyName="inverter_efficiency")]
-public System.Nullable<float> InverterEfficiency { get; set; } = null;
+[JsonProperty(PropertyName="inverter_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InverterEfficiency { get; set; } = null;
         
 
-[JsonProperty(PropertyName="efficiency_function_of_dc_power_curve_name")]
+[JsonProperty(PropertyName="efficiency_function_of_dc_power_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string EfficiencyFunctionOfDcPowerCurveName { get; set; } = "";
     }
     
@@ -1823,84 +1846,84 @@ public string EfficiencyFunctionOfDcPowerCurveName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heat_recovery_water_inlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_water_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="heat_recovery_water_outlet_node_name")]
+[JsonProperty(PropertyName="heat_recovery_water_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string HeatRecoveryWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="nominal_stack_temperature")]
-public System.Nullable<float> NominalStackTemperature { get; set; } = null;
+[JsonProperty(PropertyName="nominal_stack_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalStackTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="actual_stack_temperature")]
-public System.Nullable<float> ActualStackTemperature { get; set; } = null;
+[JsonProperty(PropertyName="actual_stack_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ActualStackTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient_r0")]
-public System.Nullable<float> CoefficientR0 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient_r0", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoefficientR0 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient_r1")]
-public System.Nullable<float> CoefficientR1 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient_r1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoefficientR1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient_r2")]
-public System.Nullable<float> CoefficientR2 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient_r2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoefficientR2 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="coefficient_r3")]
-public System.Nullable<float> CoefficientR3 { get; set; } = null;
+[JsonProperty(PropertyName="coefficient_r3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoefficientR3 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="stack_coolant_flow_rate")]
-public System.Nullable<float> StackCoolantFlowRate { get; set; } = null;
+[JsonProperty(PropertyName="stack_coolant_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StackCoolantFlowRate { get; set; } = null;
         
 
-[JsonProperty(PropertyName="stack_cooler_u_factor_times_area_value")]
-public System.Nullable<float> StackCoolerUFactorTimesAreaValue { get; set; } = null;
+[JsonProperty(PropertyName="stack_cooler_u_factor_times_area_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StackCoolerUFactorTimesAreaValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="fs_cogen_adjustment_factor")]
-public System.Nullable<float> FsCogenAdjustmentFactor { get; set; } = null;
+[JsonProperty(PropertyName="fs_cogen_adjustment_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FsCogenAdjustmentFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="stack_cogeneration_exchanger_area")]
-public System.Nullable<float> StackCogenerationExchangerArea { get; set; } = null;
+[JsonProperty(PropertyName="stack_cogeneration_exchanger_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StackCogenerationExchangerArea { get; set; } = null;
         
 
-[JsonProperty(PropertyName="stack_cogeneration_exchanger_nominal_flow_rate")]
-public System.Nullable<float> StackCogenerationExchangerNominalFlowRate { get; set; } = null;
+[JsonProperty(PropertyName="stack_cogeneration_exchanger_nominal_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StackCogenerationExchangerNominalFlowRate { get; set; } = null;
         
 
-[JsonProperty(PropertyName="stack_cogeneration_exchanger_nominal_heat_transfer_coefficient")]
-public System.Nullable<float> StackCogenerationExchangerNominalHeatTransferCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="stack_cogeneration_exchanger_nominal_heat_transfer_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StackCogenerationExchangerNominalHeatTransferCoefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="stack_cogeneration_exchanger_nominal_heat_transfer_coefficient_exponent")]
-public System.Nullable<float> StackCogenerationExchangerNominalHeatTransferCoefficientExponent { get; set; } = null;
+[JsonProperty(PropertyName="stack_cogeneration_exchanger_nominal_heat_transfer_coefficient_exponent", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StackCogenerationExchangerNominalHeatTransferCoefficientExponent { get; set; } = null;
         
 
-[JsonProperty(PropertyName="stack_cooler_pump_power")]
-public System.Nullable<float> StackCoolerPumpPower { get; set; } = null;
+[JsonProperty(PropertyName="stack_cooler_pump_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StackCoolerPumpPower { get; set; } = null;
         
 
-[JsonProperty(PropertyName="stack_cooler_pump_heat_loss_fraction")]
-public System.Nullable<float> StackCoolerPumpHeatLossFraction { get; set; } = null;
+[JsonProperty(PropertyName="stack_cooler_pump_heat_loss_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StackCoolerPumpHeatLossFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="stack_air_cooler_fan_coefficient_f0")]
-public System.Nullable<float> StackAirCoolerFanCoefficientF0 { get; set; } = null;
+[JsonProperty(PropertyName="stack_air_cooler_fan_coefficient_f0", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StackAirCoolerFanCoefficientF0 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="stack_air_cooler_fan_coefficient_f1")]
-public System.Nullable<float> StackAirCoolerFanCoefficientF1 { get; set; } = null;
+[JsonProperty(PropertyName="stack_air_cooler_fan_coefficient_f1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StackAirCoolerFanCoefficientF1 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="stack_air_cooler_fan_coefficient_f2")]
-public System.Nullable<float> StackAirCoolerFanCoefficientF2 { get; set; } = null;
+[JsonProperty(PropertyName="stack_air_cooler_fan_coefficient_f2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StackAirCoolerFanCoefficientF2 { get; set; } = null;
     }
     
     [Description(@"Small-scale combined heat and power (micro CHP) electric generator using the model developed by IEA/ECBCS Annex 42 see www.cogen-sim.net. The model was developed for both internal combustion and Stirling cycle engines, but might be used for other types of residential CHP devices.")]
@@ -1915,38 +1938,38 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Enter the name of a Generator:MicroCHP:NonNormalizedParameters object.")]
-[JsonProperty(PropertyName="performance_parameters_name")]
+[JsonProperty(PropertyName="performance_parameters_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string PerformanceParametersName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="zone_name")]
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="cooling_water_inlet_node_name")]
+[JsonProperty(PropertyName="cooling_water_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CoolingWaterInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="cooling_water_outlet_node_name")]
+[JsonProperty(PropertyName="cooling_water_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CoolingWaterOutletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="air_inlet_node_name")]
+[JsonProperty(PropertyName="air_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AirInletNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="air_outlet_node_name")]
+[JsonProperty(PropertyName="air_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AirOutletNodeName { get; set; } = "";
         
 
 [Description("Enter the name of a Generator:FuelSupply object.")]
-[JsonProperty(PropertyName="generator_fuel_supply_name")]
+[JsonProperty(PropertyName="generator_fuel_supply_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string GeneratorFuelSupplyName { get; set; } = "";
         
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
     }
     
@@ -1962,111 +1985,114 @@ public string AvailabilityScheduleName { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="maximum_electric_power")]
-public System.Nullable<float> MaximumElectricPower { get; set; } = null;
+[JsonProperty(PropertyName="maximum_electric_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumElectricPower { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_electric_power")]
-public System.Nullable<float> MinimumElectricPower { get; set; } = null;
+[JsonProperty(PropertyName="minimum_electric_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumElectricPower { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_cooling_water_flow_rate")]
-public System.Nullable<float> MinimumCoolingWaterFlowRate { get; set; } = null;
+[JsonProperty(PropertyName="minimum_cooling_water_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumCoolingWaterFlowRate { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_cooling_water_temperature")]
-public System.Nullable<float> MaximumCoolingWaterTemperature { get; set; } = null;
+[JsonProperty(PropertyName="maximum_cooling_water_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumCoolingWaterTemperature { get; set; } = null;
         
 
 [Description("TriQuadratic")]
-[JsonProperty(PropertyName="electrical_efficiency_curve_name")]
+[JsonProperty(PropertyName="electrical_efficiency_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ElectricalEfficiencyCurveName { get; set; } = "";
         
 
 [Description("TriQuadratic")]
-[JsonProperty(PropertyName="thermal_efficiency_curve_name")]
+[JsonProperty(PropertyName="thermal_efficiency_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ThermalEfficiencyCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="cooling_water_flow_rate_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="cooling_water_flow_rate_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_MicroCHP_NonNormalizedParameters_CoolingWaterFlowRateMode CoolingWaterFlowRateMode { get; set; } = (Generator_MicroCHP_NonNormalizedParameters_CoolingWaterFlowRateMode)Enum.Parse(typeof(Generator_MicroCHP_NonNormalizedParameters_CoolingWaterFlowRateMode), "InternalControl");
         
 
-[JsonProperty(PropertyName="cooling_water_flow_rate_curve_name")]
+[JsonProperty(PropertyName="cooling_water_flow_rate_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CoolingWaterFlowRateCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="air_flow_rate_curve_name")]
+[JsonProperty(PropertyName="air_flow_rate_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AirFlowRateCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="maximum_net_electrical_power_rate_of_change")]
-public System.Nullable<float> MaximumNetElectricalPowerRateOfChange { get; set; } = null;
+[JsonProperty(PropertyName="maximum_net_electrical_power_rate_of_change", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumNetElectricalPowerRateOfChange { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_fuel_flow_rate_of_change")]
-public System.Nullable<float> MaximumFuelFlowRateOfChange { get; set; } = null;
+[JsonProperty(PropertyName="maximum_fuel_flow_rate_of_change", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumFuelFlowRateOfChange { get; set; } = null;
         
 
-[JsonProperty(PropertyName="heat_exchanger_u_factor_times_area_value")]
-public System.Nullable<float> HeatExchangerUFactorTimesAreaValue { get; set; } = null;
+[JsonProperty(PropertyName="heat_exchanger_u_factor_times_area_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HeatExchangerUFactorTimesAreaValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="skin_loss_u_factor_times_area_value")]
-public System.Nullable<float> SkinLossUFactorTimesAreaValue { get; set; } = null;
+[JsonProperty(PropertyName="skin_loss_u_factor_times_area_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SkinLossUFactorTimesAreaValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="skin_loss_radiative_fraction")]
-public System.Nullable<float> SkinLossRadiativeFraction { get; set; } = null;
+[JsonProperty(PropertyName="skin_loss_radiative_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SkinLossRadiativeFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="aggregated_thermal_mass_of_energy_conversion_portion_of_generator")]
-public System.Nullable<float> AggregatedThermalMassOfEnergyConversionPortionOfGenerator { get; set; } = null;
+[JsonProperty(PropertyName="aggregated_thermal_mass_of_energy_conversion_portion_of_generator", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AggregatedThermalMassOfEnergyConversionPortionOfGenerator { get; set; } = null;
         
 
-[JsonProperty(PropertyName="aggregated_thermal_mass_of_heat_recovery_portion_of_generator")]
-public System.Nullable<float> AggregatedThermalMassOfHeatRecoveryPortionOfGenerator { get; set; } = null;
+[JsonProperty(PropertyName="aggregated_thermal_mass_of_heat_recovery_portion_of_generator", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AggregatedThermalMassOfHeatRecoveryPortionOfGenerator { get; set; } = null;
         
 
-[JsonProperty(PropertyName="standby_power")]
-public System.Nullable<float> StandbyPower { get; set; } = null;
+[JsonProperty(PropertyName="standby_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StandbyPower { get; set; } = null;
         
 
 [Description("Stirling engines use Nominal Engine Temperature Internal combustion engines use T" +
     "ime Delay")]
-[JsonProperty(PropertyName="warm_up_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="warm_up_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_MicroCHP_NonNormalizedParameters_WarmUpMode WarmUpMode { get; set; } = (Generator_MicroCHP_NonNormalizedParameters_WarmUpMode)Enum.Parse(typeof(Generator_MicroCHP_NonNormalizedParameters_WarmUpMode), "NominalEngineTemperature");
         
 
-[JsonProperty(PropertyName="warm_up_fuel_flow_rate_coefficient")]
-public System.Nullable<float> WarmUpFuelFlowRateCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="warm_up_fuel_flow_rate_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> WarmUpFuelFlowRateCoefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nominal_engine_operating_temperature")]
-public System.Nullable<float> NominalEngineOperatingTemperature { get; set; } = null;
+[JsonProperty(PropertyName="nominal_engine_operating_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalEngineOperatingTemperature { get; set; } = null;
         
 
-[JsonProperty(PropertyName="warm_up_power_coefficient")]
-public System.Nullable<float> WarmUpPowerCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="warm_up_power_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> WarmUpPowerCoefficient { get; set; } = null;
         
 
-[JsonProperty(PropertyName="warm_up_fuel_flow_rate_limit_ratio")]
-public System.Nullable<float> WarmUpFuelFlowRateLimitRatio { get; set; } = null;
+[JsonProperty(PropertyName="warm_up_fuel_flow_rate_limit_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> WarmUpFuelFlowRateLimitRatio { get; set; } = null;
         
 
-[JsonProperty(PropertyName="warm_up_delay_time")]
-public System.Nullable<float> WarmUpDelayTime { get; set; } = null;
+[JsonProperty(PropertyName="warm_up_delay_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> WarmUpDelayTime { get; set; } = null;
         
 
-[JsonProperty(PropertyName="cool_down_power")]
-public System.Nullable<float> CoolDownPower { get; set; } = null;
+[JsonProperty(PropertyName="cool_down_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoolDownPower { get; set; } = null;
         
 
-[JsonProperty(PropertyName="cool_down_delay_time")]
-public System.Nullable<float> CoolDownDelayTime { get; set; } = null;
+[JsonProperty(PropertyName="cool_down_delay_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoolDownDelayTime { get; set; } = null;
         
 
-[JsonProperty(PropertyName="restart_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="restart_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_MicroCHP_NonNormalizedParameters_RestartMode RestartMode { get; set; } = (Generator_MicroCHP_NonNormalizedParameters_RestartMode)Enum.Parse(typeof(Generator_MicroCHP_NonNormalizedParameters_RestartMode), "MandatoryCoolDown");
     }
     
@@ -2111,144 +2137,158 @@ public Generator_MicroCHP_NonNormalizedParameters_RestartMode RestartMode { get;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fuel_temperature_modeling_mode", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fuel_temperature_modeling_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_FuelTemperatureModelingMode FuelTemperatureModelingMode { get; set; } = (Generator_FuelSupply_FuelTemperatureModelingMode)Enum.Parse(typeof(Generator_FuelSupply_FuelTemperatureModelingMode), "Scheduled");
         
 
-[JsonProperty(PropertyName="fuel_temperature_reference_node_name")]
+[JsonProperty(PropertyName="fuel_temperature_reference_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FuelTemperatureReferenceNodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="fuel_temperature_schedule_name")]
+[JsonProperty(PropertyName="fuel_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string FuelTemperatureScheduleName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compressor_power_multiplier_function_of_fuel_rate_curve_name")]
+[JsonProperty(PropertyName="compressor_power_multiplier_function_of_fuel_rate_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CompressorPowerMultiplierFunctionOfFuelRateCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compressor_heat_loss_factor")]
-public System.Nullable<float> CompressorHeatLossFactor { get; set; } = null;
+[JsonProperty(PropertyName="compressor_heat_loss_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CompressorHeatLossFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="fuel_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fuel_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_FuelType FuelType { get; set; } = (Generator_FuelSupply_FuelType)Enum.Parse(typeof(Generator_FuelSupply_FuelType), "GaseousConstituents");
         
 
-[JsonProperty(PropertyName="liquid_generic_fuel_lower_heating_value")]
-public System.Nullable<float> LiquidGenericFuelLowerHeatingValue { get; set; } = null;
+[JsonProperty(PropertyName="liquid_generic_fuel_lower_heating_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> LiquidGenericFuelLowerHeatingValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="liquid_generic_fuel_higher_heating_value")]
-public System.Nullable<float> LiquidGenericFuelHigherHeatingValue { get; set; } = null;
+[JsonProperty(PropertyName="liquid_generic_fuel_higher_heating_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> LiquidGenericFuelHigherHeatingValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="liquid_generic_fuel_molecular_weight")]
-public System.Nullable<float> LiquidGenericFuelMolecularWeight { get; set; } = null;
+[JsonProperty(PropertyName="liquid_generic_fuel_molecular_weight", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> LiquidGenericFuelMolecularWeight { get; set; } = null;
         
 
-[JsonProperty(PropertyName="liquid_generic_fuel_co2_emission_factor")]
-public System.Nullable<float> LiquidGenericFuelCo2EmissionFactor { get; set; } = null;
+[JsonProperty(PropertyName="liquid_generic_fuel_co2_emission_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> LiquidGenericFuelCo2EmissionFactor { get; set; } = null;
         
 
-[JsonProperty(PropertyName="number_of_constituents_in_gaseous_constituent_fuel_supply")]
-public System.Nullable<float> NumberOfConstituentsInGaseousConstituentFuelSupply { get; set; } = null;
+[JsonProperty(PropertyName="number_of_constituents_in_gaseous_constituent_fuel_supply", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfConstituentsInGaseousConstituentFuelSupply { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_1_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="constituent_1_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_Constituent1Name Constituent1Name { get; set; } = (Generator_FuelSupply_Constituent1Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent1Name), "Argon");
         
 
-[JsonProperty(PropertyName="constituent_1_molar_fraction")]
-public System.Nullable<float> Constituent1MolarFraction { get; set; } = null;
+[JsonProperty(PropertyName="constituent_1_molar_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Constituent1MolarFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_2_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="constituent_2_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_Constituent2Name Constituent2Name { get; set; } = (Generator_FuelSupply_Constituent2Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent2Name), "Argon");
         
 
-[JsonProperty(PropertyName="constituent_2_molar_fraction")]
-public System.Nullable<float> Constituent2MolarFraction { get; set; } = null;
+[JsonProperty(PropertyName="constituent_2_molar_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Constituent2MolarFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_3_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="constituent_3_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_Constituent3Name Constituent3Name { get; set; } = (Generator_FuelSupply_Constituent3Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent3Name), "Argon");
         
 
-[JsonProperty(PropertyName="constituent_3_molar_fraction")]
-public System.Nullable<float> Constituent3MolarFraction { get; set; } = null;
+[JsonProperty(PropertyName="constituent_3_molar_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Constituent3MolarFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_4_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="constituent_4_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_Constituent4Name Constituent4Name { get; set; } = (Generator_FuelSupply_Constituent4Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent4Name), "Argon");
         
 
-[JsonProperty(PropertyName="constituent_4_molar_fraction")]
-public System.Nullable<float> Constituent4MolarFraction { get; set; } = null;
+[JsonProperty(PropertyName="constituent_4_molar_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Constituent4MolarFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_5_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="constituent_5_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_Constituent5Name Constituent5Name { get; set; } = (Generator_FuelSupply_Constituent5Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent5Name), "Argon");
         
 
-[JsonProperty(PropertyName="constituent_5_molar_fraction")]
-public System.Nullable<float> Constituent5MolarFraction { get; set; } = null;
+[JsonProperty(PropertyName="constituent_5_molar_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Constituent5MolarFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_6_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="constituent_6_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_Constituent6Name Constituent6Name { get; set; } = (Generator_FuelSupply_Constituent6Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent6Name), "Argon");
         
 
-[JsonProperty(PropertyName="constituent_6_molar_fraction")]
-public System.Nullable<float> Constituent6MolarFraction { get; set; } = null;
+[JsonProperty(PropertyName="constituent_6_molar_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Constituent6MolarFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_7_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="constituent_7_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_Constituent7Name Constituent7Name { get; set; } = (Generator_FuelSupply_Constituent7Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent7Name), "Butane");
         
 
-[JsonProperty(PropertyName="constituent_7_molar_fraction")]
-public System.Nullable<float> Constituent7MolarFraction { get; set; } = null;
+[JsonProperty(PropertyName="constituent_7_molar_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Constituent7MolarFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_8_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="constituent_8_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_Constituent8Name Constituent8Name { get; set; } = (Generator_FuelSupply_Constituent8Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent8Name), "Argon");
         
 
-[JsonProperty(PropertyName="constituent_8_molar_fraction")]
-public System.Nullable<float> Constituent8MolarFraction { get; set; } = null;
+[JsonProperty(PropertyName="constituent_8_molar_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Constituent8MolarFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_9_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="constituent_9_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_Constituent9Name Constituent9Name { get; set; } = (Generator_FuelSupply_Constituent9Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent9Name), "Argon");
         
 
-[JsonProperty(PropertyName="constituent_9_molar_fraction")]
-public System.Nullable<float> Constituent9MolarFraction { get; set; } = null;
+[JsonProperty(PropertyName="constituent_9_molar_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Constituent9MolarFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_10_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="constituent_10_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_Constituent10Name Constituent10Name { get; set; } = (Generator_FuelSupply_Constituent10Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent10Name), "Argon");
         
 
-[JsonProperty(PropertyName="constituent_10_molar_fraction")]
-public System.Nullable<float> Constituent10MolarFraction { get; set; } = null;
+[JsonProperty(PropertyName="constituent_10_molar_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Constituent10MolarFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_11_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="constituent_11_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_Constituent11Name Constituent11Name { get; set; } = (Generator_FuelSupply_Constituent11Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent11Name), "Argon");
         
 
-[JsonProperty(PropertyName="constituent_11_molar_fraction")]
-public System.Nullable<float> Constituent11MolarFraction { get; set; } = null;
+[JsonProperty(PropertyName="constituent_11_molar_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Constituent11MolarFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="constituent_12_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="constituent_12_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_FuelSupply_Constituent12Name Constituent12Name { get; set; } = (Generator_FuelSupply_Constituent12Name)Enum.Parse(typeof(Generator_FuelSupply_Constituent12Name), "Argon");
         
 
-[JsonProperty(PropertyName="constituent_12_molar_fraction")]
-public System.Nullable<float> Constituent12MolarFraction { get; set; } = null;
+[JsonProperty(PropertyName="constituent_12_molar_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Constituent12MolarFraction { get; set; } = null;
     }
     
     public enum Generator_FuelSupply_FuelTemperatureModelingMode
@@ -2821,12 +2861,13 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
 [Description("allowed values are: Horizontal Axis Wind Turbine or Vertical Axis Wind Turbine")]
-[JsonProperty(PropertyName="rotor_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="rotor_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_WindTurbine_RotorType RotorType { get; set; } = (Generator_WindTurbine_RotorType)Enum.Parse(typeof(Generator_WindTurbine_RotorType), "HorizontalAxisWindTurbine");
         
 
@@ -2834,108 +2875,109 @@ public Generator_WindTurbine_RotorType RotorType { get; set; } = (Generator_Wind
     "peed exceeds the rated wind speed. allowed values are: Fixed Speed Fixed Pitch, " +
     "Fixed Speed Variable Pitch, Variable Speed Fixed Pitch or Variable Speed Variabl" +
     "e Pitch")]
-[JsonProperty(PropertyName="power_control", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="power_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public Generator_WindTurbine_PowerControl PowerControl { get; set; } = (Generator_WindTurbine_PowerControl)Enum.Parse(typeof(Generator_WindTurbine_PowerControl), "VariableSpeedVariablePitch");
         
 
-[JsonProperty(PropertyName="rated_rotor_speed")]
-public System.Nullable<float> RatedRotorSpeed { get; set; } = null;
+[JsonProperty(PropertyName="rated_rotor_speed", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RatedRotorSpeed { get; set; } = null;
         
 
 [Description("This field is the diameter of the perpendicular circle of the Vertical Axis Wind " +
     "Turbine system from the upright pole on the ground.")]
-[JsonProperty(PropertyName="rotor_diameter")]
-public System.Nullable<float> RotorDiameter { get; set; } = null;
+[JsonProperty(PropertyName="rotor_diameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RotorDiameter { get; set; } = null;
         
 
 [Description("This field is the height of the hub for the Horizontal Axis Wind Turbines and of " +
     "the pole for the Vertical Axis Wind Turbines.")]
-[JsonProperty(PropertyName="overall_height")]
-public System.Nullable<float> OverallHeight { get; set; } = null;
+[JsonProperty(PropertyName="overall_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OverallHeight { get; set; } = null;
         
 
-[JsonProperty(PropertyName="number_of_blades")]
-public System.Nullable<float> NumberOfBlades { get; set; } = (System.Nullable<float>)Single.Parse("3", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="number_of_blades", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfBlades { get; set; } = (System.Nullable<double>)Double.Parse("3", CultureInfo.InvariantCulture);
         
 
 [Description("This field is the nominal power at the rated wind speed. Users should input maxim" +
     "um power in case of Fixed Speed Fixed Pitch control type.")]
-[JsonProperty(PropertyName="rated_power")]
-public System.Nullable<float> RatedPower { get; set; } = null;
+[JsonProperty(PropertyName="rated_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RatedPower { get; set; } = null;
         
 
-[JsonProperty(PropertyName="rated_wind_speed")]
-public System.Nullable<float> RatedWindSpeed { get; set; } = null;
+[JsonProperty(PropertyName="rated_wind_speed", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RatedWindSpeed { get; set; } = null;
         
 
-[JsonProperty(PropertyName="cut_in_wind_speed")]
-public System.Nullable<float> CutInWindSpeed { get; set; } = null;
+[JsonProperty(PropertyName="cut_in_wind_speed", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CutInWindSpeed { get; set; } = null;
         
 
-[JsonProperty(PropertyName="cut_out_wind_speed")]
-public System.Nullable<float> CutOutWindSpeed { get; set; } = null;
+[JsonProperty(PropertyName="cut_out_wind_speed", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CutOutWindSpeed { get; set; } = null;
         
 
-[JsonProperty(PropertyName="fraction_system_efficiency")]
-public System.Nullable<float> FractionSystemEfficiency { get; set; } = (System.Nullable<float>)Single.Parse("0.835", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fraction_system_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionSystemEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.835", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="maximum_tip_speed_ratio")]
-public System.Nullable<float> MaximumTipSpeedRatio { get; set; } = (System.Nullable<float>)Single.Parse("5", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_tip_speed_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumTipSpeedRatio { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
         
 
 [Description("This field should be input if the rotor type is Horizontal Axis Wind Turbine")]
-[JsonProperty(PropertyName="maximum_power_coefficient")]
-public System.Nullable<float> MaximumPowerCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("0.25", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_power_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumPowerCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0.25", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="annual_local_average_wind_speed")]
-public System.Nullable<float> AnnualLocalAverageWindSpeed { get; set; } = null;
+[JsonProperty(PropertyName="annual_local_average_wind_speed", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AnnualLocalAverageWindSpeed { get; set; } = null;
         
 
-[JsonProperty(PropertyName="height_for_local_average_wind_speed")]
-public System.Nullable<float> HeightForLocalAverageWindSpeed { get; set; } = (System.Nullable<float>)Single.Parse("50", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="height_for_local_average_wind_speed", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HeightForLocalAverageWindSpeed { get; set; } = (System.Nullable<double>)Double.Parse("50", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="blade_chord_area")]
-public System.Nullable<float> BladeChordArea { get; set; } = null;
-        
-
-[Description("This field is only for Vertical Axis Wind Turbine.. The user must input this fiel" +
-    "d if the rotor type is Vertical Axis Wind Turbine.")]
-[JsonProperty(PropertyName="blade_drag_coefficient")]
-public System.Nullable<float> BladeDragCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("0.9", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="blade_chord_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BladeChordArea { get; set; } = null;
         
 
 [Description("This field is only for Vertical Axis Wind Turbine.. The user must input this fiel" +
     "d if the rotor type is Vertical Axis Wind Turbine.")]
-[JsonProperty(PropertyName="blade_lift_coefficient")]
-public System.Nullable<float> BladeLiftCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("0.05", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="blade_drag_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BladeDragCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+        
+
+[Description("This field is only for Vertical Axis Wind Turbine.. The user must input this fiel" +
+    "d if the rotor type is Vertical Axis Wind Turbine.")]
+[JsonProperty(PropertyName="blade_lift_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BladeLiftCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0.05", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only available for Horizontal Axis Wind Turbine. The user should input all six parameters so that the analytic approximation is assumed. The simple approximation will be assumed, if any field C1 through C6 is not input. Leave this field blank, if the manufacturer's data is unavailable so that the simple approximation will be assumed.")]
-[JsonProperty(PropertyName="power_coefficient_c1")]
-public System.Nullable<float> PowerCoefficientC1 { get; set; } = (System.Nullable<float>)Single.Parse("0.5176", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="power_coefficient_c1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PowerCoefficientC1 { get; set; } = (System.Nullable<double>)Double.Parse("0.5176", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="power_coefficient_c2")]
-public System.Nullable<float> PowerCoefficientC2 { get; set; } = (System.Nullable<float>)Single.Parse("116", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="power_coefficient_c2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PowerCoefficientC2 { get; set; } = (System.Nullable<double>)Double.Parse("116", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="power_coefficient_c3")]
-public System.Nullable<float> PowerCoefficientC3 { get; set; } = (System.Nullable<float>)Single.Parse("0.4", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="power_coefficient_c3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PowerCoefficientC3 { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="power_coefficient_c4")]
-public System.Nullable<float> PowerCoefficientC4 { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="power_coefficient_c4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PowerCoefficientC4 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="power_coefficient_c5")]
-public System.Nullable<float> PowerCoefficientC5 { get; set; } = (System.Nullable<float>)Single.Parse("5", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="power_coefficient_c5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PowerCoefficientC5 { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="power_coefficient_c6")]
-public System.Nullable<float> PowerCoefficientC6 { get; set; } = (System.Nullable<float>)Single.Parse("21", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="power_coefficient_c6", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PowerCoefficientC6 { get; set; } = (System.Nullable<double>)Double.Parse("21", CultureInfo.InvariantCulture);
     }
     
     public enum Generator_WindTurbine_RotorType
@@ -2983,7 +3025,7 @@ public System.Nullable<float> PowerCoefficientC6 { get; set; } = (System.Nullabl
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="generator_outputs")]
+[JsonProperty(PropertyName="generator_outputs", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string GeneratorOutputs { get; set; } = "";
     }
     
@@ -3002,22 +3044,22 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
 [Description("enter name of zone to receive inverter losses as heat if blank then inverter is a" +
     "ssumed to be outdoors")]
-[JsonProperty(PropertyName="zone_name")]
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="radiative_fraction")]
-public System.Nullable<float> RadiativeFraction { get; set; } = null;
+[JsonProperty(PropertyName="radiative_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RadiativeFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="inverter_efficiency")]
-public System.Nullable<float> InverterEfficiency { get; set; } = null;
+[JsonProperty(PropertyName="inverter_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InverterEfficiency { get; set; } = null;
     }
     
     [Description("Electric power inverter to convert from direct current (DC) to alternating curren" +
@@ -3036,48 +3078,48 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
 [Description("Enter name of zone to receive inverter losses as heat if blank then inverter is a" +
     "ssumed to be outdoors")]
-[JsonProperty(PropertyName="zone_name")]
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="radiative_fraction")]
-public System.Nullable<float> RadiativeFraction { get; set; } = null;
+[JsonProperty(PropertyName="radiative_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RadiativeFraction { get; set; } = null;
         
 
 [Description("curve describes efficiency as a function of power curve is normalized relative to" +
     " rated power in next field")]
-[JsonProperty(PropertyName="efficiency_function_of_power_curve_name")]
+[JsonProperty(PropertyName="efficiency_function_of_power_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string EfficiencyFunctionOfPowerCurveName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="rated_maximum_continuous_input_power")]
-public System.Nullable<float> RatedMaximumContinuousInputPower { get; set; } = null;
+[JsonProperty(PropertyName="rated_maximum_continuous_input_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RatedMaximumContinuousInputPower { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_efficiency")]
-public System.Nullable<float> MinimumEfficiency { get; set; } = null;
+[JsonProperty(PropertyName="minimum_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumEfficiency { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_efficiency")]
-public System.Nullable<float> MaximumEfficiency { get; set; } = null;
+[JsonProperty(PropertyName="maximum_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumEfficiency { get; set; } = null;
         
 
-[JsonProperty(PropertyName="minimum_power_output")]
-public System.Nullable<float> MinimumPowerOutput { get; set; } = null;
+[JsonProperty(PropertyName="minimum_power_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumPowerOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_power_output")]
-public System.Nullable<float> MaximumPowerOutput { get; set; } = null;
+[JsonProperty(PropertyName="maximum_power_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumPowerOutput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="ancillary_power_consumed_in_standby")]
-public System.Nullable<float> AncillaryPowerConsumedInStandby { get; set; } = null;
+[JsonProperty(PropertyName="ancillary_power_consumed_in_standby", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AncillaryPowerConsumedInStandby { get; set; } = null;
     }
     
     [Description("California Energy Commission tests and publishes data on inverters This inverter " +
@@ -3095,54 +3137,54 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
 [Description("Enter name of zone to receive inverter losses as heat if blank then inverter is a" +
     "ssumed to be outdoors")]
-[JsonProperty(PropertyName="zone_name")]
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="radiative_fraction")]
-public System.Nullable<float> RadiativeFraction { get; set; } = null;
+[JsonProperty(PropertyName="radiative_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RadiativeFraction { get; set; } = null;
         
 
-[JsonProperty(PropertyName="rated_maximum_continuous_output_power")]
-public System.Nullable<float> RatedMaximumContinuousOutputPower { get; set; } = null;
+[JsonProperty(PropertyName="rated_maximum_continuous_output_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RatedMaximumContinuousOutputPower { get; set; } = null;
         
 
-[JsonProperty(PropertyName="night_tare_loss_power")]
-public System.Nullable<float> NightTareLossPower { get; set; } = null;
+[JsonProperty(PropertyName="night_tare_loss_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NightTareLossPower { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nominal_voltage_input")]
-public System.Nullable<float> NominalVoltageInput { get; set; } = null;
+[JsonProperty(PropertyName="nominal_voltage_input", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalVoltageInput { get; set; } = null;
         
 
-[JsonProperty(PropertyName="efficiency_at_10_power_and_nominal_voltage")]
-public System.Nullable<float> EfficiencyAt10PowerAndNominalVoltage { get; set; } = null;
+[JsonProperty(PropertyName="efficiency_at_10_power_and_nominal_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EfficiencyAt10PowerAndNominalVoltage { get; set; } = null;
         
 
-[JsonProperty(PropertyName="efficiency_at_20_power_and_nominal_voltage")]
-public System.Nullable<float> EfficiencyAt20PowerAndNominalVoltage { get; set; } = null;
+[JsonProperty(PropertyName="efficiency_at_20_power_and_nominal_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EfficiencyAt20PowerAndNominalVoltage { get; set; } = null;
         
 
-[JsonProperty(PropertyName="efficiency_at_30_power_and_nominal_voltage")]
-public System.Nullable<float> EfficiencyAt30PowerAndNominalVoltage { get; set; } = null;
+[JsonProperty(PropertyName="efficiency_at_30_power_and_nominal_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EfficiencyAt30PowerAndNominalVoltage { get; set; } = null;
         
 
-[JsonProperty(PropertyName="efficiency_at_50_power_and_nominal_voltage")]
-public System.Nullable<float> EfficiencyAt50PowerAndNominalVoltage { get; set; } = null;
+[JsonProperty(PropertyName="efficiency_at_50_power_and_nominal_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EfficiencyAt50PowerAndNominalVoltage { get; set; } = null;
         
 
-[JsonProperty(PropertyName="efficiency_at_75_power_and_nominal_voltage")]
-public System.Nullable<float> EfficiencyAt75PowerAndNominalVoltage { get; set; } = null;
+[JsonProperty(PropertyName="efficiency_at_75_power_and_nominal_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EfficiencyAt75PowerAndNominalVoltage { get; set; } = null;
         
 
-[JsonProperty(PropertyName="efficiency_at_100_power_and_nominal_voltage")]
-public System.Nullable<float> EfficiencyAt100PowerAndNominalVoltage { get; set; } = null;
+[JsonProperty(PropertyName="efficiency_at_100_power_and_nominal_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EfficiencyAt100PowerAndNominalVoltage { get; set; } = null;
     }
     
     [Description(@"Used to model storage of electricity in an electric load center. This is a simple model that does not attempt to represent any of the characteristics of a real storage device such as a battery. The type of power, AC or DC, depends on the configuration chosen as the Electrical Buss Type in the ElectricLoadCenter:Distribution object.")]
@@ -3158,42 +3200,42 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
 [Description("Enter name of zone to receive storage losses as heat if blank then storage is ass" +
     "umed to be outdoors")]
-[JsonProperty(PropertyName="zone_name")]
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="radiative_fraction_for_zone_heat_gains")]
-public System.Nullable<float> RadiativeFractionForZoneHeatGains { get; set; } = null;
+[JsonProperty(PropertyName="radiative_fraction_for_zone_heat_gains", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RadiativeFractionForZoneHeatGains { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nominal_energetic_efficiency_for_charging")]
-public System.Nullable<float> NominalEnergeticEfficiencyForCharging { get; set; } = null;
+[JsonProperty(PropertyName="nominal_energetic_efficiency_for_charging", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalEnergeticEfficiencyForCharging { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nominal_discharging_energetic_efficiency")]
-public System.Nullable<float> NominalDischargingEnergeticEfficiency { get; set; } = null;
+[JsonProperty(PropertyName="nominal_discharging_energetic_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalDischargingEnergeticEfficiency { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_storage_capacity")]
-public System.Nullable<float> MaximumStorageCapacity { get; set; } = null;
+[JsonProperty(PropertyName="maximum_storage_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumStorageCapacity { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_power_for_discharging")]
-public System.Nullable<float> MaximumPowerForDischarging { get; set; } = null;
+[JsonProperty(PropertyName="maximum_power_for_discharging", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumPowerForDischarging { get; set; } = null;
         
 
-[JsonProperty(PropertyName="maximum_power_for_charging")]
-public System.Nullable<float> MaximumPowerForCharging { get; set; } = null;
+[JsonProperty(PropertyName="maximum_power_for_charging", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumPowerForCharging { get; set; } = null;
         
 
-[JsonProperty(PropertyName="initial_state_of_charge")]
-public System.Nullable<float> InitialStateOfCharge { get; set; } = null;
+[JsonProperty(PropertyName="initial_state_of_charge", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InitialStateOfCharge { get; set; } = null;
     }
     
     [Description(@"Uses the kinetic battery model (KiBaM) to simulate rechargeable battery banks in an electrical load center. The battery bank is a collection of one or more individual battery modules. Given the surplus or deficit power from the electrical system and the state of charge from the previous time step, this object can model the voltage, current, and energy losses with charging and discharging during each time step. The cumulative battery damage can be also modeled and reported at the end of each simulation run.")]
@@ -3209,112 +3251,113 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
 [Description("Enter name of zone to receive electrical storage losses as heat if blank then ele" +
     "ctrical storage losses are dissipated to outdoors")]
-[JsonProperty(PropertyName="zone_name")]
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="radiative_fraction")]
-public System.Nullable<float> RadiativeFraction { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="radiative_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RadiativeFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("A module usually consists of several cells. The total number of modules in the ba" +
     "ttery bank is equal to number of modules in parallel times number of modules in " +
     "series.")]
-[JsonProperty(PropertyName="number_of_battery_modules_in_parallel")]
-public System.Nullable<float> NumberOfBatteryModulesInParallel { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="number_of_battery_modules_in_parallel", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfBatteryModulesInParallel { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("A module usually consists of several cells. The total number of modules in the ba" +
     "ttery bank is equal to number of modules in parallel times number of modules in " +
     "series.")]
-[JsonProperty(PropertyName="number_of_battery_modules_in_series")]
-public System.Nullable<float> NumberOfBatteryModulesInSeries { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="number_of_battery_modules_in_series", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfBatteryModulesInSeries { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("The capacity is for each module. A model parameter from manufacturer\'s data or te" +
     "st data.")]
-[JsonProperty(PropertyName="maximum_module_capacity")]
-public System.Nullable<float> MaximumModuleCapacity { get; set; } = null;
+[JsonProperty(PropertyName="maximum_module_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumModuleCapacity { get; set; } = null;
         
 
 [Description("The state of charge is evaluated based on the maximum capacity defined in the nex" +
     "t field.")]
-[JsonProperty(PropertyName="initial_fractional_state_of_charge")]
-public System.Nullable<float> InitialFractionalStateOfCharge { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="initial_fractional_state_of_charge", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InitialFractionalStateOfCharge { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("A model parameter usually derived from test data by curve fitting.")]
-[JsonProperty(PropertyName="fraction_of_available_charge_capacity")]
-public System.Nullable<float> FractionOfAvailableChargeCapacity { get; set; } = null;
+[JsonProperty(PropertyName="fraction_of_available_charge_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfAvailableChargeCapacity { get; set; } = null;
         
 
 [Description("A model parameter usually derived from test data by curve fitting.")]
-[JsonProperty(PropertyName="change_rate_from_bound_charge_to_available_charge")]
-public System.Nullable<float> ChangeRateFromBoundChargeToAvailableCharge { get; set; } = null;
+[JsonProperty(PropertyName="change_rate_from_bound_charge_to_available_charge", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ChangeRateFromBoundChargeToAvailableCharge { get; set; } = null;
         
 
 [Description("The voltage is for each battery module.")]
-[JsonProperty(PropertyName="fully_charged_module_open_circuit_voltage")]
-public System.Nullable<float> FullyChargedModuleOpenCircuitVoltage { get; set; } = null;
+[JsonProperty(PropertyName="fully_charged_module_open_circuit_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FullyChargedModuleOpenCircuitVoltage { get; set; } = null;
         
 
 [Description("The voltage is for each battery module.")]
-[JsonProperty(PropertyName="fully_discharged_module_open_circuit_voltage")]
-public System.Nullable<float> FullyDischargedModuleOpenCircuitVoltage { get; set; } = null;
+[JsonProperty(PropertyName="fully_discharged_module_open_circuit_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FullyDischargedModuleOpenCircuitVoltage { get; set; } = null;
         
 
 [Description("Determines how the open circuit voltage change with state of charge relative to t" +
     "he fully discharged state.")]
-[JsonProperty(PropertyName="voltage_change_curve_name_for_charging")]
+[JsonProperty(PropertyName="voltage_change_curve_name_for_charging", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string VoltageChangeCurveNameForCharging { get; set; } = "";
         
 
 [Description("Determines how the open circuit voltage change with state of charge relative to t" +
     "he fully charged state.")]
-[JsonProperty(PropertyName="voltage_change_curve_name_for_discharging")]
+[JsonProperty(PropertyName="voltage_change_curve_name_for_discharging", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string VoltageChangeCurveNameForDischarging { get; set; } = "";
         
 
 [Description("A model parameter from manufacture or derived from test data. Internal resistance" +
     " is assumed to be constant. The internal resistance is for each battery module.")]
-[JsonProperty(PropertyName="module_internal_electrical_resistance")]
-public System.Nullable<float> ModuleInternalElectricalResistance { get; set; } = null;
+[JsonProperty(PropertyName="module_internal_electrical_resistance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ModuleInternalElectricalResistance { get; set; } = null;
         
 
 [Description("The constraint on discharging current is for each battery module.")]
-[JsonProperty(PropertyName="maximum_module_discharging_current")]
-public System.Nullable<float> MaximumModuleDischargingCurrent { get; set; } = null;
+[JsonProperty(PropertyName="maximum_module_discharging_current", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumModuleDischargingCurrent { get; set; } = null;
         
 
 [Description("The voltage constraint is for each battery module.")]
-[JsonProperty(PropertyName="module_cut_off_voltage")]
-public System.Nullable<float> ModuleCutOffVoltage { get; set; } = null;
+[JsonProperty(PropertyName="module_cut_off_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ModuleCutOffVoltage { get; set; } = null;
         
 
 [Description("units 1/hr Charge rate limit is the division between charging current the remaini" +
     "ng capacity. The constraint on charging current is for each module.")]
-[JsonProperty(PropertyName="module_charge_rate_limit")]
-public System.Nullable<float> ModuleChargeRateLimit { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="module_charge_rate_limit", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ModuleChargeRateLimit { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="battery_life_calculation", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="battery_life_calculation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes BatteryLifeCalculation { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
 [Description("Only required when battery life calculation is activated")]
-[JsonProperty(PropertyName="number_of_cycle_bins")]
-public System.Nullable<float> NumberOfCycleBins { get; set; } = (System.Nullable<float>)Single.Parse("10", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="number_of_cycle_bins", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfCycleBins { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description("Determines the number of cycles to failure in relation to cycle range. Only requi" +
     "red when battery life calculation is activated.")]
-[JsonProperty(PropertyName="battery_life_curve_name")]
+[JsonProperty(PropertyName="battery_life_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BatteryLifeCurveName { get; set; } = "";
     }
     
@@ -3331,105 +3374,106 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
 [Description("Enter name of zone to receive electrical storage losses as heat if blank then ele" +
     "ctrical storage losses are dissipated to outdoors")]
-[JsonProperty(PropertyName="zone_name")]
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="radiative_fraction")]
-public System.Nullable<float> RadiativeFraction { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="radiative_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RadiativeFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="lifetime_model", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="lifetime_model", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricLoadCenter_Storage_LiIonNMCBattery_LifetimeModel LifetimeModel { get; set; } = (ElectricLoadCenter_Storage_LiIonNMCBattery_LifetimeModel)Enum.Parse(typeof(ElectricLoadCenter_Storage_LiIonNMCBattery_LifetimeModel), "KandlerSmith");
         
 
 [Description("Battery voltage is calculated by multiplying this field by the nominal cell volta" +
     "ge (N13, default 3.342V)")]
-[JsonProperty(PropertyName="number_of_cells_in_series")]
-public System.Nullable<float> NumberOfCellsInSeries { get; set; } = null;
+[JsonProperty(PropertyName="number_of_cells_in_series", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfCellsInSeries { get; set; } = null;
         
 
 [Description("Capacity (Ah) is determined by multiplying this field by the cell capacity (N14, " +
     "default 3.2 Ah)")]
-[JsonProperty(PropertyName="number_of_strings_in_parallel")]
-public System.Nullable<float> NumberOfStringsInParallel { get; set; } = null;
+[JsonProperty(PropertyName="number_of_strings_in_parallel", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfStringsInParallel { get; set; } = null;
         
 
 [Description("The state of charge is evaluated based on the maximum capacity defined in the nex" +
     "t field.")]
-[JsonProperty(PropertyName="initial_fractional_state_of_charge")]
-public System.Nullable<float> InitialFractionalStateOfCharge { get; set; } = (System.Nullable<float>)Single.Parse("0.5", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="initial_fractional_state_of_charge", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InitialFractionalStateOfCharge { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="dc_to_dc_charging_efficiency")]
-public System.Nullable<float> DcToDcChargingEfficiency { get; set; } = (System.Nullable<float>)Single.Parse("0.95", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="dc_to_dc_charging_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DcToDcChargingEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.95", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="battery_mass")]
-public System.Nullable<float> BatteryMass { get; set; } = null;
+[JsonProperty(PropertyName="battery_mass", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BatteryMass { get; set; } = null;
         
 
-[JsonProperty(PropertyName="battery_surface_area")]
-public System.Nullable<float> BatterySurfaceArea { get; set; } = null;
+[JsonProperty(PropertyName="battery_surface_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BatterySurfaceArea { get; set; } = null;
         
 
-[JsonProperty(PropertyName="battery_specific_heat_capacity")]
-public System.Nullable<float> BatterySpecificHeatCapacity { get; set; } = (System.Nullable<float>)Single.Parse("1500", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="battery_specific_heat_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BatterySpecificHeatCapacity { get; set; } = (System.Nullable<double>)Double.Parse("1500", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="heat_transfer_coefficient_between_battery_and_ambient")]
-public System.Nullable<float> HeatTransferCoefficientBetweenBatteryAndAmbient { get; set; } = (System.Nullable<float>)Single.Parse("7.5", CultureInfo.InvariantCulture);
-        
-
-[Description("Most users should not need to change this value.")]
-[JsonProperty(PropertyName="fully_charged_cell_voltage")]
-public System.Nullable<float> FullyChargedCellVoltage { get; set; } = (System.Nullable<float>)Single.Parse("4.2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="heat_transfer_coefficient_between_battery_and_ambient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HeatTransferCoefficientBetweenBatteryAndAmbient { get; set; } = (System.Nullable<double>)Double.Parse("7.5", CultureInfo.InvariantCulture);
         
 
 [Description("Most users should not need to change this value.")]
-[JsonProperty(PropertyName="cell_voltage_at_end_of_exponential_zone")]
-public System.Nullable<float> CellVoltageAtEndOfExponentialZone { get; set; } = (System.Nullable<float>)Single.Parse("3.53", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fully_charged_cell_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FullyChargedCellVoltage { get; set; } = (System.Nullable<double>)Double.Parse("4.2", CultureInfo.InvariantCulture);
         
 
 [Description("Most users should not need to change this value.")]
-[JsonProperty(PropertyName="cell_voltage_at_end_of_nominal_zone")]
-public System.Nullable<float> CellVoltageAtEndOfNominalZone { get; set; } = (System.Nullable<float>)Single.Parse("3.342", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="cell_voltage_at_end_of_exponential_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CellVoltageAtEndOfExponentialZone { get; set; } = (System.Nullable<double>)Double.Parse("3.53", CultureInfo.InvariantCulture);
         
 
 [Description("Most users should not need to change this value.")]
-[JsonProperty(PropertyName="default_nominal_cell_voltage")]
-public System.Nullable<float> DefaultNominalCellVoltage { get; set; } = (System.Nullable<float>)Single.Parse("3.342", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="cell_voltage_at_end_of_nominal_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CellVoltageAtEndOfNominalZone { get; set; } = (System.Nullable<double>)Double.Parse("3.342", CultureInfo.InvariantCulture);
         
 
 [Description("Most users should not need to change this value.")]
-[JsonProperty(PropertyName="fully_charged_cell_capacity")]
-public System.Nullable<float> FullyChargedCellCapacity { get; set; } = (System.Nullable<float>)Single.Parse("3.2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="default_nominal_cell_voltage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DefaultNominalCellVoltage { get; set; } = (System.Nullable<double>)Double.Parse("3.342", CultureInfo.InvariantCulture);
         
 
 [Description("Most users should not need to change this value.")]
-[JsonProperty(PropertyName="fraction_of_cell_capacity_removed_at_the_end_of_exponential_zone")]
-public System.Nullable<float> FractionOfCellCapacityRemovedAtTheEndOfExponentialZone { get; set; } = (System.Nullable<float>)Single.Parse("0.8075", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fully_charged_cell_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FullyChargedCellCapacity { get; set; } = (System.Nullable<double>)Double.Parse("3.2", CultureInfo.InvariantCulture);
         
 
 [Description("Most users should not need to change this value.")]
-[JsonProperty(PropertyName="fraction_of_cell_capacity_removed_at_the_end_of_nominal_zone")]
-public System.Nullable<float> FractionOfCellCapacityRemovedAtTheEndOfNominalZone { get; set; } = (System.Nullable<float>)Single.Parse("0.976875", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fraction_of_cell_capacity_removed_at_the_end_of_exponential_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfCellCapacityRemovedAtTheEndOfExponentialZone { get; set; } = (System.Nullable<double>)Double.Parse("0.8075", CultureInfo.InvariantCulture);
         
 
 [Description("Most users should not need to change this value.")]
-[JsonProperty(PropertyName="charge_rate_at_which_voltage_vs_capacity_curve_was_generated")]
-public System.Nullable<float> ChargeRateAtWhichVoltageVsCapacityCurveWasGenerated { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fraction_of_cell_capacity_removed_at_the_end_of_nominal_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfCellCapacityRemovedAtTheEndOfNominalZone { get; set; } = (System.Nullable<double>)Double.Parse("0.976875", CultureInfo.InvariantCulture);
+        
+
+[Description("Most users should not need to change this value.")]
+[JsonProperty(PropertyName="charge_rate_at_which_voltage_vs_capacity_curve_was_generated", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ChargeRateAtWhichVoltageVsCapacityCurveWasGenerated { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("for a single cell Most users should not need to change this value.")]
-[JsonProperty(PropertyName="battery_cell_internal_electrical_resistance")]
-public System.Nullable<float> BatteryCellInternalElectricalResistance { get; set; } = (System.Nullable<float>)Single.Parse("0.09", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="battery_cell_internal_electrical_resistance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BatteryCellInternalElectricalResistance { get; set; } = (System.Nullable<double>)Double.Parse("0.09", CultureInfo.InvariantCulture);
     }
     
     public enum ElectricLoadCenter_Storage_LiIonNMCBattery_LifetimeModel
@@ -3459,93 +3503,97 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the system is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
 [Description(@"A transformer can be used to transfer electric energy from utility grid to building (PowerInFromGrid)or from building on-site generation to the grid (PowerOutToGrid) or within a load center to match generation to the facility service main panel (LoadCenterPowerConditioning)")]
-[JsonProperty(PropertyName="transformer_usage", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="transformer_usage", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricLoadCenter_Transformer_TransformerUsage TransformerUsage { get; set; } = (ElectricLoadCenter_Transformer_TransformerUsage)Enum.Parse(typeof(ElectricLoadCenter_Transformer_TransformerUsage), "PowerInFromGrid");
         
 
 [Description("Enter name of zone to receive transformer losses as heat if blank then transforme" +
     "r losses are dissipated to outdoors")]
-[JsonProperty(PropertyName="zone_name")]
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="radiative_fraction")]
-public System.Nullable<float> RadiativeFraction { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="radiative_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RadiativeFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("the unit is VA, instead of kVA as usually shown on transformer nameplates.")]
-[JsonProperty(PropertyName="rated_capacity")]
-public System.Nullable<float> RatedCapacity { get; set; } = null;
+[JsonProperty(PropertyName="rated_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RatedCapacity { get; set; } = null;
         
 
 [Description("Must be single or three phase transformer. NOT used in the current model.")]
-[JsonProperty(PropertyName="phase")]
-public System.Nullable<float> Phase { get; set; } = (System.Nullable<float>)Single.Parse("3", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="phase", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Phase { get; set; } = (System.Nullable<double>)Double.Parse("3", CultureInfo.InvariantCulture);
         
 
 [Description("Winding material used by the transformer.")]
-[JsonProperty(PropertyName="conductor_material", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="conductor_material", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricLoadCenter_Transformer_ConductorMaterial ConductorMaterial { get; set; } = (ElectricLoadCenter_Transformer_ConductorMaterial)Enum.Parse(typeof(ElectricLoadCenter_Transformer_ConductorMaterial), "Aluminum");
         
 
-[JsonProperty(PropertyName="full_load_temperature_rise")]
-public System.Nullable<float> FullLoadTemperatureRise { get; set; } = (System.Nullable<float>)Single.Parse("150", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="full_load_temperature_rise", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FullLoadTemperatureRise { get; set; } = (System.Nullable<double>)Double.Parse("150", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="fraction_of_eddy_current_losses")]
-public System.Nullable<float> FractionOfEddyCurrentLosses { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="fraction_of_eddy_current_losses", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfEddyCurrentLosses { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [Description("User can define transformer performance by specifying load and no load losses at " +
     "rated conditions or nameplate efficiency and maximum efficiency")]
-[JsonProperty(PropertyName="performance_input_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="performance_input_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricLoadCenter_Transformer_PerformanceInputMethod PerformanceInputMethod { get; set; } = (ElectricLoadCenter_Transformer_PerformanceInputMethod)Enum.Parse(typeof(ElectricLoadCenter_Transformer_PerformanceInputMethod), "RatedLosses");
         
 
 [Description("Only required when RatedLosses is the performance input method")]
-[JsonProperty(PropertyName="rated_no_load_loss")]
-public System.Nullable<float> RatedNoLoadLoss { get; set; } = null;
+[JsonProperty(PropertyName="rated_no_load_loss", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RatedNoLoadLoss { get; set; } = null;
         
 
 [Description("Only required when RatedLosses is the performance input method")]
-[JsonProperty(PropertyName="rated_load_loss")]
-public System.Nullable<float> RatedLoadLoss { get; set; } = null;
+[JsonProperty(PropertyName="rated_load_loss", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RatedLoadLoss { get; set; } = null;
         
 
 [Description("Only required when NominalEfficiency is the performance input method")]
-[JsonProperty(PropertyName="nameplate_efficiency")]
-public System.Nullable<float> NameplateEfficiency { get; set; } = (System.Nullable<float>)Single.Parse("0.98", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="nameplate_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NameplateEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.98", CultureInfo.InvariantCulture);
         
 
 [Description("Percentage of the rated capacity at which the nameplate efficiency is defined Onl" +
     "y required when NominalEfficiency is the performance input method")]
-[JsonProperty(PropertyName="per_unit_load_for_nameplate_efficiency")]
-public System.Nullable<float> PerUnitLoadForNameplateEfficiency { get; set; } = (System.Nullable<float>)Single.Parse("0.35", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="per_unit_load_for_nameplate_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PerUnitLoadForNameplateEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.35", CultureInfo.InvariantCulture);
         
 
 [Description("Conductor operating temperature at which the nameplate efficiency is defined Only" +
     " required when NominalEfficiency is the performance input method")]
-[JsonProperty(PropertyName="reference_temperature_for_nameplate_efficiency")]
-public System.Nullable<float> ReferenceTemperatureForNameplateEfficiency { get; set; } = (System.Nullable<float>)Single.Parse("75", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="reference_temperature_for_nameplate_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceTemperatureForNameplateEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("75", CultureInfo.InvariantCulture);
         
 
 [Description("Percentage of the rate capacity at which the maximum efficiency is obtained Only " +
     "required when NominalEfficiency is the performance input method")]
-[JsonProperty(PropertyName="per_unit_load_for_maximum_efficiency")]
-public System.Nullable<float> PerUnitLoadForMaximumEfficiency { get; set; } = null;
+[JsonProperty(PropertyName="per_unit_load_for_maximum_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PerUnitLoadForMaximumEfficiency { get; set; } = null;
         
 
 [Description("Only required when the transformer is used for power in from the utility grid")]
-[JsonProperty(PropertyName="consider_transformer_loss_for_utility_cost", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="consider_transformer_loss_for_utility_cost", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes ConsiderTransformerLossForUtilityCost { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "Yes");
         
 
-[JsonProperty(PropertyName="meters")]
+[JsonProperty(PropertyName="meters", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Meters { get; set; } = "";
     }
     
@@ -3605,50 +3653,52 @@ public string NodeName { get; set; } = "";
         
 
 [Description("Name of an ElectricLoadCenter:Generators object")]
-[JsonProperty(PropertyName="generator_list_name")]
+[JsonProperty(PropertyName="generator_list_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string GeneratorListName { get; set; } = "";
         
 
 [Description("Determines how generators are to be controlled Required if Generator List is ente" +
     "red.")]
-[JsonProperty(PropertyName="generator_operation_scheme_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="generator_operation_scheme_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricLoadCenter_Distribution_GeneratorOperationSchemeType GeneratorOperationSchemeType { get; set; } = (ElectricLoadCenter_Distribution_GeneratorOperationSchemeType)Enum.Parse(typeof(ElectricLoadCenter_Distribution_GeneratorOperationSchemeType), "Baseload");
         
 
-[JsonProperty(PropertyName="generator_demand_limit_scheme_purchased_electric_demand_limit")]
-public System.Nullable<float> GeneratorDemandLimitSchemePurchasedElectricDemandLimit { get; set; } = null;
+[JsonProperty(PropertyName="generator_demand_limit_scheme_purchased_electric_demand_limit", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> GeneratorDemandLimitSchemePurchasedElectricDemandLimit { get; set; } = null;
         
 
 [Description("required when Generator Operation Scheme Type=TrackSchedule schedule values in Wa" +
     "tts")]
-[JsonProperty(PropertyName="generator_track_schedule_name_scheme_schedule_name")]
+[JsonProperty(PropertyName="generator_track_schedule_name_scheme_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string GeneratorTrackScheduleNameSchemeScheduleName { get; set; } = "";
         
 
 [Description("required when Generator Operation Scheme Type=TrackMeter")]
-[JsonProperty(PropertyName="generator_track_meter_scheme_meter_name")]
+[JsonProperty(PropertyName="generator_track_meter_scheme_meter_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string GeneratorTrackMeterSchemeMeterName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="electrical_buss_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="electrical_buss_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricLoadCenter_Distribution_ElectricalBussType ElectricalBussType { get; set; } = (ElectricLoadCenter_Distribution_ElectricalBussType)Enum.Parse(typeof(ElectricLoadCenter_Distribution_ElectricalBussType), "AlternatingCurrent");
         
 
 [Description("required when Electrical Buss Type=DirectCurrentWithInverter, DirectCurrentWithIn" +
     "verterDCStorage, or DirectCurrentWithInverterACStorage")]
-[JsonProperty(PropertyName="inverter_name")]
+[JsonProperty(PropertyName="inverter_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string InverterName { get; set; } = "";
         
 
 [Description("required when Electrical Buss Type=AlternatingCurrentWithStorage, DirectCurrentWi" +
     "thInverterDCStorage, or DirectCurrentWithInverterACStorage")]
-[JsonProperty(PropertyName="electrical_storage_object_name")]
+[JsonProperty(PropertyName="electrical_storage_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ElectricalStorageObjectName { get; set; } = "";
         
 
 [Description("required when power needs to be output from on-site generation or storage to the " +
     "grid via transformer")]
-[JsonProperty(PropertyName="transformer_object_name")]
+[JsonProperty(PropertyName="transformer_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TransformerObjectName { get; set; } = "";
         
 
@@ -3672,42 +3722,43 @@ public string TransformerObjectName { get; set; } = "";
     "ring times of high use will discharge storage to reduce facility grid demand to " +
     "meet the target level and during times of low use will charge storage from the g" +
     "rid to increase facility grid demand to meet the target level.")]
-[JsonProperty(PropertyName="storage_operation_scheme", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="storage_operation_scheme", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricLoadCenter_Distribution_StorageOperationScheme StorageOperationScheme { get; set; } = (ElectricLoadCenter_Distribution_StorageOperationScheme)Enum.Parse(typeof(ElectricLoadCenter_Distribution_StorageOperationScheme), "TrackFacilityElectricDemandStoreExcessOnSite");
         
 
 [Description("required when Storage Operation Scheme is set to TrackMeterDemandStoreExcessOnSit" +
     "e.")]
-[JsonProperty(PropertyName="storage_control_track_meter_name")]
+[JsonProperty(PropertyName="storage_control_track_meter_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string StorageControlTrackMeterName { get; set; } = "";
         
 
 [Description(@"Name of an ElectricLoadCenter:Storage:Converter used to convert AC to DC when charging DC storage from grid supply. A converter is expected when using Storage Operation Schemes FacilityDemandLeveling or TrackChargeDischargeSchedules A single bidirectional device will reference both an inverter object (DC to AC) and a converter object (AC to DC).")]
-[JsonProperty(PropertyName="storage_converter_object_name")]
+[JsonProperty(PropertyName="storage_converter_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string StorageConverterObjectName { get; set; } = "";
         
 
 [Description("Fraction of storage capacity used as upper limit for controlling charging, for al" +
     "l storage operation schemes.")]
-[JsonProperty(PropertyName="maximum_storage_state_of_charge_fraction")]
-public System.Nullable<float> MaximumStorageStateOfChargeFraction { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="maximum_storage_state_of_charge_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MaximumStorageStateOfChargeFraction { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Fraction of storage capacity used as lower limit for controlling discharging, for" +
     " all storage operation schemes.")]
-[JsonProperty(PropertyName="minimum_storage_state_of_charge_fraction")]
-public System.Nullable<float> MinimumStorageStateOfChargeFraction { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="minimum_storage_state_of_charge_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MinimumStorageStateOfChargeFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"Maximum rate that electric power can be charged into storage. Storage charging adjusted downward for conversion losses. Rate is modified by fractional values in the schedule named in the next field. Required field when using Storage Operation Schemes FacilityDemandLeveling or TrackChargeDischargeSchedules.")]
-[JsonProperty(PropertyName="design_storage_control_charge_power")]
-public System.Nullable<float> DesignStorageControlChargePower { get; set; } = null;
+[JsonProperty(PropertyName="design_storage_control_charge_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DesignStorageControlChargePower { get; set; } = null;
         
 
 [Description("Controls timing and magnitude of charging storage. Required field if Storage Oper" +
     "ation Scheme is set to TrackChargeDischargeSchedules. Schedule values should be " +
     "fractions from 0.0 to 1.0, inclusive.")]
-[JsonProperty(PropertyName="storage_charge_power_fraction_schedule_name")]
+[JsonProperty(PropertyName="storage_charge_power_fraction_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string StorageChargePowerFractionScheduleName { get; set; } = "";
         
 
@@ -3715,26 +3766,26 @@ public string StorageChargePowerFractionScheduleName { get; set; } = "";
     " by fractional values in the schedule named in the next field. Required field wh" +
     "en using Storage Operation Schemes FacilityDemandLeveling or TrackChargeDischarg" +
     "eSchedules.")]
-[JsonProperty(PropertyName="design_storage_control_discharge_power")]
-public System.Nullable<float> DesignStorageControlDischargePower { get; set; } = null;
+[JsonProperty(PropertyName="design_storage_control_discharge_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DesignStorageControlDischargePower { get; set; } = null;
         
 
 [Description("Controls timing and magnitude of discharging storage Required field if Storage Op" +
     "eration Scheme is set to TrackChargeDischargeSchedules. Schedule values should b" +
     "e fractions from 0.0 to 1.0, inclusive.")]
-[JsonProperty(PropertyName="storage_discharge_power_fraction_schedule_name")]
+[JsonProperty(PropertyName="storage_discharge_power_fraction_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string StorageDischargePowerFractionScheduleName { get; set; } = "";
         
 
 [Description("Target utility service demand power for discharge control. Storage draws are adju" +
     "sted upwards for conversion losses. Required field for FacilityDemandLeveling st" +
     "orage operation scheme")]
-[JsonProperty(PropertyName="storage_control_utility_demand_target")]
-public System.Nullable<float> StorageControlUtilityDemandTarget { get; set; } = null;
+[JsonProperty(PropertyName="storage_control_utility_demand_target", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StorageControlUtilityDemandTarget { get; set; } = null;
         
 
 [Description(@"Modifies the target utility service demand power over time. Schedule values should be fractions from -1.0 to 1.0, inclusive. if omitted a schedule value of 1.0 is used. Negative values indicate export to grid Schedule is used if Storage Operation Scheme is set to FacilityDemandLeveling.")]
-[JsonProperty(PropertyName="storage_control_utility_demand_target_fraction_schedule_name")]
+[JsonProperty(PropertyName="storage_control_utility_demand_target_fraction_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string StorageControlUtilityDemandTargetFractionScheduleName { get; set; } = "";
     }
     
@@ -3817,49 +3868,50 @@ public string NodeName { get; set; } = "";
 
 [Description("Availability schedule name for this system. Schedule value > 0 means the system i" +
     "s available. If this field is blank, the converter is always available.")]
-[JsonProperty(PropertyName="availability_schedule_name")]
+[JsonProperty(PropertyName="availability_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AvailabilityScheduleName { get; set; } = "";
         
 
 [Description("SimpleFixed indicates power conversion losses are based on Simple Fixed Efficienc" +
     "y FunctionOfPower indicates power conversion losses are a function of normalized" +
     " power using a curve or table.")]
-[JsonProperty(PropertyName="power_conversion_efficiency_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="power_conversion_efficiency_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ElectricLoadCenter_Storage_Converter_PowerConversionEfficiencyMethod PowerConversionEfficiencyMethod { get; set; } = (ElectricLoadCenter_Storage_Converter_PowerConversionEfficiencyMethod)Enum.Parse(typeof(ElectricLoadCenter_Storage_Converter_PowerConversionEfficiencyMethod), "SimpleFixed");
         
 
 [Description("Constant efficiency for conversion of AC to DC at all power levels. Field is only" +
     " used when Power Conversion Efficiency Method is set to SimpleFixed.")]
-[JsonProperty(PropertyName="simple_fixed_efficiency")]
-public System.Nullable<float> SimpleFixedEfficiency { get; set; } = (System.Nullable<float>)Single.Parse("0.95", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="simple_fixed_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SimpleFixedEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.95", CultureInfo.InvariantCulture);
         
 
 [Description("Required field when Power Conversion Efficiency Method is set to FunctionOfPower." +
     "")]
-[JsonProperty(PropertyName="design_maximum_continuous_input_power")]
-public System.Nullable<float> DesignMaximumContinuousInputPower { get; set; } = null;
+[JsonProperty(PropertyName="design_maximum_continuous_input_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DesignMaximumContinuousInputPower { get; set; } = null;
         
 
 [Description(@"Curve or table with a single independent variable that describes efficiency as a function of normalized power. The ""x"" input for curve or table is the ratio of current input power divided by design power in the previous field Required field when Power Conversion Efficiency Method is set to FunctionOfPower.")]
-[JsonProperty(PropertyName="efficiency_function_of_power_curve_name")]
+[JsonProperty(PropertyName="efficiency_function_of_power_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string EfficiencyFunctionOfPowerCurveName { get; set; } = "";
         
 
 [Description("Optional standby power consumed when converter is available but no power is being" +
     " conditioned.")]
-[JsonProperty(PropertyName="ancillary_power_consumed_in_standby")]
-public System.Nullable<float> AncillaryPowerConsumedInStandby { get; set; } = null;
+[JsonProperty(PropertyName="ancillary_power_consumed_in_standby", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AncillaryPowerConsumedInStandby { get; set; } = null;
         
 
 [Description("enter name of zone to receive converter losses as heat if blank then converter is" +
     " assumed to be outdoors")]
-[JsonProperty(PropertyName="zone_name")]
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ZoneName { get; set; } = "";
         
 
 [Description("fraction of zone heat gains treated as thermal radiation")]
-[JsonProperty(PropertyName="radiative_fraction")]
-public System.Nullable<float> RadiativeFraction { get; set; } = null;
+[JsonProperty(PropertyName="radiative_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RadiativeFraction { get; set; } = null;
     }
     
     public enum ElectricLoadCenter_Storage_Converter_PowerConversionEfficiencyMethod

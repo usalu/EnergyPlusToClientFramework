@@ -76,7 +76,8 @@ namespace BH.oM.Adapters.EnergyPlus.Economics
 [Description("The commonly used three letter currency code for the units of money for the count" +
     "ry or region. Based on ISO 4217 currency codes. Common currency codes are USD fo" +
     "r $ and EUR for Euros.")]
-[JsonProperty(PropertyName="monetary_unit", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="monetary_unit", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public CurrencyType_MonetaryUnit MonetaryUnit { get; set; } = (CurrencyType_MonetaryUnit)Enum.Parse(typeof(CurrencyType_MonetaryUnit), "AFN");
     }
     
@@ -428,33 +429,33 @@ public CurrencyType_MonetaryUnit MonetaryUnit { get; set; } = (CurrencyType_Mone
 
 [Description("based on conditioned floor area for cost not accounted for in current line item c" +
     "ost model")]
-[JsonProperty(PropertyName="miscellaneous_cost_per_conditioned_area")]
-public System.Nullable<float> MiscellaneousCostPerConditionedArea { get; set; } = null;
+[JsonProperty(PropertyName="miscellaneous_cost_per_conditioned_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MiscellaneousCostPerConditionedArea { get; set; } = null;
         
 
-[JsonProperty(PropertyName="design_and_engineering_fees")]
-public System.Nullable<float> DesignAndEngineeringFees { get; set; } = null;
+[JsonProperty(PropertyName="design_and_engineering_fees", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DesignAndEngineeringFees { get; set; } = null;
         
 
-[JsonProperty(PropertyName="contractor_fee")]
-public System.Nullable<float> ContractorFee { get; set; } = null;
+[JsonProperty(PropertyName="contractor_fee", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ContractorFee { get; set; } = null;
         
 
-[JsonProperty(PropertyName="contingency")]
-public System.Nullable<float> Contingency { get; set; } = null;
+[JsonProperty(PropertyName="contingency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Contingency { get; set; } = null;
         
 
-[JsonProperty(PropertyName="permits_bonding_and_insurance")]
-public System.Nullable<float> PermitsBondingAndInsurance { get; set; } = null;
+[JsonProperty(PropertyName="permits_bonding_and_insurance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PermitsBondingAndInsurance { get; set; } = null;
         
 
-[JsonProperty(PropertyName="commissioning_fee")]
-public System.Nullable<float> CommissioningFee { get; set; } = null;
+[JsonProperty(PropertyName="commissioning_fee", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CommissioningFee { get; set; } = null;
         
 
 [Description("for use with average data in line item and Misc cost models")]
-[JsonProperty(PropertyName="regional_adjustment_factor")]
-public System.Nullable<float> RegionalAdjustmentFactor { get; set; } = null;
+[JsonProperty(PropertyName="regional_adjustment_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RegionalAdjustmentFactor { get; set; } = null;
     }
     
     [Description(@"Used to allow comparing the current cost estimate to the results of a previous estimate for a reference building. This object parallels the ComponentCost:Adjustments object but adds a field for entering the cost line item model result for the reference building. The factors entered in this object are applied to the reference building while the factors listed in the ComponentCost:Adjustments object are applied to the current building model cost estimate.")]
@@ -464,39 +465,39 @@ public System.Nullable<float> RegionalAdjustmentFactor { get; set; } = null;
         
 
 [Description("should be comparable to the components in current line item cost model")]
-[JsonProperty(PropertyName="reference_building_line_item_costs")]
-public System.Nullable<float> ReferenceBuildingLineItemCosts { get; set; } = null;
+[JsonProperty(PropertyName="reference_building_line_item_costs", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceBuildingLineItemCosts { get; set; } = null;
         
 
 [Description("based on conditioned floor area for cost not accounted for in reference line item" +
     " costs")]
-[JsonProperty(PropertyName="reference_building_miscellaneous_cost_per_conditioned_area")]
-public System.Nullable<float> ReferenceBuildingMiscellaneousCostPerConditionedArea { get; set; } = null;
+[JsonProperty(PropertyName="reference_building_miscellaneous_cost_per_conditioned_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceBuildingMiscellaneousCostPerConditionedArea { get; set; } = null;
         
 
-[JsonProperty(PropertyName="reference_building_design_and_engineering_fees")]
-public System.Nullable<float> ReferenceBuildingDesignAndEngineeringFees { get; set; } = null;
+[JsonProperty(PropertyName="reference_building_design_and_engineering_fees", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceBuildingDesignAndEngineeringFees { get; set; } = null;
         
 
-[JsonProperty(PropertyName="reference_building_contractor_fee")]
-public System.Nullable<float> ReferenceBuildingContractorFee { get; set; } = null;
+[JsonProperty(PropertyName="reference_building_contractor_fee", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceBuildingContractorFee { get; set; } = null;
         
 
-[JsonProperty(PropertyName="reference_building_contingency")]
-public System.Nullable<float> ReferenceBuildingContingency { get; set; } = null;
+[JsonProperty(PropertyName="reference_building_contingency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceBuildingContingency { get; set; } = null;
         
 
-[JsonProperty(PropertyName="reference_building_permits_bonding_and_insurance")]
-public System.Nullable<float> ReferenceBuildingPermitsBondingAndInsurance { get; set; } = null;
+[JsonProperty(PropertyName="reference_building_permits_bonding_and_insurance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceBuildingPermitsBondingAndInsurance { get; set; } = null;
         
 
-[JsonProperty(PropertyName="reference_building_commissioning_fee")]
-public System.Nullable<float> ReferenceBuildingCommissioningFee { get; set; } = null;
+[JsonProperty(PropertyName="reference_building_commissioning_fee", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceBuildingCommissioningFee { get; set; } = null;
         
 
 [Description("for use with average data in line item and Misc cost models")]
-[JsonProperty(PropertyName="reference_building_regional_adjustment_factor")]
-public System.Nullable<float> ReferenceBuildingRegionalAdjustmentFactor { get; set; } = null;
+[JsonProperty(PropertyName="reference_building_regional_adjustment_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ReferenceBuildingRegionalAdjustmentFactor { get; set; } = null;
     }
     
     [Description("Each instance of this object creates a cost line item and will contribute to the " +
@@ -511,58 +512,59 @@ public System.Nullable<float> ReferenceBuildingRegionalAdjustmentFactor { get; s
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="type")]
+[JsonProperty(PropertyName="type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Type { get; set; } = "";
         
 
 [Description("extend choice-keys as Cases are added to code")]
-[JsonProperty(PropertyName="line_item_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="line_item_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public ComponentCost_LineItem_LineItemType LineItemType { get; set; } = (ComponentCost_LineItem_LineItemType)Enum.Parse(typeof(ComponentCost_LineItem_LineItemType), "ChillerElectric");
         
 
 [Description("wildcard \"*\" is acceptable for some components")]
-[JsonProperty(PropertyName="item_name")]
+[JsonProperty(PropertyName="item_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ItemName { get; set; } = "";
         
 
 [Description("not yet used")]
-[JsonProperty(PropertyName="object_end_use_key")]
+[JsonProperty(PropertyName="object_end_use_key", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ObjectEndUseKey { get; set; } = "";
         
 
-[JsonProperty(PropertyName="cost_per_each")]
-public System.Nullable<float> CostPerEach { get; set; } = null;
+[JsonProperty(PropertyName="cost_per_each", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CostPerEach { get; set; } = null;
         
 
-[JsonProperty(PropertyName="cost_per_area")]
-public System.Nullable<float> CostPerArea { get; set; } = null;
+[JsonProperty(PropertyName="cost_per_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CostPerArea { get; set; } = null;
         
 
-[JsonProperty(PropertyName="cost_per_unit_of_output_capacity")]
-public System.Nullable<float> CostPerUnitOfOutputCapacity { get; set; } = null;
+[JsonProperty(PropertyName="cost_per_unit_of_output_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CostPerUnitOfOutputCapacity { get; set; } = null;
         
 
 [Description("The value is per change in COP.")]
-[JsonProperty(PropertyName="cost_per_unit_of_output_capacity_per_cop")]
-public System.Nullable<float> CostPerUnitOfOutputCapacityPerCop { get; set; } = null;
+[JsonProperty(PropertyName="cost_per_unit_of_output_capacity_per_cop", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CostPerUnitOfOutputCapacityPerCop { get; set; } = null;
         
 
-[JsonProperty(PropertyName="cost_per_volume")]
-public System.Nullable<float> CostPerVolume { get; set; } = null;
+[JsonProperty(PropertyName="cost_per_volume", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CostPerVolume { get; set; } = null;
         
 
-[JsonProperty(PropertyName="cost_per_volume_rate")]
-public System.Nullable<float> CostPerVolumeRate { get; set; } = null;
+[JsonProperty(PropertyName="cost_per_volume_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CostPerVolumeRate { get; set; } = null;
         
 
 [Description("as in for use with UA sizing of Coils")]
-[JsonProperty(PropertyName="cost_per_energy_per_temperature_difference")]
-public System.Nullable<float> CostPerEnergyPerTemperatureDifference { get; set; } = null;
+[JsonProperty(PropertyName="cost_per_energy_per_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CostPerEnergyPerTemperatureDifference { get; set; } = null;
         
 
 [Description("optional for use with Cost per Each and \"General\" object Type")]
-[JsonProperty(PropertyName="quantity")]
-public System.Nullable<float> Quantity { get; set; } = null;
+[JsonProperty(PropertyName="quantity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Quantity { get; set; } = null;
     }
     
     public enum ComponentCost_LineItem_LineItemType
@@ -612,7 +614,7 @@ public string NodeName { get; set; } = "";
 
 [Description("The name of any standard meter or custom meter or but usually set to either Elect" +
     "ricity:Facility or Gas:Facility")]
-[JsonProperty(PropertyName="output_meter_name")]
+[JsonProperty(PropertyName="output_meter_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string OutputMeterName { get; set; } = "";
         
 
@@ -620,50 +622,52 @@ public string OutputMeterName { get; set; } = "";
     "otherwise user defined conversion factors are used as defined in the next two fi" +
     "elds. If left blank m3 is used for water meters and kWh are used for all other m" +
     "eters.")]
-[JsonProperty(PropertyName="conversion_factor_choice", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="conversion_factor_choice", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Tariff_ConversionFactorChoice ConversionFactorChoice { get; set; } = (UtilityCost_Tariff_ConversionFactorChoice)Enum.Parse(typeof(UtilityCost_Tariff_ConversionFactorChoice), "CCF");
         
 
 [Description(@"Is a multiplier used to convert energy into the units specified by the utility in their tariff. If left blank it defaults to 1 (no conversion). This field should will be used only if Conversion Factor Choice is set to UserDefined. Within EnergyPlus energy always has units of J (joules). For conversion from J to kWh use the value of 0.0000002778. This is also used for all objects that reference the UtilityCost:Tariff.")]
-[JsonProperty(PropertyName="energy_conversion_factor")]
-public System.Nullable<float> EnergyConversionFactor { get; set; } = null;
+[JsonProperty(PropertyName="energy_conversion_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EnergyConversionFactor { get; set; } = null;
         
 
 [Description(@"Is a multiplier used to convert demand into the units specified by the utility in their tariff. If left blank it defaults to 1 (no conversion). This field should will be used only if Conversion Factor Choice is set to UserDefined. Within EnergyPlus demand always has units of J/s (joules/sec) which equivalent to W (watts). For conversion from W to kW use the value of 0.001. This is also used for all objects that reference the UtilityCost:Tariff.")]
-[JsonProperty(PropertyName="demand_conversion_factor")]
-public System.Nullable<float> DemandConversionFactor { get; set; } = null;
+[JsonProperty(PropertyName="demand_conversion_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DemandConversionFactor { get; set; } = null;
         
 
 [Description(@"The name of the schedule that defines the time-of-use periods that occur each day. The values for the different variables are: 1 for Peak. 2 for Shoulder. 3 for OffPeak. 4 for MidPeak. The following variables are created automatically if these different periods are used in the schedule and include: TotalEnergy, TotalDemand, PeakEnergy, PeakDemand, ShoulderEnergy, ShoulderDemand, OffPeakEnergy, OffPeakDemand, MidPeakEnergy, MidPeakDemand Some special variables are created that include: PeakExceedsOffPeak, OffPeakExceedsPeak, PeakExceedsMidPeak, MidPeakExceedsPeak, PeakExceedsShoulder, ShoulderExceedsPeak, Others include: PeakAndShoulderEnergy, PeakAndShoulderDemand, PeakAndMidPeakEnergy, PeakAndMidPeakDemand, ShoulderAndOffPeakEnergy, ShoulderAndOffPeakDemand, PeakAndOffPeakEnergy, PeakAndOffPeakDemand, RealTimePriceCosts, AboveCustomerBaseCosts, BelowCustomerBaseCosts, AboveCustomerBaseEnergy, BelowCustomerBaseEnergy")]
-[JsonProperty(PropertyName="time_of_use_period_schedule_name")]
+[JsonProperty(PropertyName="time_of_use_period_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TimeOfUsePeriodScheduleName { get; set; } = "";
         
 
 [Description(@"The name of a schedule that defines the seasons. The schedule values are: 1 for Winter. 2 for Spring. 3 for Summer. 4 for Autumn. Variables are automatically created if a season schedule is used. These variables are set to 1 within the season and 0 for the months that are not in the season. The variables are: IsWinter, IsNotWinter, IsSpring, IsNotSpring, IsSummer, IsNotSummer, IsAutumn, IsNotAutumn.")]
-[JsonProperty(PropertyName="season_schedule_name")]
+[JsonProperty(PropertyName="season_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SeasonScheduleName { get; set; } = "";
         
 
 [Description(@"The name of the schedule that defines the billing periods of the year. Normally this entry is allowed to default and a schedule will be internally used that has the breaks between billing periods occurring at the same time as the breaks between months i.e. at midnight prior to the first day of the month. If other billing periods are used such as two month cycles or a single bill for an entire season such as some natural gas companies do in the summer then the month schedule may be used to redefine it. Make sure that the month schedule and season schedule are consistent otherwise an error will be issued.")]
-[JsonProperty(PropertyName="month_schedule_name")]
+[JsonProperty(PropertyName="month_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MonthScheduleName { get; set; } = "";
         
 
 [Description(@"The determination of demand can vary by utility. Some utilities use the peak instantaneous demand measured but most use a fifteen minute average demand or a one hour average demand. Some gas utilities measure demand as the use during the peak day or peak week.")]
-[JsonProperty(PropertyName="demand_window_length", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="demand_window_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Tariff_DemandWindowLength DemandWindowLength { get; set; } = (UtilityCost_Tariff_DemandWindowLength)Enum.Parse(typeof(UtilityCost_Tariff_DemandWindowLength), "Day");
         
 
 [Description("The fixed monthly service charge that many utilities have. The entry may be numer" +
     "ic and gets added to the ServiceCharges variable or if a variable name is entere" +
     "d here its values for each month are used.")]
-[JsonProperty(PropertyName="monthly_charge_or_variable_name")]
+[JsonProperty(PropertyName="monthly_charge_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MonthlyChargeOrVariableName { get; set; } = "";
         
 
 [Description("The minimum total charge for the tariff or if a variable name is entered here its" +
     " values for each month are used.")]
-[JsonProperty(PropertyName="minimum_monthly_charge_or_variable_name")]
+[JsonProperty(PropertyName="minimum_monthly_charge_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MinimumMonthlyChargeOrVariableName { get; set; } = "";
         
 
@@ -671,7 +675,7 @@ public string MinimumMonthlyChargeOrVariableName { get; set; } = "";
     "of energy for that particular time period of the year. Real time rates can be mo" +
     "deled using a charge schedule with the actual real time prices entered in the sc" +
     "hedule.")]
-[JsonProperty(PropertyName="real_time_pricing_charge_schedule_name")]
+[JsonProperty(PropertyName="real_time_pricing_charge_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string RealTimePricingChargeScheduleName { get; set; } = "";
         
 
@@ -679,17 +683,18 @@ public string RealTimePricingChargeScheduleName { get; set; } = "";
     "ine energy use for the customer. Many real time rates apply the charges as a cre" +
     "dit or debit only to the difference between the baseline use and the actual use." +
     "")]
-[JsonProperty(PropertyName="customer_baseline_load_schedule_name")]
+[JsonProperty(PropertyName="customer_baseline_load_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CustomerBaselineLoadScheduleName { get; set; } = "";
         
 
 [Description(@"The group name of the tariff such as distribution transmission supplier etc. If more than one tariff with the same group name is present and qualifies only the lowest cost tariff is used. Usually the group name field is left blank which results in all tariffs using the same meter variable being compared and the lowest cost one being selected.")]
-[JsonProperty(PropertyName="group_name")]
+[JsonProperty(PropertyName="group_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string GroupName { get; set; } = "";
         
 
 [Description(@"Sets whether the tariff is used for buying selling or both to the utility. This should be allowed to default to buyFromUtility unless a power generation system is included in the building that may generate more power than the building needs during the year")]
-[JsonProperty(PropertyName="buy_or_sell", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="buy_or_sell", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Tariff_BuyOrSell BuyOrSell { get; set; } = (UtilityCost_Tariff_BuyOrSell)Enum.Parse(typeof(UtilityCost_Tariff_BuyOrSell), "BuyFromUtility");
     }
     
@@ -772,45 +777,48 @@ public UtilityCost_Tariff_BuyOrSell BuyOrSell { get; set; } = (UtilityCost_Tarif
         
 
 [Description("Displayed in the report if the tariff does not qualify")]
-[JsonProperty(PropertyName="utility_cost_qualify_name")]
+[JsonProperty(PropertyName="utility_cost_qualify_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string UtilityCostQualifyName { get; set; } = "";
         
 
 [Description("The name of the UtilityCost:Tariff that is associated with this UtilityCost:Quali" +
     "fy.")]
-[JsonProperty(PropertyName="tariff_name")]
+[JsonProperty(PropertyName="tariff_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TariffName { get; set; } = "";
         
 
 [Description("The name of the variable used. For energy and demand the automatically created va" +
     "riables totalEnergy and totalDemand should be used respectively.")]
-[JsonProperty(PropertyName="variable_name")]
+[JsonProperty(PropertyName="variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string VariableName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="qualify_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="qualify_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Qualify_QualifyType QualifyType { get; set; } = (UtilityCost_Qualify_QualifyType)Enum.Parse(typeof(UtilityCost_Qualify_QualifyType), "Maximum");
         
 
 [Description(@"The minimum or maximum value for the qualify. If the variable has values that are less than this value when the qualify type is minimum then the tariff may be disqualified. If the variable has values that are greater than this value when the qualify type is maximum then the tariff may be disqualified.")]
-[JsonProperty(PropertyName="threshold_value_or_variable_name")]
+[JsonProperty(PropertyName="threshold_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ThresholdValueOrVariableName { get; set; } = "";
         
 
 [Description("If the UtilityCost:Qualify only applies to a season enter the season name. If thi" +
     "s field is left blank it defaults to Annual.")]
-[JsonProperty(PropertyName="season", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="season", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Qualify_Season Season { get; set; } = (UtilityCost_Qualify_Season)Enum.Parse(typeof(UtilityCost_Qualify_Season), "Annual");
         
 
 [Description(@"Uses the number in Number of Months in one of two different ways depending on the Threshold  Test. If the Threshold Test is set to Count then the qualification is based on the count of the total number of months per year. If the Threshold Test is set to consecutive then the qualification is based on a consecutive number of months.")]
-[JsonProperty(PropertyName="threshold_test", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="threshold_test", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Qualify_ThresholdTest ThresholdTest { get; set; } = (UtilityCost_Qualify_ThresholdTest)Enum.Parse(typeof(UtilityCost_Qualify_ThresholdTest), "Consecutive");
         
 
 [Description(@"A number from 1 to 12. If no value entered 12 is assumed when the qualify type is minimum and 1 when the qualify type is maximum. This is the number of months that the threshold test applies to determine if the rate qualifies or not. If the season is less than 12 months (if it is not annual) then the value is automatically reduced to the number of months of the season.")]
-[JsonProperty(PropertyName="number_of_months")]
-public System.Nullable<float> NumberOfMonths { get; set; } = null;
+[JsonProperty(PropertyName="number_of_months", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NumberOfMonths { get; set; } = null;
     }
     
     public enum UtilityCost_Qualify_QualifyType
@@ -865,37 +873,39 @@ public System.Nullable<float> NumberOfMonths { get; set; } = null;
         
 
 [Description(@"Charge Variable Name This is the name associated with the UtilityCost:Charge:Simple object and will appear in the report. In addition the results of the UtilityCost:Charge:Simple calculation are stored in a variable with the same name. That way the results may be used for further calculation. Spaces are not significant in Charge variable names. They are removed during the utility bill calculation process.")]
-[JsonProperty(PropertyName="utility_cost_charge_simple_name")]
+[JsonProperty(PropertyName="utility_cost_charge_simple_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string UtilityCostChargeSimpleName { get; set; } = "";
         
 
 [Description("The name of the UtilityCost:Tariff that is associated with this UtilityCost:Charg" +
     "e:Simple.")]
-[JsonProperty(PropertyName="tariff_name")]
+[JsonProperty(PropertyName="tariff_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TariffName { get; set; } = "";
         
 
 [Description(@"The name of the source used by the UtilityCost:Charge:Simple. This is usually the name of the variable holding the energy or demand but may also be the name of any variable including the subtotal or basis if other charges are based on those. Typical values include totalEnergy totalDemand EnergyCharges DemandCharges ServiceCharges Basis Adjustments Surcharges Subtotal Taxes and Total. If it is a time-of-use rate then peakEnergy peakDemand shoulderEnergy shoulderDemand offPeakEnergy offPeakDemand midPeakEnergy and midPeakDemand. In addition see the Tariff Report to see other native variables that may be available. Also you can create additional user defined variables to model complex tariffs.")]
-[JsonProperty(PropertyName="source_variable")]
+[JsonProperty(PropertyName="source_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SourceVariable { get; set; } = "";
         
 
 [Description("If this is set to annual the calculations are performed for the UtilityCost:Charg" +
     "e:Simple for the entire year (all months) otherwise it is calculated only for th" +
     "ose months in the season defined.")]
-[JsonProperty(PropertyName="season", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="season", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Charge_Simple_Season Season { get; set; } = (UtilityCost_Charge_Simple_Season)Enum.Parse(typeof(UtilityCost_Charge_Simple_Season), "Annual");
         
 
 [Description("This field shows where the charge should be added. The reason to enter this field" +
     " appropriately is so that the charge gets reported in a reasonable category. The" +
     " charge automatically gets added to the variable that is the category.")]
-[JsonProperty(PropertyName="category_variable_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="category_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Charge_Simple_CategoryVariableName CategoryVariableName { get; set; } = (UtilityCost_Charge_Simple_CategoryVariableName)Enum.Parse(typeof(UtilityCost_Charge_Simple_CategoryVariableName), "Adjustment");
         
 
 [Description(@"This field contains either a single number or the name of a variable. The number is multiplied with all of the energy or demand or other source that is specified in the source field. If a variable is used then the monthly values of the variable are multiplied against the variable specified in the source field. This field makes it easy to include a simple charge without specifying block sizes. This is a good way to include a tax or cost adjustment.")]
-[JsonProperty(PropertyName="cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string CostPerUnitValueOrVariableName { get; set; } = "";
     }
     
@@ -961,207 +971,209 @@ public string CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"Charge Variable Name This is the name associated with the UtilityCost:Charge:Block object and will appear in the report. In addition the results of the UtilityCost:Charge:Block are stored in a variable with the same name. That way the results may be used for further calculation.")]
-[JsonProperty(PropertyName="utility_cost_charge_block_name")]
+[JsonProperty(PropertyName="utility_cost_charge_block_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string UtilityCostChargeBlockName { get; set; } = "";
         
 
 [Description("The name of the UtilityCost:Tariff that is associated with this UtilityCost:Charg" +
     "e:Block.")]
-[JsonProperty(PropertyName="tariff_name")]
+[JsonProperty(PropertyName="tariff_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TariffName { get; set; } = "";
         
 
 [Description(@"The name of the source used by the UtilityCost:Charge:Block. This is usually the name of the variable holding the energy or demand but may also be the name of any variable including the subtotal or basis if other charges are based on those. Typical values include totalEnergy totalDemand EnergyCharges DemandCharges ServiceCharges Basis Adjustments Surcharges Subtotal Taxes and Total. If it is a time-of-use rate then peakEnergy peakDemand shoulderEnergy shoulderDemand offPeakEnergy offPeakDemand midPeakEnergy and midPeakDemand. In addition see the Tariff Report to see other native variables that may be available. Also you can create additional user defined variables to model complex tariffs.")]
-[JsonProperty(PropertyName="source_variable")]
+[JsonProperty(PropertyName="source_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string SourceVariable { get; set; } = "";
         
 
 [Description("If this is set to annual the calculations are performed for the UtilityCost:Charg" +
     "e:Block for the entire year (all months) otherwise it is calculated only for tho" +
     "se months in the season defined.")]
-[JsonProperty(PropertyName="season", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="season", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Charge_Block_Season Season { get; set; } = (UtilityCost_Charge_Block_Season)Enum.Parse(typeof(UtilityCost_Charge_Block_Season), "Annual");
         
 
 [Description("This field shows where the charge should be added. The reason to enter this field" +
     " appropriately is so that the charge gets reported in a reasonable category. The" +
     " charge automatically gets added to the variable that is the category.")]
-[JsonProperty(PropertyName="category_variable_name", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="category_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Charge_Block_CategoryVariableName CategoryVariableName { get; set; } = (UtilityCost_Charge_Block_CategoryVariableName)Enum.Parse(typeof(UtilityCost_Charge_Block_CategoryVariableName), "Adjustment");
         
 
 [Description(@"If the blocks do not use all of the energy or demand from the source some energy and demand remains then the remaining amount should be assigned to a variable. If no variable is assigned and some amount of energy or demand is not used in the block structure a warning will be issued.")]
-[JsonProperty(PropertyName="remaining_into_variable")]
+[JsonProperty(PropertyName="remaining_into_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string RemainingIntoVariable { get; set; } = "";
         
 
 [Description(@"The sizes of the blocks are usually used directly but if a value or a variable is entered here the block sizes entered in the rest of the charge are first multiplied by the entered value prior to being used. This is common for rates that are kWh/kW rates and in that case the variable that holds the monthly total electric demand would be entered. If no value is entered a default value of one is assumed so that the block sizes remain exactly as entered. This field is unusual for the EnergyPlus syntax because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_multiplier_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_multiplier_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSizeMultiplierValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_1_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_1_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize1ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_1_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_1_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block1CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_2_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_2_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize2ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_2_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_2_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block2CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_3_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_3_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize3ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_3_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_3_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block3CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_4_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_4_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize4ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_4_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_4_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block4CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_5_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_5_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize5ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_5_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_5_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block5CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_6_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_6_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize6ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_6_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_6_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block6CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_7_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_7_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize7ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_7_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_7_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block7CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_8_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_8_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize8ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_8_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_8_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block8CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_9_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_9_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize9ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_9_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_9_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block9CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_10_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_10_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize10ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_10_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_10_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block10CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_11_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_11_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize11ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_11_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_11_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block11CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_12_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_12_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize12ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_12_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_12_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block12CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_13_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_13_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize13ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_13_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_13_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block13CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_14_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_14_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize14ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_14_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_14_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block14CostPerUnitValueOrVariableName { get; set; } = "";
         
 
 [Description(@"The size of the block of the charges is entered here. For most rates that use multiple blocks this will be the value for the block size. Using remaining may be used when the remaining amount should be included in that block. This field is unusual because it can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_size_15_value_or_variable_name")]
+[JsonProperty(PropertyName="block_size_15_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BlockSize15ValueOrVariableName { get; set; } = "";
         
 
 [Description("The cost of the block. This field is unusual for the EnergyPlus syntax because it" +
     " can be either a number or a name of a variable.")]
-[JsonProperty(PropertyName="block_15_cost_per_unit_value_or_variable_name")]
+[JsonProperty(PropertyName="block_15_cost_per_unit_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Block15CostPerUnitValueOrVariableName { get; set; } = "";
     }
     
@@ -1234,37 +1246,39 @@ public string NodeName { get; set; } = "";
 
 [Description("The name of the UtilityCost:Tariff that is associated with this UtilityCost:Ratch" +
     "et.")]
-[JsonProperty(PropertyName="tariff_name")]
+[JsonProperty(PropertyName="tariff_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TariffName { get; set; } = "";
         
 
 [Description(@"When the ratcheted value exceeds the baseline value for a month the ratcheted value is used but when the baseline value is greater then the ratcheted value the baseline value is used. Usually the electric demand charge is used. The baseline source variable can be the results of another ratchet object. This allows utility tariffs that have multiple ratchets to be modeled.")]
-[JsonProperty(PropertyName="baseline_source_variable")]
+[JsonProperty(PropertyName="baseline_source_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string BaselineSourceVariable { get; set; } = "";
         
 
 [Description(@"The variable that the ratchet is calculated from. It is often but not always the same as the baseline source variable. The ratcheting calculations using offset and multiplier are using the values from the adjustment source variable. If left blank the adjustment source variable is the same as the baseline source variable.")]
-[JsonProperty(PropertyName="adjustment_source_variable")]
+[JsonProperty(PropertyName="adjustment_source_variable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string AdjustmentSourceVariable { get; set; } = "";
         
 
 [Description(@"The name of the season that is being examined. The maximum value for all of the months in the named season is what is used with the multiplier and offset. This is most commonly Summer or Annual. When Monthly is used the adjustment source variable is used directly for all months.")]
-[JsonProperty(PropertyName="season_from", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="season_from", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Ratchet_SeasonFrom SeasonFrom { get; set; } = (UtilityCost_Ratchet_SeasonFrom)Enum.Parse(typeof(UtilityCost_Ratchet_SeasonFrom), "Annual");
         
 
 [Description(@"The name of the season when the ratchet would be calculated. This is most commonly Winter. The ratchet only is applied to the months in the named season. The resulting variable for months not in the Season To selection will contain the values as appear in the baseline source variable.")]
-[JsonProperty(PropertyName="season_to", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="season_to", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Ratchet_SeasonTo SeasonTo { get; set; } = (UtilityCost_Ratchet_SeasonTo)Enum.Parse(typeof(UtilityCost_Ratchet_SeasonTo), "Annual");
         
 
 [Description(@"Often the ratchet has a clause such as ""the current month demand or 90% of the summer month demand"". For this case a value of 0.9 would be entered here as the multiplier. This value may be left blank if no multiplier is needed and a value of one will be used as a default.")]
-[JsonProperty(PropertyName="multiplier_value_or_variable_name")]
+[JsonProperty(PropertyName="multiplier_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string MultiplierValueOrVariableName { get; set; } = "";
         
 
 [Description(@"A less common strategy is to say that the ratchet must be all demand greater than a value in this case an offset that is added to the demand may be entered here. If entered it is common for the offset value to be negative representing that the demand be reduced. If no value is entered it is assumed to be zero and not affect the ratchet.")]
-[JsonProperty(PropertyName="offset_value_or_variable_name")]
+[JsonProperty(PropertyName="offset_value_or_variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string OffsetValueOrVariableName { get; set; } = "";
     }
     
@@ -1322,60 +1336,61 @@ public string NodeName { get; set; } = "";
 
 [Description("The name of the UtilityCost:Tariff that is associated with this UtilityCost:Varia" +
     "ble.")]
-[JsonProperty(PropertyName="tariff_name")]
+[JsonProperty(PropertyName="tariff_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TariffName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="variable_type", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="variable_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public UtilityCost_Variable_VariableType VariableType { get; set; } = (UtilityCost_Variable_VariableType)Enum.Parse(typeof(UtilityCost_Variable_VariableType), "Dimensionless");
         
 
-[JsonProperty(PropertyName="january_value")]
-public System.Nullable<float> JanuaryValue { get; set; } = null;
+[JsonProperty(PropertyName="january_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> JanuaryValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="february_value")]
-public System.Nullable<float> FebruaryValue { get; set; } = null;
+[JsonProperty(PropertyName="february_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FebruaryValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="march_value")]
-public System.Nullable<float> MarchValue { get; set; } = null;
+[JsonProperty(PropertyName="march_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MarchValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="april_value")]
-public System.Nullable<float> AprilValue { get; set; } = null;
+[JsonProperty(PropertyName="april_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AprilValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="may_value")]
-public System.Nullable<float> MayValue { get; set; } = null;
+[JsonProperty(PropertyName="may_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MayValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="june_value")]
-public System.Nullable<float> JuneValue { get; set; } = null;
+[JsonProperty(PropertyName="june_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> JuneValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="july_value")]
-public System.Nullable<float> JulyValue { get; set; } = null;
+[JsonProperty(PropertyName="july_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> JulyValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="august_value")]
-public System.Nullable<float> AugustValue { get; set; } = null;
+[JsonProperty(PropertyName="august_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AugustValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="september_value")]
-public System.Nullable<float> SeptemberValue { get; set; } = null;
+[JsonProperty(PropertyName="september_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SeptemberValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="october_value")]
-public System.Nullable<float> OctoberValue { get; set; } = null;
+[JsonProperty(PropertyName="october_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OctoberValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="november_value")]
-public System.Nullable<float> NovemberValue { get; set; } = null;
+[JsonProperty(PropertyName="november_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NovemberValue { get; set; } = null;
         
 
-[JsonProperty(PropertyName="december_value")]
-public System.Nullable<float> DecemberValue { get; set; } = null;
+[JsonProperty(PropertyName="december_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DecemberValue { get; set; } = null;
     }
     
     public enum UtilityCost_Variable_VariableType
@@ -1410,129 +1425,129 @@ public string NodeName { get; set; } = "";
 
 [Description("The name of the UtilityCost:Tariff that is associated with this UtilityCost:Varia" +
     "ble.")]
-[JsonProperty(PropertyName="tariff_name")]
+[JsonProperty(PropertyName="tariff_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string TariffName { get; set; } = "";
         
 
 [Description("Contain a simple language that describes the steps used in the computation proces" +
     "s similar to a programming language.")]
-[JsonProperty(PropertyName="compute_step_1")]
+[JsonProperty(PropertyName="compute_step_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep1 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_2")]
+[JsonProperty(PropertyName="compute_step_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep2 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_3")]
+[JsonProperty(PropertyName="compute_step_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep3 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_4")]
+[JsonProperty(PropertyName="compute_step_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep4 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_5")]
+[JsonProperty(PropertyName="compute_step_5", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep5 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_6")]
+[JsonProperty(PropertyName="compute_step_6", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep6 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_7")]
+[JsonProperty(PropertyName="compute_step_7", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep7 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_8")]
+[JsonProperty(PropertyName="compute_step_8", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep8 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_9")]
+[JsonProperty(PropertyName="compute_step_9", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep9 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_10")]
+[JsonProperty(PropertyName="compute_step_10", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep10 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_11")]
+[JsonProperty(PropertyName="compute_step_11", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep11 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_12")]
+[JsonProperty(PropertyName="compute_step_12", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep12 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_13")]
+[JsonProperty(PropertyName="compute_step_13", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep13 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_14")]
+[JsonProperty(PropertyName="compute_step_14", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep14 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_15")]
+[JsonProperty(PropertyName="compute_step_15", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep15 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_16")]
+[JsonProperty(PropertyName="compute_step_16", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep16 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_17")]
+[JsonProperty(PropertyName="compute_step_17", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep17 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_18")]
+[JsonProperty(PropertyName="compute_step_18", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep18 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_19")]
+[JsonProperty(PropertyName="compute_step_19", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep19 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_20")]
+[JsonProperty(PropertyName="compute_step_20", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep20 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_21")]
+[JsonProperty(PropertyName="compute_step_21", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep21 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_22")]
+[JsonProperty(PropertyName="compute_step_22", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep22 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_23")]
+[JsonProperty(PropertyName="compute_step_23", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep23 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_24")]
+[JsonProperty(PropertyName="compute_step_24", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep24 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_25")]
+[JsonProperty(PropertyName="compute_step_25", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep25 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_26")]
+[JsonProperty(PropertyName="compute_step_26", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep26 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_27")]
+[JsonProperty(PropertyName="compute_step_27", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep27 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_28")]
+[JsonProperty(PropertyName="compute_step_28", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep28 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_29")]
+[JsonProperty(PropertyName="compute_step_29", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep29 { get; set; } = "";
         
 
-[JsonProperty(PropertyName="compute_step_30")]
+[JsonProperty(PropertyName="compute_step_30", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string ComputeStep30 { get; set; } = "";
     }
     
@@ -1550,69 +1565,74 @@ public string NodeName { get; set; } = "";
 [Description("The field specifies if the discounting of future costs should be computed as occu" +
     "rring at the end of each year or the middle of each year or the beginning of eac" +
     "h year. The most common discounting convention uses the end of each year.")]
-[JsonProperty(PropertyName="discounting_convention", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="discounting_convention", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_Parameters_DiscountingConvention DiscountingConvention { get; set; } = (LifeCycleCost_Parameters_DiscountingConvention)Enum.Parse(typeof(LifeCycleCost_Parameters_DiscountingConvention), "EndOfYear");
         
 
 [Description(@"This field is used to determine if the analysis should use constant dollars or current dollars which is related to how inflation is treated. If ConstantDollar is selected then the Real Discount Rate input is used and it excludes the rate of inflation. If CurrentDollar is selected then the Nominal Discount Rate input is used and it includes the rate of inflation.")]
-[JsonProperty(PropertyName="inflation_approach", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="inflation_approach", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_Parameters_InflationApproach InflationApproach { get; set; } = (LifeCycleCost_Parameters_InflationApproach)Enum.Parse(typeof(LifeCycleCost_Parameters_InflationApproach), "ConstantDollar");
         
 
 [Description(@"Enter the real discount rate as a decimal. For a 3% rate enter the value 0.03. This input is used when the Inflation Approach is ConstantDollar. The real discount rate reflects the interest rates needed to make current and future expenditures have comparable equivalent values when general inflation is ignored. When Inflation Approach is set to CurrentDollar this input is ignored.")]
-[JsonProperty(PropertyName="real_discount_rate")]
-public System.Nullable<float> RealDiscountRate { get; set; } = null;
+[JsonProperty(PropertyName="real_discount_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RealDiscountRate { get; set; } = null;
         
 
 [Description(@"Enter the nominal discount rate as a decimal. For a 5% rate enter the value 0.05. This input is used when the Inflation Approach is CurrentDollar. The real discount rate reflects the interest rates needed to make current and future expenditures have comparable equivalent values when general inflation is included. When Inflation Approach is set to ConstantDollar this input is ignored.")]
-[JsonProperty(PropertyName="nominal_discount_rate")]
-public System.Nullable<float> NominalDiscountRate { get; set; } = null;
+[JsonProperty(PropertyName="nominal_discount_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NominalDiscountRate { get; set; } = null;
         
 
 [Description("Enter the rate of inflation for general goods and services as a decimal. For a 2%" +
     " rate enter the value 0.02.")]
-[JsonProperty(PropertyName="inflation")]
-public System.Nullable<float> Inflation { get; set; } = null;
+[JsonProperty(PropertyName="inflation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Inflation { get; set; } = null;
         
 
 [Description("Enter the month that is the beginning of study period also known as the beginning" +
     " of the base period.")]
-[JsonProperty(PropertyName="base_date_month", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="base_date_month", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_Parameters_BaseDateMonth BaseDateMonth { get; set; } = (LifeCycleCost_Parameters_BaseDateMonth)Enum.Parse(typeof(LifeCycleCost_Parameters_BaseDateMonth), "January");
         
 
 [Description("Enter the four digit year that is the beginning of study period such as 2010. The" +
     " study period is also known as the base period.")]
-[JsonProperty(PropertyName="base_date_year")]
-public System.Nullable<float> BaseDateYear { get; set; } = null;
+[JsonProperty(PropertyName="base_date_year", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BaseDateYear { get; set; } = null;
         
 
 [Description(@"Enter the month that is the beginning of building occupancy. Energy costs computed by EnergyPlus are assumed to occur during the year following the service date. The service date must be the same or later than the Base Date. This field could also be referred to as part of beneficial occupancy date.")]
-[JsonProperty(PropertyName="service_date_month", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="service_date_month", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_Parameters_ServiceDateMonth ServiceDateMonth { get; set; } = (LifeCycleCost_Parameters_ServiceDateMonth)Enum.Parse(typeof(LifeCycleCost_Parameters_ServiceDateMonth), "January");
         
 
 [Description("Enter the four digit year that is the beginning of occupancy such as 2010.")]
-[JsonProperty(PropertyName="service_date_year")]
-public System.Nullable<float> ServiceDateYear { get; set; } = null;
+[JsonProperty(PropertyName="service_date_year", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ServiceDateYear { get; set; } = null;
         
 
 [Description("Enter the number of years of the study period. It is the number of years that the" +
     " study continues based on the start at the base date. The default value is 25 ye" +
     "ars. Only integers may be used indicating whole years.")]
-[JsonProperty(PropertyName="length_of_study_period_in_years")]
-public System.Nullable<float> LengthOfStudyPeriodInYears { get; set; } = null;
+[JsonProperty(PropertyName="length_of_study_period_in_years", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> LengthOfStudyPeriodInYears { get; set; } = null;
         
 
 [Description(@"Enter the overall marginal tax rate for the project costs. This does not include energy or water taxes. The tax rate entered should be based on the marginal tax rate for the entity and not the average tax rate. Enter the tax rate results in present value calculations after taxes. Most analyses do not factor in the impact of taxes and assume that all options under consideration have roughly the same tax impact. Due to this many times the tax rate can be left to default to zero and the present value results before taxes are used to make decisions. The value should be entered as a decimal value. For 15% enter 0.15. For an analysis that does not include tax impacts enter 0.0.")]
-[JsonProperty(PropertyName="tax_rate")]
-public System.Nullable<float> TaxRate { get; set; } = null;
+[JsonProperty(PropertyName="tax_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TaxRate { get; set; } = null;
         
 
 [Description("For an analysis that includes income tax impacts this entry describes how capital" +
     " costs are depreciated. Only one depreciation method may be used for an analysis" +
     " and is applied to all capital expenditures.")]
-[JsonProperty(PropertyName="depreciation_method", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="depreciation_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_Parameters_DepreciationMethod DepreciationMethod { get; set; } = (LifeCycleCost_Parameters_DepreciationMethod)Enum.Parse(typeof(LifeCycleCost_Parameters_DepreciationMethod), "None");
     }
     
@@ -1784,52 +1804,54 @@ public LifeCycleCost_Parameters_DepreciationMethod DepreciationMethod { get; set
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="category", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="category", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_RecurringCosts_Category Category { get; set; } = (LifeCycleCost_RecurringCosts_Category)Enum.Parse(typeof(LifeCycleCost_RecurringCosts_Category), "Maintenance");
         
 
 [Description("Enter the cost in dollars (or the appropriate monetary unit) for the recurring co" +
     "sts. Enter the cost for each time it occurs. For example if the annual maintenan" +
     "ce cost is 500 dollars enter 500 here.")]
-[JsonProperty(PropertyName="cost")]
-public System.Nullable<float> Cost { get; set; } = null;
+[JsonProperty(PropertyName="cost", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Cost { get; set; } = null;
         
 
 [Description("Enter when the costs start. The First Year of Cost is based on the number of year" +
     "s past the Start of Costs. For most maintenance costs the Start of Costs should " +
     "be Service Period.")]
-[JsonProperty(PropertyName="start_of_costs", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="start_of_costs", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_RecurringCosts_StartOfCosts StartOfCosts { get; set; } = (LifeCycleCost_RecurringCosts_StartOfCosts)Enum.Parse(typeof(LifeCycleCost_RecurringCosts_StartOfCosts), "ServicePeriod");
         
 
 [Description(@"This field and the Months From Start field together represent the time from either the start of the Service Period on the service month and year or start of the Base Period on the base month and year (depending on the Start of Costs field) that the costs start to occur. Only integers should be entered representing whole years.")]
-[JsonProperty(PropertyName="years_from_start")]
-public System.Nullable<float> YearsFromStart { get; set; } = null;
+[JsonProperty(PropertyName="years_from_start", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> YearsFromStart { get; set; } = null;
         
 
 [Description(@"This field and the Years From Start field together represent the time from either the start of the Service Period on the service month and year or start of the Base Period on the base month and year (depending on the Start of Costs field) that the costs start to occur. Only integers should be entered representing whole months. The Years From Start (times 12) and Months From Start are added together.")]
-[JsonProperty(PropertyName="months_from_start")]
-public System.Nullable<float> MonthsFromStart { get; set; } = null;
+[JsonProperty(PropertyName="months_from_start", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MonthsFromStart { get; set; } = null;
         
 
 [Description(@"This field and the Repeat Period Months field indicate how much time elapses between re-occurrences of the cost. For costs that occur every year such the Repeat Period Years should be 1 and Repeat Period Months should be 0. Only integers should be entered representing whole years.")]
-[JsonProperty(PropertyName="repeat_period_years")]
-public System.Nullable<float> RepeatPeriodYears { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="repeat_period_years", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RepeatPeriodYears { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("This field and the Repeat Period Years field indicate how much time elapses betwe" +
     "en re-occurrences of the cost. Only integers should be entered representing whol" +
     "e years. The Repeat Period Years (times 12) and Repeat Period Months are added t" +
     "ogether.")]
-[JsonProperty(PropertyName="repeat_period_months")]
-public System.Nullable<float> RepeatPeriodMonths { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="repeat_period_months", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RepeatPeriodMonths { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the annual escalation rate as a decimal. For a 1% rate enter the value 0.01" +
     ". This input is used when the Inflation Approach is CurrentDollar. When Inflatio" +
     "n Approach is set to ConstantDollar this input is ignored.")]
-[JsonProperty(PropertyName="annual_escalation_rate")]
-public System.Nullable<float> AnnualEscalationRate { get; set; } = null;
+[JsonProperty(PropertyName="annual_escalation_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AnnualEscalationRate { get; set; } = null;
     }
     
     public enum LifeCycleCost_RecurringCosts_Category
@@ -1886,30 +1908,32 @@ public System.Nullable<float> AnnualEscalationRate { get; set; } = null;
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="category", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="category", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_NonrecurringCost_Category Category { get; set; } = (LifeCycleCost_NonrecurringCost_Category)Enum.Parse(typeof(LifeCycleCost_NonrecurringCost_Category), "Construction");
         
 
 [Description(@"Enter the non-recurring cost value. For construction and other capital costs the value entered is typically a positive value. For salvage costs the value entered is typically a negative value which represents the money paid to the investor for the equipment at the end of the study period.")]
-[JsonProperty(PropertyName="cost")]
-public System.Nullable<float> Cost { get; set; } = null;
+[JsonProperty(PropertyName="cost", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Cost { get; set; } = null;
         
 
 [Description("Enter when the costs start. The First Year of Cost is based on the number of year" +
     "s past the Start of Costs. For most non-recurring costs the Start of Costs shoul" +
     "d be Base Period which begins at the base month and year.")]
-[JsonProperty(PropertyName="start_of_costs", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="start_of_costs", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_NonrecurringCost_StartOfCosts StartOfCosts { get; set; } = (LifeCycleCost_NonrecurringCost_StartOfCosts)Enum.Parse(typeof(LifeCycleCost_NonrecurringCost_StartOfCosts), "ServicePeriod");
         
 
 [Description(@"This field and the Months From Start field together represent the time from either the start of the Service Period on the service month and year or start of the Base Period on the base month and year (depending on the Start of Cost field) that the costs start to occur. Only integers should be entered representing whole years.")]
-[JsonProperty(PropertyName="years_from_start")]
-public System.Nullable<float> YearsFromStart { get; set; } = null;
+[JsonProperty(PropertyName="years_from_start", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> YearsFromStart { get; set; } = null;
         
 
 [Description(@"This field and the Years From Start field together represent the time from either the start of the Service Period on the service month and year or start of the Base Period on the base month and year (depending on the Start of Cost field) that the costs start to occur. Only integers should be entered representing whole months. The Years From Start (times 12) and Months From Start are added together.")]
-[JsonProperty(PropertyName="months_from_start")]
-public System.Nullable<float> MonthsFromStart { get; set; } = null;
+[JsonProperty(PropertyName="months_from_start", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MonthsFromStart { get; set; } = null;
     }
     
     public enum LifeCycleCost_NonrecurringCost_Category
@@ -1950,29 +1974,31 @@ public System.Nullable<float> MonthsFromStart { get; set; } = null;
         
 
 [Description(@"The identifier used for the object. The name usually identifies the location (such as the state or region or country or census area) that the escalations apply to. In addition the name should identify the building class such as residential or commercial or industrial and the use type such as electricity or natural gas or water.")]
-[JsonProperty(PropertyName="lcc_price_escalation_name")]
+[JsonProperty(PropertyName="lcc_price_escalation_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string LccPriceEscalationName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="resource", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="resource", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_UsePriceEscalation_Resource Resource { get; set; } = (LifeCycleCost_UsePriceEscalation_Resource)Enum.Parse(typeof(LifeCycleCost_UsePriceEscalation_Resource), "Coal");
         
 
 [Description("This field and the Escalation Start Month define the time that corresponds to Yea" +
     "r 1 Escalation such as 2010 when the escalation rates are applied. This field an" +
     "d the Escalation Start Month define the time that escalation begins.")]
-[JsonProperty(PropertyName="escalation_start_year")]
-public System.Nullable<float> EscalationStartYear { get; set; } = null;
+[JsonProperty(PropertyName="escalation_start_year", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EscalationStartYear { get; set; } = null;
         
 
 [Description("This field and the Escalation Start Year define the time that corresponds to Year" +
     " 1 Escalation such as 2010 when the escalation rates are applied. This field and" +
     " the Escalation Start Year define the time that escalation begins.")]
-[JsonProperty(PropertyName="escalation_start_month", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="escalation_start_month", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_UsePriceEscalation_EscalationStartMonth EscalationStartMonth { get; set; } = (LifeCycleCost_UsePriceEscalation_EscalationStartMonth)Enum.Parse(typeof(LifeCycleCost_UsePriceEscalation_EscalationStartMonth), "January");
         
 
-[JsonProperty(PropertyName="escalations")]
+[JsonProperty(PropertyName="escalations", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Escalations { get; set; } = "";
     }
     
@@ -2082,11 +2108,12 @@ public string Escalations { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="resource", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="resource", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public LifeCycleCost_UseAdjustment_Resource Resource { get; set; } = (LifeCycleCost_UseAdjustment_Resource)Enum.Parse(typeof(LifeCycleCost_UseAdjustment_Resource), "Coal");
         
 
-[JsonProperty(PropertyName="multipliers")]
+[JsonProperty(PropertyName="multipliers", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Multipliers { get; set; } = "";
     }
     

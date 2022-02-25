@@ -4,6 +4,7 @@ using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -132,7 +133,7 @@ namespace ClientAssemblyGeneration.Directors
                             switch (epFieldProperty.EPType)
                             {
                                 case EPFieldType.Number:
-                                    ePPatternPropertyTypeReference = new CodeTypeReference(typeof(float?));
+                                    ePPatternPropertyTypeReference = new CodeTypeReference(typeof(double?));
                                     break;
                                 case EPFieldType.String:
                                     if (epFieldProperty.EPEnum != null)
@@ -173,13 +174,16 @@ namespace ClientAssemblyGeneration.Directors
                                         if (fieldTypes.EPEnum.Contains("Autosize"))
                                         {
                                             converter = "EnergyPlus_oM.EPNullToAutosizeJsonConverter";
-                                            defaultValue = null;
+                                            //defaultValue = null;
+                                            defaultValue = Properties.Resources.autosizableValue;
                                         }
                                         else if (fieldTypes.EPEnum.Contains("Autocalculate"))
                                         {
-                                            converter = "EnergyPlus_oM.EPNullToAutosizeJsonConverter";
+                                            converter = "EnergyPlus_oM.EPNullToAutocalculateJsonConverter";
+                                            //defaultValue = null;
+                                            defaultValue = Properties.Resources.autosizableValue;
                                         }
-                                        ePPatternPropertyTypeReference = new CodeTypeReference(typeof(float?));
+                                        ePPatternPropertyTypeReference = new CodeTypeReference(typeof(double?));
                                     }
                                     else
                                     {
@@ -197,7 +201,9 @@ namespace ClientAssemblyGeneration.Directors
 
 
                         _clientCodeCompileUnitBuilder.BuildProperty(fullNamespaceName, className, epFieldPropertyName, ePPatternPropertyTypeReference, defaultValue, epFieldProperty.EPNote ?? "",
-                            new CodeAttributeDeclarationCollection(){GetJsonPropertyAttributeDeclarations(epPatternProperty.Key,false,converter)});
+                            (converter=="")?
+                                new CodeAttributeDeclarationCollection(){GetJsonPropertyAttributeDeclarations(epPatternProperty.Key,true) }
+                                : new CodeAttributeDeclarationCollection(){ GetJsonPropertyAttributeDeclarations(epPatternProperty.Key, true), GetJsonConverterAttributeDeclarations(converter) });
                        
                     }
 
@@ -253,6 +259,14 @@ namespace ClientAssemblyGeneration.Directors
         {
             return new CodeAttributeDeclaration("System.Runtime.Serialization.EnumMember", 
                 new CodeAttributeArgument("Value",new CodePrimitiveExpression(enumValueToSerialize!=""? enumValueToSerialize: "")));
+
+        }
+
+        public static CodeAttributeDeclaration GetJsonConverterAttributeDeclarations(string converterName)
+        {
+            List<CodeAttributeArgument> arguments = new List<CodeAttributeArgument>() { };
+            arguments.Add(new CodeAttributeArgument(new CodeTypeOfExpression(converterName)));
+            return new CodeAttributeDeclaration("Newtonsoft.Json.JsonConverter", arguments.ToArray());
 
         }
 

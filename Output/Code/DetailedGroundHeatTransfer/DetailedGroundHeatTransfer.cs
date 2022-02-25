@@ -78,11 +78,13 @@ namespace BH.oM.Adapters.EnergyPlus.DetailedGroundHeatTransfer
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="run_basement_preprocessor", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="run_basement_preprocessor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RunBasementPreprocessor { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
-[JsonProperty(PropertyName="run_slab_preprocessor", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="run_slab_preprocessor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public EmptyNoYes RunSlabPreprocessor { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
     }
     
@@ -95,49 +97,49 @@ public EmptyNoYes RunSlabPreprocessor { get; set; } = (EmptyNoYes)Enum.Parse(typ
 [Description("This field specifies the number of different materials that will be used in the m" +
     "odel. Typically only a ground material and a slab material are used. (2 material" +
     "s)")]
-[JsonProperty(PropertyName="nmat_number_of_materials")]
-public System.Nullable<float> NmatNumberOfMaterials { get; set; } = null;
+[JsonProperty(PropertyName="nmat_number_of_materials", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NmatNumberOfMaterials { get; set; } = null;
         
 
 [Description(@"Two fields specify the albedo value of the surface: first for no snow coverage days; second for days with snow coverage. The albedo is the solar reflectivity of the surface, and can vary from 0.05 for blacktop to 0.95 for fresh snow. Typical values for North America reported by Bahnfleth range from 0.16 to 0.4.")]
-[JsonProperty(PropertyName="albedo_surface_albedo_no_snow")]
-public System.Nullable<float> AlbedoSurfaceAlbedoNoSnow { get; set; } = (System.Nullable<float>)Single.Parse("0.16", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="albedo_surface_albedo_no_snow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AlbedoSurfaceAlbedoNoSnow { get; set; } = (System.Nullable<double>)Double.Parse("0.16", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="albedo_surface_albedo_snow")]
-public System.Nullable<float> AlbedoSurfaceAlbedoSnow { get; set; } = (System.Nullable<float>)Single.Parse("0.4", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="albedo_surface_albedo_snow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AlbedoSurfaceAlbedoSnow { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
         
 
 [Description("EPSLW (No Snow and Snow) specifies the long wavelength (thermal) emissivity of th" +
     "e ground surface. primarily important for nighttime radiation to sky. typical va" +
     "lue .95")]
-[JsonProperty(PropertyName="epslw_surface_emissivity_no_snow")]
-public System.Nullable<float> EpslwSurfaceEmissivityNoSnow { get; set; } = (System.Nullable<float>)Single.Parse("0.94", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="epslw_surface_emissivity_no_snow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EpslwSurfaceEmissivityNoSnow { get; set; } = (System.Nullable<double>)Double.Parse("0.94", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="epslw_surface_emissivity_snow")]
-public System.Nullable<float> EpslwSurfaceEmissivitySnow { get; set; } = (System.Nullable<float>)Single.Parse("0.86", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="epslw_surface_emissivity_snow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EpslwSurfaceEmissivitySnow { get; set; } = (System.Nullable<double>)Double.Parse("0.86", CultureInfo.InvariantCulture);
         
 
 [Description("fields Z0 (No Snow and Snow) describe the height at which an experimentally veloc" +
     "ity profile goes to zero. typical value= .75 cm")]
-[JsonProperty(PropertyName="z0_surface_roughness_no_snow")]
-public System.Nullable<float> Z0SurfaceRoughnessNoSnow { get; set; } = (System.Nullable<float>)Single.Parse("0.75", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="z0_surface_roughness_no_snow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Z0SurfaceRoughnessNoSnow { get; set; } = (System.Nullable<double>)Double.Parse("0.75", CultureInfo.InvariantCulture);
         
 
 [Description("typical value= .05 cm")]
-[JsonProperty(PropertyName="z0_surface_roughness_snow")]
-public System.Nullable<float> Z0SurfaceRoughnessSnow { get; set; } = (System.Nullable<float>)Single.Parse("0.25", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="z0_surface_roughness_snow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Z0SurfaceRoughnessSnow { get; set; } = (System.Nullable<double>)Double.Parse("0.25", CultureInfo.InvariantCulture);
         
 
 [Description(@"These fields specify the combined convective and radiative heat transfer coefficient between the slab top inside surface and the room air for the cases where heat is flowing downward, and upward. The program toggles between the two if the direction of the heat flux changes. Typical values can be found in the ASHRAE Handbook of Fundamentals, but should be about 6 W/(m2-K) for downward heat flow and 9 W/(m2-K) for upward heat flow. typical value= 4-10")]
-[JsonProperty(PropertyName="hin_indoor_hconv_downward_flow")]
-public System.Nullable<float> HinIndoorHconvDownwardFlow { get; set; } = (System.Nullable<float>)Single.Parse("6.13", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="hin_indoor_hconv_downward_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HinIndoorHconvDownwardFlow { get; set; } = (System.Nullable<double>)Double.Parse("6.13", CultureInfo.InvariantCulture);
         
 
 [Description("typical value= 4-10")]
-[JsonProperty(PropertyName="hin_indoor_hconv_upward")]
-public System.Nullable<float> HinIndoorHconvUpward { get; set; } = (System.Nullable<float>)Single.Parse("9.26", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="hin_indoor_hconv_upward", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HinIndoorHconvUpward { get; set; } = (System.Nullable<double>)Double.Parse("9.26", CultureInfo.InvariantCulture);
     }
     
     [Description("This object contains the material properties for the materials used in the model." +
@@ -148,33 +150,33 @@ public System.Nullable<float> HinIndoorHconvUpward { get; set; } = (System.Nulla
         
 
 [Description("Density of Slab Material typical value= 2300.0")]
-[JsonProperty(PropertyName="rho_slab_material_density")]
-public System.Nullable<float> RhoSlabMaterialDensity { get; set; } = (System.Nullable<float>)Single.Parse("2300", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="rho_slab_material_density", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RhoSlabMaterialDensity { get; set; } = (System.Nullable<double>)Double.Parse("2300", CultureInfo.InvariantCulture);
         
 
 [Description("Density of Soil Material typical value= 1200.0")]
-[JsonProperty(PropertyName="rho_soil_density")]
-public System.Nullable<float> RhoSoilDensity { get; set; } = (System.Nullable<float>)Single.Parse("1200", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="rho_soil_density", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RhoSoilDensity { get; set; } = (System.Nullable<double>)Double.Parse("1200", CultureInfo.InvariantCulture);
         
 
 [Description("Specific Heat of Slab Material typical value=650.0")]
-[JsonProperty(PropertyName="cp_slab_cp")]
-public System.Nullable<float> CpSlabCp { get; set; } = (System.Nullable<float>)Single.Parse("650", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="cp_slab_cp", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CpSlabCp { get; set; } = (System.Nullable<double>)Double.Parse("650", CultureInfo.InvariantCulture);
         
 
 [Description("Specific Heat of Soil Material typical value= 1200.0")]
-[JsonProperty(PropertyName="cp_soil_cp")]
-public System.Nullable<float> CpSoilCp { get; set; } = (System.Nullable<float>)Single.Parse("1200", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="cp_soil_cp", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CpSoilCp { get; set; } = (System.Nullable<double>)Double.Parse("1200", CultureInfo.InvariantCulture);
         
 
 [Description("Conductivity of Slab Material typical value= .9")]
-[JsonProperty(PropertyName="tcon_slab_k")]
-public System.Nullable<float> TconSlabK { get; set; } = (System.Nullable<float>)Single.Parse("0.9", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tcon_slab_k", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TconSlabK { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description("Conductivity of Soil Material typical value= 1.0")]
-[JsonProperty(PropertyName="tcon_soil_k")]
-public System.Nullable<float> TconSoilK { get; set; } = (System.Nullable<float>)Single.Parse("1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tcon_soil_k", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TconSoilK { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     [Description("Supplies some of the boundary conditions used in the ground heat transfer calcula" +
@@ -185,32 +187,35 @@ public System.Nullable<float> TconSoilK { get; set; } = (System.Nullable<float>)
         
 
 [Description(@"This field specifies whether or not to use the evapotransporation model. The inclusion of evapotransporation in the calculation has the greatest effect in warm dry climates, primarily on the ground surface temperature. This field can be used to turn the evapotransporation off and on to check sensitivity to it.")]
-[JsonProperty(PropertyName="evtr_is_surface_evapotranspiration_modeled", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="evtr_is_surface_evapotranspiration_modeled", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Slab_BoundConds_EvtrIsSurfaceEvapotranspirationModeled EvtrIsSurfaceEvapotranspirationModeled { get; set; } = (GroundHeatTransfer_Slab_BoundConds_EvtrIsSurfaceEvapotranspirationModeled)Enum.Parse(typeof(GroundHeatTransfer_Slab_BoundConds_EvtrIsSurfaceEvapotranspirationModeled), "FALSE");
         
 
 [Description("This field permits using a fixed temperature at the lower surface of the model in" +
     "stead of a zero heat flux condition. This change normally has a very small effec" +
     "t on the results. FALSE selects the zero flux lower boundary condition")]
-[JsonProperty(PropertyName="fixbc_is_the_lower_boundary_at_a_fixed_temperature", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="fixbc_is_the_lower_boundary_at_a_fixed_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Slab_BoundConds_FixbcIsTheLowerBoundaryAtAFixedTemperature FixbcIsTheLowerBoundaryAtAFixedTemperature { get; set; } = (GroundHeatTransfer_Slab_BoundConds_FixbcIsTheLowerBoundaryAtAFixedTemperature)Enum.Parse(typeof(GroundHeatTransfer_Slab_BoundConds_FixbcIsTheLowerBoundaryAtAFixedTemperature), "FALSE");
         
 
 [Description("User input lower boundary temperature if FIXBC is TRUE Blank for FIXBC FALSE or t" +
     "o use the calculated 1-D deep ground temperature.")]
-[JsonProperty(PropertyName="tdeepin")]
-public System.Nullable<float> Tdeepin { get; set; } = null;
+[JsonProperty(PropertyName="tdeepin", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tdeepin { get; set; } = null;
         
 
 [Description(@"This field flags the use of a user specified heat transfer coefficient on the ground surface. This condition is used primarily for testing. For normal runs (USPHflag is FALSE) and the program calculates the heat transfer coefficient using the weather conditions.")]
-[JsonProperty(PropertyName="usrhflag_is_the_ground_surface_h_specified_by_the_user_", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="usrhflag_is_the_ground_surface_h_specified_by_the_user_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Slab_BoundConds_UsrhflagIsTheGroundSurfaceHSpecifiedByTheUser UsrhflagIsTheGroundSurfaceHSpecifiedByTheUser { get; set; } = (GroundHeatTransfer_Slab_BoundConds_UsrhflagIsTheGroundSurfaceHSpecifiedByTheUser)Enum.Parse(typeof(GroundHeatTransfer_Slab_BoundConds_UsrhflagIsTheGroundSurfaceHSpecifiedByTheUser), "FALSE");
         
 
 [Description("Used only if USRHflag is TRUE and the heat transfer coefficient value is specifie" +
     "d in this field.")]
-[JsonProperty(PropertyName="userh_user_specified_ground_surface_heat_transfer_coefficient")]
-public System.Nullable<float> UserhUserSpecifiedGroundSurfaceHeatTransferCoefficient { get; set; } = null;
+[JsonProperty(PropertyName="userh_user_specified_ground_surface_heat_transfer_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> UserhUserSpecifiedGroundSurfaceHeatTransferCoefficient { get; set; } = null;
     }
     
     public enum GroundHeatTransfer_Slab_BoundConds_EvtrIsSurfaceEvapotranspirationModeled
@@ -250,93 +255,93 @@ public System.Nullable<float> UserhUserSpecifiedGroundSurfaceHeatTransferCoeffic
         
 
 [Description(@"This field specifies the number of years to iterate. Either the ground heat transfer calculations come to an an annual steady periodic condition by converging to a tolerance (see ConvTol field) or it runs for this number of years. A ten year maximum is usually sufficient.")]
-[JsonProperty(PropertyName="iyrs_number_of_years_to_iterate")]
-public System.Nullable<float> IyrsNumberOfYearsToIterate { get; set; } = (System.Nullable<float>)Single.Parse("10", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="iyrs_number_of_years_to_iterate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> IyrsNumberOfYearsToIterate { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description("Use only the value 0 here. Only a rectangular shape is implemented.")]
-[JsonProperty(PropertyName="shape_slab_shape")]
-public System.Nullable<float> ShapeSlabShape { get; set; } = null;
+[JsonProperty(PropertyName="shape_slab_shape", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ShapeSlabShape { get; set; } = null;
         
 
 [Description("This field supplies the building height. This is used to calculate the building s" +
     "hadowing on the ground. typical value= 0-20")]
-[JsonProperty(PropertyName="hbldg_building_height")]
-public System.Nullable<float> HbldgBuildingHeight { get; set; } = null;
+[JsonProperty(PropertyName="hbldg_building_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HbldgBuildingHeight { get; set; } = null;
         
 
 [Description("see memo on object for more information")]
-[JsonProperty(PropertyName="tin1_january_indoor_average_temperature_setpoint")]
-public System.Nullable<float> Tin1JanuaryIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tin1_january_indoor_average_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tin1JanuaryIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("see memo on object for more information")]
-[JsonProperty(PropertyName="tin2_february_indoor_average_temperature_setpoint")]
-public System.Nullable<float> Tin2FebruaryIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tin2_february_indoor_average_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tin2FebruaryIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("see memo on object for more information")]
-[JsonProperty(PropertyName="tin3_march_indoor_average_temperature_setpoint")]
-public System.Nullable<float> Tin3MarchIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tin3_march_indoor_average_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tin3MarchIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("see memo on object for more information")]
-[JsonProperty(PropertyName="tin4_april_indoor_average_temperature_setpoint")]
-public System.Nullable<float> Tin4AprilIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tin4_april_indoor_average_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tin4AprilIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("see memo on object for more information")]
-[JsonProperty(PropertyName="tin5_may_indoor_average_temperature_setpoint")]
-public System.Nullable<float> Tin5MayIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tin5_may_indoor_average_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tin5MayIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("see memo on object for more information")]
-[JsonProperty(PropertyName="tin6_june_indoor_average_temperature_setpoint")]
-public System.Nullable<float> Tin6JuneIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tin6_june_indoor_average_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tin6JuneIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("see memo on object for more information")]
-[JsonProperty(PropertyName="tin7_july_indoor_average_temperature_setpoint")]
-public System.Nullable<float> Tin7JulyIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tin7_july_indoor_average_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tin7JulyIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("see memo on object for more information")]
-[JsonProperty(PropertyName="tin8_august_indoor_average_temperature_setpoint")]
-public System.Nullable<float> Tin8AugustIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tin8_august_indoor_average_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tin8AugustIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("see memo on object for more information")]
-[JsonProperty(PropertyName="tin9_september_indoor_average_temperature_setpoint")]
-public System.Nullable<float> Tin9SeptemberIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tin9_september_indoor_average_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tin9SeptemberIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("see memo on object for more information")]
-[JsonProperty(PropertyName="tin10_october_indoor_average_temperature_setpoint")]
-public System.Nullable<float> Tin10OctoberIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tin10_october_indoor_average_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tin10OctoberIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("see memo on object for more information")]
-[JsonProperty(PropertyName="tin11_november_indoor_average_temperature_setpoint")]
-public System.Nullable<float> Tin11NovemberIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tin11_november_indoor_average_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tin11NovemberIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("see memo on object for more information")]
-[JsonProperty(PropertyName="tin12_december_indoor_average_temperature_setpoint")]
-public System.Nullable<float> Tin12DecemberIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tin12_december_indoor_average_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Tin12DecemberIndoorAverageTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("This field permits imposing a daily sinusoidal variation in the indoor setpoint t" +
     "emperature to simulate the effect of a setback profile. The value specified is t" +
     "he amplitude of the sine wave.")]
-[JsonProperty(PropertyName="tinamp_daily_indoor_sine_wave_variation_amplitude")]
-public System.Nullable<float> TinampDailyIndoorSineWaveVariationAmplitude { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="tinamp_daily_indoor_sine_wave_variation_amplitude", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TinampDailyIndoorSineWaveVariationAmplitude { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field specifies the convergence tolerance used to control the iteration. Whe" +
     "n the temperature change of all nodes is less than the convergence value, iterat" +
     "ion ceases.")]
-[JsonProperty(PropertyName="convtol_convergence_tolerance")]
-public System.Nullable<float> ConvtolConvergenceTolerance { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="convtol_convergence_tolerance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ConvtolConvergenceTolerance { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
     }
     
     [Description("This object supplies the information about insulation used around the slab. There" +
@@ -350,33 +355,33 @@ public System.Nullable<float> ConvtolConvergenceTolerance { get; set; } = (Syste
 [Description("This field provides the thermal resistance value of the under slab insulation. It" +
     " should be zero if the vertical insulation configuration is selected. typical va" +
     "lue= 0-2.0")]
-[JsonProperty(PropertyName="rins_r_value_of_under_slab_insulation")]
-public System.Nullable<float> RinsRValueOfUnderSlabInsulation { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="rins_r_value_of_under_slab_insulation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RinsRValueOfUnderSlabInsulation { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This specifies the width of the perimeter strip of insulation under the slab. It " +
     "should be zero if for the vertical insulation configuration is selected. typical" +
     " value= 0-2.0")]
-[JsonProperty(PropertyName="dins_width_of_strip_of_under_slab_insulation")]
-public System.Nullable<float> DinsWidthOfStripOfUnderSlabInsulation { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="dins_width_of_strip_of_under_slab_insulation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DinsWidthOfStripOfUnderSlabInsulation { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field specifies the thermal resistance of the vertical insulation. It should" +
     " be zero if the under slab insulation configuration is selected. typical value= " +
     "0-3.0")]
-[JsonProperty(PropertyName="rvins_r_value_of_vertical_insulation")]
-public System.Nullable<float> RvinsRValueOfVerticalInsulation { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="rvins_r_value_of_vertical_insulation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RvinsRValueOfVerticalInsulation { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field specifies the depth of the vertical insulation into the ground in meters. It starts at the slab upper surface and extends into the ground. It should be zero if the under slab insulation configuration is selected. only use values= .2 .4 .6 .8 1.0 1.5 2.0 2.5 3.0")]
-[JsonProperty(PropertyName="zvins_depth_of_vertical_insulation")]
-public System.Nullable<float> ZvinsDepthOfVerticalInsulation { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="zvins_depth_of_vertical_insulation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ZvinsDepthOfVerticalInsulation { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Specifies if the vertical insulation configuration is being used. values: 1=yes v" +
     "ertical insulation 0=no under-slab insulation")]
-[JsonProperty(PropertyName="ivins_flag_is_there_vertical_insulation")]
-public System.Nullable<float> IvinsFlagIsThereVerticalInsulation { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="ivins_flag_is_there_vertical_insulation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> IvinsFlagIsThereVerticalInsulation { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description("Using an equivalent slab allows non-rectangular shapes to be modeled accurately. " +
@@ -388,27 +393,27 @@ public System.Nullable<float> IvinsFlagIsThereVerticalInsulation { get; set; } =
         
 
 [Description("Equivalent square slab is simulated,  side is 4*APRatio.")]
-[JsonProperty(PropertyName="apratio_the_area_to_perimeter_ratio_for_this_slab")]
-public System.Nullable<float> ApratioTheAreaToPerimeterRatioForThisSlab { get; set; } = null;
+[JsonProperty(PropertyName="apratio_the_area_to_perimeter_ratio_for_this_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ApratioTheAreaToPerimeterRatioForThisSlab { get; set; } = null;
         
 
 [Description(@"This field specifies the thickness of the slab. The slab top surface is level with the ground surface, so this is the depth into the ground. The slab depth has a significant effect on the temperature calculation, and it is also important for the auto-grid process. The finite difference grids are set in such a way that they use the slab thickness to determine the vertical grid spacing. Autogridding will fail if the slab thickness is specified larger than 0.25 meters.")]
-[JsonProperty(PropertyName="slabdepth_thickness_of_slab_on_grade")]
-public System.Nullable<float> SlabdepthThicknessOfSlabOnGrade { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="slabdepth_thickness_of_slab_on_grade", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SlabdepthThicknessOfSlabOnGrade { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [Description("This field specifies the distance from the slab to the edge of the area that will" +
     " be modeled with the grid system. It is the basic size dimension that is used to" +
     " set the horizontal extent of the domain. 15 meters is a reasonable value.")]
-[JsonProperty(PropertyName="clearance_distance_from_edge_of_slab_to_domain_edge")]
-public System.Nullable<float> ClearanceDistanceFromEdgeOfSlabToDomainEdge { get; set; } = (System.Nullable<float>)Single.Parse("15", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="clearance_distance_from_edge_of_slab_to_domain_edge", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ClearanceDistanceFromEdgeOfSlabToDomainEdge { get; set; } = (System.Nullable<double>)Double.Parse("15", CultureInfo.InvariantCulture);
         
 
 [Description("This field specifies the vertical distance from the slab to the bottom edge of th" +
     "e area that will be modeled with the grid system. 15 meters is a reasonable valu" +
     "e.")]
-[JsonProperty(PropertyName="zclearance_distance_from_bottom_of_slab_to_domain_bottom")]
-public System.Nullable<float> ZclearanceDistanceFromBottomOfSlabToDomainBottom { get; set; } = (System.Nullable<float>)Single.Parse("15", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="zclearance_distance_from_bottom_of_slab_to_domain_bottom", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ZclearanceDistanceFromBottomOfSlabToDomainBottom { get; set; } = (System.Nullable<double>)Double.Parse("15", CultureInfo.InvariantCulture);
     }
     
     [Description("AutoGrid only necessary when EquivalentSlab option not chosen. Not normally neede" +
@@ -420,25 +425,25 @@ public System.Nullable<float> ZclearanceDistanceFromBottomOfSlabToDomainBottom {
         
 
 [Description("typical values= 6 to 60.0")]
-[JsonProperty(PropertyName="slabx_x_dimension_of_the_building_slab")]
-public System.Nullable<float> SlabxXDimensionOfTheBuildingSlab { get; set; } = null;
+[JsonProperty(PropertyName="slabx_x_dimension_of_the_building_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SlabxXDimensionOfTheBuildingSlab { get; set; } = null;
         
 
 [Description("typical values= 6 to 60.0")]
-[JsonProperty(PropertyName="slaby_y_dimension_of_the_building_slab")]
-public System.Nullable<float> SlabyYDimensionOfTheBuildingSlab { get; set; } = null;
+[JsonProperty(PropertyName="slaby_y_dimension_of_the_building_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SlabyYDimensionOfTheBuildingSlab { get; set; } = null;
         
 
-[JsonProperty(PropertyName="slabdepth_thickness_of_slab_on_grade")]
-public System.Nullable<float> SlabdepthThicknessOfSlabOnGrade { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="slabdepth_thickness_of_slab_on_grade", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SlabdepthThicknessOfSlabOnGrade { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="clearance_distance_from_edge_of_slab_to_domain_edge")]
-public System.Nullable<float> ClearanceDistanceFromEdgeOfSlabToDomainEdge { get; set; } = (System.Nullable<float>)Single.Parse("15", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="clearance_distance_from_edge_of_slab_to_domain_edge", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ClearanceDistanceFromEdgeOfSlabToDomainEdge { get; set; } = (System.Nullable<double>)Double.Parse("15", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="zclearance_distance_from_bottom_of_slab_to_domain_bottom")]
-public System.Nullable<float> ZclearanceDistanceFromBottomOfSlabToDomainBottom { get; set; } = (System.Nullable<float>)Single.Parse("15", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="zclearance_distance_from_bottom_of_slab_to_domain_bottom", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ZclearanceDistanceFromBottomOfSlabToDomainBottom { get; set; } = (System.Nullable<double>)Double.Parse("15", CultureInfo.InvariantCulture);
     }
     
     [Description("Manual Grid only necessary when using manual gridding (not recommended) Used only" +
@@ -449,26 +454,26 @@ public System.Nullable<float> ZclearanceDistanceFromBottomOfSlabToDomainBottom {
     {
         
 
-[JsonProperty(PropertyName="nx_number_of_cells_in_the_x_direction")]
-public System.Nullable<float> NxNumberOfCellsInTheXDirection { get; set; } = null;
+[JsonProperty(PropertyName="nx_number_of_cells_in_the_x_direction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NxNumberOfCellsInTheXDirection { get; set; } = null;
         
 
-[JsonProperty(PropertyName="ny_number_of_cells_in_the_y_direction")]
-public System.Nullable<float> NyNumberOfCellsInTheYDirection { get; set; } = null;
+[JsonProperty(PropertyName="ny_number_of_cells_in_the_y_direction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NyNumberOfCellsInTheYDirection { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nz_number_of_cells_in_the_z_direction")]
-public System.Nullable<float> NzNumberOfCellsInTheZDirection { get; set; } = null;
-        
-
-[Description("typical values= 1-10")]
-[JsonProperty(PropertyName="ibox_x_direction_cell_indicator_of_slab_edge")]
-public System.Nullable<float> IboxXDirectionCellIndicatorOfSlabEdge { get; set; } = null;
+[JsonProperty(PropertyName="nz_number_of_cells_in_the_z_direction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NzNumberOfCellsInTheZDirection { get; set; } = null;
         
 
 [Description("typical values= 1-10")]
-[JsonProperty(PropertyName="jbox_y_direction_cell_indicator_of_slab_edge")]
-public System.Nullable<float> JboxYDirectionCellIndicatorOfSlabEdge { get; set; } = null;
+[JsonProperty(PropertyName="ibox_x_direction_cell_indicator_of_slab_edge", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> IboxXDirectionCellIndicatorOfSlabEdge { get; set; } = null;
+        
+
+[Description("typical values= 1-10")]
+[JsonProperty(PropertyName="jbox_y_direction_cell_indicator_of_slab_edge", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> JboxYDirectionCellIndicatorOfSlabEdge { get; set; } = null;
     }
     
     [Description("This is only needed when using manual gridding (not recommended) XFACE: X Directi" +
@@ -500,13 +505,13 @@ public System.Nullable<float> JboxYDirectionCellIndicatorOfSlabEdge { get; set; 
         
 
 [Description("0<F<1.0, typically 0.1 (0.3 for high k soil - saturated sand is about 2.6 w/m-K)")]
-[JsonProperty(PropertyName="f_multiplier_for_the_adi_solution")]
-public System.Nullable<float> FMultiplierForTheAdiSolution { get; set; } = null;
+[JsonProperty(PropertyName="f_multiplier_for_the_adi_solution", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FMultiplierForTheAdiSolution { get; set; } = null;
         
 
 [Description("typically 15-30]")]
-[JsonProperty(PropertyName="iyrs_maximum_number_of_yearly_iterations_")]
-public System.Nullable<float> IyrsMaximumNumberOfYearlyIterations { get; set; } = (System.Nullable<float>)Single.Parse("15", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="iyrs_maximum_number_of_yearly_iterations_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> IyrsMaximumNumberOfYearlyIterations { get; set; } = (System.Nullable<double>)Double.Parse("15", CultureInfo.InvariantCulture);
     }
     
     [Description("Specifies the material properties for the Basement preprocessor ground heat trans" +
@@ -517,80 +522,80 @@ public System.Nullable<float> IyrsMaximumNumberOfYearlyIterations { get; set; } 
     {
         
 
-[JsonProperty(PropertyName="nmat_number_of_materials_in_this_domain")]
-public System.Nullable<float> NmatNumberOfMaterialsInThisDomain { get; set; } = null;
+[JsonProperty(PropertyName="nmat_number_of_materials_in_this_domain", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NmatNumberOfMaterialsInThisDomain { get; set; } = null;
         
 
-[JsonProperty(PropertyName="density_for_foundation_wall")]
-public System.Nullable<float> DensityForFoundationWall { get; set; } = (System.Nullable<float>)Single.Parse("2243", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="density_for_foundation_wall", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DensityForFoundationWall { get; set; } = (System.Nullable<double>)Double.Parse("2243", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="density_for_floor_slab")]
-public System.Nullable<float> DensityForFloorSlab { get; set; } = (System.Nullable<float>)Single.Parse("2243", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="density_for_floor_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DensityForFloorSlab { get; set; } = (System.Nullable<double>)Double.Parse("2243", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="density_for_ceiling")]
-public System.Nullable<float> DensityForCeiling { get; set; } = (System.Nullable<float>)Single.Parse("311", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="density_for_ceiling", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DensityForCeiling { get; set; } = (System.Nullable<double>)Double.Parse("311", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="density_for_soil")]
-public System.Nullable<float> DensityForSoil { get; set; } = (System.Nullable<float>)Single.Parse("1500", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="density_for_soil", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DensityForSoil { get; set; } = (System.Nullable<double>)Double.Parse("1500", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="density_for_gravel")]
-public System.Nullable<float> DensityForGravel { get; set; } = (System.Nullable<float>)Single.Parse("2000", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="density_for_gravel", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DensityForGravel { get; set; } = (System.Nullable<double>)Double.Parse("2000", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="density_for_wood")]
-public System.Nullable<float> DensityForWood { get; set; } = (System.Nullable<float>)Single.Parse("449", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="density_for_wood", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DensityForWood { get; set; } = (System.Nullable<double>)Double.Parse("449", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="specific_heat_for_foundation_wall")]
-public System.Nullable<float> SpecificHeatForFoundationWall { get; set; } = (System.Nullable<float>)Single.Parse("880", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="specific_heat_for_foundation_wall", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SpecificHeatForFoundationWall { get; set; } = (System.Nullable<double>)Double.Parse("880", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="specific_heat_for_floor_slab")]
-public System.Nullable<float> SpecificHeatForFloorSlab { get; set; } = (System.Nullable<float>)Single.Parse("880", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="specific_heat_for_floor_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SpecificHeatForFloorSlab { get; set; } = (System.Nullable<double>)Double.Parse("880", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="specific_heat_for_ceiling")]
-public System.Nullable<float> SpecificHeatForCeiling { get; set; } = (System.Nullable<float>)Single.Parse("1530", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="specific_heat_for_ceiling", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SpecificHeatForCeiling { get; set; } = (System.Nullable<double>)Double.Parse("1530", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="specific_heat_for_soil")]
-public System.Nullable<float> SpecificHeatForSoil { get; set; } = (System.Nullable<float>)Single.Parse("840", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="specific_heat_for_soil", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SpecificHeatForSoil { get; set; } = (System.Nullable<double>)Double.Parse("840", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="specific_heat_for_gravel")]
-public System.Nullable<float> SpecificHeatForGravel { get; set; } = (System.Nullable<float>)Single.Parse("720", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="specific_heat_for_gravel", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SpecificHeatForGravel { get; set; } = (System.Nullable<double>)Double.Parse("720", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="specific_heat_for_wood")]
-public System.Nullable<float> SpecificHeatForWood { get; set; } = (System.Nullable<float>)Single.Parse("1530", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="specific_heat_for_wood", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SpecificHeatForWood { get; set; } = (System.Nullable<double>)Double.Parse("1530", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="thermal_conductivity_for_foundation_wall")]
-public System.Nullable<float> ThermalConductivityForFoundationWall { get; set; } = (System.Nullable<float>)Single.Parse("1.4", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="thermal_conductivity_for_foundation_wall", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ThermalConductivityForFoundationWall { get; set; } = (System.Nullable<double>)Double.Parse("1.4", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="thermal_conductivity_for_floor_slab")]
-public System.Nullable<float> ThermalConductivityForFloorSlab { get; set; } = (System.Nullable<float>)Single.Parse("1.4", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="thermal_conductivity_for_floor_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ThermalConductivityForFloorSlab { get; set; } = (System.Nullable<double>)Double.Parse("1.4", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="thermal_conductivity_for_ceiling")]
-public System.Nullable<float> ThermalConductivityForCeiling { get; set; } = (System.Nullable<float>)Single.Parse("0.09", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="thermal_conductivity_for_ceiling", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ThermalConductivityForCeiling { get; set; } = (System.Nullable<double>)Double.Parse("0.09", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="thermal_conductivity_for_soil")]
-public System.Nullable<float> ThermalConductivityForSoil { get; set; } = (System.Nullable<float>)Single.Parse("1.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="thermal_conductivity_for_soil", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ThermalConductivityForSoil { get; set; } = (System.Nullable<double>)Double.Parse("1.1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="thermal_conductivity_for_gravel")]
-public System.Nullable<float> ThermalConductivityForGravel { get; set; } = (System.Nullable<float>)Single.Parse("1.9", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="thermal_conductivity_for_gravel", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ThermalConductivityForGravel { get; set; } = (System.Nullable<double>)Double.Parse("1.9", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="thermal_conductivity_for_wood")]
-public System.Nullable<float> ThermalConductivityForWood { get; set; } = (System.Nullable<float>)Single.Parse("0.12", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="thermal_conductivity_for_wood", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ThermalConductivityForWood { get; set; } = (System.Nullable<double>)Double.Parse("0.12", CultureInfo.InvariantCulture);
     }
     
     [Description("Describes the insulation used on an exterior basement wall for the Basement prepr" +
@@ -600,13 +605,14 @@ public System.Nullable<float> ThermalConductivityForWood { get; set; } = (System
     {
         
 
-[JsonProperty(PropertyName="rext_r_value_of_any_exterior_insulation")]
-public System.Nullable<float> RextRValueOfAnyExteriorInsulation { get; set; } = null;
+[JsonProperty(PropertyName="rext_r_value_of_any_exterior_insulation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> RextRValueOfAnyExteriorInsulation { get; set; } = null;
         
 
 [Description("True for full insulation False for insulation half way down side wall from grade " +
     "line")]
-[JsonProperty(PropertyName="insfull_flag_is_the_wall_fully_insulated_", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="insfull_flag_is_the_wall_fully_insulated_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Basement_Insulation_InsfullFlagIsTheWallFullyInsulated InsfullFlagIsTheWallFullyInsulated { get; set; } = (GroundHeatTransfer_Basement_Insulation_InsfullFlagIsTheWallFullyInsulated)Enum.Parse(typeof(GroundHeatTransfer_Basement_Insulation_InsfullFlagIsTheWallFullyInsulated), "FALSE");
     }
     
@@ -627,32 +633,33 @@ public GroundHeatTransfer_Basement_Insulation_InsfullFlagIsTheWallFullyInsulated
     {
         
 
-[JsonProperty(PropertyName="albedo_surface_albedo_for_no_snow_conditions")]
-public System.Nullable<float> AlbedoSurfaceAlbedoForNoSnowConditions { get; set; } = (System.Nullable<float>)Single.Parse("0.16", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="albedo_surface_albedo_for_no_snow_conditions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AlbedoSurfaceAlbedoForNoSnowConditions { get; set; } = (System.Nullable<double>)Double.Parse("0.16", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="albedo_surface_albedo_for_snow_conditions")]
-public System.Nullable<float> AlbedoSurfaceAlbedoForSnowConditions { get; set; } = (System.Nullable<float>)Single.Parse("0.4", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="albedo_surface_albedo_for_snow_conditions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AlbedoSurfaceAlbedoForSnowConditions { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="epsln_surface_emissivity_no_snow")]
-public System.Nullable<float> EpslnSurfaceEmissivityNoSnow { get; set; } = (System.Nullable<float>)Single.Parse("0.94", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="epsln_surface_emissivity_no_snow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EpslnSurfaceEmissivityNoSnow { get; set; } = (System.Nullable<double>)Double.Parse("0.94", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="epsln_surface_emissivity_with_snow")]
-public System.Nullable<float> EpslnSurfaceEmissivityWithSnow { get; set; } = (System.Nullable<float>)Single.Parse("0.86", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="epsln_surface_emissivity_with_snow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> EpslnSurfaceEmissivityWithSnow { get; set; } = (System.Nullable<double>)Double.Parse("0.86", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="veght_surface_roughness_no_snow_conditions")]
-public System.Nullable<float> VeghtSurfaceRoughnessNoSnowConditions { get; set; } = (System.Nullable<float>)Single.Parse("6", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="veght_surface_roughness_no_snow_conditions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VeghtSurfaceRoughnessNoSnowConditions { get; set; } = (System.Nullable<double>)Double.Parse("6", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="veght_surface_roughness_snow_conditions")]
-public System.Nullable<float> VeghtSurfaceRoughnessSnowConditions { get; set; } = (System.Nullable<float>)Single.Parse("0.25", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="veght_surface_roughness_snow_conditions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VeghtSurfaceRoughnessSnowConditions { get; set; } = (System.Nullable<double>)Double.Parse("0.25", CultureInfo.InvariantCulture);
         
 
 [Description("Typically, PET is False")]
-[JsonProperty(PropertyName="pet_flag_potential_evapotranspiration_on_", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="pet_flag_potential_evapotranspiration_on_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Basement_SurfaceProps_PetFlagPotentialEvapotranspirationOn PetFlagPotentialEvapotranspirationOn { get; set; } = (GroundHeatTransfer_Basement_SurfaceProps_PetFlagPotentialEvapotranspirationOn)Enum.Parse(typeof(GroundHeatTransfer_Basement_SurfaceProps_PetFlagPotentialEvapotranspirationOn), "FALSE");
     }
     
@@ -676,24 +683,24 @@ public GroundHeatTransfer_Basement_SurfaceProps_PetFlagPotentialEvapotranspirati
     {
         
 
-[JsonProperty(PropertyName="dwall_wall_thickness")]
-public System.Nullable<float> DwallWallThickness { get; set; } = (System.Nullable<float>)Single.Parse("0.2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="dwall_wall_thickness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DwallWallThickness { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="dslab_floor_slab_thickness")]
-public System.Nullable<float> DslabFloorSlabThickness { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="dslab_floor_slab_thickness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DslabFloorSlabThickness { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="dgravxy_width_of_gravel_pit_beside_basement_wall")]
-public System.Nullable<float> DgravxyWidthOfGravelPitBesideBasementWall { get; set; } = (System.Nullable<float>)Single.Parse("0.3", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="dgravxy_width_of_gravel_pit_beside_basement_wall", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DgravxyWidthOfGravelPitBesideBasementWall { get; set; } = (System.Nullable<double>)Double.Parse("0.3", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="dgravzn_gravel_depth_extending_above_the_floor_slab")]
-public System.Nullable<float> DgravznGravelDepthExtendingAboveTheFloorSlab { get; set; } = (System.Nullable<float>)Single.Parse("0.2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="dgravzn_gravel_depth_extending_above_the_floor_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DgravznGravelDepthExtendingAboveTheFloorSlab { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="dgravzp_gravel_depth_below_the_floor_slab")]
-public System.Nullable<float> DgravzpGravelDepthBelowTheFloorSlab { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="dgravzp_gravel_depth_below_the_floor_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DgravzpGravelDepthBelowTheFloorSlab { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
     }
     
     [Description("Provides the information needed to simulate the inside boundary conditions for th" +
@@ -704,32 +711,33 @@ public System.Nullable<float> DgravzpGravelDepthBelowTheFloorSlab { get; set; } 
         
 
 [Description("for EnergyPlus this should be TRUE")]
-[JsonProperty(PropertyName="cond_flag_is_the_basement_conditioned_", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="cond_flag_is_the_basement_conditioned_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Basement_Interior_CondFlagIsTheBasementConditioned CondFlagIsTheBasementConditioned { get; set; } = (GroundHeatTransfer_Basement_Interior_CondFlagIsTheBasementConditioned)Enum.Parse(typeof(GroundHeatTransfer_Basement_Interior_CondFlagIsTheBasementConditioned), "TRUE");
         
 
-[JsonProperty(PropertyName="hin_downward_convection_only_heat_transfer_coefficient")]
-public System.Nullable<float> HinDownwardConvectionOnlyHeatTransferCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("0.92", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="hin_downward_convection_only_heat_transfer_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HinDownwardConvectionOnlyHeatTransferCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0.92", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="hin_upward_convection_only_heat_transfer_coefficient")]
-public System.Nullable<float> HinUpwardConvectionOnlyHeatTransferCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("4.04", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="hin_upward_convection_only_heat_transfer_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HinUpwardConvectionOnlyHeatTransferCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("4.04", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="hin_horizontal_convection_only_heat_transfer_coefficient")]
-public System.Nullable<float> HinHorizontalConvectionOnlyHeatTransferCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("3.08", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="hin_horizontal_convection_only_heat_transfer_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HinHorizontalConvectionOnlyHeatTransferCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("3.08", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="hin_downward_combined_convection_and_radiation_heat_transfer_coefficient")]
-public System.Nullable<float> HinDownwardCombinedConvectionAndRadiationHeatTransferCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("6.13", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="hin_downward_combined_convection_and_radiation_heat_transfer_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HinDownwardCombinedConvectionAndRadiationHeatTransferCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("6.13", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="hin_upward_combined_convection_and_radiation_heat_transfer_coefficient")]
-public System.Nullable<float> HinUpwardCombinedConvectionAndRadiationHeatTransferCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("9.26", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="hin_upward_combined_convection_and_radiation_heat_transfer_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HinUpwardCombinedConvectionAndRadiationHeatTransferCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("9.26", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="hin_horizontal_combined_convection_and_radiation_heat_transfer_coefficient")]
-public System.Nullable<float> HinHorizontalCombinedConvectionAndRadiationHeatTransferCoefficient { get; set; } = (System.Nullable<float>)Single.Parse("8.29", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="hin_horizontal_combined_convection_and_radiation_heat_transfer_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HinHorizontalCombinedConvectionAndRadiationHeatTransferCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("8.29", CultureInfo.InvariantCulture);
     }
     
     public enum GroundHeatTransfer_Basement_Interior_CondFlagIsTheBasementConditioned
@@ -752,57 +760,57 @@ public System.Nullable<float> HinHorizontalCombinedConvectionAndRadiationHeatTra
     {
         
 
-[JsonProperty(PropertyName="january_average_temperature")]
-public System.Nullable<float> JanuaryAverageTemperature { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="january_average_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> JanuaryAverageTemperature { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="february_average_temperature")]
-public System.Nullable<float> FebruaryAverageTemperature { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="february_average_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FebruaryAverageTemperature { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="march_average_temperature")]
-public System.Nullable<float> MarchAverageTemperature { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="march_average_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MarchAverageTemperature { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="april_average_temperature")]
-public System.Nullable<float> AprilAverageTemperature { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="april_average_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AprilAverageTemperature { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="may_average_temperature")]
-public System.Nullable<float> MayAverageTemperature { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="may_average_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> MayAverageTemperature { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="june_average_temperature")]
-public System.Nullable<float> JuneAverageTemperature { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="june_average_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> JuneAverageTemperature { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="july_average_temperature")]
-public System.Nullable<float> JulyAverageTemperature { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="july_average_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> JulyAverageTemperature { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="august_average_temperature")]
-public System.Nullable<float> AugustAverageTemperature { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="august_average_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AugustAverageTemperature { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="september_average_temperature")]
-public System.Nullable<float> SeptemberAverageTemperature { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="september_average_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SeptemberAverageTemperature { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="october_average_temperature")]
-public System.Nullable<float> OctoberAverageTemperature { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="october_average_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OctoberAverageTemperature { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="november_average_temperature")]
-public System.Nullable<float> NovemberAverageTemperature { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="november_average_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NovemberAverageTemperature { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="december_average_temperature")]
-public System.Nullable<float> DecemberAverageTemperature { get; set; } = (System.Nullable<float>)Single.Parse("22", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="december_average_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DecemberAverageTemperature { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description("(Normally zero, just for checking)")]
-[JsonProperty(PropertyName="daily_variation_sine_wave_amplitude")]
-public System.Nullable<float> DailyVariationSineWaveAmplitude { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="daily_variation_sine_wave_amplitude", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DailyVariationSineWaveAmplitude { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description("Using an equivalent slab allows non-rectangular shapes to be modeled accurately. " +
@@ -812,14 +820,15 @@ public System.Nullable<float> DailyVariationSineWaveAmplitude { get; set; } = (S
     {
         
 
-[JsonProperty(PropertyName="apratio_the_area_to_perimeter_ratio_for_this_slab")]
-public System.Nullable<float> ApratioTheAreaToPerimeterRatioForThisSlab { get; set; } = null;
+[JsonProperty(PropertyName="apratio_the_area_to_perimeter_ratio_for_this_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ApratioTheAreaToPerimeterRatioForThisSlab { get; set; } = null;
         
 
 [Description("Will the dimensions of an equivalent slab be calculated (TRUE) or will the dimens" +
     "ions be input directly? (FALSE)] Only advanced special simulations should use FA" +
     "LSE.")]
-[JsonProperty(PropertyName="equivsizing_flag", ItemConverterType=typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+[JsonProperty(PropertyName="equivsizing_flag", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 public GroundHeatTransfer_Basement_EquivSlab_EquivsizingFlag EquivsizingFlag { get; set; } = (GroundHeatTransfer_Basement_EquivSlab_EquivsizingFlag)Enum.Parse(typeof(GroundHeatTransfer_Basement_EquivSlab_EquivsizingFlag), "FALSE");
     }
     
@@ -839,16 +848,16 @@ public GroundHeatTransfer_Basement_EquivSlab_EquivsizingFlag EquivsizingFlag { g
     {
         
 
-[JsonProperty(PropertyName="clearance_distance_from_outside_of_wall_to_edge_of_3_d_ground_domain")]
-public System.Nullable<float> ClearanceDistanceFromOutsideOfWallToEdgeOf3DGroundDomain { get; set; } = (System.Nullable<float>)Single.Parse("15", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="clearance_distance_from_outside_of_wall_to_edge_of_3_d_ground_domain", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ClearanceDistanceFromOutsideOfWallToEdgeOf3DGroundDomain { get; set; } = (System.Nullable<double>)Double.Parse("15", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="slabdepth_thickness_of_the_floor_slab")]
-public System.Nullable<float> SlabdepthThicknessOfTheFloorSlab { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="slabdepth_thickness_of_the_floor_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SlabdepthThicknessOfTheFloorSlab { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="basedepth_depth_of_the_basement_wall_below_grade")]
-public System.Nullable<float> BasedepthDepthOfTheBasementWallBelowGrade { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="basedepth_depth_of_the_basement_wall_below_grade", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BasedepthDepthOfTheBasementWallBelowGrade { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
     }
     
     [Description("AutoGrid only necessary when EquivSizing is false If the modeled building is not " +
@@ -858,28 +867,28 @@ public System.Nullable<float> BasedepthDepthOfTheBasementWallBelowGrade { get; s
     {
         
 
-[JsonProperty(PropertyName="clearance_distance_from_outside_of_wall_to_edge_")]
-public System.Nullable<float> ClearanceDistanceFromOutsideOfWallToEdge { get; set; } = (System.Nullable<float>)Single.Parse("15", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="clearance_distance_from_outside_of_wall_to_edge_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ClearanceDistanceFromOutsideOfWallToEdge { get; set; } = (System.Nullable<double>)Double.Parse("15", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="slabx_x_dimension_of_the_building_slab")]
-public System.Nullable<float> SlabxXDimensionOfTheBuildingSlab { get; set; } = null;
+[JsonProperty(PropertyName="slabx_x_dimension_of_the_building_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SlabxXDimensionOfTheBuildingSlab { get; set; } = null;
         
 
-[JsonProperty(PropertyName="slaby_y_dimension_of_the_building_slab")]
-public System.Nullable<float> SlabyYDimensionOfTheBuildingSlab { get; set; } = null;
+[JsonProperty(PropertyName="slaby_y_dimension_of_the_building_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SlabyYDimensionOfTheBuildingSlab { get; set; } = null;
         
 
-[JsonProperty(PropertyName="concagheight_height_of_the_foundation_wall_above_grade")]
-public System.Nullable<float> ConcagheightHeightOfTheFoundationWallAboveGrade { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="concagheight_height_of_the_foundation_wall_above_grade", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ConcagheightHeightOfTheFoundationWallAboveGrade { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="slabdepth_thickness_of_the_floor_slab")]
-public System.Nullable<float> SlabdepthThicknessOfTheFloorSlab { get; set; } = (System.Nullable<float>)Single.Parse("0.1", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="slabdepth_thickness_of_the_floor_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SlabdepthThicknessOfTheFloorSlab { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
         
 
-[JsonProperty(PropertyName="basedepth_depth_of_the_basement_wall_below_grade")]
-public System.Nullable<float> BasedepthDepthOfTheBasementWallBelowGrade { get; set; } = (System.Nullable<float>)Single.Parse("2", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="basedepth_depth_of_the_basement_wall_below_grade", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BasedepthDepthOfTheBasementWallBelowGrade { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
     }
     
     [Description("Manual Grid only necessary using manual gridding (not recommended)")]
@@ -888,32 +897,32 @@ public System.Nullable<float> BasedepthDepthOfTheBasementWallBelowGrade { get; s
     {
         
 
-[JsonProperty(PropertyName="nx_number_of_cells_in_the_x_direction_20_")]
-public System.Nullable<float> NxNumberOfCellsInTheXDirection20 { get; set; } = null;
+[JsonProperty(PropertyName="nx_number_of_cells_in_the_x_direction_20_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NxNumberOfCellsInTheXDirection20 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="ny_number_of_cells_in_the_y_direction_20_")]
-public System.Nullable<float> NyNumberOfCellsInTheYDirection20 { get; set; } = null;
+[JsonProperty(PropertyName="ny_number_of_cells_in_the_y_direction_20_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NyNumberOfCellsInTheYDirection20 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nzag_number_of_cells_in_the_z_direction_above_grade_4_always_")]
-public System.Nullable<float> NzagNumberOfCellsInTheZDirectionAboveGrade4Always { get; set; } = null;
+[JsonProperty(PropertyName="nzag_number_of_cells_in_the_z_direction_above_grade_4_always_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NzagNumberOfCellsInTheZDirectionAboveGrade4Always { get; set; } = null;
         
 
-[JsonProperty(PropertyName="nzbg_number_of_cells_in_z_direction_below_grade_10_35_")]
-public System.Nullable<float> NzbgNumberOfCellsInZDirectionBelowGrade1035 { get; set; } = null;
+[JsonProperty(PropertyName="nzbg_number_of_cells_in_z_direction_below_grade_10_35_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> NzbgNumberOfCellsInZDirectionBelowGrade1035 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="ibase_x_direction_cell_indicator_of_slab_edge_5_20_")]
-public System.Nullable<float> IbaseXDirectionCellIndicatorOfSlabEdge520 { get; set; } = null;
+[JsonProperty(PropertyName="ibase_x_direction_cell_indicator_of_slab_edge_5_20_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> IbaseXDirectionCellIndicatorOfSlabEdge520 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="jbase_y_direction_cell_indicator_of_slab_edge_5_20_")]
-public System.Nullable<float> JbaseYDirectionCellIndicatorOfSlabEdge520 { get; set; } = null;
+[JsonProperty(PropertyName="jbase_y_direction_cell_indicator_of_slab_edge_5_20_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> JbaseYDirectionCellIndicatorOfSlabEdge520 { get; set; } = null;
         
 
-[JsonProperty(PropertyName="kbase_z_direction_cell_indicator_of_the_top_of_the_floor_slab_5_20_")]
-public System.Nullable<float> KbaseZDirectionCellIndicatorOfTheTopOfTheFloorSlab520 { get; set; } = null;
+[JsonProperty(PropertyName="kbase_z_direction_cell_indicator_of_the_top_of_the_floor_slab_5_20_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> KbaseZDirectionCellIndicatorOfTheTopOfTheFloorSlab520 { get; set; } = null;
     }
     
     [Description("This is only needed when using manual gridding (not recommended) XFACE: X Directi" +

@@ -76,7 +76,7 @@ namespace BH.oM.Adapters.EnergyPlus.ComplianceObjects
 [Description("Additional degrees of rotation to be used with the requirement in ASHRAE Standard" +
     " 90.1 Appendix G that states that the baseline building should be rotated in fou" +
     "r directions.")]
-[JsonProperty(PropertyName="building_rotation_for_appendix_g")]
-public System.Nullable<float> BuildingRotationForAppendixG { get; set; } = (System.Nullable<float>)Single.Parse("0", CultureInfo.InvariantCulture);
+[JsonProperty(PropertyName="building_rotation_for_appendix_g", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BuildingRotationForAppendixG { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
     }
 }

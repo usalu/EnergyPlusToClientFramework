@@ -77,7 +77,7 @@ namespace BH.oM.Adapters.EnergyPlus.Parametrics
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="values")]
+[JsonProperty(PropertyName="values", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Values { get; set; } = "";
     }
     
@@ -92,7 +92,7 @@ public string Values { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="lines")]
+[JsonProperty(PropertyName="lines", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Lines { get; set; } = "";
     }
     
@@ -108,7 +108,7 @@ public string Lines { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="runs")]
+[JsonProperty(PropertyName="runs", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Runs { get; set; } = "";
     }
     
@@ -125,7 +125,7 @@ public string Runs { get; set; } = "";
 public string NodeName { get; set; } = "";
         
 
-[JsonProperty(PropertyName="suffixes")]
+[JsonProperty(PropertyName="suffixes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string Suffixes { get; set; } = "";
     }
 }
