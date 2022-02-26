@@ -67,6 +67,7 @@ namespace BH.oM.Adapters.EnergyPlus
     
     
     [Description("Ultimate class that can be automatically (de)serialized and simulated.")]
+    [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPJsonJsonConverter))]
     public class EPJson : BHoMObject
     {
         

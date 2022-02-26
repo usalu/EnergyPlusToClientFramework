@@ -69,44 +69,11 @@ namespace ClientAssemblyGeneration
             }
 
             EPJson epJsonTest = GetTestBuilding();
-            //EnergyPlusJson epJsonTest = new EnergyPlusJson();
 
             string serializedString = JsonConvert.SerializeObject(epJsonTest, Formatting.Indented);
 
             File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\Test_before.json", serializedString);
 
-            JObject jObject = JObject.Parse(serializedString);
-
-            jObject.Property("BHoM_Guid")?.Remove();
-            jObject.Property("Name")?.Remove();
-            jObject.Property("Fragments")?.Remove();
-            jObject.Property("Tags")?.Remove();
-            jObject.Property("CustomData")?.Remove();
-
-
-            JObject newJObject = new JObject(jObject);
-            foreach (var ePGroup in jObject.Properties())
-            {
-                JProperty ePObjectGroup = newJObject.Property(ePGroup.Name);
-                JObject newEPObjectGroupValues = new JObject();
-                switch (ePGroup.Value.Type)
-                {
-                    case JTokenType.Array:
-                        foreach (var epNode in ePGroup.Values())
-                        {
-                            newEPObjectGroupValues.Add(GetEPNodeWithNameAsMainProperty((JObject)epNode));
-                        }
-                        ePObjectGroup.Value = newEPObjectGroupValues;
-                        break;
-                    default:
-                        newEPObjectGroupValues.Add(GetEPNodeWithNameAsMainProperty((JObject)ePGroup.Value));
-                        ePObjectGroup.Value = newEPObjectGroupValues;
-                        break;
-                }
-            }
-
-            serializedString = newJObject.ToString();
-            //serializedString = serializedString.Replace("\"null\"", "\"\"").Replace("null", "\"\"");
 
             File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\Test_after.json", serializedString);
 
@@ -116,20 +83,6 @@ namespace ClientAssemblyGeneration
             //Console.WriteLine(idf);
             //Console.Read();
 
-        }
-
-        static JToken GetEPNodeWithNameAsMainProperty(JObject ePNode)
-        {
-            
-            string name = ePNode.Property("name").Value.ToString();
-            if (name != null)
-            {
-                var valuesByName = new JObject(ePNode);
-                valuesByName.Property("name").Remove();
-                var newProperty = new JProperty(name, valuesByName);
-                return newProperty;
-            }
-            return ePNode;
         }
 
         private static EPJson GetTestBuilding()

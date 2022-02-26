@@ -51,7 +51,7 @@ namespace ClientAssemblyGeneration.Directors
 
             //Build main class
             _clientCodeCompileUnitBuilder.BuildClass(baseNamespaceName, ePJsonClassName, "Ultimate class that can be automatically (de)serialized and simulated.",
-                new CodeTypeReferenceCollection() { "BHoMObject" }); ;
+                new CodeTypeReferenceCollection() { "BHoMObject" },new CodeAttributeDeclarationCollection(){ GetJsonConverterAttributeDeclarations("EnergyPlus_oM.EPJsonJsonConverter") }); ;
 
             //All enums that appear often inside EnergyPlus
             List<string[]> generalEnums = new List<string[]>();

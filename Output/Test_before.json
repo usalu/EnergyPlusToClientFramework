@@ -1,7 +1,6 @@
 {
-  "Branch": [
-    {
-      "name": "Only Water Loop Mixed Supply Inlet Branch",
+  "Branch": {
+    "Only Water Loop Mixed Supply Inlet Branch": {
       "pressure_drop_curve_name": "",
       "components": [
         {
@@ -12,10 +11,9 @@
         }
       ]
     }
-  ],
-  "Boiler:HotWater": [
-    {
-      "name": "Main boiler1",
+  },
+  "Boiler:HotWater": {
+    "Main boiler1": {
       "fuel_type": "Coal",
       "nominal_capacity": "Autosize",
       "nominal_thermal_efficiency": 0.5,
@@ -33,8 +31,7 @@
       "sizing_factor": 1.0,
       "end_use_subcategory": "General"
     },
-    {
-      "name": "Secondary boiler",
+    "Secondary boiler": {
       "fuel_type": "NaturalGas",
       "nominal_capacity": "Autosize",
       "nominal_thermal_efficiency": 0.4,
@@ -52,20 +49,16 @@
       "sizing_factor": 1.0,
       "end_use_subcategory": "General"
     }
-  ],
-  "Building": {
-    "name": "Buildinggg X1",
-    "north_axis": 0.0,
-    "terrain": "Suburbs",
-    "loads_convergence_tolerance_value": 0.04,
-    "temperature_convergence_tolerance_value": 0.4,
-    "solar_distribution": "FullExterior",
-    "maximum_number_of_warmup_days": 25.0,
-    "minimum_number_of_warmup_days": 1.0
   },
-  "BHoM_Guid": "82472683-839d-4e8b-a80d-2eabaedaf9c7",
-  "Name": "",
-  "Fragments": [],
-  "Tags": [],
-  "CustomData": {}
+  "Building": {
+    "Buildinggg X1": {
+      "north_axis": 0.0,
+      "terrain": "Suburbs",
+      "loads_convergence_tolerance_value": 0.04,
+      "temperature_convergence_tolerance_value": 0.4,
+      "solar_distribution": "FullExterior",
+      "maximum_number_of_warmup_days": 25.0,
+      "minimum_number_of_warmup_days": 1.0
+    }
+  }
 }

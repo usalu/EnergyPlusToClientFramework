@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnergyPlus.cs" />
+    <Compile Include="EPJsonJsonConverter.cs" />
     <Compile Include="EPJsonToIDFConverter.cs" />
     <Compile Include="EPNullToAutocalculateJsonConverter.cs" />
     <Compile Include="EPNullToAutosizeJsonConverter.cs" />
