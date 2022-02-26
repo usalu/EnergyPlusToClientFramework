@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.Fans
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -93,7 +94,7 @@ public string AirOutletNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="design_maximum_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignMaximumAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignMaximumAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="speed_control_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -102,7 +103,7 @@ public Fan_SystemModel_SpeedControlMethod SpeedControlMethod { get; set; } = (Fa
         
 
 [JsonProperty(PropertyName="electric_power_minimum_flow_rate_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ElectricPowerMinimumFlowRateFraction { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> ElectricPowerMinimumFlowRateFraction { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="design_pressure_rise", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -110,19 +111,19 @@ public System.Nullable<double> DesignPressureRise { get; set; } = null;
         
 
 [JsonProperty(PropertyName="motor_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorEfficiency { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description("0.0 means fan motor outside of air stream, 1.0 means motor inside of air stream")]
 [JsonProperty(PropertyName="motor_in_air_stream_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorInAirStreamFraction { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorInAirStreamFraction { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Fan power consumption at maximum air flow rate. If autosized the method used to s" +
     "cale power is chosen in the following field")]
 [JsonProperty(PropertyName="design_electric_power_consumption", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignElectricPowerConsumption { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignElectricPowerConsumption { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="design_power_sizing_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -135,11 +136,11 @@ public System.Nullable<double> ElectricPowerPerUnitFlowRate { get; set; } = null
         
 
 [JsonProperty(PropertyName="electric_power_per_unit_flow_rate_per_unit_pressure", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ElectricPowerPerUnitFlowRatePerUnitPressure { get; set; } = (System.Nullable<double>)Double.Parse("1.66667", CultureInfo.InvariantCulture);
+public System.Nullable<double> ElectricPowerPerUnitFlowRatePerUnitPressure { get; set; } = Double.Parse("1.66667", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fan_total_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FanTotalEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> FanTotalEfficiency { get; set; } = Double.Parse("0.7", CultureInfo.InvariantCulture);
         
 
 [Description(@"independent variable is normalized flow rate, current flow divided by Design Maximum Air Flow Rate. dependent variable is modification factor multiplied by Design Power Consumption. This field is required if Speed Control Method is set to Continuous or if the Number of Speeds is greater than 1 and Speed Electric Power Fraction fields are not used.")]
@@ -174,16 +175,16 @@ public System.Nullable<double> MotorLossRadiativeFraction { get; set; } = null;
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
         
 
 [Description(@"number of different speed levels available when Speed Control Method is set to Discrete Speed need to be arranged in increasing order in remaining field sets. If set to 1, or omitted, and Speed Control Method is Discrete then constant fan speed is the design maximum.")]
 [JsonProperty(PropertyName="number_of_speeds", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfSpeeds { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfSpeeds { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="speed_fractions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string SpeedFractions { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.Fans.Fan_SystemModel_SpeedFractions_Item> SpeedFractions { get; set; } = null;
     }
     
     public enum Fan_SystemModel_SpeedControlMethod
@@ -215,6 +216,19 @@ public string SpeedFractions { get; set; } = "";
         TotalEfficiencyAndPressure = 3,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Fan_SystemModel_SpeedFractions_Item
+    {
+        
+
+[JsonProperty(PropertyName="speed_flow_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SpeedFlowFraction { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="speed_electric_power_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SpeedElectricPowerFraction { get; set; } = null;
+    }
+    
     [Description("Constant volume fan that is intended to operate continuously based on a time sche" +
         "dule. This fan will not cycle on and off based on cooling/heating load or other " +
         "control signals.")]
@@ -223,7 +237,8 @@ public string SpeedFractions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -235,7 +250,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="fan_total_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FanTotalEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> FanTotalEfficiency { get; set; } = Double.Parse("0.7", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="pressure_rise", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -244,16 +259,16 @@ public System.Nullable<double> PressureRise { get; set; } = null;
 
 [JsonProperty(PropertyName="maximum_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="motor_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorEfficiency { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description("0.0 means fan motor outside of air stream, 1.0 means motor inside of air stream")]
 [JsonProperty(PropertyName="motor_in_airstream_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorInAirstreamFraction { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorInAirstreamFraction { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="air_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -267,7 +282,7 @@ public string AirOutletNodeName { get; set; } = "";
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     [Description("Variable air volume fan where the electric power input varies according to a perf" +
@@ -277,7 +292,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -289,7 +305,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="fan_total_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FanTotalEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> FanTotalEfficiency { get; set; } = Double.Parse("0.7", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="pressure_rise", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -298,7 +314,7 @@ public System.Nullable<double> PressureRise { get; set; } = null;
 
 [JsonProperty(PropertyName="maximum_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fan_power_minimum_flow_rate_input_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -307,7 +323,7 @@ public Fan_VariableVolume_FanPowerMinimumFlowRateInputMethod FanPowerMinimumFlow
         
 
 [JsonProperty(PropertyName="fan_power_minimum_flow_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FanPowerMinimumFlowFraction { get; set; } = (System.Nullable<double>)Double.Parse("0.25", CultureInfo.InvariantCulture);
+public System.Nullable<double> FanPowerMinimumFlowFraction { get; set; } = Double.Parse("0.25", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fan_power_minimum_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -315,12 +331,12 @@ public System.Nullable<double> FanPowerMinimumAirFlowRate { get; set; } = null;
         
 
 [JsonProperty(PropertyName="motor_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorEfficiency { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description("0.0 means fan motor outside of air stream, 1.0 means motor inside of air stream")]
 [JsonProperty(PropertyName="motor_in_airstream_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorInAirstreamFraction { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorInAirstreamFraction { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("all Fan Power Coefficients should not be 0.0 or no fan power will be consumed. Fa" +
@@ -356,7 +372,7 @@ public string AirOutletNodeName { get; set; } = "";
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum Fan_VariableVolume_FanPowerMinimumFlowRateInputMethod
@@ -380,7 +396,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -392,7 +409,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="fan_total_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FanTotalEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.6", CultureInfo.InvariantCulture);
+public System.Nullable<double> FanTotalEfficiency { get; set; } = Double.Parse("0.6", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="pressure_rise", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -401,16 +418,16 @@ public System.Nullable<double> PressureRise { get; set; } = null;
 
 [JsonProperty(PropertyName="maximum_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="motor_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.8", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorEfficiency { get; set; } = Double.Parse("0.8", CultureInfo.InvariantCulture);
         
 
 [Description("0.0 means fan motor outside of air stream, 1.0 means motor inside of air stream")]
 [JsonProperty(PropertyName="motor_in_airstream_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorInAirstreamFraction { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorInAirstreamFraction { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="air_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -432,7 +449,7 @@ public string FanEfficiencyRatioFunctionOfSpeedRatioCurveName { get; set; } = ""
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     [Description("Models a fan that exhausts air from a zone.")]
@@ -441,7 +458,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -453,7 +471,7 @@ public string AvailabilityScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="fan_total_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FanTotalEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.6", CultureInfo.InvariantCulture);
+public System.Nullable<double> FanTotalEfficiency { get; set; } = Double.Parse("0.6", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="pressure_rise", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -475,7 +493,7 @@ public string AirOutletNodeName { get; set; } = "";
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
         
 
 [Description("If field is used, then when fan runs the exhausted air flow rate is controlled to" +
@@ -536,7 +554,7 @@ public System.Nullable<double> PressureRise { get; set; } = null;
 
 [JsonProperty(PropertyName="maximum_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="motor_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -545,7 +563,7 @@ public System.Nullable<double> MotorEfficiency { get; set; } = null;
 
 [Description("0.0 means fan motor outside of airstream 1.0 means fan motor inside of airstream")]
 [JsonProperty(PropertyName="motor_in_airstream_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorInAirstreamFraction { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorInAirstreamFraction { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     [Description("A detailed fan type for constant-air-volume (CAV) and variable-air-volume (VAV) s" +
@@ -556,7 +574,8 @@ public System.Nullable<double> MotorInAirstreamFraction { get; set; } = (System.
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -577,17 +596,17 @@ public string AvailabilityScheduleName { get; set; } = "";
 
 [JsonProperty(PropertyName="maximum_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="minimum_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MinimumFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Applied to specified or autosized max fan airflow")]
 [JsonProperty(PropertyName="fan_sizing_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FanSizingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FanSizingFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Diameter of wheel outer circumference")]
@@ -620,23 +639,23 @@ public System.Nullable<double> MaximumDimensionlessFanAirflow { get; set; } = nu
 [Description("Ratio of motor pulley diameter to fan pulley diameter")]
 [JsonProperty(PropertyName="motor_fan_pulley_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MotorFanPulleyRatio { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorFanPulleyRatio { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Maximum torque transmitted by belt")]
 [JsonProperty(PropertyName="belt_maximum_torque", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> BeltMaximumTorque { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> BeltMaximumTorque { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Applied to specified or autosized max torque transmitted by belt")]
 [JsonProperty(PropertyName="belt_sizing_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BeltSizingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> BeltSizingFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Region 1 to 2 curve transition for belt normalized efficiency")]
 [JsonProperty(PropertyName="belt_fractional_torque_transition", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BeltFractionalTorqueTransition { get; set; } = (System.Nullable<double>)Double.Parse("0.167", CultureInfo.InvariantCulture);
+public System.Nullable<double> BeltFractionalTorqueTransition { get; set; } = Double.Parse("0.167", CultureInfo.InvariantCulture);
         
 
 [Description("Maximum rotational speed of fan motor shaft")]
@@ -647,17 +666,17 @@ public System.Nullable<double> MotorMaximumSpeed { get; set; } = null;
 [Description("Maximum power input to drive belt by motor")]
 [JsonProperty(PropertyName="maximum_motor_output_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumMotorOutputPower { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumMotorOutputPower { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Applied to specified or autosized motor output power")]
 [JsonProperty(PropertyName="motor_sizing_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorSizingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorSizingFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("0.0 means motor outside air stream 1.0 means motor inside air stream")]
 [JsonProperty(PropertyName="motor_in_airstream_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorInAirstreamFraction { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorInAirstreamFraction { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Efficiency depends on fraction of full-load motor speed Efficiency depends on  fr" +
@@ -671,12 +690,12 @@ public Fan_ComponentModel_VfdEfficiencyType VfdEfficiencyType { get; set; } = (F
 [Description("Maximum power input to motor by VFD")]
 [JsonProperty(PropertyName="maximum_vfd_output_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumVfdOutputPower { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumVfdOutputPower { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Applied to specified or autosized VFD output power")]
 [JsonProperty(PropertyName="vfd_sizing_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> VfdSizingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> VfdSizingFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Pressure rise depends on volumetric flow, system resistances, system leakage, and" +
@@ -759,7 +778,7 @@ public string VfdEfficiencyCurveName { get; set; } = "";
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum Fan_ComponentModel_VfdEfficiencyType

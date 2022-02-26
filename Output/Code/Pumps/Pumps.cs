@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.Pumps
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -87,53 +88,53 @@ public string OutletNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="design_maximum_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignMaximumFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignMaximumFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("default head is 60 feet")]
 [JsonProperty(PropertyName="design_pump_head", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignPumpHead { get; set; } = (System.Nullable<double>)Double.Parse("179352", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignPumpHead { get; set; } = Double.Parse("179352", CultureInfo.InvariantCulture);
         
 
 [Description("When autosized the type of scaling factor is chosen in the input field Design Pow" +
     "er Sizing Method")]
 [JsonProperty(PropertyName="design_power_consumption", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignPowerConsumption { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignPowerConsumption { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("This is the motor efficiency only. When the Design Power Consumption is autosized" +
     " using PowerPerFlowPerPressure, the Design Shaft Power per Unit Flow Rate per Un" +
     "it Head is used in addition to the motor efficiency.")]
 [JsonProperty(PropertyName="motor_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorEfficiency { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_of_motor_inefficiencies_to_fluid_stream", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfMotorInefficienciesToFluidStream { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfMotorInefficienciesToFluidStream { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coefficient_1_of_the_part_load_performance_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Coefficient1OfThePartLoadPerformanceCurve { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Coefficient1OfThePartLoadPerformanceCurve { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coefficient_2_of_the_part_load_performance_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Coefficient2OfThePartLoadPerformanceCurve { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Coefficient2OfThePartLoadPerformanceCurve { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coefficient_3_of_the_part_load_performance_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Coefficient3OfThePartLoadPerformanceCurve { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Coefficient3OfThePartLoadPerformanceCurve { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coefficient_4_of_the_part_load_performance_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Coefficient4OfThePartLoadPerformanceCurve { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Coefficient4OfThePartLoadPerformanceCurve { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("When autosized the scaling factor is the input field Design Minimum Flow Rate Fra" +
     "ction")]
 [JsonProperty(PropertyName="design_minimum_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignMinimumFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignMinimumFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="pump_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -205,24 +206,24 @@ public Pump_VariableSpeed_DesignPowerSizingMethod DesignPowerSizingMethod { get;
 
 [Description("Used to size Design Power Consumption from design flow rate")]
 [JsonProperty(PropertyName="design_electric_power_per_unit_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignElectricPowerPerUnitFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("348701.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignElectricPowerPerUnitFlowRate { get; set; } = Double.Parse("348701.1", CultureInfo.InvariantCulture);
         
 
 [Description("Used to size Design Power Consumption from design flow rate for head and motor ef" +
     "ficiency")]
 [JsonProperty(PropertyName="design_shaft_power_per_unit_flow_rate_per_unit_head", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignShaftPowerPerUnitFlowRatePerUnitHead { get; set; } = (System.Nullable<double>)Double.Parse("1.282051282", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignShaftPowerPerUnitFlowRatePerUnitHead { get; set; } = Double.Parse("1.282051282", CultureInfo.InvariantCulture);
         
 
 [Description("Used to size Design Minimum Flow Rate")]
 [JsonProperty(PropertyName="design_minimum_flow_rate_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignMinimumFlowRateFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignMinimumFlowRateFraction { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum Pump_VariableSpeed_PumpControlType
@@ -267,7 +268,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -282,30 +284,30 @@ public string OutletNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("default head is 60 feet")]
 [JsonProperty(PropertyName="design_pump_head", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignPumpHead { get; set; } = (System.Nullable<double>)Double.Parse("179352", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignPumpHead { get; set; } = Double.Parse("179352", CultureInfo.InvariantCulture);
         
 
 [Description("When autosized the type of scaling factor is chosen in the input field Design Pow" +
     "er Sizing Method")]
 [JsonProperty(PropertyName="design_power_consumption", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignPowerConsumption { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignPowerConsumption { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("This is the motor efficiency only. When the Design Power Consumption is autosized" +
     " using PowerPerFlowPerPressure, the Design Shaft Power per Unit Flow Rate per Un" +
     "it Head is used in addition to the motor efficiency.")]
 [JsonProperty(PropertyName="motor_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorEfficiency { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_of_motor_inefficiencies_to_fluid_stream", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfMotorInefficienciesToFluidStream { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfMotorInefficienciesToFluidStream { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="pump_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -354,19 +356,19 @@ public Pump_ConstantSpeed_DesignPowerSizingMethod DesignPowerSizingMethod { get;
 
 [Description("Used to size Design Power Consumption from design flow rate")]
 [JsonProperty(PropertyName="design_electric_power_per_unit_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignElectricPowerPerUnitFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("348701.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignElectricPowerPerUnitFlowRate { get; set; } = Double.Parse("348701.1", CultureInfo.InvariantCulture);
         
 
 [Description("Used to size Design Power Consumption from design flow rate for head and motor ef" +
     "ficiency")]
 [JsonProperty(PropertyName="design_shaft_power_per_unit_flow_rate_per_unit_head", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignShaftPowerPerUnitFlowRatePerUnitHead { get; set; } = (System.Nullable<double>)Double.Parse("1.282051282", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignShaftPowerPerUnitFlowRatePerUnitHead { get; set; } = Double.Parse("1.282051282", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum Pump_ConstantSpeed_PumpControlType
@@ -402,7 +404,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -419,46 +422,46 @@ public string OutletNodeName { get; set; } = "";
     " lower and calculated from steam density")]
 [JsonProperty(PropertyName="design_steam_volume_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignSteamVolumeFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignSteamVolumeFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("default head is 60 feet")]
 [JsonProperty(PropertyName="design_pump_head", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignPumpHead { get; set; } = (System.Nullable<double>)Double.Parse("179352", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignPumpHead { get; set; } = Double.Parse("179352", CultureInfo.InvariantCulture);
         
 
 [Description("When autosized the type of scaling factor is chosen in the input field Design Pow" +
     "er Sizing Method")]
 [JsonProperty(PropertyName="design_power_consumption", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignPowerConsumption { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignPowerConsumption { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("This is the motor efficiency only. When the Design Power Consumption is autosized" +
     " using PowerPerFlowPerPressure, the Design Shaft Power per Unit Flow Rate per Un" +
     "it Head is used in addition to the motor efficiency.")]
 [JsonProperty(PropertyName="motor_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorEfficiency { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_of_motor_inefficiencies_to_fluid_stream", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfMotorInefficienciesToFluidStream { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfMotorInefficienciesToFluidStream { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coefficient_1_of_the_part_load_performance_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Coefficient1OfThePartLoadPerformanceCurve { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Coefficient1OfThePartLoadPerformanceCurve { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coefficient_2_of_the_part_load_performance_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Coefficient2OfThePartLoadPerformanceCurve { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Coefficient2OfThePartLoadPerformanceCurve { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coefficient_3_of_the_part_load_performance_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Coefficient3OfThePartLoadPerformanceCurve { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Coefficient3OfThePartLoadPerformanceCurve { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coefficient_4_of_the_part_load_performance_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Coefficient4OfThePartLoadPerformanceCurve { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Coefficient4OfThePartLoadPerformanceCurve { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Modifies the rated flow rate of the pump on a time basis. Default is that the pum" +
@@ -487,19 +490,19 @@ public Pump_VariableSpeed_Condensate_DesignPowerSizingMethod DesignPowerSizingMe
 
 [Description("Used to size Design Power Consumption from design flow rate")]
 [JsonProperty(PropertyName="design_electric_power_per_unit_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignElectricPowerPerUnitFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("348701.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignElectricPowerPerUnitFlowRate { get; set; } = Double.Parse("348701.1", CultureInfo.InvariantCulture);
         
 
 [Description("Used to size Design Power Consumption from design flow rate for head and motor ef" +
     "ficiency")]
 [JsonProperty(PropertyName="design_shaft_power_per_unit_flow_rate_per_unit_head", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignShaftPowerPerUnitFlowRatePerUnitHead { get; set; } = (System.Nullable<double>)Double.Parse("1.282051282", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignShaftPowerPerUnitFlowRatePerUnitHead { get; set; } = Double.Parse("1.282051282", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum Pump_VariableSpeed_Condensate_DesignPowerSizingMethod
@@ -522,7 +525,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -539,7 +543,7 @@ public string OutletNodeName { get; set; } = "";
     "ps are running at full load")]
 [JsonProperty(PropertyName="total_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> TotalDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> TotalDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="number_of_pumps_in_bank", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -553,7 +557,7 @@ public HeaderedPumps_ConstantSpeed_FlowSequencingControlScheme FlowSequencingCon
 
 [Description("default head is 60 feet")]
 [JsonProperty(PropertyName="design_pump_head", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignPumpHead { get; set; } = (System.Nullable<double>)Double.Parse("179352", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignPumpHead { get; set; } = Double.Parse("179352", CultureInfo.InvariantCulture);
         
 
 [Description("If the field is not autosized set to the power consumed by the pump bank when all" +
@@ -561,18 +565,18 @@ public System.Nullable<double> DesignPumpHead { get; set; } = (System.Nullable<d
     " is chosen in the input field Design Power Sizing Method")]
 [JsonProperty(PropertyName="design_power_consumption", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignPowerConsumption { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignPowerConsumption { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("This is the motor efficiency only. When the Design Power Consumption is autosized" +
     " using PowerPerFlowPerPressure, the Design Shaft Power per Unit Flow Rate per Un" +
     "it Head is used in addition to the motor efficiency.")]
 [JsonProperty(PropertyName="motor_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorEfficiency { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_of_motor_inefficiencies_to_fluid_stream", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfMotorInefficienciesToFluidStream { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfMotorInefficienciesToFluidStream { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="pump_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -606,19 +610,19 @@ public HeaderedPumps_ConstantSpeed_DesignPowerSizingMethod DesignPowerSizingMeth
 
 [Description("Used to size Design Power Consumption from design flow rate")]
 [JsonProperty(PropertyName="design_electric_power_per_unit_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignElectricPowerPerUnitFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("348701.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignElectricPowerPerUnitFlowRate { get; set; } = Double.Parse("348701.1", CultureInfo.InvariantCulture);
         
 
 [Description("Used to size Design Power Consumption from design flow rate for head and motor ef" +
     "ficiency")]
 [JsonProperty(PropertyName="design_shaft_power_per_unit_flow_rate_per_unit_head", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignShaftPowerPerUnitFlowRatePerUnitHead { get; set; } = (System.Nullable<double>)Double.Parse("1.282051282", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignShaftPowerPerUnitFlowRatePerUnitHead { get; set; } = Double.Parse("1.282051282", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum HeaderedPumps_ConstantSpeed_FlowSequencingControlScheme
@@ -664,7 +668,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -681,7 +686,7 @@ public string OutletNodeName { get; set; } = "";
     "ps are running at full load")]
 [JsonProperty(PropertyName="total_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> TotalDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> TotalDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="number_of_pumps_in_bank", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -695,7 +700,7 @@ public HeaderedPumps_VariableSpeed_FlowSequencingControlScheme FlowSequencingCon
 
 [Description("default head is 60 feet")]
 [JsonProperty(PropertyName="design_pump_head", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignPumpHead { get; set; } = (System.Nullable<double>)Double.Parse("179352", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignPumpHead { get; set; } = Double.Parse("179352", CultureInfo.InvariantCulture);
         
 
 [Description("If the field is not autosized set to the power consumed by the pump bank when all" +
@@ -703,39 +708,39 @@ public System.Nullable<double> DesignPumpHead { get; set; } = (System.Nullable<d
     " is chosen in the input field Design Power Sizing Method")]
 [JsonProperty(PropertyName="design_power_consumption", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignPowerConsumption { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignPowerConsumption { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("This is the motor efficiency only. When the Design Power Consumption is autosized" +
     " using PowerPerFlowPerPressure, the Design Shaft Power per Unit Flow Rate per Un" +
     "it Head is used in addition to the motor efficiency.")]
 [JsonProperty(PropertyName="motor_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorEfficiency { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_of_motor_inefficiencies_to_fluid_stream", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfMotorInefficienciesToFluidStream { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfMotorInefficienciesToFluidStream { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coefficient_1_of_the_part_load_performance_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Coefficient1OfThePartLoadPerformanceCurve { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Coefficient1OfThePartLoadPerformanceCurve { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coefficient_2_of_the_part_load_performance_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Coefficient2OfThePartLoadPerformanceCurve { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Coefficient2OfThePartLoadPerformanceCurve { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coefficient_3_of_the_part_load_performance_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Coefficient3OfThePartLoadPerformanceCurve { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Coefficient3OfThePartLoadPerformanceCurve { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coefficient_4_of_the_part_load_performance_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Coefficient4OfThePartLoadPerformanceCurve { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Coefficient4OfThePartLoadPerformanceCurve { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This value can be zero and will be defaulted to that if not specified.")]
 [JsonProperty(PropertyName="minimum_flow_rate_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumFlowRateFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumFlowRateFraction { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="pump_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -769,19 +774,19 @@ public HeaderedPumps_VariableSpeed_DesignPowerSizingMethod DesignPowerSizingMeth
 
 [Description("Used to size Design Power Consumption from design flow rate")]
 [JsonProperty(PropertyName="design_electric_power_per_unit_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignElectricPowerPerUnitFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("348701.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignElectricPowerPerUnitFlowRate { get; set; } = Double.Parse("348701.1", CultureInfo.InvariantCulture);
         
 
 [Description("Used to size Design Power Consumption from design flow rate for head and motor ef" +
     "ficiency")]
 [JsonProperty(PropertyName="design_shaft_power_per_unit_flow_rate_per_unit_head", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignShaftPowerPerUnitFlowRatePerUnitHead { get; set; } = (System.Nullable<double>)Double.Parse("1.282051282", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignShaftPowerPerUnitFlowRatePerUnitHead { get; set; } = Double.Parse("1.282051282", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum HeaderedPumps_VariableSpeed_FlowSequencingControlScheme

@@ -46,8 +46,8 @@ namespace ClientAssemblyGeneration.Directors
 
 
             //Build base namespace
-            _clientCodeCompileUnitBuilder.BuildNamespace(baseNamespaceName, "", systemImports.Union(namespaceNames.Select(x=>new CodeNamespaceImport(x))).ToArray());
-            string ePJsonClassName = "EnergyPlusJson";
+            _clientCodeCompileUnitBuilder.BuildNamespace(baseNamespaceName, systemImports.Union(namespaceNames.Select(x=>new CodeNamespaceImport(x))).ToArray());
+            string ePJsonClassName = "EPJson";
 
             //Build main class
             _clientCodeCompileUnitBuilder.BuildClass(baseNamespaceName, ePJsonClassName, "Ultimate class that can be automatically (de)serialized and simulated.",
@@ -63,7 +63,7 @@ namespace ClientAssemblyGeneration.Directors
 
             generalEnums.Add(EmptyNoYesEnum);
 
-            //string[] HeatTransferAlgorithmEnum = new String[] { "", "CombinedHeatAndMoistureFiniteElement", "ConductionFiniteDifference", "ConductionTransferFunction", "MoisturePenetrationDepthConductionTransferFunction"};
+            //string[] HeatTransferAlgorithmEnum = new string[] { "", "CombinedHeatAndMoistureFiniteElement", "ConductionFiniteDifference", "ConductionTransferFunction", "MoisturePenetrationDepthConductionTransferFunction"};
             //string HeatTransferAlgorithmEnumName = "HeatTransferAlgorithm";
             //_clientCodeCompileUnitBuilder.BuildEnum(baseNamespaceName, HeatTransferAlgorithmEnumName, HeatTransferAlgorithmEnum
             //    .Select(x => (StripEPFieldNameToCamelCase(x), "", GetJsonPropertyAttributeDeclarations(x))).ToArray());
@@ -80,7 +80,7 @@ namespace ClientAssemblyGeneration.Directors
                 var ePGroupNamespaceImports = namespaceNames.Where(x => x != namespaceName)
                     .Select(x => new CodeNamespaceImport(baseNamespaceName + "." + x))
                     .ToArray();
-                _clientCodeCompileUnitBuilder.BuildNamespace(fullNamespaceName, "", new CodeNamespaceImport[] { new CodeNamespaceImport(baseNamespaceName) }.Union(systemImports.Union(ePGroupNamespaceImports)).ToArray());
+                _clientCodeCompileUnitBuilder.BuildNamespace(fullNamespaceName, new CodeNamespaceImport[] { new CodeNamespaceImport(baseNamespaceName) }.Union(systemImports.Union(ePGroupNamespaceImports)).ToArray());
 
                 //Filling namespaces with ePObjects -> classes and the ePFields -> fields and enumerable type of fields -> enums
                 foreach (KeyValuePair<string, EPObjectJsonSchemeProperty> ePObject in ePGroup)
@@ -104,7 +104,9 @@ namespace ClientAssemblyGeneration.Directors
                     if (ePObjectJsonSchemeProperty.EPName!=null)
                     {
                         _clientCodeCompileUnitBuilder.BuildProperty(fullNamespaceName, className, "NodeName",
-                            new CodeTypeReference(typeof(string)), "", "This will be the main key of this instance.", new CodeAttributeDeclarationCollection(){GetJsonPropertyAttributeDeclarations("name")});
+                            new CodeTypeReference(typeof(string)), "", "This will be the main key of this instance. " +
+                                                                       "It will be the main key of the serialization and all other properties will be sub properties of this key.", 
+                            new CodeAttributeDeclarationCollection(){GetJsonPropertyAttributeDeclarations("name")});
                     }
 
                     //In the current tested schemas only these two pattern properties appear
@@ -116,13 +118,14 @@ namespace ClientAssemblyGeneration.Directors
                     {
                         EPFieldProperty epFieldProperty = epPatternProperty.Value;
                         string epFieldPropertyName = StripEPFieldNameToCamelCase(epPatternProperty.Key);
+                        string fieldDescription = epFieldProperty.EPNote ?? "";
 
                         //Type of object. Default: string
                         CodeTypeReference ePPatternPropertyTypeReference = new CodeTypeReference(typeof(string));
                         string converter = "";
-                        string defaultValue = (epFieldProperty.Default != null) ?
-                            ((epFieldProperty.Default.Value.Double == null) ?
-                                epFieldProperty.Default.Value.String
+                        string defaultValue = (epFieldProperty.Default != null)
+                            ? ((epFieldProperty.Default.Value.Double == null)
+                                ? epFieldProperty.Default.Value.String
                                 : epFieldProperty.Default.Value.Double.ToString())
                             : "";
 
@@ -132,13 +135,13 @@ namespace ClientAssemblyGeneration.Directors
                         {
                             switch (epFieldProperty.EPType)
                             {
-                                case EPFieldType.Number:
+                                case EPFieldType.number:
                                     ePPatternPropertyTypeReference = new CodeTypeReference(typeof(double?));
                                     break;
-                                case EPFieldType.String:
-                                    if (epFieldProperty.EPEnum != null)
+                                case EPFieldType.@string:
+                                    if (epFieldProperty.Enum != null)
                                     {
-                                        if (epFieldProperty.EPEnum.SequenceEqual(EmptyNoYesEnum))
+                                        if (epFieldProperty.Enum.SequenceEqual(EmptyNoYesEnum))
                                         {
                                             ePPatternPropertyTypeReference = new CodeTypeReference(EmptyNoYesEnumName);
                                         }
@@ -147,7 +150,7 @@ namespace ClientAssemblyGeneration.Directors
                                             string propertyTypeName =
                                                 className + "_" + StripEPFieldNameToCamelCase(epPatternProperty.Key);
                                             _clientCodeCompileUnitBuilder.BuildEnum(fullNamespaceName, propertyTypeName,
-                                                epFieldProperty.EPEnum.Select(x => (StripEPFieldNameToCamelCase(x), "",
+                                                epFieldProperty.Enum.Select(x => (StripEPFieldNameToCamelCase(x), "",
                                                     new CodeAttributeDeclarationCollection()
                                                         {GetEnumMemberAttributeDeclarationDeclarations(x)})).ToArray(),
                                                 "");
@@ -155,52 +158,100 @@ namespace ClientAssemblyGeneration.Directors
                                         }
 
                                         //Makes sure the values are converted not to int but the specified values
-                                        converter= "Newtonsoft.Json.Converters.StringEnumConverter";
+                                        converter = "Newtonsoft.Json.Converters.StringEnumConverter";
                                     }
 
                                     break;
-                                case EPFieldType.Array:
+                                case EPFieldType.@object:
+                                case EPFieldType.array:
+                                    if (epFieldProperty.Items.Properties.Count==1)
+                                    {
+                                        var epCollectionProperty = epFieldProperty.Items.Properties.First();
+                                        var epCollectionPropertyValue = epCollectionProperty.Value;
+                                        if (epCollectionPropertyValue.EPType == EPFieldType.@string)
+                                        {
+                                            var arrayTypeReference = new CodeTypeReference(typeof(List<string>));
+                                            ePPatternPropertyTypeReference = arrayTypeReference;
+                                            if (fieldDescription == "")
+                                            {
+                                                if (epCollectionPropertyValue.ObjectList != null)
+                                                    fieldDescription = "This list is the " + epCollectionPropertyValue.ObjectList[0] + " object-list";
+                                            }
+                                        }
+                                      
+                                    }
+                                    else
+                                    {
+                                        string arrayItemClassName =
+                                            className + "_" + StripEPFieldNameToCamelCase(epPatternProperty.Key) + "_" + "Item";
+                                        _clientCodeCompileUnitBuilder.BuildClass(fullNamespaceName, arrayItemClassName, "",
+                                            null,
+                                            new CodeAttributeDeclarationCollection()
+                                                {GetOnlyDeclaredPropertiesAttributeDeclarations()});
+
+                                        foreach (var arrayItemProperty in epFieldProperty.Items.Properties)
+                                        {
+                                            EPFieldProperty arrayField = arrayItemProperty.Value;
+                                            CodeTypeReference arrayItemPropertyType;
+
+
+                                            switch (arrayField.EPType)
+                                            {
+                                                case EPFieldType.number:
+                                                    arrayItemPropertyType = new CodeTypeReference(typeof(double?));
+                                                    break;
+                                                case EPFieldType.@string:
+                                                default:
+                                                    arrayItemPropertyType = new CodeTypeReference(typeof(string));
+                                                    break;
+                                            }
+
+                                            string arrayItemPropertyName =
+                                                StripEPFieldNameToCamelCase(arrayItemProperty.Key);
+                                            _clientCodeCompileUnitBuilder.BuildProperty(fullNamespaceName,
+                                                arrayItemClassName, arrayItemPropertyName,
+                                                arrayItemPropertyType, "", "", new CodeAttributeDeclarationCollection(){ GetJsonPropertyAttributeDeclarations(arrayItemProperty.Key) });
+                                        }
+
+
+                                        var arrayTypeReference = new CodeTypeReference(typeof(List<>))
+                                        {
+                                            TypeArguments = { fullNamespaceName + "." + arrayItemClassName }
+                                        };
+                                        ePPatternPropertyTypeReference = arrayTypeReference;
+                                    }
                                     break;
                             }
                         }
-                        else if (epFieldProperty.AnyOf!=null)
+                        // Set values for hybrid system.
+                        else if (epFieldProperty.AnyOf != null)
                         {
                             foreach (var fieldTypes in epFieldProperty.AnyOf)
                             {
-                                if (fieldTypes.EPType == EPFieldType.String)
+                                if (fieldTypes.EPType == EPFieldType.@string)
                                 {
-                                    if (fieldTypes.EPEnum!=null)
+                                    if (fieldTypes.Enum != null)
                                     {
-                                        if (fieldTypes.EPEnum.Contains("Autosize"))
+                                        if (fieldTypes.Enum.Contains("Autosize"))
                                         {
                                             converter = "EnergyPlus_oM.EPNullToAutosizeJsonConverter";
                                             //defaultValue = null;
                                             defaultValue = Properties.Resources.autosizableValue;
                                         }
-                                        else if (fieldTypes.EPEnum.Contains("Autocalculate"))
+                                        else if (fieldTypes.Enum.Contains("Autocalculate"))
                                         {
                                             converter = "EnergyPlus_oM.EPNullToAutocalculateJsonConverter";
                                             //defaultValue = null;
                                             defaultValue = Properties.Resources.autosizableValue;
                                         }
+
                                         ePPatternPropertyTypeReference = new CodeTypeReference(typeof(double?));
                                     }
-                                    else
-                                    {
-                                        
-                                    }
-                                  
                                 }
-                                else
-                                {
-                                    
-                                }
-                                   
                             }
                         }
-
-
-                        _clientCodeCompileUnitBuilder.BuildProperty(fullNamespaceName, className, epFieldPropertyName, ePPatternPropertyTypeReference, defaultValue, epFieldProperty.EPNote ?? "",
+                        
+                        _clientCodeCompileUnitBuilder.BuildProperty(fullNamespaceName, className, epFieldPropertyName, ePPatternPropertyTypeReference, defaultValue, fieldDescription,
                             (converter=="")?
                                 new CodeAttributeDeclarationCollection(){GetJsonPropertyAttributeDeclarations(epPatternProperty.Key,true) }
                                 : new CodeAttributeDeclarationCollection(){ GetJsonPropertyAttributeDeclarations(epPatternProperty.Key, true), GetJsonConverterAttributeDeclarations(converter) });
@@ -210,12 +261,14 @@ namespace ClientAssemblyGeneration.Directors
                     //Building Property in EPJson class
                     CodeTypeReference propertyType;
                     string propertyName;
+                    string defaultPropertyValue = "";
 
                     if (ePObjectJsonSchemeProperty.MaxProperties == 1)
                     {
                         propertyType = new CodeTypeReference(fullNamespaceName + "." + className);
                         propertyName = className;
 
+                        //defaultPropertyValue = "new " + fullNamespaceName + "." + className + " ()";
                     }
                     else
                     {
@@ -243,10 +296,22 @@ namespace ClientAssemblyGeneration.Directors
                         //};
                         //propertyName = className + "_Dictionary";
 
+                        defaultPropertyValue = "new System.Collections.Generic.List<" + fullNamespaceName + "." + className + "> ()";
+
+                        //For comfort, not performance empty list will be automatically instantiated so the values can just be added.
+                        //In order for them to only serialize when there are items an additional method needs be created
+                        //See: https://www.newtonsoft.com/json/help/html/ConditionalProperties.htm
+                        CodeBinaryOperatorExpression countGreaterZero = new CodeBinaryOperatorExpression(
+                            new CodePropertyReferenceExpression(new CodeTypeReferenceExpression(propertyName), "Count"), CodeBinaryOperatorType.GreaterThan, new CodePrimitiveExpression(0));
+                        _clientCodeCompileUnitBuilder.BuildMethod(baseNamespaceName, ePJsonClassName, "ShouldSerialize" + propertyName,
+                            new CodeStatementCollection() { new CodeMethodReturnStatement(countGreaterZero) },
+                            new CodeTypeReference(typeof(bool)), null, "", null);
+
                     }
 
-                    _clientCodeCompileUnitBuilder.BuildProperty(baseNamespaceName, ePJsonClassName, propertyName, propertyType, "","",
+                    _clientCodeCompileUnitBuilder.BuildProperty(baseNamespaceName, ePJsonClassName, propertyName, propertyType, defaultPropertyValue, "",
                         new CodeAttributeDeclarationCollection(){ GetJsonPropertyAttributeDeclarations(ePObject.Key)});
+
                 }
 
             }

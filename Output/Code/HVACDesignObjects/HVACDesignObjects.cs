@@ -73,7 +73,8 @@ namespace BH.oM.Adapters.EnergyPlus.HVACDesignObjects
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -86,25 +87,25 @@ public DesignSpecification_OutdoorAir_OutdoorAirMethod OutdoorAirMethod { get; s
 
 [Description(@"0.00944 m3/s is equivalent to 20 cfm per person This input is only used if the field Outdoor Air Method is Flow/Person, Sum, or Maximum For sizing, the design number of occupants is used. For outdoor air flow control, the use of design occupants or current occupants depends on the component and DCV options. AirTerminal:SingleDuct:VAV:NoReheat, AirTerminal:SingleDuct:VAV:Reheat use the DCV flag specified in Controller:MechanicalVentilation AirTerminal:DualDuct:VAV:OutdoorAir and ZoneHVAC:IdealLoadsAirSystem have their own DCV control input. ZoneHVAC:FourPipeFanCoil always uses current occupants.")]
 [JsonProperty(PropertyName="outdoor_air_flow_per_person", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OutdoorAirFlowPerPerson { get; set; } = (System.Nullable<double>)Double.Parse("0.00944", CultureInfo.InvariantCulture);
+public System.Nullable<double> OutdoorAirFlowPerPerson { get; set; } = Double.Parse("0.00944", CultureInfo.InvariantCulture);
         
 
 [Description("This input is only used if the field Outdoor Air Method is Flow/Area, Sum, or Max" +
     "imum")]
 [JsonProperty(PropertyName="outdoor_air_flow_per_zone_floor_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OutdoorAirFlowPerZoneFloorArea { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OutdoorAirFlowPerZoneFloorArea { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This input is only used if the field Outdoor Air Method is Flow/Zone, Sum, or Max" +
     "imum")]
 [JsonProperty(PropertyName="outdoor_air_flow_per_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OutdoorAirFlowPerZone { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OutdoorAirFlowPerZone { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This input is only used if the field Outdoor Air Method is AirChanges/Hour, Sum, " +
     "or Maximum")]
 [JsonProperty(PropertyName="outdoor_air_flow_air_changes_per_hour", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OutdoorAirFlowAirChangesPerHour { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OutdoorAirFlowAirChangesPerHour { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"Schedule values are multiplied by the Outdoor Air Flow rate calculated using the previous four inputs. Schedule values are limited to 0 to 1. If left blank, the schedule defaults to 1.0. This schedule is ignored during sizing. All other components which reference this design specification use the current schedule value to calculate the current outdoor air requirement. This includes AirTerminal:SingleDuct:VAV:NoReheat, AirTerminal:SingleDuct:VAV:Reheat, AirTerminal:DualDuct:VAV:OutdoorAir, ZoneHVAC:FourPipeFanCoil, and ZoneHVAC:IdealLoadsAirSystem. This schedule will also be applied by Controller:MechanicalVentilation for all System Outdoor Air Methods.")]
@@ -161,17 +162,18 @@ public string ProportionalControlMinimumOutdoorAirFlowRateScheduleName { get; se
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="zone_air_distribution_effectiveness_in_cooling_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZoneAirDistributionEffectivenessInCoolingMode { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZoneAirDistributionEffectivenessInCoolingMode { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="zone_air_distribution_effectiveness_in_heating_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZoneAirDistributionEffectivenessInHeatingMode { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZoneAirDistributionEffectivenessInHeatingMode { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("optionally used to replace Zone Air Distribution Effectiveness in Cooling and Hea" +
@@ -181,11 +183,11 @@ public string ZoneAirDistributionEffectivenessScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="zone_secondary_recirculation_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZoneSecondaryRecirculationFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZoneSecondaryRecirculationFraction { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="minimum_zone_ventilation_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumZoneVentilationEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumZoneVentilationEfficiency { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description(@"Specifies global heating and cooling sizing factors/ratios. These ratios are applied at the zone level to all of the zone heating and cooling loads and air flow rates. Then these new loads and air flow rates are used to calculate the system level flow rates and capacities and are used in all component sizing calculations. Specifies the width (in load timesteps) of a moving average window which is used to smooth the peak load across more than one timestep.")]
@@ -195,11 +197,11 @@ public System.Nullable<double> MinimumZoneVentilationEfficiency { get; set; } = 
         
 
 [JsonProperty(PropertyName="heating_sizing_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeatingSizingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingSizingFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="cooling_sizing_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoolingSizingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingSizingFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("blank => set the timesteps in averaging window to Number of Timesteps per Hour re" +
@@ -281,25 +283,25 @@ public Sizing_Zone_CoolingDesignAirFlowMethod CoolingDesignAirFlowMethod { get; 
 [Description("This input is used if Cooling Design Air Flow Method is Flow/Zone This value will" +
     " be multiplied by the global or zone sizing factor and by zone multipliers.")]
 [JsonProperty(PropertyName="cooling_design_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoolingDesignAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingDesignAirFlowRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("default is .15 cfm/ft2 This input is used if Cooling Design Air Flow Method is De" +
     "signDayWithLimit")]
 [JsonProperty(PropertyName="cooling_minimum_air_flow_per_zone_floor_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoolingMinimumAirFlowPerZoneFloorArea { get; set; } = (System.Nullable<double>)Double.Parse("0.000762", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingMinimumAirFlowPerZoneFloorArea { get; set; } = Double.Parse("0.000762", CultureInfo.InvariantCulture);
         
 
 [Description("This input is used if Cooling Design Air Flow Method is DesignDayWithLimit")]
 [JsonProperty(PropertyName="cooling_minimum_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoolingMinimumAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingMinimumAirFlow { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("fraction of the Cooling design Air Flow Rate This input is currently used in sizi" +
     "ng the VAV air terminal unit and fan minimum flow rate It does not currently aff" +
     "ect other component autosizing.")]
 [JsonProperty(PropertyName="cooling_minimum_air_flow_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoolingMinimumAirFlowFraction { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingMinimumAirFlowFraction { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="heating_design_air_flow_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -310,26 +312,26 @@ public Sizing_Zone_HeatingDesignAirFlowMethod HeatingDesignAirFlowMethod { get; 
 [Description("This input is used if Heating Design Air Flow Method is Flow/Zone. This value wil" +
     "l be multiplied by the global or zone sizing factor and by zone multipliers.")]
 [JsonProperty(PropertyName="heating_design_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeatingDesignAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingDesignAirFlowRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("default is .40 cfm/ft2 This field is used to size the heating design flow rate wh" +
     "en Heating Design Air Flow Method = Flow/Zone. This input is used for autosizing" +
     " components when Heating Design Air Flow Method = DesignDayWithLimit.")]
 [JsonProperty(PropertyName="heating_maximum_air_flow_per_zone_floor_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeatingMaximumAirFlowPerZoneFloorArea { get; set; } = (System.Nullable<double>)Double.Parse("0.002032", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingMaximumAirFlowPerZoneFloorArea { get; set; } = Double.Parse("0.002032", CultureInfo.InvariantCulture);
         
 
 [Description("default is 300 cfm This input is used for autosizing components when Heating Desi" +
     "gn Air Flow Method = DesignDayWithLimit.")]
 [JsonProperty(PropertyName="heating_maximum_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeatingMaximumAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("0.1415762", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingMaximumAirFlow { get; set; } = Double.Parse("0.1415762", CultureInfo.InvariantCulture);
         
 
 [Description("fraction of the Heating Design Air Flow Rate This input is used for autosizing co" +
     "mponents when Heating Design Air Flow Method = DesignDayWithLimit.")]
 [JsonProperty(PropertyName="heating_maximum_air_flow_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeatingMaximumAirFlowFraction { get; set; } = (System.Nullable<double>)Double.Parse("0.3", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingMaximumAirFlowFraction { get; set; } = Double.Parse("0.3", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="design_specification_zone_air_distribution_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -352,12 +354,12 @@ public Sizing_Zone_DedicatedOutdoorAirSystemControlStrategy DedicatedOutdoorAirS
 
 [JsonProperty(PropertyName="dedicated_outdoor_air_low_setpoint_temperature_for_design", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DedicatedOutdoorAirLowSetpointTemperatureForDesign { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DedicatedOutdoorAirLowSetpointTemperatureForDesign { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="dedicated_outdoor_air_high_setpoint_temperature_for_design", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DedicatedOutdoorAirHighSetpointTemperatureForDesign { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DedicatedOutdoorAirHighSetpointTemperatureForDesign { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
     }
     
     public enum Sizing_Zone_ZoneCoolingDesignSupplyAirTemperatureInputMethod
@@ -441,7 +443,8 @@ public System.Nullable<double> DedicatedOutdoorAirHighSetpointTemperatureForDesi
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -457,7 +460,7 @@ public DesignSpecification_ZoneHVAC_Sizing_CoolingSupplyAirFlowRateMethod Coolin
     "ield may be blank if a cooling coil is not included in the Zone HVAC equipment.")]
 [JsonProperty(PropertyName="cooling_supply_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> CoolingSupplyAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingSupplyAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the cooling supply air volume flow rate per total conditioned floor area. R" +
@@ -491,7 +494,7 @@ public DesignSpecification_ZoneHVAC_Sizing_NoLoadSupplyAirFlowRateMethod NoLoadS
     "SupplyAirFlowRate.")]
 [JsonProperty(PropertyName="no_load_supply_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> NoLoadSupplyAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NoLoadSupplyAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the supply air volume flow rate per total floor area. Required field when N" +
@@ -526,7 +529,7 @@ public DesignSpecification_ZoneHVAC_Sizing_HeatingSupplyAirFlowRateMethod Heatin
     "nt.")]
 [JsonProperty(PropertyName="heating_supply_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HeatingSupplyAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingSupplyAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the heating supply air volume flow rate per total conditioned floor area. R" +
@@ -559,7 +562,7 @@ public DesignSpecification_ZoneHVAC_Sizing_CoolingDesignCapacityMethod CoolingDe
     "y method CoolingDesignCapacity.")]
 [JsonProperty(PropertyName="cooling_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> CoolingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the cooling design capacity per zone floor area. Required field when the co" +
@@ -584,7 +587,7 @@ public DesignSpecification_ZoneHVAC_Sizing_HeatingDesignCapacityMethod HeatingDe
     "y method HeatingDesignCapacity.")]
 [JsonProperty(PropertyName="heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the heating design capacity per zone floor area. Required field when the he" +
@@ -710,7 +713,8 @@ public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; s
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -719,32 +723,32 @@ public string NodeName { get; set; } = "";
     " This fraction is applied after the Zone Cooling Sizing Factor (see Sizing:Zone)" +
     ".")]
 [JsonProperty(PropertyName="fraction_of_design_cooling_load", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfDesignCoolingLoad { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfDesignCoolingLoad { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("This ratio adjusts the supply air temperature difference used to calculate the co" +
     "oling design supply air flow rate for this terminal unit.")]
 [JsonProperty(PropertyName="cooling_design_supply_air_temperature_difference_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoolingDesignSupplyAirTemperatureDifferenceRatio { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingDesignSupplyAirTemperatureDifferenceRatio { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("The fraction of the design sensible heating load to be met by this terminal unit." +
     " This fraction is applied after the Zone Heating Sizing Factor (see Sizing:Zone)" +
     ".")]
 [JsonProperty(PropertyName="fraction_of_design_heating_load", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfDesignHeatingLoad { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfDesignHeatingLoad { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("This ratio adjusts the supply air temperature difference used to calculate the he" +
     "ating design supply air flow rate for this terminal unit.")]
 [JsonProperty(PropertyName="heating_design_supply_air_temperature_difference_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeatingDesignSupplyAirTemperatureDifferenceRatio { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingDesignSupplyAirTemperatureDifferenceRatio { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("The fraction of the zone minimum outdoor air requirement to be met by this termin" +
     "al unit.")]
 [JsonProperty(PropertyName="fraction_of_minimum_outdoor_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfMinimumOutdoorAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfMinimumOutdoorAirFlow { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     [Description("Specifies the input needed to perform sizing calculations for a central forced ai" +
@@ -767,12 +771,12 @@ public Sizing_System_TypeOfLoadToSizeOn TypeOfLoadToSizeOn { get; set; } = (Sizi
 
 [JsonProperty(PropertyName="design_outdoor_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignOutdoorAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignOutdoorAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="central_heating_maximum_system_air_flow_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> CentralHeatingMaximumSystemAirFlowRatio { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CentralHeatingMaximumSystemAirFlowRatio { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="preheat_design_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -815,11 +819,11 @@ public EmptyNoYes _100OutdoorAirInHeating { get; set; } = (EmptyNoYes)Enum.Parse
         
 
 [JsonProperty(PropertyName="central_cooling_design_supply_air_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CentralCoolingDesignSupplyAirHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.008", CultureInfo.InvariantCulture);
+public System.Nullable<double> CentralCoolingDesignSupplyAirHumidityRatio { get; set; } = Double.Parse("0.008", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="central_heating_design_supply_air_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CentralHeatingDesignSupplyAirHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.008", CultureInfo.InvariantCulture);
+public System.Nullable<double> CentralHeatingDesignSupplyAirHumidityRatio { get; set; } = Double.Parse("0.008", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="cooling_supply_air_flow_rate_method", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -832,7 +836,7 @@ public Sizing_System_CoolingSupplyAirFlowRateMethod CoolingSupplyAirFlowRateMeth
     "g zone multipliers, this value must be large enough to serve the multiplied zone" +
     "s.")]
 [JsonProperty(PropertyName="cooling_supply_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoolingSupplyAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingSupplyAirFlowRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the cooling supply air volume flow rate per total conditioned floor area. R" +
@@ -864,7 +868,7 @@ public Sizing_System_HeatingSupplyAirFlowRateMethod HeatingSupplyAirFlowRateMeth
     "zone multipliers, this value must be large enough to serve the multiplied zones." +
     "")]
 [JsonProperty(PropertyName="heating_supply_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeatingSupplyAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingSupplyAirFlowRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the heating supply air volume flow rate per total conditioned floor area. R" +
@@ -899,7 +903,7 @@ public Sizing_System_SystemOutdoorAirMethod SystemOutdoorAirMethod { get; set; }
         
 
 [JsonProperty(PropertyName="zone_maximum_outdoor_air_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZoneMaximumOutdoorAirFraction { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZoneMaximumOutdoorAirFraction { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"Enter the method used to determine the system cooling design capacity for scalable sizing. None is used when a cooling coils is not included in an airloop or this field may be blank. If this input field is left blank, then the design cooling capacity is set to zero. CoolingDesignCapacity => selected when the design cooling capacity value is specified or auto-sized. CapacityPerFloorArea => selected when the design cooling capacity is determined from user specified cooling capacity per floor area and total floor area of cooled zones served by an airloop. FractionOfAutosizedCoolingCapacity => is selected when the design cooling capacity is determined from a user specified fraction and the auto-sized design cooling capacity of the system.")]
@@ -911,7 +915,7 @@ public Sizing_System_CoolingDesignCapacityMethod CoolingDesignCapacityMethod { g
 [Description("Enter the design cooling capacity.")]
 [JsonProperty(PropertyName="cooling_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> CoolingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the cooling design capacity per total floor area of cooled zones served by " +
@@ -936,7 +940,7 @@ public Sizing_System_HeatingDesignCapacityMethod HeatingDesignCapacityMethod { g
 [Description("Enter the design heating capacity.")]
 [JsonProperty(PropertyName="heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the heating design capacity per zone floor area. Required field when the he" +
@@ -1139,7 +1143,7 @@ public Sizing_Plant_SizingOption SizingOption { get; set; } = (Sizing_Plant_Sizi
 [Description("this is used in the coincident sizing algorithm to apply a running average to pea" +
     "k flow rates that occur during HVAC Sizing Simulations")]
 [JsonProperty(PropertyName="zone_timesteps_in_averaging_window", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZoneTimestepsInAveragingWindow { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZoneTimestepsInAveragingWindow { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("this is used to adjust the result for coincident sizing by applying a sizing fact" +

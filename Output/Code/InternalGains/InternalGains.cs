@@ -74,7 +74,8 @@ namespace BH.oM.Adapters.EnergyPlus.InternalGains
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -111,13 +112,13 @@ public System.Nullable<double> ZoneFloorAreaPerPerson { get; set; } = null;
     "e amount of long wavelength radiation gain from people in a zone. Default value " +
     "is 0.30.")]
 [JsonProperty(PropertyName="fraction_radiant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionRadiant { get; set; } = (System.Nullable<double>)Double.Parse("0.3", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionRadiant { get; set; } = Double.Parse("0.3", CultureInfo.InvariantCulture);
         
 
 [Description("if input, overrides program calculated sensible/latent split")]
 [JsonProperty(PropertyName="sensible_heat_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> SensibleHeatFraction { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> SensibleHeatFraction { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Note that W has to be converted to mets in TC routine units in schedule are W/per" +
@@ -129,7 +130,7 @@ public string ActivityLevelScheduleName { get; set; } = "";
 [Description("CO2 generation rate per unit of activity level. The default value is obtained fro" +
     "m ASHRAE Std 62.1 at 0.0084 cfm/met/person over the general adult population.")]
 [JsonProperty(PropertyName="carbon_dioxide_generation_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CarbonDioxideGenerationRate { get; set; } = (System.Nullable<double>)Double.Parse("3.82E-08", CultureInfo.InvariantCulture);
+public System.Nullable<double> CarbonDioxideGenerationRate { get; set; } = Double.Parse("3.82E-08", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="enable_ashrae_55_comfort_warnings", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -457,7 +458,8 @@ public string AnkleLevelAirVelocityScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -634,7 +636,8 @@ public System.Nullable<double> AngleFactor20 { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -670,27 +673,27 @@ public System.Nullable<double> WattsPerPerson { get; set; } = null;
 [Description("Used only for sizing calculation if return-air-fraction coefficients are specifie" +
     "d.")]
 [JsonProperty(PropertyName="return_air_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReturnAirFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReturnAirFraction { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_radiant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionRadiant { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionRadiant { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_visible", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionVisible { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionVisible { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("For Daylighting:Controls must be 0 or 1:  0 = no dimming control, 1 = full dimmin" +
     "g control")]
 [JsonProperty(PropertyName="fraction_replaceable", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionReplaceable { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionReplaceable { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
         
 
 [JsonProperty(PropertyName="return_air_fraction_calculated_from_plenum_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -701,13 +704,13 @@ public EmptyNoYes ReturnAirFractionCalculatedFromPlenumTemperature { get; set; }
 [Description("Used only if Return Air Fraction Is Calculated from Plenum Temperature = Yes Equa" +
     "tion is Return Air Fraction = Coefficient#1 - Coefficient#2 X PlenumTemp(degC)")]
 [JsonProperty(PropertyName="return_air_fraction_function_of_plenum_temperature_coefficient_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReturnAirFractionFunctionOfPlenumTemperatureCoefficient1 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReturnAirFractionFunctionOfPlenumTemperatureCoefficient1 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only if Return Air Fraction Is Calculated from Plenum Temperature = Yes Equa" +
     "tion is Return Air Fraction = Coefficient#1 - Coefficient#2 X PlenumTemp(degC)")]
 [JsonProperty(PropertyName="return_air_fraction_function_of_plenum_temperature_coefficient_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReturnAirFractionFunctionOfPlenumTemperatureCoefficient2 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReturnAirFractionFunctionOfPlenumTemperatureCoefficient2 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Name of the return air node for this heat gain. If left blank, defaults to the fi" +
@@ -741,7 +744,8 @@ public string ReturnAirHeatGainNodeName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -775,21 +779,21 @@ public System.Nullable<double> WattsPerPerson { get; set; } = null;
         
 
 [JsonProperty(PropertyName="fraction_latent", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionLatent { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionLatent { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_radiant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionRadiant { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionRadiant { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_lost", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionLost { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionLost { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum ElectricEquipment_DesignLevelCalculationMethod
@@ -816,7 +820,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -850,26 +855,26 @@ public System.Nullable<double> PowerPerPerson { get; set; } = null;
         
 
 [JsonProperty(PropertyName="fraction_latent", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionLatent { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionLatent { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_radiant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionRadiant { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionRadiant { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_lost", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionLost { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionLost { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"CO2 generation rate per unit of power input The default value assumes the equipment is fully vented. For unvented equipment, a suggested value is 3.45E-8 m3/s-W. This value is converted from a natural gas CO2 emission rate of 117 lbs CO2 per million Btu. The maximum value assumes to be 10 times of the recommended value.")]
 [JsonProperty(PropertyName="carbon_dioxide_generation_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CarbonDioxideGenerationRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CarbonDioxideGenerationRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum GasEquipment_DesignLevelCalculationMethod
@@ -901,7 +906,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -935,21 +941,21 @@ public System.Nullable<double> PowerPerPerson { get; set; } = null;
         
 
 [JsonProperty(PropertyName="fraction_latent", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionLatent { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionLatent { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_radiant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionRadiant { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionRadiant { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_lost", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionLost { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionLost { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum HotWaterEquipment_DesignLevelCalculationMethod
@@ -980,7 +986,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1014,21 +1021,21 @@ public System.Nullable<double> PowerPerPerson { get; set; } = null;
         
 
 [JsonProperty(PropertyName="fraction_latent", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionLatent { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionLatent { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_radiant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionRadiant { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionRadiant { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_lost", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionLost { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionLost { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum SteamEquipment_DesignLevelCalculationMethod
@@ -1059,7 +1066,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1098,27 +1106,27 @@ public System.Nullable<double> PowerPerPerson { get; set; } = null;
         
 
 [JsonProperty(PropertyName="fraction_latent", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionLatent { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionLatent { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_radiant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionRadiant { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionRadiant { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_lost", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionLost { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionLost { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("CO2 generation rate per unit of power input The default value assumes the equipme" +
     "nt is fully vented.")]
 [JsonProperty(PropertyName="carbon_dioxide_generation_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CarbonDioxideGenerationRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CarbonDioxideGenerationRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum OtherEquipment_FuelType
@@ -1199,7 +1207,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1228,7 +1237,7 @@ public System.Nullable<double> WattsPerUnit { get; set; } = null;
         
 
 [JsonProperty(PropertyName="number_of_units", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfUnits { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfUnits { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="watts_per_zone_floor_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1256,7 +1265,7 @@ public string CpuPowerInputFunctionOfLoadingAndAirTemperatureCurveName { get; se
 [Description("The fraction of the total power input at design conditions which is for the cooli" +
     "ng fan(s)")]
 [JsonProperty(PropertyName="design_fan_power_input_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignFanPowerInputFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignFanPowerInputFraction { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The cooling fan air flow rate per total electric power input at design conditions" +
@@ -1279,7 +1288,7 @@ public string FanPowerInputFunctionOfFlowCurveName { get; set; } = "";
 
 [Description("The entering air temperature at design conditions.")]
 [JsonProperty(PropertyName="design_entering_air_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignEnteringAirTemperature { get; set; } = (System.Nullable<double>)Double.Parse("15", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignEnteringAirTemperature { get; set; } = Double.Parse("15", CultureInfo.InvariantCulture);
         
 
 [Description("Specifies the allowable operating conditions for the air inlet conditions. Used f" +
@@ -1315,7 +1324,7 @@ public string SupplyAirNodeName { get; set; } = "";
 
 [Description(@"The recirculation fraction for this equipment at design conditions. This field is used only if the Air Node Connection Type = AdjustedSupply. The default is 0.0 (no recirculation). This field is only used when Air Flow Calculation Method is FlowFromSystem.")]
 [JsonProperty(PropertyName="design_recirculation_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignRecirculationFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignRecirculationFraction { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"The name of a two-variable curve or table lookup object which modifies the recirculation fractionas a function of CPU loading (x) and supply air node temperature (y). This curve (table) should equal 1.0 at design conditions (CPU loading = 1.0 and Design Entering Air Temperature).This field is used only if the Air Node Connection Type = AdjustedSupply. If this curve is left blank, then the curve is assumed to always equal 1.0. This field is only used when Air Flow Calculation Method is FlowFromSystem.")]
@@ -1325,7 +1334,7 @@ public string RecirculationFunctionOfLoadingAndSupplyTemperatureCurveName { get;
 
 [Description("The efficiency of the power supply system serving this ITE")]
 [JsonProperty(PropertyName="design_electric_power_supply_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignElectricPowerSupplyEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignElectricPowerSupplyEfficiency { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"The name of a single-variable curve or table lookup object which modifies the electric power supply efficiency as a function of part-load ratio (x). This curve (table) should equal 1.0 at full load (PLR = 1.0). If this curve is left blank, then the curve is assumed to always equal 1.0.")]
@@ -1337,25 +1346,25 @@ public string ElectricPowerSupplyEfficiencyFunctionOfPartLoadRatioCurveName { ge
     " this field is <1.0, the remainder of the losses are assumed to be lost to the o" +
     "utdoors.")]
 [JsonProperty(PropertyName="fraction_of_electric_power_supply_losses_to_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfElectricPowerSupplyLossesToZone { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfElectricPowerSupplyLossesToZone { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="cpu_end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string CpuEndUseSubcategory { get; set; } = (System.String)"ITE-CPU";
+public string CpuEndUseSubcategory { get; set; } = "ITE-CPU";
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="fan_end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string FanEndUseSubcategory { get; set; } = (System.String)"ITE-Fans";
+public string FanEndUseSubcategory { get; set; } = "ITE-Fans";
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="electric_power_supply_end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string ElectricPowerSupplyEndUseSubcategory { get; set; } = (System.String)"ITE-UPS";
+public string ElectricPowerSupplyEndUseSubcategory { get; set; } = "ITE-UPS";
         
 
 [Description(@"The difference of the IT inlet temperature from the AHU supply air temperature. Either Supply Temperature Difference or Supply Temperature Difference Schedule is required if Air Flow Calculation Method is set to FlowControlWithApproachTemperatures. This field is ignored when Air Flow Calculation Method is FlowFromSystem.")]
@@ -1454,7 +1463,8 @@ public string ReturnTemperatureDifferenceSchedule { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1486,13 +1496,13 @@ public System.Nullable<double> HighTemperature { get; set; } = null;
         
 
 [JsonProperty(PropertyName="fraction_radiant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionRadiant { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionRadiant { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     [Description("Specifies an indoor swimming pools linked to a floor surface. The pool is assumed" +
@@ -1502,7 +1512,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1529,19 +1540,19 @@ public string CoverScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="cover_evaporation_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoverEvaporationFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoverEvaporationFactor { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="cover_convection_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoverConvectionFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoverConvectionFactor { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="cover_short_wavelength_radiation_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoverShortWavelengthRadiationFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoverShortWavelengthRadiationFactor { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="cover_long_wavelength_radiation_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoverLongWavelengthRadiationFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoverLongWavelengthRadiationFactor { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="pool_water_inlet_node", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1583,7 +1594,8 @@ public string PeopleHeatGainSchedule { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1610,7 +1622,8 @@ public string ScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1648,7 +1661,8 @@ public string RemovalScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1677,7 +1691,8 @@ public System.Nullable<double> GenerationExponent { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1708,7 +1723,8 @@ public System.Nullable<double> CutoffGenericContaminantAtWhichEmissionCeases { g
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1739,7 +1755,8 @@ public System.Nullable<double> DelayTimeConstant { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1770,7 +1787,8 @@ public System.Nullable<double> HenryAdsorptionConstantOrPartitionCoefficient { g
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1797,7 +1815,8 @@ public string ScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         

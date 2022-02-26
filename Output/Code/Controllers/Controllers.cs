@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.Controllers
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -108,16 +109,16 @@ public string ActuatorNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="controller_convergence_tolerance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> ControllerConvergenceTolerance { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> ControllerConvergenceTolerance { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_actuated_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumActuatedFlow { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumActuatedFlow { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="minimum_actuated_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumActuatedFlow { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumActuatedFlow { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum Controller_WaterCoil_ControlVariable
@@ -158,7 +159,8 @@ public System.Nullable<double> MinimumActuatedFlow { get; set; } = (System.Nulla
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -185,12 +187,12 @@ public string ActuatorNodeName { get; set; } = "";
     " that may override DCV or other advanced OA controls.")]
 [JsonProperty(PropertyName="minimum_outdoor_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MinimumOutdoorAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumOutdoorAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_outdoor_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumOutdoorAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumOutdoorAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="economizer_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -290,7 +292,7 @@ public string HumidistatControlZoneName { get; set; } = "";
     " be greater than 0. This field is only used when the field High Humidity Control" +
     " = Yes.")]
 [JsonProperty(PropertyName="high_humidity_outdoor_air_flow_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HighHumidityOutdoorAirFlowRatio { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> HighHumidityOutdoorAirFlowRatio { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"If No is selected, the outdoor air flow rate is modified any time indoor relative humidity is above the humidistat setpoint. If Yes is selected, the outdoor air flow rate is modified any time the indoor relative humidity is above the humidistat setpoint and the outdoor humidity ratio is less than the indoor humidity ratio. This field is only used when the field High Humidity Control = Yes.")]
@@ -397,7 +399,8 @@ public Controller_OutdoorAir_HeatRecoveryBypassControlType HeatRecoveryBypassCon
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -420,11 +423,11 @@ public Controller_MechanicalVentilation_SystemOutdoorAirMethod SystemOutdoorAirM
         
 
 [JsonProperty(PropertyName="zone_maximum_outdoor_air_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZoneMaximumOutdoorAirFraction { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZoneMaximumOutdoorAirFraction { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="zone_specifications", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string ZoneSpecifications { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.Controllers.Controller_MechanicalVentilation_ZoneSpecifications_Item> ZoneSpecifications { get; set; } = null;
     }
     
     public enum Controller_MechanicalVentilation_SystemOutdoorAirMethod
@@ -458,13 +461,31 @@ public string ZoneSpecifications { get; set; } = "";
         ZoneSum = 8,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Controller_MechanicalVentilation_ZoneSpecifications_Item
+    {
+        
+
+[JsonProperty(PropertyName="zone_or_zonelist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ZoneOrZonelistName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="design_specification_outdoor_air_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string DesignSpecificationOutdoorAirObjectName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="design_specification_zone_air_distribution_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string DesignSpecificationZoneAirDistributionObjectName { get; set; } = "";
+    }
+    
     [Description("List controllers in order of control sequence")]
     [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
     public class AirLoopHVAC_ControllerList : BHoMObject, IEnergyPlusNode
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         

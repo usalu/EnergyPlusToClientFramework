@@ -73,7 +73,8 @@ namespace BH.oM.Adapters.EnergyPlus.Daylighting
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -97,22 +98,22 @@ public Daylighting_Controls_LightingControlType LightingControlType { get; set; 
         
 
 [JsonProperty(PropertyName="minimum_input_power_fraction_for_continuous_or_continuousoff_dimming_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumInputPowerFractionForContinuousOrContinuousoffDimmingControl { get; set; } = (System.Nullable<double>)Double.Parse("0.3", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumInputPowerFractionForContinuousOrContinuousoffDimmingControl { get; set; } = Double.Parse("0.3", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="minimum_light_output_fraction_for_continuous_or_continuousoff_dimming_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumLightOutputFractionForContinuousOrContinuousoffDimmingControl { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumLightOutputFractionForContinuousOrContinuousoffDimmingControl { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [Description("The number of steps, excluding off, in a stepped lighting control system. If Ligh" +
     "ting Control Type is Stepped, this field must be greater than zero. The steps ar" +
     "e assumed to be equally spaced.")]
 [JsonProperty(PropertyName="number_of_stepped_control_steps", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfSteppedControlSteps { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfSteppedControlSteps { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="probability_lighting_will_be_reset_when_needed_in_manual_stepped_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ProbabilityLightingWillBeResetWhenNeededInManualSteppedControl { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ProbabilityLightingWillBeResetWhenNeededInManualSteppedControl { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="glare_calculation_daylighting_reference_point_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -120,12 +121,12 @@ public string GlareCalculationDaylightingReferencePointName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="glare_calculation_azimuth_angle_of_view_direction_clockwise_from_zone_y_axis", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GlareCalculationAzimuthAngleOfViewDirectionClockwiseFromZoneYAxis { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> GlareCalculationAzimuthAngleOfViewDirectionClockwiseFromZoneYAxis { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The default is for general office work")]
 [JsonProperty(PropertyName="maximum_allowable_discomfort_glare_index", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumAllowableDiscomfortGlareIndex { get; set; } = (System.Nullable<double>)Double.Parse("22", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumAllowableDiscomfortGlareIndex { get; set; } = Double.Parse("22", CultureInfo.InvariantCulture);
         
 
 [Description(@"Maximum surface area for nodes in gridding all surfaces in the DElight zone. All reflective and transmitting surfaces will be subdivided into approximately square nodes that do not exceed this maximum. Higher resolution subdivisions require greater calculation times, but generally produce more accurate results.")]
@@ -134,7 +135,7 @@ public System.Nullable<double> DelightGriddingResolution { get; set; } = null;
         
 
 [JsonProperty(PropertyName="control_data", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string ControlData { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.Daylighting.Daylighting_Controls_ControlData_Item> ControlData { get; set; } = null;
     }
     
     public enum Daylighting_Controls_DaylightingMethod
@@ -166,6 +167,23 @@ public string ControlData { get; set; } = "";
         Stepped = 3,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Daylighting_Controls_ControlData_Item
+    {
+        
+
+[JsonProperty(PropertyName="daylighting_reference_point_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string DaylightingReferencePointName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="fraction_of_zone_controlled_by_reference_point", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfZoneControlledByReferencePoint { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="illuminance_setpoint_at_reference_point", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> IlluminanceSetpointAtReferencePoint { get; set; } = null;
+    }
+    
     [Description("Used by Daylighting:Controls to identify the reference point coordinates for each" +
         " sensor. Reference points are given in coordinates specified in the GlobalGeomet" +
         "ryRules object Daylighting Reference Point CoordinateSystem field")]
@@ -174,7 +192,8 @@ public string ControlData { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -192,7 +211,7 @@ public System.Nullable<double> YCoordinateOfReferencePoint { get; set; } = null;
         
 
 [JsonProperty(PropertyName="z_coordinate_of_reference_point", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZCoordinateOfReferencePoint { get; set; } = (System.Nullable<double>)Double.Parse("0.8", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZCoordinateOfReferencePoint { get; set; } = Double.Parse("0.8", CultureInfo.InvariantCulture);
     }
     
     [Description("Used for DElight Complex Fenestration of all types")]
@@ -201,7 +220,8 @@ public System.Nullable<double> ZCoordinateOfReferencePoint { get; set; } = (Syst
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -227,7 +247,7 @@ public string WindowName { get; set; } = "";
 
 [Description(@"In-plane counter-clockwise rotation angle of the Complex Fenestration optical reference direction and the base edge of the Complex Fenestration. The Rotation will typically be zero when the host and CFS surfaces are rectangular and height and width edges are aligned.")]
 [JsonProperty(PropertyName="fenestration_rotation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FenestrationRotation { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FenestrationRotation { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description("Defines a tubular daylighting device (TDD) consisting of three components: a dome" +
@@ -238,7 +258,8 @@ public System.Nullable<double> FenestrationRotation { get; set; } = (System.Null
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -270,11 +291,24 @@ public System.Nullable<double> TotalLength { get; set; } = null;
 
 [Description("R value between TubularDaylightDome and TubularDaylightDiffuser")]
 [JsonProperty(PropertyName="effective_thermal_resistance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> EffectiveThermalResistance { get; set; } = (System.Nullable<double>)Double.Parse("0.28", CultureInfo.InvariantCulture);
+public System.Nullable<double> EffectiveThermalResistance { get; set; } = Double.Parse("0.28", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="transition_lengths", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string TransitionLengths { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.Daylighting.DaylightingDevice_Tubular_TransitionLengths_Item> TransitionLengths { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DaylightingDevice_Tubular_TransitionLengths_Item
+    {
+        
+
+[JsonProperty(PropertyName="transition_zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string TransitionZoneName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="transition_zone_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TransitionZoneLength { get; set; } = null;
     }
     
     [Description("Defines a daylighting which can have an inside shelf, an outside shelf, or both. " +
@@ -285,7 +319,8 @@ public string TransitionLengths { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -372,7 +407,8 @@ public Output_DaylightFactors_ReportingDays ReportingDays { get; set; } = (Outpu
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -382,33 +418,33 @@ public string ZoneName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="z_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZHeight { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZHeight { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="x_minimum_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> XMinimumCoordinate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> XMinimumCoordinate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="x_maximum_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> XMaximumCoordinate { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> XMaximumCoordinate { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Maximum number of total grid points must be <= 2500 (X*Y)")]
 [JsonProperty(PropertyName="number_of_x_grid_points", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfXGridPoints { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfXGridPoints { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="y_minimum_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> YMinimumCoordinate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> YMinimumCoordinate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="y_maximum_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> YMaximumCoordinate { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> YMaximumCoordinate { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Maximum number of total grid points must be <= 2500 (X*Y)")]
 [JsonProperty(PropertyName="number_of_y_grid_points", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfYGridPoints { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfYGridPoints { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
     }
     
     [Description(@"default style for the Daylighting Illuminance Map is comma -- this works well for importing into spreadsheet programs such as Excel(tm) but not so well for word processing programs -- there tab may be a better choice. fixed puts spaces between the ""columns""")]

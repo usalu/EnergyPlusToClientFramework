@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.AirDistribution
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -89,7 +90,7 @@ public string AvailabilityManagerListName { get; set; } = "";
 
 [JsonProperty(PropertyName="design_supply_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DesignSupplyAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignSupplyAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Name of a BranchList containing all the branches in this air loop")]
@@ -128,7 +129,7 @@ public string SupplySideOutletNodeNames { get; set; } = "";
 
 [Description(@"The design return air flow rate as a fraction of supply air flow rate with no exhaust. This can be used to model a pressurized system or set to zero to model a DOAS with no return flow. Use ZoneAirMassFlowConservation to balance zone infiltration and mixing flows.")]
 [JsonProperty(PropertyName="design_return_air_flow_fraction_of_supply_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignReturnAirFlowFractionOfSupplyAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignReturnAirFlowFractionOfSupplyAirFlow { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     [Description("List equipment in simulation order")]
@@ -137,7 +138,8 @@ public System.Nullable<double> DesignReturnAirFlowFractionOfSupplyAirFlow { get;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -220,7 +222,8 @@ public string Component9Name { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -248,7 +251,8 @@ public string AvailabilityManagerListName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -281,7 +285,8 @@ public string ReturnAirStreamNodeName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -291,7 +296,7 @@ public string InletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="nodes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Nodes { get; set; } = "";
+public System.Collections.Generic.List<string> Nodes { get; set; } = null;
     }
     
     [Description("Connects 1 zone inlet air stream, through zone supply plenum, to one or more outl" +
@@ -301,7 +306,8 @@ public string Nodes { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -319,7 +325,7 @@ public string InletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="nodes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Nodes { get; set; } = "";
+public System.Collections.Generic.List<string> Nodes { get; set; } = null;
     }
     
     [Description("A supply path can only contain AirLoopHVAC:ZoneSplitter and AirLoopHVAC:SupplyPle" +
@@ -329,7 +335,8 @@ public string Nodes { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -339,7 +346,20 @@ public string SupplyAirPathInletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="components", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Components { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.AirDistribution.AirLoopHVAC_SupplyPath_Components_Item> Components { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_SupplyPath_Components_Item
+    {
+        
+
+[JsonProperty(PropertyName="component_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ComponentObjectType { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="component_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ComponentName { get; set; } = "";
     }
     
     [Description("Mix N inlet air streams into one (currently 500 per air loop, but extensible). No" +
@@ -350,7 +370,8 @@ public string Components { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -360,7 +381,7 @@ public string OutletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="nodes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Nodes { get; set; } = "";
+public System.Collections.Generic.List<string> Nodes { get; set; } = null;
     }
     
     [Description("Connects N zone inlet air streams, through zone return plenum, to outlet (current" +
@@ -371,7 +392,8 @@ public string Nodes { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -393,7 +415,7 @@ public string InducedAirOutletNodeOrNodelistName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="nodes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Nodes { get; set; } = "";
+public System.Collections.Generic.List<string> Nodes { get; set; } = null;
     }
     
     [Description("A return air path can only contain one AirLoopHVAC:ZoneMixer and one or more AirL" +
@@ -403,7 +425,8 @@ public string Nodes { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -413,7 +436,20 @@ public string ReturnAirPathOutletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="components", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Components { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.AirDistribution.AirLoopHVAC_ReturnPath_Components_Item> Components { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirLoopHVAC_ReturnPath_Components_Item
+    {
+        
+
+[JsonProperty(PropertyName="component_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ComponentObjectType { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="component_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ComponentName { get; set; } = "";
     }
     
     [Description("Defines a central forced air system to provide dedicated outdoor air to multiple " +
@@ -423,7 +459,8 @@ public string Components { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -471,8 +508,9 @@ public System.Nullable<double> PrecoolDesignHumidityRatio { get; set; } = null;
 public System.Nullable<double> NumberOfAirloophvac { get; set; } = null;
         
 
+[Description("This list is the AirPrimaryLoops object-list")]
 [JsonProperty(PropertyName="airloophvacs", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Airloophvacs { get; set; } = "";
+public System.Collections.Generic.List<string> Airloophvacs { get; set; } = null;
     }
     
     [Description(@"Mix N inlet air streams from Relief Air Stream Node in OutdoorAir:Mixer objects served by AirLoopHVAC objects listed in AirLoopHVAC:DedicatedOutdoorAirSystem into one (currently 10 as default, but extensible). Node names cannot be duplicated within a single mixer list.")]
@@ -481,7 +519,8 @@ public string Airloophvacs { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -491,7 +530,7 @@ public string OutletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="nodes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Nodes { get; set; } = "";
+public System.Collections.Generic.List<string> Nodes { get; set; } = null;
     }
     
     [Description(@"Split one air stream from AirLoopHVAC:DedicatedOutdoorAirSystem outlet node into N outlet streams (currently 10 as default, but extensible). Node names should be Outdoor Air Stream Node Name in OutdoorAir:Mixer objects served by AirLoopHVAC objects listed in AirLoopHVAC:DedicatedOutdoorAirSystem.")]
@@ -500,7 +539,8 @@ public string Nodes { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -510,6 +550,6 @@ public string InletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="nodes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Nodes { get; set; } = "";
+public System.Collections.Generic.List<string> Nodes { get; set; } = null;
     }
 }

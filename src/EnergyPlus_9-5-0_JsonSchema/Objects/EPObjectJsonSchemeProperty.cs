@@ -1,4 +1,5 @@
-﻿using EnergyPlus_9_5_0_JsonSchema.Fields.Legacy;
+﻿using EnergyPlus_9_5_0_JsonSchema.Fields;
+using EnergyPlus_9_5_0_JsonSchema.Fields.Legacy;
 using Newtonsoft.Json;
 using NJsonSchema;
 
@@ -16,7 +17,7 @@ namespace EnergyPlus_9_5_0_JsonSchema.Objects
         public EPLegacyIdd EPLegacyIdd { get; set; }
 
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public EPFieldType Type { get; set; }
 
         [JsonProperty("maxProperties", NullValueHandling = NullValueHandling.Ignore)]
         public int MaxProperties { get; set; }

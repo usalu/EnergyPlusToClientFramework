@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACEquipmentConnections
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -83,7 +84,7 @@ public ZoneHVAC_EquipmentList_LoadDistributionScheme LoadDistributionScheme { ge
         
 
 [JsonProperty(PropertyName="equipment", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Equipment { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ZoneHVACEquipmentConnections.ZoneHVAC_EquipmentList_Equipment_Item> Equipment { get; set; } = null;
     }
     
     public enum ZoneHVAC_EquipmentList_LoadDistributionScheme
@@ -103,6 +104,35 @@ public string Equipment { get; set; } = "";
         
         [System.Runtime.Serialization.EnumMember(Value="UniformPLR")]
         UniformPLR = 4,
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_EquipmentList_Equipment_Item
+    {
+        
+
+[JsonProperty(PropertyName="zone_equipment_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ZoneEquipmentObjectType { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="zone_equipment_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ZoneEquipmentName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="zone_equipment_cooling_sequence", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ZoneEquipmentCoolingSequence { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="zone_equipment_heating_or_no_load_sequence", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ZoneEquipmentHeatingOrNoLoadSequence { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="zone_equipment_sequential_cooling_fraction_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ZoneEquipmentSequentialCoolingFractionScheduleName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="zone_equipment_sequential_heating_fraction_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ZoneEquipmentSequentialHeatingFractionScheduleName { get; set; } = "";
     }
     
     [Description("Specifies the HVAC equipment connections for a zone. Node names are specified for" +

@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.WaterSystems
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -80,7 +81,7 @@ public string NodeName { get; set; } = "";
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
         
 
 [JsonProperty(PropertyName="peak_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -127,7 +128,8 @@ public string LatentFractionScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -173,8 +175,9 @@ public WaterUse_Connections_DrainWaterHeatExchangerDestination DrainWaterHeatExc
 public System.Nullable<double> DrainWaterHeatExchangerUFactorTimesArea { get; set; } = null;
         
 
+[Description("This list is the WaterUseEquipmentNames object-list")]
 [JsonProperty(PropertyName="connections", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Connections { get; set; } = "";
+public System.Collections.Generic.List<string> Connections { get; set; } = null;
     }
     
     public enum WaterUse_Connections_DrainWaterHeatExchangerType
@@ -218,7 +221,8 @@ public string Connections { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -355,7 +359,8 @@ public string TankOutsideSurfaceMaterialName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -423,7 +428,8 @@ public string WaterTableDepthScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -452,8 +458,9 @@ public string CollectionLossFactorScheduleName { get; set; } = "";
 public System.Nullable<double> MaximumCollectionRate { get; set; } = null;
         
 
+[Description("This list is the AllShadingAndHTSurfNames object-list")]
 [JsonProperty(PropertyName="surfaces", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Surfaces { get; set; } = "";
+public System.Collections.Generic.List<string> Surfaces { get; set; } = null;
     }
     
     public enum WaterUse_RainCollector_LossFactorMode

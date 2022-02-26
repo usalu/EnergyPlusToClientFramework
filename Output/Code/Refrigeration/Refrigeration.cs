@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.Refrigeration
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -90,31 +91,31 @@ public string ZoneName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="rated_ambient_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedAmbientTemperature { get; set; } = (System.Nullable<double>)Double.Parse("23.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedAmbientTemperature { get; set; } = Double.Parse("23.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="rated_ambient_relative_humidity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedAmbientRelativeHumidity { get; set; } = (System.Nullable<double>)Double.Parse("55", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedAmbientRelativeHumidity { get; set; } = Double.Parse("55", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="rated_total_cooling_capacity_per_unit_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedTotalCoolingCapacityPerUnitLength { get; set; } = (System.Nullable<double>)Double.Parse("1900", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedTotalCoolingCapacityPerUnitLength { get; set; } = Double.Parse("1900", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="rated_latent_heat_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedLatentHeatRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.3", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedLatentHeatRatio { get; set; } = Double.Parse("0.3", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="rated_runtime_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedRuntimeFraction { get; set; } = (System.Nullable<double>)Double.Parse("0.85", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedRuntimeFraction { get; set; } = Double.Parse("0.85", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="case_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CaseLength { get; set; } = (System.Nullable<double>)Double.Parse("3", CultureInfo.InvariantCulture);
+public System.Nullable<double> CaseLength { get; set; } = Double.Parse("3", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="case_operating_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CaseOperatingTemperature { get; set; } = (System.Nullable<double>)Double.Parse("1.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> CaseOperatingTemperature { get; set; } = Double.Parse("1.1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="latent_case_credit_curve_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -127,15 +128,15 @@ public string LatentCaseCreditCurveName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="standard_case_fan_power_per_unit_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> StandardCaseFanPowerPerUnitLength { get; set; } = (System.Nullable<double>)Double.Parse("75", CultureInfo.InvariantCulture);
+public System.Nullable<double> StandardCaseFanPowerPerUnitLength { get; set; } = Double.Parse("75", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="operating_case_fan_power_per_unit_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OperatingCaseFanPowerPerUnitLength { get; set; } = (System.Nullable<double>)Double.Parse("75", CultureInfo.InvariantCulture);
+public System.Nullable<double> OperatingCaseFanPowerPerUnitLength { get; set; } = Double.Parse("75", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="standard_case_lighting_power_per_unit_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> StandardCaseLightingPowerPerUnitLength { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> StandardCaseLightingPowerPerUnitLength { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [Description("default set equal to Standard Case Lighting Power per Unit Length")]
@@ -148,17 +149,17 @@ public string CaseLightingScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="fraction_of_lighting_energy_to_case", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfLightingEnergyToCase { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfLightingEnergyToCase { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="case_anti_sweat_heater_power_per_unit_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CaseAntiSweatHeaterPowerPerUnitLength { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CaseAntiSweatHeaterPowerPerUnitLength { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field is only applicable to the Linear, Dewpoint Method, and Heat Balance Me" +
     "thod anti-sweat heater control types")]
 [JsonProperty(PropertyName="minimum_anti_sweat_heater_power_per_unit_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumAntiSweatHeaterPowerPerUnitLength { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumAntiSweatHeaterPowerPerUnitLength { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="anti_sweat_heater_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -169,22 +170,22 @@ public Refrigeration_Case_AntiSweatHeaterControlType AntiSweatHeaterControlType 
 [Description("This field is only applicable to Linear AS heater control type Zone relative humi" +
     "dity (%) where anti-sweat heater energy is zero")]
 [JsonProperty(PropertyName="humidity_at_zero_anti_sweat_heater_energy", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HumidityAtZeroAntiSweatHeaterEnergy { get; set; } = (System.Nullable<double>)Double.Parse("-10", CultureInfo.InvariantCulture);
+public System.Nullable<double> HumidityAtZeroAntiSweatHeaterEnergy { get; set; } = Double.Parse("-10", CultureInfo.InvariantCulture);
         
 
 [Description("This field only applicable to Heat Balance Method AS heater control type Height m" +
     "ust be greater than zero if Heat Balance Method AS heater control is selected")]
 [JsonProperty(PropertyName="case_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CaseHeight { get; set; } = (System.Nullable<double>)Double.Parse("1.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> CaseHeight { get; set; } = Double.Parse("1.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_of_anti_sweat_heater_energy_to_case", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfAntiSweatHeaterEnergyToCase { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfAntiSweatHeaterEnergyToCase { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Used to evaluate load on case as well as power or heat consumption")]
 [JsonProperty(PropertyName="case_defrost_power_per_unit_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CaseDefrostPowerPerUnitLength { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CaseDefrostPowerPerUnitLength { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="case_defrost_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -216,7 +217,7 @@ public string DefrostEnergyCorrectionCurveName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="under_case_hvac_return_air_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> UnderCaseHvacReturnAirFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> UnderCaseHvacReturnAirFraction { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Schedule values should be in units of Watts per unit case length (W/m) Leave this" +
@@ -237,7 +238,7 @@ public System.Nullable<double> DesignEvaporatorTemperatureOrBrineInletTemperatur
         
 
 [JsonProperty(PropertyName="average_refrigerant_charge_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AverageRefrigerantChargeInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> AverageRefrigerantChargeInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Name of the return air node for this case. If left blank, defaults to the first r" +
@@ -340,7 +341,8 @@ public string UnderCaseHvacReturnAirNodeName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -353,7 +355,7 @@ public Refrigeration_CompressorRack_HeatRejectionLocation HeatRejectionLocation 
 [Description("It is important that this COP correspond to the lowest saturated suction temperat" +
     "ure needed to serve all refrigeration loads")]
 [JsonProperty(PropertyName="design_compressor_rack_cop", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignCompressorRackCop { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignCompressorRackCop { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description("It is important that this COP curve correspond to the lowest saturated suction te" +
@@ -364,7 +366,7 @@ public string CompressorRackCopFunctionOfTemperatureCurveName { get; set; } = ""
 
 [Description("Design power for condenser fan(s).")]
 [JsonProperty(PropertyName="design_condenser_fan_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DesignCondenserFanPower { get; set; } = (System.Nullable<double>)Double.Parse("250", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignCondenserFanPower { get; set; } = Double.Parse("250", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="condenser_fan_power_function_of_temperature_curve_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -406,11 +408,11 @@ public System.Nullable<double> WaterCooledCondenserMaximumFlowRate { get; set; }
         
 
 [JsonProperty(PropertyName="water_cooled_condenser_maximum_water_outlet_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WaterCooledCondenserMaximumWaterOutletTemperature { get; set; } = (System.Nullable<double>)Double.Parse("55", CultureInfo.InvariantCulture);
+public System.Nullable<double> WaterCooledCondenserMaximumWaterOutletTemperature { get; set; } = Double.Parse("55", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="water_cooled_condenser_minimum_water_inlet_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WaterCooledCondenserMinimumWaterInletTemperature { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
+public System.Nullable<double> WaterCooledCondenserMinimumWaterInletTemperature { get; set; } = Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for Condenser Type = EvaporativelyCooled. Schedule values greater than 0 indicate that evaporative cooling of the condenser is available. This schedule allows the user to define seasonal shutdown/draining of the water cooling system in cold climate applications. For periods with schedule values of 0, the condenser operates as AirCooled.")]
@@ -420,31 +422,31 @@ public string EvaporativeCondenserAvailabilityScheduleName { get; set; } = "";
 
 [Description("Applicable only for Condenser Type = EvaporativlyCooled.")]
 [JsonProperty(PropertyName="evaporative_condenser_effectiveness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> EvaporativeCondenserEffectiveness { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> EvaporativeCondenserEffectiveness { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description("Applicable only for Condenser Type = EvaporativelyCooled. Used to calculate evapo" +
     "rative condenser water use.")]
 [JsonProperty(PropertyName="evaporative_condenser_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> EvaporativeCondenserAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> EvaporativeCondenserAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for Condenser Type = EvaporativelyCooled and for periods when the evaporatively cooled condenser is available (field Evaporative Condenser Availability Schedule Name). For this situation, the heater heats the basin water when the outdoor air dry-bulb temperature falls below the setpoint temperature, but only when the condenser fans are off (i.e., no refrigerated case load).")]
 [JsonProperty(PropertyName="basin_heater_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BasinHeaterCapacity { get; set; } = (System.Nullable<double>)Double.Parse("200", CultureInfo.InvariantCulture);
+public System.Nullable<double> BasinHeaterCapacity { get; set; } = Double.Parse("200", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the outdoor dry-bulb temperature at which the basin heater turns on.")]
 [JsonProperty(PropertyName="basin_heater_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BasinHeaterSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> BasinHeaterSetpointTemperature { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description("Design recirc water pump power for Condenser Type = EvaporativelyCooled. Applicab" +
     "le only for Condenser Type = EvaporativelyCooled.")]
 [JsonProperty(PropertyName="design_evaporative_condenser_water_pump_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> DesignEvaporativeCondenserWaterPumpPower { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignEvaporativeCondenserWaterPumpPower { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("If blank, water supply is from Mains. Applicable only for Condenser Type = Evapor" +
@@ -461,7 +463,7 @@ public string CondenserAirInletNodeName { get; set; } = "";
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
         
 
 [Description("Enter the name of a Refrigeration:Case or Refrigeration:Walkin or Refrigeration:C" +
@@ -525,13 +527,15 @@ public string HeatRejectionZoneName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
+[Description("This list is the RefrigerationCaseAndWalkInNames object-list")]
 [JsonProperty(PropertyName="cases_and_walkins", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string CasesAndWalkins { get; set; } = "";
+public System.Collections.Generic.List<string> CasesAndWalkins { get; set; } = null;
     }
     
     [Description("Air cooled condenser for a refrigeration system (Refrigeration:System).")]
@@ -540,7 +544,8 @@ public string CasesAndWalkins { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -554,7 +559,7 @@ public string RatedEffectiveTotalHeatRejectionRateCurveName { get; set; } = "";
 
 [Description("must correspond to rating given for total heat rejection effect")]
 [JsonProperty(PropertyName="rated_subcooling_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedSubcoolingTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedSubcoolingTemperatureDifference { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="condenser_fan_speed_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -564,12 +569,12 @@ public Refrigeration_Condenser_AirCooled_CondenserFanSpeedControlType CondenserF
 
 [Description("Power for condenser fan(s) corresponding to rated total heat rejection effect.")]
 [JsonProperty(PropertyName="rated_fan_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedFanPower { get; set; } = (System.Nullable<double>)Double.Parse("250", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedFanPower { get; set; } = Double.Parse("250", CultureInfo.InvariantCulture);
         
 
 [Description("Minimum air flow fraction through condenser fan")]
 [JsonProperty(PropertyName="minimum_fan_air_flow_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumFanAirFlowRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumFanAirFlowRatio { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [Description(@"If field is left blank, then the model assumes that the inlet air conditions are the outdoor air conditions for the current timestep (e.g., no adjustment for height above ground). If the condenser rejects heat to a conditioned zone, enter the zone name here.")]
@@ -580,22 +585,22 @@ public string AirInletNodeNameOrZoneName { get; set; } = "";
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
         
 
 [Description("optional input")]
 [JsonProperty(PropertyName="condenser_refrigerant_operating_charge_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CondenserRefrigerantOperatingChargeInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CondenserRefrigerantOperatingChargeInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("optional input")]
 [JsonProperty(PropertyName="condensate_receiver_refrigerant_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CondensateReceiverRefrigerantInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CondensateReceiverRefrigerantInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("optional input")]
 [JsonProperty(PropertyName="condensate_piping_refrigerant_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CondensatePipingRefrigerantInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CondensatePipingRefrigerantInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum Refrigeration_Condenser_AirCooled_CondenserFanSpeedControlType
@@ -623,7 +628,8 @@ public System.Nullable<double> CondensatePipingRefrigerantInventory { get; set; 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -635,7 +641,7 @@ public System.Nullable<double> RatedEffectiveTotalHeatRejectionRate { get; set; 
 
 [Description("must correspond to rating given for total heat rejection effect")]
 [JsonProperty(PropertyName="rated_subcooling_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedSubcoolingTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedSubcoolingTemperatureDifference { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fan_speed_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -650,37 +656,37 @@ public System.Nullable<double> RatedFanPower { get; set; } = null;
 
 [Description("Minimum air flow fraction through condenser fan")]
 [JsonProperty(PropertyName="minimum_fan_air_flow_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumFanAirFlowRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumFanAirFlowRatio { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [Description("A1 in delta T = A1 + A2(hrcf) + A3/(hrcf) + A4(Twb)")]
 [JsonProperty(PropertyName="approach_temperature_constant_term", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ApproachTemperatureConstantTerm { get; set; } = (System.Nullable<double>)Double.Parse("6.63", CultureInfo.InvariantCulture);
+public System.Nullable<double> ApproachTemperatureConstantTerm { get; set; } = Double.Parse("6.63", CultureInfo.InvariantCulture);
         
 
 [Description("A2 in delta T = A1 + A2(hrcf) +A3/(hrcf) +A4(Twb)")]
 [JsonProperty(PropertyName="approach_temperature_coefficient_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ApproachTemperatureCoefficient2 { get; set; } = (System.Nullable<double>)Double.Parse("0.468", CultureInfo.InvariantCulture);
+public System.Nullable<double> ApproachTemperatureCoefficient2 { get; set; } = Double.Parse("0.468", CultureInfo.InvariantCulture);
         
 
 [Description("A3 in delta T = A1 + A2(hrcf) +A3/(hrcf) +A4(Twb)")]
 [JsonProperty(PropertyName="approach_temperature_coefficient_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ApproachTemperatureCoefficient3 { get; set; } = (System.Nullable<double>)Double.Parse("17.93", CultureInfo.InvariantCulture);
+public System.Nullable<double> ApproachTemperatureCoefficient3 { get; set; } = Double.Parse("17.93", CultureInfo.InvariantCulture);
         
 
 [Description("A4 in deltaT=A1 + A2(hrcf) +A3/(hrcf) +A4(Twb)")]
 [JsonProperty(PropertyName="approach_temperature_coefficient_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ApproachTemperatureCoefficient4 { get; set; } = (System.Nullable<double>)Double.Parse("-0.322", CultureInfo.InvariantCulture);
+public System.Nullable<double> ApproachTemperatureCoefficient4 { get; set; } = Double.Parse("-0.322", CultureInfo.InvariantCulture);
         
 
 [Description("taken from manufacturer\'s Heat Rejection Capacity Factor Table")]
 [JsonProperty(PropertyName="minimum_capacity_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumCapacityFactor { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumCapacityFactor { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [Description("taken from manufacturer\'s Heat Rejection Capacity Factor Table")]
 [JsonProperty(PropertyName="maximum_capacity_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumCapacityFactor { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumCapacityFactor { get; set; } = Double.Parse("5", CultureInfo.InvariantCulture);
         
 
 [Description("If field is left blank, then the model assumes that the inlet air conditions are " +
@@ -693,23 +699,23 @@ public string AirInletNodeName { get; set; } = "";
 [Description("Used to calculate evaporative condenser water use and fan energy use.")]
 [JsonProperty(PropertyName="rated_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> RatedAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is only used for periods when the evap condenser is available (field Evaporative Condenser Availability Schedule). For this situation, the heater heats the basin water when the outdoor air dry-bulb temperature falls below the set point temperature, but only when the condenser fans are off (i.e., no refrigerated case load).")]
 [JsonProperty(PropertyName="basin_heater_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BasinHeaterCapacity { get; set; } = (System.Nullable<double>)Double.Parse("200", CultureInfo.InvariantCulture);
+public System.Nullable<double> BasinHeaterCapacity { get; set; } = Double.Parse("200", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the outdoor dry-bulb temperature at which the basin heater turns on.")]
 [JsonProperty(PropertyName="basin_heater_setpoint_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BasinHeaterSetpointTemperature { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> BasinHeaterSetpointTemperature { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description("Design recirculating water pump power.")]
 [JsonProperty(PropertyName="rated_water_pump_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> RatedWaterPumpPower { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedWaterPumpPower { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("If blank, water supply is from Mains.")]
@@ -725,22 +731,22 @@ public string EvaporativeCondenserAvailabilityScheduleName { get; set; } = "";
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
         
 
 [Description("optional input")]
 [JsonProperty(PropertyName="condenser_refrigerant_operating_charge_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CondenserRefrigerantOperatingChargeInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CondenserRefrigerantOperatingChargeInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("optional input")]
 [JsonProperty(PropertyName="condensate_receiver_refrigerant_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CondensateReceiverRefrigerantInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CondensateReceiverRefrigerantInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("optional input")]
 [JsonProperty(PropertyName="condensate_piping_refrigerant_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CondensatePipingRefrigerantInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CondensatePipingRefrigerantInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum Refrigeration_Condenser_EvaporativeCooled_FanSpeedControlType
@@ -768,7 +774,8 @@ public System.Nullable<double> CondensatePipingRefrigerantInventory { get; set; 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -786,7 +793,7 @@ public System.Nullable<double> RatedCondensingTemperature { get; set; } = null;
 
 [Description("must correspond to rating given for total heat rejection effect")]
 [JsonProperty(PropertyName="rated_subcooling_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedSubcoolingTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedSubcoolingTemperatureDifference { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("must correspond to rating given for total heat rejection effect")]
@@ -823,18 +830,18 @@ public System.Nullable<double> WaterMaximumFlowRate { get; set; } = null;
         
 
 [JsonProperty(PropertyName="water_maximum_water_outlet_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WaterMaximumWaterOutletTemperature { get; set; } = (System.Nullable<double>)Double.Parse("55", CultureInfo.InvariantCulture);
+public System.Nullable<double> WaterMaximumWaterOutletTemperature { get; set; } = Double.Parse("55", CultureInfo.InvariantCulture);
         
 
 [Description("related to the minimum allowed refrigeration system condensing temperature")]
 [JsonProperty(PropertyName="water_minimum_water_inlet_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WaterMinimumWaterInletTemperature { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
+public System.Nullable<double> WaterMinimumWaterInletTemperature { get; set; } = Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
         
 
 [Description("optional input")]
@@ -871,7 +878,8 @@ public System.Nullable<double> CondensatePipingRefrigerantInventory { get; set; 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -883,7 +891,7 @@ public System.Nullable<double> RatedCondensingTemperature { get; set; } = null;
 
 [Description("This is the difference between the condensing and evaporating temperatures")]
 [JsonProperty(PropertyName="rated_approach_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedApproachTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("3", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedApproachTemperatureDifference { get; set; } = Double.Parse("3", CultureInfo.InvariantCulture);
         
 
 [Description("used for identification and rough system size error checking")]
@@ -933,7 +941,8 @@ public System.Nullable<double> CondensatePipingRefrigerantInventory { get; set; 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -952,35 +961,35 @@ public Refrigeration_GasCooler_AirCooled_GasCoolerFanSpeedControlType GasCoolerF
 
 [Description("Power for gas cooler fan(s) corresponding to rated total heat rejection effect.")]
 [JsonProperty(PropertyName="rated_fan_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedFanPower { get; set; } = (System.Nullable<double>)Double.Parse("5000", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedFanPower { get; set; } = Double.Parse("5000", CultureInfo.InvariantCulture);
         
 
 [Description("Minimum air flow fraction through gas cooler fan")]
 [JsonProperty(PropertyName="minimum_fan_air_flow_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumFanAirFlowRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumFanAirFlowRatio { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [Description("Temperature at which system transitions between subcritical and transcritical ope" +
     "ration.")]
 [JsonProperty(PropertyName="transition_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TransitionTemperature { get; set; } = (System.Nullable<double>)Double.Parse("27", CultureInfo.InvariantCulture);
+public System.Nullable<double> TransitionTemperature { get; set; } = Double.Parse("27", CultureInfo.InvariantCulture);
         
 
 [Description("Temperature difference between the CO2 exiting the gas cooler and the air enterin" +
     "g the gas cooler during transcritical operation.")]
 [JsonProperty(PropertyName="transcritical_approach_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TranscriticalApproachTemperature { get; set; } = (System.Nullable<double>)Double.Parse("3", CultureInfo.InvariantCulture);
+public System.Nullable<double> TranscriticalApproachTemperature { get; set; } = Double.Parse("3", CultureInfo.InvariantCulture);
         
 
 [Description("Temperature difference between the saturated condensing temperature and the air t" +
     "emperature during subcritical operation.")]
 [JsonProperty(PropertyName="subcritical_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SubcriticalTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
+public System.Nullable<double> SubcriticalTemperatureDifference { get; set; } = Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description("Minimum saturated condensing temperature during subcritical operation.")]
 [JsonProperty(PropertyName="minimum_condensing_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumCondensingTemperature { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumCondensingTemperature { get; set; } = Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description("If field is left blank, then the model assumes that the inlet air conditions are " +
@@ -993,22 +1002,22 @@ public string AirInletNodeName { get; set; } = "";
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
         
 
 [Description("optional input")]
 [JsonProperty(PropertyName="gas_cooler_refrigerant_operating_charge_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GasCoolerRefrigerantOperatingChargeInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> GasCoolerRefrigerantOperatingChargeInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("optional input")]
 [JsonProperty(PropertyName="gas_cooler_receiver_refrigerant_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GasCoolerReceiverRefrigerantInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> GasCoolerReceiverRefrigerantInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("optional input")]
 [JsonProperty(PropertyName="gas_cooler_outlet_piping_refrigerant_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GasCoolerOutletPipingRefrigerantInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> GasCoolerOutletPipingRefrigerantInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum Refrigeration_GasCooler_AirCooled_GasCoolerFanSpeedControlType
@@ -1036,13 +1045,16 @@ public System.Nullable<double> GasCoolerOutletPipingRefrigerantInventory { get; 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
+[Description("This list is the RefrigerationCascadeCondenserAndSecondarySystemNames object-list" +
+    "")]
 [JsonProperty(PropertyName="transfer_loads", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string TransferLoads { get; set; } = "";
+public System.Collections.Generic.List<string> TransferLoads { get; set; } = null;
     }
     
     [Description(@"Two types of subcoolers are modeled by the detailed refrigeration system. The liquid suction heat exchanger uses cool suction gas to subcool the hot condensate after it leaves the condenser and before it reaches the thermal expansion valve. A mechanical subcooler is used to transfer cooling capacity from one refrigeration system to another.")]
@@ -1051,7 +1063,8 @@ public string TransferLoads { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1113,7 +1126,8 @@ public System.Nullable<double> OutletControlTemperature { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1155,7 +1169,7 @@ public System.Nullable<double> RatedSubcooling { get; set; } = null;
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
         
 
 [JsonProperty(PropertyName="mode_of_operation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1190,13 +1204,15 @@ public string TranscriticalCompressorCapacityCurveName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
+[Description("This list is the RefrigerationCompressorNames object-list")]
 [JsonProperty(PropertyName="compressors", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Compressors { get; set; } = "";
+public System.Collections.Generic.List<string> Compressors { get; set; } = null;
     }
     
     [Description("Simulates the performance of a supermarket refrigeration system when used along w" +
@@ -1207,7 +1223,8 @@ public string Compressors { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1258,7 +1275,7 @@ public string LiquidSuctionHeatExchangerSubcoolerName { get; set; } = "";
 
 [Description("Use only if you want to include suction piping heat gain in refrigeration load")]
 [JsonProperty(PropertyName="sum_ua_suction_piping", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SumUaSuctionPiping { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SumUaSuctionPiping { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This will be used to determine the temperature used for distribution piping heat " +
@@ -1271,11 +1288,11 @@ public string SuctionPipingZoneName { get; set; } = "";
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
         
 
 [JsonProperty(PropertyName="number_of_compressor_stages", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfCompressorStages { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfCompressorStages { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="intercooler_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1284,7 +1301,7 @@ public Refrigeration_System_IntercoolerType IntercoolerType { get; set; } = (Ref
         
 
 [JsonProperty(PropertyName="shell_and_coil_intercooler_effectiveness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ShellAndCoilIntercoolerEffectiveness { get; set; } = (System.Nullable<double>)Double.Parse("0.8", CultureInfo.InvariantCulture);
+public System.Nullable<double> ShellAndCoilIntercoolerEffectiveness { get; set; } = Double.Parse("0.8", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="high_stage_compressor_or_compressorlist_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1329,7 +1346,8 @@ public string HighStageCompressorOrCompressorlistName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1362,11 +1380,11 @@ public string LowPressureCompressorOrCompressorlistName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="receiver_pressure", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReceiverPressure { get; set; } = (System.Nullable<double>)Double.Parse("4000000", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReceiverPressure { get; set; } = Double.Parse("4000000", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="subcooler_effectiveness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SubcoolerEffectiveness { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
+public System.Nullable<double> SubcoolerEffectiveness { get; set; } = Double.Parse("0.4", CultureInfo.InvariantCulture);
         
 
 [Description(@"Fluid property data for the refrigerant must be entered. The fluid property data, including the objects: FluidProperties:Name, FluidProperties:Temperatures, FluidProperties:Saturated and FluidProperties:Superheated can be copied from the FluidPropertiesRefData.idf dataset")]
@@ -1376,7 +1394,7 @@ public string RefrigerationSystemWorkingFluidType { get; set; } = "";
 
 [Description("Use only if you want to include suction piping heat gain in refrigeration load")]
 [JsonProperty(PropertyName="sum_ua_suction_piping_for_medium_temperature_loads", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SumUaSuctionPipingForMediumTemperatureLoads { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SumUaSuctionPipingForMediumTemperatureLoads { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This will be used to determine the temperature used for distribution piping heat " +
@@ -1388,7 +1406,7 @@ public string MediumTemperatureSuctionPipingZoneName { get; set; } = "";
 
 [Description("Use only if you want to include suction piping heat gain in refrigeration load")]
 [JsonProperty(PropertyName="sum_ua_suction_piping_for_low_temperature_loads", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SumUaSuctionPipingForLowTemperatureLoads { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SumUaSuctionPipingForLowTemperatureLoads { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This will be used to determine the temperature used for distribution piping heat " +
@@ -1401,7 +1419,7 @@ public string LowTemperatureSuctionPipingZoneName { get; set; } = "";
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum Refrigeration_TranscriticalSystem_SystemType
@@ -1420,7 +1438,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1473,7 +1492,7 @@ public System.Nullable<double> EvaporatorRangeTemperatureDifference { get; set; 
         
 
 [JsonProperty(PropertyName="number_of_pumps_in_loop", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfPumpsInLoop { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfPumpsInLoop { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("For \"FluidAlwaysLiquid\",if not input, Evaporator Flow Rate for Secondary Fluid wi" +
@@ -1496,7 +1515,7 @@ public System.Nullable<double> TotalPumpHead { get; set; } = null;
 [Description("This is the total mass flow at the pump divided by the gaseous mass flow leaving " +
     "the refrigeration load.")]
 [JsonProperty(PropertyName="phasechange_circulating_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> PhasechangeCirculatingRate { get; set; } = (System.Nullable<double>)Double.Parse("2.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> PhasechangeCirculatingRate { get; set; } = Double.Parse("2.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="pump_drive_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1513,13 +1532,13 @@ public string VariableSpeedPumpCubicCurveName { get; set; } = "";
     "nd is equal to the motor efficiency for non-hermetic motor. Enter 1.0 for a semi" +
     "-hermetic motor.")]
 [JsonProperty(PropertyName="pump_motor_heat_to_fluid", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> PumpMotorHeatToFluid { get; set; } = (System.Nullable<double>)Double.Parse("0.85", CultureInfo.InvariantCulture);
+public System.Nullable<double> PumpMotorHeatToFluid { get; set; } = Double.Parse("0.85", CultureInfo.InvariantCulture);
         
 
 [Description("Use only if you want to include distribution piping heat gain in refrigeration lo" +
     "ad.")]
 [JsonProperty(PropertyName="sum_ua_distribution_piping", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SumUaDistributionPiping { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SumUaDistributionPiping { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This will be used to determine the temperature used for distribution piping heat " +
@@ -1532,7 +1551,7 @@ public string DistributionPipingZoneName { get; set; } = "";
 [Description("Use only if you want to include Receiver/Separator Shell heat gain in refrigerati" +
     "on load.")]
 [JsonProperty(PropertyName="sum_ua_receiver_separator_shell", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SumUaReceiverSeparatorShell { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SumUaReceiverSeparatorShell { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This will be used to determine the temperature used for Receiver/Separator Shell " +
@@ -1546,13 +1565,13 @@ public string ReceiverSeparatorZoneName { get; set; } = "";
     "ing cooling to the chiller for the secondary loop, not to the fluid circulating " +
     "within the secondary loop itself.")]
 [JsonProperty(PropertyName="evaporator_refrigerant_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> EvaporatorRefrigerantInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> EvaporatorRefrigerantInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum Refrigeration_SecondarySystem_CirculatingFluidType
@@ -1584,7 +1603,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1625,11 +1645,11 @@ public string HeatingPowerScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="rated_cooling_coil_fan_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedCoolingCoilFanPower { get; set; } = (System.Nullable<double>)Double.Parse("375", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedCoolingCoilFanPower { get; set; } = Double.Parse("375", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="rated_circulation_fan_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedCirculationFanPower { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedCirculationFanPower { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the total (display + task) installed lighting power.")]
@@ -1685,7 +1705,7 @@ public string RestockingScheduleName { get; set; } = "";
 
 [Description("This value is only used if the Cooling Source Type is DXEvaporator")]
 [JsonProperty(PropertyName="average_refrigerant_charge_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AverageRefrigerantChargeInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> AverageRefrigerantChargeInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("floor area of walk-in cooler")]
@@ -1697,11 +1717,11 @@ public System.Nullable<double> InsulatedFloorSurfaceArea { get; set; } = null;
     "to U, divide 5.678 by the R-value Some examples: R15 is U 0.3785 W/m2-K R5 is U " +
     "1.136 W/m2-K")]
 [JsonProperty(PropertyName="insulated_floor_u_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InsulatedFloorUValue { get; set; } = (System.Nullable<double>)Double.Parse("0.3154", CultureInfo.InvariantCulture);
+public System.Nullable<double> InsulatedFloorUValue { get; set; } = Double.Parse("0.3154", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="zone_data", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string ZoneData { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.Refrigeration.Refrigeration_WalkIn_ZoneData_Item> ZoneData { get; set; } = null;
     }
     
     public enum Refrigeration_WalkIn_DefrostType
@@ -1736,13 +1756,67 @@ public string ZoneData { get; set; } = "";
         TimeSchedule = 2,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Refrigeration_WalkIn_ZoneData_Item
+    {
+        
+
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ZoneName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="total_insulated_surface_area_facing_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> TotalInsulatedSurfaceAreaFacingZone { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="insulated_surface_u_value_facing_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> InsulatedSurfaceUValueFacingZone { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="area_of_glass_reach_in_doors_facing_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AreaOfGlassReachInDoorsFacingZone { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="height_of_glass_reach_in_doors_facing_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HeightOfGlassReachInDoorsFacingZone { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="glass_reach_in_door_u_value_facing_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> GlassReachInDoorUValueFacingZone { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="glass_reach_in_door_opening_schedule_name_facing_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string GlassReachInDoorOpeningScheduleNameFacingZone { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="area_of_stocking_doors_facing_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> AreaOfStockingDoorsFacingZone { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="height_of_stocking_doors_facing_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> HeightOfStockingDoorsFacingZone { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="stocking_door_u_value_facing_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> StockingDoorUValueFacingZone { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="stocking_door_opening_schedule_name_facing_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string StockingDoorOpeningScheduleNameFacingZone { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="stocking_door_opening_protection_type_facing_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string StockingDoorOpeningProtectionTypeFacingZone { get; set; } = "";
+    }
+    
     [Description(@"Works in conjunction with a refrigeration chiller set, compressor rack, a refrigeration system, or a refrigeration secondary system to simulate the performance of an air chiller, similar to one found in a refrigerated warehouse. Energy use for fans and heaters is modeled based on inputs for nominal power, schedules, and control type. The air chiller model accounts for the sensible and latent heat exchange with the surrounding environment.")]
     [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
     public class Refrigeration_AirChiller : BHoMObject, IEnergyPlusNode
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1773,7 +1847,7 @@ public System.Nullable<double> RatedCapacity { get; set; } = null;
     "tions and represents the relative humidity at rated conditions. The default is 8" +
     "5.")]
 [JsonProperty(PropertyName="rated_relative_humidity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedRelativeHumidity { get; set; } = (System.Nullable<double>)Double.Parse("85", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedRelativeHumidity { get; set; } = Double.Parse("85", CultureInfo.InvariantCulture);
         
 
 [Description("If DXEvaporator, use evaporating temperature (saturated suction temperature) If B" +
@@ -1799,13 +1873,13 @@ public System.Nullable<double> MaximumTemperatureDifferenceBetweenInletAirAndEva
 [Description("This is the manufacturer\'s correction factor for coil material corresponding to r" +
     "ating")]
 [JsonProperty(PropertyName="coil_material_correction_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoilMaterialCorrectionFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoilMaterialCorrectionFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("This is the manufacturer\'s correction factor for refrigerant corresponding to rat" +
     "ing")]
 [JsonProperty(PropertyName="refrigerant_correction_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RefrigerantCorrectionFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> RefrigerantCorrectionFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("In each case, select the correction curve type that corresponds to the rating typ" +
@@ -1823,7 +1897,7 @@ public string CapacityCorrectionCurveName { get; set; } = "";
 
 [Description("only used when the capacity correction curve type is LinearSHR60")]
 [JsonProperty(PropertyName="shr60_correction_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Shr60CorrectionFactor { get; set; } = (System.Nullable<double>)Double.Parse("1.48", CultureInfo.InvariantCulture);
+public System.Nullable<double> Shr60CorrectionFactor { get; set; } = Double.Parse("1.48", CultureInfo.InvariantCulture);
         
 
 [Description("Include total for all heater power Do not include defrost heater power")]
@@ -1843,7 +1917,7 @@ public Refrigeration_AirChiller_FanSpeedControlType FanSpeedControlType { get; s
         
 
 [JsonProperty(PropertyName="rated_fan_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedFanPower { get; set; } = (System.Nullable<double>)Double.Parse("375", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedFanPower { get; set; } = Double.Parse("375", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="rated_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1852,7 +1926,7 @@ public System.Nullable<double> RatedAirFlow { get; set; } = null;
 
 [Description("Minimum air flow fraction through fan")]
 [JsonProperty(PropertyName="minimum_fan_air_flow_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumFanAirFlowRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumFanAirFlowRatio { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [Description("HotFluid includes either hot gas defrost for a DX system or Hot Brine defrost if " +
@@ -1896,7 +1970,7 @@ public Refrigeration_AirChiller_VerticalLocation VerticalLocation { get; set; } 
 
 [Description("This value is only used if the Cooling Source Type is DXEvaporator")]
 [JsonProperty(PropertyName="average_refrigerant_charge_inventory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AverageRefrigerantChargeInventory { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> AverageRefrigerantChargeInventory { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum Refrigeration_AirChiller_CapacityRatingType
@@ -2031,7 +2105,8 @@ public System.Nullable<double> AverageRefrigerantChargeInventory { get; set; } =
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2062,7 +2137,8 @@ public string AirInletNodeName { get; set; } = "";
 public string AirOutletNodeName { get; set; } = "";
         
 
+[Description("This list is the RefrigerationAirChillerNames object-list")]
 [JsonProperty(PropertyName="chillers", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Chillers { get; set; } = "";
+public System.Collections.Generic.List<string> Chillers { get; set; } = null;
     }
 }

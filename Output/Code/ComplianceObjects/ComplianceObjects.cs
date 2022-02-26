@@ -77,6 +77,6 @@ namespace BH.oM.Adapters.EnergyPlus.ComplianceObjects
     " 90.1 Appendix G that states that the baseline building should be rotated in fou" +
     "r directions.")]
 [JsonProperty(PropertyName="building_rotation_for_appendix_g", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BuildingRotationForAppendixG { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> BuildingRotationForAppendixG { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
 }

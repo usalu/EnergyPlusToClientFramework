@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.PythonPluginSystem
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -92,7 +93,7 @@ public EmptyNoYes AddInputFileDirectoryToSearchPath { get; set; } = (EmptyNoYes)
         
 
 [JsonProperty(PropertyName="py_search_paths", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string PySearchPaths { get; set; } = "";
+public System.Collections.Generic.List<string> PySearchPaths { get; set; } = null;
     }
     
     [Description("A single plugin to be executed during the simulation, which can contain multiple " +
@@ -103,7 +104,8 @@ public string PySearchPaths { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -134,13 +136,14 @@ public string PluginClassName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="global_py_vars", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string GlobalPyVars { get; set; } = "";
+public System.Collections.Generic.List<string> GlobalPyVars { get; set; } = null;
     }
     
     [Description("This object sets up a Python plugin trend variable from an Python plugin variable" +
@@ -150,7 +153,8 @@ public string GlobalPyVars { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -169,7 +173,8 @@ public System.Nullable<double> NumberOfTimestepsToBeLogged { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         

@@ -106,7 +106,8 @@ public SurfaceProperty_HeatTransferAlgorithm_Algorithm Algorithm { get; set; } =
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -177,7 +178,8 @@ public SurfaceProperty_HeatTransferAlgorithm_MultipleSurface_Algorithm Algorithm
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -187,8 +189,9 @@ public string NodeName { get; set; } = "";
 public SurfaceProperty_HeatTransferAlgorithm_SurfaceList_Algorithm Algorithm { get; set; } = (SurfaceProperty_HeatTransferAlgorithm_SurfaceList_Algorithm)Enum.Parse(typeof(SurfaceProperty_HeatTransferAlgorithm_SurfaceList_Algorithm), "ConductionTransferFunction");
         
 
+[Description("This list is the SurfaceNames object-list")]
 [JsonProperty(PropertyName="surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Surface { get; set; } = "";
+public System.Collections.Generic.List<string> Surface { get; set; } = null;
     }
     
     public enum SurfaceProperty_HeatTransferAlgorithm_SurfaceList_Algorithm
@@ -216,7 +219,8 @@ public string Surface { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -310,7 +314,8 @@ public string ScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -323,30 +328,30 @@ public System.Nullable<double> CombinedConvectiveRadiativeFilmCoefficient { get;
 [Description("This parameter will be overwritten by the values from the Constant Temperature Sc" +
     "hedule Name (below) if one is present")]
 [JsonProperty(PropertyName="constant_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ConstantTemperature { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ConstantTemperature { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This coefficient is used even with a Schedule. It should normally be 1.0 in that " +
     "case. This field is ignored if Sinusoidal Variation of Constant Temperature Coef" +
     "ficient = Yes.")]
 [JsonProperty(PropertyName="constant_temperature_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ConstantTemperatureCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ConstantTemperatureCoefficient { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="external_dry_bulb_temperature_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ExternalDryBulbTemperatureCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ExternalDryBulbTemperatureCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="ground_temperature_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GroundTemperatureCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> GroundTemperatureCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="wind_speed_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WindSpeedCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> WindSpeedCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="zone_air_temperature_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZoneAirTemperatureCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZoneAirTemperatureCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Name of schedule for values of constant temperature. Schedule values replace any " +
@@ -363,13 +368,13 @@ public EmptyNoYes SinusoidalVariationOfConstantTemperatureCoefficient { get; set
 
 [Description("Use with sinusoidal variation to define the time period")]
 [JsonProperty(PropertyName="period_of_sinusoidal_variation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> PeriodOfSinusoidalVariation { get; set; } = (System.Nullable<double>)Double.Parse("24", CultureInfo.InvariantCulture);
+public System.Nullable<double> PeriodOfSinusoidalVariation { get; set; } = Double.Parse("24", CultureInfo.InvariantCulture);
         
 
 [Description("This coefficient multiplies the other side temperature result from the previous z" +
     "one timestep")]
 [JsonProperty(PropertyName="previous_other_side_temperature_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> PreviousOtherSideTemperatureCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> PreviousOtherSideTemperatureCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field specifies a lower limit for the other side temperature result. Blank i" +
@@ -391,7 +396,8 @@ public System.Nullable<double> MaximumOtherSideTemperatureLimit { get; set; } = 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -429,7 +435,8 @@ public SurfaceProperty_OtherSideConditionsModel_TypeOfModeling TypeOfModeling { 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -457,7 +464,8 @@ public string FreeStreamWaterVelocitySchedule { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -474,7 +482,7 @@ public string InteriorHorizontalInsulationMaterialName { get; set; } = "";
 
 [Description("Distance from the slab bottom to the top of interior horizontal insulation")]
 [JsonProperty(PropertyName="interior_horizontal_insulation_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InteriorHorizontalInsulationDepth { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> InteriorHorizontalInsulationDepth { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Extent of insulation as measured from the wall interior")]
@@ -503,7 +511,7 @@ public System.Nullable<double> ExteriorHorizontalInsulationDepth { get; set; } =
 
 [Description("Extent of insulation as measured from the wall exterior")]
 [JsonProperty(PropertyName="exterior_horizontal_insulation_width", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ExteriorHorizontalInsulationWidth { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ExteriorHorizontalInsulationWidth { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="exterior_vertical_insulation_material_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -518,12 +526,12 @@ public System.Nullable<double> ExteriorVerticalInsulationDepth { get; set; } = n
 
 [Description("Distance from the exterior grade to the wall top")]
 [JsonProperty(PropertyName="wall_height_above_grade", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WallHeightAboveGrade { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> WallHeightAboveGrade { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [Description("Distance from the slab bottom to the bottom of the foundation wall")]
 [JsonProperty(PropertyName="wall_depth_below_slab", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WallDepthBelowSlab { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> WallDepthBelowSlab { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Defines the below-grade surface construction for slabs. Required if foundation wa" +
@@ -539,11 +547,32 @@ public string FootingMaterialName { get; set; } = "";
 [Description("Top-to-bottom dimension of the footing (not to be confused with its depth in the " +
     "ground). The width of the footing is defined by the material\'s thickness.")]
 [JsonProperty(PropertyName="footing_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FootingDepth { get; set; } = (System.Nullable<double>)Double.Parse("0.3", CultureInfo.InvariantCulture);
+public System.Nullable<double> FootingDepth { get; set; } = Double.Parse("0.3", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="blocks", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Blocks { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts.Foundation_Kiva_Blocks_Item> Blocks { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Foundation_Kiva_Blocks_Item
+    {
+        
+
+[JsonProperty(PropertyName="custom_block_material_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string CustomBlockMaterialName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="custom_block_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CustomBlockDepth { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="custom_block_x_position", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CustomBlockXPosition { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="custom_block_z_position", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CustomBlockZPosition { get; set; } = null;
     }
     
     [Description("Settings applied across all Kiva foundation calculations. Object is not required." +
@@ -554,31 +583,31 @@ public string Blocks { get; set; } = "";
         
 
 [JsonProperty(PropertyName="soil_conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilConductivity { get; set; } = (System.Nullable<double>)Double.Parse("1.73", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilConductivity { get; set; } = Double.Parse("1.73", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_density", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilDensity { get; set; } = (System.Nullable<double>)Double.Parse("1842", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilDensity { get; set; } = Double.Parse("1842", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_specific_heat", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilSpecificHeat { get; set; } = (System.Nullable<double>)Double.Parse("419", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilSpecificHeat { get; set; } = Double.Parse("419", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="ground_solar_absorptivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GroundSolarAbsorptivity { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> GroundSolarAbsorptivity { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="ground_thermal_absorptivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GroundThermalAbsorptivity { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> GroundThermalAbsorptivity { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="ground_surface_roughness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GroundSurfaceRoughness { get; set; } = (System.Nullable<double>)Double.Parse("0.03", CultureInfo.InvariantCulture);
+public System.Nullable<double> GroundSurfaceRoughness { get; set; } = Double.Parse("0.03", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="far_field_width", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FarFieldWidth { get; set; } = (System.Nullable<double>)Double.Parse("40", CultureInfo.InvariantCulture);
+public System.Nullable<double> FarFieldWidth { get; set; } = Double.Parse("40", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="deep_ground_boundary_condition", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -588,15 +617,15 @@ public Foundation_Kiva_Settings_DeepGroundBoundaryCondition DeepGroundBoundaryCo
 
 [JsonProperty(PropertyName="deep_ground_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> DeepGroundDepth { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DeepGroundDepth { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="minimum_cell_dimension", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumCellDimension { get; set; } = (System.Nullable<double>)Double.Parse("0.02", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumCellDimension { get; set; } = Double.Parse("0.02", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_cell_growth_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumCellGrowthCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("1.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumCellGrowthCoefficient { get; set; } = Double.Parse("1.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="simulation_timestep", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -654,11 +683,11 @@ public System.Nullable<double> TotalExposedPerimeter { get; set; } = null;
         
 
 [JsonProperty(PropertyName="exposed_perimeter_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ExposedPerimeterFraction { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ExposedPerimeterFraction { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="surfaces", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Surfaces { get; set; } = "";
+public System.Collections.Generic.List<string> Surfaces { get; set; } = null;
     }
     
     public enum SurfaceProperty_ExposedFoundationPerimeter_ExposedPerimeterCalculationMethod
@@ -680,7 +709,8 @@ public string Surfaces { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2220,7 +2250,8 @@ public string MixedRegimeWindowEquationUserCurveName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2476,7 +2507,8 @@ public string NaturalConvectionUnstableHorizontalEquationUserCurveName { get; se
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2535,7 +2567,8 @@ public string HcFunctionOfAirSystemVolumeFlowRateDividedByZonePerimeterLengthCur
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2632,7 +2665,7 @@ public SurfaceProperty_ConvectionCoefficients_ConvectionCoefficient2Type Convect
 [Description("used if Convection Type=Value, min and max limits are set in HeatBalanceAlgorithm" +
     " object. Default limits are Minimum >= 0.1 and Maximum <= 1000")]
 [JsonProperty(PropertyName="convection_coefficient_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ConvectionCoefficient2 { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ConvectionCoefficient2 { get; set; } = Double.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [Description("used if Convection Type=Schedule,  min and max limits are set in HeatBalanceAlgor" +
@@ -2989,7 +3022,7 @@ public SurfaceProperty_ConvectionCoefficients_MultipleSurface_ConvectionCoeffici
 [Description("used if Convection Type=Value, min and max limits are set in HeatBalanceAlgorithm" +
     " object. Default limits are Minimum >= 0.1 and Maximum <= 1000")]
 [JsonProperty(PropertyName="convection_coefficient_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ConvectionCoefficient2 { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ConvectionCoefficient2 { get; set; } = Double.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [Description("used if Convection Type=Schedule,  min and max limits are set in HeatBalanceAlgor" +
@@ -3351,7 +3384,7 @@ public EmptyNoYes ConstantExternalVaporTransferCoefficient { get; set; } = (Empt
         
 
 [JsonProperty(PropertyName="external_vapor_coefficient_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ExternalVaporCoefficientValue { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ExternalVaporCoefficientValue { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="constant_internal_vapor_transfer_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3360,7 +3393,7 @@ public EmptyNoYes ConstantInternalVaporTransferCoefficient { get; set; } = (Empt
         
 
 [JsonProperty(PropertyName="internal_vapor_coefficient_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InternalVaporCoefficientValue { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> InternalVaporCoefficientValue { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description("Used to describe the decoupled layer, or baffle, and the characteristics of the c" +
@@ -3371,7 +3404,8 @@ public System.Nullable<double> InternalVaporCoefficientValue { get; set; } = (Sy
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -3404,7 +3438,7 @@ public System.Nullable<double> EffectiveThicknessOfCavityBehindExteriorBaffle { 
 
 [Description("this parameter is used to help account for corrugations in the collector")]
 [JsonProperty(PropertyName="ratio_of_actual_surface_area_to_projected_surface_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatioOfActualSurfaceAreaToProjectedSurfaceArea { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatioOfActualSurfaceAreaToProjectedSurfaceArea { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="roughness_of_exterior_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3413,15 +3447,16 @@ public SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface Ro
         
 
 [JsonProperty(PropertyName="effectiveness_for_perforations_with_respect_to_wind", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> EffectivenessForPerforationsWithRespectToWind { get; set; } = (System.Nullable<double>)Double.Parse("0.25", CultureInfo.InvariantCulture);
+public System.Nullable<double> EffectivenessForPerforationsWithRespectToWind { get; set; } = Double.Parse("0.25", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="discharge_coefficient_for_openings_with_respect_to_buoyancy_driven_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DischargeCoefficientForOpeningsWithRespectToBuoyancyDrivenFlow { get; set; } = (System.Nullable<double>)Double.Parse("0.65", CultureInfo.InvariantCulture);
+public System.Nullable<double> DischargeCoefficientForOpeningsWithRespectToBuoyancyDrivenFlow { get; set; } = Double.Parse("0.65", CultureInfo.InvariantCulture);
         
 
+[Description("This list is the AllShadingAndHTSurfNames object-list")]
 [JsonProperty(PropertyName="surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Surface { get; set; } = "";
+public System.Collections.Generic.List<string> Surface { get; set; } = null;
     }
     
     public enum SurfaceProperty_ExteriorNaturalVentedCavity_RoughnessOfExteriorSurface
@@ -3454,7 +3489,8 @@ public string Surface { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -3480,7 +3516,8 @@ public string InsideSurfaceIncidentSunSolarRadiationScheduleName { get; set; } =
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -3512,7 +3549,8 @@ public string OutdoorAirNodeName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -3533,14 +3571,15 @@ public string OutdoorAirNodeName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("optional")]
 [JsonProperty(PropertyName="sky_view_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SkyViewFactor { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> SkyViewFactor { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [Description("Schedule values are real numbers, -100.0 to 100.0, units C optional")]
@@ -3550,7 +3589,7 @@ public string SkyTemperatureScheduleName { get; set; } = "";
 
 [Description("optional")]
 [JsonProperty(PropertyName="ground_view_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GroundViewFactor { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> GroundViewFactor { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [Description("Schedule values are real numbers, -100.0 to 100.0, units C optional")]
@@ -3559,7 +3598,24 @@ public string GroundTemperatureScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="surfaces", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Surfaces { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts.SurfaceProperty_SurroundingSurfaces_Surfaces_Item> Surfaces { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class SurfaceProperty_SurroundingSurfaces_Surfaces_Item
+    {
+        
+
+[JsonProperty(PropertyName="surrounding_surface_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SurroundingSurfaceName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="surrounding_surface_view_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SurroundingSurfaceViewFactor { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="surrounding_surface_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SurroundingSurfaceTemperatureScheduleName { get; set; } = "";
     }
     
     [Description("Used to provide solar radiation absorbed in fenestration layers. References surfa" +
@@ -3570,7 +3626,8 @@ public string Surfaces { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -3622,6 +3679,23 @@ public string ZoneOrZonelistName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="view_factors", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string ViewFactors { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.AdvancedConstructionSurfaceZoneConcepts.ZoneProperty_UserViewFactors_BySurfaceName_ViewFactors_Item> ViewFactors { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneProperty_UserViewFactors_BySurfaceName_ViewFactors_Item
+    {
+        
+
+[JsonProperty(PropertyName="from_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string FromSurface { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="to_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ToSurface { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="view_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> ViewFactor { get; set; } = null;
     }
 }

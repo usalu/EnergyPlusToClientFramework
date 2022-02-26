@@ -73,7 +73,8 @@ namespace BH.oM.Adapters.EnergyPlus.EvaporativeCoolers
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -86,12 +87,12 @@ public string AvailabilityScheduleName { get; set; } = "";
 
 [JsonProperty(PropertyName="direct_pad_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DirectPadArea { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DirectPadArea { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="direct_pad_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DirectPadDepth { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DirectPadDepth { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="recirculating_water_pump_power_consumption", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -123,7 +124,8 @@ public string WaterSupplyStorageTankName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -136,12 +138,12 @@ public string AvailabilityScheduleName { get; set; } = "";
 
 [JsonProperty(PropertyName="direct_pad_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DirectPadArea { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DirectPadArea { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="direct_pad_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> DirectPadDepth { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DirectPadDepth { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="recirculating_water_pump_power_consumption", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -193,7 +195,8 @@ public string SecondaryAirInletNodeName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -258,7 +261,8 @@ public string SecondaryAirInletNodeName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -296,12 +300,12 @@ public string DrybulbEffectivenessFlowRatioModifierCurveName { get; set; } = "";
     "ation at design air flow rates and cooler design effectiveness")]
 [JsonProperty(PropertyName="recirculating_water_pump_design_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> RecirculatingWaterPumpDesignPower { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> RecirculatingWaterPumpDesignPower { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is used when the previous field is set to autosize. The pump power is scaled with Secondary Air Design Air Flow Rate. This value was backed out from inputs in energy plus example files. Average Pump Power sizing factor was estimated from pump power and secondary air design flow rates inputs from energyplus example files is about 90.0 [W/(m3/s)] (=90.0 ~ Pump Power / Secondary Air Design Flow Rate). The factor ranges from 55.0 to 150.0 [W/(m3/s)] were noted. The pump power can be sized to zero by setting this factor to zero.")]
 [JsonProperty(PropertyName="water_pump_power_sizing_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WaterPumpPowerSizingFactor { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> WaterPumpPowerSizingFactor { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [Description(@"this curve modifies the pump power in the previous field by multiplying the design power by the result of this curve. x = ff = flow fraction on the secondary side, secondary air flow rate during operation divided by Secondary Air Design Air Flow Rate. If this input field is left blank, pump power is assumed to be proportional to part load ratio.")]
@@ -311,28 +315,28 @@ public string WaterPumpPowerModifierCurveName { get; set; } = "";
 
 [JsonProperty(PropertyName="secondary_air_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> SecondaryAirDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> SecondaryAirDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("This field is used when the previous field is set to autoize. The Primary Design " +
     "Air Flow Rate is scaled using this factor to calculate the secondary design air " +
     "flow rate.")]
 [JsonProperty(PropertyName="secondary_air_flow_scaling_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SecondaryAirFlowScalingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> SecondaryAirFlowScalingFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("This is the fan design power at Secondary Design Air Flow Rate. This is the nomin" +
     "al design power at full speed.")]
 [JsonProperty(PropertyName="secondary_air_fan_design_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> SecondaryAirFanDesignPower { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> SecondaryAirFanDesignPower { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("This field is used when the previous field is set to autosize. The fan power is s" +
     "caled with Secondary Air Design Flow Rate. The default value is estimated from 1" +
     "25 Pa fan total pressure and fan total efficiency of 50.0% (250.0 = 125/0.5).")]
 [JsonProperty(PropertyName="secondary_air_fan_sizing_specific_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SecondaryAirFanSizingSpecificPower { get; set; } = (System.Nullable<double>)Double.Parse("250", CultureInfo.InvariantCulture);
+public System.Nullable<double> SecondaryAirFanSizingSpecificPower { get; set; } = Double.Parse("250", CultureInfo.InvariantCulture);
         
 
 [Description(@"this curve modifies the design fan power in the previous field by multiplying the value by the result of this curve. It should have a value of 1.0 at a x = 1.0. x = ff = flow fraction on the secondary side, secondary air flow rate during operation divided by Secondary Air Design Air Flow Rate. If this input field is left blank, the secondary fan power is assumed to be proportional to part load ratio.")]
@@ -350,7 +354,7 @@ public string PrimaryAirOutletNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="primary_air_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> PrimaryAirDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> PrimaryAirDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="dewpoint_effectiveness_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -380,7 +384,7 @@ public string WaterSupplyStorageTankName { get; set; } = "";
 [Description("Rate of drift loss as a fraction of evaporated water flow rate. If this input fie" +
     "ld is left blank, then zero drift loss is assumed.")]
 [JsonProperty(PropertyName="drift_loss_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DriftLossFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DriftLossFraction { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"Characterizes the rate of blowdown in the evaporative cooler. Blowdown is water intentionally drained from the cooler in order to offset the build up of solids in the water that would otherwise occur because of evaporation. Ratio of solids in the blowdown water to solids in the make up water. A typical value is 3. If left blank then there is no blowdown.")]
@@ -411,7 +415,8 @@ public System.Nullable<double> DryOperationMaximumLimitOutdoorDrybulbTemperature
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -434,19 +439,19 @@ public string EffectivenessFlowRatioModifierCurveName { get; set; } = "";
 
 [JsonProperty(PropertyName="primary_air_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> PrimaryAirDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> PrimaryAirDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("This is the design water pump or spray for evaporation at the primary air design " +
     "air flow rates and cooler design effectiveness")]
 [JsonProperty(PropertyName="recirculating_water_pump_design_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> RecirculatingWaterPumpDesignPower { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> RecirculatingWaterPumpDesignPower { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"This field is used when the previous field is set to autosize. The pump power is scaled with Primary Air Design Air Flow Rate. This value was backed out from inputs in energy plus example files. Average Pump Power sizing factor was estimated from pump power and primary air design flow rates inputs from energyplus example files is about 90.0 [W/(m3/s)] (=90.0 ~ Pump Power / Primary Air Design Flow Rate). The factor ranges from 55.0 to 150.0 [W/(m3/s)]. The pump power can be sized to zero by setting this factor to zero.")]
 [JsonProperty(PropertyName="water_pump_power_sizing_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WaterPumpPowerSizingFactor { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> WaterPumpPowerSizingFactor { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [Description(@"this curve modifies the pump power in the previous field by multiplying the design power by the result of this curve. x = ff = flow fraction on the primary air. The flow fraction is the primary air flow rate during current operation divided by Primary Air Design Flow Rate")]

@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserLoops
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -105,16 +106,16 @@ public System.Nullable<double> MinimumLoopTemperature { get; set; } = null;
 
 [JsonProperty(PropertyName="maximum_loop_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumLoopFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumLoopFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="minimum_loop_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumLoopFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumLoopFlowRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="plant_loop_volume", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> PlantLoopVolume { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> PlantLoopVolume { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="plant_side_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -177,7 +178,7 @@ public PlantLoop_PressureSimulationType PressureSimulationType { get; set; } = (
 [Description("This field is only used to autocalulate the Plant Loop Volume. Loop Volume = Loop" +
     " Circulation Time * Maximum Loop Flow Rate")]
 [JsonProperty(PropertyName="loop_circulation_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LoopCirculationTime { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> LoopCirculationTime { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
     }
     
     public enum PlantLoop_FluidType
@@ -271,7 +272,8 @@ public System.Nullable<double> LoopCirculationTime { get; set; } = (System.Nulla
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -304,16 +306,16 @@ public System.Nullable<double> MinimumLoopTemperature { get; set; } = null;
 
 [JsonProperty(PropertyName="maximum_loop_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumLoopFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumLoopFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="minimum_loop_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumLoopFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumLoopFlowRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="condenser_loop_volume", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CondenserLoopVolume { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CondenserLoopVolume { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="condenser_side_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -361,7 +363,7 @@ public CondenserLoop_PressureSimulationType PressureSimulationType { get; set; }
 [Description("This field is only used to autocalulate the Condenser Loop Volume. Loop Volume = " +
     "Loop Circulation Time * Maximum Loop Flow Rate")]
 [JsonProperty(PropertyName="loop_circulation_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LoopCirculationTime { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> LoopCirculationTime { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
     }
     
     public enum CondenserLoop_FluidType

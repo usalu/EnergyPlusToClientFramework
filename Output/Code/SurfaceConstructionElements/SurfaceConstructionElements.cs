@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -99,15 +100,15 @@ public System.Nullable<double> SpecificHeat { get; set; } = null;
         
 
 [JsonProperty(PropertyName="thermal_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ThermalAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> ThermalAbsorptance { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="solar_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SolarAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> SolarAbsorptance { get; set; } = Double.Parse("0.7", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="visible_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> VisibleAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> VisibleAbsorptance { get; set; } = Double.Parse("0.7", CultureInfo.InvariantCulture);
     }
     
     public enum Material_Roughness
@@ -139,7 +140,8 @@ public System.Nullable<double> VisibleAbsorptance { get; set; } = (System.Nullab
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -154,15 +156,15 @@ public System.Nullable<double> ThermalResistance { get; set; } = null;
         
 
 [JsonProperty(PropertyName="thermal_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ThermalAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> ThermalAbsorptance { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="solar_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SolarAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> SolarAbsorptance { get; set; } = Double.Parse("0.7", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="visible_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> VisibleAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> VisibleAbsorptance { get; set; } = Double.Parse("0.7", CultureInfo.InvariantCulture);
     }
     
     public enum Material_NoMass_Roughness
@@ -193,7 +195,8 @@ public System.Nullable<double> VisibleAbsorptance { get; set; } = (System.Nullab
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
     }
@@ -204,7 +207,8 @@ public string NodeName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -219,37 +223,38 @@ public System.Nullable<double> ThermalResistance { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("The ecoroof module is designed for short plants and shrubs.")]
 [JsonProperty(PropertyName="height_of_plants", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeightOfPlants { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeightOfPlants { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [Description("Entire surface is assumed covered, so decrease LAI accordingly.")]
 [JsonProperty(PropertyName="leaf_area_index", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LeafAreaIndex { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> LeafAreaIndex { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Leaf reflectivity (albedo) is typically 0.18-0.25")]
 [JsonProperty(PropertyName="leaf_reflectivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LeafReflectivity { get; set; } = (System.Nullable<double>)Double.Parse("0.22", CultureInfo.InvariantCulture);
+public System.Nullable<double> LeafReflectivity { get; set; } = Double.Parse("0.22", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="leaf_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LeafEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.95", CultureInfo.InvariantCulture);
+public System.Nullable<double> LeafEmissivity { get; set; } = Double.Parse("0.95", CultureInfo.InvariantCulture);
         
 
 [Description("This depends upon plant type")]
 [JsonProperty(PropertyName="minimum_stomatal_resistance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumStomatalResistance { get; set; } = (System.Nullable<double>)Double.Parse("180", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumStomatalResistance { get; set; } = Double.Parse("180", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_layer_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string SoilLayerName { get; set; } = (System.String)"Green Roof Soil";
+public string SoilLayerName { get; set; } = "Green Roof Soil";
         
 
 [JsonProperty(PropertyName="roughness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -260,51 +265,51 @@ public Material_RoofVegetation_Roughness Roughness { get; set; } = (Material_Roo
 [Description("thickness of the soil layer of the EcoRoof Soil depths of 0.15m (6in) and 0.30m (" +
     "12in) are common.")]
 [JsonProperty(PropertyName="thickness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Thickness { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Thickness { get; set; } = Double.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [Description("Thermal conductivity of dry soil. Typical ecoroof soils range from 0.3 to 0.5")]
 [JsonProperty(PropertyName="conductivity_of_dry_soil", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ConductivityOfDrySoil { get; set; } = (System.Nullable<double>)Double.Parse("0.35", CultureInfo.InvariantCulture);
+public System.Nullable<double> ConductivityOfDrySoil { get; set; } = Double.Parse("0.35", CultureInfo.InvariantCulture);
         
 
 [Description("Density of dry soil (the code modifies this as the soil becomes moist) Typical ec" +
     "oroof soils range from 400 to 1000 (dry to wet)")]
 [JsonProperty(PropertyName="density_of_dry_soil", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DensityOfDrySoil { get; set; } = (System.Nullable<double>)Double.Parse("1100", CultureInfo.InvariantCulture);
+public System.Nullable<double> DensityOfDrySoil { get; set; } = Double.Parse("1100", CultureInfo.InvariantCulture);
         
 
 [Description("Specific heat of dry soil")]
 [JsonProperty(PropertyName="specific_heat_of_dry_soil", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SpecificHeatOfDrySoil { get; set; } = (System.Nullable<double>)Double.Parse("1200", CultureInfo.InvariantCulture);
+public System.Nullable<double> SpecificHeatOfDrySoil { get; set; } = Double.Parse("1200", CultureInfo.InvariantCulture);
         
 
 [Description("Soil emissivity is typically in range of 0.90 to 0.98")]
 [JsonProperty(PropertyName="thermal_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ThermalAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> ThermalAbsorptance { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description("Solar absorptance of dry soil (1-albedo) is typically 0.60 to 0.85 corresponding " +
     "to a dry albedo of 0.15 to 0.40")]
 [JsonProperty(PropertyName="solar_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SolarAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> SolarAbsorptance { get; set; } = Double.Parse("0.7", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="visible_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> VisibleAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0.75", CultureInfo.InvariantCulture);
+public System.Nullable<double> VisibleAbsorptance { get; set; } = Double.Parse("0.75", CultureInfo.InvariantCulture);
         
 
 [Description("Maximum moisture content is typically less than 0.5")]
 [JsonProperty(PropertyName="saturation_volumetric_moisture_content_of_the_soil_layer", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SaturationVolumetricMoistureContentOfTheSoilLayer { get; set; } = (System.Nullable<double>)Double.Parse("0.3", CultureInfo.InvariantCulture);
+public System.Nullable<double> SaturationVolumetricMoistureContentOfTheSoilLayer { get; set; } = Double.Parse("0.3", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="residual_volumetric_moisture_content_of_the_soil_layer", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ResidualVolumetricMoistureContentOfTheSoilLayer { get; set; } = (System.Nullable<double>)Double.Parse("0.01", CultureInfo.InvariantCulture);
+public System.Nullable<double> ResidualVolumetricMoistureContentOfTheSoilLayer { get; set; } = Double.Parse("0.01", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="initial_volumetric_moisture_content_of_the_soil_layer", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InitialVolumetricMoistureContentOfTheSoilLayer { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> InitialVolumetricMoistureContentOfTheSoilLayer { get; set; } = Double.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [Description("Advanced calculation requires increased number of timesteps (recommended >20).")]
@@ -358,7 +363,8 @@ public Material_RoofVegetation_MoistureDiffusionCalculationMethod MoistureDiffus
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -386,7 +392,8 @@ public System.Nullable<double> VisibleTransmittance { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -438,23 +445,23 @@ public System.Nullable<double> BackSideVisibleReflectanceAtNormalIncidence { get
         
 
 [JsonProperty(PropertyName="infrared_transmittance_at_normal_incidence", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InfraredTransmittanceAtNormalIncidence { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> InfraredTransmittanceAtNormalIncidence { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="front_side_infrared_hemispherical_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontSideInfraredHemisphericalEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.84", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideInfraredHemisphericalEmissivity { get; set; } = Double.Parse("0.84", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="back_side_infrared_hemispherical_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackSideInfraredHemisphericalEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.84", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideInfraredHemisphericalEmissivity { get; set; } = Double.Parse("0.84", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Conductivity { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> Conductivity { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="dirt_correction_factor_for_solar_and_visible_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DirtCorrectionFactorForSolarAndVisibleTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> DirtCorrectionFactorForSolarAndVisibleTransmittance { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="solar_diffusing", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -465,13 +472,13 @@ public EmptyNoYes SolarDiffusing { get; set; } = (EmptyNoYes)Enum.Parse(typeof(E
 [Description("coefficient used for deflection calculations. Used only with complex fenestration" +
     " when deflection model is set to TemperatureAndPressureInput")]
 [JsonProperty(PropertyName="young_s_modulus", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> YoungSModulus { get; set; } = (System.Nullable<double>)Double.Parse("72000000000", CultureInfo.InvariantCulture);
+public System.Nullable<double> YoungSModulus { get; set; } = Double.Parse("72000000000", CultureInfo.InvariantCulture);
         
 
 [Description("coefficient used for deflection calculations. Used only with complex fenestration" +
     " when deflection model is set to TemperatureAndPressureInput")]
 [JsonProperty(PropertyName="poisson_s_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> PoissonSRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.22", CultureInfo.InvariantCulture);
+public System.Nullable<double> PoissonSRatio { get; set; } = Double.Parse("0.22", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAndAngle")]
@@ -511,13 +518,27 @@ public string WindowGlassSpectralAndIncidentAngleBackReflectanceDataSetTableName
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="temperature_data", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string TemperatureData { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements.WindowMaterial_GlazingGroup_Thermochromic_TemperatureData_Item> TemperatureData { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class WindowMaterial_GlazingGroup_Thermochromic_TemperatureData_Item
+    {
+        
+
+[JsonProperty(PropertyName="optical_data_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> OpticalDataTemperature { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="window_material_glazing_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string WindowMaterialGlazingName { get; set; } = "";
     }
     
     [Description("Glass material properties for Windows or Glass Doors Index of Refraction/Extincti" +
@@ -527,7 +548,8 @@ public string TemperatureData { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -553,20 +575,20 @@ public System.Nullable<double> VisibleExtinctionCoefficient { get; set; } = null
         
 
 [JsonProperty(PropertyName="infrared_transmittance_at_normal_incidence", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InfraredTransmittanceAtNormalIncidence { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> InfraredTransmittanceAtNormalIncidence { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Emissivity of front and back side assumed equal")]
 [JsonProperty(PropertyName="infrared_hemispherical_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InfraredHemisphericalEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.84", CultureInfo.InvariantCulture);
+public System.Nullable<double> InfraredHemisphericalEmissivity { get; set; } = Double.Parse("0.84", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Conductivity { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> Conductivity { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="dirt_correction_factor_for_solar_and_visible_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DirtCorrectionFactorForSolarAndVisibleTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> DirtCorrectionFactorForSolarAndVisibleTransmittance { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="solar_diffusing", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -580,7 +602,8 @@ public EmptyNoYes SolarDiffusing { get; set; } = (EmptyNoYes)Enum.Parse(typeof(E
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -674,17 +697,18 @@ public System.Nullable<double> SpecificHeatRatio { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="spacing", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Spacing { get; set; } = (System.Nullable<double>)Double.Parse("0.04", CultureInfo.InvariantCulture);
+public System.Nullable<double> Spacing { get; set; } = Double.Parse("0.04", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="radius", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Radius { get; set; } = (System.Nullable<double>)Double.Parse("0.0004", CultureInfo.InvariantCulture);
+public System.Nullable<double> Radius { get; set; } = Double.Parse("0.0004", CultureInfo.InvariantCulture);
     }
     
     [Description("Used to enter data describing deflection state of the gap. It is referenced from " +
@@ -695,22 +719,23 @@ public System.Nullable<double> Radius { get; set; } = (System.Nullable<double>)D
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("If left blank will be considered that gap has no deflection.")]
 [JsonProperty(PropertyName="deflected_thickness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DeflectedThickness { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DeflectedThickness { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="initial_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InitialTemperature { get; set; } = (System.Nullable<double>)Double.Parse("25", CultureInfo.InvariantCulture);
+public System.Nullable<double> InitialTemperature { get; set; } = Double.Parse("25", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="initial_pressure", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InitialPressure { get; set; } = (System.Nullable<double>)Double.Parse("101325", CultureInfo.InvariantCulture);
+public System.Nullable<double> InitialPressure { get; set; } = Double.Parse("101325", CultureInfo.InvariantCulture);
     }
     
     [Description("Gas mixtures that are used in Windows or Glass Doors")]
@@ -719,7 +744,8 @@ public System.Nullable<double> InitialPressure { get; set; } = (System.Nullable<
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -838,7 +864,8 @@ public System.Nullable<double> Gas4Fraction { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -854,7 +881,7 @@ public string GasOrGasMixture { get; set; } = "";
         
 
 [JsonProperty(PropertyName="pressure", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Pressure { get; set; } = (System.Nullable<double>)Double.Parse("101325", CultureInfo.InvariantCulture);
+public System.Nullable<double> Pressure { get; set; } = Double.Parse("101325", CultureInfo.InvariantCulture);
         
 
 [Description("If left blank, it will be considered that gap is not deflected")]
@@ -873,7 +900,8 @@ public string SupportPillar { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -915,27 +943,27 @@ public System.Nullable<double> Conductivity { get; set; } = null;
         
 
 [JsonProperty(PropertyName="shade_to_glass_distance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ShadeToGlassDistance { get; set; } = (System.Nullable<double>)Double.Parse("0.05", CultureInfo.InvariantCulture);
+public System.Nullable<double> ShadeToGlassDistance { get; set; } = Double.Parse("0.05", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="top_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TopOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> TopOpeningMultiplier { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="bottom_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BottomOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> BottomOpeningMultiplier { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="left_side_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LeftSideOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> LeftSideOpeningMultiplier { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="right_side_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RightSideOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> RightSideOpeningMultiplier { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="airflow_permeability", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirflowPermeability { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirflowPermeability { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description("Complex window shading layer thermal properties")]
@@ -944,7 +972,8 @@ public System.Nullable<double> AirflowPermeability { get; set; } = (System.Nulla
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -955,72 +984,72 @@ public WindowMaterial_ComplexShade_LayerType LayerType { get; set; } = (WindowMa
         
 
 [JsonProperty(PropertyName="thickness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Thickness { get; set; } = (System.Nullable<double>)Double.Parse("0.002", CultureInfo.InvariantCulture);
+public System.Nullable<double> Thickness { get; set; } = Double.Parse("0.002", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Conductivity { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Conductivity { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="ir_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> IrTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> IrTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="front_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.84", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontEmissivity { get; set; } = Double.Parse("0.84", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="back_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.84", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackEmissivity { get; set; } = Double.Parse("0.84", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="top_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TopOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> TopOpeningMultiplier { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="bottom_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BottomOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> BottomOpeningMultiplier { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="left_side_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LeftSideOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> LeftSideOpeningMultiplier { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="right_side_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RightSideOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> RightSideOpeningMultiplier { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="front_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0.05", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontOpeningMultiplier { get; set; } = Double.Parse("0.05", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="slat_width", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatWidth { get; set; } = (System.Nullable<double>)Double.Parse("0.016", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatWidth { get; set; } = Double.Parse("0.016", CultureInfo.InvariantCulture);
         
 
 [Description("Distance between adjacent slat faces")]
 [JsonProperty(PropertyName="slat_spacing", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatSpacing { get; set; } = (System.Nullable<double>)Double.Parse("0.012", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatSpacing { get; set; } = Double.Parse("0.012", CultureInfo.InvariantCulture);
         
 
 [Description("Distance between top and bottom surfaces of slat Slat is assumed to be rectangula" +
     "r in cross section and flat")]
 [JsonProperty(PropertyName="slat_thickness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatThickness { get; set; } = (System.Nullable<double>)Double.Parse("0.0006", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatThickness { get; set; } = Double.Parse("0.0006", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="slat_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatAngle { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatAngle { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="slat_conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatConductivity { get; set; } = (System.Nullable<double>)Double.Parse("160", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatConductivity { get; set; } = Double.Parse("160", CultureInfo.InvariantCulture);
         
 
 [Description("this value represents curvature radius of the slat. if the slat is flat use zero." +
     " if this value is not zero, then it must be > SlatWidth/2.")]
 [JsonProperty(PropertyName="slat_curve", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatCurve { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatCurve { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum WindowMaterial_ComplexShade_LayerType
@@ -1054,7 +1083,8 @@ public System.Nullable<double> SlatCurve { get; set; } = (System.Nullable<double
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1076,21 +1106,21 @@ public System.Nullable<double> SlatSeparation { get; set; } = null;
 [Description("Distance between top and bottom surfaces of slat Slat is assumed to be rectangula" +
     "r in cross section and flat")]
 [JsonProperty(PropertyName="slat_thickness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatThickness { get; set; } = (System.Nullable<double>)Double.Parse("0.00025", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatThickness { get; set; } = Double.Parse("0.00025", CultureInfo.InvariantCulture);
         
 
 [Description(@"If WindowShadingControl referencing the window that incorporates this blind has Type of Slat Angle Control for Blinds = FixedSlatAngle, then this is the fixed value of the slat angle; If WindowShadingControl referencing the window that incorporates this blind has Type of Slat Angle Control for Blinds = BlockBeamSolar, then this is the slat angle when slat angle control is not in effect (e.g., when there is no beam solar on the blind); Not used if WindowShadingControl referencing the window that incorporates this blind has Type of Slat Angle Control for Blinds = ScheduledSlatAngle.")]
 [JsonProperty(PropertyName="slat_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatAngle { get; set; } = (System.Nullable<double>)Double.Parse("45", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatAngle { get; set; } = Double.Parse("45", CultureInfo.InvariantCulture);
         
 
 [Description("default is for aluminum")]
 [JsonProperty(PropertyName="slat_conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatConductivity { get; set; } = (System.Nullable<double>)Double.Parse("221", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatConductivity { get; set; } = Double.Parse("221", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="slat_beam_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatBeamSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatBeamSolarTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="front_side_slat_beam_solar_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1103,7 +1133,7 @@ public System.Nullable<double> BackSideSlatBeamSolarReflectance { get; set; } = 
 
 [Description("Must equal \"Slat beam solar transmittance\"")]
 [JsonProperty(PropertyName="slat_diffuse_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatDiffuseSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatDiffuseSolarTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Must equal \"Front Side Slat Beam Solar Reflectance\"")]
@@ -1134,7 +1164,7 @@ public System.Nullable<double> BackSideSlatBeamVisibleReflectance { get; set; } 
 [Description("Used only for detailed daylighting calculation Must equal \"Slat Beam Visible Tran" +
     "smittance\"")]
 [JsonProperty(PropertyName="slat_diffuse_visible_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatDiffuseVisibleTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatDiffuseVisibleTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Required for detailed daylighting calculation Must equal \"Front Side Slat Beam Vi" +
@@ -1150,49 +1180,49 @@ public System.Nullable<double> BackSideSlatDiffuseVisibleReflectance { get; set;
         
 
 [JsonProperty(PropertyName="slat_infrared_hemispherical_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatInfraredHemisphericalTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatInfraredHemisphericalTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="front_side_slat_infrared_hemispherical_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontSideSlatInfraredHemisphericalEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideSlatInfraredHemisphericalEmissivity { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="back_side_slat_infrared_hemispherical_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackSideSlatInfraredHemisphericalEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideSlatInfraredHemisphericalEmissivity { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="blind_to_glass_distance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BlindToGlassDistance { get; set; } = (System.Nullable<double>)Double.Parse("0.05", CultureInfo.InvariantCulture);
+public System.Nullable<double> BlindToGlassDistance { get; set; } = Double.Parse("0.05", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="blind_top_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BlindTopOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> BlindTopOpeningMultiplier { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="blind_bottom_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BlindBottomOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> BlindBottomOpeningMultiplier { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="blind_left_side_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BlindLeftSideOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> BlindLeftSideOpeningMultiplier { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="blind_right_side_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BlindRightSideOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> BlindRightSideOpeningMultiplier { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [Description("Used only if WindowShadingControl referencing the window that incorporates this b" +
     "lind varies the slat angle (i.e., WindowShadingControl with Type of Slat Angle C" +
     "ontrol for Blinds = ScheduledSlatAngle or BlockBeamSolar)")]
 [JsonProperty(PropertyName="minimum_slat_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumSlatAngle { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumSlatAngle { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only if WindowShadingControl referencing the window that incorporates this b" +
     "lind varies the slat angle (i.e., WindowShadingControl with Type of Slat Angle C" +
     "ontrol for Blinds = ScheduledSlatAngle or BlockBeamSolar)")]
 [JsonProperty(PropertyName="maximum_slat_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumSlatAngle { get; set; } = (System.Nullable<double>)Double.Parse("180", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumSlatAngle { get; set; } = Double.Parse("180", CultureInfo.InvariantCulture);
     }
     
     public enum WindowMaterial_Blind_SlatOrientation
@@ -1215,7 +1245,8 @@ public System.Nullable<double> MaximumSlatAngle { get; set; } = (System.Nullable
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1243,12 +1274,12 @@ public System.Nullable<double> DiffuseVisibleReflectance { get; set; } = null;
 [Description("Long-wave emissivity of the screen material. Assumed to be the same for both side" +
     "s of the screen.")]
 [JsonProperty(PropertyName="thermal_hemispherical_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ThermalHemisphericalEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> ThermalHemisphericalEmissivity { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description("Thermal conductivity of the screen material. Default is for aluminum.")]
 [JsonProperty(PropertyName="conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Conductivity { get; set; } = (System.Nullable<double>)Double.Parse("221", CultureInfo.InvariantCulture);
+public System.Nullable<double> Conductivity { get; set; } = Double.Parse("221", CultureInfo.InvariantCulture);
         
 
 [Description("Spacing assumed to be the same in both directions.")]
@@ -1263,38 +1294,38 @@ public System.Nullable<double> ScreenMaterialDiameter { get; set; } = null;
 
 [Description("Distance from the window screen to the adjacent glass surface.")]
 [JsonProperty(PropertyName="screen_to_glass_distance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ScreenToGlassDistance { get; set; } = (System.Nullable<double>)Double.Parse("0.025", CultureInfo.InvariantCulture);
+public System.Nullable<double> ScreenToGlassDistance { get; set; } = Double.Parse("0.025", CultureInfo.InvariantCulture);
         
 
 [Description("Effective area for air flow at the top of the screen divided by the perpendicular" +
     " area between the glass and the top of the screen.")]
 [JsonProperty(PropertyName="top_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TopOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> TopOpeningMultiplier { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Effective area for air flow at the bottom of the screen divided by the perpendicu" +
     "lar area between the glass and the bottom of the screen.")]
 [JsonProperty(PropertyName="bottom_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BottomOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> BottomOpeningMultiplier { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Effective area for air flow at the left side of the screen divided by the perpend" +
     "icular area between the glass and the left side of the screen.")]
 [JsonProperty(PropertyName="left_side_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LeftSideOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> LeftSideOpeningMultiplier { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Effective area for air flow at the right side of the screen divided by the perpen" +
     "dicular area between the glass and the right side of the screen.")]
 [JsonProperty(PropertyName="right_side_opening_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RightSideOpeningMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> RightSideOpeningMultiplier { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Select the resolution of azimuth and altitude angles for the screen transmittance" +
     " map. A value of 0 means no transmittance map will be generated. Valid values fo" +
     "r this field are 0, 1, 2, 3 and 5.")]
 [JsonProperty(PropertyName="angle_of_resolution_for_screen_transmittance_output_map", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AngleOfResolutionForScreenTransmittanceOutputMap { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> AngleOfResolutionForScreenTransmittanceOutputMap { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum WindowMaterial_Screen_ReflectedBeamTransmittanceAccountingMethod
@@ -1322,7 +1353,8 @@ public System.Nullable<double> AngleOfResolutionForScreenTransmittanceOutputMap 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1331,7 +1363,7 @@ public string NodeName { get; set; } = "";
     "the openness area fraction of the shade material. Assumed to be the same for fro" +
     "nt and back sides.")]
 [JsonProperty(PropertyName="shade_beam_beam_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ShadeBeamBeamSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ShadeBeamBeamSolarTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The front side beam-diffuse solar transmittance at normal incidence averaged over" +
@@ -1382,19 +1414,19 @@ public System.Nullable<double> ShadeBeamDiffuseVisibleReflectanceAtNormalInciden
 [Description("The long-wave transmittance of the shade material at zero shade openness. Assumed" +
     " to be the same for front and back sides of the shade.")]
 [JsonProperty(PropertyName="shade_material_infrared_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ShadeMaterialInfraredTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0.05", CultureInfo.InvariantCulture);
+public System.Nullable<double> ShadeMaterialInfraredTransmittance { get; set; } = Double.Parse("0.05", CultureInfo.InvariantCulture);
         
 
 [Description("The front side long-wave emissivity of the shade material at zero shade openness." +
     " Openness fraction is used to calculate the effective emissivity value.")]
 [JsonProperty(PropertyName="front_side_shade_material_infrared_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontSideShadeMaterialInfraredEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.91", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideShadeMaterialInfraredEmissivity { get; set; } = Double.Parse("0.91", CultureInfo.InvariantCulture);
         
 
 [Description("The back side long-wave emissivity of the shade material at zero shade openness. " +
     "Openness fraction is used to calculate the effective emissivity value.")]
 [JsonProperty(PropertyName="back_side_shade_material_infrared_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackSideShadeMaterialInfraredEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.91", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideShadeMaterialInfraredEmissivity { get; set; } = Double.Parse("0.91", CultureInfo.InvariantCulture);
     }
     
     [Description(@"Specifies the properties of equivalent layer drape fabric materials. Shades are considered to be perfect diffusers (all transmitted and reflected radiation is hemispherically-diffuse) independent of angle of incidence. unpleated drape fabric is treated as thin and flat layer.")]
@@ -1403,7 +1435,8 @@ public System.Nullable<double> BackSideShadeMaterialInfraredEmissivity { get; se
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1412,7 +1445,7 @@ public string NodeName { get; set; } = "";
     "the openness area fraction of the drape fabric. Assumed to be same for front and" +
     " back sides.")]
 [JsonProperty(PropertyName="drape_beam_beam_solar_transmittance_at_normal_incidence", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DrapeBeamBeamSolarTransmittanceAtNormalIncidence { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DrapeBeamBeamSolarTransmittanceAtNormalIncidence { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The front side beam-diffuse solar transmittance at normal incidence averaged over" +
@@ -1464,33 +1497,33 @@ public System.Nullable<double> DrapeBeamDiffuseVisibleReflectance { get; set; } 
 [Description("Long-wave transmittance of the drape fabric at zero openness fraction. Assumed sa" +
     "me for front and back sides.")]
 [JsonProperty(PropertyName="drape_material_infrared_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DrapeMaterialInfraredTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0.05", CultureInfo.InvariantCulture);
+public System.Nullable<double> DrapeMaterialInfraredTransmittance { get; set; } = Double.Parse("0.05", CultureInfo.InvariantCulture);
         
 
 [Description("Front side long-wave emissivity of the drape fabric at zero shade openness. Openn" +
     "ess fraction specified above is used to calculate the effective emissivity value" +
     ".")]
 [JsonProperty(PropertyName="front_side_drape_material_infrared_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontSideDrapeMaterialInfraredEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.87", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideDrapeMaterialInfraredEmissivity { get; set; } = Double.Parse("0.87", CultureInfo.InvariantCulture);
         
 
 [Description("Back side long-wave emissivity of the drape fabric at zero shade openness. Openne" +
     "ss fraction specified above is used to calculate the effective emissivity value." +
     "")]
 [JsonProperty(PropertyName="back_side_drape_material_infrared_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackSideDrapeMaterialInfraredEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.87", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideDrapeMaterialInfraredEmissivity { get; set; } = Double.Parse("0.87", CultureInfo.InvariantCulture);
         
 
 [Description("Width of the pleated section of the draped fabric. If the drape fabric is unpleat" +
     "ed or is flat, then the pleated section width is set to zero.")]
 [JsonProperty(PropertyName="width_of_pleated_fabric", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WidthOfPleatedFabric { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> WidthOfPleatedFabric { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Length of the pleated section of the draped fabric. If the drape fabric is unplea" +
     "ted or is flat, then the pleated section length is set to zero.")]
 [JsonProperty(PropertyName="length_of_pleated_fabric", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LengthOfPleatedFabric { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> LengthOfPleatedFabric { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description("Window equivalent layer blind slat optical and thermal properties. The model assu" +
@@ -1502,7 +1535,8 @@ public System.Nullable<double> LengthOfPleatedFabric { get; set; } = (System.Nul
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1524,26 +1558,26 @@ public System.Nullable<double> SlatSeparation { get; set; } = null;
 [Description("Perpendicular length between the cord and the curve. Slat is assumed to be rectan" +
     "gular in cross section and flat. Crown=0.0625x\"Slat width\"")]
 [JsonProperty(PropertyName="slat_crown", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatCrown { get; set; } = (System.Nullable<double>)Double.Parse("0.0015", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatCrown { get; set; } = Double.Parse("0.0015", CultureInfo.InvariantCulture);
         
 
 [Description("Slat angle is +ve if the tip of the slat front face is tilted upward, else the sl" +
     "at angle is -ve if the tip of the slat front face is tilted downward. The slat a" +
     "ngle varies between -90 to +90. The default value is 45 degrees.")]
 [JsonProperty(PropertyName="slat_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatAngle { get; set; } = (System.Nullable<double>)Double.Parse("45", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatAngle { get; set; } = Double.Parse("45", CultureInfo.InvariantCulture);
         
 
 [Description("The front side beam-diffuse solar transmittance of the slat at normal incidence a" +
     "veraged over the entire spectrum of solar radiation.")]
 [JsonProperty(PropertyName="front_side_slat_beam_diffuse_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontSideSlatBeamDiffuseSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideSlatBeamDiffuseSolarTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The back side beam-diffuse solar transmittance of the slat at normal incidence av" +
     "eraged over the entire spectrum of solar radiation.")]
 [JsonProperty(PropertyName="back_side_slat_beam_diffuse_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackSideSlatBeamDiffuseSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideSlatBeamDiffuseSolarTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The front side beam-diffuse solar reflectance of the slat at normal incidence ave" +
@@ -1561,13 +1595,13 @@ public System.Nullable<double> BackSideSlatBeamDiffuseSolarReflectance { get; se
 [Description("The front side beam-diffuse visible transmittance of the slat at normal incidence" +
     " averaged over the visible spectrum range of solar radiation.")]
 [JsonProperty(PropertyName="front_side_slat_beam_diffuse_visible_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontSideSlatBeamDiffuseVisibleTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideSlatBeamDiffuseVisibleTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The back side beam-diffuse visible transmittance of the slat at normal incidence " +
     "averaged over the visible spectrum range of solar radiation.")]
 [JsonProperty(PropertyName="back_side_slat_beam_diffuse_visible_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackSideSlatBeamDiffuseVisibleTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideSlatBeamDiffuseVisibleTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The front side beam-diffuse visible reflectance of the slat at normal incidence a" +
@@ -1585,7 +1619,7 @@ public System.Nullable<double> BackSideSlatBeamDiffuseVisibleReflectance { get; 
 [Description("The beam-diffuse solar transmittance of the slat averaged over the entire solar s" +
     "pectrum of solar radiation.")]
 [JsonProperty(PropertyName="slat_diffuse_diffuse_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatDiffuseDiffuseSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatDiffuseDiffuseSolarTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The front side beam-diffuse solar reflectance of the slat averaged over the entir" +
@@ -1621,17 +1655,17 @@ public System.Nullable<double> BackSideSlatDiffuseDiffuseVisibleReflectance { ge
 [Description("Long-wave hemispherical transmittance of the slat material. Assumed to be the sam" +
     "e for both sides of the slat.")]
 [JsonProperty(PropertyName="slat_infrared_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlatInfraredTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlatInfraredTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Front side long-wave hemispherical emissivity of the slat material.")]
 [JsonProperty(PropertyName="front_side_slat_infrared_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontSideSlatInfraredEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideSlatInfraredEmissivity { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description("Back side long-wave hemispherical emissivity of the slat material.")]
 [JsonProperty(PropertyName="back_side_slat_infrared_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackSideSlatInfraredEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideSlatInfraredEmissivity { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description(@"Used only if slat angle control is desired to either maximize solar gain (MaximizeSolar), maximize visibility while eliminating beam solar radiation (BlockBeamSolar), or fixed slate angle (FixedSlatAngle). If FixedSlatAngle is selected, the slat angle entered above is used.")]
@@ -1676,7 +1710,8 @@ public WindowMaterial_Blind_EquivalentLayer_SlatAngleControl SlatAngleControl { 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1684,7 +1719,7 @@ public string NodeName { get; set; } = "";
 [Description(@"The beam-beam transmittance of the screen material at normal incidence. This input field is the same as the material openness area fraction and can be autocalculated from the wire spacing and wire and diameter. Assumed to be the same for both sides of the screen.")]
 [JsonProperty(PropertyName="screen_beam_beam_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> ScreenBeamBeamSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> ScreenBeamBeamSolarTransmittance { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("The beam-diffuse solar transmittance of the screen material at normal incidence a" +
@@ -1725,23 +1760,23 @@ public System.Nullable<double> ScreenBeamDiffuseVisibleReflectance { get; set; }
 [Description("The long-wave hemispherical transmittance of the screen material. Assumed to be t" +
     "he same for both sides of the screen.")]
 [JsonProperty(PropertyName="screen_infrared_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ScreenInfraredTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0.02", CultureInfo.InvariantCulture);
+public System.Nullable<double> ScreenInfraredTransmittance { get; set; } = Double.Parse("0.02", CultureInfo.InvariantCulture);
         
 
 [Description("The long-wave hemispherical emissivity of the screen material. Assumed to be the " +
     "same for both sides of the screen.")]
 [JsonProperty(PropertyName="screen_infrared_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ScreenInfraredEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.93", CultureInfo.InvariantCulture);
+public System.Nullable<double> ScreenInfraredEmissivity { get; set; } = Double.Parse("0.93", CultureInfo.InvariantCulture);
         
 
 [Description("Spacing assumed to be the same in both directions.")]
 [JsonProperty(PropertyName="screen_wire_spacing", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ScreenWireSpacing { get; set; } = (System.Nullable<double>)Double.Parse("0.025", CultureInfo.InvariantCulture);
+public System.Nullable<double> ScreenWireSpacing { get; set; } = Double.Parse("0.025", CultureInfo.InvariantCulture);
         
 
 [Description("Diameter assumed to be the same in both directions.")]
 [JsonProperty(PropertyName="screen_wire_diameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ScreenWireDiameter { get; set; } = (System.Nullable<double>)Double.Parse("0.005", CultureInfo.InvariantCulture);
+public System.Nullable<double> ScreenWireDiameter { get; set; } = Double.Parse("0.005", CultureInfo.InvariantCulture);
     }
     
     [Description("Glass material properties for Windows or Glass Doors Transmittance/Reflectance in" +
@@ -1751,7 +1786,8 @@ public System.Nullable<double> ScreenWireDiameter { get; set; } = (System.Nullab
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1814,108 +1850,108 @@ public System.Nullable<double> BackSideBeamBeamVisibleSolarReflectance { get; se
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
 [JsonProperty(PropertyName="front_side_beam_diffuse_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontSideBeamDiffuseSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideBeamDiffuseSolarTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
 [JsonProperty(PropertyName="back_side_beam_diffuse_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackSideBeamDiffuseSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideBeamDiffuseSolarTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Front Side is side closest to " +
     "outdoor air")]
 [JsonProperty(PropertyName="front_side_beam_diffuse_solar_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontSideBeamDiffuseSolarReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideBeamDiffuseSolarReflectance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Back Side is side closest to z" +
     "one air")]
 [JsonProperty(PropertyName="back_side_beam_diffuse_solar_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackSideBeamDiffuseSolarReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideBeamDiffuseSolarReflectance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
 [JsonProperty(PropertyName="front_side_beam_diffuse_visible_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontSideBeamDiffuseVisibleSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideBeamDiffuseVisibleSolarTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage")]
 [JsonProperty(PropertyName="back_side_beam_diffuse_visible_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackSideBeamDiffuseVisibleSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideBeamDiffuseVisibleSolarTransmittance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Front Side is side closest to " +
     "outdoor air")]
 [JsonProperty(PropertyName="front_side_beam_diffuse_visible_solar_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontSideBeamDiffuseVisibleSolarReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideBeamDiffuseVisibleSolarReflectance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage Back Side is side closest to z" +
     "one air")]
 [JsonProperty(PropertyName="back_side_beam_diffuse_visible_solar_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackSideBeamDiffuseVisibleSolarReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideBeamDiffuseVisibleSolarReflectance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"Used only when Optical Data Type = SpectralAverage If this field is autocalculate, then the diffuse-diffuse solar transmittance is automatically estimated from other inputs and used in subsequent calculations. If this field is zero or positive, then the value entered here will be used.")]
 [JsonProperty(PropertyName="diffuse_diffuse_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> DiffuseDiffuseSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DiffuseDiffuseSolarTransmittance { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"Used only when Optical Data Type = SpectralAverage If this field is autocalculate, then the front diffuse-diffuse solar reflectance is automatically estimated from other inputs and used in subsequent calculations. If this field is zero or positive, then the value entered here will be used. Front Side is side closest to outdoor air.")]
 [JsonProperty(PropertyName="front_side_diffuse_diffuse_solar_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> FrontSideDiffuseDiffuseSolarReflectance { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideDiffuseDiffuseSolarReflectance { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"Used only when Optical Data Type = SpectralAverage If this field is autocalculate, then the back diffuse-diffuse solar reflectance is automatically estimated from other inputs and used in subsequent calculations. If this field is zero or positive, then the value entered here will be used. Back side is side closest to indoor air.")]
 [JsonProperty(PropertyName="back_side_diffuse_diffuse_solar_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> BackSideDiffuseDiffuseSolarReflectance { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideDiffuseDiffuseSolarReflectance { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage This input field is not used c" +
     "urrently.")]
 [JsonProperty(PropertyName="diffuse_diffuse_visible_solar_transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> DiffuseDiffuseVisibleSolarTransmittance { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DiffuseDiffuseVisibleSolarTransmittance { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage This input field is not used c" +
     "urrently.")]
 [JsonProperty(PropertyName="front_side_diffuse_diffuse_visible_solar_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> FrontSideDiffuseDiffuseVisibleSolarReflectance { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideDiffuseDiffuseVisibleSolarReflectance { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Used only when Optical Data Type = SpectralAverage This input field is not used c" +
     "urrently.")]
 [JsonProperty(PropertyName="back_side_diffuse_diffuse_visible_solar_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> BackSideDiffuseDiffuseVisibleSolarReflectance { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideDiffuseDiffuseVisibleSolarReflectance { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("The long-wave hemispherical transmittance of the glazing. Assumed to be the same " +
     "for both sides of the glazing.")]
 [JsonProperty(PropertyName="infrared_transmittance_applies_to_front_and_back_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InfraredTransmittanceAppliesToFrontAndBack { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> InfraredTransmittanceAppliesToFrontAndBack { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The front side long-wave hemispherical emissivity of the glazing.")]
 [JsonProperty(PropertyName="front_side_infrared_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrontSideInfraredEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.84", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrontSideInfraredEmissivity { get; set; } = Double.Parse("0.84", CultureInfo.InvariantCulture);
         
 
 [Description("The back side long-wave hemispherical emissivity of the glazing.")]
 [JsonProperty(PropertyName="back_side_infrared_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> BackSideInfraredEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.84", CultureInfo.InvariantCulture);
+public System.Nullable<double> BackSideInfraredEmissivity { get; set; } = Double.Parse("0.84", CultureInfo.InvariantCulture);
         
 
 [Description("This is the R-Value in SI for the glass. The default value is an approximation fo" +
     "r a single layer of glass at 1/4\" inch thickness. This field is used only for mo" +
     "vable insulation defined with this material type.")]
 [JsonProperty(PropertyName="thermal_resistance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ThermalResistance { get; set; } = (System.Nullable<double>)Double.Parse("0.158", CultureInfo.InvariantCulture);
+public System.Nullable<double> ThermalResistance { get; set; } = Double.Parse("0.158", CultureInfo.InvariantCulture);
     }
     
     public enum WindowMaterial_Glazing_EquivalentLayer_OpticalDataType
@@ -1938,7 +1974,8 @@ public System.Nullable<double> ThermalResistance { get; set; } = (System.Nullabl
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2053,7 +2090,8 @@ public System.Nullable<double> SpecificHeatRatio { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2082,12 +2120,12 @@ public System.Nullable<double> MoistureEquationCoefficientD { get; set; } = null
 
 [JsonProperty(PropertyName="surface_layer_penetration_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> SurfaceLayerPenetrationDepth { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> SurfaceLayerPenetrationDepth { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="deep_layer_penetration_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> DeepLayerPenetrationDepth { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DeepLayerPenetrationDepth { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="coating_layer_thickness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2107,7 +2145,8 @@ public System.Nullable<double> CoatingLayerWaterVaporDiffusionResistanceFactor {
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2116,7 +2155,7 @@ public string NodeName { get; set; } = "";
     "xcursion from 20C. This variable conductivity function is overridden by the Vari" +
     "ableThermalConductivity object, if present.")]
 [JsonProperty(PropertyName="temperature_coefficient_for_thermal_conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TemperatureCoefficientForThermalConductivity { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> TemperatureCoefficientForThermalConductivity { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("for Temperature-enthalpy function")]
@@ -2285,7 +2324,8 @@ public System.Nullable<double> Enthalpy16 { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2366,7 +2406,8 @@ public System.Nullable<double> LowTemperatureDifferenceOfFreezingCurve { get; se
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2491,7 +2532,7 @@ public System.Nullable<double> Porosity { get; set; } = null;
 
 [Description("units are the water/material density ratio at the beginning of each run period.")]
 [JsonProperty(PropertyName="initial_water_content_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InitialWaterContentRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> InitialWaterContentRatio { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
     }
     
     [Description("HeatBalanceAlgorithm = CombinedHeatAndMoistureFiniteElement solution algorithm on" +
@@ -3642,7 +3683,8 @@ public System.Nullable<double> ThermalConductivity25 { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -3712,7 +3754,28 @@ public System.Nullable<double> BackReflectance4 { get; set; } = null;
         
 
 [JsonProperty(PropertyName="extensions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Extensions { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.SurfaceConstructionElements.MaterialProperty_GlazingSpectralData_Extensions_Item> Extensions { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class MaterialProperty_GlazingSpectralData_Extensions_Item
+    {
+        
+
+[JsonProperty(PropertyName="wavelength", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Wavelength { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="transmittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Transmittance { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="front_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FrontReflectance { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="back_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> BackReflectance { get; set; } = null;
     }
     
     [Description("Start with outside layer and work your way to the inside layer Up to 10 layers to" +
@@ -3722,7 +3785,8 @@ public string Extensions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -3773,7 +3837,8 @@ public string Layer10 { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -3794,7 +3859,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -3819,7 +3885,8 @@ public System.Nullable<double> Perimeterexposed { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -3851,7 +3918,7 @@ public System.Nullable<double> TubeSpacing { get; set; } = null;
 
 [Description(@"used in conjunction with field Temperature Calculation Requested After Layer Number this field is the location perpendicular to the main direction of heat transfer 0.0 means in line with the tubing, 1.0 means at the midpoint between two adjacent pipes this field is ignored for 1-D calculations")]
 [JsonProperty(PropertyName="two_dimensional_temperature_calculation_position", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TwoDimensionalTemperatureCalculationPosition { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> TwoDimensionalTemperatureCalculationPosition { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description(@"Indicates an open boundary between two zones. It may be used for base surfaces and fenestration surfaces. The two adjacent zones are grouped together for solar, daylighting and radiant exchange. When this construction type is used, the Outside Boundary Condition of the surface (or the base surface of a fenestration surface) must be either Surface or Zone. A base surface with Construction:AirBoundary cannot hold any fenestration surfaces.")]
@@ -3860,7 +3927,8 @@ public System.Nullable<double> TwoDimensionalTemperatureCalculationPosition { ge
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -3875,7 +3943,7 @@ public Construction_AirBoundary_AirExchangeMethod AirExchangeMethod { get; set; 
     "ges per hour using the volume of the smaller zone as the basis. If an AirflowNet" +
     "work simulation is active this field is ignored.")]
 [JsonProperty(PropertyName="simple_mixing_air_changes_per_hour", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SimpleMixingAirChangesPerHour { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> SimpleMixingAirChangesPerHour { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [Description("If the Air Exchange Method is SimpleMixing then this field specifies the air exch" +
@@ -3905,7 +3973,8 @@ public string SimpleMixingScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -3921,7 +3990,7 @@ public WindowThermalModel_Params_ThermalModel ThermalModel { get; set; } = (Wind
         
 
 [JsonProperty(PropertyName="sdscalar", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Sdscalar { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Sdscalar { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="deflection_model", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3930,17 +3999,17 @@ public WindowThermalModel_Params_DeflectionModel DeflectionModel { get; set; } =
         
 
 [JsonProperty(PropertyName="vacuum_pressure_limit", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> VacuumPressureLimit { get; set; } = (System.Nullable<double>)Double.Parse("13.238", CultureInfo.InvariantCulture);
+public System.Nullable<double> VacuumPressureLimit { get; set; } = Double.Parse("13.238", CultureInfo.InvariantCulture);
         
 
 [Description("This is temperature in time of window fabrication")]
 [JsonProperty(PropertyName="initial_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InitialTemperature { get; set; } = (System.Nullable<double>)Double.Parse("25", CultureInfo.InvariantCulture);
+public System.Nullable<double> InitialTemperature { get; set; } = Double.Parse("25", CultureInfo.InvariantCulture);
         
 
 [Description("This is pressure in time of window fabrication")]
 [JsonProperty(PropertyName="initial_pressure", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InitialPressure { get; set; } = (System.Nullable<double>)Double.Parse("101325", CultureInfo.InvariantCulture);
+public System.Nullable<double> InitialPressure { get; set; } = Double.Parse("101325", CultureInfo.InvariantCulture);
     }
     
     public enum WindowThermalModel_Params_Standard
@@ -4025,7 +4094,8 @@ public WindowsCalculationEngine_WindowsEngine WindowsEngine { get; set; } = (Win
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -4214,7 +4284,8 @@ public string Layer5DirectionalBackAbsoptanceMatrixName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -4269,7 +4340,8 @@ public string Layer11 { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         

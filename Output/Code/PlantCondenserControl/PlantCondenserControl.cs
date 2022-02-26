@@ -72,13 +72,27 @@ namespace BH.oM.Adapters.EnergyPlus.PlantCondenserControl
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="equipment", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Equipment { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.PlantCondenserControl.PlantEquipmentList_Equipment_Item> Equipment { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class PlantEquipmentList_Equipment_Item
+    {
+        
+
+[JsonProperty(PropertyName="equipment_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string EquipmentObjectType { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="equipment_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string EquipmentName { get; set; } = "";
     }
     
     [Description(@"List condenser equipment in order of operating priority, 1st in list will be used 1st, etc Use only condenser equipment in this list. If no equipment object types and equipment names are specified, then the corresponding PlantEquipmentOperation:* object will assume all available condenser equipment for the loop should be OFF (not operate) within the specified lower/upper limit.")]
@@ -87,13 +101,27 @@ public string Equipment { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="equipment", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Equipment { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.PlantCondenserControl.CondenserEquipmentList_Equipment_Item> Equipment { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class CondenserEquipmentList_Equipment_Item
+    {
+        
+
+[JsonProperty(PropertyName="equipment_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string EquipmentObjectType { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="equipment_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string EquipmentName { get; set; } = "";
     }
     
     [Description("Plant equipment operation scheme for uncontrolled operation. Specifies a group of" +
@@ -104,7 +132,8 @@ public string Equipment { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -121,7 +150,8 @@ public string EquipmentListName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -254,7 +284,8 @@ public string Range10EquipmentListName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -387,7 +418,8 @@ public string Range10EquipmentListName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -520,7 +552,8 @@ public string Range10EquipmentListName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -653,7 +686,8 @@ public string Range10EquipmentListName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -786,7 +820,8 @@ public string Range10EquipmentListName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -919,7 +954,8 @@ public string Range10EquipmentListName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -942,7 +978,7 @@ public string Setpoint1NodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_1_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component1FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component1FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="operation_1_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -968,7 +1004,7 @@ public string Setpoint2NodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_2_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component2FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component2FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="operation_2_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -994,7 +1030,7 @@ public string Setpoint3NodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_3_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component3FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component3FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="operation_3_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1020,7 +1056,7 @@ public string Setpoint4NodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_4_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component4FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component4FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="operation_4_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1046,7 +1082,7 @@ public string Setpoint5NodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_5_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component5FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component5FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="operation_5_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1072,7 +1108,7 @@ public string Setpoint6NodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_6_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component6FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component6FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="operation_6_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1098,7 +1134,7 @@ public string Setpoint7NodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_7_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component7FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component7FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="operation_7_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1124,7 +1160,7 @@ public string Setpoint8NodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_8_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component8FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component8FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="operation_8_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1150,7 +1186,7 @@ public string Setpoint9NodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_9_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component9FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component9FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="operation_9_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1176,7 +1212,7 @@ public string Setpoint10NodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_10_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component10FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component10FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="operation_10_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1322,7 +1358,8 @@ public PlantEquipmentOperation_ComponentSetpoint_Operation10Type Operation10Type
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1374,7 +1411,7 @@ public string Component1SetpointNodeName { get; set; } = "";
 [Description("This field is the flow rate for the component listed above.")]
 [JsonProperty(PropertyName="component_1_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component1FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component1FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("This field is the operation type for the component listed above. For this plant e" +
@@ -1404,7 +1441,7 @@ public string Component2SetpointNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_2_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component2FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component2FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="component_2_operation_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1431,7 +1468,7 @@ public string Component3SetpointNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_3_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component3FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component3FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="component_3_operation_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1458,7 +1495,7 @@ public string Component4SetpointNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_4_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component4FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component4FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="component_4_operation_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1485,7 +1522,7 @@ public string Component5SetpointNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_5_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component5FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component5FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="component_5_operation_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1512,7 +1549,7 @@ public string Component6SetpointNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_6_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component6FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component6FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="component_6_operation_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1539,7 +1576,7 @@ public string Component7SetpointNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_7_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component7FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component7FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="component_7_operation_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1566,7 +1603,7 @@ public string Component8SetpointNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_8_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component8FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component8FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="component_8_operation_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1593,7 +1630,7 @@ public string Component9SetpointNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_9_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component9FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component9FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="component_9_operation_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1620,7 +1657,7 @@ public string Component10SetpointNodeName { get; set; } = "";
 
 [JsonProperty(PropertyName="component_10_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Component10FlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Component10FlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="component_10_operation_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2104,7 +2141,8 @@ public PlantEquipmentOperation_ThermalEnergyStorage_Component10OperationType Com
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2239,7 +2277,8 @@ public string Range10EquipmentListName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2374,7 +2413,8 @@ public string Range10EquipmentListName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2509,7 +2549,8 @@ public string Range10EquipmentListName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2968,7 +3009,8 @@ public string ControlScheme8ScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         

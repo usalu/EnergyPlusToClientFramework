@@ -73,7 +73,8 @@ namespace BH.oM.Adapters.EnergyPlus.DemandLimitingControls
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -113,7 +114,7 @@ public DemandManagerAssignmentList_DemandManagerPriority DemandManagerPriority {
         
 
 [JsonProperty(PropertyName="manager_data", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string ManagerData { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.DemandLimitingControls.DemandManagerAssignmentList_ManagerData_Item> ManagerData { get; set; } = null;
     }
     
     public enum DemandManagerAssignmentList_DemandManagerPriority
@@ -126,13 +127,27 @@ public string ManagerData { get; set; } = "";
         Sequential = 1,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class DemandManagerAssignmentList_ManagerData_Item
+    {
+        
+
+[JsonProperty(PropertyName="demandmanager_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string DemandmanagerObjectType { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="demandmanager_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string DemandmanagerName { get; set; } = "";
+    }
+    
     [Description("used for demand limiting Exterior:Lights objects.")]
     [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
     public class DemandManager_ExteriorLights : BHoMObject, IEnergyPlusNode
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -172,8 +187,9 @@ public DemandManager_ExteriorLights_SelectionControl SelectionControl { get; set
 public System.Nullable<double> RotationDuration { get; set; } = null;
         
 
+[Description("This list is the ExteriorLightsNames object-list")]
 [JsonProperty(PropertyName="lights", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Lights { get; set; } = "";
+public System.Collections.Generic.List<string> Lights { get; set; } = null;
     }
     
     public enum DemandManager_ExteriorLights_LimitControl
@@ -205,7 +221,8 @@ public string Lights { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -245,8 +262,9 @@ public DemandManager_Lights_SelectionControl SelectionControl { get; set; } = (D
 public System.Nullable<double> RotationDuration { get; set; } = null;
         
 
+[Description("This list is the LightsNames object-list")]
 [JsonProperty(PropertyName="lights", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Lights { get; set; } = "";
+public System.Collections.Generic.List<string> Lights { get; set; } = null;
     }
     
     public enum DemandManager_Lights_LimitControl
@@ -278,7 +296,8 @@ public string Lights { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -318,8 +337,9 @@ public DemandManager_ElectricEquipment_SelectionControl SelectionControl { get; 
 public System.Nullable<double> RotationDuration { get; set; } = null;
         
 
+[Description("This list is the ElectricEquipmentNames object-list")]
 [JsonProperty(PropertyName="equipment", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Equipment { get; set; } = "";
+public System.Collections.Generic.List<string> Equipment { get; set; } = null;
     }
     
     public enum DemandManager_ElectricEquipment_LimitControl
@@ -351,7 +371,8 @@ public string Equipment { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -395,8 +416,9 @@ public DemandManager_Thermostats_SelectionControl SelectionControl { get; set; }
 public System.Nullable<double> RotationDuration { get; set; } = null;
         
 
+[Description("This list is the ZoneControlThermostaticNames object-list")]
 [JsonProperty(PropertyName="thermostats", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Thermostats { get; set; } = "";
+public System.Collections.Generic.List<string> Thermostats { get; set; } = null;
     }
     
     public enum DemandManager_Thermostats_ResetControl
@@ -428,7 +450,8 @@ public string Thermostats { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -475,8 +498,9 @@ public DemandManager_Ventilation_SelectionControl SelectionControl { get; set; }
 public System.Nullable<double> RotationDuration { get; set; } = null;
         
 
+[Description("This list is the OAControllerNames object-list")]
 [JsonProperty(PropertyName="controllers", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Controllers { get; set; } = "";
+public System.Collections.Generic.List<string> Controllers { get; set; } = null;
     }
     
     public enum DemandManager_Ventilation_LimitControl

@@ -209,39 +209,40 @@ public System.Nullable<double> NewAspectRatio { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="direction_of_relative_north", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DirectionOfRelativeNorth { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DirectionOfRelativeNorth { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="x_origin", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> XOrigin { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> XOrigin { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="y_origin", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> YOrigin { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> YOrigin { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="z_origin", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZOrigin { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZOrigin { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Type { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Type { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Multiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Multiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"If this field is 0.0, negative or autocalculate, then the average height of the zone is automatically calculated and used in subsequent calculations. If this field is positive, then the number entered here will be used. Note that the Zone Ceiling Height is the distance from the Floor to the Ceiling in the Zone, not an absolute height from the ground.")]
 [JsonProperty(PropertyName="ceiling_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CeilingHeight { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CeilingHeight { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("If this field is 0.0, negative or autocalculate, then the volume of the zone is a" +
@@ -249,7 +250,7 @@ public System.Nullable<double> CeilingHeight { get; set; } = (System.Nullable<do
     "sitive, then the number entered here will be used.")]
 [JsonProperty(PropertyName="volume", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> Volume { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Volume { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("If this field is 0.0, negative or autocalculate, then the floor area of the zone " +
@@ -257,7 +258,7 @@ public System.Nullable<double> Volume { get; set; } = (System.Nullable<double>)D
     "s positive, then the number entered here will be used.")]
 [JsonProperty(PropertyName="floor_area", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> FloorArea { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> FloorArea { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"Will default to same value as SurfaceConvectionAlgorithm:Inside object setting this field overrides the default SurfaceConvectionAlgorithm:Inside for this zone Simple = constant natural convection (ASHRAE) TARP = variable natural convection based on temperature difference (ASHRAE) CeilingDiffuser = ACH based forced and mixed convection correlations for ceiling diffuser configuration with simple natural convection limit AdaptiveConvectionAlgorithm = dynamic selection of convection models based on conditions TrombeWall = variable natural convection in an enclosed rectangular cavity ASTMC1340 = mixed convection correlations specified for attic zone")]
@@ -330,13 +331,15 @@ public EmptyNoYes PartOfTotalFloorArea { get; set; } = (EmptyNoYes)Enum.Parse(ty
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
+[Description("This list is the ZoneNames object-list")]
 [JsonProperty(PropertyName="zones", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Zones { get; set; } = "";
+public System.Collections.Generic.List<string> Zones { get; set; } = null;
     }
     
     [Description("Adds a multiplier to a ZoneList. This can be used to reduce the amount of input n" +
@@ -347,7 +350,8 @@ public string Zones { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -357,7 +361,7 @@ public string ZoneListName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="zone_list_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZoneListMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZoneListMultiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     [Description("Allows for detailed entry of building heat transfer surfaces. Does not include su" +
@@ -367,7 +371,8 @@ public System.Nullable<double> ZoneListMultiplier { get; set; } = (System.Nullab
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -410,17 +415,17 @@ public BuildingSurface_Detailed_WindExposure WindExposure { get; set; } = (Build
 [Description(@"From the exterior of the surface Unused if one uses the ""reflections"" options in Solar Distribution in Building input unless a DaylightingDevice:Shelf or DaylightingDevice:Tubular object has been specified. autocalculate will automatically calculate this value from the tilt of the surface")]
 [JsonProperty(PropertyName="view_factor_to_ground", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> ViewFactorToGround { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> ViewFactorToGround { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"shown with 120 vertex coordinates -- extensible object ""extensible"" -- duplicate last set of x,y,z coordinates (last 3 fields), remembering to remove ; from ""inner"" fields. for clarity in any error messages, renumber the fields as well. (and changing z terminator to a comma "","" for all but last one which needs a semi-colon "";"") vertices are given in GlobalGeometryRules coordinates -- if relative, all surface coordinates are ""relative"" to the Zone Origin. If world, then building and zone origins are used for some internal calculations, but all coordinates are given in an ""absolute"" system.")]
 [JsonProperty(PropertyName="number_of_vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> NumberOfVertices { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfVertices { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Vertices { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces.BuildingSurface_Detailed_Vertices_Item> Vertices { get; set; } = null;
     }
     
     public enum BuildingSurface_Detailed_SurfaceType
@@ -517,13 +522,31 @@ public string Vertices { get; set; } = "";
         WindExposed = 2,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class BuildingSurface_Detailed_Vertices_Item
+    {
+        
+
+[JsonProperty(PropertyName="vertex_x_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexXCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_y_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexYCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_z_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexZCoordinate { get; set; } = null;
+    }
+    
     [Description("Allows for detailed entry of wall heat transfer surfaces.")]
     [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
     public class Wall_Detailed : BHoMObject, IEnergyPlusNode
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -561,17 +584,17 @@ public Wall_Detailed_WindExposure WindExposure { get; set; } = (Wall_Detailed_Wi
 [Description(@"From the exterior of the surface Unused if one uses the ""reflections"" options in Solar Distribution in Building input unless a DaylightingDevice:Shelf or DaylightingDevice:Tubular object has been specified. autocalculate will automatically calculate this value from the tilt of the surface")]
 [JsonProperty(PropertyName="view_factor_to_ground", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> ViewFactorToGround { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> ViewFactorToGround { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"shown with 10 vertex coordinates -- extensible object ""extensible"" -- duplicate last set of x,y,z coordinates, renumbering please (and changing z terminator to a comma "","" for all but last one which needs a semi-colon "";"") vertices are given in GlobalGeometryRules coordinates -- if relative, all surface coordinates are ""relative"" to the Zone Origin. If world, then building and zone origins are used for some internal calculations, but all coordinates are given in an ""absolute"" system.")]
 [JsonProperty(PropertyName="number_of_vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> NumberOfVertices { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfVertices { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Vertices { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces.Wall_Detailed_Vertices_Item> Vertices { get; set; } = null;
     }
     
     public enum Wall_Detailed_OutsideBoundaryCondition
@@ -652,13 +675,31 @@ public string Vertices { get; set; } = "";
         WindExposed = 2,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Wall_Detailed_Vertices_Item
+    {
+        
+
+[JsonProperty(PropertyName="vertex_x_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexXCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_y_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexYCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_z_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexZCoordinate { get; set; } = null;
+    }
+    
     [Description("Allows for detailed entry of roof/ceiling heat transfer surfaces.")]
     [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
     public class RoofCeiling_Detailed : BHoMObject, IEnergyPlusNode
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -696,17 +737,17 @@ public RoofCeiling_Detailed_WindExposure WindExposure { get; set; } = (RoofCeili
 [Description(@"From the exterior of the surface Unused if one uses the ""reflections"" options in Solar Distribution in Building input unless a DaylightingDevice:Shelf or DaylightingDevice:Tubular object has been specified. autocalculate will automatically calculate this value from the tilt of the surface")]
 [JsonProperty(PropertyName="view_factor_to_ground", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> ViewFactorToGround { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> ViewFactorToGround { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"shown with 10 vertex coordinates -- extensible object ""extensible"" -- duplicate last set of x,y,z coordinates, renumbering please (and changing z terminator to a comma "","" for all but last one which needs a semi-colon "";"") vertices are given in GlobalGeometryRules coordinates -- if relative, all surface coordinates are ""relative"" to the Zone Origin. If world, then building and zone origins are used for some internal calculations, but all coordinates are given in an ""absolute"" system.")]
 [JsonProperty(PropertyName="number_of_vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> NumberOfVertices { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfVertices { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Vertices { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces.RoofCeiling_Detailed_Vertices_Item> Vertices { get; set; } = null;
     }
     
     public enum RoofCeiling_Detailed_OutsideBoundaryCondition
@@ -781,13 +822,31 @@ public string Vertices { get; set; } = "";
         WindExposed = 2,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoofCeiling_Detailed_Vertices_Item
+    {
+        
+
+[JsonProperty(PropertyName="vertex_x_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexXCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_y_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexYCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_z_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexZCoordinate { get; set; } = null;
+    }
+    
     [Description("Allows for detailed entry of floor heat transfer surfaces.")]
     [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
     public class Floor_Detailed : BHoMObject, IEnergyPlusNode
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -825,17 +884,17 @@ public Floor_Detailed_WindExposure WindExposure { get; set; } = (Floor_Detailed_
 [Description(@"From the exterior of the surface Unused if one uses the ""reflections"" options in Solar Distribution in Building input unless a DaylightingDevice:Shelf or DaylightingDevice:Tubular object has been specified. autocalculate will automatically calculate this value from the tilt of the surface")]
 [JsonProperty(PropertyName="view_factor_to_ground", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> ViewFactorToGround { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> ViewFactorToGround { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"shown with 10 vertex coordinates -- extensible object ""extensible"" -- duplicate last set of x,y,z coordinates, renumbering please (and changing z terminator to a comma "","" for all but last one which needs a semi-colon "";"") vertices are given in GlobalGeometryRules coordinates -- if relative, all surface coordinates are ""relative"" to the Zone Origin. If world, then building and zone origins are used for some internal calculations, but all coordinates are given in an ""absolute"" system.")]
 [JsonProperty(PropertyName="number_of_vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> NumberOfVertices { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfVertices { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Vertices { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces.Floor_Detailed_Vertices_Item> Vertices { get; set; } = null;
     }
     
     public enum Floor_Detailed_OutsideBoundaryCondition
@@ -916,6 +975,23 @@ public string Vertices { get; set; } = "";
         WindExposed = 2,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Floor_Detailed_Vertices_Item
+    {
+        
+
+[JsonProperty(PropertyName="vertex_x_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexXCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_y_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexYCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_z_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexZCoordinate { get; set; } = null;
+    }
+    
     [Description("Allows for simplified entry of exterior walls. View Factor to Ground is automatic" +
         "ally calculated.")]
     [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
@@ -923,7 +999,8 @@ public string Vertices { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -945,7 +1022,7 @@ public System.Nullable<double> AzimuthAngle { get; set; } = null;
 
 [Description("Walls are usually tilted 90 degrees")]
 [JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngle { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [Description("Starting (x,y,z) coordinate is the Lower Left Corner of the Wall")]
@@ -975,7 +1052,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -997,7 +1075,7 @@ public System.Nullable<double> AzimuthAngle { get; set; } = null;
 
 [Description("Walls are usually tilted 90 degrees")]
 [JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngle { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [Description("Starting (x,y,z) coordinate is the Lower Left Corner of the Wall")]
@@ -1027,7 +1105,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1051,7 +1130,7 @@ public System.Nullable<double> AzimuthAngle { get; set; } = null;
 
 [Description("Walls are usually tilted 90 degrees")]
 [JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngle { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [Description("Starting (x,y,z) coordinate is the Lower Left Corner of the Wall")]
@@ -1081,7 +1160,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1110,7 +1190,7 @@ public System.Nullable<double> AzimuthAngle { get; set; } = null;
 
 [Description("Walls are usually tilted 90 degrees")]
 [JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngle { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [Description("Starting (x,y,z) coordinate is the Lower Left Corner of the Wall")]
@@ -1141,7 +1221,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1163,7 +1244,7 @@ public System.Nullable<double> AzimuthAngle { get; set; } = null;
 
 [Description("Flat Roofs are tilted 0 degrees")]
 [JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngle { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("If not Flat, Starting coordinate is the Lower Left Corner of the Roof")]
@@ -1195,7 +1276,8 @@ public System.Nullable<double> Width { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1217,7 +1299,7 @@ public System.Nullable<double> AzimuthAngle { get; set; } = null;
 
 [Description("Ceilings are usually tilted 0 degrees")]
 [JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngle { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("If not Flat, Starting coordinate is the Lower Left Corner of the Ceiling")]
@@ -1250,7 +1332,8 @@ public System.Nullable<double> Width { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1279,7 +1362,7 @@ public System.Nullable<double> AzimuthAngle { get; set; } = null;
 
 [Description("Ceilings are usually tilted 0 degrees")]
 [JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngle { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("If not Flat, should be Lower Left Corner (from outside)")]
@@ -1312,7 +1395,8 @@ public System.Nullable<double> Width { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1334,7 +1418,7 @@ public System.Nullable<double> AzimuthAngle { get; set; } = null;
 
 [Description("Floors are usually tilted 180 degrees")]
 [JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("180", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngle { get; set; } = Double.Parse("180", CultureInfo.InvariantCulture);
         
 
 [Description("if not flat, should be lower left corner (from outside)")]
@@ -1367,7 +1451,8 @@ public System.Nullable<double> Width { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1388,7 +1473,7 @@ public System.Nullable<double> AzimuthAngle { get; set; } = null;
 
 [Description("Floors are usually tilted 180 degrees")]
 [JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("180", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngle { get; set; } = Double.Parse("180", CultureInfo.InvariantCulture);
         
 
 [Description("if not flat, should be lower left corner (from outside)")]
@@ -1421,7 +1506,8 @@ public System.Nullable<double> Width { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1449,7 +1535,7 @@ public System.Nullable<double> AzimuthAngle { get; set; } = null;
 
 [Description("Floors are usually tilted 180 degrees")]
 [JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("180", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngle { get; set; } = Double.Parse("180", CultureInfo.InvariantCulture);
         
 
 [Description("If not Flat, should be Lower Left Corner (from outside)")]
@@ -1482,7 +1568,8 @@ public System.Nullable<double> Width { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1509,7 +1596,7 @@ public string OutsideBoundaryConditionObject { get; set; } = "";
 [Description(@"From the exterior of the surface Unused if one uses the ""reflections"" options in Solar Distribution in Building input unless a DaylightingDevice:Shelf or DaylightingDevice:Tubular object has been specified. autocalculate will automatically calculate this value from the tilt of the surface")]
 [JsonProperty(PropertyName="view_factor_to_ground", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> ViewFactorToGround { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> ViewFactorToGround { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"Enter the name of a WindowProperty:FrameAndDivider object Used only for exterior windows (rectangular) and glass doors. Unused for triangular windows. If not specified (blank), window or glass door has no frame or divider and no beam solar reflection from reveal surfaces.")]
@@ -1520,13 +1607,13 @@ public string FrameAndDividerName { get; set; } = "";
 [Description("Used only for Surface Type = WINDOW, GLASSDOOR or DOOR Non-integer values will be" +
     " truncated to integer")]
 [JsonProperty(PropertyName="multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Multiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Multiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"vertices are given in GlobalGeometryRules coordinates -- if relative, all surface coordinates are ""relative"" to the Zone Origin. If world, then building and zone origins are used for some internal calculations, but all coordinates are given in an ""absolute"" system.")]
 [JsonProperty(PropertyName="number_of_vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> NumberOfVertices { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfVertices { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="vertex_1_x_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1605,7 +1692,8 @@ public System.Nullable<double> Vertex4ZCoordinate { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1629,7 +1717,7 @@ public string FrameAndDividerName { get; set; } = "";
 [Description("Used only for Surface Type = WINDOW, GLASSDOOR or DOOR Non-integer values will be" +
     " truncated to integer")]
 [JsonProperty(PropertyName="multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Multiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Multiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Window starting coordinate is specified relative to the Base Surface origin.")]
@@ -1656,7 +1744,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1675,7 +1764,7 @@ public string BuildingSurfaceName { get; set; } = "";
 [Description("Used only for Surface Type = WINDOW, GLASSDOOR or DOOR Non-integer values will be" +
     " truncated to integer")]
 [JsonProperty(PropertyName="multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Multiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Multiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Door starting coordinate is specified relative to the Base Surface origin.")]
@@ -1702,7 +1791,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1726,7 +1816,7 @@ public string FrameAndDividerName { get; set; } = "";
 [Description("Used only for Surface Type = WINDOW, GLASSDOOR or DOOR Non-integer values will be" +
     " truncated to integer")]
 [JsonProperty(PropertyName="multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Multiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Multiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Door starting coordinate is specified relative to the Base Surface origin.")]
@@ -1753,7 +1843,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1777,7 +1868,7 @@ public string OutsideBoundaryConditionObject { get; set; } = "";
 [Description("Used only for Surface Type = WINDOW, GLASSDOOR or DOOR Non-integer values will be" +
     " truncated to integer")]
 [JsonProperty(PropertyName="multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Multiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Multiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Window starting coordinate is specified relative to the Base Surface origin.")]
@@ -1805,7 +1896,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1829,7 +1921,7 @@ public string OutsideBoundaryConditionObject { get; set; } = "";
 [Description("Used only for Surface Type = WINDOW, GLASSDOOR or DOOR Non-integer values will be" +
     " truncated to integer")]
 [JsonProperty(PropertyName="multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Multiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Multiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Door starting coordinate is specified relative to the Base Surface origin.")]
@@ -1857,7 +1949,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1881,7 +1974,7 @@ public string OutsideBoundaryConditionObject { get; set; } = "";
 [Description("Used only for Surface Type = WINDOW, GLASSDOOR or DOOR Non-integer values will be" +
     " truncated to integer")]
 [JsonProperty(PropertyName="multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Multiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Multiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Door starting coordinate is specified relative to the Base Surface origin.")]
@@ -1910,7 +2003,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1921,7 +2015,7 @@ public string ZoneName { get; set; } = "";
 
 [Description(@"If multiple WindowShadingControl objects are used than the order that they deploy the window shades can be set with this field. The first WindowShadingControl should be 1 and subsequent WindowShadingControl should 2 or 3 or higher. This is usually used when the Multiple Surface Control Type field is set to Group and groups of windows are being controlled in a certain order.")]
 [JsonProperty(PropertyName="shading_control_sequence_number", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ShadingControlSequenceNumber { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ShadingControlSequenceNumber { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="shading_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2002,8 +2096,9 @@ public string DaylightingControlObjectName { get; set; } = "";
 public WindowShadingControl_MultipleSurfaceControlType MultipleSurfaceControlType { get; set; } = (WindowShadingControl_MultipleSurfaceControlType)Enum.Parse(typeof(WindowShadingControl_MultipleSurfaceControlType), "Sequential");
         
 
+[Description("This list is the GlazedExtSubSurfNames object-list")]
 [JsonProperty(PropertyName="fenestration_surfaces", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string FenestrationSurfaces { get; set; } = "";
+public System.Collections.Generic.List<string> FenestrationSurfaces { get; set; } = null;
     }
     
     public enum WindowShadingControl_ShadingType
@@ -2138,7 +2233,8 @@ public string FenestrationSurfaces { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2146,17 +2242,17 @@ public string NodeName { get; set; } = "";
 [Description("Width of frame in plane of window Frame width assumed the same on all sides of wi" +
     "ndow")]
 [JsonProperty(PropertyName="frame_width", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrameWidth { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrameWidth { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Amount that frame projects outward from the outside face of the glazing")]
 [JsonProperty(PropertyName="frame_outside_projection", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrameOutsideProjection { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrameOutsideProjection { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Amount that frame projects inward from the inside face of the glazing")]
 [JsonProperty(PropertyName="frame_inside_projection", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrameInsideProjection { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrameInsideProjection { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Effective conductance of frame Excludes air films Obtained from WINDOW 5 or other" +
@@ -2168,22 +2264,22 @@ public System.Nullable<double> FrameConductance { get; set; } = null;
 [Description("Excludes air films; applies only to multipane windows Obtained from WINDOW 5 or o" +
     "ther 2-D calculation")]
 [JsonProperty(PropertyName="ratio_of_frame_edge_glass_conductance_to_center_of_glass_conductance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatioOfFrameEdgeGlassConductanceToCenterOfGlassConductance { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatioOfFrameEdgeGlassConductanceToCenterOfGlassConductance { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Assumed same on outside and inside of frame")]
 [JsonProperty(PropertyName="frame_solar_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrameSolarAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrameSolarAbsorptance { get; set; } = Double.Parse("0.7", CultureInfo.InvariantCulture);
         
 
 [Description("Assumed same on outside and inside of frame")]
 [JsonProperty(PropertyName="frame_visible_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrameVisibleAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrameVisibleAbsorptance { get; set; } = Double.Parse("0.7", CultureInfo.InvariantCulture);
         
 
 [Description("Assumed same on outside and inside of frame")]
 [JsonProperty(PropertyName="frame_thermal_hemispherical_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FrameThermalHemisphericalEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> FrameThermalHemisphericalEmissivity { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="divider_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2193,76 +2289,76 @@ public WindowProperty_FrameAndDivider_DividerType DividerType { get; set; } = (W
 
 [Description("Width of dividers in plane of window Width assumed the same for all dividers")]
 [JsonProperty(PropertyName="divider_width", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DividerWidth { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DividerWidth { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("\"Horizontal\" means parallel to local window X-axis")]
 [JsonProperty(PropertyName="number_of_horizontal_dividers", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfHorizontalDividers { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfHorizontalDividers { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("\"Vertical\" means parallel to local window Y-axis")]
 [JsonProperty(PropertyName="number_of_vertical_dividers", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfVerticalDividers { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfVerticalDividers { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Amount that divider projects outward from the outside face of the glazing Outside" +
     " projection assumed the same for all divider elements")]
 [JsonProperty(PropertyName="divider_outside_projection", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DividerOutsideProjection { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DividerOutsideProjection { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Amount that divider projects inward from the inside face of the glazing Inside pr" +
     "ojection assumed the same for all divider elements")]
 [JsonProperty(PropertyName="divider_inside_projection", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DividerInsideProjection { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DividerInsideProjection { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Effective conductance of divider Excludes air films Obtained from WINDOW 5 or oth" +
     "er 2-D calculation")]
 [JsonProperty(PropertyName="divider_conductance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DividerConductance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DividerConductance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Excludes air films Obtained from WINDOW 5 or other 2-D calculation")]
 [JsonProperty(PropertyName="ratio_of_divider_edge_glass_conductance_to_center_of_glass_conductance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatioOfDividerEdgeGlassConductanceToCenterOfGlassConductance { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatioOfDividerEdgeGlassConductanceToCenterOfGlassConductance { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Assumed same on outside and inside of divider")]
 [JsonProperty(PropertyName="divider_solar_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DividerSolarAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DividerSolarAbsorptance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Assumed same on outside and inside of divider")]
 [JsonProperty(PropertyName="divider_visible_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DividerVisibleAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DividerVisibleAbsorptance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Assumed same on outside and inside of divider")]
 [JsonProperty(PropertyName="divider_thermal_hemispherical_emissivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DividerThermalHemisphericalEmissivity { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> DividerThermalHemisphericalEmissivity { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="outside_reveal_solar_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OutsideRevealSolarAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OutsideRevealSolarAbsorptance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="inside_sill_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InsideSillDepth { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> InsideSillDepth { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="inside_sill_solar_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InsideSillSolarAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> InsideSillSolarAbsorptance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"Distance from plane of inside surface of glazing to plane of inside surface of wall. Outside reveal depth is determined from the geometry of the window and the wall it is on; it is non-zero if the plane of the outside surface of the glazing is set back from the plane of the outside surface of the wall.")]
 [JsonProperty(PropertyName="inside_reveal_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InsideRevealDepth { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> InsideRevealDepth { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="inside_reveal_solar_absorptance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InsideRevealSolarAbsorptance { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> InsideRevealSolarAbsorptance { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum WindowProperty_FrameAndDivider_DividerType
@@ -2284,7 +2380,8 @@ public System.Nullable<double> InsideRevealSolarAbsorptance { get; set; } = (Sys
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2303,7 +2400,7 @@ public WindowProperty_AirflowControl_AirflowDestination AirflowDestination { get
 
 [Description("Above is m3/s per m of glazing width")]
 [JsonProperty(PropertyName="maximum_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumFlowRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("ScheduledOnly requires that Airflow Has Multiplier Schedule Name = Yes and that A" +
@@ -2399,7 +2496,7 @@ public string StormGlassLayerName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="distance_between_storm_glass_layer_and_adjacent_glass", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DistanceBetweenStormGlassLayerAndAdjacentGlass { get; set; } = (System.Nullable<double>)Double.Parse("0.05", CultureInfo.InvariantCulture);
+public System.Nullable<double> DistanceBetweenStormGlassLayerAndAdjacentGlass { get; set; } = Double.Parse("0.05", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="month_that_storm_glass_layer_is_put_on", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2424,7 +2521,8 @@ public System.Nullable<double> DayOfMonthThatStormGlassLayerIsTakenOff { get; se
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2450,7 +2548,8 @@ public System.Nullable<double> SurfaceArea { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2461,7 +2560,7 @@ public System.Nullable<double> AzimuthAngle { get; set; } = null;
         
 
 [JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngle { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [Description("Starting coordinate is the Lower Left Corner of the Shade")]
@@ -2493,7 +2592,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2504,7 +2604,7 @@ public System.Nullable<double> AzimuthAngle { get; set; } = null;
         
 
 [JsonProperty(PropertyName="tilt_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngle { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngle { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [Description("Starting coordinate is the Lower Left Corner of the Shade")]
@@ -2535,7 +2635,8 @@ public System.Nullable<double> Height { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2550,11 +2651,28 @@ public string TransmittanceScheduleName { get; set; } = "";
     "re in world coordinates.")]
 [JsonProperty(PropertyName="number_of_vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> NumberOfVertices { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfVertices { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Vertices { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces.Shading_Site_Detailed_Vertices_Item> Vertices { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Site_Detailed_Vertices_Item
+    {
+        
+
+[JsonProperty(PropertyName="vertex_x_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexXCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_y_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexYCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_z_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexZCoordinate { get; set; } = null;
     }
     
     [Description("used for shading elements such as trees, other buildings, parts of this building " +
@@ -2565,7 +2683,8 @@ public string Vertices { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2581,11 +2700,28 @@ public string TransmittanceScheduleName { get; set; } = "";
     "th axis.")]
 [JsonProperty(PropertyName="number_of_vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> NumberOfVertices { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfVertices { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Vertices { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces.Shading_Building_Detailed_Vertices_Item> Vertices { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Building_Detailed_Vertices_Item
+    {
+        
+
+[JsonProperty(PropertyName="vertex_x_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexXCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_y_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexYCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_z_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexZCoordinate { get; set; } = null;
     }
     
     [Description("Overhangs are usually flat shading surfaces that reference a window or door.")]
@@ -2594,7 +2730,8 @@ public string Vertices { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2608,7 +2745,7 @@ public System.Nullable<double> HeightAboveWindowOrDoor { get; set; } = null;
         
 
 [JsonProperty(PropertyName="tilt_angle_from_window_door", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngleFromWindowDoor { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngleFromWindowDoor { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="left_extension_from_window_door_width", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2630,7 +2767,8 @@ public System.Nullable<double> Depth { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2644,7 +2782,7 @@ public System.Nullable<double> HeightAboveWindowOrDoor { get; set; } = null;
         
 
 [JsonProperty(PropertyName="tilt_angle_from_window_door", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TiltAngleFromWindowDoor { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> TiltAngleFromWindowDoor { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="left_extension_from_window_door_width", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2666,7 +2804,8 @@ public System.Nullable<double> DepthAsFractionOfWindowDoorHeight { get; set; } =
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2689,7 +2828,7 @@ public System.Nullable<double> LeftDistanceBelowBottomOfWindow { get; set; } = n
         
 
 [JsonProperty(PropertyName="left_tilt_angle_from_window_door", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LeftTiltAngleFromWindowDoor { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> LeftTiltAngleFromWindowDoor { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="left_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2710,7 +2849,7 @@ public System.Nullable<double> RightDistanceBelowBottomOfWindow { get; set; } = 
         
 
 [JsonProperty(PropertyName="right_tilt_angle_from_window_door", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RightTiltAngleFromWindowDoor { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> RightTiltAngleFromWindowDoor { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="right_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2723,7 +2862,8 @@ public System.Nullable<double> RightDepth { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2746,7 +2886,7 @@ public System.Nullable<double> LeftDistanceBelowBottomOfWindow { get; set; } = n
         
 
 [JsonProperty(PropertyName="left_tilt_angle_from_window_door", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LeftTiltAngleFromWindowDoor { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> LeftTiltAngleFromWindowDoor { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="left_depth_as_fraction_of_window_door_width", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2767,7 +2907,7 @@ public System.Nullable<double> RightDistanceBelowBottomOfWindow { get; set; } = 
         
 
 [JsonProperty(PropertyName="right_tilt_angle_from_window_door", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RightTiltAngleFromWindowDoor { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> RightTiltAngleFromWindowDoor { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="right_depth_as_fraction_of_window_door_width", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2781,7 +2921,8 @@ public System.Nullable<double> RightDepthAsFractionOfWindowDoorWidth { get; set;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2798,11 +2939,28 @@ public string TransmittanceScheduleName { get; set; } = "";
 [Description(@"shown with 6 vertex coordinates -- extensible object vertices are given in GlobalGeometryRules coordinates -- if relative, all surface coordinates are ""relative"" to the Zone Origin. if world, then building and zone origins are used for some internal calculations, but all coordinates are given in an ""absolute"" system.")]
 [JsonProperty(PropertyName="number_of_vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> NumberOfVertices { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfVertices { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="vertices", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Vertices { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ThermalZonesandSurfaces.Shading_Zone_Detailed_Vertices_Item> Vertices { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Shading_Zone_Detailed_Vertices_Item
+    {
+        
+
+[JsonProperty(PropertyName="vertex_x_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexXCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_y_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexYCoordinate { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="vertex_z_coordinate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> VertexZCoordinate { get; set; } = null;
     }
     
     [Description("If this object is not defined for a shading surface the default values listed in " +
@@ -2817,15 +2975,15 @@ public string ShadingSurfaceName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="diffuse_solar_reflectance_of_unglazed_part_of_shading_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DiffuseSolarReflectanceOfUnglazedPartOfShadingSurface { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> DiffuseSolarReflectanceOfUnglazedPartOfShadingSurface { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="diffuse_visible_reflectance_of_unglazed_part_of_shading_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DiffuseVisibleReflectanceOfUnglazedPartOfShadingSurface { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> DiffuseVisibleReflectanceOfUnglazedPartOfShadingSurface { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_of_shading_surface_that_is_glazed", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfShadingSurfaceThatIsGlazed { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfShadingSurfaceThatIsGlazed { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Required if Fraction of Shading Surface That Is Glazed > 0.0")]

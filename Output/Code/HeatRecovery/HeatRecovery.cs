@@ -73,7 +73,8 @@ namespace BH.oM.Adapters.EnergyPlus.HeatRecovery
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -103,7 +104,7 @@ public System.Nullable<double> RatioOfSupplyToSecondaryHaValues { get; set; } = 
 
 [JsonProperty(PropertyName="nominal_supply_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> NominalSupplyAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NominalSupplyAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="nominal_supply_air_inlet_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -116,7 +117,7 @@ public System.Nullable<double> NominalSupplyAirOutletTemperature { get; set; } =
 
 [JsonProperty(PropertyName="nominal_secondary_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> NominalSecondaryAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NominalSecondaryAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="nominal_secondary_air_inlet_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -164,7 +165,8 @@ public string SecondaryAirOutletNodeName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -177,39 +179,39 @@ public string AvailabilityScheduleName { get; set; } = "";
 
 [JsonProperty(PropertyName="nominal_supply_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> NominalSupplyAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NominalSupplyAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="sensible_effectiveness_at_100_heating_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SensibleEffectivenessAt100HeatingAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SensibleEffectivenessAt100HeatingAirFlow { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="latent_effectiveness_at_100_heating_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LatentEffectivenessAt100HeatingAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> LatentEffectivenessAt100HeatingAirFlow { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="sensible_effectiveness_at_75_heating_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SensibleEffectivenessAt75HeatingAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SensibleEffectivenessAt75HeatingAirFlow { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="latent_effectiveness_at_75_heating_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LatentEffectivenessAt75HeatingAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> LatentEffectivenessAt75HeatingAirFlow { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="sensible_effectiveness_at_100_cooling_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SensibleEffectivenessAt100CoolingAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SensibleEffectivenessAt100CoolingAirFlow { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="latent_effectiveness_at_100_cooling_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LatentEffectivenessAt100CoolingAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> LatentEffectivenessAt100CoolingAirFlow { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="sensible_effectiveness_at_75_cooling_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SensibleEffectivenessAt75CoolingAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SensibleEffectivenessAt75CoolingAirFlow { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="latent_effectiveness_at_75_cooling_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LatentEffectivenessAt75CoolingAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> LatentEffectivenessAt75CoolingAirFlow { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="supply_air_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -229,7 +231,7 @@ public string ExhaustAirOutletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="nominal_electric_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NominalElectricPower { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> NominalElectricPower { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="supply_air_outlet_temperature_control", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -251,21 +253,21 @@ public HeatExchanger_AirToAir_SensibleAndLatent_FrostControlType FrostControlTyp
     "st only frost control types. Exhaust air outlet threshold Temperature for minimu" +
     "m exhaust temperature frost control type.")]
 [JsonProperty(PropertyName="threshold_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ThresholdTemperature { get; set; } = (System.Nullable<double>)Double.Parse("1.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> ThresholdTemperature { get; set; } = Double.Parse("1.7", CultureInfo.InvariantCulture);
         
 
 [Description("Fraction of the time when frost control will be invoked at the threshold temperat" +
     "ure. This field only used for exhaust air recirc and exhaust-only frost control " +
     "types.")]
 [JsonProperty(PropertyName="initial_defrost_time_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InitialDefrostTimeFraction { get; set; } = (System.Nullable<double>)Double.Parse("0.083", CultureInfo.InvariantCulture);
+public System.Nullable<double> InitialDefrostTimeFraction { get; set; } = Double.Parse("0.083", CultureInfo.InvariantCulture);
         
 
 [Description("Rate of increase in defrost time fraction as actual temp falls below threshold te" +
     "mperature. This field only used for exhaust air recirc and exhaust-only frost co" +
     "ntrol types.")]
 [JsonProperty(PropertyName="rate_of_defrost_time_fraction_increase", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RateOfDefrostTimeFractionIncrease { get; set; } = (System.Nullable<double>)Double.Parse("0.012", CultureInfo.InvariantCulture);
+public System.Nullable<double> RateOfDefrostTimeFractionIncrease { get; set; } = Double.Parse("0.012", CultureInfo.InvariantCulture);
         
 
 [Description("Yes means that the heat exchanger will be locked out (off) when the economizer is" +
@@ -313,7 +315,8 @@ public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeo
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -372,7 +375,8 @@ public EmptyNoYes EconomizerLockout { get; set; } = (EmptyNoYes)Enum.Parse(typeo
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -381,17 +385,17 @@ public string NodeName { get; set; } = "";
     " heat exchanger).")]
 [JsonProperty(PropertyName="nominal_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> NominalAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NominalAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="nominal_air_face_velocity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> NominalAirFaceVelocity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NominalAirFaceVelocity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Parasitic electric power (e.g., desiccant wheel motor)")]
 [JsonProperty(PropertyName="nominal_electric_power", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NominalElectricPower { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> NominalElectricPower { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="temperature_equation_coefficient_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]

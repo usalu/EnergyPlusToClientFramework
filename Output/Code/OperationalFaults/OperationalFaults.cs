@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.OperationalFaults
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -95,7 +96,7 @@ public string ControllerObjectName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="temperature_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TemperatureSensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> TemperatureSensorOffset { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_TemperatureSensorOffset_OutdoorAir_ControllerObjectType
@@ -111,7 +112,8 @@ public System.Nullable<double> TemperatureSensorOffset { get; set; } = (System.N
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -134,7 +136,7 @@ public string ControllerObjectName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="humidity_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HumiditySensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> HumiditySensorOffset { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_HumiditySensorOffset_OutdoorAir_ControllerObjectType
@@ -150,7 +152,8 @@ public System.Nullable<double> HumiditySensorOffset { get; set; } = (System.Null
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -173,7 +176,7 @@ public string ControllerObjectName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="enthalpy_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> EnthalpySensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> EnthalpySensorOffset { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_EnthalpySensorOffset_OutdoorAir_ControllerObjectType
@@ -189,7 +192,8 @@ public System.Nullable<double> EnthalpySensorOffset { get; set; } = (System.Null
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -212,7 +216,7 @@ public string ControllerObjectName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="temperature_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TemperatureSensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> TemperatureSensorOffset { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_TemperatureSensorOffset_ReturnAir_ControllerObjectType
@@ -228,7 +232,8 @@ public System.Nullable<double> TemperatureSensorOffset { get; set; } = (System.N
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -251,7 +256,7 @@ public string ControllerObjectName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="enthalpy_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> EnthalpySensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> EnthalpySensorOffset { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_EnthalpySensorOffset_ReturnAir_ControllerObjectType
@@ -267,7 +272,8 @@ public System.Nullable<double> EnthalpySensorOffset { get; set; } = (System.Null
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -292,7 +298,7 @@ public string ChillerObjectName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="reference_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReferenceSensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReferenceSensorOffset { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_TemperatureSensorOffset_ChillerSupplyWater_ChillerObjectType
@@ -329,7 +335,8 @@ public System.Nullable<double> ReferenceSensorOffset { get; set; } = (System.Nul
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -360,7 +367,7 @@ public string WaterCoilControllerName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="reference_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReferenceSensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReferenceSensorOffset { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_TemperatureSensorOffset_CoilSupplyAir_CoilObjectType
@@ -403,7 +410,8 @@ public System.Nullable<double> ReferenceSensorOffset { get; set; } = (System.Nul
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -428,7 +436,7 @@ public string CoolingTowerObjectName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="reference_sensor_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReferenceSensorOffset { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReferenceSensorOffset { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_TemperatureSensorOffset_CondenserSupplyWater_CoolingTowerObjectType
@@ -453,7 +461,8 @@ public System.Nullable<double> ReferenceSensorOffset { get; set; } = (System.Nul
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -472,7 +481,7 @@ public string SeverityScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="reference_thermostat_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReferenceThermostatOffset { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReferenceThermostatOffset { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
     }
     
     [Description("This object describes fault of humidistat offset")]
@@ -481,7 +490,8 @@ public System.Nullable<double> ReferenceThermostatOffset { get; set; } = (System
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -510,7 +520,7 @@ public string SeverityScheduleName { get; set; } = "";
 
 [Description("Required field for Type ThermostatOffsetIndependent")]
 [JsonProperty(PropertyName="reference_humidistat_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReferenceHumidistatOffset { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReferenceHumidistatOffset { get; set; } = Double.Parse("5", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the name of a FaultModel:ThermostatOffset object Required field for Type Th" +
@@ -538,7 +548,8 @@ public string RelatedThermostatOffsetFaultName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -590,7 +601,8 @@ public string FanCurveName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -617,7 +629,7 @@ public string BoilerObjectName { get; set; } = "";
 [Description("The factor indicates the decrease of the nominal capacity of the boiler It is the" +
     " ratio between the nominal capacity at fouling case and that at fault free case")]
 [JsonProperty(PropertyName="fouling_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FoulingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FoulingFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_Fouling_Boiler_BoilerObjectType
@@ -633,7 +645,8 @@ public System.Nullable<double> FoulingFactor { get; set; } = (System.Nullable<do
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -663,7 +676,7 @@ public string EvaporativeCoolerObjectName { get; set; } = "";
     "o between the indirect stage efficiency at fouling case and that at fault free c" +
     "ase")]
 [JsonProperty(PropertyName="fouling_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FoulingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FoulingFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_Fouling_EvaporativeCooler_EvaporativeCoolerObjectType
@@ -679,7 +692,8 @@ public System.Nullable<double> FoulingFactor { get; set; } = (System.Nullable<do
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -708,7 +722,7 @@ public string ChillerObjectName { get; set; } = "";
     "e ratio between the nominal capacity at fouling case and that at fault free case" +
     "")]
 [JsonProperty(PropertyName="fouling_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FoulingFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FoulingFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_Fouling_Chiller_ChillerObjectType
@@ -739,7 +753,8 @@ public System.Nullable<double> FoulingFactor { get; set; } = (System.Nullable<do
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -789,7 +804,8 @@ public System.Nullable<double> ReferenceUaReductionFactor { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -819,12 +835,12 @@ public System.Nullable<double> Uafouled { get; set; } = null;
 
 [Description("For Fouling Input Method: FoulingFactor")]
 [JsonProperty(PropertyName="water_side_fouling_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WaterSideFoulingFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> WaterSideFoulingFactor { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("For Fouling Input Method: FoulingFactor")]
 [JsonProperty(PropertyName="air_side_fouling_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirSideFoulingFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirSideFoulingFactor { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("For Fouling Input Method: FoulingFactor")]
@@ -834,7 +850,7 @@ public System.Nullable<double> OutsideCoilSurfaceArea { get; set; } = null;
 
 [Description("For Fouling Input Method: FoulingFactor")]
 [JsonProperty(PropertyName="inside_to_outside_coil_surface_area_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InsideToOutsideCoilSurfaceAreaRatio { get; set; } = (System.Nullable<double>)Double.Parse("0.07", CultureInfo.InvariantCulture);
+public System.Nullable<double> InsideToOutsideCoilSurfaceAreaRatio { get; set; } = Double.Parse("0.07", CultureInfo.InvariantCulture);
     }
     
     public enum FaultModel_Fouling_Coil_FoulingInputMethod

@@ -74,8 +74,7 @@
     <Compile Include="Fields\Legacy\EPLegacyFieldInfo.cs" />
     <Compile Include="Fields\Legacy\EPLegacyFieldType.cs" />
     <Compile Include="Fields\Legacy\EPLegacyIdd.cs" />
-    <Compile Include="Fields\NecessaryField.cs" />
-    <Compile Include="Fields\OptionalField.cs" />
+    <Compile Include="Fields\EPField.cs" />
     <Compile Include="Objects\EPFormat.cs" />
     <Compile Include="Objects\EPName.cs" />
     <Compile Include="Objects\EPObjectJsonSchemeProperty.cs" />

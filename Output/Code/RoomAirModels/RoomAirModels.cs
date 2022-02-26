@@ -74,7 +74,8 @@ namespace BH.oM.Adapters.EnergyPlus.RoomAirModels
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -146,7 +147,8 @@ public RoomAirModelType_AirTemperatureCouplingStrategy AirTemperatureCouplingStr
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -292,7 +294,8 @@ public System.Nullable<double> LowerHeatRateBound { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -318,7 +321,20 @@ public System.Nullable<double> ExhaustAirOffset { get; set; } = null;
         
 
 [JsonProperty(PropertyName="pairs", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Pairs { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.RoomAirModels.RoomAir_TemperaturePattern_NondimensionalHeight_Pairs_Item> Pairs { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_TemperaturePattern_NondimensionalHeight_Pairs_Item
+    {
+        
+
+[JsonProperty(PropertyName="pair_zeta_nondimensional_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PairZetaNondimensionalHeight { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="pair_delta_adjacent_air_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> PairDeltaAdjacentAirTemperature { get; set; } = null;
     }
     
     [Description(@"Defines a distribution pattern for the air temperatures adjacent to individual surfaces. This allows controlling the adjacent air temperature on a surface-by-surface basis rather than by height. This allows modeling different adjacent air temperatures on the opposite sides of the zone. Used in combination with RoomAir:TemperaturePattern:UserDefined.")]
@@ -327,7 +343,8 @@ public string Pairs { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -353,7 +370,20 @@ public System.Nullable<double> ExhaustAirOffset { get; set; } = null;
         
 
 [JsonProperty(PropertyName="surface_deltas", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string SurfaceDeltas { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.RoomAirModels.RoomAir_TemperaturePattern_SurfaceMapping_SurfaceDeltas_Item> SurfaceDeltas { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_TemperaturePattern_SurfaceMapping_SurfaceDeltas_Item
+    {
+        
+
+[JsonProperty(PropertyName="surface_name_pair", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SurfaceNamePair { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="delta_adjacent_air_temperature_pair", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DeltaAdjacentAirTemperaturePair { get; set; } = null;
     }
     
     [Description("Define an air node for some types of nodal room air models")]
@@ -362,7 +392,8 @@ public string SurfaceDeltas { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -526,22 +557,22 @@ public string GainDistributionScheduleName { get; set; } = "";
     "e plumes per occupant in the occupied zone. Plumes that merge together in the oc" +
     "cupied zone count as one.")]
 [JsonProperty(PropertyName="number_of_plumes_per_occupant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfPlumesPerOccupant { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfPlumesPerOccupant { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Height of thermostat/temperature control sensor above floor")]
 [JsonProperty(PropertyName="thermostat_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ThermostatHeight { get; set; } = (System.Nullable<double>)Double.Parse("1.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ThermostatHeight { get; set; } = Double.Parse("1.1", CultureInfo.InvariantCulture);
         
 
 [Description("Height at which air temperature is calculated for comfort purposes")]
 [JsonProperty(PropertyName="comfort_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ComfortHeight { get; set; } = (System.Nullable<double>)Double.Parse("1.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ComfortHeight { get; set; } = Double.Parse("1.1", CultureInfo.InvariantCulture);
         
 
 [Description(@"Minimum temperature difference between predicted upper and lower layer temperatures above which DV auxiliary outputs are calculated. These outputs are 'DV Transition Height', 'DV Fraction Min Recommended Flow Rate' 'DV Average Temp Gradient' and 'DV Maximum Temp Gradient'. They are set to negative values when the temperature difference is less than the threshold and the output 'DV Zone Is Mixed' is set to 1")]
 [JsonProperty(PropertyName="temperature_difference_threshold_for_reporting", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TemperatureDifferenceThresholdForReporting { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
+public System.Nullable<double> TemperatureDifferenceThresholdForReporting { get; set; } = Double.Parse("0.4", CultureInfo.InvariantCulture);
     }
     
     [Description(@"This UCSD Cross Ventilation Room Air Model provides a simple model for heat transfer and vertical temperature profile prediction in cross ventilated rooms. The model distinguishes two regions in the room, the main jet region and the recirculations, and predicts characteristic airflow velocities and average air temperatures. Used with RoomAirModelType = CrossVentilation.")]
@@ -594,37 +625,37 @@ public string ZoneName { get; set; } = "";
 [Description("Total number of diffusers in this zone")]
 [JsonProperty(PropertyName="number_of_diffusers", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> NumberOfDiffusers { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfDiffusers { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="power_per_plume", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> PowerPerPlume { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> PowerPerPlume { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="design_effective_area_of_diffuser", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> DesignEffectiveAreaOfDiffuser { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignEffectiveAreaOfDiffuser { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="diffuser_slot_angle_from_vertical", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> DiffuserSlotAngleFromVertical { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DiffuserSlotAngleFromVertical { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Height of thermostat/temperature control sensor above floor")]
 [JsonProperty(PropertyName="thermostat_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ThermostatHeight { get; set; } = (System.Nullable<double>)Double.Parse("1.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> ThermostatHeight { get; set; } = Double.Parse("1.2", CultureInfo.InvariantCulture);
         
 
 [Description("Height at which air temperature is calculated for comfort purposes")]
 [JsonProperty(PropertyName="comfort_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ComfortHeight { get; set; } = (System.Nullable<double>)Double.Parse("1.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ComfortHeight { get; set; } = Double.Parse("1.1", CultureInfo.InvariantCulture);
         
 
 [Description(@"Minimum temperature difference between predicted upper and lower layer temperatures above which UFAD auxiliary outputs are calculated. These outputs are 'UF Transition Height' and 'UF Average Temp Gradient'. They are set to zero values when the temperature difference is less than the threshold and the output 'UF Zone Is Mixed' is set to 1")]
 [JsonProperty(PropertyName="temperature_difference_threshold_for_reporting", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TemperatureDifferenceThresholdForReporting { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
+public System.Nullable<double> TemperatureDifferenceThresholdForReporting { get; set; } = Double.Parse("0.4", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="floor_diffuser_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -636,42 +667,42 @@ public RoomAirSettings_UnderFloorAirDistributionInterior_FloorDiffuserType Floor
     "")]
 [JsonProperty(PropertyName="transition_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> TransitionHeight { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> TransitionHeight { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Coefficient A in Formula Kc = A*Gamma**B + C + D*Gamma + E*Gamma**2 Kc is the fra" +
     "ction of the total zone load attributable to the lower subzone")]
 [JsonProperty(PropertyName="coefficient_a", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CoefficientA { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoefficientA { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Coefficient B in Formula Kc = A*Gamma**B + C + D*Gamma + E*Gamma**2 Kc is the fra" +
     "ction of the total zone load attributable to the lower subzone")]
 [JsonProperty(PropertyName="coefficient_b", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CoefficientB { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoefficientB { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Coefficient C in Formula Kc = A*Gamma**B + C + D*Gamma + E*Gamma**2 Kc is the fra" +
     "ction of the total zone load attributable to the lower subzone")]
 [JsonProperty(PropertyName="coefficient_c", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CoefficientC { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoefficientC { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Coefficient D in Formula Kc = A*Gamma**B + C + D*Gamma + E*Gamma**2 Kc is the fra" +
     "ction of the total zone load attributable to the lower subzone")]
 [JsonProperty(PropertyName="coefficient_d", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CoefficientD { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoefficientD { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Coefficient E in Formula Kc = A*Gamma**B + C + D*Gamma + E*Gamma**2 Kc is the fra" +
     "ction of the total zone load attributable to the lower subzone")]
 [JsonProperty(PropertyName="coefficient_e", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CoefficientE { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoefficientE { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
     }
     
     public enum RoomAirSettings_UnderFloorAirDistributionInterior_FloorDiffuserType
@@ -709,37 +740,37 @@ public string ZoneName { get; set; } = "";
 
 [JsonProperty(PropertyName="number_of_diffusers_per_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> NumberOfDiffusersPerZone { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfDiffusersPerZone { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="power_per_plume", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> PowerPerPlume { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> PowerPerPlume { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="design_effective_area_of_diffuser", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> DesignEffectiveAreaOfDiffuser { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DesignEffectiveAreaOfDiffuser { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="diffuser_slot_angle_from_vertical", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> DiffuserSlotAngleFromVertical { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> DiffuserSlotAngleFromVertical { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Height of thermostat/temperature control sensor above floor")]
 [JsonProperty(PropertyName="thermostat_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ThermostatHeight { get; set; } = (System.Nullable<double>)Double.Parse("1.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> ThermostatHeight { get; set; } = Double.Parse("1.2", CultureInfo.InvariantCulture);
         
 
 [Description("Height at which Air temperature is calculated for comfort purposes")]
 [JsonProperty(PropertyName="comfort_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ComfortHeight { get; set; } = (System.Nullable<double>)Double.Parse("1.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ComfortHeight { get; set; } = Double.Parse("1.1", CultureInfo.InvariantCulture);
         
 
 [Description(@"Minimum temperature difference between upper and lower layer temperatures above which UFAD auxiliary outputs are calculated. These outputs are 'UF Transition Height' and 'UF Average Temp Gradient'. They are set to zero values when the temperature difference is less than the threshold and the output 'UF Zone Is Mixed' is set to 1")]
 [JsonProperty(PropertyName="temperature_difference_threshold_for_reporting", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TemperatureDifferenceThresholdForReporting { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
+public System.Nullable<double> TemperatureDifferenceThresholdForReporting { get; set; } = Double.Parse("0.4", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="floor_diffuser_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -751,37 +782,37 @@ public RoomAirSettings_UnderFloorAirDistributionExterior_FloorDiffuserType Floor
     "")]
 [JsonProperty(PropertyName="transition_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> TransitionHeight { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> TransitionHeight { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Kc is the fraction of the total zone load attributable to the lower subzone")]
 [JsonProperty(PropertyName="coefficient_a_in_formula_kc_a_gamma_b_c_d_gamma_e_gamma_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CoefficientAInFormulaKcAGammaBCDGammaEGamma2 { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoefficientAInFormulaKcAGammaBCDGammaEGamma2 { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Kc is the fraction of the total zone load attributable to the lower subzone")]
 [JsonProperty(PropertyName="coefficient_b_in_formula_kc_a_gamma_b_c_d_gamma_e_gamma_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CoefficientBInFormulaKcAGammaBCDGammaEGamma2 { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoefficientBInFormulaKcAGammaBCDGammaEGamma2 { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Kc is the fraction of the total zone load attributable to the lower subzone")]
 [JsonProperty(PropertyName="coefficient_c_in_formula_kc_a_gamma_b_c_d_gamma_e_gamma_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CoefficientCInFormulaKcAGammaBCDGammaEGamma2 { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoefficientCInFormulaKcAGammaBCDGammaEGamma2 { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Kc is the fraction of the total zone load attributable to the lower subzone")]
 [JsonProperty(PropertyName="coefficient_d_in_formula_kc_a_gamma_b_c_d_gamma_e_gamma_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CoefficientDInFormulaKcAGammaBCDGammaEGamma2 { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoefficientDInFormulaKcAGammaBCDGammaEGamma2 { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Kc is the fraction of the total zone load attributable to the lower subzone")]
 [JsonProperty(PropertyName="coefficient_e_in_formula_kc_a_gamma_b_c_d_gamma_e_gamma_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CoefficientEInFormulaKcAGammaBCDGammaEGamma2 { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoefficientEInFormulaKcAGammaBCDGammaEGamma2 { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
     }
     
     public enum RoomAirSettings_UnderFloorAirDistributionExterior_FloorDiffuserType
@@ -812,7 +843,8 @@ public System.Nullable<double> CoefficientEInFormulaKcAGammaBCDGammaEGamma2 { ge
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -843,13 +875,15 @@ public string RoomairNodeAirflownetworkHvacequipmentName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
+[Description("This list is the AllHeatTranSurfNames object-list")]
 [JsonProperty(PropertyName="surfaces", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Surfaces { get; set; } = "";
+public System.Collections.Generic.List<string> Surfaces { get; set; } = null;
     }
     
     [Description("define the internal gains that are associated with one particular RoomAir:Node")]
@@ -858,13 +892,31 @@ public string Surfaces { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="gains", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Gains { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.RoomAirModels.RoomAir_Node_AirflowNetwork_InternalGains_Gains_Item> Gains { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_Node_AirflowNetwork_InternalGains_Gains_Item
+    {
+        
+
+[JsonProperty(PropertyName="internal_gain_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string InternalGainObjectType { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="internal_gain_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string InternalGainObjectName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="fraction_of_gains_to_node", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfGainsToNode { get; set; } = null;
     }
     
     [Description("define the zone equipment associated with one particular RoomAir:Node")]
@@ -873,13 +925,35 @@ public string Gains { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="equipment_fractions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EquipmentFractions { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.RoomAirModels.RoomAir_Node_AirflowNetwork_HVACEquipment_EquipmentFractions_Item> EquipmentFractions { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class RoomAir_Node_AirflowNetwork_HVACEquipment_EquipmentFractions_Item
+    {
+        
+
+[JsonProperty(PropertyName="zonehvac_or_air_terminal_equipment_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ZonehvacOrAirTerminalEquipmentObjectType { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="zonehvac_or_air_terminal_equipment_object_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ZonehvacOrAirTerminalEquipmentObjectName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="fraction_of_output_or_supply_air_from_hvac_equipment", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfOutputOrSupplyAirFromHvacEquipment { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="fraction_of_input_or_return_air_to_hvac_equipment", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfInputOrReturnAirToHvacEquipment { get; set; } = null;
     }
     
     [Description("RoomAir modeling using Airflow pressure network solver")]
@@ -888,7 +962,8 @@ public string EquipmentFractions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -902,7 +977,8 @@ public string ZoneName { get; set; } = "";
 public string ControlPointRoomairflownetworkNodeName { get; set; } = "";
         
 
+[Description("This list is the RoomAirflowNetworkNodes object-list")]
 [JsonProperty(PropertyName="nodes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Nodes { get; set; } = "";
+public System.Collections.Generic.List<string> Nodes { get; set; } = null;
     }
 }

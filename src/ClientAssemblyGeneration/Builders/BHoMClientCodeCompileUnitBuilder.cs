@@ -41,14 +41,15 @@ namespace ClientAssemblyGeneration.Builders
             string defaultValueCode;
             switch (propertyType.BaseType)
             {
+                case "System.string":
                 case "System.String":
-                    defaultValueCode = defaultValue != "" ? "(" + propertyType.BaseType + ")" + "\"" + defaultValue + "\"" : "\"\"";
+                    defaultValueCode = "\"" + defaultValue + "\"";
                     break;
                 case "System.Nullable`1":
 
                     var isNumber = float.TryParse(defaultValue, out _);
                     defaultValueCode =
-                        (defaultValue != "" && isNumber) ?  "(" + "System.Nullable<double>" + ")" + "Double.Parse("+ "\"" + defaultValue +  "\"" + ", CultureInfo.InvariantCulture)" : "null";
+                        (defaultValue != "" && isNumber) ? "Double.Parse("+ "\"" + defaultValue +  "\"" + ", CultureInfo.InvariantCulture)" : "null";
                     //defaultValueCode = defaultValue;
                     break;
                 default:

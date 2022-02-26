@@ -55,7 +55,7 @@ namespace ClientAssemblyGeneration.Builders
             return false;
         }
 
-        public virtual void BuildNamespace(string name, string description = "", CodeNamespaceImport[] imports = null)
+        public virtual void BuildNamespace(string name, CodeNamespaceImport[] imports = null)
         {
             var clientNamespace = new CodeNamespace(name)
             {
@@ -155,7 +155,26 @@ namespace ClientAssemblyGeneration.Builders
             //    property.CustomAttributes.Add(new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(description))));
 
         }
-        public virtual void BuildMethod() { }
+
+        public virtual void BuildMethod(string clientNamespaceName, string clientClassName, string name, CodeStatementCollection methodBody,
+            CodeTypeReference returnType, CodeParameterDeclarationExpressionCollection inputs =null, string description = "", CodeAttributeDeclarationCollection attributes = null, MemberAttributes accessors = MemberAttributes.Public | MemberAttributes.Final)
+        {
+            CodeMemberMethod method = new CodeMemberMethod()
+            {
+                Name = name,
+                ReturnType = returnType,
+            };
+            method.Attributes = accessors;
+            method.Statements.AddRange(methodBody);
+            if (inputs!=null)
+                method.Parameters.AddRange(inputs);
+            if (description != "")
+                method.CustomAttributes.Add(new CodeAttributeDeclaration("Description", new CodeAttributeArgument(new CodePrimitiveExpression(description))));
+            if (attributes != null)
+                method.CustomAttributes.AddRange(attributes);
+
+            FindClass(clientNamespaceName, clientClassName).Members.Add(method);
+        }
         public virtual void BuildEvent() { }
 
         public CodeCompileUnit GetClientCodeCompileUnit() => _clientCodeCompileUnit;

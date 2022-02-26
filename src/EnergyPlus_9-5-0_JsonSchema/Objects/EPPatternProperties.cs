@@ -6,9 +6,9 @@ namespace EnergyPlus_9_5_0_JsonSchema.Objects
     public class EPPatternProperties
     {
         [JsonProperty(".*", NullValueHandling = NullValueHandling.Ignore)]
-        public OptionalField OptionalField { get; set; }
+        public EPField OptionalField { get; set; }
 
         [JsonProperty("^.*\\S.*$", NullValueHandling = NullValueHandling.Ignore)]
-        public NecessaryField NecessaryField { get; set; }
+        public EPField NecessaryField { get; set; }
     }
 }

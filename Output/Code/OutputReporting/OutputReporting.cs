@@ -345,7 +345,8 @@ public Output_EnergyManagementSystem_EmsRuntimeLanguageDebugOutputLevel EmsRunti
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1242,7 +1243,7 @@ public System.Nullable<double> ColorForDrawingElement15 { get; set; } = null;
         
 
 [JsonProperty(PropertyName="reports", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Reports { get; set; } = "";
+public System.Collections.Generic.List<string> Reports { get; set; } = null;
     }
     
     [Description("Produces a bin report in the table output file which shows the amount of time in " +
@@ -1256,7 +1257,7 @@ public string Reports { get; set; } = "";
 
 [Description("use \'*\' (without quotes) to apply this variable to all keys")]
 [JsonProperty(PropertyName="key_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string KeyValue { get; set; } = (System.String)"*";
+public string KeyValue { get; set; } = "*";
         
 
 [JsonProperty(PropertyName="variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1314,17 +1315,31 @@ public Output_Table_TimeBins_VariableType VariableType { get; set; } = (Output_T
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="digits_after_decimal", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DigitsAfterDecimal { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> DigitsAfterDecimal { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="variable_details", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string VariableDetails { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.OutputReporting.Output_Table_Monthly_VariableDetails_Item> VariableDetails { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Table_Monthly_VariableDetails_Item
+    {
+        
+
+[JsonProperty(PropertyName="variable_or_meter_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string VariableOrMeterName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="aggregation_type_for_variable_or_meter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string AggregationTypeForVariableOrMeter { get; set; } = "";
     }
     
     [Description(@"Provides a generic method of setting up tables of annual results with one row per object. The report has multiple columns that are each defined using a repeated group of fields for any number of columns. A single Output:Table:Annual produces a single table in the output.")]
@@ -1333,7 +1348,8 @@ public string VariableDetails { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1351,7 +1367,24 @@ public string ScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="variable_details", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string VariableDetails { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.OutputReporting.Output_Table_Annual_VariableDetails_Item> VariableDetails { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Output_Table_Annual_VariableDetails_Item
+    {
+        
+
+[JsonProperty(PropertyName="variable_or_meter_or_ems_variable_or_field_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string VariableOrMeterOrEmsVariableOrFieldName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="aggregation_type_for_variable_or_meter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string AggregationTypeForVariableOrMeter { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="digits_after_decimal", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> DigitsAfterDecimal { get; set; } = null;
     }
     
     [Description(@"default style for the OutputControl:Table:Style is comma -- this works well for importing into spreadsheet programs such as Excel(tm) but not so well for word processing programs -- there tab may be a better choice. fixed puts spaces between the ""columns"". HTML produces tables in HTML. XML produces an XML file. note - if no OutputControl:Table:Style is included, the defaults are comma and None.")]
@@ -1439,12 +1472,12 @@ public OutputControl_Table_Style_UnitConversion UnitConversion { get; set; } = (
 
 [Description(@"If the zone temperature is below the heating setpoint by more than this value, the following output variables will increment as appropriate Zone Heating Setpoint Not Met Time Zone Heating Setpoint Not Met While Occupied Time This also impacts table report ""Annual Building Utility Performance Summary"" subtable ""Comfort and Setpoint Not Met Summary""")]
 [JsonProperty(PropertyName="tolerance_for_time_heating_setpoint_not_met", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ToleranceForTimeHeatingSetpointNotMet { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> ToleranceForTimeHeatingSetpointNotMet { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [Description(@"If the zone temperature is above the cooling setpoint by more than this value, the following output variables will increment as appropriate Zone Cooling Setpoint Not Met Time Zone Cooling Setpoint Not Met While Occupied Time This also impacts table report ""Annual Building Utility Performance Summary"" subtable ""Comfort and Setpoint Not Met Summary""")]
 [JsonProperty(PropertyName="tolerance_for_time_cooling_setpoint_not_met", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ToleranceForTimeCoolingSetpointNotMet { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> ToleranceForTimeCoolingSetpointNotMet { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
     }
     
     [Description(@"each Output:Variable command picks variables to be put onto the standard output file (.eso) some variables may not be reported for every simulation. a list of variables that can be reported are available after a run on the report dictionary file (.rdd) if the Output:VariableDictionary has been requested.")]
@@ -1455,7 +1488,7 @@ public System.Nullable<double> ToleranceForTimeCoolingSetpointNotMet { get; set;
 
 [Description("use \'*\' (without quotes) to apply this variable to all keys")]
 [JsonProperty(PropertyName="key_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string KeyValue { get; set; } = (System.String)"*";
+public string KeyValue { get; set; } = "*";
         
 
 [JsonProperty(PropertyName="variable_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1715,7 +1748,8 @@ public Output_Meter_Cumulative_MeterFileOnly_ReportingFrequency ReportingFrequen
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1726,7 +1760,7 @@ public Meter_Custom_ResourceType ResourceType { get; set; } = (Meter_Custom_Reso
         
 
 [JsonProperty(PropertyName="variable_details", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string VariableDetails { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.OutputReporting.Meter_Custom_VariableDetails_Item> VariableDetails { get; set; } = null;
     }
     
     public enum Meter_Custom_ResourceType
@@ -1778,6 +1812,19 @@ public string VariableDetails { get; set; } = "";
         Water = 14,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Meter_Custom_VariableDetails_Item
+    {
+        
+
+[JsonProperty(PropertyName="key_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string KeyName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="output_variable_or_meter_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string OutputVariableOrMeterName { get; set; } = "";
+    }
+    
     [Description("Used to allow users to combine specific variables and/or meters into \"custom\" met" +
         "er configurations. To access these meters by name, one must first run a simulati" +
         "on to generate the RDD/MDD files and names.")]
@@ -1786,7 +1833,8 @@ public string VariableDetails { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1801,7 +1849,7 @@ public string SourceMeterName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="variable_details", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string VariableDetails { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.OutputReporting.Meter_CustomDecrement_VariableDetails_Item> VariableDetails { get; set; } = null;
     }
     
     public enum Meter_CustomDecrement_ResourceType
@@ -1851,6 +1899,19 @@ public string VariableDetails { get; set; } = "";
         
         [System.Runtime.Serialization.EnumMember(Value="Water")]
         Water = 14,
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Meter_CustomDecrement_VariableDetails_Item
+    {
+        
+
+[JsonProperty(PropertyName="key_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string KeyName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="output_variable_or_meter_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string OutputVariableOrMeterName { get; set; } = "";
     }
     
     [Description("Conditionally turn on/off output from EnergyPlus.")]
@@ -2152,29 +2213,29 @@ public Output_EnvironmentalImpactFactors_ReportingFrequency ReportingFrequency {
 
 [Description("District heating efficiency used when converted to natural gas")]
 [JsonProperty(PropertyName="district_heating_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DistrictHeatingEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.3", CultureInfo.InvariantCulture);
+public System.Nullable<double> DistrictHeatingEfficiency { get; set; } = Double.Parse("0.3", CultureInfo.InvariantCulture);
         
 
 [Description("District cooling COP used when converted to electricity")]
 [JsonProperty(PropertyName="district_cooling_cop", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DistrictCoolingCop { get; set; } = (System.Nullable<double>)Double.Parse("3", CultureInfo.InvariantCulture);
+public System.Nullable<double> DistrictCoolingCop { get; set; } = Double.Parse("3", CultureInfo.InvariantCulture);
         
 
 [Description("Steam conversion efficiency used to convert steam usage to natural gas")]
 [JsonProperty(PropertyName="steam_conversion_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SteamConversionEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.25", CultureInfo.InvariantCulture);
+public System.Nullable<double> SteamConversionEfficiency { get; set; } = Double.Parse("0.25", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="total_carbon_equivalent_emission_factor_from_n2o", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TotalCarbonEquivalentEmissionFactorFromN2o { get; set; } = (System.Nullable<double>)Double.Parse("80.7272", CultureInfo.InvariantCulture);
+public System.Nullable<double> TotalCarbonEquivalentEmissionFactorFromN2o { get; set; } = Double.Parse("80.7272", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="total_carbon_equivalent_emission_factor_from_ch4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TotalCarbonEquivalentEmissionFactorFromCh4 { get; set; } = (System.Nullable<double>)Double.Parse("6.2727", CultureInfo.InvariantCulture);
+public System.Nullable<double> TotalCarbonEquivalentEmissionFactorFromCh4 { get; set; } = Double.Parse("6.2727", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="total_carbon_equivalent_emission_factor_from_co2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TotalCarbonEquivalentEmissionFactorFromCo2 { get; set; } = (System.Nullable<double>)Double.Parse("0.2727", CultureInfo.InvariantCulture);
+public System.Nullable<double> TotalCarbonEquivalentEmissionFactorFromCo2 { get; set; } = Double.Parse("0.2727", CultureInfo.InvariantCulture);
     }
     
     [Description("Provides Fuel Factors for Emissions as well as Source=>Site conversions. OtherFue" +
@@ -2376,7 +2437,7 @@ public string NuclearLowLevelEmissionFactorScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="diagnostics", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Diagnostics { get; set; } = "";
+public System.Collections.Generic.List<string> Diagnostics { get; set; } = null;
     }
     
     [Description("switch eplusout.dbg file on or off")]

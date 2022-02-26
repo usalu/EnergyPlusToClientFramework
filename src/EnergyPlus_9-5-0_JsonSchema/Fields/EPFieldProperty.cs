@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using EnergyPlus_9_5_0_JsonSchema.Objects;
+using Newtonsoft.Json;
 using NJsonSchema;
 
 namespace EnergyPlus_9_5_0_JsonSchema.Fields
@@ -15,7 +17,7 @@ namespace EnergyPlus_9_5_0_JsonSchema.Fields
         public string EPNote { get; set; }
 
         [JsonProperty("enum", NullValueHandling = NullValueHandling.Ignore)]
-        public string[] EPEnum { get; set; }
+        public string[] Enum { get; set; }
 
         [JsonProperty("minimum", NullValueHandling = NullValueHandling.Ignore)]
         public double? Minimum { get; set; }
@@ -30,7 +32,7 @@ namespace EnergyPlus_9_5_0_JsonSchema.Fields
         public bool? ExclusiveMinimum { get; set; }
 
         [JsonProperty("items", NullValueHandling = NullValueHandling.Ignore)]
-        public JsonSchema Items { get; set; }
+        public EPField Items { get; set; }
 
         [JsonProperty("data_type", NullValueHandling = NullValueHandling.Ignore)]
         public EPList? EPList { get; set; }

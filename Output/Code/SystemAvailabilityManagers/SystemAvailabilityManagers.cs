@@ -73,7 +73,8 @@ namespace BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -89,7 +90,8 @@ public string ScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -105,7 +107,8 @@ public string ScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -120,7 +123,8 @@ public string ScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -148,7 +152,7 @@ public string ZoneListName { get; set; } = "";
 
 [Description("this is the maximum number of hours that a system can start before occupancy")]
 [JsonProperty(PropertyName="maximum_value_for_optimum_start_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumValueForOptimumStartTime { get; set; } = (System.Nullable<double>)Double.Parse("6", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumValueForOptimumStartTime { get; set; } = Double.Parse("6", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="control_algorithm", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -180,7 +184,7 @@ public System.Nullable<double> ConstantStartTime { get; set; } = null;
 [Description("this is the number of days that their actual temperature gradients will be used i" +
     "n the AdaptiveTemperatureGradient method")]
 [JsonProperty(PropertyName="number_of_previous_days", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfPreviousDays { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfPreviousDays { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
     }
     
     public enum AvailabilityManager_OptimumStart_ControlType
@@ -225,7 +229,8 @@ public System.Nullable<double> NumberOfPreviousDays { get; set; } = (System.Null
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -247,7 +252,7 @@ public AvailabilityManager_NightCycle_ControlType ControlType { get; set; } = (A
         
 
 [JsonProperty(PropertyName="thermostat_tolerance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ThermostatTolerance { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ThermostatTolerance { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="cycling_run_time_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -256,7 +261,7 @@ public AvailabilityManager_NightCycle_CyclingRunTimeControlType CyclingRunTimeCo
         
 
 [JsonProperty(PropertyName="cycling_run_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CyclingRunTime { get; set; } = (System.Nullable<double>)Double.Parse("3600", CultureInfo.InvariantCulture);
+public System.Nullable<double> CyclingRunTime { get; set; } = Double.Parse("3600", CultureInfo.InvariantCulture);
         
 
 [Description("When AvailabilityManager:NightCycle is used in the zone component availability ma" +
@@ -332,7 +337,8 @@ public string HeatingZoneFansOnlyZoneOrZoneListName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -360,7 +366,8 @@ public System.Nullable<double> TemperatureDifferenceOffLimit { get; set; } = nul
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -379,7 +386,8 @@ public System.Nullable<double> Temperature { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -398,7 +406,8 @@ public System.Nullable<double> Temperature { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -422,7 +431,8 @@ public string ApplicabilityScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -442,7 +452,8 @@ public System.Nullable<double> Temperature { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -464,19 +475,19 @@ public string VentilationTemperatureScheduleName { get; set; } = "";
 [Description("The outdoor air temperature minus the control zone temperature must be greater th" +
     "an the ventilation delta T")]
 [JsonProperty(PropertyName="ventilation_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> VentilationTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> VentilationTemperatureDifference { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description("Night ventilation is disabled if any conditioned zone served by the system falls " +
     "below this temperature")]
 [JsonProperty(PropertyName="ventilation_temperature_low_limit", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> VentilationTemperatureLowLimit { get; set; } = (System.Nullable<double>)Double.Parse("15", CultureInfo.InvariantCulture);
+public System.Nullable<double> VentilationTemperatureLowLimit { get; set; } = Double.Parse("15", CultureInfo.InvariantCulture);
         
 
 [Description("the fraction (could be > 1) of the design system Flow Rate at which night ventila" +
     "tion will be done")]
 [JsonProperty(PropertyName="night_venting_flow_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NightVentingFlowFraction { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> NightVentingFlowFraction { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("When AvailabilityManager:NightVentilation is used in the zone component availabil" +
@@ -492,7 +503,8 @@ public string ControlZoneName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -524,17 +536,17 @@ public EmptyNoYes UseWeatherFileRainIndicators { get; set; } = (EmptyNoYes)Enum.
 
 [Description("this is the wind speed above which ventilation is shutoff")]
 [JsonProperty(PropertyName="maximum_wind_speed", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumWindSpeed { get; set; } = (System.Nullable<double>)Double.Parse("40", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumWindSpeed { get; set; } = Double.Parse("40", CultureInfo.InvariantCulture);
         
 
 [Description("this is the outdoor temperature below which ventilation is shutoff")]
 [JsonProperty(PropertyName="minimum_outdoor_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumOutdoorTemperature { get; set; } = (System.Nullable<double>)Double.Parse("-100", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumOutdoorTemperature { get; set; } = Double.Parse("-100", CultureInfo.InvariantCulture);
         
 
 [Description("this is the outdoor temperature above which ventilation is shutoff")]
 [JsonProperty(PropertyName="maximum_outdoor_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumOutdoorTemperature { get; set; } = (System.Nullable<double>)Double.Parse("100", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumOutdoorTemperature { get; set; } = Double.Parse("100", CultureInfo.InvariantCulture);
         
 
 [Description("this is the outdoor Enthalpy below which ventilation is shutoff")]
@@ -550,13 +562,13 @@ public System.Nullable<double> MaximumOutdoorEnthalpy { get; set; } = null;
 [Description("this is the outdoor temperature below which ventilation is shutoff Applicable onl" +
     "y if Ventilation Control Mode = 3")]
 [JsonProperty(PropertyName="minimum_outdoor_dewpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumOutdoorDewpoint { get; set; } = (System.Nullable<double>)Double.Parse("-100", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumOutdoorDewpoint { get; set; } = Double.Parse("-100", CultureInfo.InvariantCulture);
         
 
 [Description("this is the outdoor dewpoint above which ventilation is shutoff Applicable only i" +
     "f Ventilation Control Mode = 3")]
 [JsonProperty(PropertyName="maximum_outdoor_dewpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumOutdoorDewpoint { get; set; } = (System.Nullable<double>)Double.Parse("100", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumOutdoorDewpoint { get; set; } = Double.Parse("100", CultureInfo.InvariantCulture);
         
 
 [Description("Used only if Ventilation Control Mode = 4")]
@@ -589,12 +601,12 @@ public string ZoneventilationObjectName { get; set; } = "";
 
 [Description("Minimum operation time when HVAC system is forced on.")]
 [JsonProperty(PropertyName="minimum_hvac_operation_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumHvacOperationTime { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumHvacOperationTime { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Minimum ventilation time when natural ventilation is forced on.")]
 [JsonProperty(PropertyName="minimum_ventilation_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumVentilationTime { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumVentilationTime { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description(@"Defines the applicable managers used for an AirLoopHVAC or PlantLoop. The priority of availability managers is based on a set of rules and are specific to the type of loop. The output from each availability manager is an availability status flag: NoAction, ForceOff, CycleOn, or CycleOnZoneFansOnly (used only for air loops).")]
@@ -603,12 +615,26 @@ public System.Nullable<double> MinimumVentilationTime { get; set; } = (System.Nu
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="managers", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Managers { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.SystemAvailabilityManagers.AvailabilityManagerAssignmentList_Managers_Item> Managers { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AvailabilityManagerAssignmentList_Managers_Item
+    {
+        
+
+[JsonProperty(PropertyName="availability_manager_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string AvailabilityManagerObjectType { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="availability_manager_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string AvailabilityManagerName { get; set; } = "";
     }
 }

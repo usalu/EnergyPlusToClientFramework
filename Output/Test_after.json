@@ -1,4 +1,17 @@
 {
+  "Branch": {
+    "Only Water Loop Mixed Supply Inlet Branch": {
+      "pressure_drop_curve_name": "",
+      "components": [
+        {
+          "component_object_type": "Pump:ConstantSpeed",
+          "component_name": "Only Water Loop Mixed Supply Pump",
+          "component_inlet_node_name": "Only Water Loop Mixed Supply Inlet",
+          "component_outlet_node_name": "Only Water Loop Mixed Pump Outlet"
+        }
+      ]
+    }
+  },
   "Boiler:HotWater": {
     "Main boiler1": {
       "fuel_type": "Coal",

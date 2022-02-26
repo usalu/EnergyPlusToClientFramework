@@ -73,7 +73,8 @@ namespace BH.oM.Adapters.EnergyPlus.LocationandClimate
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -81,23 +82,23 @@ public string NodeName { get; set; } = "";
 [Description("+ is North, - is South, degree minutes represented in decimal (i.e. 30 minutes is" +
     " .5)")]
 [JsonProperty(PropertyName="latitude", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Latitude { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Latitude { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("- is West, + is East, degree minutes represented in decimal (i.e. 30 minutes is ." +
     "5)")]
 [JsonProperty(PropertyName="longitude", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Longitude { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Longitude { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("basic these limits on the WorldTimeZone Map (2003) Time relative to GMT. Decimal " +
     "hours.")]
 [JsonProperty(PropertyName="time_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TimeZone { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> TimeZone { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="elevation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Elevation { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Elevation { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description("Captures the scheduling of a moving/reorienting building, or more likely a vessel" +
@@ -107,7 +108,8 @@ public System.Nullable<double> Elevation { get; set; } = (System.Nullable<double
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -137,7 +139,8 @@ public string BuildingLocationOrientationSchedule { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -166,7 +169,7 @@ public System.Nullable<double> MaximumDryBulbTemperature { get; set; } = null;
 [Description("Must still produce appropriate maximum dry-bulb (within range) This field is not " +
     "needed if Dry-Bulb Temperature Range Modifier Type is \"delta\".")]
 [JsonProperty(PropertyName="daily_dry_bulb_temperature_range", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DailyDryBulbTemperatureRange { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DailyDryBulbTemperatureRange { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Type of modifier to the dry-bulb temperature calculated for the timestep")]
@@ -272,19 +275,19 @@ public string DiffuseSolarDayScheduleName { get; set; } = "";
 [Description("Required if Solar Model Indicator = ASHRAETau or ASHRAETau2017 ASHRAETau2017 sola" +
     "r model can be used with 2013 and 2017 HOF matching taub")]
 [JsonProperty(PropertyName="ashrae_clear_sky_optical_depth_for_beam_irradiance_taub_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AshraeClearSkyOpticalDepthForBeamIrradianceTaub { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> AshraeClearSkyOpticalDepthForBeamIrradianceTaub { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Required if Solar Model Indicator = ASHRAETau or ASHRAETau2017 ASHRAETau2017 sola" +
     "r model can be used with 2013 and 2017 HOF matching taud")]
 [JsonProperty(PropertyName="ashrae_clear_sky_optical_depth_for_diffuse_irradiance_taud_", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AshraeClearSkyOpticalDepthForDiffuseIrradianceTaud { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> AshraeClearSkyOpticalDepthForDiffuseIrradianceTaud { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used if Sky Model Indicator = ASHRAEClearSky or ZhangHuang 0.0 is totally unclear" +
     ", 1.0 is totally clear")]
 [JsonProperty(PropertyName="sky_clearness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SkyClearness { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SkyClearness { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("If used this design day will be run with a custom limit on the maximum number of " +
@@ -433,7 +436,8 @@ public SizingPeriod_DesignDay_BeginEnvironmentResetMode BeginEnvironmentResetMod
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -520,7 +524,8 @@ public EmptyNoYes UseWeatherFileRainAndSnowIndicators { get; set; } = (EmptyNoYe
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -650,7 +655,8 @@ public EmptyNoYes UseWeatherFileRainAndSnowIndicators { get; set; } = (EmptyNoYe
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -759,7 +765,8 @@ public EmptyNoYes TreatWeatherAsActual { get; set; } = (EmptyNoYes)Enum.Parse(ty
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -770,7 +777,7 @@ public string StartDate { get; set; } = "";
         
 
 [JsonProperty(PropertyName="duration", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Duration { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Duration { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Special Day Type selects the schedules appropriate for each day so labeled")]
@@ -822,7 +829,8 @@ public string EndDate { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -882,19 +890,19 @@ public EmptyNoYes UseWeatherFileHorizontalIr { get; set; } = (EmptyNoYes)Enum.Pa
         
 
 [JsonProperty(PropertyName="wind_sensor_height_above_ground", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WindSensorHeightAboveGround { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
+public System.Nullable<double> WindSensorHeightAboveGround { get; set; } = Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="wind_speed_profile_exponent", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WindSpeedProfileExponent { get; set; } = (System.Nullable<double>)Double.Parse("0.14", CultureInfo.InvariantCulture);
+public System.Nullable<double> WindSpeedProfileExponent { get; set; } = Double.Parse("0.14", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="wind_speed_profile_boundary_layer_thickness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WindSpeedProfileBoundaryLayerThickness { get; set; } = (System.Nullable<double>)Double.Parse("270", CultureInfo.InvariantCulture);
+public System.Nullable<double> WindSpeedProfileBoundaryLayerThickness { get; set; } = Double.Parse("270", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="air_temperature_sensor_height_above_ground", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirTemperatureSensorHeightAboveGround { get; set; } = (System.Nullable<double>)Double.Parse("1.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirTemperatureSensorHeightAboveGround { get; set; } = Double.Parse("1.5", CultureInfo.InvariantCulture);
     }
     
     [Description(@"This object is used if the user requires advanced control over height-dependent variations in wind speed and temperature. When this object is not present, the default model for temperature dependence on height is used, and the wind speed is modeled according to the Terrain field of the BUILDING object.")]
@@ -905,16 +913,16 @@ public System.Nullable<double> AirTemperatureSensorHeightAboveGround { get; set;
 
 [Description("Set to zero for no wind speed dependence on height.")]
 [JsonProperty(PropertyName="wind_speed_profile_exponent", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WindSpeedProfileExponent { get; set; } = (System.Nullable<double>)Double.Parse("0.22", CultureInfo.InvariantCulture);
+public System.Nullable<double> WindSpeedProfileExponent { get; set; } = Double.Parse("0.22", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="wind_speed_profile_boundary_layer_thickness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WindSpeedProfileBoundaryLayerThickness { get; set; } = (System.Nullable<double>)Double.Parse("370", CultureInfo.InvariantCulture);
+public System.Nullable<double> WindSpeedProfileBoundaryLayerThickness { get; set; } = Double.Parse("370", CultureInfo.InvariantCulture);
         
 
 [Description("Set to zero for no air temperature dependence on height.")]
 [JsonProperty(PropertyName="air_temperature_gradient_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirTemperatureGradientCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0.0065", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirTemperatureGradientCoefficient { get; set; } = Double.Parse("0.0065", CultureInfo.InvariantCulture);
     }
     
     [Description(@"These temperatures are specifically for those surfaces that have the outside environment of ""Ground"". Documentation about what values these should be is located in the Auxiliary programs document (Ground Heat Transfer) as well as the InputOutput Reference. CAUTION - Do not use the ""undisturbed"" ground temperatures from the weather data. These values are too extreme for the soil under a conditioned building. For best results, use the Slab or Basement program to calculate custom monthly average ground temperatures (see Auxiliary Programs). For typical commercial buildings in the USA, a reasonable default value is 2C less than the average indoor space temperature.")]
@@ -924,51 +932,51 @@ public System.Nullable<double> AirTemperatureGradientCoefficient { get; set; } =
         
 
 [JsonProperty(PropertyName="january_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JanuaryGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
+public System.Nullable<double> JanuaryGroundTemperature { get; set; } = Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="february_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FebruaryGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
+public System.Nullable<double> FebruaryGroundTemperature { get; set; } = Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="march_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MarchGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
+public System.Nullable<double> MarchGroundTemperature { get; set; } = Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="april_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AprilGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
+public System.Nullable<double> AprilGroundTemperature { get; set; } = Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="may_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MayGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
+public System.Nullable<double> MayGroundTemperature { get; set; } = Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="june_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JuneGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
+public System.Nullable<double> JuneGroundTemperature { get; set; } = Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="july_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JulyGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
+public System.Nullable<double> JulyGroundTemperature { get; set; } = Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="august_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AugustGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
+public System.Nullable<double> AugustGroundTemperature { get; set; } = Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="september_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SeptemberGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
+public System.Nullable<double> SeptemberGroundTemperature { get; set; } = Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="october_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OctoberGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
+public System.Nullable<double> OctoberGroundTemperature { get; set; } = Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="november_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NovemberGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
+public System.Nullable<double> NovemberGroundTemperature { get; set; } = Double.Parse("18", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="december_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DecemberGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("18", CultureInfo.InvariantCulture);
+public System.Nullable<double> DecemberGroundTemperature { get; set; } = Double.Parse("18", CultureInfo.InvariantCulture);
     }
     
     [Description("These temperatures are specifically for underground walls and ground floors defin" +
@@ -980,51 +988,51 @@ public System.Nullable<double> DecemberGroundTemperature { get; set; } = (System
         
 
 [JsonProperty(PropertyName="january_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JanuaryGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> JanuaryGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="february_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FebruaryGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> FebruaryGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="march_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MarchGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> MarchGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="april_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AprilGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> AprilGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="may_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MayGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> MayGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="june_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JuneGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> JuneGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="july_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JulyGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> JulyGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="august_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AugustGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> AugustGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="september_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SeptemberGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> SeptemberGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="october_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OctoberGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> OctoberGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="november_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NovemberGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> NovemberGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="december_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DecemberGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> DecemberGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
     }
     
     [Description("These temperatures are specifically for the Surface Ground Heat Exchanger and sho" +
@@ -1036,51 +1044,51 @@ public System.Nullable<double> DecemberGroundTemperature { get; set; } = (System
         
 
 [JsonProperty(PropertyName="january_surface_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JanuarySurfaceGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> JanuarySurfaceGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="february_surface_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FebruarySurfaceGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> FebruarySurfaceGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="march_surface_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MarchSurfaceGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> MarchSurfaceGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="april_surface_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AprilSurfaceGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> AprilSurfaceGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="may_surface_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaySurfaceGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaySurfaceGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="june_surface_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JuneSurfaceGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> JuneSurfaceGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="july_surface_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JulySurfaceGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> JulySurfaceGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="august_surface_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AugustSurfaceGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> AugustSurfaceGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="september_surface_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SeptemberSurfaceGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> SeptemberSurfaceGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="october_surface_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OctoberSurfaceGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> OctoberSurfaceGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="november_surface_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NovemberSurfaceGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> NovemberSurfaceGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="december_surface_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DecemberSurfaceGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("13", CultureInfo.InvariantCulture);
+public System.Nullable<double> DecemberSurfaceGroundTemperature { get; set; } = Double.Parse("13", CultureInfo.InvariantCulture);
     }
     
     [Description("These temperatures are specifically for the ground heat exchangers that would use" +
@@ -1092,51 +1100,51 @@ public System.Nullable<double> DecemberSurfaceGroundTemperature { get; set; } = 
         
 
 [JsonProperty(PropertyName="january_deep_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JanuaryDeepGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("16", CultureInfo.InvariantCulture);
+public System.Nullable<double> JanuaryDeepGroundTemperature { get; set; } = Double.Parse("16", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="february_deep_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FebruaryDeepGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("16", CultureInfo.InvariantCulture);
+public System.Nullable<double> FebruaryDeepGroundTemperature { get; set; } = Double.Parse("16", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="march_deep_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MarchDeepGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("16", CultureInfo.InvariantCulture);
+public System.Nullable<double> MarchDeepGroundTemperature { get; set; } = Double.Parse("16", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="april_deep_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AprilDeepGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("16", CultureInfo.InvariantCulture);
+public System.Nullable<double> AprilDeepGroundTemperature { get; set; } = Double.Parse("16", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="may_deep_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MayDeepGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("16", CultureInfo.InvariantCulture);
+public System.Nullable<double> MayDeepGroundTemperature { get; set; } = Double.Parse("16", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="june_deep_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JuneDeepGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("16", CultureInfo.InvariantCulture);
+public System.Nullable<double> JuneDeepGroundTemperature { get; set; } = Double.Parse("16", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="july_deep_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JulyDeepGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("16", CultureInfo.InvariantCulture);
+public System.Nullable<double> JulyDeepGroundTemperature { get; set; } = Double.Parse("16", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="august_deep_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AugustDeepGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("16", CultureInfo.InvariantCulture);
+public System.Nullable<double> AugustDeepGroundTemperature { get; set; } = Double.Parse("16", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="september_deep_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SeptemberDeepGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("16", CultureInfo.InvariantCulture);
+public System.Nullable<double> SeptemberDeepGroundTemperature { get; set; } = Double.Parse("16", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="october_deep_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OctoberDeepGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("16", CultureInfo.InvariantCulture);
+public System.Nullable<double> OctoberDeepGroundTemperature { get; set; } = Double.Parse("16", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="november_deep_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NovemberDeepGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("16", CultureInfo.InvariantCulture);
+public System.Nullable<double> NovemberDeepGroundTemperature { get; set; } = Double.Parse("16", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="december_deep_ground_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DecemberDeepGroundTemperature { get; set; } = (System.Nullable<double>)Double.Parse("16", CultureInfo.InvariantCulture);
+public System.Nullable<double> DecemberDeepGroundTemperature { get; set; } = Double.Parse("16", CultureInfo.InvariantCulture);
     }
     
     [Description("Undisturbed ground temperature object using a detailed finite difference 1-D mode" +
@@ -1146,7 +1154,8 @@ public System.Nullable<double> DecemberDeepGroundTemperature { get; set; } = (Sy
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1164,16 +1173,16 @@ public System.Nullable<double> SoilSpecificHeat { get; set; } = null;
         
 
 [JsonProperty(PropertyName="soil_moisture_content_volume_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilMoistureContentVolumeFraction { get; set; } = (System.Nullable<double>)Double.Parse("30", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilMoistureContentVolumeFraction { get; set; } = Double.Parse("30", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_moisture_content_volume_fraction_at_saturation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilMoistureContentVolumeFractionAtSaturation { get; set; } = (System.Nullable<double>)Double.Parse("50", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilMoistureContentVolumeFractionAtSaturation { get; set; } = Double.Parse("50", CultureInfo.InvariantCulture);
         
 
 [Description(@"This specifies the ground cover effects during evapotranspiration calculations. The value roughly represents the following cases: = 0   : concrete or other solid, non-permeable ground surface material = 0.5 : short grass, much like a manicured lawn = 1   : standard reference state (12 cm grass) = 1.5 : wild growth")]
 [JsonProperty(PropertyName="evapotranspiration_ground_cover_parameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> EvapotranspirationGroundCoverParameter { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
+public System.Nullable<double> EvapotranspirationGroundCoverParameter { get; set; } = Double.Parse("0.4", CultureInfo.InvariantCulture);
     }
     
     [Description("Undisturbed ground temperature object using the Kusuda-Achenbach 1965 correlation" +
@@ -1183,7 +1192,8 @@ public System.Nullable<double> EvapotranspirationGroundCoverParameter { get; set
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1226,7 +1236,8 @@ public System.Nullable<double> PhaseShiftOfMinimumSurfaceTemperature { get; set;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1270,41 +1281,42 @@ public System.Nullable<double> PhaseShiftOfTemperatureAmplitude2 { get; set; } =
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="ground_domain_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GroundDomainDepth { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
+public System.Nullable<double> GroundDomainDepth { get; set; } = Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="aspect_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AspectRatio { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> AspectRatio { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="perimeter_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> PerimeterOffset { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
+public System.Nullable<double> PerimeterOffset { get; set; } = Double.Parse("5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_thermal_conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilThermalConductivity { get; set; } = (System.Nullable<double>)Double.Parse("1.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilThermalConductivity { get; set; } = Double.Parse("1.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_density", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilDensity { get; set; } = (System.Nullable<double>)Double.Parse("2800", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilDensity { get; set; } = Double.Parse("2800", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_specific_heat", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilSpecificHeat { get; set; } = (System.Nullable<double>)Double.Parse("850", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilSpecificHeat { get; set; } = Double.Parse("850", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_moisture_content_volume_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilMoistureContentVolumeFraction { get; set; } = (System.Nullable<double>)Double.Parse("30", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilMoistureContentVolumeFraction { get; set; } = Double.Parse("30", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_moisture_content_volume_fraction_at_saturation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilMoistureContentVolumeFractionAtSaturation { get; set; } = (System.Nullable<double>)Double.Parse("50", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilMoistureContentVolumeFractionAtSaturation { get; set; } = Double.Parse("50", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="undisturbed_ground_temperature_model_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1318,7 +1330,7 @@ public string UndisturbedGroundTemperatureModelName { get; set; } = "";
 
 [Description(@"This specifies the ground cover effects during evapotranspiration calculations. The value roughly represents the following cases: = 0   : concrete or other solid, non-permeable ground surface material = 0.5 : short grass, much like a manicured lawn = 1   : standard reference state (12 cm grass) = 1.5 : wild growth")]
 [JsonProperty(PropertyName="evapotranspiration_ground_cover_parameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> EvapotranspirationGroundCoverParameter { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
+public System.Nullable<double> EvapotranspirationGroundCoverParameter { get; set; } = Double.Parse("0.4", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="slab_boundary_condition_model_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1384,11 +1396,11 @@ public Site_GroundDomain_Slab_SimulationTimestep SimulationTimestep { get; set; 
         
 
 [JsonProperty(PropertyName="geometric_mesh_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GeometricMeshCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("1.6", CultureInfo.InvariantCulture);
+public System.Nullable<double> GeometricMeshCoefficient { get; set; } = Double.Parse("1.6", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="mesh_density_parameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MeshDensityParameter { get; set; } = (System.Nullable<double>)Double.Parse("6", CultureInfo.InvariantCulture);
+public System.Nullable<double> MeshDensityParameter { get; set; } = Double.Parse("6", CultureInfo.InvariantCulture);
     }
     
     public enum Site_GroundDomain_Slab_UndisturbedGroundTemperatureModelType
@@ -1447,44 +1459,45 @@ public System.Nullable<double> MeshDensityParameter { get; set; } = (System.Null
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("The depth from ground surface to the deep ground boundary of the domain.")]
 [JsonProperty(PropertyName="ground_domain_depth", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GroundDomainDepth { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
+public System.Nullable<double> GroundDomainDepth { get; set; } = Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description("This defines the height to width ratio of the basement zone.")]
 [JsonProperty(PropertyName="aspect_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AspectRatio { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> AspectRatio { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("The distance from the basement wall edge to the edge of the ground domain")]
 [JsonProperty(PropertyName="perimeter_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> PerimeterOffset { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
+public System.Nullable<double> PerimeterOffset { get; set; } = Double.Parse("5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_thermal_conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilThermalConductivity { get; set; } = (System.Nullable<double>)Double.Parse("1.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilThermalConductivity { get; set; } = Double.Parse("1.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_density", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilDensity { get; set; } = (System.Nullable<double>)Double.Parse("2800", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilDensity { get; set; } = Double.Parse("2800", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_specific_heat", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilSpecificHeat { get; set; } = (System.Nullable<double>)Double.Parse("850", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilSpecificHeat { get; set; } = Double.Parse("850", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_moisture_content_volume_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilMoistureContentVolumeFraction { get; set; } = (System.Nullable<double>)Double.Parse("30", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilMoistureContentVolumeFraction { get; set; } = Double.Parse("30", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_moisture_content_volume_fraction_at_saturation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilMoistureContentVolumeFractionAtSaturation { get; set; } = (System.Nullable<double>)Double.Parse("50", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilMoistureContentVolumeFractionAtSaturation { get; set; } = Double.Parse("50", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="undisturbed_ground_temperature_model_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1498,7 +1511,7 @@ public string UndisturbedGroundTemperatureModelName { get; set; } = "";
 
 [Description(@"This specifies the ground cover effects during evapotranspiration calculations. The value roughly represents the following cases: = 0   : concrete or other solid, non-permeable ground surface material = 0.5 : short grass, much like a manicured lawn = 1   : standard reference state (12 cm grass) = 1.5 : wild growth")]
 [JsonProperty(PropertyName="evapotranspiration_ground_cover_parameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> EvapotranspirationGroundCoverParameter { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
+public System.Nullable<double> EvapotranspirationGroundCoverParameter { get; set; } = Double.Parse("0.4", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="basement_floor_boundary_condition_model_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1558,7 +1571,7 @@ public Site_GroundDomain_Basement_SimulationTimestep SimulationTimestep { get; s
         
 
 [JsonProperty(PropertyName="mesh_density_parameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MeshDensityParameter { get; set; } = (System.Nullable<double>)Double.Parse("4", CultureInfo.InvariantCulture);
+public System.Nullable<double> MeshDensityParameter { get; set; } = Double.Parse("4", CultureInfo.InvariantCulture);
     }
     
     public enum Site_GroundDomain_Basement_UndisturbedGroundTemperatureModelType
@@ -1609,51 +1622,51 @@ public System.Nullable<double> MeshDensityParameter { get; set; } = (System.Null
         
 
 [JsonProperty(PropertyName="january_ground_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JanuaryGroundReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> JanuaryGroundReflectance { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="february_ground_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FebruaryGroundReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> FebruaryGroundReflectance { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="march_ground_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MarchGroundReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> MarchGroundReflectance { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="april_ground_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AprilGroundReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> AprilGroundReflectance { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="may_ground_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MayGroundReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> MayGroundReflectance { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="june_ground_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JuneGroundReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> JuneGroundReflectance { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="july_ground_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> JulyGroundReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> JulyGroundReflectance { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="august_ground_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AugustGroundReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> AugustGroundReflectance { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="september_ground_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SeptemberGroundReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> SeptemberGroundReflectance { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="october_ground_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OctoberGroundReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> OctoberGroundReflectance { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="november_ground_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NovemberGroundReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> NovemberGroundReflectance { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="december_ground_reflectance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DecemberGroundReflectance { get; set; } = (System.Nullable<double>)Double.Parse("0.2", CultureInfo.InvariantCulture);
+public System.Nullable<double> DecemberGroundReflectance { get; set; } = Double.Parse("0.2", CultureInfo.InvariantCulture);
     }
     
     [Description("Specifies ground reflectance multipliers when snow resident on the ground. These " +
@@ -1666,12 +1679,12 @@ public System.Nullable<double> DecemberGroundReflectance { get; set; } = (System
 
 [Description(@"Value for modifying the ""normal"" ground reflectance when Snow is on ground when calculating the ""Ground Reflected Solar Radiation Value"" a value of 1.0 here uses the ""normal"" ground reflectance Ground Reflected Solar = (BeamSolar*CosSunZenith + DiffuseSolar)*GroundReflectance This would be further modified by the Snow Ground Reflectance Modifier when Snow was on the ground When Snow on ground, effective GroundReflectance is normal GroundReflectance*""Ground Reflectance Snow Modifier"" Ground Reflectance achieved in this manner will be restricted to [0.0,1.0]")]
 [JsonProperty(PropertyName="ground_reflected_solar_modifier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GroundReflectedSolarModifier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> GroundReflectedSolarModifier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"Value for modifying the ""normal"" daylighting ground reflectance when Snow is on ground when calculating the ""Ground Reflected Solar Radiation Value"" a value of 1.0 here uses the ""normal"" ground reflectance Ground Reflected Solar = (BeamSolar*CosSunZenith + DiffuseSolar)*GroundReflectance This would be further modified by the Snow Ground Reflectance Modifier when Snow was on the ground When Snow on ground, effective GroundReflectance is normal GroundReflectance*""Daylighting Ground Reflectance Snow Modifier"" Ground Reflectance achieved in this manner will be restricted to [0.0,1.0]")]
 [JsonProperty(PropertyName="daylighting_ground_reflected_solar_modifier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DaylightingGroundReflectedSolarModifier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> DaylightingGroundReflectedSolarModifier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     [Description("Used to calculate water mains temperatures delivered by underground water main pi" +
@@ -1777,7 +1790,7 @@ public string IrrigationRateScheduleName { get; set; } = "";
 [Description("Used with SmartSchedule to set the saturation level at which no irrigation is all" +
     "owed.")]
 [JsonProperty(PropertyName="irrigation_maximum_saturation_threshold", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> IrrigationMaximumSaturationThreshold { get; set; } = (System.Nullable<double>)Double.Parse("40", CultureInfo.InvariantCulture);
+public System.Nullable<double> IrrigationMaximumSaturationThreshold { get; set; } = Double.Parse("40", CultureInfo.InvariantCulture);
     }
     
     public enum RoofIrrigation_IrrigationModelType
@@ -1797,7 +1810,8 @@ public System.Nullable<double> IrrigationMaximumSaturationThreshold { get; set; 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1839,7 +1853,8 @@ public string VisibleSpectrumDataObjectName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1866,7 +1881,7 @@ public System.Nullable<double> Spectrum2 { get; set; } = null;
         
 
 [JsonProperty(PropertyName="extensions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Extensions { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.LocationandClimate.Site_SpectrumData_Extensions_Item> Extensions { get; set; } = null;
     }
     
     public enum Site_SpectrumData_SpectrumDataType
@@ -1877,5 +1892,18 @@ public string Extensions { get; set; } = "";
         
         [System.Runtime.Serialization.EnumMember(Value="Visible")]
         Visible = 1,
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Site_SpectrumData_Extensions_Item
+    {
+        
+
+[JsonProperty(PropertyName="wavelength", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Wavelength { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="spectrum", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> Spectrum { get; set; } = null;
     }
 }

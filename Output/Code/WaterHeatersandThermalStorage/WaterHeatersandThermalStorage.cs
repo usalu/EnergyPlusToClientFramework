@@ -74,14 +74,15 @@ namespace BH.oM.Adapters.EnergyPlus.WaterHeatersandThermalStorage
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="tank_volume", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> TankVolume { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> TankVolume { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="setpoint_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -89,7 +90,7 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="deadband_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DeadbandTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DeadbandTemperatureDifference { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_temperature_limit", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -103,7 +104,7 @@ public WaterHeater_Mixed_HeaterControlType HeaterControlType { get; set; } = (Wa
 
 [JsonProperty(PropertyName="heater_maximum_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HeaterMaximumCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeaterMaximumCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Only used when Heater Control Type is set to Modulate")]
@@ -113,12 +114,12 @@ public System.Nullable<double> HeaterMinimumCapacity { get; set; } = null;
 
 [Description("Not yet implemented")]
 [JsonProperty(PropertyName="heater_ignition_minimum_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeaterIgnitionMinimumFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeaterIgnitionMinimumFlowRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Not yet implemented")]
 [JsonProperty(PropertyName="heater_ignition_delay", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeaterIgnitionDelay { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeaterIgnitionDelay { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="heater_fuel_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -135,7 +136,7 @@ public string PartLoadFactorCurveName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="off_cycle_parasitic_fuel_consumption_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OffCycleParasiticFuelConsumptionRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OffCycleParasiticFuelConsumptionRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="off_cycle_parasitic_fuel_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -144,11 +145,11 @@ public WaterHeater_Mixed_OffCycleParasiticFuelType OffCycleParasiticFuelType { g
         
 
 [JsonProperty(PropertyName="off_cycle_parasitic_heat_fraction_to_tank", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OffCycleParasiticHeatFractionToTank { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OffCycleParasiticHeatFractionToTank { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="on_cycle_parasitic_fuel_consumption_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OnCycleParasiticFuelConsumptionRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OnCycleParasiticFuelConsumptionRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="on_cycle_parasitic_fuel_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -157,7 +158,7 @@ public WaterHeater_Mixed_OnCycleParasiticFuelType OnCycleParasiticFuelType { get
         
 
 [JsonProperty(PropertyName="on_cycle_parasitic_heat_fraction_to_tank", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OnCycleParasiticHeatFractionToTank { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OnCycleParasiticHeatFractionToTank { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="ambient_temperature_indicator", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -183,7 +184,7 @@ public System.Nullable<double> OffCycleLossCoefficientToAmbientTemperature { get
         
 
 [JsonProperty(PropertyName="off_cycle_loss_fraction_to_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OffCycleLossFractionToZone { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> OffCycleLossFractionToZone { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="on_cycle_loss_coefficient_to_ambient_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -191,7 +192,7 @@ public System.Nullable<double> OnCycleLossCoefficientToAmbientTemperature { get;
         
 
 [JsonProperty(PropertyName="on_cycle_loss_fraction_to_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OnCycleLossFractionToZone { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> OnCycleLossFractionToZone { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Only used if Use Side Node connections are blank")]
@@ -219,7 +220,7 @@ public string UseSideOutletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="use_side_effectiveness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> UseSideEffectiveness { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> UseSideEffectiveness { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="source_side_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -231,23 +232,23 @@ public string SourceSideOutletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="source_side_effectiveness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SourceSideEffectiveness { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> SourceSideEffectiveness { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="use_side_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> UseSideDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> UseSideDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="source_side_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> SourceSideDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> SourceSideDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Parameter for autosizing design flow rates for indirectly heated water tanks Time" +
     " required to raise temperature of entire tank from 14.4C to 57.2C")]
 [JsonProperty(PropertyName="indirect_water_heating_recovery_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> IndirectWaterHeatingRecoveryTime { get; set; } = (System.Nullable<double>)Double.Parse("1.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> IndirectWaterHeatingRecoveryTime { get; set; } = Double.Parse("1.5", CultureInfo.InvariantCulture);
         
 
 [Description(@"StorageTank mode always requests flow unless tank is at its Maximum Temperature Limit IndirectHeatPrimarySetpoint mode requests flow whenever primary setpoint calls for heat IndirectHeatAlternateSetpoint mode requests flow whenever alternate indirect setpoint calls for heat")]
@@ -264,7 +265,7 @@ public string IndirectAlternateSetpointTemperatureScheduleName { get; set; } = "
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
     }
     
     public enum WaterHeater_Mixed_HeaterControlType
@@ -437,7 +438,8 @@ public string EndUseSubcategory { get; set; } = (System.String)"General";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -445,18 +447,18 @@ public string NodeName { get; set; } = "";
 [Description("Any text may be used here to categorize the end-uses in the ABUPS End Uses by Sub" +
     "category table.")]
 [JsonProperty(PropertyName="end_use_subcategory", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string EndUseSubcategory { get; set; } = (System.String)"General";
+public string EndUseSubcategory { get; set; } = "General";
         
 
 [JsonProperty(PropertyName="tank_volume", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> TankVolume { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> TankVolume { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Height is measured in the axial direction for horizontal cylinders")]
 [JsonProperty(PropertyName="tank_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> TankHeight { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> TankHeight { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="tank_shape", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -483,12 +485,12 @@ public string Heater1SetpointTemperatureScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="heater_1_deadband_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Heater1DeadbandTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Heater1DeadbandTemperatureDifference { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="heater_1_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> Heater1Capacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> Heater1Capacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="heater_1_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -500,7 +502,7 @@ public string Heater2SetpointTemperatureScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="heater_2_deadband_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Heater2DeadbandTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Heater2DeadbandTemperatureDifference { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="heater_2_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -521,7 +523,7 @@ public System.Nullable<double> HeaterThermalEfficiency { get; set; } = null;
         
 
 [JsonProperty(PropertyName="off_cycle_parasitic_fuel_consumption_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OffCycleParasiticFuelConsumptionRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OffCycleParasiticFuelConsumptionRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="off_cycle_parasitic_fuel_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -530,15 +532,15 @@ public WaterHeater_Stratified_OffCycleParasiticFuelType OffCycleParasiticFuelTyp
         
 
 [JsonProperty(PropertyName="off_cycle_parasitic_heat_fraction_to_tank", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OffCycleParasiticHeatFractionToTank { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OffCycleParasiticHeatFractionToTank { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="off_cycle_parasitic_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OffCycleParasiticHeight { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OffCycleParasiticHeight { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="on_cycle_parasitic_fuel_consumption_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OnCycleParasiticFuelConsumptionRate { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OnCycleParasiticFuelConsumptionRate { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="on_cycle_parasitic_fuel_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -547,11 +549,11 @@ public WaterHeater_Stratified_OnCycleParasiticFuelType OnCycleParasiticFuelType 
         
 
 [JsonProperty(PropertyName="on_cycle_parasitic_heat_fraction_to_tank", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OnCycleParasiticHeatFractionToTank { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OnCycleParasiticHeatFractionToTank { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="on_cycle_parasitic_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OnCycleParasiticHeight { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OnCycleParasiticHeight { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="ambient_temperature_indicator", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -577,7 +579,7 @@ public System.Nullable<double> UniformSkinLossCoefficientPerUnitAreaToAmbientTem
         
 
 [JsonProperty(PropertyName="skin_loss_fraction_to_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SkinLossFractionToZone { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> SkinLossFractionToZone { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="off_cycle_flue_loss_coefficient_to_ambient_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -585,7 +587,7 @@ public System.Nullable<double> OffCycleFlueLossCoefficientToAmbientTemperature {
         
 
 [JsonProperty(PropertyName="off_cycle_flue_loss_fraction_to_zone", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OffCycleFlueLossFractionToZone { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> OffCycleFlueLossFractionToZone { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Only used if Use Side Node connections are blank")]
@@ -615,18 +617,18 @@ public string UseSideOutletNodeName { get; set; } = "";
 
 [Description(@"The use side effectiveness in the stratified tank model is a simplified analogy of a heat exchanger's effectiveness. This effectiveness is equal to the fraction of use mass flow rate that directly mixes with the tank fluid. And one minus the effectiveness is the fraction that bypasses the tank. The use side mass flow rate that bypasses the tank is mixed with the fluid or water leaving the stratified tank.")]
 [JsonProperty(PropertyName="use_side_effectiveness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> UseSideEffectiveness { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> UseSideEffectiveness { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Defaults to bottom of tank")]
 [JsonProperty(PropertyName="use_side_inlet_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> UseSideInletHeight { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> UseSideInletHeight { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Defaults to top of tank")]
 [JsonProperty(PropertyName="use_side_outlet_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> UseSideOutletHeight { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> UseSideOutletHeight { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="source_side_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -639,18 +641,18 @@ public string SourceSideOutletNodeName { get; set; } = "";
 
 [Description(@"The source side effectiveness in the stratified tank model is a simplified analogy of a heat exchanger's effectiveness. This effectiveness is equal to the fraction of source mass flow rate that directly mixes with the tank fluid. And one minus the effectiveness is the fraction that bypasses the tank. The source side mass flow rate that bypasses the tank is mixed with the fluid or water leaving the stratified tank.")]
 [JsonProperty(PropertyName="source_side_effectiveness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SourceSideEffectiveness { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> SourceSideEffectiveness { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Defaults to top of tank")]
 [JsonProperty(PropertyName="source_side_inlet_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> SourceSideInletHeight { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> SourceSideInletHeight { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Defaults to bottom of tank")]
 [JsonProperty(PropertyName="source_side_outlet_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SourceSideOutletHeight { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SourceSideOutletHeight { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="inlet_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -660,74 +662,74 @@ public WaterHeater_Stratified_InletMode InletMode { get; set; } = (WaterHeater_S
 
 [JsonProperty(PropertyName="use_side_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> UseSideDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> UseSideDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="source_side_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> SourceSideDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> SourceSideDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Parameter for autosizing design flow rates for indirectly heated water tanks time" +
     " required to raise temperature of entire tank from 14.4C to 57.2C")]
 [JsonProperty(PropertyName="indirect_water_heating_recovery_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> IndirectWaterHeatingRecoveryTime { get; set; } = (System.Nullable<double>)Double.Parse("1.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> IndirectWaterHeatingRecoveryTime { get; set; } = Double.Parse("1.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="number_of_nodes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfNodes { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfNodes { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="additional_destratification_conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AdditionalDestratificationConductivity { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> AdditionalDestratificationConductivity { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_1_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node1AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node1AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_2_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node2AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node2AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_3_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node3AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node3AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_4_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node4AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node4AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_5_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node5AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node5AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_6_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node6AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node6AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_7_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node7AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node7AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_8_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node8AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node8AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_9_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node9AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node9AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_10_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node10AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node10AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_11_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node11AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node11AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_12_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node12AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node12AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"StorageTank mode always requests flow unless tank is at its Maximum Temperature Limit IndirectHeatPrimarySetpoint mode requests flow whenever primary setpoint for heater 1 calls for heat IndirectHeatAlternateSetpoint mode requests flow whenever alternate indirect setpoint calls for heat")]
@@ -1048,7 +1050,8 @@ public System.Nullable<double> HeightAspectRatio { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1067,7 +1070,7 @@ public string CompressorSetpointTemperatureScheduleName { get; set; } = "";
 
 [Description(@"Setpoint temperature minus the dead band temperature difference defines the cut-in temperature where the heat pump compressor turns on. The water tank's heater (element or burner) setpoint temperature should always be less than the heat pump compressor cut-in temperature.")]
 [JsonProperty(PropertyName="dead_band_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DeadBandTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
+public System.Nullable<double> DeadBandTemperatureDifference { get; set; } = Double.Parse("5", CultureInfo.InvariantCulture);
         
 
 [Description("Should match the field Source Outlet Node Name in the water heater tank object. S" +
@@ -1089,7 +1092,7 @@ public string CondenserWaterOutletNodeName { get; set; } = "";
     "ting capacity of the heat pump\'s DX coil.")]
 [JsonProperty(PropertyName="condenser_water_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> CondenserWaterFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CondenserWaterFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Actual air flow rate across the heat pump\'s air coil (evaporator). If autocalcula" +
@@ -1097,7 +1100,7 @@ public System.Nullable<double> CondenserWaterFlowRate { get; set; } = (System.Nu
     "apacity of the heat pump\'s DX coil.")]
 [JsonProperty(PropertyName="evaporator_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> EvaporatorAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> EvaporatorAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Defines the configuration of the airflow path through the air coil and fan sectio" +
@@ -1193,13 +1196,13 @@ public string DxCoilName { get; set; } = "";
 [Description("Heat pump compressor will not operate when the inlet air dry-bulb temperature is " +
     "below this value.")]
 [JsonProperty(PropertyName="minimum_inlet_air_temperature_for_compressor_operation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumInletAirTemperatureForCompressorOperation { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumInletAirTemperatureForCompressorOperation { get; set; } = Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description("Heat pump compressor will not operate when the inlet air dry-bulb temperature is " +
     "above this value.")]
 [JsonProperty(PropertyName="maximum_inlet_air_temperature_for_compressor_operation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumInletAirTemperatureForCompressorOperation { get; set; } = (System.Nullable<double>)Double.Parse("48.88888888889", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumInletAirTemperatureForCompressorOperation { get; set; } = Double.Parse("48.88888888889", CultureInfo.InvariantCulture);
         
 
 [Description("If Zone is selected, Inlet Air Configuration must be ZoneAirOnly or ZoneAndOutdoo" +
@@ -1238,14 +1241,14 @@ public WaterHeater_HeatPump_PumpedCondenser_FanPlacement FanPlacement { get; set
 [Description("Parasitic electric power consumed when the heat pump compressor operates. Does no" +
     "t contribute to water heating but can impact the zone air heat balance.")]
 [JsonProperty(PropertyName="on_cycle_parasitic_electric_load", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OnCycleParasiticElectricLoad { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OnCycleParasiticElectricLoad { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Parasitic electric power consumed when the heat pump compressor is off. Does not " +
     "contribute to water heating but can impact the zone air heat balance. Off-cycle " +
     "parasitic power is 0 when the availability schedule is 0.")]
 [JsonProperty(PropertyName="off_cycle_parasitic_electric_load", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OffCycleParasiticElectricLoad { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OffCycleParasiticElectricLoad { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field determines if the parasitic electric load impacts the zone air heat ba" +
@@ -1288,7 +1291,7 @@ public System.Nullable<double> ControlSensor1HeightInStratifiedTank { get; set; 
 [Description("Weight to give Control Sensor 1 temperature The weight of Control Sensor 2 will b" +
     "e 1 - (wt. of control sensor 1)")]
 [JsonProperty(PropertyName="control_sensor_1_weight", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ControlSensor1Weight { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ControlSensor1Weight { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Used to indicate height of control sensor for Tank Object Type = WaterHeater:Stra" +
@@ -1413,7 +1416,8 @@ public System.Nullable<double> ControlSensor2HeightInStratifiedTank { get; set; 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1432,12 +1436,12 @@ public string CompressorSetpointTemperatureScheduleName { get; set; } = "";
 
 [Description(@"Setpoint temperature minus the dead band temperature difference defines the cut-in temperature where the heat pump compressor turns on. The water tank's heater (element or burner) setpoint temperature should always be less than the heat pump compressor cut-in temperature.")]
 [JsonProperty(PropertyName="dead_band_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DeadBandTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
+public System.Nullable<double> DeadBandTemperatureDifference { get; set; } = Double.Parse("5", CultureInfo.InvariantCulture);
         
 
 [Description("Distance from the bottom of the tank to the bottom of the wrapped condenser.")]
 [JsonProperty(PropertyName="condenser_bottom_location", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CondenserBottomLocation { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CondenserBottomLocation { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Distance from the bottom of the tank to the top of the wrapped condenser.")]
@@ -1450,7 +1454,7 @@ public System.Nullable<double> CondenserTopLocation { get; set; } = null;
     "apacity of the heat pump\'s DX coil.")]
 [JsonProperty(PropertyName="evaporator_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> EvaporatorAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> EvaporatorAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Defines the configuration of the airflow path through the air coil and fan sectio" +
@@ -1546,13 +1550,13 @@ public string DxCoilName { get; set; } = "";
 [Description("Heat pump compressor will not operate when the inlet air dry-bulb temperature is " +
     "below this value.")]
 [JsonProperty(PropertyName="minimum_inlet_air_temperature_for_compressor_operation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumInletAirTemperatureForCompressorOperation { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumInletAirTemperatureForCompressorOperation { get; set; } = Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description("Heat pump compressor will not operate when the inlet air dry-bulb temperature is " +
     "above this value.")]
 [JsonProperty(PropertyName="maximum_inlet_air_temperature_for_compressor_operation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumInletAirTemperatureForCompressorOperation { get; set; } = (System.Nullable<double>)Double.Parse("48.88888888889", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumInletAirTemperatureForCompressorOperation { get; set; } = Double.Parse("48.88888888889", CultureInfo.InvariantCulture);
         
 
 [Description("If Zone is selected, Inlet Air Configuration must be ZoneAirOnly or ZoneAndOutdoo" +
@@ -1591,14 +1595,14 @@ public WaterHeater_HeatPump_WrappedCondenser_FanPlacement FanPlacement { get; se
 [Description("Parasitic electric power consumed when the heat pump compressor operates. Does no" +
     "t contribute to water heating but can impact the zone air heat balance.")]
 [JsonProperty(PropertyName="on_cycle_parasitic_electric_load", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OnCycleParasiticElectricLoad { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OnCycleParasiticElectricLoad { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Parasitic electric power consumed when the heat pump compressor is off. Does not " +
     "contribute to water heating but can impact the zone air heat balance. Off-cycle " +
     "parasitic power is 0 when the availability schedule is 0.")]
 [JsonProperty(PropertyName="off_cycle_parasitic_electric_load", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OffCycleParasiticElectricLoad { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OffCycleParasiticElectricLoad { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field determines if the parasitic electric load impacts the zone air heat ba" +
@@ -1640,7 +1644,7 @@ public System.Nullable<double> ControlSensor1HeightInStratifiedTank { get; set; 
 
 [Description("Weight to give Control Sensor 1 temperature")]
 [JsonProperty(PropertyName="control_sensor_1_weight", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ControlSensor1Weight { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> ControlSensor1Weight { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Used to indicate height of control sensor if Tank Object Type is WaterHeater:Stra" +
@@ -1757,7 +1761,8 @@ public System.Nullable<double> ControlSensor2HeightInStratifiedTank { get; set; 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1800,7 +1805,8 @@ public string OutletNodeName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1863,7 +1869,7 @@ public System.Nullable<double> TankLossCoefficient { get; set; } = null;
     "out adjusting the performance parameters input above is inappropriate and not ad" +
     "vised.")]
 [JsonProperty(PropertyName="freezing_temperature_of_storage_medium", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FreezingTemperatureOfStorageMedium { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FreezingTemperatureOfStorageMedium { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("This field determines whether the system uses internal or external melt during di" +
@@ -1926,13 +1932,14 @@ public ThermalStorage_Ice_Detailed_ThawProcessIndicator ThawProcessIndicator { g
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="tank_volume", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TankVolume { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> TankVolume { get; set; } = Double.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="setpoint_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1940,7 +1947,7 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="deadband_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DeadbandTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> DeadbandTemperatureDifference { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="minimum_temperature_limit", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1982,7 +1989,7 @@ public string UseSideOutletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="use_side_heat_transfer_effectiveness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> UseSideHeatTransferEffectiveness { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> UseSideHeatTransferEffectiveness { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Availability schedule name for use side. Schedule value > 0 means the system is a" +
@@ -1993,7 +2000,7 @@ public string UseSideAvailabilityScheduleName { get; set; } = "";
 
 [JsonProperty(PropertyName="use_side_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> UseSideDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> UseSideDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="source_side_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2005,7 +2012,7 @@ public string SourceSideOutletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="source_side_heat_transfer_effectiveness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SourceSideHeatTransferEffectiveness { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> SourceSideHeatTransferEffectiveness { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Availability schedule name for source side. Schedule value > 0 means the system i" +
@@ -2016,13 +2023,13 @@ public string SourceSideAvailabilityScheduleName { get; set; } = "";
 
 [JsonProperty(PropertyName="source_side_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> SourceSideDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> SourceSideDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Parameter for autosizing design flow rates for indirectly cooled water tanks time" +
     " required to lower temperature of entire tank from 14.4C to 9.0C")]
 [JsonProperty(PropertyName="tank_recovery_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TankRecoveryTime { get; set; } = (System.Nullable<double>)Double.Parse("4", CultureInfo.InvariantCulture);
+public System.Nullable<double> TankRecoveryTime { get; set; } = Double.Parse("4", CultureInfo.InvariantCulture);
     }
     
     public enum ThermalStorage_ChilledWater_Mixed_AmbientTemperatureIndicator
@@ -2046,7 +2053,8 @@ public System.Nullable<double> TankRecoveryTime { get; set; } = (System.Nullable
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -2075,7 +2083,7 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="deadband_temperature_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DeadbandTemperatureDifference { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DeadbandTemperatureDifference { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="temperature_sensor_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2122,7 +2130,7 @@ public string UseSideOutletNodeName { get; set; } = "";
 
 [Description(@"The use side effectiveness in the stratified tank model is a simplified analogy of a heat exchanger's effectiveness. This effectiveness is equal to the fraction of use mass flow rate that directly mixes with the tank fluid. And one minus the effectiveness is the fraction that bypasses the tank. The use side mass flow rate that bypasses the tank is mixed with the fluid or water leaving the stratified tank.")]
 [JsonProperty(PropertyName="use_side_heat_transfer_effectiveness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> UseSideHeatTransferEffectiveness { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> UseSideHeatTransferEffectiveness { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Availability schedule name for use side. Schedule value > 0 means the system is a" +
@@ -2134,17 +2142,17 @@ public string UseSideAvailabilityScheduleName { get; set; } = "";
 [Description("Defaults to top of tank")]
 [JsonProperty(PropertyName="use_side_inlet_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> UseSideInletHeight { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> UseSideInletHeight { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Defaults to bottom of tank")]
 [JsonProperty(PropertyName="use_side_outlet_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> UseSideOutletHeight { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> UseSideOutletHeight { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="use_side_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> UseSideDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> UseSideDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="source_side_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2157,7 +2165,7 @@ public string SourceSideOutletNodeName { get; set; } = "";
 
 [Description(@"The source side effectiveness in the stratified tank model is a simplified analogy of a heat exchanger's effectiveness. This effectiveness is equal to the fraction of source mass flow rate that directly mixes with the tank fluid. And one minus the effectiveness is the fraction that bypasses the tank. The source side mass flow rate that bypasses the tank is mixed with the fluid or water leaving the stratified tank.")]
 [JsonProperty(PropertyName="source_side_heat_transfer_effectiveness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SourceSideHeatTransferEffectiveness { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> SourceSideHeatTransferEffectiveness { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Availability schedule name for use side. Schedule value > 0 means the system is a" +
@@ -2168,24 +2176,24 @@ public string SourceSideAvailabilityScheduleName { get; set; } = "";
 
 [Description("Defaults to bottom of tank")]
 [JsonProperty(PropertyName="source_side_inlet_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SourceSideInletHeight { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> SourceSideInletHeight { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Defaults to top of tank")]
 [JsonProperty(PropertyName="source_side_outlet_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutocalculateJsonConverter))]
-public System.Nullable<double> SourceSideOutletHeight { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> SourceSideOutletHeight { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="source_side_design_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> SourceSideDesignFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> SourceSideDesignFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Parameter for autosizing design flow rates for indirectly cooled water tanks time" +
     " required to lower temperature of entire tank from 14.4C to 9.0C")]
 [JsonProperty(PropertyName="tank_recovery_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TankRecoveryTime { get; set; } = (System.Nullable<double>)Double.Parse("4", CultureInfo.InvariantCulture);
+public System.Nullable<double> TankRecoveryTime { get; set; } = Double.Parse("4", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="inlet_mode", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2194,51 +2202,51 @@ public ThermalStorage_ChilledWater_Stratified_InletMode InletMode { get; set; } 
         
 
 [JsonProperty(PropertyName="number_of_nodes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfNodes { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfNodes { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="additional_destratification_conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AdditionalDestratificationConductivity { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> AdditionalDestratificationConductivity { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_1_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node1AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node1AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_2_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node2AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node2AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_3_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node3AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node3AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_4_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node4AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node4AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_5_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node5AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node5AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_6_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node6AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node6AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_7_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node7AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node7AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_8_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node8AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node8AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_9_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node9AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node9AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="node_10_additional_loss_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Node10AdditionalLossCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> Node10AdditionalLossCoefficient { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum ThermalStorage_ChilledWater_Stratified_TankShape

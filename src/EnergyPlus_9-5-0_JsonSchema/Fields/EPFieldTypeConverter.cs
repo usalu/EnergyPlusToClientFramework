@@ -14,11 +14,13 @@ namespace EnergyPlus_9_5_0_JsonSchema.Fields
             switch (value)
             {
                 case "array":
-                    return EPFieldType.Array;
+                    return EPFieldType.array;
                 case "number":
-                    return EPFieldType.Number;
+                    return EPFieldType.number;
                 case "string":
-                    return EPFieldType.String;
+                    return EPFieldType.@string;
+                case "object":
+                    return EPFieldType.@object;
             }
             throw new Exception("Cannot unmarshal type EPFieldType");
         }
@@ -33,14 +35,17 @@ namespace EnergyPlus_9_5_0_JsonSchema.Fields
             var value = (EPFieldType)untypedValue;
             switch (value)
             {
-                case EPFieldType.Array:
+                case EPFieldType.array:
                     serializer.Serialize(writer, "array");
                     return;
-                case EPFieldType.Number:
+                case EPFieldType.number:
                     serializer.Serialize(writer, "number");
                     return;
-                case EPFieldType.String:
+                case EPFieldType.@string:
                     serializer.Serialize(writer, "string");
+                    return;
+                case EPFieldType.@object:
+                    serializer.Serialize(writer, "object");
                     return;
             }
             throw new Exception("Cannot marshal type EPFieldType");

@@ -73,7 +73,8 @@ namespace BH.oM.Adapters.EnergyPlus.NodeBranchManagement
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -84,7 +85,28 @@ public string PressureDropCurveName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="components", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Components { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.NodeBranchManagement.Branch_Components_Item> Components { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class Branch_Components_Item
+    {
+        
+
+[JsonProperty(PropertyName="component_object_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ComponentObjectType { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="component_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ComponentName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="component_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ComponentInletNodeName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="component_outlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ComponentOutletNodeName { get; set; } = "";
     }
     
     [Description("Branches MUST be listed in Flow order: Inlet branch, then parallel branches, then" +
@@ -95,13 +117,15 @@ public string Components { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
+[Description("This list is the Branches object-list")]
 [JsonProperty(PropertyName="branches", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Branches { get; set; } = "";
+public System.Collections.Generic.List<string> Branches { get; set; } = null;
     }
     
     [Description("Split one air/water stream into N outlet streams. Branch names cannot be duplicat" +
@@ -111,7 +135,8 @@ public string Branches { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -120,8 +145,9 @@ public string NodeName { get; set; } = "";
 public string InletBranchName { get; set; } = "";
         
 
+[Description("This list is the Branches object-list")]
 [JsonProperty(PropertyName="branches", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Branches { get; set; } = "";
+public System.Collections.Generic.List<string> Branches { get; set; } = null;
     }
     
     [Description("Mix N inlet air/water streams into one. Branch names cannot be duplicated within " +
@@ -131,7 +157,8 @@ public string Branches { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -140,8 +167,9 @@ public string NodeName { get; set; } = "";
 public string OutletBranchName { get; set; } = "";
         
 
+[Description("This list is the Branches object-list")]
 [JsonProperty(PropertyName="branches", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Branches { get; set; } = "";
+public System.Collections.Generic.List<string> Branches { get; set; } = null;
     }
     
     [Description("only two connectors allowed per loop if two entered, one must be Connector:Splitt" +
@@ -151,7 +179,8 @@ public string Branches { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -201,13 +230,14 @@ public string Connector2Name { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="nodes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Nodes { get; set; } = "";
+public System.Collections.Generic.List<string> Nodes { get; set; } = null;
     }
     
     [Description(@"This object sets the temperature and humidity conditions for an outdoor air node. It allows the height above ground to be specified. This object may be used more than once. The same node name may not appear in both an OutdoorAir:Node object and an OutdoorAir:NodeList object. This object defines local outdoor air environmental conditions.")]
@@ -216,7 +246,8 @@ public string Nodes { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -224,7 +255,7 @@ public string NodeName { get; set; } = "";
 [Description("A value less than zero indicates that the height will be ignored and the weather " +
     "file conditions will be used.")]
 [JsonProperty(PropertyName="height_above_ground", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeightAboveGround { get; set; } = (System.Nullable<double>)Double.Parse("-1", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeightAboveGround { get; set; } = Double.Parse("-1", CultureInfo.InvariantCulture);
         
 
 [Description("Schedule values are real numbers, -100.0 to 100.0, units C")]
@@ -290,7 +321,7 @@ public OutdoorAir_Node_WindAngleType WindAngleType { get; set; } = (OutdoorAir_N
         
 
 [JsonProperty(PropertyName="nodes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Nodes { get; set; } = "";
+public System.Collections.Generic.List<string> Nodes { get; set; } = null;
     }
     
     [Description("Passes Inlet Node state variables to Outlet Node state variables")]
@@ -299,7 +330,8 @@ public string Nodes { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -318,7 +350,8 @@ public string OutletNodeName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -337,7 +370,8 @@ public string OutletNodeName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -398,7 +432,8 @@ public System.Nullable<double> PipeLength { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -434,7 +469,8 @@ public System.Nullable<double> PipeLength { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -507,7 +543,8 @@ public string UndisturbedGroundTemperatureModelName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -529,7 +566,7 @@ public System.Nullable<double> Zmax { get; set; } = null;
 
 [Description("If mesh type is symmetric geometric, this should be an even number.")]
 [JsonProperty(PropertyName="x_direction_mesh_density_parameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> XDirectionMeshDensityParameter { get; set; } = (System.Nullable<double>)Double.Parse("4", CultureInfo.InvariantCulture);
+public System.Nullable<double> XDirectionMeshDensityParameter { get; set; } = Double.Parse("4", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="x_direction_mesh_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -539,12 +576,12 @@ public PipingSystem_Underground_Domain_XDirectionMeshType XDirectionMeshType { g
 
 [Description("optional Only used if mesh type is symmetric geometric")]
 [JsonProperty(PropertyName="x_direction_geometric_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> XDirectionGeometricCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("1.3", CultureInfo.InvariantCulture);
+public System.Nullable<double> XDirectionGeometricCoefficient { get; set; } = Double.Parse("1.3", CultureInfo.InvariantCulture);
         
 
 [Description("If mesh type is symmetric geometric, this should be an even number.")]
 [JsonProperty(PropertyName="y_direction_mesh_density_parameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> YDirectionMeshDensityParameter { get; set; } = (System.Nullable<double>)Double.Parse("4", CultureInfo.InvariantCulture);
+public System.Nullable<double> YDirectionMeshDensityParameter { get; set; } = Double.Parse("4", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="y_direction_mesh_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -554,12 +591,12 @@ public PipingSystem_Underground_Domain_YDirectionMeshType YDirectionMeshType { g
 
 [Description("optional Only used if mesh type is symmetric geometric")]
 [JsonProperty(PropertyName="y_direction_geometric_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> YDirectionGeometricCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("1.3", CultureInfo.InvariantCulture);
+public System.Nullable<double> YDirectionGeometricCoefficient { get; set; } = Double.Parse("1.3", CultureInfo.InvariantCulture);
         
 
 [Description("If mesh type is symmetric geometric, this should be an even number.")]
 [JsonProperty(PropertyName="z_direction_mesh_density_parameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZDirectionMeshDensityParameter { get; set; } = (System.Nullable<double>)Double.Parse("4", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZDirectionMeshDensityParameter { get; set; } = Double.Parse("4", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="z_direction_mesh_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -569,7 +606,7 @@ public PipingSystem_Underground_Domain_ZDirectionMeshType ZDirectionMeshType { g
 
 [Description("optional Only used if mesh type is symmetric geometric")]
 [JsonProperty(PropertyName="z_direction_geometric_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ZDirectionGeometricCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("1.3", CultureInfo.InvariantCulture);
+public System.Nullable<double> ZDirectionGeometricCoefficient { get; set; } = Double.Parse("1.3", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_thermal_conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -587,11 +624,11 @@ public System.Nullable<double> SoilSpecificHeat { get; set; } = null;
         
 
 [JsonProperty(PropertyName="soil_moisture_content_volume_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilMoistureContentVolumeFraction { get; set; } = (System.Nullable<double>)Double.Parse("30", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilMoistureContentVolumeFraction { get; set; } = Double.Parse("30", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="soil_moisture_content_volume_fraction_at_saturation", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SoilMoistureContentVolumeFractionAtSaturation { get; set; } = (System.Nullable<double>)Double.Parse("50", CultureInfo.InvariantCulture);
+public System.Nullable<double> SoilMoistureContentVolumeFractionAtSaturation { get; set; } = Double.Parse("50", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="undisturbed_ground_temperature_model_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -637,24 +674,25 @@ public string NameOfBasementFloorBoundaryConditionModel { get; set; } = "";
         
 
 [JsonProperty(PropertyName="convergence_criterion_for_the_outer_cartesian_domain_iteration_loop", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ConvergenceCriterionForTheOuterCartesianDomainIterationLoop { get; set; } = (System.Nullable<double>)Double.Parse("0.001", CultureInfo.InvariantCulture);
+public System.Nullable<double> ConvergenceCriterionForTheOuterCartesianDomainIterationLoop { get; set; } = Double.Parse("0.001", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_iterations_in_the_outer_cartesian_domain_iteration_loop", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumIterationsInTheOuterCartesianDomainIterationLoop { get; set; } = (System.Nullable<double>)Double.Parse("500", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumIterationsInTheOuterCartesianDomainIterationLoop { get; set; } = Double.Parse("500", CultureInfo.InvariantCulture);
         
 
 [Description(@"This specifies the ground cover effects during evapotranspiration calculations. The value roughly represents the following cases: = 0   : concrete or other solid, non-permeable ground surface material = 0.5 : short grass, much like a manicured lawn = 1   : standard reference state (12 cm grass) = 1.5 : wild growth")]
 [JsonProperty(PropertyName="evapotranspiration_ground_cover_parameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> EvapotranspirationGroundCoverParameter { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
+public System.Nullable<double> EvapotranspirationGroundCoverParameter { get; set; } = Double.Parse("0.4", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="number_of_pipe_circuits_entered_for_this_domain", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public System.Nullable<double> NumberOfPipeCircuitsEnteredForThisDomain { get; set; } = null;
         
 
+[Description("This list is the PipingSystemUndergroundCircuitNames object-list")]
 [JsonProperty(PropertyName="pipe_circuits", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string PipeCircuits { get; set; } = "";
+public System.Collections.Generic.List<string> PipeCircuits { get; set; } = null;
     }
     
     public enum PipingSystem_Underground_Domain_XDirectionMeshType
@@ -718,7 +756,8 @@ public string PipeCircuits { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -756,15 +795,15 @@ public string CircuitOutletNode { get; set; } = "";
         
 
 [JsonProperty(PropertyName="convergence_criterion_for_the_inner_radial_iteration_loop", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ConvergenceCriterionForTheInnerRadialIterationLoop { get; set; } = (System.Nullable<double>)Double.Parse("0.001", CultureInfo.InvariantCulture);
+public System.Nullable<double> ConvergenceCriterionForTheInnerRadialIterationLoop { get; set; } = Double.Parse("0.001", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_iterations_in_the_inner_radial_iteration_loop", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumIterationsInTheInnerRadialIterationLoop { get; set; } = (System.Nullable<double>)Double.Parse("500", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumIterationsInTheInnerRadialIterationLoop { get; set; } = Double.Parse("500", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="number_of_soil_nodes_in_the_inner_radial_near_pipe_mesh_region", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfSoilNodesInTheInnerRadialNearPipeMeshRegion { get; set; } = (System.Nullable<double>)Double.Parse("3", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfSoilNodesInTheInnerRadialNearPipeMeshRegion { get; set; } = Double.Parse("3", CultureInfo.InvariantCulture);
         
 
 [Description("Required because it must be selected by user instead of being inferred from circu" +
@@ -777,8 +816,9 @@ public System.Nullable<double> RadialThicknessOfInnerRadialNearPipeMeshRegion { 
 public System.Nullable<double> NumberOfPipeSegmentsEnteredForThisPipeCircuit { get; set; } = null;
         
 
+[Description("This list is the PipingSystemUndergroundSegmentNames object-list")]
 [JsonProperty(PropertyName="pipe_segments", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string PipeSegments { get; set; } = "";
+public System.Collections.Generic.List<string> PipeSegments { get; set; } = null;
     }
     
     [Description("The pipe segment to be used in an underground piping system This object represent" +
@@ -789,7 +829,8 @@ public string PipeSegments { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -830,7 +871,8 @@ public PipingSystem_Underground_PipeSegment_FlowDirection FlowDirection { get; s
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         

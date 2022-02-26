@@ -1,4 +1,18 @@
 {
+  "Branch": [
+    {
+      "name": "Only Water Loop Mixed Supply Inlet Branch",
+      "pressure_drop_curve_name": "",
+      "components": [
+        {
+          "component_object_type": "Pump:ConstantSpeed",
+          "component_name": "Only Water Loop Mixed Supply Pump",
+          "component_inlet_node_name": "Only Water Loop Mixed Supply Inlet",
+          "component_outlet_node_name": "Only Water Loop Mixed Pump Outlet"
+        }
+      ]
+    }
+  ],
   "Boiler:HotWater": [
     {
       "name": "Main boiler1",
@@ -49,7 +63,7 @@
     "maximum_number_of_warmup_days": 25.0,
     "minimum_number_of_warmup_days": 1.0
   },
-  "BHoM_Guid": "4dabee6b-fe29-46e9-9842-f686615bbfe8",
+  "BHoM_Guid": "82472683-839d-4e8b-a80d-2eabaedaf9c7",
   "Name": "",
   "Fragments": [],
   "Tags": [],

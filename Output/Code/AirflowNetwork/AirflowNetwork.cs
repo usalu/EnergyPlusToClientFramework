@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.AirflowNetwork
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -105,7 +106,7 @@ public AirflowNetwork_SimulationControl_BuildingType BuildingType { get; set; } 
 [Description("Determines the maximum number of iterations used to converge on a solution. If th" +
     "is limit is exceeded, the program terminates.")]
 [JsonProperty(PropertyName="maximum_number_of_iterations", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumNumberOfIterations { get; set; } = (System.Nullable<double>)Double.Parse("500", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumNumberOfIterations { get; set; } = Double.Parse("500", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="initialization_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -115,28 +116,28 @@ public AirflowNetwork_SimulationControl_InitializationType InitializationType { 
 
 [Description(@"This tolerance is defined as the absolute value of the sum of the mass Flow Rates divided by the sum of the absolute value of the mass Flow Rates. The mass Flow Rates described here refer to the mass Flow Rates at all Nodes in the AirflowNetwork model. The solution converges when both this tolerance and the tolerance in the next field (Absolute Airflow Convergence Tolerance) are satisfied.")]
 [JsonProperty(PropertyName="relative_airflow_convergence_tolerance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RelativeAirflowConvergenceTolerance { get; set; } = (System.Nullable<double>)Double.Parse("0.0001", CultureInfo.InvariantCulture);
+public System.Nullable<double> RelativeAirflowConvergenceTolerance { get; set; } = Double.Parse("0.0001", CultureInfo.InvariantCulture);
         
 
 [Description(@"This tolerance is defined as the absolute value of the sum of the mass flow rates. The mass flow rates described here refer to the mass flow rates at all nodes in the AirflowNetwork model. The solution converges when both this tolerance and the tolerance in the previous field (Relative Airflow Convergence Tolerance) are satisfied.")]
 [JsonProperty(PropertyName="absolute_airflow_convergence_tolerance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AbsoluteAirflowConvergenceTolerance { get; set; } = (System.Nullable<double>)Double.Parse("1E-06", CultureInfo.InvariantCulture);
+public System.Nullable<double> AbsoluteAirflowConvergenceTolerance { get; set; } = Double.Parse("1E-06", CultureInfo.InvariantCulture);
         
 
 [Description("Used only for AirflowNetwork:SimulationControl")]
 [JsonProperty(PropertyName="convergence_acceleration_limit", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ConvergenceAccelerationLimit { get; set; } = (System.Nullable<double>)Double.Parse("-0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> ConvergenceAccelerationLimit { get; set; } = Double.Parse("-0.5", CultureInfo.InvariantCulture);
         
 
 [Description("Degrees clockwise from true North. Used only if Wind Pressure Coefficient Type = " +
     "SurfaceAverageCalculation.")]
 [JsonProperty(PropertyName="azimuth_angle_of_long_axis_of_building", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AzimuthAngleOfLongAxisOfBuilding { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> AzimuthAngleOfLongAxisOfBuilding { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Used only if Wind Pressure Coefficient Type = SurfaceAverageCalculation.")]
 [JsonProperty(PropertyName="ratio_of_building_width_along_short_axis_to_width_along_long_axis", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatioOfBuildingWidthAlongShortAxisToWidthAlongLongAxis { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatioOfBuildingWidthAlongShortAxisToWidthAlongLongAxis { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("If Yes, external node temperature is height dependent. If No, external node tempe" +
@@ -267,35 +268,35 @@ public string VentilationControlZoneTemperatureSetpointScheduleName { get; set; 
 
 [Description("Used only if Ventilation Control Mode = Temperature or Enthalpy.")]
 [JsonProperty(PropertyName="minimum_venting_open_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumVentingOpenFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumVentingOpenFactor { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Applicable only if Ventilation Control Mode = Temperature. This value must be les" +
     "s than the corresponding upper value (next field).")]
 [JsonProperty(PropertyName="indoor_and_outdoor_temperature_difference_lower_limit_for_maximum_venting_open_fa" +
     "ctor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> IndoorAndOutdoorTemperatureDifferenceLowerLimitForMaximumVentingOpenFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> IndoorAndOutdoorTemperatureDifferenceLowerLimitForMaximumVentingOpenFactor { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Applicable only if Ventilation Control Mode = Temperature. This value must be gre" +
     "ater than the corresponding lower value (previous field).")]
 [JsonProperty(PropertyName="indoor_and_outdoor_temperature_difference_upper_limit_for_minimum_venting_open_fa" +
     "ctor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> IndoorAndOutdoorTemperatureDifferenceUpperLimitForMinimumVentingOpenFactor { get; set; } = (System.Nullable<double>)Double.Parse("100", CultureInfo.InvariantCulture);
+public System.Nullable<double> IndoorAndOutdoorTemperatureDifferenceUpperLimitForMinimumVentingOpenFactor { get; set; } = Double.Parse("100", CultureInfo.InvariantCulture);
         
 
 [Description("Applicable only if Ventilation Control Mode = Enthalpy. This value must be less t" +
     "han the corresponding upper value (next field).")]
 [JsonProperty(PropertyName="indoor_and_outdoor_enthalpy_difference_lower_limit_for_maximum_venting_open_facto" +
     "r", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> IndoorAndOutdoorEnthalpyDifferenceLowerLimitForMaximumVentingOpenFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> IndoorAndOutdoorEnthalpyDifferenceLowerLimitForMaximumVentingOpenFactor { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Applicable only if Ventilation Control Mode = Enthalpy. This value must be greate" +
     "r than the corresponding lower value (previous field).")]
 [JsonProperty(PropertyName="indoor_and_outdoor_enthalpy_difference_upper_limit_for_minimum_venting_open_facto" +
     "r", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> IndoorAndOutdoorEnthalpyDifferenceUpperLimitForMinimumVentingOpenFactor { get; set; } = (System.Nullable<double>)Double.Parse("300000", CultureInfo.InvariantCulture);
+public System.Nullable<double> IndoorAndOutdoorEnthalpyDifferenceUpperLimitForMinimumVentingOpenFactor { get; set; } = Double.Parse("300000", CultureInfo.InvariantCulture);
         
 
 [Description(@"Non-zero Schedule value means venting is allowed if other venting control conditions are satisfied. A zero (or negative) Schedule value means venting is not allowed under any The Schedule values should be greater than or equal to 0 and less than or equal to 1. circumstances. If this Schedule is not specified then venting is allowed if other venting control conditions are satisfied. Not used if Ventilation Control Mode = NoVent.")]
@@ -311,7 +312,7 @@ public AirflowNetwork_MultiZone_Zone_SingleSidedWindPressureCoefficientAlgorithm
 
 [Description("This is the whole building width along the direction of the facade of this zone.")]
 [JsonProperty(PropertyName="facade_width", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FacadeWidth { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
+public System.Nullable<double> FacadeWidth { get; set; } = Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the name where Occupancy Ventilation Control is required.")]
@@ -383,7 +384,7 @@ public string ExternalNodeName { get; set; } = "";
 
 [Description("This field specifies a multiplier for a crack, window, or door.")]
 [JsonProperty(PropertyName="window_door_opening_factor_or_crack_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WindowDoorOpeningFactorOrCrackFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> WindowDoorOpeningFactorOrCrackFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"When Ventilation Control Mode = Temperature or Enthalpy, the following fields are used to modulate the Ventilation Open Factor for a window or door opening according to the parent zone's indoor-outdoor temperature or enthalpy difference. When Ventilation Control Mode = AdjacentTemperature or AdjacentEnthalpy, the following fields are used to modulate the Ventilation Open Factor for an interior window or door opening according to temperature or enthalpy difference between the parent zone and the adjacent zone. Constant: controlled by field Venting Schedule Name. NoVent: control will not open window or door during simulation (Ventilation Open Factor = 0). ZoneLevel: control will be controlled by AirflowNetwork:MultiZone:Zone Mode.")]
@@ -399,34 +400,34 @@ public string VentilationControlZoneTemperatureSetpointScheduleName { get; set; 
 
 [Description("Used only if Ventilation Control Mode = Temperature or Enthalpy.")]
 [JsonProperty(PropertyName="minimum_venting_open_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumVentingOpenFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumVentingOpenFactor { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Applicable only if Ventilation Control Mode = Temperature")]
 [JsonProperty(PropertyName="indoor_and_outdoor_temperature_difference_lower_limit_for_maximum_venting_open_fa" +
     "ctor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> IndoorAndOutdoorTemperatureDifferenceLowerLimitForMaximumVentingOpenFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> IndoorAndOutdoorTemperatureDifferenceLowerLimitForMaximumVentingOpenFactor { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Applicable only if Ventilation Control Mode = Temperature. This value must be gre" +
     "ater than the corresponding lower value (previous field).")]
 [JsonProperty(PropertyName="indoor_and_outdoor_temperature_difference_upper_limit_for_minimum_venting_open_fa" +
     "ctor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> IndoorAndOutdoorTemperatureDifferenceUpperLimitForMinimumVentingOpenFactor { get; set; } = (System.Nullable<double>)Double.Parse("100", CultureInfo.InvariantCulture);
+public System.Nullable<double> IndoorAndOutdoorTemperatureDifferenceUpperLimitForMinimumVentingOpenFactor { get; set; } = Double.Parse("100", CultureInfo.InvariantCulture);
         
 
 [Description("Applicable only if Ventilation Control Mode = Enthalpy. This value must be less t" +
     "han the corresponding upper value (next field).")]
 [JsonProperty(PropertyName="indoor_and_outdoor_enthalpy_difference_lower_limit_for_maximum_venting_open_facto" +
     "r", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> IndoorAndOutdoorEnthalpyDifferenceLowerLimitForMaximumVentingOpenFactor { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> IndoorAndOutdoorEnthalpyDifferenceLowerLimitForMaximumVentingOpenFactor { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Applicable only if Ventilation Control Mode = Enthalpy. This value must be greate" +
     "r than the corresponding lower value (previous field).")]
 [JsonProperty(PropertyName="indoor_and_outdoor_enthalpy_difference_upper_limit_for_minimum_venting_open_facto" +
     "r", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> IndoorAndOutdoorEnthalpyDifferenceUpperLimitForMinimumVentingOpenFactor { get; set; } = (System.Nullable<double>)Double.Parse("300000", CultureInfo.InvariantCulture);
+public System.Nullable<double> IndoorAndOutdoorEnthalpyDifferenceUpperLimitForMinimumVentingOpenFactor { get; set; } = Double.Parse("300000", CultureInfo.InvariantCulture);
         
 
 [Description(@"Non-zero schedule value means venting is allowed if other venting control conditions are satisfied. A zero (or negative) schedule value means venting is not allowed under any circumstances. The schedule values should be greater than or equal to 0 and less than or equal to 1. If this schedule is not specified then venting is allowed if other venting control conditions are satisfied. Not used if Ventilation Control Mode = NoVent or ZoneLevel.")]
@@ -449,7 +450,7 @@ public AirflowNetwork_MultiZone_Surface_EquivalentRectangleMethod EquivalentRect
 [Description("This field is used when UserDefinedAspectRatio is entered in the Equivalent Recta" +
     "ngle Method field.")]
 [JsonProperty(PropertyName="equivalent_rectangle_aspect_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> EquivalentRectangleAspectRatio { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> EquivalentRectangleAspectRatio { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum AirflowNetwork_MultiZone_Surface_VentilationControlMode
@@ -509,7 +510,8 @@ public System.Nullable<double> EquivalentRectangleAspectRatio { get; set; } = (S
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -517,19 +519,19 @@ public string NodeName { get; set; } = "";
 [Description("Enter the reference temperature under which the surface crack data were obtained." +
     "")]
 [JsonProperty(PropertyName="reference_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReferenceTemperature { get; set; } = (System.Nullable<double>)Double.Parse("20", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReferenceTemperature { get; set; } = Double.Parse("20", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the reference barometric pressure under which the surface crack data were o" +
     "btained.")]
 [JsonProperty(PropertyName="reference_barometric_pressure", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReferenceBarometricPressure { get; set; } = (System.Nullable<double>)Double.Parse("101325", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReferenceBarometricPressure { get; set; } = Double.Parse("101325", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the reference humidity ratio under which the surface crack data were obtain" +
     "ed.")]
 [JsonProperty(PropertyName="reference_humidity_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReferenceHumidityRatio { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReferenceHumidityRatio { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description("This object specifies the properties of airflow through a crack.")]
@@ -538,7 +540,8 @@ public System.Nullable<double> ReferenceHumidityRatio { get; set; } = (System.Nu
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -551,7 +554,7 @@ public System.Nullable<double> AirMassFlowCoefficientAtReferenceConditions { get
 
 [Description("Enter the air mass flow exponent for the surface crack.")]
 [JsonProperty(PropertyName="air_mass_flow_exponent", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirMassFlowExponent { get; set; } = (System.Nullable<double>)Double.Parse("0.65", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirMassFlowExponent { get; set; } = Double.Parse("0.65", CultureInfo.InvariantCulture);
         
 
 [Description("Select a AirflowNetwork:MultiZone:ReferenceCrackConditions name associated with t" +
@@ -566,7 +569,8 @@ public string ReferenceCrackConditions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -578,18 +582,18 @@ public System.Nullable<double> EffectiveLeakageArea { get; set; } = null;
 
 [Description("Enter the coefficient used in the air mass flow equation.")]
 [JsonProperty(PropertyName="discharge_coefficient", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DischargeCoefficient { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> DischargeCoefficient { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the pressure difference used to define the air mass flow coefficient and ex" +
     "ponent.")]
 [JsonProperty(PropertyName="reference_pressure_difference", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ReferencePressureDifference { get; set; } = (System.Nullable<double>)Double.Parse("4", CultureInfo.InvariantCulture);
+public System.Nullable<double> ReferencePressureDifference { get; set; } = Double.Parse("4", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the exponent used in the air mass flow equation.")]
 [JsonProperty(PropertyName="air_mass_flow_exponent", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirMassFlowExponent { get; set; } = (System.Nullable<double>)Double.Parse("0.65", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirMassFlowExponent { get; set; } = Double.Parse("0.65", CultureInfo.InvariantCulture);
     }
     
     [Description("This object specifies the properties of airflow through windows and doors (window" +
@@ -599,7 +603,8 @@ public System.Nullable<double> AirMassFlowExponent { get; set; } = (System.Nulla
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -615,7 +620,7 @@ public System.Nullable<double> AirMassFlowCoefficientWhenOpeningIsClosed { get; 
     " Coefficient * (dP)^Air Mass Flow Exponent. Used only when opening (window or do" +
     "or) is closed.")]
 [JsonProperty(PropertyName="air_mass_flow_exponent_when_opening_is_closed", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirMassFlowExponentWhenOpeningIsClosed { get; set; } = (System.Nullable<double>)Double.Parse("0.65", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirMassFlowExponentWhenOpeningIsClosed { get; set; } = Double.Parse("0.65", CultureInfo.InvariantCulture);
         
 
 [Description("Select the type of vertical opening: Non-pivoted opening or Horizontally pivoted " +
@@ -627,7 +632,7 @@ public AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLarge
 
 [Description(@"Extra crack length is used for LVO Non-pivoted type with multiple openable parts. Height of pivoting axis is used for LVO Horizontally pivoted type. Specifies window or door characteristics that depend on the LVO type. For Non-pivoted Type (rectangular windows and doors), this field is the extra crack length in meters due to multiple openable parts, if present. Extra here means in addition to the length of the cracks on the top, bottom and sides of the window/door. For Horizontally pivoted Type, this field gives the height of the pivoting axis measured from the bottom of the glazed part of the window (m).")]
 [JsonProperty(PropertyName="extra_crack_length_or_height_of_pivoting_axis", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ExtraCrackLengthOrHeightOfPivotingAxis { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ExtraCrackLengthOrHeightOfPivotingAxis { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the number of the following sets of data for opening factor, discharge coef" +
@@ -638,28 +643,28 @@ public System.Nullable<double> NumberOfSetsOfOpeningFactorData { get; set; } = n
 
 [Description("This value must be specified as 0.")]
 [JsonProperty(PropertyName="opening_factor_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OpeningFactor1 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> OpeningFactor1 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The Discharge Coefficient indicates the fractional effectiveness for air flow thr" +
     "ough a window or door at that Opening Factor.")]
 [JsonProperty(PropertyName="discharge_coefficient_for_opening_factor_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DischargeCoefficientForOpeningFactor1 { get; set; } = (System.Nullable<double>)Double.Parse("0.001", CultureInfo.InvariantCulture);
+public System.Nullable<double> DischargeCoefficientForOpeningFactor1 { get; set; } = Double.Parse("0.001", CultureInfo.InvariantCulture);
         
 
 [Description("The Width Factor is the opening width divided by the window or door width.")]
 [JsonProperty(PropertyName="width_factor_for_opening_factor_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WidthFactorForOpeningFactor1 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> WidthFactorForOpeningFactor1 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The Height Factor is the opening height divided by the window or door height.")]
 [JsonProperty(PropertyName="height_factor_for_opening_factor_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeightFactorForOpeningFactor1 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeightFactorForOpeningFactor1 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"The Start Height Factor is the Start Height divided by the window or door height. Start Height is the distance between the bottom of the window or door and the bottom of the window or door opening. The sum of the Height Factor and the Start Height Factor must be less than 1.0 in order to have the opening within the window or door dimensions.")]
 [JsonProperty(PropertyName="start_height_factor_for_opening_factor_1", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> StartHeightFactorForOpeningFactor1 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> StartHeightFactorForOpeningFactor1 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"If Number of Sets of Opening Factor Data = 2, this value must be 1.0. If Number of Sets of Opening Factor Data = 3, this value must be less than 1.0. If Number of Sets of Opening Factor Data = 4, this value must be less than the value entered for Opening factor 3 and greater than the value entered for Opening factor 1.")]
@@ -670,22 +675,22 @@ public System.Nullable<double> OpeningFactor2 { get; set; } = null;
 [Description("The Discharge Coefficient indicates the fractional effectiveness for air flow thr" +
     "ough a window or door at that Opening Factor.")]
 [JsonProperty(PropertyName="discharge_coefficient_for_opening_factor_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DischargeCoefficientForOpeningFactor2 { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> DischargeCoefficientForOpeningFactor2 { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("The Width Factor is the opening width divided by the window or door width.")]
 [JsonProperty(PropertyName="width_factor_for_opening_factor_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WidthFactorForOpeningFactor2 { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> WidthFactorForOpeningFactor2 { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("The Height Factor is the opening height divided by the window or door height.")]
 [JsonProperty(PropertyName="height_factor_for_opening_factor_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeightFactorForOpeningFactor2 { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeightFactorForOpeningFactor2 { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description(@"The Start Height Factor is the Start Height divided by the window or door height. Start Height is the distance between the bottom of the window or door and the bottom of the window or door opening. The sum of the Height Factor and the Start Height Factor must be less than 1.0 in order to have the opening within the window or door dimensions.")]
 [JsonProperty(PropertyName="start_height_factor_for_opening_factor_2", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> StartHeightFactorForOpeningFactor2 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> StartHeightFactorForOpeningFactor2 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("If Number of Sets of Opening Factor Data = 3, this value must be 1.0. If Number o" +
@@ -698,22 +703,22 @@ public System.Nullable<double> OpeningFactor3 { get; set; } = null;
 [Description("The Discharge Coefficient indicates the fractional effectiveness for air flow thr" +
     "ough a window or door at that Opening Factor.")]
 [JsonProperty(PropertyName="discharge_coefficient_for_opening_factor_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DischargeCoefficientForOpeningFactor3 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DischargeCoefficientForOpeningFactor3 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The Width Factor is the opening width divided by the window or door width.")]
 [JsonProperty(PropertyName="width_factor_for_opening_factor_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WidthFactorForOpeningFactor3 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> WidthFactorForOpeningFactor3 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The Height Factor is the opening height divided by the window or door height.")]
 [JsonProperty(PropertyName="height_factor_for_opening_factor_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeightFactorForOpeningFactor3 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeightFactorForOpeningFactor3 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"The Start Height Factor is the Start Height divided by the window or door height. Start Height is the distance between the bottom of the window or door and the bottom of the window or door opening. The sum of the Height Factor and the Start Height Factor must be less than 1.0 in order to have the opening within the window or door dimensions.")]
 [JsonProperty(PropertyName="start_height_factor_for_opening_factor_3", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> StartHeightFactorForOpeningFactor3 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> StartHeightFactorForOpeningFactor3 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("If Number of Sets of Opening Factor Data = 4, this value must be 1.0")]
@@ -724,22 +729,22 @@ public System.Nullable<double> OpeningFactor4 { get; set; } = null;
 [Description("The Discharge Coefficient indicates the fractional effectiveness for air flow thr" +
     "ough a window or door at that Opening Factor.")]
 [JsonProperty(PropertyName="discharge_coefficient_for_opening_factor_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DischargeCoefficientForOpeningFactor4 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DischargeCoefficientForOpeningFactor4 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The Width Factor is the opening width divided by the window or door width.")]
 [JsonProperty(PropertyName="width_factor_for_opening_factor_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> WidthFactorForOpeningFactor4 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> WidthFactorForOpeningFactor4 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The Height Factor is the opening height divided by the window or door height.")]
 [JsonProperty(PropertyName="height_factor_for_opening_factor_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeightFactorForOpeningFactor4 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeightFactorForOpeningFactor4 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"The Start Height Factor is the Start Height divided by the window or door height. Start Height is the distance between the bottom of the window or door and the bottom of the window or door opening. The sum of the Height Factor and the Start Height Factor must be less than 1.0 in order to have the opening within the window or door dimensions.")]
 [JsonProperty(PropertyName="start_height_factor_for_opening_factor_4", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> StartHeightFactorForOpeningFactor4 { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> StartHeightFactorForOpeningFactor4 { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum AirflowNetwork_MultiZone_Component_DetailedOpening_TypeOfRectangularLargeVerticalOpeningLvo
@@ -762,7 +767,8 @@ public System.Nullable<double> StartHeightFactorForOpeningFactor4 { get; set; } 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -778,7 +784,7 @@ public System.Nullable<double> AirMassFlowCoefficientWhenOpeningIsClosed { get; 
     " Coefficient * (dP)^Air Mass Flow Exponent. Used only when opening (window or do" +
     "or) is closed.")]
 [JsonProperty(PropertyName="air_mass_flow_exponent_when_opening_is_closed", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirMassFlowExponentWhenOpeningIsClosed { get; set; } = (System.Nullable<double>)Double.Parse("0.65", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirMassFlowExponentWhenOpeningIsClosed { get; set; } = Double.Parse("0.65", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the minimum density difference above which two-way flow may occur due to st" +
@@ -799,7 +805,8 @@ public System.Nullable<double> DischargeCoefficient { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -814,12 +821,12 @@ public System.Nullable<double> AirMassFlowCoefficientWhenOpeningIsClosed { get; 
 [Description("Enter the exponent used in the following equation: Mass flow rate = Air Mass Flow" +
     " Coefficient * (dP)^Air Mass Flow Exponent. Used only when opening is closed.")]
 [JsonProperty(PropertyName="air_mass_flow_exponent_when_opening_is_closed", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirMassFlowExponentWhenOpeningIsClosed { get; set; } = (System.Nullable<double>)Double.Parse("0.65", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirMassFlowExponentWhenOpeningIsClosed { get; set; } = Double.Parse("0.65", CultureInfo.InvariantCulture);
         
 
 [Description("Sloping plane angle = 90 is equivalent to fully open.")]
 [JsonProperty(PropertyName="sloping_plane_angle", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SlopingPlaneAngle { get; set; } = (System.Nullable<double>)Double.Parse("90", CultureInfo.InvariantCulture);
+public System.Nullable<double> SlopingPlaneAngle { get; set; } = Double.Parse("90", CultureInfo.InvariantCulture);
         
 
 [Description("The Discharge Coefficient indicates the fractional effectiveness for air flow thr" +
@@ -835,7 +842,8 @@ public System.Nullable<double> DischargeCoefficient { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -849,7 +857,7 @@ public System.Nullable<double> AirMassFlowCoefficientWhenTheZoneExhaustFanIsOffA
 [Description("Enter the exponent used in the following equation: Mass Flow Rate = Air Mass Flow" +
     " Coefficient * (dP)^Air Mass Flow Exponent. Used only when the fan is off.")]
 [JsonProperty(PropertyName="air_mass_flow_exponent_when_the_zone_exhaust_fan_is_off", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirMassFlowExponentWhenTheZoneExhaustFanIsOff { get; set; } = (System.Nullable<double>)Double.Parse("0.65", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirMassFlowExponentWhenTheZoneExhaustFanIsOff { get; set; } = Double.Parse("0.65", CultureInfo.InvariantCulture);
         
 
 [Description("Select a AirflowNetwork:MultiZone:ReferenceCrackConditions name associated with t" +
@@ -864,14 +872,15 @@ public string ReferenceCrackConditions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("Designates the reference height used to calculate relative pressure.")]
 [JsonProperty(PropertyName="external_node_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ExternalNodeHeight { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> ExternalNodeHeight { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("The name of the AirflowNetwork:MultiZone:WindPressureCoefficientValues, curve, or" +
@@ -916,7 +925,8 @@ public AirflowNetwork_MultiZone_ExternalNode_WindAngleType WindAngleType { get; 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1107,7 +1117,8 @@ public System.Nullable<double> WindDirection36 { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1307,7 +1318,8 @@ public System.Nullable<double> WindPressureCoefficientValue36 { get; set; } = nu
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1355,7 +1367,8 @@ public string PressureSetpointScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1373,7 +1386,7 @@ public AirflowNetwork_Distribution_Node_ComponentObjectTypeOrNodeType ComponentO
 
 [Description("Enter the reference height used to calculate the relative pressure.")]
 [JsonProperty(PropertyName="node_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NodeHeight { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> NodeHeight { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum AirflowNetwork_Distribution_Node_ComponentObjectTypeOrNodeType
@@ -1410,7 +1423,8 @@ public System.Nullable<double> NodeHeight { get; set; } = (System.Nullable<doubl
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1425,7 +1439,7 @@ public System.Nullable<double> AirMassFlowCoefficient { get; set; } = null;
 [Description("Enter the exponent used in the following equation: Mass Flow Rate = Air Mass Flow" +
     " Coefficient * (dP)^Air Mass Flow Exponent")]
 [JsonProperty(PropertyName="air_mass_flow_exponent", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirMassFlowExponent { get; set; } = (System.Nullable<double>)Double.Parse("0.65", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirMassFlowExponent { get; set; } = Double.Parse("0.65", CultureInfo.InvariantCulture);
     }
     
     [Description("This object is used to define supply and return air leaks with respect to the fan" +
@@ -1435,7 +1449,8 @@ public System.Nullable<double> AirMassFlowExponent { get; set; } = (System.Nulla
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1457,7 +1472,7 @@ public System.Nullable<double> ReferencePressureDifference { get; set; } = null;
 
 [Description("Enter the exponent used in the air mass flow equation.")]
 [JsonProperty(PropertyName="air_mass_flow_exponent", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirMassFlowExponent { get; set; } = (System.Nullable<double>)Double.Parse("0.65", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirMassFlowExponent { get; set; } = Double.Parse("0.65", CultureInfo.InvariantCulture);
     }
     
     [Description("This object defines the relationship between pressure and air flow through the du" +
@@ -1467,7 +1482,8 @@ public System.Nullable<double> AirMassFlowExponent { get; set; } = (System.Nulla
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1490,25 +1506,25 @@ public System.Nullable<double> CrossSectionArea { get; set; } = null;
 
 [Description("Enter the inside surface roughness of the duct.")]
 [JsonProperty(PropertyName="surface_roughness", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SurfaceRoughness { get; set; } = (System.Nullable<double>)Double.Parse("0.0009", CultureInfo.InvariantCulture);
+public System.Nullable<double> SurfaceRoughness { get; set; } = Double.Parse("0.0009", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the coefficient used to calculate dynamic losses of fittings (e.g. elbows)." +
     "")]
 [JsonProperty(PropertyName="coefficient_for_local_dynamic_loss_due_to_fitting", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoefficientForLocalDynamicLossDueToFitting { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoefficientForLocalDynamicLossDueToFitting { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("conduction only Default value of 0.943 is equivalent to 1.06 m2-K/W (R6) duct ins" +
     "ulation.")]
 [JsonProperty(PropertyName="heat_transmittance_coefficient_u_factor_for_duct_wall_construction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeatTransmittanceCoefficientUFactorForDuctWallConstruction { get; set; } = (System.Nullable<double>)Double.Parse("0.943", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatTransmittanceCoefficientUFactorForDuctWallConstruction { get; set; } = Double.Parse("0.943", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the overall moisture transmittance coefficient including moisture film coef" +
     "ficients at both surfaces.")]
 [JsonProperty(PropertyName="overall_moisture_transmittance_coefficient_from_air_to_air", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OverallMoistureTransmittanceCoefficientFromAirToAir { get; set; } = (System.Nullable<double>)Double.Parse("0.001", CultureInfo.InvariantCulture);
+public System.Nullable<double> OverallMoistureTransmittanceCoefficientFromAirToAir { get; set; } = Double.Parse("0.001", CultureInfo.InvariantCulture);
         
 
 [Description("optional. convection coefficient calculated automatically, unless specified")]
@@ -1715,7 +1731,8 @@ public System.Nullable<double> AirPathHydraulicDiameter { get; set; } = null;
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1732,7 +1749,8 @@ public System.Nullable<double> PressureDifferenceAcrossTheComponent { get; set; 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1750,7 +1768,7 @@ public System.Nullable<double> AirMassFlowCoefficientWhenNoOutdoorAirFlowAtRefer
     " Coefficient * (dP)^Air Mass Flow Exponent. Used only when no outdoor air flow r" +
     "ate.")]
 [JsonProperty(PropertyName="air_mass_flow_exponent_when_no_outdoor_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirMassFlowExponentWhenNoOutdoorAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("0.65", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirMassFlowExponentWhenNoOutdoorAirFlow { get; set; } = Double.Parse("0.65", CultureInfo.InvariantCulture);
         
 
 [Description("Select a AirflowNetwork:MultiZone:ReferenceCrackConditions name associated with t" +
@@ -1765,7 +1783,8 @@ public string ReferenceCrackConditions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1783,7 +1802,7 @@ public System.Nullable<double> AirMassFlowCoefficientWhenNoOutdoorAirFlowAtRefer
     " Coefficient * (dP)^Air Mass Flow Exponent. Used only when no outdoor air flow r" +
     "ate.")]
 [JsonProperty(PropertyName="air_mass_flow_exponent_when_no_outdoor_air_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> AirMassFlowExponentWhenNoOutdoorAirFlow { get; set; } = (System.Nullable<double>)Double.Parse("0.65", CultureInfo.InvariantCulture);
+public System.Nullable<double> AirMassFlowExponentWhenNoOutdoorAirFlow { get; set; } = Double.Parse("0.65", CultureInfo.InvariantCulture);
         
 
 [Description("Select a AirflowNetwork:MultiZone:ReferenceCrackConditions name associated with t" +
@@ -1798,7 +1817,8 @@ public string ReferenceCrackConditions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1839,15 +1859,28 @@ public string LinkageName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="duct_surface_exposure_fraction", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DuctSurfaceExposureFraction { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> DuctSurfaceExposureFraction { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="duct_surface_emittance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DuctSurfaceEmittance { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> DuctSurfaceEmittance { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="surfaces", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Surfaces { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.AirflowNetwork.AirflowNetwork_Distribution_DuctViewFactors_Surfaces_Item> Surfaces { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class AirflowNetwork_Distribution_DuctViewFactors_Surfaces_Item
+    {
+        
+
+[JsonProperty(PropertyName="surface_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SurfaceName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="surface_view_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> SurfaceViewFactor { get; set; } = null;
     }
     
     [Description("This object is used to provide advanced thermal comfort control of window opening" +
@@ -1857,17 +1890,18 @@ public string Surfaces { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="minimum_opening_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumOpeningTime { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumOpeningTime { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="minimum_closing_time", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumClosingTime { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumClosingTime { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description(@"Enter a curve name that represents thermal comfort temperature as a function of outdoor dry-bulb temperature. Up to two curves are allowed if the performance cannot be represented by a single curve. The following two fields are used if two curves are required.")]
@@ -1878,7 +1912,7 @@ public string ThermalComfortLowTemperatureCurveName { get; set; } = "";
 [Description("This point is used to allow separate low and high thermal comfort temperature cur" +
     "ves. If a single performance curve is used, leave this field blank.")]
 [JsonProperty(PropertyName="thermal_comfort_temperature_boundary_point", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ThermalComfortTemperatureBoundaryPoint { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
+public System.Nullable<double> ThermalComfortTemperatureBoundaryPoint { get; set; } = Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description(@"Enter a curve name that represents thermal comfort temperature as a function of outdoor dry-bulb temperature. Up to two curves are allowed if the performance cannot be represented by a single curve. If a single performance curve is used, leave this field blank.")]
@@ -1887,7 +1921,7 @@ public string ThermalComfortHighTemperatureCurveName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="maximum_threshold_for_persons_dissatisfied_ppd", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumThresholdForPersonsDissatisfiedPpd { get; set; } = (System.Nullable<double>)Double.Parse("10", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumThresholdForPersonsDissatisfiedPpd { get; set; } = Double.Parse("10", CultureInfo.InvariantCulture);
         
 
 [Description("If Yes, occupancy check will be performed as part of the opening probability chec" +
@@ -1916,7 +1950,8 @@ public string ClosingProbabilityScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1935,7 +1970,7 @@ public string ZoneName { get; set; } = "";
 
 [Description("Enter the reference height used to calculate the relative pressure")]
 [JsonProperty(PropertyName="node_height", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NodeHeight { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> NodeHeight { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     [Description("This object defines the connection between two nodes and a component used in the " +
@@ -1945,7 +1980,8 @@ public System.Nullable<double> NodeHeight { get; set; } = (System.Nullable<doubl
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         

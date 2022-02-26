@@ -72,13 +72,14 @@ namespace BH.oM.Adapters.EnergyPlus.Parametrics
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="values", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Values { get; set; } = "";
+public System.Collections.Generic.List<string> Values { get; set; } = null;
     }
     
     [Description(@"This object allows some types of objects to be included for some parametric cases and not for others. For example, you might want an overhang on a window in some parametric runs and not others. A single Parametric:Logic object is allowed per file. Consult the Input Output Reference for available commands and syntax.")]
@@ -87,13 +88,14 @@ public string Values { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="lines", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Lines { get; set; } = "";
+public System.Collections.Generic.List<string> Lines { get; set; } = null;
     }
     
     [Description("Controls which parametric runs are simulated. This object is optional. If it is n" +
@@ -103,13 +105,14 @@ public string Lines { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="runs", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Runs { get; set; } = "";
+public System.Collections.Generic.List<string> Runs { get; set; } = null;
     }
     
     [Description("Defines the suffixes to be appended to the idf and output file names for each par" +
@@ -120,12 +123,13 @@ public string Runs { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="suffixes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Suffixes { get; set; } = "";
+public System.Collections.Generic.List<string> Suffixes { get; set; } = null;
     }
 }

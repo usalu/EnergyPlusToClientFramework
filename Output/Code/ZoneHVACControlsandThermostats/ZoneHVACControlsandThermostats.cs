@@ -73,7 +73,8 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACControlsandThermostats
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -100,7 +101,8 @@ public string DehumidifyingRelativeHumiditySetpointScheduleName { get; set; } = 
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -166,7 +168,7 @@ public string Control4Name { get; set; } = "";
     "erature and setpoint. The difference is used to adjust to heating or cooling set" +
     "point based on control types.")]
 [JsonProperty(PropertyName="temperature_difference_between_cutout_and_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TemperatureDifferenceBetweenCutoutAndSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> TemperatureDifferenceBetweenCutoutAndSetpoint { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
     }
     
     public enum ZoneControl_Thermostat_Control1ObjectType
@@ -317,7 +319,8 @@ public ZoneControl_Thermostat_OperativeTemperature_AdaptiveComfortModelType Adap
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -339,11 +342,11 @@ public string SpecificPeopleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="minimum_dry_bulb_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumDryBulbTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumDryBulbTemperatureSetpoint { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_dry_bulb_temperature_setpoint", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumDryBulbTemperatureSetpoint { get; set; } = (System.Nullable<double>)Double.Parse("50", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumDryBulbTemperatureSetpoint { get; set; } = Double.Parse("50", CultureInfo.InvariantCulture);
         
 
 [Description(@"The Thermal Comfort Control Type Schedule contains values that are appropriate control types. Thermal Comfort Control types are integers: 0 - Uncontrolled (floating), 1 = ThermostatSetpoint:ThermalComfort:Fanger:SingleHeating 2 = ThermostatSetpoint:ThermalComfort:Fanger:SingleCooling 3 = ThermostatSetpoint:ThermalComfort:Fanger:SingleHeatingOrCooling 4 = ThermostatSetpoint:ThermalComfort:Fanger:DualSetpoint")]
@@ -506,7 +509,7 @@ public ZoneControl_Thermostat_TemperatureAndHumidity_OvercoolRangeInputMethod Ov
     "midification Control Type = Overcool. A value of 0.0 indicates no zone temperatu" +
     "re overcooling will be provided to gain additional dehumidification.")]
 [JsonProperty(PropertyName="overcool_constant_range", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OvercoolConstantRange { get; set; } = (System.Nullable<double>)Double.Parse("1.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> OvercoolConstantRange { get; set; } = Double.Parse("1.7", CultureInfo.InvariantCulture);
         
 
 [Description("Schedule values of 0.0 indicates no zone temperature overcooling will be provided" +
@@ -518,7 +521,7 @@ public string OvercoolRangeScheduleName { get; set; } = "";
 
 [Description(@"The value of this input field is used to adjust the cooling setpoint temperature (established by the associated ZoneControl:Thermostat object) downward based on the difference between the zone air relative humidity level and the dehumidifying relative humidity setpoint.")]
 [JsonProperty(PropertyName="overcool_control_ratio", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> OvercoolControlRatio { get; set; } = (System.Nullable<double>)Double.Parse("3.6", CultureInfo.InvariantCulture);
+public System.Nullable<double> OvercoolControlRatio { get; set; } = Double.Parse("3.6", CultureInfo.InvariantCulture);
     }
     
     public enum ZoneControl_Thermostat_TemperatureAndHumidity_DehumidificationControlType
@@ -554,7 +557,8 @@ public System.Nullable<double> OvercoolControlRatio { get; set; } = (System.Null
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -570,7 +574,8 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -587,7 +592,8 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -603,7 +609,8 @@ public string SetpointTemperatureScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -624,7 +631,8 @@ public string CoolingSetpointTemperatureScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -642,7 +650,8 @@ public string FangerThermalComfortScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -660,7 +669,8 @@ public string FangerThermalComfortScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -678,7 +688,8 @@ public string FangerThermalComfortScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -701,7 +712,8 @@ public string FangerThermalComfortCoolingScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -720,7 +732,7 @@ public string HeatingTemperatureSetpointScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="heating_throttling_temperature_range", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeatingThrottlingTemperatureRange { get; set; } = (System.Nullable<double>)Double.Parse("1.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingThrottlingTemperatureRange { get; set; } = Double.Parse("1.1", CultureInfo.InvariantCulture);
         
 
 [Description(@"The heating temperature offset is used to determine heating stage number for multi stage equipment. When the temperature difference of the heating setpoint and the controlled zone temperature at previous time step is less than Stage 1 value and greater than Stage 2 value, the stage number is 1.")]
@@ -753,7 +765,7 @@ public string CoolingTemperatureSetpointBaseScheduleName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="cooling_throttling_temperature_range", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoolingThrottlingTemperatureRange { get; set; } = (System.Nullable<double>)Double.Parse("1.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingThrottlingTemperatureRange { get; set; } = Double.Parse("1.1", CultureInfo.InvariantCulture);
         
 
 [Description(@"The cooling temperature offset is used to determine cooling stage number for multi stage equipment. When the temperature difference of the cooling setpoint and the controlled zone temperature at previous time step is greater than Stage 1 value and less than Stage 2 value, the stage number is 1.")]
@@ -783,7 +795,8 @@ public System.Nullable<double> Stage4CoolingTemperatureOffset { get; set; } = nu
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         

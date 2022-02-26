@@ -73,7 +73,8 @@ namespace BH.oM.Adapters.EnergyPlus.PerformanceTables
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -181,13 +182,15 @@ public string Values { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
+[Description("This list is the IndependentVariableName object-list")]
 [JsonProperty(PropertyName="independent_variables", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string IndependentVariables { get; set; } = "";
+public System.Collections.Generic.List<string> IndependentVariables { get; set; } = null;
     }
     
     [Description(@"Lookup tables are used in place of curves and can represent any number of independent variables (defined as Table:IndependentVariable objects in a Table:IndependentVariableList). Output values are interpolated within the bounds defined by each independent variable and extrapolated beyond the bounds according to the interpolation/extrapolation methods defined by each independent variable.")]
@@ -196,7 +199,8 @@ public string IndependentVariables { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -211,7 +215,7 @@ public Table_Lookup_NormalizationMethod NormalizationMethod { get; set; } = (Tab
         
 
 [JsonProperty(PropertyName="normalization_divisor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NormalizationDivisor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> NormalizationDivisor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="minimum_output", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]

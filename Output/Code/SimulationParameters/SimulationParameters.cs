@@ -73,7 +73,7 @@ namespace BH.oM.Adapters.EnergyPlus.SimulationParameters
         
 
 [JsonProperty(PropertyName="version_identifier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string VersionIdentifier { get; set; } = (System.String)"9.5";
+public string VersionIdentifier { get; set; } = "9.5";
     }
     
     [Description(@"Note that the following 3 fields are related to the Sizing:Zone, Sizing:System, and Sizing:Plant objects. Having these fields set to Yes but no corresponding Sizing object will not cause the sizing to be done. However, having any of these fields set to No, the corresponding Sizing object is ignored. Note also, if you want to do system sizing, you must also do zone sizing in the same run or an error will result.")]
@@ -129,7 +129,7 @@ public EmptyNoYes DoHvacSizingSimulationForSizingPeriods { get; set; } = (EmptyN
     "s this input sets a limit on the number of passes that the sizing algorithms can" +
     " repeate the set")]
 [JsonProperty(PropertyName="maximum_number_of_hvac_sizing_simulation_passes", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumNumberOfHvacSizingSimulationPasses { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumNumberOfHvacSizingSimulationPasses { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     [Description("This object enables users to choose certain options that speed up EnergyPlus simu" +
@@ -164,13 +164,13 @@ public PerformancePrecisionTradeoffs_OverrideMode OverrideMode { get; set; } = (
 [Description("Maximum zone temperature change before HVAC timestep is shortened. Only used when" +
     " Override Mode is set to Advanced")]
 [JsonProperty(PropertyName="maxzonetempdiff", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Maxzonetempdiff { get; set; } = (System.Nullable<double>)Double.Parse("0.3", CultureInfo.InvariantCulture);
+public System.Nullable<double> Maxzonetempdiff { get; set; } = Double.Parse("0.3", CultureInfo.InvariantCulture);
         
 
 [Description("Maximum surface temperature change before HVAC timestep is shortened. Only used w" +
     "hen Override Mode is set to Advanced")]
 [JsonProperty(PropertyName="maxalloweddeltemp", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Maxalloweddeltemp { get; set; } = (System.Nullable<double>)Double.Parse("0.002", CultureInfo.InvariantCulture);
+public System.Nullable<double> Maxalloweddeltemp { get; set; } = Double.Parse("0.002", CultureInfo.InvariantCulture);
     }
     
     public enum PerformancePrecisionTradeoffs_ZoneRadiantExchangeAlgorithm
@@ -229,14 +229,15 @@ public System.Nullable<double> Maxalloweddeltemp { get; set; } = (System.Nullabl
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [Description("degrees from true North")]
 [JsonProperty(PropertyName="north_axis", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NorthAxis { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> NorthAxis { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Country=FlatOpenCountry | Suburbs=CountryTownsSuburbs | City=CityCenter | Ocean=b" +
@@ -249,11 +250,11 @@ public Building_Terrain Terrain { get; set; } = (Building_Terrain)Enum.Parse(typ
 [Description("Loads Convergence Tolerance Value is a change in load from one warmup day to the " +
     "next")]
 [JsonProperty(PropertyName="loads_convergence_tolerance_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> LoadsConvergenceToleranceValue { get; set; } = (System.Nullable<double>)Double.Parse("0.04", CultureInfo.InvariantCulture);
+public System.Nullable<double> LoadsConvergenceToleranceValue { get; set; } = Double.Parse("0.04", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="temperature_convergence_tolerance_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TemperatureConvergenceToleranceValue { get; set; } = (System.Nullable<double>)Double.Parse("0.4", CultureInfo.InvariantCulture);
+public System.Nullable<double> TemperatureConvergenceToleranceValue { get; set; } = Double.Parse("0.4", CultureInfo.InvariantCulture);
         
 
 [Description("MinimalShadowing | FullExterior | FullInteriorAndExterior | FullExteriorWithRefle" +
@@ -266,12 +267,12 @@ public Building_SolarDistribution SolarDistribution { get; set; } = (Building_So
 [Description("EnergyPlus will only use as many warmup days as needed to reach convergence toler" +
     "ance. This field\'s value should NOT be set less than 25.")]
 [JsonProperty(PropertyName="maximum_number_of_warmup_days", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumNumberOfWarmupDays { get; set; } = (System.Nullable<double>)Double.Parse("25", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumNumberOfWarmupDays { get; set; } = Double.Parse("25", CultureInfo.InvariantCulture);
         
 
 [Description(@"The minimum number of warmup days that produce enough temperature and flux history to start EnergyPlus simulation for all reference buildings was suggested to be 6. However this can lead to excessive run times as warmup days can be repeated needlessly. For faster execution rely on the convergence criteria to detect when warmup is complete. When this field is greater than the maximum warmup days defined previous field the maximum number of warmup days will be reset to the minimum value entered here. Warmup days will be set to be the value you entered. The default is 1.")]
 [JsonProperty(PropertyName="minimum_number_of_warmup_days", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumNumberOfWarmupDays { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumNumberOfWarmupDays { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum Building_Terrain
@@ -341,12 +342,12 @@ public ShadowCalculation_ShadingCalculationUpdateFrequencyMethod ShadingCalculat
 [Description("enter number of days this field is only used if the previous field is set to Peri" +
     "odic warning issued if >31")]
 [JsonProperty(PropertyName="shading_calculation_update_frequency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ShadingCalculationUpdateFrequency { get; set; } = (System.Nullable<double>)Double.Parse("20", CultureInfo.InvariantCulture);
+public System.Nullable<double> ShadingCalculationUpdateFrequency { get; set; } = Double.Parse("20", CultureInfo.InvariantCulture);
         
 
 [Description("Number of allowable figures in shadow overlap in PolygonClipping calculations")]
 [JsonProperty(PropertyName="maximum_figures_in_shadow_overlap_calculations", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumFiguresInShadowOverlapCalculations { get; set; } = (System.Nullable<double>)Double.Parse("15000", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumFiguresInShadowOverlapCalculations { get; set; } = Double.Parse("15000", CultureInfo.InvariantCulture);
         
 
 [Description("Advanced Feature. Internal default is SutherlandHodgman Refer to InputOutput Refe" +
@@ -358,7 +359,7 @@ public ShadowCalculation_PolygonClippingAlgorithm PolygonClippingAlgorithm { get
 
 [Description("Number of pixels in both dimensions of the surface rendering")]
 [JsonProperty(PropertyName="pixel_counting_resolution", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> PixelCountingResolution { get; set; } = (System.Nullable<double>)Double.Parse("512", CultureInfo.InvariantCulture);
+public System.Nullable<double> PixelCountingResolution { get; set; } = Double.Parse("512", CultureInfo.InvariantCulture);
         
 
 [Description("Advanced Feature. Internal default is SimpleSkyDiffuseModeling If you have shadin" +
@@ -389,8 +390,9 @@ public EmptyNoYes DisableSelfShadingWithinShadingZoneGroups { get; set; } = (Emp
 public EmptyNoYes DisableSelfShadingFromShadingZoneGroupsToOtherZones { get; set; } = (EmptyNoYes)Enum.Parse(typeof(EmptyNoYes), "No");
         
 
+[Description("This list is the ZoneListNames object-list")]
 [JsonProperty(PropertyName="shading_zone_groups", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string ShadingZoneGroups { get; set; } = "";
+public System.Collections.Generic.List<string> ShadingZoneGroups { get; set; } = null;
     }
     
     public enum ShadowCalculation_ShadingCalculationMethod
@@ -536,15 +538,15 @@ public HeatBalanceAlgorithm_Algorithm Algorithm { get; set; } = (HeatBalanceAlgo
         
 
 [JsonProperty(PropertyName="surface_temperature_upper_limit", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SurfaceTemperatureUpperLimit { get; set; } = (System.Nullable<double>)Double.Parse("200", CultureInfo.InvariantCulture);
+public System.Nullable<double> SurfaceTemperatureUpperLimit { get; set; } = Double.Parse("200", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="minimum_surface_convection_heat_transfer_coefficient_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumSurfaceConvectionHeatTransferCoefficientValue { get; set; } = (System.Nullable<double>)Double.Parse("0.1", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumSurfaceConvectionHeatTransferCoefficientValue { get; set; } = Double.Parse("0.1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_surface_convection_heat_transfer_coefficient_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumSurfaceConvectionHeatTransferCoefficientValue { get; set; } = (System.Nullable<double>)Double.Parse("1000", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumSurfaceConvectionHeatTransferCoefficientValue { get; set; } = Double.Parse("1000", CultureInfo.InvariantCulture);
     }
     
     public enum HeatBalanceAlgorithm_Algorithm
@@ -580,15 +582,15 @@ public HeatBalanceSettings_ConductionFiniteDifference_DifferenceScheme Differenc
 
 [Description("increase or decrease number of nodes")]
 [JsonProperty(PropertyName="space_discretization_constant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> SpaceDiscretizationConstant { get; set; } = (System.Nullable<double>)Double.Parse("3", CultureInfo.InvariantCulture);
+public System.Nullable<double> SpaceDiscretizationConstant { get; set; } = Double.Parse("3", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="relaxation_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RelaxationFactor { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> RelaxationFactor { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="inside_face_surface_temperature_convergence_criteria", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> InsideFaceSurfaceTemperatureConvergenceCriteria { get; set; } = (System.Nullable<double>)Double.Parse("0.002", CultureInfo.InvariantCulture);
+public System.Nullable<double> InsideFaceSurfaceTemperatureConvergenceCriteria { get; set; } = Double.Parse("0.002", CultureInfo.InvariantCulture);
     }
     
     public enum HeatBalanceSettings_ConductionFiniteDifference_DifferenceScheme
@@ -742,7 +744,8 @@ public ZoneAirMassFlowConservation_InfiltrationBalancingZones InfiltrationBalanc
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -755,25 +758,25 @@ public string ZoneOrZonelistName { get; set; } = "";
 
 [Description("Used to alter the capacitance of zone air with respect to heat or temperature")]
 [JsonProperty(PropertyName="temperature_capacity_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> TemperatureCapacityMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> TemperatureCapacityMultiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Used to alter the capacitance of zone air with respect to moisture or humidity ra" +
     "tio")]
 [JsonProperty(PropertyName="humidity_capacity_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HumidityCapacityMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> HumidityCapacityMultiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Used to alter the capacitance of zone air with respect to zone air carbon dioxide" +
     " concentration")]
 [JsonProperty(PropertyName="carbon_dioxide_capacity_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CarbonDioxideCapacityMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> CarbonDioxideCapacityMultiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Used to alter the capacitance of zone air with respect to zone air generic contam" +
     "inant concentration")]
 [JsonProperty(PropertyName="generic_contaminant_capacity_multiplier", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> GenericContaminantCapacityMultiplier { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> GenericContaminantCapacityMultiplier { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     [Description("Specifies the \"basic\" timestep for the simulation. The value entered here is also" +
@@ -786,7 +789,7 @@ public System.Nullable<double> GenericContaminantCapacityMultiplier { get; set; 
 
 [Description(@"Number in hour: normal validity 4 to 60: 6 suggested Must be evenly divisible into 60 Allowable values include 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, and 60 Normal 6 is minimum as lower values may cause inaccuracies A minimum value of 20 is suggested for both ConductionFiniteDifference and CombinedHeatAndMoistureFiniteElement surface heat balance algorithms A minimum of 12 is suggested for simulations involving a Vegetated Roof (Material:RoofVegetation).")]
 [JsonProperty(PropertyName="number_of_timesteps_per_hour", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfTimestepsPerHour { get; set; } = (System.Nullable<double>)Double.Parse("6", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfTimestepsPerHour { get; set; } = Double.Parse("6", CultureInfo.InvariantCulture);
     }
     
     [Description("Specifies limits on HVAC system simulation timesteps and iterations. This item is" +
@@ -804,19 +807,19 @@ public System.Nullable<double> MinimumSystemTimestep { get; set; } = null;
         
 
 [JsonProperty(PropertyName="maximum_hvac_iterations", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumHvacIterations { get; set; } = (System.Nullable<double>)Double.Parse("20", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumHvacIterations { get; set; } = Double.Parse("20", CultureInfo.InvariantCulture);
         
 
 [Description(@"Controls the minimum number of plant system solver iterations within a single HVAC iteration Larger values will increase runtime but might improve solution accuracy for complicated plant systems Complex plants include: several interconnected loops, heat recovery, thermal load following generators, etc.")]
 [JsonProperty(PropertyName="minimum_plant_iterations", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MinimumPlantIterations { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumPlantIterations { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description("Controls the maximum number of plant system solver iterations within a single HVA" +
     "C iteration Smaller values might decrease runtime but could decrease solution ac" +
     "curacy for complicated plant systems")]
 [JsonProperty(PropertyName="maximum_plant_iterations", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MaximumPlantIterations { get; set; } = (System.Nullable<double>)Double.Parse("8", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumPlantIterations { get; set; } = Double.Parse("8", CultureInfo.InvariantCulture);
     }
     
     [Description("Specifies a HVAC system solver algorithm to find a root")]
@@ -833,7 +836,7 @@ public HVACSystemRootFindingAlgorithm_Algorithm Algorithm { get; set; } = (HVACS
 [Description("This field is used when RegulaFalsiThenBisection or BisectionThenRegulaFalsi is e" +
     "ntered. When iteration number is greater than the value, algorithm switches.")]
 [JsonProperty(PropertyName="number_of_iterations_before_algorithm_switch", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> NumberOfIterationsBeforeAlgorithmSwitch { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
+public System.Nullable<double> NumberOfIterationsBeforeAlgorithmSwitch { get; set; } = Double.Parse("5", CultureInfo.InvariantCulture);
     }
     
     public enum HVACSystemRootFindingAlgorithm_Algorithm

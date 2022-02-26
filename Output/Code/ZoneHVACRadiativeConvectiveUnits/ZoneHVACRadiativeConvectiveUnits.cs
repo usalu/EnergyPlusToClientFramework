@@ -72,7 +72,8 @@ namespace BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -93,11 +94,11 @@ public System.Nullable<double> HeatingDesignCapacityPerFloorArea { get; set; } =
     "city the heating design capacity method field is FractionOfAutosizedHeatingCapac" +
     "ity.")]
 [JsonProperty(PropertyName="fraction_of_autosized_heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="convergence_tolerance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ConvergenceTolerance { get; set; } = (System.Nullable<double>)Double.Parse("0.001", CultureInfo.InvariantCulture);
+public System.Nullable<double> ConvergenceTolerance { get; set; } = Double.Parse("0.001", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_radiant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -131,7 +132,8 @@ public System.Nullable<double> FractionOfRadiantEnergyIncidentOnPeople { get; se
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -157,27 +159,40 @@ public string OutletNodeName { get; set; } = "";
 [Description("Rated average water temperature is the average of the inlet and outlet water temp" +
     "eratures at rated conditions.")]
 [JsonProperty(PropertyName="rated_average_water_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedAverageWaterTemperature { get; set; } = (System.Nullable<double>)Double.Parse("87.78", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedAverageWaterTemperature { get; set; } = Double.Parse("87.78", CultureInfo.InvariantCulture);
         
 
 [Description(@"Standard is I=B=R Rating document where all baseboards are rated at either 0.063 kg/s (1 gpm) or 0.252 kg/s (4 gpm). It is recommended that users find data for the baseboard heater that corresponds to performance at 0.063 kg/s unless the flow rate is expected to be above 0.252 kg/s. If the flow rate is expected to be above 0.252 kg/s, this field should be 0.252 kg/s.")]
 [JsonProperty(PropertyName="rated_water_mass_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedWaterMassFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0.063", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedWaterMassFlowRate { get; set; } = Double.Parse("0.063", CultureInfo.InvariantCulture);
         
 
 [Description(@"Enter the design heating capacity. Required field when the heating design capacity method HeatingDesignCapacity. This input field is rated heating capacity. Users must multiply the actual finned length published in the literature to determine the rated capacity. Rated Capacity is for an inlet air dry-bulb temperature of 18.0C, the Rated Water Mass Flow Rate of 0.063kg/s or 0.252kg/s, and the Rated Average Water Temperature between 32.2C and 115.6C.")]
 [JsonProperty(PropertyName="heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_water_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumWaterFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumWaterFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="surface_fractions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string SurfaceFractions { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits.ZoneHVAC_Baseboard_RadiantConvective_Water_SurfaceFractions_Item> SurfaceFractions { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_Baseboard_RadiantConvective_Water_SurfaceFractions_Item
+    {
+        
+
+[JsonProperty(PropertyName="surface_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SurfaceName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="fraction_of_radiant_energy_to_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfRadiantEnergyToSurface { get; set; } = null;
     }
     
     [Description(null)]
@@ -186,7 +201,8 @@ public string SurfaceFractions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -207,11 +223,11 @@ public System.Nullable<double> HeatingDesignCapacityPerFloorArea { get; set; } =
     "city the heating design capacity method field is FractionOfAutosizedHeatingCapac" +
     "ity.")]
 [JsonProperty(PropertyName="fraction_of_autosized_heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="convergence_tolerance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ConvergenceTolerance { get; set; } = (System.Nullable<double>)Double.Parse("0.001", CultureInfo.InvariantCulture);
+public System.Nullable<double> ConvergenceTolerance { get; set; } = Double.Parse("0.001", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_radiant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -245,7 +261,8 @@ public System.Nullable<double> FractionOfRadiantEnergyIncidentOnPeople { get; se
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -272,20 +289,33 @@ public string OutletNodeName { get; set; } = "";
     "y method HeatingDesignCapacity.")]
 [JsonProperty(PropertyName="heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="degree_of_subcooling", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> DegreeOfSubcooling { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
+public System.Nullable<double> DegreeOfSubcooling { get; set; } = Double.Parse("5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_steam_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumSteamFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumSteamFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="surface_fractions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string SurfaceFractions { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits.ZoneHVAC_Baseboard_RadiantConvective_Steam_SurfaceFractions_Item> SurfaceFractions { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_Baseboard_RadiantConvective_Steam_SurfaceFractions_Item
+    {
+        
+
+[JsonProperty(PropertyName="surface_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SurfaceName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="fraction_of_radiant_energy_to_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfRadiantEnergyToSurface { get; set; } = null;
     }
     
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
@@ -295,7 +325,8 @@ public string SurfaceFractions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -316,7 +347,7 @@ public ZoneHVAC_Baseboard_RadiantConvective_Electric_HeatingDesignCapacityMethod
     "y method HeatingDesignCapacity.")]
 [JsonProperty(PropertyName="heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the heating design capacity per zone floor area. Required field when the he" +
@@ -329,11 +360,11 @@ public System.Nullable<double> HeatingDesignCapacityPerFloorArea { get; set; } =
     "city the heating design capacity method field is FractionOfAutosizedHeatingCapac" +
     "ity.")]
 [JsonProperty(PropertyName="fraction_of_autosized_heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Efficiency { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Efficiency { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_radiant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -345,7 +376,7 @@ public System.Nullable<double> FractionOfRadiantEnergyIncidentOnPeople { get; se
         
 
 [JsonProperty(PropertyName="surface_fractions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string SurfaceFractions { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits.ZoneHVAC_Baseboard_RadiantConvective_Electric_SurfaceFractions_Item> SurfaceFractions { get; set; } = null;
     }
     
     public enum ZoneHVAC_Baseboard_RadiantConvective_Electric_HeatingDesignCapacityMethod
@@ -364,6 +395,19 @@ public string SurfaceFractions { get; set; } = "";
         HeatingDesignCapacity = 3,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_Baseboard_RadiantConvective_Electric_SurfaceFractions_Item
+    {
+        
+
+[JsonProperty(PropertyName="surface_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SurfaceName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="fraction_of_radiant_energy_to_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfRadiantEnergyToSurface { get; set; } = null;
+    }
+    
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
         "roups to the end of the list")]
     [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
@@ -371,7 +415,8 @@ public string SurfaceFractions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -389,15 +434,15 @@ public string WaterOutletNodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="rated_inlet_water_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedInletWaterTemperature { get; set; } = (System.Nullable<double>)Double.Parse("5", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedInletWaterTemperature { get; set; } = Double.Parse("5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="rated_inlet_space_temperature", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedInletSpaceTemperature { get; set; } = (System.Nullable<double>)Double.Parse("24", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedInletSpaceTemperature { get; set; } = Double.Parse("24", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="rated_water_mass_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedWaterMassFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("0.063", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedWaterMassFlowRate { get; set; } = Double.Parse("0.063", CultureInfo.InvariantCulture);
         
 
 [Description(@"Enter the method used to determine the cooling design capacity for scalable sizing. CoolingDesignCapacity => selected when the design cooling capacity value is specified or auto-sized. CapacityPerFloorArea => selected when the design cooling capacity is determined from user specified cooling capacity per floor area and total floor area of cooled zone served by the hydrolic unit. FractionOfAutosizedCoolingCapacity => is selected when the design cooling capacity is determined from a user specified fraction and the auto-sized design cooling capacity of the system.")]
@@ -410,7 +455,7 @@ public ZoneHVAC_CoolingPanel_RadiantConvective_Water_CoolingDesignCapacityMethod
     "y method CoolingDesignCapacity.")]
 [JsonProperty(PropertyName="cooling_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> CoolingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the cooling design capacity per total floor area of cooled zones served by " +
@@ -428,7 +473,7 @@ public System.Nullable<double> FractionOfAutosizedCoolingDesignCapacity { get; s
 
 [JsonProperty(PropertyName="maximum_chilled_water_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumChilledWaterFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumChilledWaterFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Temperature on which unit is controlled")]
@@ -438,7 +483,7 @@ public ZoneHVAC_CoolingPanel_RadiantConvective_Water_ControlType ControlType { g
         
 
 [JsonProperty(PropertyName="cooling_control_throttling_range", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoolingControlThrottlingRange { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingControlThrottlingRange { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="cooling_control_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -451,7 +496,7 @@ public ZoneHVAC_CoolingPanel_RadiantConvective_Water_CondensationControlType Con
         
 
 [JsonProperty(PropertyName="condensation_control_dewpoint_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CondensationControlDewpointOffset { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> CondensationControlDewpointOffset { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_radiant", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -463,7 +508,7 @@ public System.Nullable<double> FractionOfRadiantEnergyIncidentOnPeople { get; se
         
 
 [JsonProperty(PropertyName="surface_fractions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string SurfaceFractions { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits.ZoneHVAC_CoolingPanel_RadiantConvective_Water_SurfaceFractions_Item> SurfaceFractions { get; set; } = null;
     }
     
     public enum ZoneHVAC_CoolingPanel_RadiantConvective_Water_CoolingDesignCapacityMethod
@@ -529,6 +574,19 @@ public string SurfaceFractions { get; set; } = "";
         VariableOff = 3,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_CoolingPanel_RadiantConvective_Water_SurfaceFractions_Item
+    {
+        
+
+[JsonProperty(PropertyName="surface_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SurfaceName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="fraction_of_radiant_energy_to_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfRadiantEnergyToSurface { get; set; } = null;
+    }
+    
     [Description("Hot water baseboard heater, convection-only. Natural convection hydronic heating " +
         "unit.")]
     [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
@@ -536,7 +594,8 @@ public string SurfaceFractions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -565,7 +624,7 @@ public ZoneHVAC_Baseboard_Convective_Water_HeatingDesignCapacityMethod HeatingDe
     "y method HeatingDesignCapacity.")]
 [JsonProperty(PropertyName="heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the heating design capacity per zone floor area. Required field when the he" +
@@ -578,21 +637,21 @@ public System.Nullable<double> HeatingDesignCapacityPerFloorArea { get; set; } =
     "city the heating design capacity method field is FractionOfAutosizedHeatingCapac" +
     "ity.")]
 [JsonProperty(PropertyName="fraction_of_autosized_heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="u_factor_times_area_value", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> UFactorTimesAreaValue { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> UFactorTimesAreaValue { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_water_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumWaterFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumWaterFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="convergence_tolerance", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> ConvergenceTolerance { get; set; } = (System.Nullable<double>)Double.Parse("0.001", CultureInfo.InvariantCulture);
+public System.Nullable<double> ConvergenceTolerance { get; set; } = Double.Parse("0.001", CultureInfo.InvariantCulture);
     }
     
     public enum ZoneHVAC_Baseboard_Convective_Water_HeatingDesignCapacityMethod
@@ -618,7 +677,8 @@ public System.Nullable<double> ConvergenceTolerance { get; set; } = (System.Null
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -639,7 +699,7 @@ public ZoneHVAC_Baseboard_Convective_Electric_HeatingDesignCapacityMethod Heatin
     "y method HeatingDesignCapacity.")]
 [JsonProperty(PropertyName="heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the heating design capacity per zone floor area. Required field when the he" +
@@ -652,11 +712,11 @@ public System.Nullable<double> HeatingDesignCapacityPerFloorArea { get; set; } =
     "city the heating design capacity method field is FractionOfAutosizedHeatingCapac" +
     "ity.")]
 [JsonProperty(PropertyName="fraction_of_autosized_heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> Efficiency { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> Efficiency { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
     }
     
     public enum ZoneHVAC_Baseboard_Convective_Electric_HeatingDesignCapacityMethod
@@ -683,7 +743,8 @@ public System.Nullable<double> Efficiency { get; set; } = (System.Nullable<doubl
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -713,19 +774,19 @@ public string SurfaceNameOrRadiantSurfaceGroupName { get; set; } = "";
 [Description("(total length of pipe embedded in surface)")]
 [JsonProperty(PropertyName="hydronic_tubing_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HydronicTubingLength { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HydronicTubingLength { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the design heating capacity. Required field when the heating design capacit" +
     "y method HeatingDesignCapacity.")]
 [JsonProperty(PropertyName="heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_hot_water_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumHotWaterFlow { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumHotWaterFlow { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="heating_water_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -740,12 +801,12 @@ public string HeatingWaterOutletNodeName { get; set; } = "";
     "y method CoolingDesignCapacity.")]
 [JsonProperty(PropertyName="cooling_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> CoolingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="maximum_cold_water_flow", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumColdWaterFlow { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumColdWaterFlow { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="cooling_water_inlet_node_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -762,7 +823,7 @@ public ZoneHVAC_LowTemperatureRadiant_VariableFlow_NumberOfCircuits NumberOfCirc
         
 
 [JsonProperty(PropertyName="circuit_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CircuitLength { get; set; } = (System.Nullable<double>)Double.Parse("106.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> CircuitLength { get; set; } = Double.Parse("106.7", CultureInfo.InvariantCulture);
     }
     
     public enum ZoneHVAC_LowTemperatureRadiant_VariableFlow_NumberOfCircuits
@@ -784,7 +845,8 @@ public System.Nullable<double> CircuitLength { get; set; } = (System.Nullable<do
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -796,16 +858,16 @@ public ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_FluidToRadiantSurfaceH
         
 
 [JsonProperty(PropertyName="hydronic_tubing_inside_diameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HydronicTubingInsideDiameter { get; set; } = (System.Nullable<double>)Double.Parse("0.013", CultureInfo.InvariantCulture);
+public System.Nullable<double> HydronicTubingInsideDiameter { get; set; } = Double.Parse("0.013", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="hydronic_tubing_outside_diameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HydronicTubingOutsideDiameter { get; set; } = (System.Nullable<double>)Double.Parse("0.016", CultureInfo.InvariantCulture);
+public System.Nullable<double> HydronicTubingOutsideDiameter { get; set; } = Double.Parse("0.016", CultureInfo.InvariantCulture);
         
 
 [Description("Conductivity of the tubing/piping material")]
 [JsonProperty(PropertyName="hydronic_tubing_conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HydronicTubingConductivity { get; set; } = (System.Nullable<double>)Double.Parse("0.35", CultureInfo.InvariantCulture);
+public System.Nullable<double> HydronicTubingConductivity { get; set; } = Double.Parse("0.35", CultureInfo.InvariantCulture);
         
 
 [Description("(Temperature on which unit is controlled)")]
@@ -836,11 +898,11 @@ public System.Nullable<double> HeatingDesignCapacityPerFloorArea { get; set; } =
     "city the heating design capacity method field is FractionOfAutosizedHeatingCapac" +
     "ity.")]
 [JsonProperty(PropertyName="fraction_of_autosized_heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="heating_control_throttling_range", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeatingControlThrottlingRange { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingControlThrottlingRange { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="heating_control_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -867,7 +929,7 @@ public System.Nullable<double> FractionOfAutosizedCoolingDesignCapacity { get; s
         
 
 [JsonProperty(PropertyName="cooling_control_throttling_range", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CoolingControlThrottlingRange { get; set; } = (System.Nullable<double>)Double.Parse("0.5", CultureInfo.InvariantCulture);
+public System.Nullable<double> CoolingControlThrottlingRange { get; set; } = Double.Parse("0.5", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="cooling_control_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -880,7 +942,7 @@ public ZoneHVAC_LowTemperatureRadiant_VariableFlow_Design_CondensationControlTyp
         
 
 [JsonProperty(PropertyName="condensation_control_dewpoint_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CondensationControlDewpointOffset { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> CondensationControlDewpointOffset { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Changeover delay schedule name for this system. Schedule value <= 0 allows change" +
@@ -1003,7 +1065,8 @@ public string ChangeoverDelayTimePeriodSchedule { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1033,12 +1096,12 @@ public string SurfaceNameOrRadiantSurfaceGroupName { get; set; } = "";
 [Description("(total length of pipe embedded in surface)")]
 [JsonProperty(PropertyName="hydronic_tubing_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HydronicTubingLength { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HydronicTubingLength { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="rated_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> RatedFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description(@"Modifies the Rated Flow Rate of the pump on a time basis the default is that the pump is ON and runs according to its other operational requirements specified above. The schedule is for special pump operations. Values here are between 0 and 1 and are multipliers on the previous field (Rated Flow Rate).")]
@@ -1048,7 +1111,7 @@ public string PumpFlowRateScheduleName { get; set; } = "";
 
 [Description("default head is 60 feet")]
 [JsonProperty(PropertyName="rated_pump_head", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RatedPumpHead { get; set; } = (System.Nullable<double>)Double.Parse("179352", CultureInfo.InvariantCulture);
+public System.Nullable<double> RatedPumpHead { get; set; } = Double.Parse("179352", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="rated_power_consumption", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1112,7 +1175,7 @@ public ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits NumberOfCirc
         
 
 [JsonProperty(PropertyName="circuit_length", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CircuitLength { get; set; } = (System.Nullable<double>)Double.Parse("106.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> CircuitLength { get; set; } = Double.Parse("106.7", CultureInfo.InvariantCulture);
     }
     
     public enum ZoneHVAC_LowTemperatureRadiant_ConstantFlow_NumberOfCircuits
@@ -1134,7 +1197,8 @@ public System.Nullable<double> CircuitLength { get; set; } = (System.Nullable<do
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1146,16 +1210,16 @@ public ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_FluidToRadiantSurfaceH
         
 
 [JsonProperty(PropertyName="hydronic_tubing_inside_diameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HydronicTubingInsideDiameter { get; set; } = (System.Nullable<double>)Double.Parse("0.013", CultureInfo.InvariantCulture);
+public System.Nullable<double> HydronicTubingInsideDiameter { get; set; } = Double.Parse("0.013", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="hydronic_tubing_outside_diameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HydronicTubingOutsideDiameter { get; set; } = (System.Nullable<double>)Double.Parse("0.016", CultureInfo.InvariantCulture);
+public System.Nullable<double> HydronicTubingOutsideDiameter { get; set; } = Double.Parse("0.016", CultureInfo.InvariantCulture);
         
 
 [Description("Conductivity of the tubing/piping material")]
 [JsonProperty(PropertyName="hydronic_tubing_conductivity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HydronicTubingConductivity { get; set; } = (System.Nullable<double>)Double.Parse("0.35", CultureInfo.InvariantCulture);
+public System.Nullable<double> HydronicTubingConductivity { get; set; } = Double.Parse("0.35", CultureInfo.InvariantCulture);
         
 
 [Description("Temperature used to control system")]
@@ -1166,15 +1230,15 @@ public ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_TemperatureControlType
 
 [Description(@"this is the weighting factor in the equation that calculate the running mean outdoor dry-bulb temperature as a weighted average of the previous dayâ€™s running mean outdoor dry-bulb temperature and the previous dayâ€™s average outdoor dry-bulb temperature this value is only used by EnergyPlus when the user elects to use the RunningMeanOutdoorDryBulbTemperature control type")]
 [JsonProperty(PropertyName="running_mean_outdoor_dry_bulb_temperature_weighting_factor", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> RunningMeanOutdoorDryBulbTemperatureWeightingFactor { get; set; } = (System.Nullable<double>)Double.Parse("0.8", CultureInfo.InvariantCulture);
+public System.Nullable<double> RunningMeanOutdoorDryBulbTemperatureWeightingFactor { get; set; } = Double.Parse("0.8", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="motor_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> MotorEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> MotorEfficiency { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_of_motor_inefficiencies_to_fluid_stream", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfMotorInefficienciesToFluidStream { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfMotorInefficienciesToFluidStream { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="condensation_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1183,7 +1247,7 @@ public ZoneHVAC_LowTemperatureRadiant_ConstantFlow_Design_CondensationControlTyp
         
 
 [JsonProperty(PropertyName="condensation_control_dewpoint_offset", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CondensationControlDewpointOffset { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> CondensationControlDewpointOffset { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Changeover delay schedule name for this system. Schedule value <= 0 allows change" +
@@ -1259,7 +1323,8 @@ public string ChangeoverDelayTimePeriodSchedule { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1292,7 +1357,7 @@ public ZoneHVAC_LowTemperatureRadiant_Electric_HeatingDesignCapacityMethod Heati
     "y method HeatingDesignCapacity.")]
 [JsonProperty(PropertyName="heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the heating design capacity per zone floor area. Required field when the he" +
@@ -1305,7 +1370,7 @@ public System.Nullable<double> HeatingDesignCapacityPerFloorArea { get; set; } =
     "city the heating design capacity method field is FractionOfAutosizedHeatingCapac" +
     "ity.")]
 [JsonProperty(PropertyName="fraction_of_autosized_heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Temperature used to control unit")]
@@ -1321,7 +1386,7 @@ public ZoneHVAC_LowTemperatureRadiant_Electric_SetpointControlType SetpointContr
         
 
 [JsonProperty(PropertyName="heating_throttling_range", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeatingThrottlingRange { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingThrottlingRange { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="heating_setpoint_temperature_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1394,13 +1459,27 @@ public string HeatingSetpointTemperatureScheduleName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="surface_fractions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string SurfaceFractions { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits.ZoneHVAC_LowTemperatureRadiant_SurfaceGroup_SurfaceFractions_Item> SurfaceFractions { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_LowTemperatureRadiant_SurfaceGroup_SurfaceFractions_Item
+    {
+        
+
+[JsonProperty(PropertyName="surface_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SurfaceName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="flow_fraction_for_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FlowFractionForSurface { get; set; } = null;
     }
     
     [Description("The number of surfaces can be expanded beyond 100, if necessary, by adding more g" +
@@ -1410,7 +1489,8 @@ public string SurfaceFractions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1436,7 +1516,7 @@ public ZoneHVAC_HighTemperatureRadiant_HeatingDesignCapacityMethod HeatingDesign
     "y method HeatingDesignCapacity.")]
 [JsonProperty(PropertyName="heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> HeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingDesignCapacity { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Enter the heating design capacity per zone floor area. Required field when the he" +
@@ -1449,7 +1529,7 @@ public System.Nullable<double> HeatingDesignCapacityPerFloorArea { get; set; } =
     "city the heating design capacity method field is FractionOfAutosizedHeatingCapac" +
     "ity.")]
 [JsonProperty(PropertyName="fraction_of_autosized_heating_design_capacity", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = (System.Nullable<double>)Double.Parse("1", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfAutosizedHeatingDesignCapacity { get; set; } = Double.Parse("1", CultureInfo.InvariantCulture);
         
 
 [Description("Natural gas or electricity")]
@@ -1460,22 +1540,22 @@ public ZoneHVAC_HighTemperatureRadiant_FuelType FuelType { get; set; } = (ZoneHV
 
 [Description("Not used for non-gas radiant heaters")]
 [JsonProperty(PropertyName="combustion_efficiency", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> CombustionEfficiency { get; set; } = (System.Nullable<double>)Double.Parse("0.9", CultureInfo.InvariantCulture);
+public System.Nullable<double> CombustionEfficiency { get; set; } = Double.Parse("0.9", CultureInfo.InvariantCulture);
         
 
 [Description("Radiant+latent+lost fractions must sum to 1 or less, remainder is considered conv" +
     "ective heat")]
 [JsonProperty(PropertyName="fraction_of_input_converted_to_radiant_energy", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfInputConvertedToRadiantEnergy { get; set; } = (System.Nullable<double>)Double.Parse("0.7", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfInputConvertedToRadiantEnergy { get; set; } = Double.Parse("0.7", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="fraction_of_input_converted_to_latent_energy", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfInputConvertedToLatentEnergy { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfInputConvertedToLatentEnergy { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Fraction of input vented to outdoor environment")]
 [JsonProperty(PropertyName="fraction_of_input_that_is_lost", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> FractionOfInputThatIsLost { get; set; } = (System.Nullable<double>)Double.Parse("0", CultureInfo.InvariantCulture);
+public System.Nullable<double> FractionOfInputThatIsLost { get; set; } = Double.Parse("0", CultureInfo.InvariantCulture);
         
 
 [Description("Temperature type used to control unit")]
@@ -1485,7 +1565,7 @@ public ZoneHVAC_HighTemperatureRadiant_TemperatureControlType TemperatureControl
         
 
 [JsonProperty(PropertyName="heating_throttling_range", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HeatingThrottlingRange { get; set; } = (System.Nullable<double>)Double.Parse("2", CultureInfo.InvariantCulture);
+public System.Nullable<double> HeatingThrottlingRange { get; set; } = Double.Parse("2", CultureInfo.InvariantCulture);
         
 
 [Description("This setpoint is an \"operative temperature\" setpoint")]
@@ -1500,7 +1580,7 @@ public System.Nullable<double> FractionOfRadiantEnergyIncidentOnPeople { get; se
         
 
 [JsonProperty(PropertyName="surface_fractions", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string SurfaceFractions { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits.ZoneHVAC_HighTemperatureRadiant_SurfaceFractions_Item> SurfaceFractions { get; set; } = null;
     }
     
     public enum ZoneHVAC_HighTemperatureRadiant_HeatingDesignCapacityMethod
@@ -1554,6 +1634,19 @@ public string SurfaceFractions { get; set; } = "";
         OperativeTemperatureSetpoint = 6,
     }
     
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_HighTemperatureRadiant_SurfaceFractions_Item
+    {
+        
+
+[JsonProperty(PropertyName="surface_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SurfaceName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="fraction_of_radiant_energy_to_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> FractionOfRadiantEnergyToSurface { get; set; } = null;
+    }
+    
     [Description("Ventilated slab system where outdoor air flows through hollow cores in a building" +
         " surface (wall, ceiling, or floor).")]
     [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
@@ -1561,7 +1654,8 @@ public string SurfaceFractions { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
@@ -1584,7 +1678,7 @@ public string SurfaceNameOrRadiantSurfaceGroupName { get; set; } = "";
 
 [JsonProperty(PropertyName="maximum_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="outdoor_air_control_type", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1594,7 +1688,7 @@ public ZoneHVAC_VentilatedSlab_OutdoorAirControlType OutdoorAirControlType { get
 
 [JsonProperty(PropertyName="minimum_outdoor_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MinimumOutdoorAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MinimumOutdoorAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [JsonProperty(PropertyName="minimum_outdoor_air_schedule_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1604,7 +1698,7 @@ public string MinimumOutdoorAirScheduleName { get; set; } = "";
 [Description("schedule values multiply the minimum outdoor air flow rate")]
 [JsonProperty(PropertyName="maximum_outdoor_air_flow_rate", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 [Newtonsoft.Json.JsonConverter(typeof(EnergyPlus_oM.EPNullToAutosizeJsonConverter))]
-public System.Nullable<double> MaximumOutdoorAirFlowRate { get; set; } = (System.Nullable<double>)Double.Parse("-987654321", CultureInfo.InvariantCulture);
+public System.Nullable<double> MaximumOutdoorAirFlowRate { get; set; } = Double.Parse("-987654321", CultureInfo.InvariantCulture);
         
 
 [Description("Note that this depends on the control type as to whether schedule values are a fr" +
@@ -1619,7 +1713,7 @@ public ZoneHVAC_VentilatedSlab_SystemConfigurationType SystemConfigurationType {
         
 
 [JsonProperty(PropertyName="hollow_core_inside_diameter", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public System.Nullable<double> HollowCoreInsideDiameter { get; set; } = (System.Nullable<double>)Double.Parse("0.05", CultureInfo.InvariantCulture);
+public System.Nullable<double> HollowCoreInsideDiameter { get; set; } = Double.Parse("0.05", CultureInfo.InvariantCulture);
         
 
 [Description("(length of core cavity embedded in surface)")]
@@ -1870,12 +1964,46 @@ public string DesignSpecificationZonehvacSizingObjectName { get; set; } = "";
     {
         
 
-[Description("This will be the main key of this instance.")]
+[Description("This will be the main key of this instance. It will be the main key of the serial" +
+    "ization and all other properties will be sub properties of this key.")]
 [JsonProperty(PropertyName="name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
 public string NodeName { get; set; } = "";
         
 
 [JsonProperty(PropertyName="data", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
-public string Data { get; set; } = "";
+public System.Collections.Generic.List<BH.oM.Adapters.EnergyPlus.ZoneHVACRadiativeConvectiveUnits.ZoneHVAC_VentilatedSlab_SlabGroup_Data_Item> Data { get; set; } = null;
+    }
+    
+    [JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)]
+    public class ZoneHVAC_VentilatedSlab_SlabGroup_Data_Item
+    {
+        
+
+[JsonProperty(PropertyName="zone_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string ZoneName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="surface_name", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SurfaceName { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="core_diameter_for_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoreDiameterForSurface { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="core_length_for_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoreLengthForSurface { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="core_numbers_for_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public System.Nullable<double> CoreNumbersForSurface { get; set; } = null;
+        
+
+[JsonProperty(PropertyName="slab_inlet_node_name_for_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SlabInletNodeNameForSurface { get; set; } = "";
+        
+
+[JsonProperty(PropertyName="slab_outlet_node_name_for_surface", NullValueHandling=Newtonsoft.Json.NullValueHandling.Ignore)]
+public string SlabOutletNodeNameForSurface { get; set; } = "";
     }
 }

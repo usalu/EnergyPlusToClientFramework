@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BH.oM.Adapters.EnergyPlus;
+using BH.oM.Adapters.EnergyPlus.NodeBranchManagement;
 using BH.oM.Adapters.EnergyPlus.PlantHeatingandCoolingEquipment;
 using BH.oM.Adapters.EnergyPlus.SimulationParameters;
 using ClientAssemblyGeneration.Builders;
@@ -67,25 +68,8 @@ namespace ClientAssemblyGeneration
                 File.WriteAllText(ePNamespaceFolder + "\\" + ePNamespaceName + ".cs", "namespace" + ePNamespace);
             }
 
-            var epJsonTest = new EnergyPlusJson();
-            var building = new Building();
-            building.NodeName = "Buildinggg X1";
-
-            var boilers = new List<Boiler_HotWater>();
-            var mainBoiler = new Boiler_HotWater();
-            mainBoiler.NodeName = "Main boiler1";
-            mainBoiler.BoilerFlowMode = Boiler_HotWater_BoilerFlowMode.Empty;
-            mainBoiler.NominalThermalEfficiency = 0.5;
-            boilers.Add(mainBoiler);
-            var secondaryBoiler = new Boiler_HotWater();
-            secondaryBoiler.NodeName = "Secondary boiler";
-            secondaryBoiler.BoilerFlowMode = Boiler_HotWater_BoilerFlowMode.ConstantFlow;
-            secondaryBoiler.FuelType = Boiler_HotWater_FuelType.NaturalGas;
-            secondaryBoiler.NominalThermalEfficiency = 0.4;
-            boilers.Add(secondaryBoiler);
-
-            epJsonTest.Building = building;
-            epJsonTest.Boiler_HotWater_List = boilers;
+            EPJson epJsonTest = GetTestBuilding();
+            //EnergyPlusJson epJsonTest = new EnergyPlusJson();
 
             string serializedString = JsonConvert.SerializeObject(epJsonTest, Formatting.Indented);
 
@@ -128,9 +112,9 @@ namespace ClientAssemblyGeneration
 
             string ePExePath = @"C:\EnergyPlusV9-5-0\energyplus.exe";
 
-            string idf = EPJsonToIDFConverter.GetIDF(ePExePath, serializedString);
-            Console.WriteLine(idf);
-            Console.Read();
+            //string idf = EPJsonToIDFConverter.GetIDF(ePExePath, serializedString);
+            //Console.WriteLine(idf);
+            //Console.Read();
 
         }
 
@@ -147,6 +131,41 @@ namespace ClientAssemblyGeneration
             }
             return ePNode;
         }
+
+        private static EPJson GetTestBuilding()
+        {
+            var epJsonTest = new EPJson();
+
+            var building = new Building();
+            building.NodeName = "Buildinggg X1";
+            epJsonTest.Building = building;
+
+            var mainBoiler = new Boiler_HotWater();
+            mainBoiler.NodeName = "Main boiler1";
+            mainBoiler.BoilerFlowMode = Boiler_HotWater_BoilerFlowMode.Empty;
+            mainBoiler.NominalThermalEfficiency = 0.5;
+            epJsonTest.Boiler_HotWater_List.Add(mainBoiler);
+            var secondaryBoiler = new Boiler_HotWater();
+            secondaryBoiler.NodeName = "Secondary boiler";
+            secondaryBoiler.BoilerFlowMode = Boiler_HotWater_BoilerFlowMode.ConstantFlow;
+            secondaryBoiler.FuelType = Boiler_HotWater_FuelType.NaturalGas;
+            secondaryBoiler.NominalThermalEfficiency = 0.4;
+            epJsonTest.Boiler_HotWater_List.Add(secondaryBoiler);
+
+            var mainMixedBranch = new Branch();
+            mainMixedBranch.NodeName = "Only Water Loop Mixed Supply Inlet Branch";
+            mainMixedBranch.Components = new List<Branch_Components_Item>();
+            var onlyWaterLoopMixedSupplyPump = new Branch_Components_Item();
+            onlyWaterLoopMixedSupplyPump.ComponentName = "Only Water Loop Mixed Supply Pump";
+            onlyWaterLoopMixedSupplyPump.ComponentObjectType = "Pump:ConstantSpeed";
+            onlyWaterLoopMixedSupplyPump.ComponentInletNodeName = "Only Water Loop Mixed Supply Inlet";
+            onlyWaterLoopMixedSupplyPump.ComponentOutletNodeName = "Only Water Loop Mixed Pump Outlet";
+            mainMixedBranch.Components.Add(onlyWaterLoopMixedSupplyPump);
+            epJsonTest.Branch_List.Add(mainMixedBranch);
+
+            return epJsonTest;
+        }
+
 
     }
 }
