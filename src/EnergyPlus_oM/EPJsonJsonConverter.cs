@@ -11,10 +11,10 @@ using Newtonsoft.Json.Linq;
 namespace EnergyPlus_oM
 {
     /// <summary>
-    /// Recursive iterations need to be undertaken.
+    /// Recursive iterations need to be stopped.
     /// See: https://stackoverflow.com/questions/29719509/json-net-throws-stackoverflowexception-when-using-jsonconvert
     /// </summary>
-    public class EPJsonJsonConverter : JsonConverter<EPJson>
+    internal class EPJsonJsonConverter : JsonConverter<EPJson>
     {
 
         [ThreadStatic]
@@ -41,9 +41,6 @@ namespace EnergyPlus_oM
 
             GetClearedEPJsonJObject((JObject)t).WriteTo(writer);
 
-            //writer.WriteStartObject();
-            //WriteJson(writer, GetClearedEPJsonJObject((JObject)t));
-            //writer.WriteEndObject();
         }
 
         public override EPJson ReadJson(JsonReader reader, Type objectType, EPJson existingValue, bool hasExistingValue,
@@ -62,8 +59,7 @@ namespace EnergyPlus_oM
                     p.WriteTo(writer);
             }
         }
-
-    public struct PushValue<T> : IDisposable
+        internal struct PushValue<T> : IDisposable
     {
         Action<T> setValue;
         T oldValue;
@@ -137,6 +133,7 @@ namespace EnergyPlus_oM
 
     }
 
+    //Throws Stack.Overflow
     //public class EPJsonJsonConverter : JsonConverter<EPJson>
     //{
 

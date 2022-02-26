@@ -29,10 +29,10 @@ namespace ClientAssemblyGeneration
             ClientCodeCompileUnitDirector director = new EPClientCodeCompileUnitDirector(EPJsonSchema.GetOfficalEPJsonSchema, builder);
             CodeCompileUnit ePbHoMCodeCompileUnit = director.GetCodeCompileUnit("BH.oM.Adapters.EnergyPlus", 
                 new CodeNamespaceImport[]{new CodeNamespaceImport("BH.oM.Base")});
-
             var ePbHoMcSharpCodeProvider = new CSharpCodeProvider();
-            //options for the layout of the generated C# and VB code
-            var codeGeneratorOptions = new CodeGeneratorOptions()
+            StringWriter stringWriterCSharp = new StringWriter();
+            ePbHoMcSharpCodeProvider.GenerateCodeFromCompileUnit(ePbHoMCodeCompileUnit, stringWriterCSharp, 
+                new CodeGeneratorOptions()
             {
                 //BracingStyles: "Block", "C"
                 BracingStyle = "C",
@@ -40,13 +40,11 @@ namespace ClientAssemblyGeneration
                 IndentString = "    ",
                 ElseOnClosing = false,
                 VerbatimOrder = true
-            };
-
-            StringWriter stringWriterCSharp = new StringWriter();
-            ePbHoMcSharpCodeProvider.GenerateCodeFromCompileUnit(ePbHoMCodeCompileUnit, stringWriterCSharp, codeGeneratorOptions);
+            });
             string allCode = stringWriterCSharp.ToString();
             File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\EnergyPlus.cs", allCode);
 
+            //Some more settings needed
             var results = ePbHoMcSharpCodeProvider.CompileAssemblyFromDom(new CompilerParameters
             {
                 GenerateExecutable = false,
@@ -68,14 +66,9 @@ namespace ClientAssemblyGeneration
                 File.WriteAllText(ePNamespaceFolder + "\\" + ePNamespaceName + ".cs", "namespace" + ePNamespace);
             }
 
-            EPJson epJsonTest = GetTestBuilding();
+            string epJsonString = EPJson_Engine.GetEPJsonString(GetTestBuilding());
 
-            string serializedString = JsonConvert.SerializeObject(epJsonTest, Formatting.Indented);
-
-            File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\Test_before.json", serializedString);
-
-
-            File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\Test_after.json", serializedString);
+            File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\Test.json", epJsonString);
 
             string ePExePath = @"C:\EnergyPlusV9-5-0\energyplus.exe";
 
@@ -83,15 +76,21 @@ namespace ClientAssemblyGeneration
             //Console.WriteLine(idf);
             //Console.Read();
 
+            string idf = File.ReadAllText(@"C:\Git\EPJsonClientCodeGeneration\Input\EnergyPlusV9-5-0\TestCase\testfile.idf");
+            string mergedEPJson = EPJson_Engine.GetIDF(ePExePath,idf,epJsonString);
+
+            File.WriteAllText($@"C:\Git\EPJsonClientCodeGeneration\Output\Merged.idf", mergedEPJson);
+            Console.Read();
+
         }
 
         private static EPJson GetTestBuilding()
         {
             var epJsonTest = new EPJson();
 
-            var building = new Building();
-            building.NodeName = "Buildinggg X1";
-            epJsonTest.Building = building;
+            //var building = new Building();
+            //building.NodeName = "Buildinggg X1";
+            //epJsonTest.Building = building;
 
             var mainBoiler = new Boiler_HotWater();
             mainBoiler.NodeName = "Main boiler1";
@@ -105,16 +104,16 @@ namespace ClientAssemblyGeneration
             secondaryBoiler.NominalThermalEfficiency = 0.4;
             epJsonTest.Boiler_HotWater_List.Add(secondaryBoiler);
 
-            var mainMixedBranch = new Branch();
-            mainMixedBranch.NodeName = "Only Water Loop Mixed Supply Inlet Branch";
-            mainMixedBranch.Components = new List<Branch_Components_Item>();
-            var onlyWaterLoopMixedSupplyPump = new Branch_Components_Item();
-            onlyWaterLoopMixedSupplyPump.ComponentName = "Only Water Loop Mixed Supply Pump";
-            onlyWaterLoopMixedSupplyPump.ComponentObjectType = "Pump:ConstantSpeed";
-            onlyWaterLoopMixedSupplyPump.ComponentInletNodeName = "Only Water Loop Mixed Supply Inlet";
-            onlyWaterLoopMixedSupplyPump.ComponentOutletNodeName = "Only Water Loop Mixed Pump Outlet";
-            mainMixedBranch.Components.Add(onlyWaterLoopMixedSupplyPump);
-            epJsonTest.Branch_List.Add(mainMixedBranch);
+            //var mainMixedBranch = new Branch();
+            //mainMixedBranch.NodeName = "Only Water Loop Mixed Supply Inlet Branch";
+            //mainMixedBranch.Components = new List<Branch_Components_Item>();
+            //var onlyWaterLoopMixedSupplyPump = new Branch_Components_Item();
+            //onlyWaterLoopMixedSupplyPump.ComponentName = "Only Water Loop Mixed Supply Pump";
+            //onlyWaterLoopMixedSupplyPump.ComponentObjectType = "Pump:ConstantSpeed";
+            //onlyWaterLoopMixedSupplyPump.ComponentInletNodeName = "Only Water Loop Mixed Supply Inlet";
+            //onlyWaterLoopMixedSupplyPump.ComponentOutletNodeName = "Only Water Loop Mixed Pump Outlet";
+            //mainMixedBranch.Components.Add(onlyWaterLoopMixedSupplyPump);
+            //epJsonTest.Branch_List.Add(mainMixedBranch);
 
             return epJsonTest;
         }

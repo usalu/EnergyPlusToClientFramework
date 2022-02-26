@@ -1,0 +1,40 @@
+{
+  "Boiler:HotWater": {
+    "Main boiler1": {
+      "fuel_type": "Coal",
+      "nominal_capacity": "Autosize",
+      "nominal_thermal_efficiency": 0.5,
+      "efficiency_curve_temperature_evaluation_variable": "EnteringBoiler",
+      "normalized_boiler_efficiency_curve_name": "",
+      "design_water_flow_rate": "Autosize",
+      "minimum_part_load_ratio": 0.0,
+      "maximum_part_load_ratio": 1.0,
+      "optimum_part_load_ratio": 1.0,
+      "boiler_water_inlet_node_name": "",
+      "boiler_water_outlet_node_name": "",
+      "water_outlet_upper_temperature_limit": 99.9,
+      "boiler_flow_mode": "",
+      "parasitic_electric_load": 0.0,
+      "sizing_factor": 1.0,
+      "end_use_subcategory": "General"
+    },
+    "Secondary boiler": {
+      "fuel_type": "NaturalGas",
+      "nominal_capacity": "Autosize",
+      "nominal_thermal_efficiency": 0.4,
+      "efficiency_curve_temperature_evaluation_variable": "EnteringBoiler",
+      "normalized_boiler_efficiency_curve_name": "",
+      "design_water_flow_rate": "Autosize",
+      "minimum_part_load_ratio": 0.0,
+      "maximum_part_load_ratio": 1.0,
+      "optimum_part_load_ratio": 1.0,
+      "boiler_water_inlet_node_name": "",
+      "boiler_water_outlet_node_name": "",
+      "water_outlet_upper_temperature_limit": 99.9,
+      "boiler_flow_mode": "ConstantFlow",
+      "parasitic_electric_load": 0.0,
+      "sizing_factor": 1.0,
+      "end_use_subcategory": "General"
+    }
+  }
+}

@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="EnergyPlus.cs" />
     <Compile Include="EPJsonJsonConverter.cs" />
-    <Compile Include="EPJsonToIDFConverter.cs" />
+    <Compile Include="EPJson_Engine.cs" />
     <Compile Include="EPNullToAutocalculateJsonConverter.cs" />
     <Compile Include="EPNullToAutosizeJsonConverter.cs" />
     <Compile Include="EsoFile.cs" />
